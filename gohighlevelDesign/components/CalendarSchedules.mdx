@@ -1,0 +1,381 @@
+# 🗓️ Zeitpläne / Calendar Schedules — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `#CalendarSchedule` und `.calendarSettingsWizardContainer` im SalonQueen GHL Whitelabel.
+
+<img
+  src="/calendar-schedules-screenshot.png"
+  alt="CalendarSchedules Screenshot"
+  style={{ width: '100%', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '32px' }}
+/>
+
+---
+
+## 16.1 · Root Container & Banner
+
+Der Hintergrund der gesamten Zeitpläne-Seite sowie der Info-Banner oben.
+
+```css
+/* ── Root Container */
+#CalendarSchedule,
+#CalendarSchedule .calendarScheduleContainer {
+  background: var(--bg) !important;
+}
+
+/* ── Banner */
+#CalendarSchedule .schedule-banner {
+  background: linear-gradient(to right, var(--wine-pale), var(--wine-lt)) !important;
+  border-color: var(--wine-2) !important;
+}
+#CalendarSchedule #schedule-banner-title {
+  color: var(--ink) !important;
+}
+#CalendarSchedule .schedule-banner-button {
+  border-color: var(--wine-2) !important;
+  background: var(--surface) !important;
+}
+#CalendarSchedule .schedule-banner-button span {
+  color: var(--wine-2) !important;
+}
+#CalendarSchedule .schedule-banner-button:hover {
+  background: var(--wine-pale) !important;
+}
+#CalendarSchedule .schedule-banner > div > button {
+  color: var(--ink-3) !important;
+}
+#CalendarSchedule .schedule-banner > div > button:hover {
+  background: var(--wine-a20) !important;
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 16.2 · Main Card & Header
+
+Die weiße Karte mit dem Zeitplan-Inhalt, Tabs und dem ausgewählten Schedule-Indikator.
+
+```css
+/* ── Main Card */
+#CalendarSchedule .schedule-ui-main-container {
+  background: var(--surface) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--line-hard) !important;
+  box-shadow: 0 2px 12px var(--ink-a06) !important;
+}
+#CalendarSchedule .schedule-ui-header-border {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* ── Aktiver Schedule-Tab (Unterstrich) */
+#CalendarSchedule .schedule-ui-selected-schedule-border {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 2px solid var(--wine) !important;
+}
+
+/* ── Tailwind Blue Overrides */
+#CalendarSchedule .text-primary-700,
+#CalendarSchedule .text-primary-700 * { color: var(--wine-2) !important; }
+#CalendarSchedule .text-blue-700,
+#CalendarSchedule .text-blue-700 * { color: var(--wine-2) !important; }
+#CalendarSchedule .bg-blue-50 { background-color: var(--wine-pale) !important; }
+```
+
+---
+
+## 16.3 · Buttons (Speichern, Zeitplan erstellen)
+
+Der primäre Speichern-Button mit Gradient sowie der "Zeitplan erstellen" Link-Button.
+
+```css
+/* ── Speichern Button (::before Overlay weil NaïveUI JS den bg überschreibt) */
+#CalendarSchedule #save-schedule-button {
+  position: relative !important;
+  overflow: hidden !important;
+  border-color: var(--wine) !important;
+}
+#CalendarSchedule #save-schedule-button::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#CalendarSchedule #save-schedule-button:hover::before {
+  background: var(--wine-2) !important;
+}
+#CalendarSchedule #save-schedule-button .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--ink) !important;
+}
+
+/* ── Zeitplan erstellen Button */
+#CalendarSchedule #create-schedule-button,
+#CalendarSchedule #create-schedule-button * { color: var(--wine-2) !important; }
+#CalendarSchedule #create-schedule-button svg { color: var(--wine-2) !important; }
+#CalendarSchedule #create-schedule-button:hover { opacity: 0.8 !important; }
+```
+
+---
+
+## 16.4 · Action Icons (Edit, Copy, Delete, Kebab)
+
+Icon-Buttons in der Zeile eines Zeitplans mit Hover-Farbwechsel.
+
+```css
+/* ── Edit / Copy / Delete Icons */
+#CalendarSchedule #edit-schedule-button svg,
+#CalendarSchedule #copy-schedule-button svg,
+#CalendarSchedule #delete-schedule-button svg { color: var(--ink-2) !important; }
+
+#CalendarSchedule #edit-schedule-button:hover svg,
+#CalendarSchedule #copy-schedule-button:hover svg { color: var(--wine-2) !important; }
+
+#CalendarSchedule #delete-schedule-button:hover svg { color: var(--danger) !important; }
+
+/* ── Kebab Dropdown Trigger */
+#CalendarSchedule [id^="schedule-actions-"][id$="-action-dropdown-trigger"] {
+  border-color: var(--line-hard) !important;
+  border-radius: 34px !important;
+}
+#CalendarSchedule [id^="schedule-actions-"][id$="-action-dropdown-trigger"]:hover {
+  background: var(--wine-a20) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 16.5 · Wöchentliche Arbeitsstunden (Checkboxen & Zeitpicker)
+
+Checkbox-Styling für die Wochentage, inkl. gecheckte State via `::before` Overlay.
+
+```css
+/* ── Wochenzeilen */
+#CalendarSchedule .schedule-ui-form-weekly-schedule-checkbox,
+#CalendarSchedule .schedule-ui-last-checkbox {
+  border-bottom: 1px solid var(--line) !important;
+}
+
+/* ── Unchecked */
+#CalendarSchedule .hl-checkbox:not(.n-checkbox--checked) .n-checkbox-box {
+  background-color: var(--surface) !important;
+  border-color: var(--border-neutral) !important;
+}
+
+/* ── Checked (::before Overlay — schlägt NaïveUI JS inline style) */
+#CalendarSchedule .hl-checkbox.n-checkbox--checked .n-checkbox-box {
+  position: relative !important;
+  background: transparent !important;
+  border-color: var(--wine) !important;
+  overflow: hidden !important;
+}
+#CalendarSchedule .hl-checkbox.n-checkbox--checked .n-checkbox-box::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  border-radius: inherit !important;
+  z-index: 0 !important;
+}
+#CalendarSchedule .hl-checkbox.n-checkbox--checked .n-checkbox-icon {
+  position: relative !important;
+  z-index: 1 !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* ── Zeit-Inputs */
+#CalendarSchedule .n-time-picker .n-input { border-color: var(--border-neutral) !important; }
+#CalendarSchedule .n-time-picker .n-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px var(--wine-a20) !important;
+}
+
+/* ── Per-Day Availability Buttons */
+#CalendarSchedule #add-availability-hour-std:hover svg,
+#CalendarSchedule #copy-availability-hour-std:hover svg { color: var(--wine-2) !important; }
+#CalendarSchedule #remove-availability-hour-std:hover svg { color: var(--danger) !important; }
+```
+
+---
+
+## 16.6 · Selects & Dropdowns
+
+Benutzer-Select, Timezone-Select, Kalender-Dropdown mit Wine-Farben bei Fokus/Hover.
+
+```css
+/* ── User Select */
+#schedule-user-select .n-base-selection {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  height: 34px !important;
+  background: var(--surface) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--wine-focus) !important;
+}
+
+/* ── Timezone Select */
+#select-timezone-dropdown-schedule .n-base-selection {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  height: 34px !important;
+  background: var(--bg) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+}
+
+/* ── Kalender Dropdown Button */
+#CalendarSchedule #dropdown-btn,
+#CalendarSchedule .schedule-ui-form-calendar-dropdown {
+  border: 1px solid var(--border-neutral) !important;
+  background: var(--surface) !important;
+  border-radius: 8px !important;
+}
+#CalendarSchedule #dropdown-btn:hover,
+#CalendarSchedule .schedule-ui-form-calendar-dropdown:hover {
+  border-color: var(--wine) !important;
+}
+
+/* ── HL Select Fokus */
+#CalendarSchedule .hl-select .n-base-selection:hover { border-color: var(--wine) !important; }
+#CalendarSchedule .hl-select .n-base-selection--active {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px var(--wine-a20) !important;
+}
+```
+
+---
+
+## 16.7 · Calendar Dropdown Popup (außerhalb #CalendarSchedule)
+
+NaïveUI teleportiert dieses Panel nach `body` — daher eigene Selektoren ohne `#CalendarSchedule` Scope.
+
+```css
+/* ── Unchecked */
+#schedule-calendars-dropdown-id .hl-checkbox:not(.n-checkbox--checked) .n-checkbox-box {
+  background-color: var(--surface) !important;
+  border-color: var(--border-neutral) !important;
+}
+
+/* ── Checked (::before Overlay) */
+#schedule-calendars-dropdown-id .hl-checkbox.n-checkbox--checked .n-checkbox-box {
+  position: relative !important;
+  background: transparent !important;
+  border-color: var(--wine) !important;
+  overflow: hidden !important;
+}
+#schedule-calendars-dropdown-id .hl-checkbox.n-checkbox--checked .n-checkbox-box::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+}
+#schedule-calendars-dropdown-id .hl-checkbox.n-checkbox--checked .n-checkbox-icon {
+  position: relative !important;
+  z-index: 1 !important;
+  color: #ffffff !important;
+}
+
+/* ── Blue Overrides */
+#schedule-calendars-dropdown-id .text-blue-700,
+#schedule-calendars-dropdown-id .text-blue-700 * { color: var(--wine-2) !important; }
+
+/* ── Hover Rows */
+#schedule-calendars-dropdown-id [id^="calendar-checkbox-"]:hover {
+  background-color: var(--wine-pale) !important;
+}
+
+/* ── Search Input */
+#schedule-calendars-dropdown-id .schedule-ui-form-calendar-search-input {
+  border: 1px solid var(--border-neutral) !important;
+}
+#schedule-calendars-dropdown-id .schedule-ui-form-calendar-search-input:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px var(--wine-a20) !important;
+}
+
+/* ── "Linked to" Header */
+#schedule-calendars-dropdown-id .bg-gray-50 {
+  background-color: var(--bg) !important;
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 16.8 · Kalender Einstellungen Wizard (.calendarSettingsWizardContainer)
+
+Tabelle mit allen Kalendern, Tabs, Pagination und Action-Buttons im Settings-Wizard.
+
+```css
+/* ── Container & Tabs */
+.calendarSettingsWizardContainer { background: var(--bg) !important; }
+.calendarSettingsWizardContainer .hl-tabs .n-tabs-bar {
+  background: var(--wine-2) !important;
+  height: 2px !important;
+}
+.calendarSettingsWizardContainer .hl-tabs .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+}
+
+/* ── Tabellen-Header */
+.calendarSettingsWizardContainer .n-data-table-th {
+  background: var(--bg) !important;
+  border-bottom: 2px solid var(--line-hard) !important;
+}
+.calendarSettingsWizardContainer .n-data-table-th__title {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--ink-4) !important;
+}
+
+/* ── Tabellen-Zeilen */
+.calendarSettingsWizardContainer .n-data-table-td {
+  border-bottom: 1px solid var(--line) !important;
+  --n-td-color: var(--surface) !important;
+  --n-td-color-hover: var(--wine-lt) !important;
+}
+.calendarSettingsWizardContainer .n-data-table-tr:hover .n-data-table-td {
+  background: var(--wine-lt) !important;
+}
+
+/* ── Action Icons */
+.calendarSettingsWizardContainer [id^="edit-calendar-"]:hover svg,
+.calendarSettingsWizardContainer [id^="share-calendar-"]:hover svg { color: var(--wine-2) !important; }
+
+/* ── Pagination */
+#calendars-list-table-previous:hover,
+#calendars-list-table-next:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+.calendarSettingsWizardContainer .n-pagination-item--active {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+  --n-item-border-active: 1px solid var(--wine) !important;
+}
+
+/* ── Primärer Button */
+#calendar-settings-headers-btn-primary {
+  background: var(--grad-primary) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+}
+#calendar-settings-headers-btn-primary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px var(--wine-glow) !important;
+}
+```
+
+---
+
+> **Hinweis:** Der Kalender-Dropdown-Popup (`#schedule-calendars-dropdown-id`) wird von NaïveUI per `teleport` direkt nach `body` gerendert — er liegt außerhalb von `#CalendarSchedule`. Die Checkbox-Styles für checked/unchecked verwenden `::before` Overlays um NaïveUI's JS-inline-Styles zu überschreiben.
