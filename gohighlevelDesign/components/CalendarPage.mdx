@@ -1,0 +1,424 @@
+
+
+
+
+# 📅 Kalender View — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `#CalendarPage` im SalonQueen GHL Whitelabel.
+
+<img
+  src="/calendar-screenshot.png"
+  alt="CalendarPage Screenshot"
+  style={{ width: '100%', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '32px' }}
+/>
+
+---
+
+## 60.1 · Topbar-Band (hl_topbar-tabs)
+
+Der oberste Navy-Band über der gesamten Kalenderseite.
+
+```css
+/* ── 60.1 Topbar-Band Navy (hl_topbar-tabs) */
+section.hl_topbar-tabs {
+  background: var(--nav-bg) !important;
+}
+```
+
+---
+
+## 60.2 · Nav Bar
+
+Die Navigationsleiste mit Heute-Button, Datums-Navigator, View-Select, Ansicht-Verwalten und +Neu Button.
+Überschreibt den alten Navy-Default und setzt Surface-Hintergrund.
+
+```css
+/* ── 60.2 Nav Bar: Surface */
+#CalendarPage nav[data-v-629703ff],
+#CalendarPage nav {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  box-shadow: none !important;
+  padding: 8px 14px !important;
+  min-height: unset !important;
+}
+
+/* Reset: Nav-Kinder auf dunkel */
+#CalendarPage nav[data-v-629703ff] button,
+#CalendarPage nav[data-v-629703ff] div,
+#CalendarPage nav[data-v-629703ff] span,
+#CalendarPage nav[data-v-629703ff] a {
+  color: var(--ink-2) !important;
+}
+#CalendarPage nav[data-v-629703ff] svg {
+  color: var(--wine-2) !important;
+}
+
+/* Focus / Ripple entfernen */
+#CalendarPage nav .n-button:focus,
+#CalendarPage nav .n-button:focus-visible,
+#CalendarPage nav button:focus,
+#CalendarPage nav button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+#CalendarPage nav .n-base-wave {
+  display: none !important;
+}
+
+/* Heute Button */
+#CalendarPage nav #today-button,
+#CalendarPage #today-button {
+  background: var(--surface) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  height: 34px !important;
+  padding: 0 14px !important;
+  transition: all 0.12s !important;
+}
+#CalendarPage nav #today-button:hover,
+#CalendarPage #today-button:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine-2) !important;
+}
+
+/* Date Navigator */
+#CalendarPage nav .border.border-gray-300.rounded-lg {
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  background: var(--surface) !important;
+  height: 34px !important;
+  overflow: hidden !important;
+}
+
+/* View Select */
+#CalendarPage nav #view-select .n-base-selection,
+#CalendarPage #view-select .n-base-selection {
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  background: var(--surface) !important;
+  height: 34px !important;
+  min-height: 34px !important;
+}
+
+/* Ansicht Verwalten */
+#CalendarPage nav #customizations-button,
+#CalendarPage #customizations-button {
+  background: var(--surface) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  height: 34px !important;
+  padding: 0 12px !important;
+  color: var(--wine-2) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+/* + Neu Button */
+#CalendarPage nav #new-appointment-button,
+#CalendarPage #new-appointment-button {
+  background: var(--grad-primary) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  height: 34px !important;
+  padding: 0 14px !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+  transition: all 0.15s !important;
+}
+#CalendarPage nav #new-appointment-button:hover,
+#CalendarPage #new-appointment-button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px var(--wine-glow) !important;
+}
+
+/* Dropdown Panel */
+.n-base-select-menu {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px var(--ink-a10) !important;
+}
+.n-base-select-option--selected {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+}
+```
+
+---
+
+## 60.3 · Column Headers
+
+Wochentags-Kopfzeile mit Styling für vergangene Tage, Wochenende und Heute.
+
+```css
+/* ── 60.3 Column Headers */
+#CalendarPage .fc-col-header {
+  background: var(--bg-warm) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#CalendarPage .fc-col-header-cell-cushion {
+  display: inline-block !important;
+  padding: 13px 6px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--ink-2) !important;
+  text-decoration: none !important;
+}
+
+/* Vergangene Tage */
+#CalendarPage .fc-col-header-cell.fc-day-past .fc-col-header-cell-cushion {
+  color: var(--ink-4) !important;
+  font-weight: 500 !important;
+}
+
+/* Wochenende */
+#CalendarPage .fc-col-header-cell.fc-day-sat .fc-col-header-cell-cushion,
+#CalendarPage .fc-col-header-cell.fc-day-sun .fc-col-header-cell-cushion {
+  color: var(--weekend-text) !important;
+}
+
+/* Heute */
+#CalendarPage .fc-col-header-cell.fc-day-today {
+  background: var(--wine-lt) !important;
+  border-bottom: 3px solid var(--wine) !important;
+}
+#CalendarPage .fc-col-header-cell.fc-day-today .fc-col-header-cell-cushion {
+  color: var(--wine-2) !important;
+  font-weight: 800 !important;
+}
+```
+
+---
+
+## 60.4 · Grid / FullCalendar
+
+Das Kalender-Raster: Zeitachse, Slot-Höhen, alternierende Stunden-Bänder, Spalten-Overlays und Now-Indicator.
+
+```css
+/* ── 60.4 Grid / FullCalendar */
+#CalendarPage .fc,
+#CalendarPage .fc-view-harness,
+#CalendarPage .fc-scroller {
+  background: var(--surface) !important;
+}
+#CalendarPage .fc-scrollgrid {
+  border: none !important;
+  border-top: 1px solid var(--line-hard) !important;
+}
+
+/* Zeitachse */
+#CalendarPage .fc-timegrid-slot-label-cushion {
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--time-label) !important;
+}
+
+/* Slot-Höhen */
+#CalendarPage .fc-timegrid-slot {
+  height: 48px !important;
+}
+
+/* Major / Minor Linien */
+#CalendarPage .fc-timegrid-slot:not(.fc-timegrid-slot-minor) {
+  border-top: 1px solid var(--line-hard) !important;
+}
+#CalendarPage .fc-timegrid-slot.fc-timegrid-slot-minor {
+  border-top: 1px dashed var(--line-dash) !important;
+}
+
+/* Alternierende Stunden-Bänder */
+#CalendarPage .fc-timegrid-slots tbody tr:nth-child(4n+1) td.fc-timegrid-slot-lane,
+#CalendarPage .fc-timegrid-slots tbody tr:nth-child(4n+2) td.fc-timegrid-slot-lane {
+  background: var(--band-odd) !important;
+}
+#CalendarPage .fc-timegrid-slots tbody tr:nth-child(4n+3) td.fc-timegrid-slot-lane,
+#CalendarPage .fc-timegrid-slots tbody tr:nth-child(4n+4) td.fc-timegrid-slot-lane {
+  background: var(--band-even) !important;
+}
+
+/* Spalten-Overlays */
+#CalendarPage .fc-day-past .fc-timegrid-col-bg {
+  background: var(--black-a008) !important;
+}
+#CalendarPage .fc-day-sat .fc-timegrid-col-bg,
+#CalendarPage .fc-day-sun .fc-timegrid-col-bg {
+  background: var(--weekend-overlay) !important;
+}
+#CalendarPage .fc-day-today .fc-timegrid-col-bg {
+  background: linear-gradient(180deg,
+    var(--wine-a10) 0%,
+    var(--wine-a04) 40%,
+    var(--wine-a02) 100%) !important;
+}
+#CalendarPage .fc-timegrid-col.fc-day-today {
+  border-left: 2px solid var(--wine-a60) !important;
+}
+
+/* Now Indicator */
+#CalendarPage .fc-timegrid-now-indicator-line {
+  border-color: var(--wine-2) !important;
+  border-width: 2px !important;
+  box-shadow: 0 0 0 3px var(--wine-a20) !important;
+}
+#CalendarPage .fc-timegrid-now-indicator-arrow {
+  border-left-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 60.5 · Appointment Blocks
+
+Termin-Blöcke mit drei Barber-Farbvarianten (Dark Navy, Rose, Muted Slate), Hover-Animation und Text-Styling.
+
+```css
+/* ── 60.5 Appointment Blocks */
+#CalendarPage .fc-event {
+  border: none !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  margin: 2px 4px !important;
+  transition: transform 0.16s cubic-bezier(.34,1.56,.64,1), box-shadow 0.16s ease !important;
+}
+#CalendarPage .fc-event:hover {
+  transform: translateY(-2px) scale(1.018) !important;
+  z-index: 30 !important;
+  box-shadow: 0 8px 20px var(--ink-a20) !important;
+}
+
+/* Barber 1 — Dark Navy */
+#CalendarPage .fc-event-main section[style*="rgb(2, 122, 72)"] {
+  background: var(--appt-1-bg) !important;
+  border-left: 3px solid var(--white-a25) !important;
+  border-radius: 8px !important;
+}
+
+/* Barber 2 — Rose */
+#CalendarPage .fc-event-main section[style*="rgb(0, 78, 235)"] {
+  background: var(--appt-2-bg) !important;
+  border-left: 3px solid var(--ink-a25) !important;
+  border-radius: 8px !important;
+}
+
+/* Barber 3 — Muted Slate */
+#CalendarPage .fc-event-main section[style*="rgb(2, 106, 162)"] {
+  background: var(--appt-3-bg) !important;
+  border-left: 3px solid var(--white-a25) !important;
+  border-radius: 8px !important;
+}
+
+/* Text-Styling */
+#CalendarPage .fc-event-main section .font-semibold {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+#CalendarPage .fc-event-main section span:not(.font-semibold) {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  display: block !important;
+  margin-top: 1px !important;
+}
+```
+
+---
+
+## 60.6 · Detail Drawer / Termin Detail
+
+Der seitliche Drawer mit Termin-Details: Header, Info-Rows, Sidebar-Icons, Status-Dropdown und Footer.
+
+```css
+/* ── 60.6 Detail Drawer */
+#CalendarPage #appointment-drawer .n-drawer-content {
+  background: var(--surface) !important;
+}
+#CalendarPage #appointment-drawer .n-drawer-header {
+  background: var(--nav-bg) !important;
+  border-bottom: none !important;
+  padding: 0 20px !important;
+  height: 52px !important;
+}
+
+/* Edit / Delete Icons */
+#CalendarPage #view-appointment-edit-icon,
+#CalendarPage #view-appointment-delete-icon {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--white-a10) !important;
+  transition: all 0.15s !important;
+}
+#CalendarPage #view-appointment-delete-icon:hover {
+  background: var(--danger-glow) !important;
+}
+
+/* Event Type Badge */
+#CalendarPage #event-type {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 2px 10px !important;
+  border-radius: 100px !important;
+}
+
+/* Appointment Title */
+#CalendarPage #view-appointment-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--ink) !important;
+}
+
+/* Info Row Labels */
+#CalendarPage [id$="-title"] {
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--ink-4) !important;
+}
+
+/* Status Dropdown */
+#CalendarPage .selectedOption {
+  border: 1.5px solid var(--line) !important;
+  border-radius: 10px !important;
+  background: var(--surface) !important;
+  padding: 7px 12px !important;
+  transition: border-color 0.15s !important;
+}
+#CalendarPage .selectedOption:hover {
+  border-color: var(--wine) !important;
+}
+#CalendarPage .dropDownOption:hover {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+#CalendarPage .dropDownSelectedOption {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+  font-weight: 600 !important;
+}
+
+/* Footer */
+#CalendarPage #appointment-drawer .n-drawer-footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line) !important;
+  padding: 12px 20px !important;
+}
+```
+
+---
+
+> **Hinweis:** Alle Regeln verwenden `!important` da der CSS via GHL Agency Whitelabel injiziert wird und native GHL-Styles überschreiben muss. CSS-Variablen (`--wine`, `--surface`, etc.) sind im globalen `:root` des Whitelabel-Themes definiert.
