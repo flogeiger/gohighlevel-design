@@ -1,0 +1,18 @@
+name: Chromatic
+
+on: push
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci --legacy-peer-deps
+        working-directory: gohighlevelDesign
+      - run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        working-directory: gohighlevelDesign
