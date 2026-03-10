@@ -1,0 +1,180 @@
+# 🔗 Connections — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `.calendars-integrations-full-width-main-container` im SalonQueen GHL Whitelabel.
+
+<img
+  src="/calender-connections-screenshot.png"
+  alt="Connections Screenshot"
+  style={{ width: '100%', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '32px' }}
+/>
+
+---
+
+## 63.1 · Page Title & Staff Select
+
+Seitentitel und das "MY STAFF" Dropdown zur Auswahl des Mitarbeiters.
+
+```css
+/* ── Page Title */
+.calendars-integrations-full-width-main-container .text-2xl.font-medium {
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Staff Select Label */
+.calendars-integrations-full-width-main-container .text-gray-700.font-medium {
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--ink-3) !important;
+}
+
+/* ── Staff Select Dropdown */
+#connections-users .n-base-selection {
+  background: var(--surface) !important;
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+}
+#connections-users .n-base-selection__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#connections-users .n-base-selection__state-border {
+  border-color: transparent !important;
+}
+#connections-users .n-base-selection-overlay__wrapper {
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 63.2 · Main Card & Tabs
+
+Die weiße Karte mit den drei Tabs: **Calendars**, **Video Conferencing**, **Google Organic Booking**.
+
+```css
+/* ── Main Card */
+.calendars-integrations-full-width-main-container .hl-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px var(--ink-a06) !important;
+}
+
+/* ── Tab Underline (aktiver Tab) */
+.calendars-integrations-full-width-main-container .n-tabs-bar {
+  background: var(--wine) !important;
+}
+
+/* ── Tab Labels */
+.calendars-integrations-full-width-main-container .n-tabs-tab__label {
+  font-weight: 600 !important;
+}
+.calendars-integrations-full-width-main-container .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine-2) !important;
+}
+.calendars-integrations-full-width-main-container .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 63.3 · "Add New" Button
+
+Primärer Button im Empty State (und in der Verbindungsliste). Verwendet `::before` Overlay weil NaïveUI den `background` via JS überschreibt.
+
+```css
+#newConnection {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  --n-border-radius: 8px !important;
+}
+
+/* ── Hintergrund via ::before (schlägt NaïveUI JS inline style) */
+#newConnection::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#newConnection:hover::before {
+  background: var(--wine-2) !important;
+}
+
+/* ── Text & Borders */
+#newConnection .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--surface) !important;
+}
+#newConnection .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#newConnection .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+## 63.4 · Google Organic Booking Tab
+
+Info-Box, Toggle Switch und Form-Selects im "Google Organic Booking" Tab.
+
+```css
+/* ── Info Box */
+.calendars-organic-booking-container .bg-primary-50 {
+  background: var(--wine-pale) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 10px !important;
+}
+.calendars-organic-booking-container .text-primary-700 {
+  color: var(--ink-2) !important;
+}
+.calendars-organic-booking-container a {
+  color: var(--wine-2) !important;
+}
+
+/* ── Toggle Switch (aktiv) */
+.calendars-organic-booking-container .n-switch--active .n-switch__rail {
+  background: var(--wine) !important;
+}
+
+/* ── Form Selects */
+#calendar-group-select .n-base-selection,
+#select-calendars-as-entity-service .n-base-selection {
+  border-radius: 8px !important;
+  --n-border-radius: 8px !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+#calendar-group-select .n-base-selection__border,
+#select-calendars-as-entity-service .n-base-selection__border {
+  border-radius: 8px !important;
+}
+
+/* ── Form Labels */
+.calendars-organic-booking-container .n-form-item-label__text {
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+> **Hinweis:** Der `#newConnection` Button verwendet ein `::before` Pseudo-Element als Hintergrund-Overlay, da NaïveUI den `background`-Wert via JavaScript als Inline-Style setzt und damit normale CSS-Overrides überschreibt. Die `z-index` Schichtung stellt sicher, dass der Button-Text weiterhin sichtbar bleibt.
