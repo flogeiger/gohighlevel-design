@@ -1,0 +1,528 @@
+# 📅 Termin Buchen Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `.n-card.hl-modal` im Kontext des "Termin buchen" Modals (Section 69) im SalonQueen GHL Whitelabel. Das Modal hat zwei Tabs: **Termin** und **Blockierte Zeit**.
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '32px' }}>
+  <div>
+    <img src="/book-appointment-modal-1-screenshot.png" alt="Termin buchen — Oberer Bereich" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>Tab: Termin — Formular</p>
+  </div>
+  <div>
+    <img src="/book-appointment-modal-2-screenshot.png" alt="Blockierte Zeit Tab" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>Tab: Blockierte Zeit</p>
+  </div>
+  <div>
+    <img src="/book-appointment-modal-3-screenshot.png" alt="Datum & Uhrzeit + Footer" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>Datum, Meeting-Ort & Footer</p>
+  </div>
+</div>
+
+---
+
+## 69.1 · Modal Shell
+
+Grundstruktur — verwendet `.n-card.hl-modal` als Ancestor für maximale Spezifität.
+
+```css
+.n-card.hl-modal {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 48px var(--ink-a12) !important;
+  --n-color: var(--surface) !important;
+  --n-color-modal: var(--surface) !important;
+  --n-border-color: var(--line-hard) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-title-text-color: var(--ink) !important;
+}
+
+/* ── Header */
+.n-card.hl-modal .n-card-header {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  border-radius: 14px 14px 0 0 !important;
+  padding-bottom: 14px !important;
+}
+
+/* ── Titel */
+.n-card.hl-modal #book-appointment-title {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Close Button (Custom SVG, kein n-button) */
+.n-card.hl-modal #book-appointment-close-icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  transition: all 0.12s !important;
+}
+.n-card.hl-modal #book-appointment-close-icon:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+.n-card.hl-modal #book-appointment-close-icon svg { color: var(--ink-3) !important; }
+.n-card.hl-modal #book-appointment-close-icon:hover svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## 69.2 · Content Body & Tab Bar
+
+Der Scrollbereich mit den Tabs "Termin" / "Blockierte Zeit".
+
+```css
+.n-card.hl-modal .n-card__content { padding: 0 !important; }
+.n-card.hl-modal .appointmentWizardBody { background: var(--surface) !important; }
+
+/* ── Tabs */
+.n-card.hl-modal .n-tabs.hl-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color: var(--ink-3) !important;
+  --n-tab-text-color-active: var(--wine-2) !important;
+  --n-tab-text-color-hover: var(--wine-2) !important;
+  --n-tab-border-color: var(--line-hard) !important;
+}
+.n-card.hl-modal .n-tabs-nav {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+.n-card.hl-modal .n-tabs-bar { background: var(--wine) !important; }
+.n-card.hl-modal .n-tabs-tab__label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ink-3) !important;
+}
+.n-card.hl-modal .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+}
+.n-card.hl-modal .n-tabs-tab:hover .n-tabs-tab__label { color: var(--wine-2) !important; }
+```
+
+---
+
+## 69.3 · Form Labels
+
+Alle uppercase Labels über den Feldern (KALENDER, TITEL DES TERMINS, etc.).
+
+```css
+.n-card.hl-modal .bookAppointmentLabel {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--ink-3) !important;
+  margin-bottom: 6px !important;
+}
+```
+
+---
+
+## 69.4 · Selects (Kalender, Teammitglied, Zeitzone, Slot)
+
+Alle `.hl-select` Dropdowns im Modal mit Wine-Fokus-Ring.
+
+```css
+.n-card.hl-modal .hl-select .n-base-selection {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-color: var(--surface) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-font-size: 13px !important;
+  --n-height: 36px !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-focus) !important;
+  --n-caret-color: var(--wine-2) !important;
+  --n-arrow-color: var(--ink-4) !important;
+}
+.n-card.hl-modal .hl-select .n-base-selection__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+.n-card.hl-modal .hl-select .n-base-selection__state-border {
+  border-color: transparent !important;
+  border-radius: 8px !important;
+}
+.n-card.hl-modal .hl-select .n-base-selection-overlay__wrapper,
+.n-card.hl-modal .hl-select .n-base-selection-input__content {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--ink-2) !important;
+}
+.n-card.hl-modal .hl-select .n-base-selection-placeholder__inner {
+  font-size: 13px !important;
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+## 69.5 · Text Input & "Beschreibung Hinzufügen"
+
+Das Titelfeld und der Wine-farbige "Beschreibung Hinzufügen" Link.
+
+```css
+/* ── Titel Input */
+.n-card.hl-modal #appointment-title-input {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-height: 36px !important;
+  --n-font-size: 13px !important;
+  --n-color: var(--surface) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-caret-color: var(--wine-2) !important;
+  --n-placeholder-color: var(--ink-4) !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--wine-focus) !important;
+}
+.n-card.hl-modal #appointment-title-input .n-input__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+
+/* ── "Beschreibung Hinzufügen" Link */
+.n-card.hl-modal #add-description-text.addDescriptionText {
+  color: var(--wine-2) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: color 0.12s !important;
+}
+.n-card.hl-modal #add-description-text.addDescriptionText:hover {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 69.6 · Timezone Box & Standard/Individuell Toggle
+
+Die graue Timezone-Infobox und der "Standard / Individuell" Button-Toggle.
+
+```css
+/* ── Timezone Box */
+.n-card.hl-modal .rounded-lg.bg-gray-100 {
+  background: var(--bg) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px !important;
+}
+
+/* ── Toggle Wrapper */
+.n-card.hl-modal #buttonGroupSlotManager {
+  background: var(--bg) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+
+/* ── Aktiver "Standard" Button */
+.n-card.hl-modal #book-appt-default.hl-active-btn {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+.n-card.hl-modal #book-appt-default.hl-active-btn::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  border-radius: 6px !important;
+}
+.n-card.hl-modal #book-appt-default.hl-active-btn .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--surface) !important;
+}
+
+/* ── Inaktiver "Individuell" Button */
+.n-card.hl-modal #book-appt-custom {
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--ink-3) !important;
+}
+.n-card.hl-modal #book-appt-custom:hover { background: var(--wine-lt) !important; }
+.n-card.hl-modal #book-appt-custom:hover .n-button__content { color: var(--wine-2) !important; }
+```
+
+---
+
+## 69.7 · Date Picker Input
+
+Das Datumseingabefeld im "Standard" Modus.
+
+```css
+.n-card.hl-modal #date-picker-standard #free-slot-input {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--ink-2) !important;
+  padding: 8px 12px !important;
+  transition: border-color 0.12s, box-shadow 0.12s !important;
+}
+.n-card.hl-modal #date-picker-standard #free-slot-input:hover {
+  border-color: var(--wine) !important;
+}
+.n-card.hl-modal #date-picker-standard #free-slot-input:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 3px var(--wine-focus) !important;
+  outline: none !important;
+}
+```
+
+---
+
+## 69.8 · Meeting-Ort Radio Cards
+
+Die zwei Radio-Karten "Kalender Standard" und "Individuell" mit aktivem Wine-State.
+
+```css
+.n-card.hl-modal .hl-radio {
+  background: var(--surface) !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--line-hard) !important;
+  padding: 10px 12px !important;
+  transition: border-color 0.12s, background 0.12s !important;
+  --n-dot-color-active: var(--wine) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus: inset 0 0 0 1px var(--wine), 0 0 0 3px var(--wine-focus) !important;
+}
+.n-card.hl-modal .hl-radio.n-radio--checked {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+.n-card.hl-modal .hl-radio:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+.n-card.hl-modal .hl-radio .n-radio__label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+}
+.n-card.hl-modal .hl-radio .text-xs {
+  color: var(--ink-4) !important;
+  font-size: 11px !important;
+}
+
+/* ── Vertikaler Divider zwischen Left/Right Panel */
+.n-card.hl-modal .border-gray-200.border-l-\[0\.2px\] {
+  border-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## 69.9 · Rechtes Panel — Kontakt Suche
+
+Suchfeld, Dropdown-Liste und "Kontakt hinzufügen" Button.
+
+```css
+/* ── Container */
+.n-card.hl-modal .selectContactContainer {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+}
+.n-card.hl-modal .selectContactContainer .text-\[\#101828\] {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+}
+
+/* ── Pflichtfeld Asterisk */
+.n-card.hl-modal .text-error-600 { color: var(--danger) !important; }
+
+/* ── Such-Input */
+.n-card.hl-modal .searchInputContainer {
+  background: var(--bg) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  transition: border-color 0.12s !important;
+}
+.n-card.hl-modal .searchInputContainer:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 3px var(--wine-focus) !important;
+}
+.n-card.hl-modal #add-appointment-search-contacts {
+  background: transparent !important;
+  font-size: 13px !important;
+  color: var(--ink-2) !important;
+}
+.n-card.hl-modal #add-appointment-search-contacts::placeholder {
+  color: var(--ink-4) !important;
+}
+
+/* ── Dropdown Liste */
+.n-card.hl-modal .hiddenDropDownList {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px var(--ink-a10) !important;
+}
+
+/* ── "Kontakt hinzufügen" Zeile */
+.n-card.hl-modal .addContactContainer:hover { background: var(--wine-lt) !important; }
+.n-card.hl-modal .addContactContainer:hover svg { color: var(--wine-2) !important; }
+.n-card.hl-modal .addContactContainer:hover .text-\[14px\] { color: var(--wine-2) !important; }
+```
+
+---
+
+## 69.10 · Rechtes Panel — Internal Notizen
+
+Label und "+ Internal Anmerkung Hinzufügen" Button.
+
+```css
+/* ── Label */
+.n-card.hl-modal #book-appointment-notes .text-gray-700 {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--ink-3) !important;
+}
+
+/* ── Button */
+.n-card.hl-modal #book-appt-note-button {
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+.n-card.hl-modal #book-appt-note-button:hover { background: var(--wine-lt) !important; }
+.n-card.hl-modal #book-appt-note-button:hover svg { color: var(--wine-2) !important; }
+.n-card.hl-modal #book-appt-note-button .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+```
+
+---
+
+## 69.11 · Footer
+
+Status-Dropdown, "Stornieren" Button und primärer "Termin buchen" Button.
+
+```css
+/* ── Footer */
+.n-card.hl-modal .n-card__footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line-hard) !important;
+  border-radius: 0 0 14px 14px !important;
+  padding: 12px 24px !important;
+}
+
+/* ── Status Label */
+.n-card.hl-modal #appointment-status-container .text-gray-700 {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--ink-3) !important;
+}
+
+/* ── Status Custom Dropdown */
+.n-card.hl-modal .dropDownMain {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+.n-card.hl-modal .dropDownMain:hover { border-color: var(--wine) !important; }
+.n-card.hl-modal .selectedOptionText {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+}
+.n-card.hl-modal .dropDownOption {
+  font-size: 13px !important;
+  color: var(--ink-2) !important;
+  padding: 9px 12px !important;
+}
+.n-card.hl-modal .dropDownOption:hover {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+.n-card.hl-modal .dropDownSelectedOption {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+}
+
+/* ── Stornieren Button */
+.n-card.hl-modal #modal-footer-btn-negative-action {
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+.n-card.hl-modal #modal-footer-btn-negative-action:hover {
+  background: var(--wine-lt) !important;
+}
+.n-card.hl-modal #modal-footer-btn-negative-action .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+
+/* ── "Termin buchen" Primär-Button (::before Overlay) */
+.n-card.hl-modal #modal-footer-btn-positive-action {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  --n-border: 1px solid var(--wine) !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+  transition: transform 0.12s, box-shadow 0.12s !important;
+}
+.n-card.hl-modal #modal-footer-btn-positive-action::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+.n-card.hl-modal #modal-footer-btn-positive-action:hover::before {
+  background: var(--wine-2) !important;
+}
+.n-card.hl-modal #modal-footer-btn-positive-action:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px var(--wine-glow) !important;
+}
+.n-card.hl-modal #modal-footer-btn-positive-action .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--ink) !important;
+}
+.n-card.hl-modal #modal-footer-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+```
+
+---
+
+> **Hinweis:** Der Ancestor-Selektor `.n-card.hl-modal` (statt nur `.hl-modal`) sorgt für höchste CSS-Spezifität und schlägt NaïveUI's Inline-Styles zuverlässig. Der `#book-appt-default.hl-active-btn` Toggle und der Footer-Primärbutton verwenden das `::before` Overlay Pattern. Das Modal ist zweispantig — linke Spalte für Termindetails, rechte Spalte für Kontaktsuche und Notizen.
