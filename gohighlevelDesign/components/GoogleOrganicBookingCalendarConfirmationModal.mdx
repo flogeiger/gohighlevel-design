@@ -1,0 +1,177 @@
+# ✅ Confirmation Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für das allgemeine Confirmation Modal (`.hl-modal`) im SalonQueen GHL Whitelabel. Es wird u.a. für "Google Organic Booking aktivieren", "Zeitplan löschen" und andere Bestätigungsaktionen verwendet.
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '32px' }}>
+  <div>
+    <img src="/calendar-confirmation-modal-organic-booking-screenshot.png" alt="Google Organic Booking Tab" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>Google Organic Booking Tab</p>
+  </div>
+  <div>
+    <img src="/calendar-confirmation-modal-enable-screenshot.png" alt="Aktivieren Confirmation Modal" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>Aktivieren Confirmation Modal</p>
+  </div>
+</div>
+
+---
+
+## 67.1 · Modal Container
+
+Identisch zur Basisstruktur aus Section 65/66.
+
+```css
+.hl-modal {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px var(--ink-a12) !important;
+  --n-color: var(--surface) !important;
+  --n-color-modal: var(--surface) !important;
+  --n-border-color: var(--line-hard) !important;
+  --n-text-color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 67.2 · Header (Dunkler Hintergrund)
+
+Dunkler Header mit Icon-Container, Titel in Weiß und Close-Button.
+
+```css
+/* ── Header Background */
+.hl-modal .n-card-header {
+  background: var(--ink) !important;
+  border-radius: 12px 12px 0 0 !important;
+  border-bottom: none !important;
+}
+
+/* ── Titel */
+.hl-modal .hl-modal-heading .title {
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--surface) !important;
+}
+
+/* ── Icon Container (Kreis mit Icon) */
+.hl-modal .hl-icon-container .icon.icon-primary {
+  background: var(--wine-a20) !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+}
+.hl-modal .hl-icon-container .icon.icon-primary svg {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 67.3 · Close Button (×)
+
+Weißes X-Icon im dunklen Header mit Wine-Hover-Akzent.
+
+```css
+#generalConfirmationModalHeader-modal-close-btn {
+  border-radius: 50% !important;
+  --n-border: 1px solid transparent !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-radius: 34px !important;
+}
+#generalConfirmationModalHeader-modal-close-btn svg {
+  color: var(--surface) !important;
+}
+#generalConfirmationModalHeader-modal-close-btn:hover {
+  background: var(--wine-a20) !important;
+}
+#generalConfirmationModalHeader-modal-close-btn:hover svg {
+  color: var(--wine) !important;
+}
+#generalConfirmationModalHeader-modal-close-btn .n-button__border {
+  border-color: transparent !important;
+}
+#generalConfirmationModalHeader-modal-close-btn .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+## 67.4 · Body Text
+
+Beschreibungstext unterhalb des Headers.
+
+```css
+.hl-modal .n-card__content .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 67.5 · Footer & Buttons
+
+Footer mit hellem Hintergrund, Cancel Ghost-Button und primärem Confirm-Button.
+
+```css
+/* ── Footer */
+.hl-modal .n-card__footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line-hard) !important;
+  border-radius: 0 0 12px 12px !important;
+}
+
+/* ── Abbrechen / Cancel Button */
+#generalConfirmationModalFooter-btn-negative-action {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+#generalConfirmationModalFooter-btn-negative-action .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#generalConfirmationModalFooter-btn-negative-action .n-button__state-border {
+  border-color: transparent !important;
+}
+
+/* ── Aktivieren / Confirm Button (::before Overlay) */
+#generalConfirmationModalFooter-btn-positive-action {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+}
+#generalConfirmationModalFooter-btn-positive-action::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#generalConfirmationModalFooter-btn-positive-action:hover::before {
+  background: var(--wine-2) !important;
+}
+#generalConfirmationModalFooter-btn-positive-action .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--surface) !important;
+}
+#generalConfirmationModalFooter-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#generalConfirmationModalFooter-btn-positive-action .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+> **Hinweis:** Dieses Modal verwendet dieselben Footer-Button IDs wie Section 65 (`#generalConfirmationModalFooter-btn-positive-action` / `-negative-action`). Der Unterschied zu Section 65 liegt im **Footer-Hintergrund** (`var(--bg)` statt transparent) und dem **Icon-Container** im Header. Das Modal wird für alle allgemeinen Bestätigungsaktionen im Kalender-Bereich wiederverwendet — der Button-Text ändert sich je nach Kontext ("Aktivieren", "Löschen", "Bestätigen" etc.).
