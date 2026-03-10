@@ -1,0 +1,216 @@
+# 🗓️ Schedule Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `.hl-modal` im Kontext der Schedule-Modals (Edit, Duplicate, New) im SalonQueen GHL Whitelabel.
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '32px' }}>
+  <div>
+    <img src="/calendar-schedule-modal-edit-screenshot.png" alt="Edit Schedule Modal" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>Edit Schedule</p>
+  </div>
+  <div>
+    <img src="/calendar-schedule-modal-duplicate-screenshot.png" alt="Duplicate Schedule Modal" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>Duplicate Schedule</p>
+  </div>
+  <div>
+    <img src="/calendar-schedule-modal-new-screenshot.png" alt="New Schedule Modal" style={{ width: '100%', borderRadius: '10px', border: '1px solid #e5e7eb' }} />
+    <p style={{ textAlign: 'center', fontSize: '12px', color: '#6b7280', marginTop: '6px' }}>New Schedule</p>
+  </div>
+</div>
+
+---
+
+## 65.1 · Modal Container
+
+Grundstruktur des Modals — Hintergrund, Border, Shadow und NaïveUI CSS-Variablen.
+
+```css
+.hl-modal {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px var(--ink-a12) !important;
+  --n-color: var(--surface) !important;
+  --n-color-modal: var(--surface) !important;
+  --n-border-color: var(--line-hard) !important;
+  --n-title-text-color: var(--ink) !important;
+  --n-text-color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 65.2 · Header & Titel
+
+Der dunkle Header-Bereich mit Titel und Close-Button.
+
+```css
+/* ── Header Divider */
+.hl-modal .n-card-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* ── Modal Titel (z.B. "Edit Schedule", "New Schedule", "Duplicate Schedule") */
+.hl-modal .hl-modal-heading .title {
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 65.3 · Close Button (×)
+
+Runder Schließen-Button oben rechts im Header.
+
+```css
+#schedule-modal-header-modal-close-btn {
+  border-radius: 50% !important;
+  --n-border: 1px solid transparent !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-radius: 34px !important;
+}
+#schedule-modal-header-modal-close-btn:hover {
+  background: var(--wine-lt) !important;
+}
+#schedule-modal-header-modal-close-btn svg {
+  color: var(--ink-3) !important;
+}
+#schedule-modal-header-modal-close-btn:hover svg {
+  color: var(--wine-2) !important;
+}
+#schedule-modal-header-modal-close-btn .n-button__border {
+  border-color: transparent !important;
+}
+#schedule-modal-header-modal-close-btn .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+## 65.4 · Formular — Label & Input
+
+Das "SCHEDULE NAME *" Label mit Pflichtfeld-Asterisk und das Texteingabe-Feld.
+
+```css
+/* ── Form Labels */
+#schedule-modal-form .n-form-item-label__text {
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--ink-3) !important;
+}
+
+/* ── Pflichtfeld Asterisk */
+#schedule-modal-form .n-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+
+/* ── Text Input */
+#schedule-name-input {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-color: var(--surface) !important;
+  --n-color-focus: var(--surface) !important;
+  --n-caret-color: var(--wine-2) !important;
+  --n-text-color: var(--ink) !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--wine-focus) !important;
+}
+#schedule-name-input .n-input__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#schedule-name-input .n-input__state-border {
+  border-color: transparent !important;
+  border-radius: 8px !important;
+}
+```
+
+---
+
+## 65.5 · Divider & Footer
+
+Trennlinie zwischen Content und Footer-Bereich mit den Aktions-Buttons.
+
+```css
+/* ── Divider */
+.schedule-ui-divider {
+  border-top: 1px solid var(--line) !important;
+}
+
+/* ── Footer */
+.hl-modal .n-card__footer {
+  border-top: 1px solid var(--line-hard) !important;
+}
+```
+
+---
+
+## 65.6 · Footer Buttons (Cancel & Confirm)
+
+**Cancel** ist ein sekundärer Ghost-Button. **Update / Duplicate / Create** ist der primäre Wine-Button — wieder mit `::before` Overlay Technik.
+
+```css
+/* ── Cancel Button */
+#generalConfirmationModalFooter-btn-negative-action {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+#generalConfirmationModalFooter-btn-negative-action .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#generalConfirmationModalFooter-btn-negative-action .n-button__state-border {
+  border-color: transparent !important;
+}
+
+/* ── Confirm Button (Update / Duplicate / Create) */
+#generalConfirmationModalFooter-btn-positive-action {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+}
+
+/* ── Hintergrund via ::before (schlägt NaïveUI JS inline style) */
+#generalConfirmationModalFooter-btn-positive-action::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#generalConfirmationModalFooter-btn-positive-action:hover::before {
+  background: var(--wine-2) !important;
+}
+
+/* ── Text & Borders */
+#generalConfirmationModalFooter-btn-positive-action .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--surface) !important;
+}
+#generalConfirmationModalFooter-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#generalConfirmationModalFooter-btn-positive-action .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+> **Hinweis:** Alle drei Modals (Edit Schedule, Duplicate Schedule, New Schedule) verwenden dieselbe `.hl-modal` CSS-Klasse und die gleichen Footer-Button IDs (`#generalConfirmationModalFooter-btn-positive-action` / `-negative-action`). Die Beschriftung der Buttons ändert sich je nach Kontext ("Update" / "Duplicate" / "Create"), das Styling bleibt identisch.
