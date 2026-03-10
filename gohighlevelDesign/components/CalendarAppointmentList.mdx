@@ -1,0 +1,365 @@
+# 📋 Appointments List — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `#AppointmentList` (Termin Listenansicht) im SalonQueen GHL Whitelabel.
+
+<img
+  src="/calendar-appointment-list-screenshot.png"
+  alt="Appointments List Screenshot"
+  style={{ width: '100%', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '32px' }}
+/>
+
+---
+
+## 71.0 · Page Wrapper & Titel
+
+Hintergrund der Seite und der "Appointments" Seitentitel mit dem primären "+ New Appointment" Button.
+
+```css
+/* ── Page Wrapper */
+#AppointmentList { background: var(--bg) !important; }
+#AppointmentList .hl-wrapper-container { background: var(--bg) !important; }
+
+/* ── Page Title */
+#AppointmentList .text-gray-900.font-medium.text-\[30px\] {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--ink) !important;
+}
+
+/* ── "+ New Appointment" Button */
+#AppointmentList #book-appointment {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  height: 32px !important;
+  padding: 0 14px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+  transition: all 0.15s !important;
+}
+#AppointmentList #book-appointment::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#AppointmentList #book-appointment:hover::before { background: var(--wine-2) !important; }
+#AppointmentList #book-appointment:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px var(--wine-glow) !important;
+}
+#AppointmentList #book-appointment .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--ink) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+#AppointmentList #book-appointment svg {
+  color: var(--ink) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+#AppointmentList #book-appointment .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#AppointmentList #book-appointment .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+## 71.1 · Tab Bar
+
+Die Tabs "Upcoming", "Cancelled", "All", "+ Smart list" und der "Customize List" Button rechts.
+
+```css
+/* ── Tab Trennlinie */
+#AppointmentList .border-b.border-gray-200 {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* ── Aktiver Tab (Unterstrich + Farbe) */
+#AppointmentList .border-primary-500.border-b-2 {
+  border-bottom: 2px solid var(--wine) !important;
+}
+#AppointmentList .text-primary-600.hl-text-sm-regular,
+#AppointmentList .font-bold.text-primary-600 {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+}
+
+/* ── Inaktive Tabs */
+#AppointmentList .text-gray-500.hl-text-sm-regular {
+  color: var(--ink-3) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: color 0.12s !important;
+}
+#AppointmentList .hover\:text-gray-700:hover { color: var(--ink) !important; }
+
+/* ── "+ Smart list" & "Customize List" Tags */
+#AppointmentList #btn-add-smart-list,
+#AppointmentList #btn-toggle-smart-list {
+  background: transparent !important;
+  border-left: 1px solid var(--line-hard) !important;
+  border-radius: 0 !important;
+}
+#AppointmentList #btn-add-smart-list .n-tag__content,
+#AppointmentList #btn-toggle-smart-list .n-tag__content {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+#AppointmentList #btn-add-smart-list:hover .n-tag__content,
+#AppointmentList #btn-toggle-smart-list:hover .n-tag__content { color: var(--wine-2) !important; }
+#AppointmentList #btn-add-smart-list:hover svg,
+#AppointmentList #btn-toggle-smart-list:hover svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## 71.2 · Filter Bar
+
+"Advanced Filters", "Sort by" Pills, das Suchfeld und "Manage Columns".
+
+```css
+/* ── Filter & Sort Pills */
+#AppointmentList #btn-toggle-filter-list,
+#AppointmentList #btn-toggle-sort-list {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 100px !important;
+  transition: border-color 0.12s !important;
+}
+#AppointmentList #btn-toggle-filter-list .n-tag__content,
+#AppointmentList #btn-toggle-sort-list .n-tag__content {
+  color: var(--ink-2) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+#AppointmentList #btn-toggle-filter-list:hover,
+#AppointmentList #btn-toggle-sort-list:hover {
+  border-color: var(--wine) !important;
+  background: var(--wine-lt) !important;
+}
+#AppointmentList #btn-toggle-filter-list:hover .n-tag__content,
+#AppointmentList #btn-toggle-sort-list:hover .n-tag__content { color: var(--wine-2) !important; }
+
+/* ── Search Input */
+#AppointmentList #hl-table-calendar-list-table-filter-text-search {
+  border-radius: 8px !important;
+  height: 32px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--wine-focus) !important;
+  --n-caret-color: var(--wine-2) !important;
+  --n-color: var(--surface) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-placeholder-color: var(--ink-4) !important;
+}
+#AppointmentList #hl-table-calendar-list-table-filter-text-search .n-input__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+
+/* ── "Manage Columns" Tag */
+#AppointmentList #btn-toggle-column-list {
+  background: transparent !important;
+  border: none !important;
+}
+#AppointmentList #btn-toggle-column-list .n-tag__content {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+#AppointmentList #btn-toggle-column-list:hover .n-tag__content { color: var(--wine-2) !important; }
+#AppointmentList #btn-toggle-column-list:hover svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## 71.3 · Tabelle
+
+Header-Cells, Body-Cells, Hover-State, Kontakt-Pill, Status-Select, "Rescheduled To" Badge und Kebab-Button.
+
+```css
+/* ── Table Wrapper */
+#AppointmentList .ghl-table-container { background: var(--surface) !important; }
+#AppointmentList .n-data-table {
+  --n-th-color: var(--bg-table-head) !important;
+  --n-td-color: var(--surface) !important;
+  --n-td-color-hover: var(--bg-row-hover) !important;
+  --n-border-color: var(--line-hard) !important;
+  --n-th-text-color: var(--ink-3) !important;
+  --n-td-text-color: var(--ink-2) !important;
+  --n-th-font-weight: 800 !important;
+  --n-loading-color: var(--wine-2) !important;
+  --n-th-icon-color-active: var(--wine-2) !important;
+}
+
+/* ── Header Cells */
+#AppointmentList .n-data-table-th {
+  background: var(--bg-table-head) !important;
+  border-bottom: 2px solid var(--line-hard) !important;
+  padding: 10px 12px !important;
+}
+#AppointmentList .n-data-table-th__title {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--ink-3) !important;
+}
+
+/* ── Body Cells */
+#AppointmentList .n-data-table-td {
+  border-bottom: 1px solid var(--line) !important;
+  padding: 10px 12px !important;
+  font-size: 13px !important;
+  color: var(--ink-2) !important;
+}
+#AppointmentList .n-data-table-tr:hover .n-data-table-td {
+  background: var(--bg-row-hover) !important;
+}
+
+/* ── Fixed Right Column (Action) */
+#AppointmentList .n-data-table-td--fixed-right {
+  background: var(--surface) !important;
+  box-shadow: inset 2px 0 4px var(--ink-a06) !important;
+}
+#AppointmentList .n-data-table-tr:hover .n-data-table-td--fixed-right {
+  background: var(--bg-row-hover) !important;
+}
+
+/* ── Kontakt Pill */
+#AppointmentList .bg-gray-50.border-0.rounded-2xl {
+  background: var(--wine-lt) !important;
+  border-radius: 100px !important;
+}
+#AppointmentList .bg-gray-50.border-0.rounded-2xl:hover {
+  background: var(--wine-pale) !important;
+}
+#AppointmentList .bg-gray-50.border-0.rounded-2xl span.ml-2 {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+/* ── Status Select (pro Zeile) */
+#AppointmentList [id$="-status"] .n-base-selection {
+  border-radius: 8px !important;
+  height: 28px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-focus) !important;
+  --n-color: var(--surface) !important;
+  --n-text-color: var(--ink-2) !important;
+}
+#AppointmentList [id$="-status"] .n-base-selection__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+
+/* ── "Rescheduled To" Badge */
+#AppointmentList .bg-primary-50.text-primary-700 {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+  border-radius: 100px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  padding: 2px 10px !important;
+}
+
+/* ── Kebab Action Button (pro Zeile) */
+#AppointmentList [id^="appointment-"][id$="-action-dropdown-trigger"] {
+  border-radius: 50% !important;
+  border: 1px solid var(--line-hard) !important;
+  width: 30px !important;
+  height: 30px !important;
+  transition: all 0.12s !important;
+}
+#AppointmentList [id^="appointment-"][id$="-action-dropdown-trigger"]:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+#AppointmentList [id^="appointment-"][id$="-action-dropdown-trigger"] svg { color: var(--ink-3) !important; }
+#AppointmentList [id^="appointment-"][id$="-action-dropdown-trigger"]:hover svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## 71.4 · Table Footer
+
+Pagination mit Prev/Next-Buttons, aktiver Seitenzahl, "Showing X of Y" Text und Per-Page-Select.
+
+```css
+/* ── Footer Wrapper */
+#AppointmentList .ghl-table-footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line-hard) !important;
+  padding: 10px 16px !important;
+}
+
+/* ── "Showing X of Y results" */
+#AppointmentList .ghl-table-footer-left p {
+  font-size: 12px !important;
+  color: var(--ink-4) !important;
+  font-weight: 500 !important;
+}
+
+/* ── Prev / Next Buttons */
+#AppointmentList #calendar-list-table-previous,
+#AppointmentList #calendar-list-table-next {
+  border-radius: 7px !important;
+  height: 26px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--ink-2) !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  transition: all 0.12s !important;
+}
+#AppointmentList #calendar-list-table-previous:hover,
+#AppointmentList #calendar-list-table-next:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+
+/* ── Aktive Seitenzahl */
+#AppointmentList .n-pagination-item--active {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 6px !important;
+}
+#AppointmentList .n-pagination-item--clickable:hover { color: var(--wine-2) !important; }
+
+/* ── Per-Page Select */
+#AppointmentList .ghl-table-footer .n-select .n-base-selection {
+  border-radius: 7px !important;
+  height: 26px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-color: var(--surface) !important;
+  --n-text-color: var(--ink-2) !important;
+}
+#AppointmentList .ghl-table-footer .n-select .n-base-selection__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 7px !important;
+}
+```
+
+---
+
+> **Hinweis:** Der `[id$="-status"]` Selektor trifft alle Status-Dropdowns in der Tabelle dynamisch — unabhängig von der Appointment-ID. Analog trifft `[id^="appointment-"][id$="-action-dropdown-trigger"]` alle Kebab-Buttons. Das "Rescheduled To" Badge überschreibt Tailwind's `bg-primary-50 text-primary-700` mit den Wine-Brand-Farben.
