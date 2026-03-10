@@ -1,0 +1,163 @@
+# 🔗 Verbindungen — Neue Verbindung (Cards) CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `.calendars-new-connections-container` und `#calendar-integrations-container` im SalonQueen GHL Whitelabel.
+
+<img
+  src="/calender-connections-new-screenshot.png"
+  alt="Verbindungen Neue Verbindung Screenshot"
+  style={{ width: '100%', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '32px' }}
+/>
+
+---
+
+## 64.1 · Zurück-Button
+
+Der "← Zurück" Button überschreibt den primären `#newConnection` Stil aus Section 63 — innerhalb von `#calendar-integrations-container` wird er zum sekundären Ghost-Button.
+
+```css
+/* ── ::before Overlay deaktivieren (war wine-farbig in Section 63) */
+#calendar-integrations-container #newConnection::before {
+  background: transparent !important;
+}
+
+/* ── Ghost Button Style */
+#calendar-integrations-container #newConnection {
+  border: 1px solid var(--line-hard) !important;
+  background: var(--surface) !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+}
+
+/* ── Text & Icon */
+#calendar-integrations-container #newConnection .n-button__content {
+  color: var(--ink-3) !important;
+}
+#calendar-integrations-container #newConnection:hover .n-button__content {
+  color: var(--wine-2) !important;
+}
+#calendar-integrations-container #newConnection svg { color: var(--ink-3) !important; }
+#calendar-integrations-container #newConnection:hover svg { color: var(--wine-2) !important; }
+#calendar-integrations-container #newConnection .n-button__border {
+  border-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## 64.2 · Section Titles & Beschreibung
+
+Überschriften und Beschreibungstexte der Kalender- und Video-Conferencing-Sektionen.
+
+```css
+/* ── Section Titel */
+.calendars-new-connections-container .text-lg.font-medium,
+.calendars-new-conference-container .text-lg.font-medium {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Beschreibungstext */
+.calendars-new-connections-container .text-gray-500,
+.calendars-new-conference-container .text-gray-500 {
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+## 64.3 · Connection Cards
+
+Jede Zeile (Google-Kalender, Outlook, iCloud, Calendly) besteht aus einem Icon, Titel, Beschreibung und einem "Verbinden"-Button.
+
+```css
+/* ── Trennlinie zwischen Cards */
+.calendar-connections-card-parent-container {
+  border-bottom: 1px solid var(--line) !important;
+}
+
+/* ── Card Titel */
+.calendar-connections-card-container .text-gray-700.font-medium {
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+}
+
+/* ── Card Beschreibung */
+.calendar-connections-card-container .text-gray-500.text-xs {
+  color: var(--ink-4) !important;
+}
+
+/* ── Info Icon */
+.calendar-connections-card-container svg.text-gray-700 {
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+## 64.4 · "Verbinden" Button
+
+Primärer Button pro Card — verwendet wieder `::before` Overlay Technik wegen NaïveUI JS-Inline-Styles.
+
+```css
+.calendar-connections-card-container #connect {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  --n-border-radius: 8px !important;
+}
+
+/* ── Hintergrund via ::before */
+.calendar-connections-card-container #connect::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+.calendar-connections-card-container #connect:hover::before {
+  background: var(--wine-2) !important;
+}
+
+/* ── Text & Borders */
+.calendar-connections-card-container #connect .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--surface) !important;
+}
+.calendar-connections-card-container #connect .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+.calendar-connections-card-container #connect .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+## 64.5 · Warning Banner
+
+Warnhinweis-Box (erscheint z.B. bei bereits verbundenen Accounts oder Konfigurationsproblemen).
+
+```css
+#connection-warning-container {
+  background: var(--wine-pale) !important;
+  border-left: 3px solid var(--wine) !important;
+}
+
+#connection-warning-container svg {
+  color: var(--wine-2) !important;
+}
+
+#connection-warning {
+  font-weight: 500 !important;
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+> **Hinweis:** Der `#newConnection` Button wird in diesem Context (`#calendar-integrations-container`) als sekundärer Zurück-Button verwendet. Das `::before` Overlay aus Section 63 wird bewusst auf `transparent` gesetzt, damit er nicht wie ein primärer Wine-Button aussieht. Die `#connect` Buttons in den Cards verwenden dieselbe `::before` Overlay Technik wie alle anderen primären Buttons im Whitelabel.
