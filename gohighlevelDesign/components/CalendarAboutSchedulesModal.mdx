@@ -1,0 +1,158 @@
+# ℹ️ "About Schedules" Info Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für das Info-Modal (`#schedule-learn-more-modal`) im SalonQueen GHL Whitelabel. Es erscheint beim Klick auf "Mehr erfahren" im Schedule-Banner.
+
+<img
+  src="/calendar-about-schedules-modal-screenshot.png"
+  alt="About Schedules Modal Screenshot"
+  style={{ width: '60%', display: 'block', margin: '0 auto 32px', borderRadius: '12px', border: '1px solid #e5e7eb' }}
+/>
+
+---
+
+## 66.1 · Modal Container
+
+Grundstruktur — identisch zu Section 65, aber der Header hat hier einen **dunklen Hintergrund**.
+
+```css
+.hl-modal {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px var(--ink-a12) !important;
+  --n-color: var(--surface) !important;
+  --n-color-modal: var(--surface) !important;
+  --n-border-color: var(--line-hard) !important;
+  --n-text-color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 66.2 · Header (Dunkler Hintergrund)
+
+Im Gegensatz zu Section 65 hat dieser Modal-Header einen dunklen `var(--ink)` Hintergrund mit weißem Text.
+
+```css
+/* ── Header Background */
+.hl-modal .n-card-header {
+  background: var(--ink) !important;
+  border-radius: 12px 12px 0 0 !important;
+  border-bottom: none !important;
+}
+
+/* ── Header Titel */
+.hl-modal h5.text-gray-900 {
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--surface) !important;
+}
+
+/* ── Header Icon (ⓘ) */
+.hl-modal .n-card-header .text-blue-600 {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 66.3 · Close Button (×)
+
+Der X-Button im dunklen Header — Icon ist weiß, Hover zeigt Wine-Akzent.
+
+```css
+.hl-modal .text-gray-700.hover\:text-gray-600 {
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+.hl-modal .text-gray-700.hover\:text-gray-600 svg {
+  color: var(--surface) !important;
+}
+.hl-modal .text-gray-700.hover\:text-gray-600:hover {
+  background: var(--wine-a20) !important;
+}
+.hl-modal .text-gray-700.hover\:text-gray-600:hover svg {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 66.4 · Body — Text & Feature Icons
+
+Beschreibungstext mit fettgedruckten Highlights und die zwei Feature-Icons (🔧 und ⚙️).
+
+```css
+/* ── Divider */
+.hl-modal .border-b.border-gray-200 {
+  border-color: var(--line-hard) !important;
+}
+
+/* ── Body Text */
+.hl-modal .text-gray-600.text-sm {
+  color: var(--ink-3) !important;
+}
+
+/* ── Fettgedruckte Highlights */
+.hl-modal .text-gray-600.text-sm strong {
+  color: var(--ink) !important;
+}
+
+/* ── Feature Icons */
+.hl-modal .text-gray-600 svg {
+  color: var(--ink-4) !important;
+}
+.hl-modal path[fill="#475467"] {
+  fill: var(--ink-3) !important;
+}
+```
+
+---
+
+## 66.5 · Footer & "Okay" Button
+
+Footer mit Trennlinie und dem primären "Okay" Bestätigungs-Button.
+
+```css
+/* ── Footer */
+.hl-modal .n-card__footer {
+  border-top: 1px solid var(--line-hard) !important;
+}
+
+/* ── Okay Button (::before Overlay) */
+#schedule-learn-more-modal-footer-btn-positive-action {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+}
+#schedule-learn-more-modal-footer-btn-positive-action::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: var(--wine) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#schedule-learn-more-modal-footer-btn-positive-action:hover::before {
+  background: var(--wine-2) !important;
+}
+#schedule-learn-more-modal-footer-btn-positive-action .n-button__content {
+  position: relative !important;
+  z-index: 1 !important;
+  color: var(--surface) !important;
+}
+#schedule-learn-more-modal-footer-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#schedule-learn-more-modal-footer-btn-positive-action .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+> **Hinweis:** Dieses Modal teilt die `.hl-modal` Basisklasse mit Section 65 (Schedule Edit/Create). Der wesentliche Unterschied ist der **dunkle Header-Hintergrund** (`background: var(--ink)`) und der spezifische Footer-Button-ID `#schedule-learn-more-modal-footer-btn-positive-action` statt `#generalConfirmationModalFooter-btn-positive-action`.
