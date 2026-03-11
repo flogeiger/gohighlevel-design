@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="SalonQueen/Einführung" />
+
+# SalonQueen.ai — GHL Whitelabel CSS Dokumentation
+
+SalonQueen.ai ist eine **GoHighLevel (GHL) Whitelabel SaaS-Plattform** für die Beautybranche. Diese Storybook-Dokumentation beschreibt alle CSS-Anpassungen die über das **GHL Agency Whitelabel** injiziert werden, um die Standard-GHL-Oberfläche in das SalonQueen-Branding zu transformieren.
+
+---
+
+## Was ist dieses Projekt?
+
+GoHighLevel bietet über das Agency-Dashboard die Möglichkeit, eigenes CSS global in alle Sub-Accounts einzuspielen. Dieses CSS-System überschreibt gezielt GHL-Komponenten (NaïveUI, FullCalendar, Custom GHL-Elemente) und wendet das SalonQueen Design Token System an.
+
+Das Ergebnis: Jeder Salon der SalonQueen nutzt sieht automatisch das Wine/Ink-Branding statt des Standard-GHL-Blaus.
+
+---
+
+
+## Design Token System
+
+Alle Farben, Schatten und Abstände werden über CSS-Variablen gesteuert die im `:root` des Whitelabels definiert sind.
+
+**Wine (Primärfarbe):**
+
+| Variable | Verwendung |
+|---|---|
+| `--wine` | Primäre Aktionsfarbe (Buttons, aktive States) |
+| `--wine-2` | Dunkleres Wine (Hover, Text-Links) |
+| `--wine-lt` | Helles Wine (Hover-Hintergründe, Badges) |
+| `--wine-pale` | Sehr helles Wine (Info-Boxen) |
+| `--wine-focus` | Focus-Ring (0 0 0 3px) |
+| `--wine-glow` | Box-Shadow Glow |
+
+**Ink (Textfarben):**
+
+| Variable | Verwendung |
+|---|---|
+| `--ink` | Primärer Text |
+| `--ink-2` | Sekundärer Text |
+| `--ink-3` | Gedimmter Text |
+| `--ink-4` | Placeholder / deaktiviert |
+
+**Surface & Backgrounds:**
+
+| Variable | Verwendung |
+|---|---|
+| `--surface` | Weiß / Card-Hintergründe |
+| `--bg` | Leicht getönter Seitenhintergrund |
+| `--line-hard` | Border-Farbe |
+| `--danger` | Destructive Actions (Löschen) |
+
+---
+
+> Diese Dokumentation wird von dem SalonQueen Entwicklungsteam gepflegt und automatisch via GitHub Actions auf Chromatic deployed.
