@@ -1,0 +1,171 @@
+# 🗃️ Spalten Verwalten Drawer — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für den "Spalten verwalten" Drawer (Section 76) im SalonQueen GHL Whitelabel. Er öffnet sich über "Manage Columns" in der Termin-Listenansicht und erlaubt das Ein-/Ausblenden und Umsortieren von Tabellenspalten per Drag & Drop.
+
+<img
+  src="/calendar-manage-columns-drawer-screenshot.png"
+  alt="Spalten verwalten Drawer Screenshot"
+  style={{ width: '60%', display: 'block', margin: '0 auto 32px', borderRadius: '12px', border: '1px solid #e5e7eb' }}
+/>
+
+---
+
+## 76.1 · Drag Rows
+
+Die sortierbaren Zeilen mit Drag-Handle, Spaltenname und optionalem Lock-Icon für fixierte Spalten.
+
+```css
+/* ── Zeile Container */
+#appointment-list-manage-column {
+  border-radius: 8px !important;
+  transition: background 0.1s !important;
+}
+#appointment-list-manage-column:hover {
+  background: var(--wine-lt) !important;
+}
+
+/* ── Drag Handle Icon (⠿) */
+#appointment-list-manage-column .cursor-grab svg {
+  color: var(--ink-4) !important;
+  transition: color 0.1s !important;
+}
+#appointment-list-manage-column:hover .cursor-grab svg {
+  color: var(--wine-2) !important;
+}
+
+/* ── Lock Icon (gesperrte / fixierte Spalte) */
+#appointment-list-manage-column .cursor-not-allowed svg {
+  color: var(--line-hard) !important;
+}
+#appointment-list-manage-column .flex.justify-between > div > svg {
+  color: var(--ink-4) !important;
+}
+
+/* ── Spalten-Label */
+#appointment-list-manage-column .field-name {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+  transition: color 0.1s !important;
+}
+#appointment-list-manage-column:hover .field-name {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 76.2 · Checkboxen (#column-checkbox)
+
+NaïveUI setzt `--n-color-checked: #155EEF` als Inline-Style — daher wird `background-color` direkt auf `.n-checkbox-box` überschrieben.
+
+```css
+/* ── Unchecked */
+#column-checkbox .n-checkbox-box {
+  background-color: var(--surface) !important;
+  border-radius: 4px !important;
+  transition: background-color 0.1s, border-color 0.1s !important;
+}
+#column-checkbox .n-checkbox-box__border {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 4px !important;
+  transition: border-color 0.1s !important;
+}
+
+/* ── Checked — Wine Fill */
+#column-checkbox.n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+}
+#column-checkbox.n-checkbox--checked .n-checkbox-box__border {
+  border-color: var(--wine) !important;
+}
+
+/* ── Checkmark weiß */
+#column-checkbox.n-checkbox--checked .n-checkbox-box .n-checkbox-icon svg path {
+  fill: var(--surface) !important;
+}
+
+/* ── Hover (unchecked) */
+#column-checkbox:hover .n-checkbox-box {
+  background-color: var(--wine-lt) !important;
+}
+#column-checkbox:hover .n-checkbox-box__border {
+  border-color: var(--wine) !important;
+}
+
+/* ── Focus Ring */
+#column-checkbox:focus-within .n-checkbox-box__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 3px var(--wine-focus) !important;
+}
+
+/* ── Disabled Checked (gesperrte Zeile, z.B. "Titel") */
+#column-checkbox.n-checkbox--disabled.n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine-lt) !important;
+}
+#column-checkbox.n-checkbox--disabled.n-checkbox--checked .n-checkbox-box__border {
+  border-color: var(--wine) !important;
+  opacity: 0.5 !important;
+}
+#column-checkbox.n-checkbox--disabled .field-name {
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+## 76.3 · Footer Buttons (Stornieren & Anwenden)
+
+Identische Footer-Button IDs wie Section 74 und 75.
+
+```css
+/* ── Stornieren Button */
+#drawer-component-btn-negative-action {
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#drawer-component-btn-negative-action:hover {
+  background: var(--wine-lt) !important;
+}
+#drawer-component-btn-negative-action .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#drawer-component-btn-negative-action:hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#drawer-component-btn-negative-action .n-button__state-border {
+  border-color: transparent !important;
+}
+#drawer-component-btn-negative-action .n-button__content { color: var(--ink-2) !important; }
+#drawer-component-btn-negative-action:hover .n-button__content { color: var(--wine-2) !important; }
+
+/* ── "Anwenden" Primär-Button */
+#drawer-component-btn-positive-action {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+  transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s !important;
+}
+#drawer-component-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px var(--wine-glow) !important;
+}
+/* Inneres bg-primary-600 div deaktivieren */
+#drawer-component-btn-positive-action .bg-primary-600 {
+  background-color: transparent !important;
+}
+#drawer-component-btn-positive-action .n-button__content { color: var(--surface) !important; }
+#drawer-component-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#drawer-component-btn-positive-action .n-button__state-border { border-color: transparent !important; }
+```
+
+---
+
+> **Hinweis:** Die Checkbox-Farbe kommt nicht von den NaïveUI CSS-Variablen (diese werden via JS als Inline-Style auf `#155EEF` gesetzt), sondern wird direkt über `background-color` auf `.n-checkbox-box` überschrieben. Die gesperrte "Titel"-Zeile (Lock-Icon rechts, `cursor-not-allowed`) zeigt den Disabled-Checked-State — leicht transparent, aber weiterhin Wine-farbig. Footer-Button IDs sind dieselben wie in Section 74 (Advanced Filters) und Section 75 (Sort by).
