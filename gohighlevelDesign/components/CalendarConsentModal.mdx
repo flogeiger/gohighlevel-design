@@ -1,0 +1,102 @@
+# ✅ Consent Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für das "Consent" Modal (Section 78) im SalonQueen GHL Whitelabel. Es öffnet sich aus dem Detail Drawer (Section 77) über den Forms-Tab und zeigt die Einwilligungsdaten eines Kontakts (Consent-Text + IP-Adresse).
+
+<img
+  src="/calendar-consent-modal-screenshot.png"
+  alt="Consent Modal Screenshot"
+  style={{ width: '70%', display: 'block', margin: '0 auto 32px', borderRadius: '12px', border: '1px solid #e5e7eb' }}
+/>
+
+---
+
+## 78.1 · Modal Card & Header
+
+Modal-Container, Titel (Kontaktname), Datum/Uhrzeit-Beschreibung und Close-Button.
+
+```css
+/* ── Modal Card */
+.n-card.n-modal.hl-modal:has(#consent-details-container) {
+  background: var(--surface) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--line-hard) !important;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10) !important;
+}
+
+/* ── Header Titel (Kontaktname) */
+.n-card.n-modal.hl-modal:has(#consent-details-container) .title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--ink) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* ── Header Beschreibung (Datum/Uhrzeit) */
+.n-card.n-modal.hl-modal:has(#consent-details-container) .description {
+  font-size: 12px !important;
+  color: var(--ink-4) !important;
+  margin-top: 2px !important;
+}
+
+/* ── Close Button */
+#view-consent-header-modal-close-btn {
+  border-radius: 50% !important;
+  border: 1px solid transparent !important;
+  transition: all 0.12s !important;
+}
+#view-consent-header-modal-close-btn:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+#view-consent-header-modal-close-btn svg { color: var(--ink-3) !important; }
+#view-consent-header-modal-close-btn:hover svg { color: var(--wine-2) !important; }
+#view-consent-header-modal-close-btn .n-button__border { border-color: transparent !important; }
+```
+
+---
+
+## 78.2 · Content — Consent & IP Rows
+
+Zweispaltige Zeilen mit Label links (Einwilligung, IP) und Wert rechts.
+
+```css
+/* ── Content Container */
+#consent-details-container {
+  padding: 4px 0 !important;
+}
+
+/* ── Zeile */
+#consent-details-container .flex.flex-row {
+  align-items: flex-start !important;
+  padding: 6px 0 !important;
+}
+
+/* ── Label (Einwilligung / IP) */
+#consent-details-container .w-1\/6 {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--ink-3) !important;
+  padding-top: 1px !important;
+}
+
+/* ── Wert */
+#consent-details-container .w-5\/6 {
+  font-size: 13px !important;
+  color: var(--ink-2) !important;
+  line-height: 1.5 !important;
+  word-break: break-all !important;
+}
+
+/* ── Divider */
+#consent-details-container .border-gray-200 {
+  border-color: var(--line-hard) !important;
+  margin: 4px 0 !important;
+}
+```
+
+---
+
+> **Hinweis:** Dieses Modal wird über den `:has(#consent-details-container)` Selektor identifiziert — der einzige Weg die generische `.n-card.n-modal.hl-modal` Klasse spezifisch für diesen Modal-Typ zu scopen ohne eine eigene ID am Wrapper zu haben. `word-break: break-all` auf `.w-5\/6` ist wichtig für die langen IPv6-Adressen die sonst den Layout-Flow brechen würden.
