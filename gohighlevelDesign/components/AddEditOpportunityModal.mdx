@@ -1,0 +1,173 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/AddEditOpportunityModal" />
+
+# Add / Edit Opportunity Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für das **„Neu Gelegenheit Hinzufügen"** Modal (`Section 83`) im SalonQueen GHL Whitelabel. Das Modal wird über `+ Hinzufügen Gelegenheit` auf der Opportunities-Seite geöffnet und ist zu `<body>` teleportiert.
+
+![Add Opportunity Modal Screenshot](/add-opportunity-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `.hr-modal:has(.crm-opportunities-modal-header)` |
+| Modal Header | `.crm-opportunities-modal-header` |
+| Close Button | `#modal-header-modal-close-btn` |
+| Modal Body | `.crm-opportunities-modal-body` |
+| Left Sidebar (Tabs) | `.wrapperHeader` |
+| Form Details Tab | `.crm-opportunities-modal-tab-details` |
+| Modal Footer | `.crm-opportunities-modal-footer` |
+| Cancel Button | `.crm-opportunities-cancel-btn` |
+| Submit Button | `#CreateUpdateOpportunity` |
+| Tags Popover | `.oppo-tags-select-popover` |
+
+---
+
+## CSS-Patterns (Section 83)
+
+### Modal Scope via `:has()`
+Das Modal hat keine eigene ID — der Scope wird über den `:has()` Selektor gesetzt:
+```css
+.hr-modal:has(.crm-opportunities-modal-header) {
+  background-color: var(--surface) !important;
+  border-radius: 12px !important;
+}
+```
+
+### Header & Close Button
+```css
+.crm-opportunities-modal-header .title {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
+
+#modal-header-modal-close-btn {
+  border-radius: 50% !important;
+  border: 1px solid var(--line-hard) !important;
+}
+#modal-header-modal-close-btn:hover {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Left Sidebar — Aktiver Tab
+```css
+.crm-opportunities-modal-body .wrapperHeader button {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+}
+```
+
+> ⚠️ GHL setzt hier `bg-blue-50 text-blue-800` direkt als Tailwind-Klassen — diese werden über die Wine-Variablen überschrieben.
+
+### Text Inputs
+```css
+.crm-opportunities-modal-tab-details .hr-input {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+.crm-opportunities-modal-tab-details .hr-input__border {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+}
+```
+
+### Select Dropdowns
+```css
+.crm-opportunities-modal-tab-details .hr-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+.crm-opportunities-modal-tab-details .hr-base-selection__border {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+}
+```
+
+### Error States — Danger beibehalten
+Pflichtfeldmarkierungen bleiben rot — kein Wine hier:
+```css
+.crm-opportunities-modal-tab-details .hr-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+.crm-opportunities-modal-tab-details .hr-form-item-feedback--error .hr-form-item-feedback__line {
+  color: var(--danger) !important;
+}
+```
+
+### Submit Button (`#CreateUpdateOpportunity`)
+Gleicher `background-image` Override wie bei Primary Buttons in Section 82:
+```css
+#CreateUpdateOpportunity {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+}
+#CreateUpdateOpportunity:hover {
+  background-image: linear-gradient(var(--wine-2), var(--wine-2)) !important;
+}
+```
+
+---
+
+## Tags Popover (`.oppo-tags-select-popover`)
+
+Das Tags-Popover wird separat zu `<body>` teleportiert — eigener Scope über `.oppo-tags-select-popover`.
+
+![Tags Popover Screenshot](/oppo-tags-popover-screenshot.png)
+
+### Popover Shell
+```css
+.oppo-tags-select-popover {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.10) !important;
+}
+```
+
+### Tag Pill
+```css
+.oppo-tags-select-popover .item-tag__wrapper {
+  background-color: var(--bg) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 20px !important;
+}
+.oppo-tags-select-popover .item-tag__label {
+  color: var(--ink-2) !important;
+  font-size: 12px !important;
+}
+```
+
+### Selected / Hover State
+```css
+.oppo-tags-select-popover .item.tags:hover .item-tag__wrapper {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+.oppo-tags-select-popover .item.tags.selected .item-tag__wrapper {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Teleportiertes Modal** — kein Kontext-Parent vorhanden, daher `:has()` als Scope-Ersatz
+- **Dropdown-Menu** (`.hr-base-select-menu`) ist ebenfalls teleportiert und wird global gescopert
+- **`text-blue-700` Link** (Felder hinzufügen/verwalten) wird über Tailwind-Klassen gesetzt — direkter Color-Override nötig
+- **Tags Popover** hat keine eindeutige ID — Scope ausschließlich über `.oppo-tags-select-popover`
