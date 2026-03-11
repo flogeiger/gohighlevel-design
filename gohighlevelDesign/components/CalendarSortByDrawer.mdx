@@ -1,0 +1,124 @@
+# 🔀 Sortieren Nach Drawer — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für den "Sort by" Drawer (Section 75) im SalonQueen GHL Whitelabel. Er öffnet sich über den "Sort by" Button in der Termin-Listenansicht.
+
+<img
+  src="/calendar-sort-by-drawer-screenshot.png"
+  alt="Sort by Drawer Screenshot"
+  style={{ width: '60%', display: 'block', margin: '0 auto 32px', borderRadius: '12px', border: '1px solid #e5e7eb' }}
+/>
+
+---
+
+## 75.1 · Sort Option Rows
+
+Die klickbaren Sortier-Zeilen mit inaktivem und aktivem State. Der aktive Eintrag ("Date Added – Descending") wird mit Wine-Hintergrund und Checkmark hervorgehoben.
+
+```css
+/* ── Inaktive Zeile — Hover */
+.mx-3 .hover\:bg-gray-100 {
+  border-radius: 8px !important;
+  transition: background 0.1s !important;
+}
+.mx-3 .hover\:bg-gray-100:hover {
+  background: var(--wine-lt) !important;
+}
+.mx-3 .hover\:bg-gray-100 .field-name {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+  transition: color 0.1s !important;
+}
+.mx-3 .hover\:bg-gray-100:hover .field-name {
+  color: var(--wine-2) !important;
+}
+
+/* ── Aktive / Selektierte Zeile (bg-primary-25 text-primary-600) */
+.mx-3 .bg-primary-25 {
+  background: var(--wine-lt) !important;
+  border-radius: 8px !important;
+}
+.mx-3 .text-primary-600 {
+  color: var(--wine-2) !important;
+}
+
+/* ── Aktives Field-Name Label */
+.mx-3 .bg-primary-25 .field-name {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--wine-2) !important;
+}
+
+/* ── Aktives Checkmark SVG */
+.mx-3 .bg-primary-25 svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 75.2 · Footer Buttons (Cancel & Apply)
+
+Identische Footer-Button IDs wie Section 74 — "Cancel" Ghost und "Apply" Wine-Primär.
+
+```css
+/* ── Cancel Button */
+#drawer-component-btn-negative-action {
+  border-radius: 8px !important;
+  --n-border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#drawer-component-btn-negative-action:hover {
+  background: var(--wine-lt) !important;
+}
+#drawer-component-btn-negative-action .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#drawer-component-btn-negative-action:hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#drawer-component-btn-negative-action .n-button__state-border {
+  border-color: transparent !important;
+}
+#drawer-component-btn-negative-action .n-button__content {
+  color: var(--ink-2) !important;
+}
+#drawer-component-btn-negative-action:hover .n-button__content {
+  color: var(--wine-2) !important;
+}
+
+/* ── "Apply" Primär-Button
+   Achtung: bg-primary-600 auf innerem div muss separat deaktiviert werden! */
+#drawer-component-btn-positive-action {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+  transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s !important;
+}
+#drawer-component-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px var(--wine-glow) !important;
+}
+/* Inneres bg-primary-600 div deaktivieren */
+#drawer-component-btn-positive-action .bg-primary-600 {
+  background-color: transparent !important;
+}
+#drawer-component-btn-positive-action .n-button__content {
+  color: var(--surface) !important;
+}
+#drawer-component-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#drawer-component-btn-positive-action .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+> **Hinweis:** Der aktive Sortiereintrag wird über Tailwind-Klassen `bg-primary-25` und `text-primary-600` identifiziert — beide werden auf Wine-Farben umgeschrieben. Die Footer-Button IDs `#drawer-component-btn-positive-action` / `-negative-action` sind dieselben wie in Section 74 (Advanced Filters) und Section 73 (Liste Anpassen) — das Styling ist bewusst identisch für Konsistenz.
