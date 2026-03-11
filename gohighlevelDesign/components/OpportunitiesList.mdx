@@ -1,0 +1,124 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/OpportunitiesList" />
+
+# CRM Opportunities — Kanban / List View
+
+Diese Seite dokumentiert alle CSS-Sections für die Opportunities-Ansicht (`#OpportunitiesList`) im SalonQueen GHL Whitelabel. Sie deckt sowohl die **Kanban-** als auch die **Listenansicht** ab und ist erreichbar über **Leads → Leads**.
+
+![Opportunities List Screenshot](/opportunities-list-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Page Wrapper | `#OpportunitiesList` |
+| Pipeline Ribbon | `#OpportunitiesList #newTopBar` |
+| Pipeline Dropdown | `#OpportunitiesList .hr-base-selection` |
+| View Toggle (Kanban/List) | `#kanban-toggle-btn`, `#list-view-toggle-btn` |
+| Ghost Buttons | `.hr-button--default-type` |
+| Primary Buttons | `.hr-button--primary-type` |
+| Views Bar (Alle / Liste) | `#views-bar` |
+| Quick Filter Bar | `.crm-opportunities-filters-bar` |
+| Kanban Board | `.crm-opportunities-board` |
+| Stage Header | `.crm-opportunities-stage-header` |
+| Opportunity Card | `.crm-opportunities-card` |
+
+---
+
+## CSS-Patterns (Section 82)
+
+### Page Background & Ribbon
+```css
+#OpportunitiesList .opportunitiesApp {
+  background-color: var(--bg) !important;
+}
+
+#OpportunitiesList #newTopBar {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+```
+
+### Pipeline Dropdown (NaïveUI hr-base-selection)
+NaïveUI injiziert Borders über CSS-Variablen inline — diese werden direkt überschrieben:
+```css
+#OpportunitiesList .hr-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### View Toggle Icons
+```css
+#OpportunitiesList #kanban-toggle-btn.active,
+#OpportunitiesList #list-view-toggle-btn.active {
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Ghost Buttons (Import, Sort By, Filter)
+```css
+#OpportunitiesList .hr-button--default-type {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-text-color-hover:   var(--wine-2) !important;
+}
+```
+
+### Primary Buttons (Hinzufügen Gelegenheit)
+Das `::before`-Pattern ist hier nicht nötig — GHL injiziert `background-image: linear-gradient(...)` direkt, daher wird dieser Wert explizit überschrieben:
+```css
+#OpportunitiesList .hr-button--primary-type,
+#OpportunitiesList .hr-button--primary-type:hover {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+}
+```
+
+### Views Bar (Alle / Liste Tabs)
+Aktiver Tab-Indikator wird über `::after` gezeichnet — kein `border-bottom` direkt:
+```css
+#OpportunitiesList #views-bar .view.active::after {
+  background-color: var(--wine) !important;
+}
+```
+
+### Kanban Card
+```css
+#OpportunitiesList .crm-opportunities-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#OpportunitiesList .crm-opportunities-card:hover {
+  border-color: var(--wine) !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+}
+```
+
+### Dropdown Option States (global, kein Scope)
+```css
+.hr-base-select-option--selected {
+  color: var(--wine-2) !important;
+}
+.hr-base-select-option:hover,
+.hr-base-select-option--pending {
+  background-color: var(--wine-lt) !important;
+}
+```
+
+> ⚠️ Diese Selektoren haben **keinen `#OpportunitiesList` Scope** — sie gelten global für alle NaïveUI Dropdowns auf der Seite.
+
+---
+
+## Besonderheiten
+
+- **Stage-Header Farbe:** Die farbige Oberkante der Stage-Karten kommt von einem GHL-internen Inline-Style (`--6a71572e`). Dieser wird **nicht überschrieben** — er ist gewollt und bleibt erhalten.
+- **hr-base-selection-input:** Muss explizit auf `background: transparent` gesetzt werden, da NaïveUI hier einen weißen Hintergrund per JS injiziert.
+- **Sort-Button (aktiv):** Zeigt Wine-Hintergrund und Wine-Border wenn ein Sort aktiv ist (`#list-view-sort-btn`).
