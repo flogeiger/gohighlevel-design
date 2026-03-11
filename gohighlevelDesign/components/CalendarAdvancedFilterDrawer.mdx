@@ -1,0 +1,253 @@
+# 🔍 Erweiterte Filter Drawer — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für den "Advanced Filters" Drawer (Section 74) im SalonQueen GHL Whitelabel. Er öffnet sich über den "Advanced Filters" Button in der Termin-Listenansicht und ist als verschachtelter Drawer rechts auf dem Screen positioniert.
+
+<img
+  src="/calendar-advanced-filter-drawer-screenshot.png"
+  alt="Advanced Filter Drawer Screenshot"
+  style={{ width: '100%', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '32px' }}
+/>
+
+---
+
+## 74.1 · Header — Zurück-Button & Beschreibung
+
+Zurück-Pfeil-Button im Header, Drawer-Titel "Advanced Filters" und Untertitel "Apply filters to appointments".
+
+```css
+/* ── Zurück-Pfeil Icon Container */
+.hl-drawer-header-icon .hl-icon-container {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: var(--bg) !important;
+  border: 1px solid var(--line-hard) !important;
+  cursor: pointer !important;
+  transition: all 0.12s !important;
+}
+.hl-drawer-header-icon .hl-icon-container:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+.hl-drawer-header-icon .icon-primary svg {
+  width: 16px !important;
+  height: 16px !important;
+  color: var(--ink-3) !important;
+}
+.hl-drawer-header-icon .hl-icon-container:hover .icon-primary svg {
+  color: var(--wine-2) !important;
+}
+
+/* ── Beschreibungs-Text unter dem Titel */
+.hl-drawer-description {
+  font-size: 12px !important;
+  color: var(--ink-4) !important;
+  margin-top: 2px !important;
+}
+```
+
+---
+
+## 74.2 · Filter Card (#compound-filter)
+
+Die Karte mit den Filter-Zeilen — je eine Zeile mit zwei Selects, Text-Input und Trash-Button.
+
+```css
+/* ── Filter Card Container */
+#compound-filter {
+  background: var(--bg) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+}
+
+/* ── Selects in der Filter Card */
+#field-value .n-base-selection,
+#compound-filter .hl-select .n-base-selection {
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-color: var(--surface) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-font-size: 13px !important;
+  --n-height: 36px !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-focus) !important;
+  --n-arrow-color: var(--ink-4) !important;
+  --n-placeholder-color: var(--ink-4) !important;
+}
+#field-value .n-base-selection__border,
+#compound-filter .hl-select .n-base-selection__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#field-value .n-base-selection__state-border,
+#compound-filter .hl-select .n-base-selection__state-border {
+  border-color: transparent !important;
+  border-radius: 8px !important;
+}
+#field-value .n-base-selection-overlay__wrapper,
+#compound-filter .hl-select .n-base-selection-overlay__wrapper {
+  font-size: 13px !important;
+  color: var(--ink-4) !important;
+}
+
+/* ── "Please Input" Text Input */
+#text-input {
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  --n-color: var(--surface) !important;
+  --n-color-disabled: var(--bg) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-caret-color: var(--wine-2) !important;
+  --n-placeholder-color: var(--ink-4) !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--wine-focus) !important;
+  border-radius: 8px !important;
+}
+#text-input .n-input__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#text-input .n-input__state-border { border-color: transparent !important; }
+#text-input input { color: var(--ink-2) !important; }
+```
+
+---
+
+## 74.3 · Trash Button & "+ AND" Button
+
+Trash-Button zum Löschen einer Filter-Zeile (Danger-Hover) und "+ AND" für verschachtelte Filter.
+
+```css
+/* ── Trash Button */
+#trash-btn {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--danger) !important;
+  --n-border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#trash-btn:hover { background: rgba(220, 38, 38, 0.06) !important; }
+#trash-btn .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#trash-btn:hover .n-button__border { border-color: var(--danger) !important; }
+#trash-btn .n-button__state-border { border-color: transparent !important; }
+#trash-btn svg { color: var(--ink-4) !important; }
+#trash-btn:hover svg { color: var(--danger) !important; }
+
+/* ── "+ AND" Button (verschachtelter Filter) */
+#add-nested-filter .n-button__content { color: var(--ink-3) !important; }
+#add-nested-filter:hover .n-button__content { color: var(--wine-2) !important; }
+#add-nested-filter svg { color: var(--ink-3) !important; }
+#add-nested-filter:hover svg { color: var(--wine-2) !important; }
+#add-nested-filter .hl-text-sm-medium { color: var(--ink-3) !important; }
+#add-nested-filter:hover .hl-text-sm-medium { color: var(--wine-2) !important; }
+
+/* ── "Filter löschen" Link */
+#clear-filter .text-red-400 {
+  color: var(--danger) !important;
+  opacity: 0.6 !important;
+}
+#clear-filter:hover .text-red-400 {
+  opacity: 1 !important;
+}
+```
+
+---
+
+## 74.4 · "+ Add Filter" Button
+
+Ghost-Button unterhalb der Filter-Karte zum Hinzufügen weiterer Filter-Blöcke.
+
+```css
+#add-filter {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#add-filter:hover { background: var(--wine-lt) !important; }
+#add-filter .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#add-filter:hover .n-button__border { border-color: var(--wine) !important; }
+#add-filter .n-button__state-border { border-color: transparent !important; }
+#add-filter svg { color: var(--ink-3) !important; }
+#add-filter:hover svg { color: var(--wine-2) !important; }
+#add-filter .hl-text-sm-medium { color: var(--ink-2) !important; }
+#add-filter:hover .hl-text-sm-medium { color: var(--wine-2) !important; }
+```
+
+---
+
+## 74.5 · Footer Buttons (Cancel & Apply)
+
+"Cancel" Ghost-Button und "Apply" primärer Wine-Button im Footer.
+
+```css
+/* ── Cancel Button */
+#drawer-component-btn-negative-action {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#drawer-component-btn-negative-action:hover {
+  background: var(--wine-lt) !important;
+}
+#drawer-component-btn-negative-action .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#drawer-component-btn-negative-action:hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#drawer-component-btn-negative-action .n-button__state-border {
+  border-color: transparent !important;
+}
+#drawer-component-btn-negative-action .n-button__content { color: var(--ink-2) !important; }
+#drawer-component-btn-negative-action:hover .n-button__content { color: var(--wine-2) !important; }
+
+/* ── "Apply" Primär-Button
+   Achtung: bg-primary-600 auf innerem div muss separat deaktiviert werden! */
+#drawer-component-btn-positive-action {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+  transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s !important;
+}
+#drawer-component-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px var(--wine-glow) !important;
+}
+/* Inneres bg-primary-600 div deaktivieren */
+#drawer-component-btn-positive-action .bg-primary-600 {
+  background-color: transparent !important;
+}
+#drawer-component-btn-positive-action .n-button__content { color: var(--surface) !important; }
+#drawer-component-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#drawer-component-btn-positive-action .n-button__state-border {
+  border-color: transparent !important;
+}
+```
+
+---
+
+> **Hinweis:** Dieser Drawer teilt die Footer-Button IDs `#drawer-component-btn-positive-action` / `-negative-action` mit anderen Drawern. Der `#apply`-Button hat — wie `#btn-save-smart-list` in Section 73 — ein inneres `div.bg-primary-600` das das GHL-Blau injiziert und explizit auf `transparent` gesetzt werden muss. Der `#trash-btn` verwendet bewusst `var(--danger)` statt Wine als Hover-Farbe um die destruktive Aktion zu signalisieren.
