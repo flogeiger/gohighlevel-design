@@ -1,0 +1,157 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/KarteAnpassenDrawer" />
+
+# Karte Anpassen Drawer — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für den **„Karte Anpassen"** Drawer (`Section 84`) im SalonQueen GHL Whitelabel. Der Drawer öffnet sich seitlich rechts und ist über das Menü auf der Opportunities-Seite erreichbar.
+
+![Karte Anpassen Drawer Screenshot](/karte-anpassen-drawer-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Drawer Shell | `.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper)` |
+| Header | `.hr-drawer-header` |
+| Titel | `.ui-drawer-title` |
+| Close Button | `.hr-drawer-header__close` |
+| Kartenvorschau | `.bg-gray-100` |
+| Activity Icon Badges | `.bg-blue-600` |
+| Date Pill | `.ui-primary.hr-tag` |
+| Radio Buttons (Layout) | `.hr-radio__dot-wrapper` |
+| Tabs (Felder / Schnelle Aktivitäten) | `.hr-tabs` |
+| Suchfeld | `.search-box` |
+| Checkboxen | `.hr-checkbox` |
+| „Neu"-Badge | `.hr-tag--blue` |
+| Collapse (Felder hinzufügen) | `.hr-collapse-item__header` |
+| Footer | `.hr-drawer-footer` |
+| Cancel Button | `#manage-fields-cancel` |
+| Apply Button | `#manage-fields-apply` |
+
+---
+
+## CSS-Patterns (Section 84)
+
+### Drawer Scope via `:has()`
+Der Drawer hat keine eigene ID — Scope über `:has()`:
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-drawer-content {
+  background-color: var(--surface) !important;
+}
+```
+
+### Kartenvorschau
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .bg-gray-100 {
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+```
+
+### Activity Icon Badges
+GHL setzt `bg-blue-600` direkt als Tailwind-Klasse — direkter Override:
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .bg-blue-600 {
+  background-color: var(--wine) !important;
+}
+```
+
+### Date / Appointment Pill (`.ui-primary.hr-tag`)
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .ui-primary.hr-tag {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .ui-primary.hr-tag .hr-tag__border {
+  border-color: var(--wine) !important;
+  opacity: 0.3 !important;
+}
+```
+
+### Radio Buttons (Kartenlayout: Standard / Kompakt / Unbeschriftet)
+NaïveUI setzt `--n-box-shadow-active` als Inline-Style direkt auf `<label>` — CSS-Var-Override verliert. Lösung: NaïveUI-Ring killen + eigener Ring via `::after`:
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-radio__dot-wrapper {
+  box-shadow: none !important; /* NaïveUI-Ring killen */
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-radio__dot-wrapper::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--line-hard) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-radio--checked .hr-radio__dot-wrapper::after {
+  border-color: var(--wine) !important;
+}
+/* Innerer Dot via background-image (--n-dot-color-active wird inline gesetzt) */
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-radio__dot--checked {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+}
+```
+
+### Tabs (Felder / Schnelle Aktivitäten)
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine-2) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-tabs-bar {
+  background-color: var(--wine) !important;
+}
+```
+
+### Checkboxen
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-color-checked:  var(--wine) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+/* Checkmark-Icon weiß */
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-checkbox-icon path {
+  fill: var(--surface) !important;
+}
+/* Disabled (Name der Gelegenheit — gesperrt) */
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-checkbox--disabled .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  opacity: 0.5 !important;
+}
+```
+
+### „Neu"-Badge (`.hr-tag--blue`)
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-tag--blue {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Footer Buttons
+```css
+/* Apply (Primary) */
+#manage-fields-apply {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+}
+#manage-fields-apply:not(:disabled):hover {
+  background-image: linear-gradient(var(--wine-2), var(--wine-2)) !important;
+}
+#manage-fields-apply:disabled {
+  opacity: 0.5 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Radio-Button-Ring** — NaïveUI schreibt `box-shadow` als Inline-Style, CSS-Variablen-Override greift nicht. Lösung: `box-shadow: none` + eigener Ring via `::after` Pseudo-Element.
+- **Radio-Dot** — `--n-dot-color-active` wird ebenfalls als Inline-Style gesetzt, daher `background-image: linear-gradient(var(--wine), var(--wine))` als Override.
+- **Drag-Handle-Icons** — SVG `stroke` statt `fill`, daher `stroke: var(--line-hard)` auf `.handle svg path`.
+- **Disabled Checkbox** (Name der Gelegenheit) — bleibt checked und locked, wird mit `opacity: 0.5` als gesperrt dargestellt.
