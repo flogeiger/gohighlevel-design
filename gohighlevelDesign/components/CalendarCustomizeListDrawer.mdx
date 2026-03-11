@@ -1,0 +1,226 @@
+# 🗂️ Liste Anpassen Drawer — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für `#calendar-advanced-filter-drawer` im SalonQueen GHL Whitelabel. Der Drawer öffnet sich in der Termin-Listenansicht über den Button "Customize List" / "Liste anpassen".
+
+<img
+  src="/calendar-customize-list-drawer-screenshot.png"
+  alt="Liste Anpassen Drawer Screenshot"
+  style={{ width: '50%', display: 'block', margin: '0 auto 32px', borderRadius: '12px', border: '1px solid #e5e7eb' }}
+/>
+
+---
+
+## 73.1 · Drawer Shell & Header
+
+Der Drawer-Container mit linker Border, Header-Hintergrund und Titel.
+
+```css
+/* ── Drawer Body */
+#calendar-advanced-filter-drawer .n-drawer-content {
+  background: var(--surface) !important;
+  border-left: 1px solid var(--line-hard) !important;
+}
+
+/* ── Header */
+#calendar-advanced-filter-drawer .n-drawer-header {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#calendar-advanced-filter-drawer .hl-drawer-title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Body */
+#calendar-advanced-filter-drawer .n-drawer-body {
+  background: var(--surface) !important;
+}
+```
+
+---
+
+## 73.2 · Close Button (×)
+
+Runder Schließen-Button mit Wine-Hover im Header.
+
+```css
+#calendar-advanced-filter-drawer .n-drawer-header__close {
+  border-radius: 50% !important;
+  border: 1px solid transparent !important;
+  transition: all 0.12s !important;
+}
+#calendar-advanced-filter-drawer .n-drawer-header__close:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+#calendar-advanced-filter-drawer .n-drawer-header__close svg {
+  fill: var(--ink-3) !important;
+}
+#calendar-advanced-filter-drawer .n-drawer-header__close:hover svg {
+  fill: var(--wine-2) !important;
+}
+```
+
+---
+
+## 73.3 · Name Input (Smart List)
+
+Das Eingabefeld für den Namen der Smart List oben im Drawer.
+
+```css
+#smartlist-name {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-color: var(--surface) !important;
+  --n-color-focus: var(--surface) !important;
+  --n-text-color: var(--ink-2) !important;
+  --n-caret-color: var(--wine-2) !important;
+  --n-placeholder-color: var(--ink-4) !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--wine-focus) !important;
+}
+#smartlist-name .n-input__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#smartlist-name .n-input__state-border { border-color: transparent !important; }
+#smartlist-name input { color: var(--ink-2) !important; }
+#smartlist-name .n-input__prefix svg { color: var(--ink-4) !important; }
+#smartlist-name.n-input--focus .n-input__prefix svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## 73.4 · Menu Zeilen (Filter-Optionen)
+
+Die klickbaren Zeilen mit Icon, Titel und Beschreibung — Hover wechselt alles auf Wine.
+
+```css
+/* ── Trennlinie */
+#calendar-advanced-filter-drawer .border-b.border-gray-200 {
+  border-color: var(--line-hard) !important;
+}
+
+/* ── Hover-Zeile */
+#calendar-advanced-filter-drawer .hover\:bg-gray-100 {
+  border-radius: 8px !important;
+  transition: background 0.1s !important;
+}
+#calendar-advanced-filter-drawer .hover\:bg-gray-100:hover {
+  background: var(--wine-lt) !important;
+}
+
+/* ── Zeilen-Icon */
+#calendar-advanced-filter-drawer .hover\:bg-gray-100 svg.text-gray-500 {
+  color: var(--ink-4) !important;
+  transition: color 0.1s !important;
+}
+#calendar-advanced-filter-drawer .hover\:bg-gray-100:hover svg.text-gray-500 {
+  color: var(--wine-2) !important;
+}
+
+/* ── Haupt-Label */
+#calendar-advanced-filter-drawer .hl-text-md-medium {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--ink-2) !important;
+  transition: color 0.1s !important;
+}
+#calendar-advanced-filter-drawer .hover\:bg-gray-100:hover .hl-text-md-medium {
+  color: var(--wine-2) !important;
+}
+
+/* ── Beschreibungs-Text */
+#calendar-advanced-filter-drawer .hl-text-md-normal {
+  font-size: 12px !important;
+  color: var(--ink-4) !important;
+}
+#calendar-advanced-filter-drawer .hover\:bg-gray-100:hover .hl-text-md-normal {
+  color: var(--wine-2) !important;
+}
+
+/* ── Chevron / Arrow Icon */
+#calendar-advanced-filter-drawer svg.text-gray-400 {
+  color: var(--ink-4) !important;
+  transition: color 0.1s !important;
+}
+#calendar-advanced-filter-drawer .hover\:bg-gray-100:hover svg.text-gray-400 {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 73.5 · Footer Buttons
+
+Footer mit "Änderungen verwerfen" (Ghost) und "Als neu speichern" (Wine-Primär).
+
+```css
+/* ── Footer */
+#calendar-advanced-filter-drawer .n-drawer-footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line-hard) !important;
+}
+
+/* ── "Änderungen verwerfen" Button */
+#discard-changes {
+  border-radius: 8px !important;
+  --n-border: 1px solid var(--line-hard) !important;
+  --n-border-radius: 8px !important;
+}
+#discard-changes .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#discard-changes .n-button__state-border { border-color: transparent !important; }
+#discard-changes .n-button__content { color: var(--ink-2) !important; }
+#discard-changes:not([disabled]):hover {
+  background: var(--wine-lt) !important;
+}
+#discard-changes:not([disabled]):hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#discard-changes:not([disabled]):hover .n-button__content {
+  color: var(--wine-2) !important;
+}
+
+/* ── "Als neu speichern" Button
+   Achtung: Das Blau kommt von bg-primary-600 auf einem inneren div,
+   nicht vom Button selbst — muss separat überschrieben werden! */
+#btn-save-smart-list {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px var(--wine-glow) !important;
+  transition: transform 0.12s, box-shadow 0.12s !important;
+}
+#btn-save-smart-list:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px var(--wine-glow) !important;
+}
+/* Inneres bg-primary-600 div deaktivieren */
+#btn-save-smart-list .bg-primary-600 {
+  background-color: transparent !important;
+}
+#btn-save-smart-list .n-button__content { color: var(--surface) !important; }
+#btn-save-smart-list .hl-text-sm-medium {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--surface) !important;
+}
+#btn-save-smart-list svg { color: var(--surface) !important; }
+#btn-save-smart-list .n-button__border {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#btn-save-smart-list .n-button__state-border { border-color: transparent !important; }
+```
+
+---
+
+> **Hinweis:** Der `#btn-save-smart-list` Button hat eine Besonderheit: GHL rendert ein inneres `div.bg-primary-600` welches das Blau injiziert — unabhängig vom Button-Hintergrund selbst. Daher wird `background-color: transparent` auf `.bg-primary-600` gesetzt und die Farbe direkt auf den Button-Wrapper angewendet. Das `#discard-changes` nutzt `:not([disabled])` um den deaktivierten Zustand visuell zu erhalten.
