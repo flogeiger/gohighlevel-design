@@ -1,0 +1,148 @@
+# 🗑️ Termin Löschen Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für das "Delete Appointment" Bestätigungs-Modal (Section 80) im SalonQueen GHL Whitelabel. Es öffnet sich über den Trash-Button im View Details oder Edit Details Drawer und fordert eine Bestätigung vor dem unwiderruflichen Löschen.
+
+<img
+  src="/calendar-delete-appointment-modal-screenshot.png"
+  alt="Termin Löschen Modal Screenshot"
+  style={{ width: '70%', display: 'block', margin: '0 auto 32px', borderRadius: '12px', border: '1px solid #e5e7eb' }}
+/>
+
+---
+
+## 80.1 · Modal Card & Error Icon
+
+Modal-Container und roter Trash-Icon-Kreis oben links.
+
+```css
+/* ── Modal Card */
+.n-card.n-modal.hl-modal:has(#confirmation-header-modal-close-btn) {
+  background: var(--surface) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--line-hard) !important;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10) !important;
+}
+
+/* ── Icon Container (Trash + Close nebeneinander) */
+.n-card.n-modal.hl-modal:has(#confirmation-header-modal-close-btn) .hl-icon-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+}
+
+/* ── Roter Trash-Icon-Kreis */
+.n-card.n-modal.hl-modal:has(#confirmation-header-modal-close-btn) .icon.icon-error {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50% !important;
+  background: rgba(220, 38, 38, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.n-card.n-modal.hl-modal:has(#confirmation-header-modal-close-btn) .icon.icon-error svg {
+  color: var(--danger) !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+```
+
+---
+
+## 80.2 · Header — Titel, Body-Text & Close Button
+
+Titel "Termin löschen", Bestätigungstext und Close-Button (×).
+
+```css
+/* ── Close Button */
+#confirmation-header-modal-close-btn {
+  border-radius: 50% !important;
+  border: 1px solid transparent !important;
+  transition: all 0.12s !important;
+}
+#confirmation-header-modal-close-btn:hover {
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+#confirmation-header-modal-close-btn svg { color: var(--ink-3) !important; }
+#confirmation-header-modal-close-btn:hover svg { color: var(--wine-2) !important; }
+#confirmation-header-modal-close-btn .n-button__border { border-color: transparent !important; }
+
+/* ── Titel */
+.n-card.n-modal.hl-modal:has(#confirmation-header-modal-close-btn) .title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--ink) !important;
+  margin-top: 8px !important;
+}
+
+/* ── Body-Text */
+.n-card.n-modal.hl-modal:has(#confirmation-header-modal-close-btn) .text-gray-700 {
+  font-size: 13px !important;
+  color: var(--ink-3) !important;
+  line-height: 1.6 !important;
+}
+```
+
+---
+
+## 80.3 · Footer Buttons (Stornieren & Löschen)
+
+"Stornieren" Ghost-Button und "Löschen" Danger-Primär-Button — bewusst **rot** statt Wine um die destruktive Aktion zu signalisieren.
+
+```css
+/* ── Footer Layout */
+.n-card.n-modal.hl-modal:has(#confirmation-header-modal-close-btn) .hl-modal-footer-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+}
+
+/* ── Stornieren Button */
+#confirmation-footer-btn-negative-action {
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#confirmation-footer-btn-negative-action:hover {
+  background: var(--wine-lt) !important;
+}
+#confirmation-footer-btn-negative-action .n-button__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+#confirmation-footer-btn-negative-action:hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#confirmation-footer-btn-negative-action .n-button__state-border {
+  border-color: transparent !important;
+}
+#confirmation-footer-btn-negative-action .n-button__content { color: var(--ink-2) !important; }
+#confirmation-footer-btn-negative-action:hover .n-button__content { color: var(--wine-2) !important; }
+
+/* ── "Löschen" Danger-Button
+   Achtung: NaïveUI setzt background-color inline → direkt überschreiben */
+#confirmation-footer-btn-positive-action {
+  background-color: var(--danger) !important;
+  border: 1px solid var(--danger) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#confirmation-footer-btn-positive-action:hover {
+  background-color: #B42318 !important;
+  border-color: #B42318 !important;
+  transform: translateY(-1px) !important;
+}
+#confirmation-footer-btn-positive-action .n-button__content { color: var(--surface) !important; }
+#confirmation-footer-btn-positive-action .n-button__border {
+  border-color: var(--danger) !important;
+  border-radius: 8px !important;
+}
+#confirmation-footer-btn-positive-action .n-button__state-border { border-color: transparent !important; }
+```
+
+---
+
+> **Hinweis:** Der Modal-Scope läuft über `:has(#confirmation-header-modal-close-btn)` — dieselbe Strategie wie beim Consent Modal (Section 78). Der "Löschen"-Button verwendet bewusst `var(--danger)` statt Wine — einer der wenigen Fälle im System wo Rot statt Wine als Primärfarbe eingesetzt wird, um die Irreversibilität der Aktion visuell zu kommunizieren. Hover-Farbe `#B42318` ist ein dunkleres Danger-Rot (hardcoded, kein Token).
