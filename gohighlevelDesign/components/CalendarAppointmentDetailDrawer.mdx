@@ -1,0 +1,262 @@
+# 📋 Termin Detail Drawer — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für den "View Details" Drawer (Section 77) im SalonQueen GHL Whitelabel. Er öffnet sich beim Klick auf einen Termin in der Listenansicht und zeigt alle Termin-Infos in einem rechten Drawer mit Sidebar-Tabs.
+
+<img
+  src="/calendar-appointment-detail-drawer-screenshot.png"
+  alt="View Details Drawer Screenshot"
+  style={{ width: '100%', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '32px' }}
+/>
+
+---
+
+## 77.1 · Header — Titel & Aktions-Icons
+
+Drawer-Titel "View Details", Edit-Icon (Pencil) und Delete-Icon (Trash).
+
+```css
+/* ── Titel */
+.n-drawer-header .p-\[5px\] {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Edit & Delete Icons */
+#view-appointment-edit-icon svg,
+#view-appointment-delete-icon svg {
+  color: var(--ink-3) !important;
+  transition: color 0.1s !important;
+}
+#view-appointment-edit-icon:hover svg  { color: var(--wine-2) !important; }
+#view-appointment-delete-icon:hover svg { color: var(--danger) !important; }
+```
+
+---
+
+## 77.2 · Rechte Sidebar Tabs
+
+Vertikale Tab-Leiste ganz rechts mit Icons für Details, Attendees, Forms, Payment, Notes und Activity Log.
+
+```css
+/* ── Tab Container */
+.border-l.border-gray-200.h-full {
+  border-color: var(--line-hard) !important;
+  background: var(--bg) !important;
+}
+
+/* ── Alle Tab-Buttons — Hover */
+#DETAILS, #ATTENDEES, #FORMS, #PAYMENT, #NOTES, #ACTIVITY_LOG {
+  transition: background 0.1s !important;
+}
+#DETAILS:hover, #ATTENDEES:hover, #FORMS:hover,
+#PAYMENT:hover, #NOTES:hover, #ACTIVITY_LOG:hover {
+  background: var(--wine-lt) !important;
+}
+
+/* ── Inaktive Tab Icons */
+#ATTENDEES svg, #FORMS svg, #PAYMENT svg,
+#NOTES svg, #ACTIVITY_LOG svg {
+  color: var(--ink-4) !important;
+  transition: color 0.1s !important;
+}
+#ATTENDEES:hover svg, #FORMS:hover svg, #PAYMENT:hover svg,
+#NOTES:hover svg, #ACTIVITY_LOG:hover svg {
+  color: var(--wine-2) !important;
+}
+
+/* ── Aktiver Tab (#DETAILS) — linke Wine-Border */
+#DETAILS {
+  border-left-color: var(--wine) !important;
+}
+#DETAILS svg { color: var(--wine-2) !important; }
+
+/* ── Inaktive Tabs — Border zurücksetzen */
+#ATTENDEES, #FORMS, #PAYMENT, #NOTES, #ACTIVITY_LOG {
+  border-left-color: transparent !important;
+}
+```
+
+---
+
+## 77.3 · Body Content — Badge, Titel & Info-Zeilen
+
+Event-Type Badge, Termin-Titel, Divider und alle Info-Zeilen mit Icon, Label und Wert.
+
+```css
+/* ── Event-Type Badge ("Appointment") */
+#event-type {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 2px 10px !important;
+}
+
+/* ── Termin-Titel */
+#view-appointment-title {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+  padding: 2px 0 !important;
+}
+
+/* ── Divider */
+.border-gray-200.h-auto {
+  border-color: var(--line-hard) !important;
+}
+
+/* ── Zeilen-Icons */
+#appointment-time-main-container svg,
+#appointment-contact-name-main-container svg,
+#appointment-contact-phone-main-container svg,
+#appointment-contact-email-main-container svg,
+#meeting-details-main-container svg,
+#appointment-calendar-main-container svg,
+#appointment-attendee-main-container svg,
+#appointment-booked-by-main-container svg,
+#appointment-source-main-container svg,
+#appointment-description-main-container svg {
+  color: var(--ink-4) !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-top: 1px !important;
+  flex-shrink: 0 !important;
+}
+
+/* ── Zeilen-Label (klein, gedimmt) */
+#appointment-time-title, #appointment-contact-name-title,
+#appointment-contact-phone-title, #appointment-contact-email-title,
+#meeting-details-title, #appointment-calendar-title,
+#appointment-attendee-title, #appointment-booked-by-title,
+#appointment-source-title, #appointment-description-title {
+  font-size: 11px !important;
+  color: var(--ink-4) !important;
+  font-weight: 400 !important;
+}
+
+/* ── Zeilen-Wert (plain text) */
+#appointment-time-main-container .text-gray-900,
+#appointment-contact-phone-main-container .text-gray-900,
+#appointment-contact-email-main-container .text-gray-900,
+#meeting-details-main-container .text-gray-900,
+#appointment-calendar-main-container .text-gray-900,
+#appointment-booked-by-main-container .text-gray-900,
+#appointment-source-main-container .text-gray-900,
+#appointment-description-main-container .text-gray-900 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+  margin-top: 0 !important;
+}
+
+/* ── Zeilen-Wert (Link — Name, Attendees) */
+#appointment-contact-name-main-container .text-primary-500,
+#appointment-attendee-main-container .text-primary-500 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--wine-2) !important;
+  text-decoration: none !important;
+  transition: color 0.1s !important;
+}
+#appointment-contact-name-main-container .text-primary-500:hover,
+#appointment-attendee-main-container .text-primary-500:hover {
+  color: var(--wine) !important;
+  text-decoration: underline !important;
+}
+
+/* ── Zeilen-Abstand kompakter */
+#appointment-time-main-container,
+#appointment-contact-name-main-container,
+#appointment-contact-phone-main-container,
+#appointment-contact-email-main-container,
+#meeting-details-main-container,
+#appointment-calendar-main-container,
+#appointment-attendee-main-container,
+#appointment-booked-by-main-container,
+#appointment-source-main-container,
+#appointment-description-main-container {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+```
+
+---
+
+## 77.4 · Footer — Status Dropdown
+
+"Status :"-Label und Custom-Dropdown zum Setzen des Termin-Status (Confirmed, Cancelled, Showed, No-Show, Invalid, New).
+
+```css
+/* ── "Status :" Label */
+.hl-drawer-actions .text-gray-700 {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--ink-2) !important;
+}
+
+/* ── Dropdown Container */
+.dropDownMain {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  transition: border-color 0.1s !important;
+}
+.dropDownMain:hover { border-color: var(--wine) !important; }
+
+/* ── Selektierte Option (geschlossen) */
+#appointment-status {
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+}
+#appointment-status svg { color: var(--ink-3) !important; }
+.selectedOptionText {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+}
+
+/* ── Dropdown Liste (geöffnet) */
+.hiddenDropDownList {
+  background: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px var(--wine-glow) !important;
+  overflow: hidden !important;
+}
+
+/* ── Dropdown Option */
+.dropDownOption {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--ink-2) !important;
+  padding: 8px 12px !important;
+  transition: background 0.1s, color 0.1s !important;
+  cursor: pointer !important;
+}
+.dropDownOption:hover {
+  background: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+
+/* ── Aktive / selektierte Option */
+.dropDownSelectedOption {
+  font-weight: 700 !important;
+  color: var(--wine-2) !important;
+}
+
+/* ── Status-Option Icons */
+#confirmed-drop-down-option svg,
+#cancelled-drop-down-option svg,
+#showed-drop-down-option svg,
+#noshow-drop-down-option svg,
+#invalid-drop-down-option svg,
+#new-drop-down-option svg {
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+> **Hinweis:** Der aktive Tab `#DETAILS` nutzt eine linke Border (`border-left-color: var(--wine)`) als Indikator — das ist ein GHL-Pattern der vertikalen Sidebar-Navigation. Die Info-Zeilen mit Links (Name, Attendees) verwenden `.text-primary-500` als GHL-Klasse und werden auf `var(--wine-2)` umgeschrieben. Das Status-Dropdown ist ein vollständig custom GHL-Dropdown (nicht NaïveUI) und wird daher ohne `--n-*` Variablen gestylt.
