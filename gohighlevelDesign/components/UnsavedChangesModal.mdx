@@ -1,0 +1,85 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/UnsavedChangesModal" />
+
+# Nicht gespeicherte Änderungen Modal — CSS Dokumentation
+
+Diese Seite dokumentiert alle CSS-Sections für das **„Nicht gespeicherte Änderungen"** Bestätigungs-Modal (`Section 85`) im SalonQueen GHL Whitelabel. Es erscheint wenn der Nutzer den „Karte Anpassen" Drawer schließt ohne zu speichern.
+
+![Unsaved Changes Modal Screenshot](/opportunity-unsaved-changes-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Scope | `.hr-card:has(#unsaved-setting-header-modal-close-btn)` |
+| Close Button (X) | `#unsaved-setting-header-modal-close-btn` |
+| Ghost Button (Weiter bearbeiten) | `#unsaved-setting-footer-btn-negative-action` |
+| Danger Button (Änderungen verwerfen) | `#unsaved-setting-footer-btn-positive-action` |
+
+---
+
+## CSS-Patterns (Section 85)
+
+### Scope & Warning Icon
+Dieses Modal hat direkte globale Button-IDs — kein `:has()` als Haupt-Scope nötig. Das Warning-Icon wird ausgeblendet da es visuell nicht zum SalonQueen Design passt:
+```css
+.hr-card:has(#unsaved-setting-header-modal-close-btn) .ui-icon-container,
+.hr-card:has(#unsaved-setting-header-modal-close-btn) .icon.icon-warning {
+  display: none !important;
+}
+```
+
+### Close Button (X)
+```css
+#unsaved-setting-header-modal-close-btn {
+  border-radius: 50% !important;
+  color: var(--ink-3) !important;
+}
+#unsaved-setting-header-modal-close-btn:hover {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Ghost Button — „Weiter bearbeiten"
+```css
+#unsaved-setting-footer-btn-negative-action .hr-button__border {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+}
+#unsaved-setting-footer-btn-negative-action:hover .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#unsaved-setting-footer-btn-negative-action .hr-button__content {
+  color: var(--ink-2) !important;
+}
+#unsaved-setting-footer-btn-negative-action:hover .hr-button__content {
+  color: var(--wine-2) !important;
+}
+```
+
+### Danger Button — „Änderungen verwerfen"
+Dieser Button bleibt **bewusst rot** — destruktive Aktion, Danger-Semantik korrekt. Kein Wine hier:
+```css
+#unsaved-setting-footer-btn-positive-action {
+  background-image: linear-gradient(var(--danger), var(--danger)) !important;
+}
+#unsaved-setting-footer-btn-positive-action .hr-button__border {
+  border: 1px solid var(--danger) !important;
+  border-radius: 6px !important;
+}
+#unsaved-setting-footer-btn-positive-action:hover {
+  background-image: linear-gradient(#B42318, #B42318) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Kein `:has()` als Haupt-Scope** — die Button-IDs (`#unsaved-setting-footer-btn-*`) sind global eindeutig, daher direktes Targeting ohne Wrapper-Scope.
+- **Danger bleibt Danger** — `#unsaved-setting-footer-btn-positive-action` verwendet `var(--danger)` statt Wine. Dies ist eine der wenigen Ausnahmen im gesamten CSS-System wo kein Wine verwendet wird.
+- **GHL Naming-Inversion** — der „positive action" Button ist semantisch die destruktive Aktion (Verwerfen). GHL benennt die Buttons nach ihrer Position, nicht nach ihrer Semantik.
