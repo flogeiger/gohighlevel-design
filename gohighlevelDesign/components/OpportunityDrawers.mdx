@@ -1,0 +1,203 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/OpportunityDrawers" />
+
+# Opportunity Drawers — CSS Dokumentation
+
+Diese Seite dokumentiert beide seitlichen Drawers der Opportunities-Seite (`Section 84`):
+
+| Drawer | Ansicht | Scope |
+|---|---|---|
+| **84-A · Karte Anpassen** | Kanban-Ansicht | `:has(.crm-opportunities-card-wrapper)` |
+| **84-B · Felder Verwalten** | Listenansicht | `:has(#m_cancel)` |
+
+Beide Drawers teilen eine gemeinsame CSS-Basis (Shell, Header, Checkboxen, Collapse, Footer-Struktur) und haben jeweils eigene spezifische Regeln.
+
+---
+
+## 84-A · Karte Anpassen (Kanban)
+
+![Karte Anpassen Drawer Screenshot](/karte-anpassen-drawer-screenshot.png)
+
+**Scope:** `.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper)`
+
+### Betroffene Selektoren
+
+| Element | Selektor |
+|---|---|
+| Drawer Shell | `:has(.crm-opportunities-card-wrapper) .hr-drawer-content` |
+| Kartenvorschau | `.bg-gray-100` |
+| Activity Icon Badges | `.bg-blue-600` |
+| Date Pill | `.ui-primary.hr-tag` |
+| Kartenlayout Radio Buttons | `.hr-radio__dot-wrapper` |
+| Tabs (Felder / Schnelle Aktivitäten) | `.hr-tabs` |
+| Cancel Button | `#manage-fields-cancel` |
+| Apply Button | `#manage-fields-apply` |
+
+### Kartenvorschau
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .bg-gray-100 {
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+```
+
+### Activity Icon Badges
+GHL setzt `bg-blue-600` als Tailwind-Klasse — direkter Override:
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .bg-blue-600 {
+  background-color: var(--wine) !important;
+}
+```
+
+### Date / Appointment Pill (`.ui-primary.hr-tag`)
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .ui-primary.hr-tag {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .ui-primary.hr-tag .hr-tag__border {
+  border-color: var(--wine) !important;
+  opacity: 0.3 !important;
+}
+```
+
+### Radio Buttons (Standard / Kompakt / Unbeschriftet)
+NaïveUI setzt `--n-box-shadow-active` als Inline-Style auf `<label>` — CSS-Var-Overrides erben nicht durch. Lösung: dieselben Vars direkt auf `.hr-radio__dot-wrapper` deklarieren — eigene Deklaration schlägt immer den geerbten Wert:
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-radio .hr-radio__dot-wrapper {
+  --n-box-shadow:        inset 0 0 0 1px var(--line-hard) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--wine), 0 0 0 2px var(--wine-ring) !important;
+}
+/* Innerer Dot — background-image gewinnt gegen NaïveUI background-color */
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-radio__dot.hr-radio__dot--checked {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+}
+```
+
+### Tabs (Felder / Schnelle Aktivitäten)
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine-2) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-tabs-bar {
+  background-color: var(--wine) !important;
+}
+```
+
+### Footer Buttons 84-A
+```css
+/* Cancel */
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) #manage-fields-cancel .hr-button__content {
+  color: var(--ink-2) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) #manage-fields-cancel:hover .hr-button__content {
+  color: var(--wine-2) !important;
+}
+/* Apply */
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) #manage-fields-apply {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+}
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) #manage-fields-apply:not(:disabled):hover {
+  background-image: linear-gradient(var(--wine-2), var(--wine-2)) !important;
+}
+```
+
+---
+
+## 84-B · Felder Verwalten (Listenansicht)
+
+![Felder Verwalten Drawer Screenshot](/felder-verwalten-drawer-screenshot.png)
+
+**Scope:** `.hr-drawer-content-wrapper:has(#m_cancel)`
+
+### Betroffene Selektoren
+
+| Element | Selektor |
+|---|---|
+| Drawer Shell | `:has(#m_cancel) .hr-drawer-content` |
+| Felder-Checkboxen | `.hr-checkbox` |
+| Collapse (Felder hinzufügen) | `.hr-collapse-item__header` |
+| Cancel Button | `#m_cancel` |
+| Apply Button | `#m_apply` |
+
+> 84-B hat **keine** Kartenvorschau, keine Radio-Buttons und keine Tabs — nur die Feldliste mit Checkboxen und die Collapse-Gruppen „Felder hinzufügen".
+
+### Footer Buttons 84-B
+```css
+/* Cancel */
+.hr-drawer-content-wrapper:has(#m_cancel) #m_cancel .hr-button__content {
+  color: var(--ink-2) !important;
+}
+.hr-drawer-content-wrapper:has(#m_cancel) #m_cancel:hover .hr-button__content {
+  color: var(--wine-2) !important;
+}
+/* Apply */
+.hr-drawer-content-wrapper:has(#m_cancel) #m_apply {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+}
+.hr-drawer-content-wrapper:has(#m_cancel) #m_apply:not(:disabled):hover {
+  background-image: linear-gradient(var(--wine-2), var(--wine-2)) !important;
+}
+.hr-drawer-content-wrapper:has(#m_cancel) #m_apply:disabled {
+  opacity: 0.5 !important;
+}
+```
+
+---
+
+## Gemeinsame Regeln (84-A + 84-B)
+
+Alle folgenden Patterns gelten für **beide Drawers** — die Selektoren werden comma-separated geschrieben.
+
+### Shell & Header
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-drawer-content,
+.hr-drawer-content-wrapper:has(#m_cancel) .hr-drawer-content {
+  background-color: var(--surface) !important;
+}
+```
+
+### Checkboxen
+NaïveUI setzt `--n-color-checked` inline — direkt auf `.hr-checkbox` überschreiben:
+```css
+.hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .hr-checkbox,
+.hr-drawer-content-wrapper:has(#m_cancel) .hr-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-color-checked:  var(--wine) !important;
+}
+/* Checked State */
+... .hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+/* Checkmark weiß */
+... .hr-checkbox-icon path { fill: var(--surface) !important; }
+/* Disabled (gesperrtes Pflichtfeld) */
+... .hr-checkbox--disabled .hr-checkbox-box { opacity: 0.5 !important; }
+```
+
+### Collapse (Felder hinzufügen)
+```css
+... .hr-collapse-item__header-main { color: var(--ink-2) !important; }
+... .hr-collapse-item__header { border-bottom: 1px solid var(--line-hard) !important; }
+... .hr-collapse-item__header:hover .hr-collapse-item__header-main { color: var(--wine-2) !important; }
+```
+
+### „Neu"-Badge & Links
+```css
+... .hr-tag--blue { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+... .create-link, ... .text-blue-600 { color: var(--wine-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+- **Zwei Scopes für zwei Drawers** — `#manage-fields-cancel/apply` für Kanban, `#m_cancel/#m_apply` für Listenansicht. Gleiche Funktion, unterschiedliche IDs.
+- **Radio-Button-Override** — NaïveUI CSS-Variablen auf `<label>` als Inline-Style werden durch Deklaration derselben Vars direkt auf `.hr-radio__dot-wrapper` überschrieben (eigene Deklaration > Vererbung).
+- **84-B hat keine Tabs/Radios** — die Listenansicht-Felder-Drawer zeigt nur eine flache Feldliste + Collapse-Gruppen, kein Kartenlayout-Selector.
+- **Drag-Handles** — SVG `stroke` statt `fill`, daher `stroke: var(--line-hard)` auf `.handle svg path`.
