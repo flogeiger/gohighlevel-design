@@ -2,11 +2,9 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Leads/OpportunitiesList" />
 
-# CRM Opportunities — Kanban / List View
+# CRM Opportunities — Kanban & Listenansicht
 
-Diese Seite dokumentiert alle CSS-Sections für die Opportunities-Ansicht (`#OpportunitiesList`) im SalonQueen GHL Whitelabel. Sie deckt sowohl die **Kanban-** als auch die **Listenansicht** ab und ist erreichbar über **Leads → Leads**.
-
-![Opportunities List Screenshot](/opportunities-list-screenshot.png)
+Diese Seite dokumentiert alle CSS-Sections für die Opportunities-Ansicht (`#OpportunitiesList`) im SalonQueen GHL Whitelabel. Erreichbar über **Leads → Leads**.
 
 ---
 
@@ -25,31 +23,37 @@ Diese Seite dokumentiert alle CSS-Sections für die Opportunities-Ansicht (`#Opp
 | Kanban Board | `.crm-opportunities-board` |
 | Stage Header | `.crm-opportunities-stage-header` |
 | Opportunity Card | `.crm-opportunities-card` |
+| Listenansicht Tabelle | `.my-table.tabulator` |
+| Bulk Action Bar | `.bulk-action` |
 
 ---
 
-## CSS-Patterns (Section 82)
+## Kanban-Ansicht
+
+![Opportunities Kanban Screenshot](/opportunities-list-screenshot.png)
 
 ### Page Background & Ribbon
 ```css
 #OpportunitiesList .opportunitiesApp {
   background-color: var(--bg) !important;
 }
-
 #OpportunitiesList #newTopBar {
   background-color: var(--surface) !important;
   border-bottom: 1px solid var(--line-hard) !important;
 }
 ```
 
-### Pipeline Dropdown (NaïveUI hr-base-selection)
-NaïveUI injiziert Borders über CSS-Variablen inline — diese werden direkt überschrieben:
+### Pipeline Dropdown (NaïveUI `hr-base-selection`)
+NaïveUI injiziert Borders über CSS-Variablen inline — direkt überschreiben:
 ```css
 #OpportunitiesList .hr-base-selection {
   --n-border-hover:      1px solid var(--wine) !important;
   --n-border-active:     1px solid var(--wine) !important;
   --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
   --n-caret-color:       var(--wine) !important;
+}
+#OpportunitiesList .hr-base-selection__border {
+  border: 1px solid var(--line-hard) !important;
 }
 ```
 
@@ -67,30 +71,43 @@ NaïveUI injiziert Borders über CSS-Variablen inline — diese werden direkt ü
 #OpportunitiesList .hr-button--default-type {
   border: 1px solid var(--line-hard) !important;
   color: var(--ink-2) !important;
-  --n-border-hover:       1px solid var(--wine) !important;
-  --n-text-color-hover:   var(--wine-2) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
 }
 ```
 
 ### Primary Buttons (Hinzufügen Gelegenheit)
-Das `::before`-Pattern ist hier nicht nötig — GHL injiziert `background-image: linear-gradient(...)` direkt, daher wird dieser Wert explizit überschrieben:
+NaïveUI setzt `background-color` über `--n-color-hover` — `background-image` hat im Background-Shorthand immer höhere Priorität und gewinnt:
 ```css
 #OpportunitiesList .hr-button--primary-type,
 #OpportunitiesList .hr-button--primary-type:hover {
   background-image: linear-gradient(var(--wine), var(--wine)) !important;
 }
+#OpportunitiesList .hr-button--primary-type:hover {
+  background-image: linear-gradient(var(--wine-2), var(--wine-2)) !important;
+}
 ```
 
 ### Views Bar (Alle / Liste Tabs)
-Aktiver Tab-Indikator wird über `::after` gezeichnet — kein `border-bottom` direkt:
+Der aktive Tab-Indikator wird über `::after` gezeichnet — kein `border-bottom`:
 ```css
+#OpportunitiesList #views-bar .view.active {
+  color: var(--wine-2) !important;
+  border-bottom: none !important;
+}
 #OpportunitiesList #views-bar .view.active::after {
   background-color: var(--wine) !important;
 }
 ```
 
-### Kanban Card
+### Kanban Stage & Card
 ```css
+/* Stage Header — farbige Oberkante von GHL Inline-Style bleibt erhalten */
+#OpportunitiesList .crm-opportunities-stage-header {
+  background-color: var(--surface) !important;
+}
+
+/* Card */
 #OpportunitiesList .crm-opportunities-card {
   background-color: var(--surface) !important;
   border: 1px solid var(--line-hard) !important;
@@ -102,23 +119,143 @@ Aktiver Tab-Indikator wird über `::after` gezeichnet — kein `border-bottom` d
 }
 ```
 
-### Dropdown Option States (global, kein Scope)
+### Dropdown Options (global, kein Scope)
 ```css
-.hr-base-select-option--selected {
-  color: var(--wine-2) !important;
-}
+.hr-base-select-option--selected { color: var(--wine-2) !important; }
 .hr-base-select-option:hover,
-.hr-base-select-option--pending {
+.hr-base-select-option--pending  { background-color: var(--wine-lt) !important; }
+```
+> ⚠️ Diese Selektoren haben **keinen `#OpportunitiesList` Scope** — NaïveUI teleportiert Dropdown-Menüs direkt zu `<body>`.
+
+---
+
+## Listenansicht (Tabulator.js)
+
+![Opportunities List View Screenshot](/opportunities-listview-screenshot.png)
+
+Die Listenansicht verwendet **Tabulator.js** als Tabellen-Framework — eigene Klassenstruktur, unabhängig von NaïveUI.
+
+### Tabelle
+```css
+#OpportunitiesList .my-table.tabulator {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+
+/* Header */
+#OpportunitiesList .tabulator-header {
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#OpportunitiesList .tabulator-col-title {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+
+/* Rows */
+#OpportunitiesList .tabulator-row {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#OpportunitiesList .tabulator-row:hover {
   background-color: var(--wine-lt) !important;
+}
+#OpportunitiesList .tabulator-cell {
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
 }
 ```
 
-> ⚠️ Diese Selektoren haben **keinen `#OpportunitiesList` Scope** — sie gelten global für alle NaïveUI Dropdowns auf der Seite.
+### Custom Checkboxen (Tabulator Selector-Column)
+Native `<input type="checkbox">` mit `-webkit-appearance: none` + SVG Data-URI als Checkmark:
+```css
+#OpportunitiesList .tabulator-cell.selector input[type="checkbox"] {
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 1.5px solid var(--line-hard) !important;
+  border-radius: 4px !important;
+}
+#OpportunitiesList .tabulator-cell.selector input[type="checkbox"]:checked {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  /* Weißes Checkmark als inline SVG Data-URI */
+  background-image: url("data:image/svg+xml,...") !important;
+}
+/* Indeterminate — Header-Checkbox bei Teilauswahl */
+#OpportunitiesList .tabulator-cell.selector input[type="checkbox"]:indeterminate {
+  background-color: var(--wine) !important;
+  /* Weißer Dash als inline SVG Data-URI */
+  background-image: url("data:image/svg+xml,...") !important;
+}
+```
+
+### Pagination
+```css
+#OpportunitiesList .tabulator-page {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 4px !important;
+  color: var(--ink-2) !important;
+}
+#OpportunitiesList .tabulator-page:hover:not([disabled]) {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+#OpportunitiesList .tabulator-page.active {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  font-weight: 600 !important;
+}
+```
+
+### Skeleton Loader (Ladezustand)
+```css
+#OpportunitiesList .skeleton-loader .skeleton-data {
+  background: linear-gradient(
+    90deg,
+    var(--bg) 25%,
+    var(--line-hard) 50%,
+    var(--bg) 75%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.5s infinite !important;
+}
+```
+
+### Bulk Action Bar (erscheint nach Zeilen-Auswahl)
+```css
+#OpportunitiesList .bulk-action {
+  background-color: var(--wine-lt) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 20px !important;
+}
+#OpportunitiesList .bulk-action .inner-count {
+  color: var(--wine-2) !important;
+  font-weight: 600 !important;
+}
+```
+
+### Empty State Button (Hinzufügen)
+GHL setzt hier einen grünen NaïveUI-Button — wird auf Wine überschrieben:
+```css
+#add-object-record-button-opportunity {
+  background-image: linear-gradient(var(--wine), var(--wine)) !important;
+}
+#add-object-record-button-opportunity:hover {
+  background-image: linear-gradient(var(--wine-2), var(--wine-2)) !important;
+}
+```
 
 ---
 
 ## Besonderheiten
 
-- **Stage-Header Farbe:** Die farbige Oberkante der Stage-Karten kommt von einem GHL-internen Inline-Style (`--6a71572e`). Dieser wird **nicht überschrieben** — er ist gewollt und bleibt erhalten.
-- **hr-base-selection-input:** Muss explizit auf `background: transparent` gesetzt werden, da NaïveUI hier einen weißen Hintergrund per JS injiziert.
-- **Sort-Button (aktiv):** Zeigt Wine-Hintergrund und Wine-Border wenn ein Sort aktiv ist (`#list-view-sort-btn`).
+- **Stage-Header Farbe** — die farbige Oberkante der Kanban-Stage-Karten kommt von GHL Inline-Style (`--6a71572e`) und wird bewusst **nicht** überschrieben.
+- **`hr-base-selection-input`** — NaïveUI injiziert beim Focus einen weißen/blauen Browser-Hintergrund. Fix: `background: transparent`, `outline: none`, `-webkit-appearance: none`.
+- **Tabulator ≠ NaïveUI** — die Listenansicht verwendet Tabulator.js mit eigenen Klassen (`.tabulator-*`), keine `hr-`-Prefix Komponenten.
+- **Inline-Farben im Empty State** — Tabulator rendert `style="color:#101828"` direkt auf DOM-Elemente. Fix via Attribut-Selektor `[style*="color:#101828"]`.
