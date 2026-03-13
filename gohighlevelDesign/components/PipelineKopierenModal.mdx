@@ -1,0 +1,149 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/PipelineKopierenModal" />
+
+# Pipeline In Unterkonten kopieren Modal — CSS Dokumentation
+
+Das **„In Unterkonten kopieren"** Modal (`Section 92`) öffnet sich über das Kebab-Menü einer Pipeline-Zeile. Es erlaubt das Kopieren einer Pipeline (inkl. Phasen + Diagrammsichtbarkeit) in ein oder mehrere Unterkonten.
+
+**Scope:** `#pipeline-copy-sub-account-modal`
+
+![Pipeline Kopieren Modal Screenshot](/pipeline-kopieren-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `#pipeline-copy-sub-account-modal` |
+| Close Button | `#hr-modal__close-button` |
+| Pipeline-Name Input | `#pipeline-name` |
+| Unterkonten Multi-Select | `#remote-sub-accounts-select` |
+| Ausgewählte Tags | `.hr-base-selection-tag-wrapper .hr-tag__container` |
+| Cancel Button | `#cancel` |
+| Copy Button | `#copy` |
+
+---
+
+## Modal Header
+
+```css
+#pipeline-copy-sub-account-modal .hr-modal__header-title .text-gray-900 {
+  color: var(--ink) !important;
+}
+#pipeline-copy-sub-account-modal .hr-modal__header-title .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+#pipeline-copy-sub-account-modal #hr-modal__close-button:hover {
+  background-color: var(--wine-lt) !important;
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## Pipeline-Name Input (`#pipeline-name`)
+
+```css
+#pipeline-copy-sub-account-modal #pipeline-name {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+/* Pflichtfeld-Stern + Error bleibt danger */
+#pipeline-copy-sub-account-modal .hr-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+```
+
+---
+
+## Unterkonten Multi-Select (`#remote-sub-accounts-select`)
+
+### Select Input
+```css
+#pipeline-copy-sub-account-modal #remote-sub-accounts-select .hr-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### Ausgewählte Tags (`.hr-tag__container`)
+GHL rendert ausgewählte Unterkonten als Tags direkt im Select-Feld:
+```css
+/* Tag Hintergrund */
+#pipeline-copy-sub-account-modal .hr-base-selection-tag-wrapper .hr-tag__container {
+  background-color: var(--wine-lt) !important;
+}
+/* Tag Text */
+#pipeline-copy-sub-account-modal .hr-base-selection-tag-wrapper .hr-tag__container .hr-text {
+  color: var(--wine-2) !important;
+}
+/* Tag Border */
+#pipeline-copy-sub-account-modal .hr-base-selection-tag-wrapper .hr-tag__border {
+  border-color: var(--wine) !important;
+}
+/* Close-Button im Tag */
+#pipeline-copy-sub-account-modal .hr-base-selection-tag-wrapper .hr-tag__close {
+  color: var(--wine) !important;
+}
+#pipeline-copy-sub-account-modal .hr-base-selection-tag-wrapper .hr-tag__close:hover {
+  color: var(--wine-2) !important;
+  background-color: rgba(233, 194, 197, 0.3) !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Cancel (outlined Ghost)
+```css
+#pipeline-copy-sub-account-modal #cancel {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#pipeline-copy-sub-account-modal #cancel:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Copy (Primary — Wine)
+Direktes `background-color` Override — gleicher Pattern wie Section 88/89:
+```css
+#pipeline-copy-sub-account-modal #copy {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+}
+#pipeline-copy-sub-account-modal #copy:not(:disabled):hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#pipeline-copy-sub-account-modal #copy:disabled {
+  opacity: 0.5 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Tag `.hr-button__border` Pattern** — Ausgewählte Tags haben wie Buttons ein separates `.hr-tag__border` Div. Border-Farbe muss direkt auf dieses Div gesetzt werden — nicht via CSS-Variable.
+- **Multi-Select Tags** — GHL rendert ausgewählte Unterkonten als inline-Tags im Select-Feld (nicht als Chips außerhalb). Der Scope ist `.hr-base-selection-tag-wrapper` innerhalb des Selects.
+- **Pflichtfeld-Stern & Error** — Beide bleiben `var(--danger)`. Pipeline-Name und Unterkonten-Auswahl sind Pflichtfelder.
+- **`#copy` disabled State** — Der Copy-Button bleibt bis zur gültigen Auswahl disabled. `opacity: 0.5` bei unverändertem Wine-Hintergrund signalisiert den inaktiven Zustand.
