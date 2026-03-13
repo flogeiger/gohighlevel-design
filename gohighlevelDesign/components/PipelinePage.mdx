@@ -1,0 +1,163 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/PipelinePage" />
+
+# Pipeline-Einstellungen Seite — CSS Dokumentation
+
+Die **„Pipelines"** Seite (`Section 89`) ist über den Tab „Pipelines" in der Leads-Navigation erreichbar. Sie zeigt eine Tabelle aller vorhandenen Pipelines mit Suche, Pagination und einem „+ Pipeline Erstellen" Button.
+
+**Scope:** `#pipeline-page`
+
+![Pipeline-Einstellungen Seite Screenshot](/pipeline-page-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Page Background | `#pipeline-page` |
+| Page Header | `#pipeline-page-title` / `#pipeline-page-description` |
+| „Pipeline Erstellen" Button | `#primary-blue` |
+| Table Wrapper | `#pipeline-table-wrapper` |
+| Such-Input | `#pipeline-table-wrapper-header-global-filter` |
+| Tabelle | `#pipeline-table` |
+| Table Header | `.hr-data-table__cell-header` |
+| Body Rows | `.hr-data-table__body-row` |
+| Kebab-Button | `#pipeline-actions-button` |
+| Footer / Pagination | `.hr-data-table-wrapper-footer` |
+| Per-Page Dropdown | `#per-page-dropdown` |
+| Prev/Next Buttons | `#hr-prev-button` / `#next-button` |
+
+---
+
+## Page Header
+
+```css
+#pipeline-page #pipeline-page-title       { color: var(--ink) !important; }
+#pipeline-page #pipeline-page-description { color: var(--ink-3) !important; }
+```
+
+### „+ Pipeline Erstellen" Button (`#primary-blue`)
+GHL nutzt die ID `#primary-blue` für diesen Primary-Button — direktes `background-color` Override:
+```css
+#pipeline-page #primary-blue {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+}
+#pipeline-page #primary-blue:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+/* .hr-button__border ist ein separates Div */
+#pipeline-page #primary-blue .hr-button__border       { border-color: var(--wine) !important; }
+#pipeline-page #primary-blue:hover .hr-button__border  { border-color: var(--wine-2) !important; }
+```
+
+---
+
+## Tabelle
+
+### Such-Input (`#pipeline-table-wrapper-header-global-filter`)
+```css
+#pipeline-page #pipeline-table-wrapper-header-global-filter {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+### Table Header
+```css
+#pipeline-page .hr-data-table__cell-header {
+  background-color: var(--wine-lt) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#pipeline-page .hr-data-table__cell-header .hr-text {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+/* Header Icons als <img> → Wine-Filter */
+#pipeline-page .hr-data-table__cell-header .hr-icon img {
+  filter: brightness(0) saturate(100%)
+          invert(23%) sepia(60%) saturate(400%)
+          hue-rotate(300deg) brightness(80%) contrast(90%) !important;
+  opacity: 0.7 !important;
+}
+```
+
+### Body Rows
+```css
+#pipeline-page .hr-data-table__body-row {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#pipeline-page .hr-data-table__body-row:hover {
+  background-color: var(--wine-lt) !important;
+}
+#pipeline-page .hr-data-table__body-cell .hr-text { color: var(--ink-2) !important; }
+#pipeline-page .hr-data-table__body-cell span     { color: var(--ink-2) !important; }
+```
+
+### Kebab-Button (`#pipeline-actions-button`)
+```css
+#pipeline-page #pipeline-actions-button { color: var(--ink-3) !important; border-radius: 6px !important; }
+#pipeline-page #pipeline-actions-button:hover {
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Pagination & Footer
+
+### Per-Page Dropdown (`#per-page-dropdown`)
+```css
+#pipeline-page #per-page-dropdown .hr-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:     6px !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### Prev / Next Buttons
+```css
+#pipeline-page #hr-prev-button,
+#pipeline-page #next-button {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-color-hover:      var(--wine-lt) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+  --n-border-radius:    6px !important;
+}
+#pipeline-page #hr-prev-button:disabled,
+#pipeline-page #next-button:disabled { opacity: 0.4 !important; }
+```
+
+### Aktive Seitennummer
+```css
+#pipeline-page .hr-pagination-item__active button {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+  background-color: var(--wine-lt) !important;
+  border-radius: 4px !important;
+}
+#pipeline-page .hr-pagination-item__active button .hr-button__border {
+  border-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **`#primary-blue`** — GHL nutzt diese generische ID für den „Pipeline Erstellen" Button. Direktes `background-color` Override notwendig da kein NaïveUI Primary-Typ verwendet wird.
+- **Header Icons als `<img>`** — Die Icons in der Tabellenkopfzeile (Pipeline-Name, Anzahl, Datum, Aktivitäten) sind als `<img>` gerendert. CSS `filter` konvertiert zu einem Wine-nahen Farbton.
+- **Pagination aktive Seite** — GHL setzt keinen Wine-Farbton für die aktive Seite. Override via `.hr-pagination-item__active button` mit `wine-lt` Background und `wine-2` Text.
+- **Kebab-Button ID** — `#pipeline-actions-button` erscheint pro Tabellenzeile. Die ID ist nicht unique im DOM — CSS-Override greift trotzdem auf alle Instanzen.
