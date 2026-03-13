@@ -1,0 +1,168 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/MassenaktionenPage" />
+
+# Massenaktionen Seite — CSS Dokumentation
+
+Die **„Massedaten-Aktionen"** Seite (`Section 93`) ist über den dritten Tab in der Leads-Navigation erreichbar. Sie zeigt eine Tabelle aller durchgeführten Massenaktionen mit Filter-Bar (Datum, Status, Aktion, Benutzer) und Pagination.
+
+**Scope:** `#bulkActionsList`
+
+![Massenaktionen Seite Screenshot](/massenaktionen-page-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Page Background | `#bulkActionsList` |
+| Date Picker Start / End | `#hr-date-picker-start` / `#hr-date-picker-end` |
+| Filter Selects | `#status-filter-select` / `#action-filter-select` / `#user-filter-select` |
+| Tabelle | `#bulk-actions-data-table` |
+| Tabellen-Header | `.hr-data-table__cell-header` |
+| Body Rows | `.hr-data-table__body-row` |
+| Status Badge | `.bg-green-100` / `.bg-yellow-100` / `.bg-red-100` |
+| Avatar | `.hr-avatar__container` |
+| Pagination Buttons | `#bulk-actions-previous-btn` / `#bulk-actions-next-btn` |
+| Dropdown Options | `.hr-base-select-option` (teleportiert — global) |
+
+---
+
+## Filter-Bar
+
+### Date Picker Inputs
+```css
+#bulkActionsList #hr-date-picker-start,
+#bulkActionsList #hr-date-picker-end {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+### Filter Selects (Status / Aktionen / Benutzer)
+```css
+#bulkActionsList #status-filter-select .hr-base-selection,
+#bulkActionsList #action-filter-select .hr-base-selection,
+#bulkActionsList #user-filter-select .hr-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+---
+
+## Datentabelle
+
+### Tabellen-Header
+```css
+#bulkActionsList .hr-data-table__cell-header {
+  background-color: var(--wine-lt) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#bulkActionsList .hr-data-table__cell-header .hr-text {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+```
+
+### Body Rows
+```css
+#bulkActionsList .hr-data-table__body-row {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#bulkActionsList .hr-data-table__body-row:hover {
+  background-color: var(--wine-lt) !important;
+}
+#bulkActionsList .hr-data-table__body-cell .hr-text-sm { color: var(--ink-2) !important; }
+#bulkActionsList .hr-data-table__body-cell .text-gray-500 { color: var(--ink-4) !important; }
+```
+
+### Status Badges
+GHL setzt Tailwind-Farben direkt — Status-Badges behalten ihre semantischen Farben (kein Wine):
+```css
+#bulkActionsList .bg-green-100  { background-color: #d1fae5 !important; color: #065f46 !important; } /* Vollständig */
+#bulkActionsList .bg-yellow-100 { background-color: #fef3c7 !important; color: #92400e !important; } /* In Bearbeitung */
+#bulkActionsList .bg-red-100    { background-color: #fee2e2 !important; color: #991b1b !important; } /* Fehlgeschlagen */
+```
+
+### Avatar (Benutzer-Spalte)
+```css
+#bulkActionsList .hr-avatar__container { background-color: var(--wine-lt) !important; }
+#bulkActionsList .hr-avatar__text      { color: var(--wine-2) !important; }
+```
+
+---
+
+## Pagination & Footer
+
+```css
+#bulkActionsList #bulk-actions-previous-btn,
+#bulkActionsList #bulk-actions-next-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 6px !important;
+}
+#bulkActionsList #bulk-actions-previous-btn:not(:disabled):hover,
+#bulkActionsList #bulk-actions-next-btn:not(:disabled):hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+#bulkActionsList #bulk-actions-previous-btn:disabled,
+#bulkActionsList #bulk-actions-next-btn:disabled { opacity: 0.4 !important; }
+```
+
+---
+
+## Dropdown Options (teleportiert — global)
+
+NaïveUI teleportiert alle Filter-Dropdowns zu `<body>` — kein `#bulkActionsList` Scope möglich. GHL setzt `--n-option-color-active` als Inline-Style auf den Menu-Container. Fix: CSS-Variable direkt auf `.hr-base-select-menu` überschreiben + Hex-Fallback:
+
+```css
+/* CSS-Variable auf Menu Container überschreiben */
+.hr-base-select-menu {
+  --n-option-color-active:         #fdf2f3 !important;
+  --n-option-color-active-pending: #f5e4e6 !important;
+}
+
+/* Selected State — Hex-Fallback (wine-lt = #fdf2f3) */
+body .hr-base-select-option.hr-base-select-option--selected,
+.hr-base-select-menu .hr-base-select-option.hr-base-select-option--selected {
+  background-color: #fdf2f3 !important;
+  color: var(--wine-2) !important;
+}
+
+/* Hover / Pending */
+.hr-base-select-option--pending {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+
+/* Checkmark */
+.hr-base-select-option--selected .hr-base-select-option__check svg path {
+  fill: var(--wine-2) !important;
+}
+```
+
+> ⚠️ **Nuclear Fix notwendig** — GHL setzt `--n-option-color-active` mit `!important` als Inline-Style auf den `.hr-base-select-menu` Container. `body` + doppelte Klassen-Kombination ist notwendig um die Spezifität zu übertreffen. Hex-Wert `#fdf2f3` entspricht `var(--wine-lt)` und greift auch wenn die CSS-Variable nicht aufgelöst wird.
+
+---
+
+## Besonderheiten
+
+- **Status Badges bleiben semantisch** — `Vollständig` = grün, `In Bearbeitung` = gelb, `Fehlgeschlagen` = rot. Diese Bedeutungen dürfen nicht durch Wine ersetzt werden.
+- **Avatar-Farben bleiben GHL-generiert** — Benutzer-Avatare erhalten benutzerspezifische Hintergrundfarben von GHL. Nur `.hr-avatar__text` (Initialen) und leere Avatare werden auf Wine umgestellt.
+- **Teleportierte Dropdowns** — Alle drei Filter-Selects (Status, Aktionen, Benutzer) teleportieren ihr Menü zu `<body>`. Der globale Override via `.hr-base-select-menu` gilt damit für **alle** NaïveUI-Dropdowns auf der Seite.
+- **Statistiken-Icon** — Das Balkendiagramm-Icon pro Zeile (`⊟`) öffnet Detailstatistiken. Hover → `var(--wine-2)`.
+- **Kebab-Menü** — Das 3-Punkte-Icon pro Zeile öffnet Aktionen (z.B. Löschen). Hover → `var(--wine-2)`.
