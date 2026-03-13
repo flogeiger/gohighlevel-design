@@ -1,0 +1,230 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/PipelineErstellenModal" />
+
+# Pipeline Erstellen Modal — CSS Dokumentation
+
+Das **„Pipeline Erstellen"** Modal (`Section 90`) öffnet sich über den „+ Pipeline Erstellen" Button auf der Pipelines-Seite. Es ermöglicht das Anlegen einer neuen Pipeline mit Name und beliebig vielen Phasen.
+
+**Scope:** `.hr-modal:has(#pipeline-name-input)`
+
+![Pipeline Erstellen Modal Screenshot](/pipeline-erstellen-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `.hr-modal:has(#pipeline-name-input)` |
+| Pipeline-Name Input | `#pipeline-name-input` |
+| Error Feedback | `.hr-form-item-feedback--error` |
+| „+ Phase hinzufügen" Button | `#add-stage-btn` |
+| Phasen-Tabelle | `.pipeline-stages-table` |
+| Stufenname Inputs | `.stage-name-input` |
+| Checkboxen (Funnel / Phasenverteilung) | `.n-checkbox` |
+| Drag Handle | `.drag-handle` |
+| Delete Button (pro Zeile) | `#delete-stage-btn` |
+| Footer | `.hr-modal-footer` |
+| Absagen Button | `#cancel-pipeline-btn` |
+| Erstellen Button | `#create-pipeline-btn` |
+
+---
+
+## Modal Shell & Header
+
+```css
+.hr-modal:has(#pipeline-name-input) {
+  background-color: var(--surface) !important;
+  border-radius: 12px !important;
+}
+.hr-modal:has(#pipeline-name-input) .hr-modal-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+.hr-modal:has(#pipeline-name-input) .hr-modal-header .title {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+.hr-modal:has(#pipeline-name-input) .hr-modal-header__close:hover {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## Pipeline-Name Input (`#pipeline-name-input`)
+
+```css
+.hr-modal:has(#pipeline-name-input) #pipeline-name-input {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+### Error State — Danger beibehalten
+Der Error-Zustand (roter Border + rote Fehlermeldung) bleibt `danger` — kein Wine:
+```css
+.hr-modal:has(#pipeline-name-input) .hr-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+.hr-modal:has(#pipeline-name-input) .hr-form-item-feedback--error .hr-form-item-feedback__line {
+  color: var(--danger) !important;
+}
+.hr-modal:has(#pipeline-name-input) #pipeline-name-input.hr-input--error-status .hr-input__border {
+  border-color: var(--danger) !important;
+}
+```
+
+---
+
+## Pipeline-Phasen
+
+### „+ Phase hinzufügen" Button (`#add-stage-btn`)
+Outlined-Button oben rechts:
+```css
+.hr-modal:has(#pipeline-name-input) #add-stage-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+  --n-color-hover:      var(--wine-lt) !important;
+}
+.hr-modal:has(#pipeline-name-input) #add-stage-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+.hr-modal:has(#pipeline-name-input) #add-stage-btn svg {
+  color: var(--ink-3) !important;
+}
+.hr-modal:has(#pipeline-name-input) #add-stage-btn:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+### Tabellen-Header (Stufenname / In Berichterstattung einbeziehen)
+```css
+.hr-modal:has(#pipeline-name-input) .pipeline-stages-table .table-header span {
+  color: var(--ink-3) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}
+.hr-modal:has(#pipeline-name-input) .pipeline-stages-table {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+}
+```
+
+### Drag Handle
+```css
+.hr-modal:has(#pipeline-name-input) .drag-handle svg {
+  color: var(--ink-4) !important;
+  stroke: var(--ink-4) !important;
+}
+.hr-modal:has(#pipeline-name-input) .drag-handle:hover svg {
+  color: var(--ink-2) !important;
+  stroke: var(--ink-2) !important;
+}
+```
+
+### Stufenname Input (`.stage-name-input`)
+```css
+.hr-modal:has(#pipeline-name-input) .stage-name-input {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    6px !important;
+}
+```
+
+### Checkboxen (Funnel-Diagramm / Phasenverteilung)
+```css
+.hr-modal:has(#pipeline-name-input) .n-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-color-checked:  var(--wine) !important;
+}
+.hr-modal:has(#pipeline-name-input) .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hr-modal:has(#pipeline-name-input) .n-checkbox--checked .n-checkbox-box .n-checkbox-icon svg path {
+  fill: #ffffff !important;
+}
+.hr-modal:has(#pipeline-name-input) .n-checkbox__label {
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+}
+```
+
+### Delete Button pro Zeile (`#delete-stage-btn`) — Danger on Hover
+```css
+.hr-modal:has(#pipeline-name-input) #delete-stage-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-3) !important;
+  border-radius: 6px !important;
+}
+.hr-modal:has(#pipeline-name-input) #delete-stage-btn:hover {
+  color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  background-color: rgba(217, 45, 32, 0.06) !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Absagen (outlined Ghost)
+```css
+.hr-modal:has(#pipeline-name-input) #cancel-pipeline-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+  --n-color-hover:      var(--wine-lt) !important;
+}
+.hr-modal:has(#pipeline-name-input) #cancel-pipeline-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Erstellen (Primary — Wine)
+```css
+.hr-modal:has(#pipeline-name-input) #create-pipeline-btn {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  --n-color:       var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-text-color:  #ffffff !important;
+}
+.hr-modal:has(#pipeline-name-input) #create-pipeline-btn:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.hr-modal:has(#pipeline-name-input) #create-pipeline-btn:disabled {
+  opacity: 0.5 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Modal Scope via `:has()`** — Das Modal hat keine eigene ID. Scope wird über `#pipeline-name-input` im Inhalt gesetzt — gleiches Pattern wie Section 83.
+- **Error State bleibt `danger`** — Pflichtfeld-Stern, Fehlertext und roter Input-Border nutzen `var(--danger)`. Wine wird hier bewusst nicht eingesetzt.
+- **Delete-Button nutzt `danger`** — Gleiche Logik wie Section 88: destruktive Aktionen erhalten `var(--danger)` on Hover, nicht Wine.
+- **Checkboxen** — Zwei Checkboxen pro Zeile (Funnel-Diagramm + Phasenverteilung). Selbes Override-Pattern wie Section 84-B: direkte `background-color` auf `.n-checkbox-box`.
+- **Drag Handle** — SVG `stroke` statt `fill`. Hover zeigt `var(--ink-2)` statt Wine — Drag-Handles sind keine primären Aktionen.
