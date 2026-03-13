@@ -1,0 +1,249 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/LaunchpadModals" />
+
+# Launchpad Modals — CSS Dokumentation
+
+Diese Seite dokumentiert alle Modals (`Section 97`) die sich über die Aktions-Buttons der Launchpad-Seite öffnen. Alle vier Modals teilen eine gemeinsame CSS-Basis.
+
+| Modal | Trigger | Scope |
+|---|---|---|
+| **Mobile App** | „Link senden" | `.mobile-container` |
+| **Facebook Hinweis** | „Verbinden" (Facebook) | `.gmb-container` / `.fb-container` |
+| **Chat-Widget** | „Verbinden" (Webchat) | `#chat-widget-modal` |
+| **Benutzer hinzufügen** | „Hinzufügen" | `.modal-container` |
+
+---
+
+## 📱 Mobile App Modal
+
+![Mobile App Modal Screenshot](Launchpad/LaunchpadPage/launchpad-mobile-modal-screenshot.png)
+
+Öffnet sich über „Link senden" — fragt nach der Mobilnummer um den App-Download-Link zu versenden.
+
+### Shell & Text
+```css
+.mobile-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+}
+.mobile-container .mobile-sub-title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+.mobile-container label {
+  color: var(--ink) !important;
+  font-weight: 500 !important;
+}
+```
+
+### Text-Input (`.hl-text-input`)
+```css
+.hl-text-input {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  background-color: #ffffff !important;
+}
+.hl-text-input:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px var(--wine-ring) !important;
+  outline: none !important;
+}
+.hl-text-input::placeholder { color: var(--ink-4) !important; }
+```
+
+### „Weiter" Button (Primary)
+```css
+.mobile-container .btn.btn-primary,
+.mobile-container .launchpad-filled-button {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+.mobile-container .btn.btn-primary:hover,
+.mobile-container .launchpad-filled-button:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 📘 Facebook Hinweis Modal
+
+![Facebook Hinweis Modal Screenshot](/launchpad-facebook-modal-screenshot.png)
+
+Kurze Info-Meldung die erscheint bevor die Facebook-Verbindung hergestellt wird — erklärt welche Berechtigungen erforderlich sind.
+
+### Shell
+```css
+.gmb-container,
+.gmb-container .fb-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+}
+.fb-container .fb-title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+.fb-container .fb-sub-title {
+  color: var(--ink-3) !important;
+}
+```
+
+### „Ich habe es verstanden" Button (`.yes-button`)
+```css
+.fb-container .yes-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+.fb-container .yes-button:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 💬 Chat-Widget Modal (`#chat-widget-modal`)
+
+![Chat Widget Modal Screenshot](/launchpad-chat-widget-modal-screenshot.png)
+
+Fragt nach der Website-URL auf welcher das Webchat-Plugin eingebunden werden soll.
+
+### Shell & Text
+```css
+#chat-widget-modal {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+}
+#chat-widget-modal .fb-container > div {
+  color: var(--ink-3) !important;
+}
+```
+
+### URL-Input & Weiter Button
+```css
+/* Input — gleicher Pattern wie .hl-text-input */
+#chat-widget-modal .hl-text-input:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px var(--wine-ring) !important;
+}
+/* Weiter Button */
+#chat-widget-modal .btn.btn-primary,
+#chat-widget-modal .launchpad-blue-btn {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#chat-widget-modal .btn.btn-primary:hover,
+#chat-widget-modal .launchpad-blue-btn:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 👤 Benutzer hinzufügen Modal (`.modal-container`)
+
+![Benutzer Hinzufügen Modal Screenshot](/launchpad-add-user-modal-screenshot.png)
+
+Ermöglicht das Einladen neuer Benutzer via E-Mail-Adresse.
+
+### Shell (Card-Struktur)
+```css
+.modal-container .card        { background-color: var(--surface) !important; border: none !important; }
+.modal-container .card-header { background-color: var(--surface) !important; border-bottom: 1px solid var(--line-hard) !important; }
+.modal-container .card-header h3 { color: var(--ink) !important; }
+.modal-container .card-body   { background-color: var(--surface) !important; color: var(--ink-3) !important; }
+.modal-container .card-footer { background-color: var(--surface) !important; border-top: 1px solid var(--line-hard) !important; }
+
+/* Close Icon */
+.modal-container .modal-close-icon       { color: var(--ink-3) !important; }
+.modal-container .modal-close-icon:hover { color: var(--wine-2) !important; }
+```
+
+### Tag Input (E-Mail-Adressen — `.tag-input`)
+```css
+.modal-container .tag-input {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+}
+.modal-container .tag-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px var(--wine-ring) !important;
+}
+.modal-container .tag-input__text           { color: var(--ink-2) !important; }
+.modal-container .tag-input__text::placeholder { color: var(--ink-4) !important; }
+```
+
+### „Einladung senden" Button
+```css
+.modal-container .btn.btn-primary,
+.modal-container .launchpad-filled-button {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+.modal-container .btn.btn-primary:hover,
+.modal-container .launchpad-filled-button:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.modal-container .btn.btn-primary:disabled { opacity: 0.5 !important; cursor: not-allowed !important; }
+```
+
+---
+
+## Gemeinsame Regeln
+
+Alle vier Modals teilen die folgenden globalen Pattern:
+
+```css
+/* Shell */
+.gmb-container, .mobile-container,
+#chat-widget-modal, .modal-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+}
+
+/* Form Labels */
+.fb-container label, .mobile-container label,
+.modal-container label, .card label {
+  color: var(--ink) !important;
+  font-weight: 500 !important;
+}
+
+/* Alle Primary Buttons */
+.btn.btn-primary, .launchpad-filled-button, .launchpad-blue-btn {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+.btn.btn-primary:hover, .launchpad-filled-button:hover, .launchpad-blue-btn:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **`.btn.btn-primary`** — GHL nutzt Bootstrap-Klassen für die Modal-Buttons. Kein NaïveUI — direktes `background-color` Override ohne `--n-*` Variablen.
+- **`.hl-text-input` Focus-Ring** — GHL setzt Tailwind-Klassen wie `focus:ring-curious-blue-500` direkt im HTML. Fix: Tailwind CSS-Variablen (`--tw-ring-color`) direkt überschreiben.
+- **Tag Input** (Benutzer-Modal) — `.tag-input` ist ein spezieller Multi-Email-Input. `focus-within` statt `:focus` da der eigentliche Input ein Kind-Element ist.
+- **Facebook-Modal** — Das Info-Bild (Facebook-Berechtigungen Beispiel) wird nicht überschrieben — es ist ein externes Bild und hat keine CSS-Styling-Relevanz.
