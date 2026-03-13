@@ -4,33 +4,24 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Add / Edit Opportunity Modal — CSS Dokumentation
 
-Diese Seite dokumentiert alle CSS-Sections für das **„Neu Gelegenheit Hinzufügen"** Modal (`Section 83`) im SalonQueen GHL Whitelabel. Das Modal wird über `+ Hinzufügen Gelegenheit` auf der Opportunities-Seite geöffnet und ist zu `<body>` teleportiert.
+Das **„Gelegenheit Hinzufügen / Bearbeiten"** Modal ist zu `<body>` teleportiert und wird über `+ Hinzufügen Gelegenheit` auf der Opportunities-Seite geöffnet. Es besteht aus einem gemeinsamen Shell/Header/Footer sowie mehreren Tab-Panels.
+
+| Section | Tab | Scope |
+|---|---|---|
+| **83** | Modal Shell, Header, Formular, Tags Popover | `.hr-modal:has(.crm-opportunities-modal-header)` |
+| **82c** | Aufgaben Tab | `#task-container-opportunity` |
+| **82d** | Notizen Tab | `#notes-container-opportunity` |
+| **82e** | Zahlungen Tab | `.crm-opportunities-modal-tab-payments` |
+| **82f** | Verknüpfte Objekte Tab | `.crm-opportunities-modal-tab-associations` |
+
+---
+
+## 83 · Modal Shell & Header
 
 ![Add Opportunity Modal Screenshot](/add-opportunity-modal-screenshot.png)
 
----
+Das Modal hat keine eigene ID — der Scope wird ausschließlich über `:has()` gesetzt:
 
-## Betroffene Selektoren & Struktur
-
-| Element | Selektor |
-|---|---|
-| Modal Shell | `.hr-modal:has(.crm-opportunities-modal-header)` |
-| Modal Header | `.crm-opportunities-modal-header` |
-| Close Button | `#modal-header-modal-close-btn` |
-| Modal Body | `.crm-opportunities-modal-body` |
-| Left Sidebar (Tabs) | `.wrapperHeader` |
-| Form Details Tab | `.crm-opportunities-modal-tab-details` |
-| Modal Footer | `.crm-opportunities-modal-footer` |
-| Cancel Button | `.crm-opportunities-cancel-btn` |
-| Submit Button | `#CreateUpdateOpportunity` |
-| Tags Popover | `.oppo-tags-select-popover` |
-
----
-
-## CSS-Patterns (Section 83)
-
-### Modal Scope via `:has()`
-Das Modal hat keine eigene ID — der Scope wird über den `:has()` Selektor gesetzt:
 ```css
 .hr-modal:has(.crm-opportunities-modal-header) {
   background-color: var(--surface) !important;
@@ -45,6 +36,10 @@ Das Modal hat keine eigene ID — der Scope wird über den `:has()` Selektor ges
   font-weight: 700 !important;
   font-size: 18px !important;
 }
+.crm-opportunities-modal-header .description {
+  color: var(--ink-3) !important;
+  font-size: 13px !important;
+}
 
 #modal-header-modal-close-btn {
   border-radius: 50% !important;
@@ -58,6 +53,7 @@ Das Modal hat keine eigene ID — der Scope wird über den `:has()` Selektor ges
 ```
 
 ### Left Sidebar — Aktiver Tab
+GHL setzt `bg-blue-50 text-blue-800` als direkte Tailwind-Klassen — Override über Wine-Variablen:
 ```css
 .crm-opportunities-modal-body .wrapperHeader button {
   background-color: var(--wine-lt) !important;
@@ -65,9 +61,18 @@ Das Modal hat keine eigene ID — der Scope wird über den `:has()` Selektor ges
   border-radius: 6px !important;
   font-weight: 700 !important;
 }
+
+/* "Felder hinzufügen/verwalten" Link */
+.crm-opportunities-modal-body .text-blue-700 {
+  color: var(--wine-2) !important;
+}
 ```
 
-> ⚠️ GHL setzt hier `bg-blue-50 text-blue-800` direkt als Tailwind-Klassen — diese werden über die Wine-Variablen überschrieben.
+---
+
+## 83 · Formular — Details Tab
+
+![Opportunity Modal Formular Screenshot](/opportunity-modal-form-screenshot.png)
 
 ### Text Inputs
 ```css
@@ -88,6 +93,7 @@ Das Modal hat keine eigene ID — der Scope wird über den `:has()` Selektor ges
 .crm-opportunities-modal-tab-details .hr-base-selection {
   --n-border-hover:      1px solid var(--wine) !important;
   --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
   --n-caret-color:       var(--wine) !important;
 }
 .crm-opportunities-modal-tab-details .hr-base-selection__border {
@@ -96,8 +102,19 @@ Das Modal hat keine eigene ID — der Scope wird über den `:has()` Selektor ges
 }
 ```
 
+### Dropdown Menu (teleportiert — `.hr-base-select-menu`)
+NaïveUI teleportiert das Menü zu `<body>` — globaler Scope notwendig:
+```css
+.hr-base-select-menu {
+  --n-option-check-color:       var(--wine) !important;
+  --n-option-text-color-active: var(--wine-2) !important;
+}
+.hr-base-select-option--pending  { background-color: var(--wine-lt) !important; }
+.hr-base-select-option--selected { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+```
+
 ### Error States — Danger beibehalten
-Pflichtfeldmarkierungen bleiben rot — kein Wine hier:
+Pflichtfeldmarkierungen bleiben immer rot:
 ```css
 .crm-opportunities-modal-tab-details .hr-form-item-label__asterisk {
   color: var(--danger) !important;
@@ -105,10 +122,30 @@ Pflichtfeldmarkierungen bleiben rot — kein Wine hier:
 .crm-opportunities-modal-tab-details .hr-form-item-feedback--error .hr-form-item-feedback__line {
   color: var(--danger) !important;
 }
+.crm-opportunities-modal-tab-details .hr-base-selection--error-status .hr-base-selection__border {
+  border-color: var(--danger) !important;
+}
 ```
 
-### Submit Button (`#CreateUpdateOpportunity`)
-Gleicher `background-image` Override wie bei Primary Buttons in Section 82:
+---
+
+## 83 · Footer Buttons
+
+### Cancel (Ghost)
+```css
+.crm-opportunities-cancel-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+.crm-opportunities-cancel-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Erstellen / Speichern (Primary — `#CreateUpdateOpportunity`)
+`background-image` Override schlägt NaïveUI's `background-color`:
 ```css
 #CreateUpdateOpportunity {
   background-image: linear-gradient(var(--wine), var(--wine)) !important;
@@ -122,13 +159,13 @@ Gleicher `background-image` Override wie bei Primary Buttons in Section 82:
 
 ---
 
-## Tags Popover (`.oppo-tags-select-popover`)
+## 83 · Tags Popover (`.oppo-tags-select-popover`)
 
-Das Tags-Popover wird separat zu `<body>` teleportiert — eigener Scope über `.oppo-tags-select-popover`.
+Das Popover wird separat zu `<body>` teleportiert — eigener Scope.
 
 ![Tags Popover Screenshot](/oppo-tags-popover-screenshot.png)
 
-### Popover Shell
+### Shell
 ```css
 .oppo-tags-select-popover {
   background-color: var(--surface) !important;
@@ -138,36 +175,254 @@ Das Tags-Popover wird separat zu `<body>` teleportiert — eigener Scope über `
 }
 ```
 
-### Tag Pill
+### Tag Pill — Default / Hover / Selected
 ```css
+/* Default */
 .oppo-tags-select-popover .item-tag__wrapper {
   background-color: var(--bg) !important;
   border: 1px solid var(--line-hard) !important;
   border-radius: 20px !important;
 }
-.oppo-tags-select-popover .item-tag__label {
-  color: var(--ink-2) !important;
-  font-size: 12px !important;
-}
-```
-
-### Selected / Hover State
-```css
+/* Hover */
 .oppo-tags-select-popover .item.tags:hover .item-tag__wrapper {
   border-color: var(--wine) !important;
   background-color: var(--wine-lt) !important;
 }
+/* Selected */
 .oppo-tags-select-popover .item.tags.selected .item-tag__wrapper {
   background-color: var(--wine-lt) !important;
   border-color: var(--wine) !important;
+}
+.oppo-tags-select-popover .item.tags.selected .item-tag__label {
+  color: var(--wine-2) !important;
+  font-weight: 600 !important;
 }
 ```
 
 ---
 
-## Besonderheiten
+## 82c · Aufgaben Tab (`#task-container-opportunity`)
 
-- **Teleportiertes Modal** — kein Kontext-Parent vorhanden, daher `:has()` als Scope-Ersatz
-- **Dropdown-Menu** (`.hr-base-select-menu`) ist ebenfalls teleportiert und wird global gescopert
-- **`text-blue-700` Link** (Felder hinzufügen/verwalten) wird über Tailwind-Klassen gesetzt — direkter Color-Override nötig
-- **Tags Popover** hat keine eindeutige ID — Scope ausschließlich über `.oppo-tags-select-popover`
+![Opportunity Aufgaben Tab Screenshot](/opportunity-tasks-tab-screenshot.png)
+
+### Header & Icon Buttons (Filter / Sort)
+```css
+#task-container-opportunity .hr-button.icon-only {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 50% !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-color-hover:      var(--wine-lt) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+#task-container-opportunity .hr-button.icon-only:hover {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+/* Aktiver Filter-Dot */
+#task-container-opportunity .bg-primary-600 {
+  background-color: var(--wine) !important;
+}
+```
+
+### „Aufgabe Hinzufügen" Button (tertiary/outlined)
+```css
+#task-container-opportunity .hr-button--tertiary-type {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+#task-container-opportunity .hr-button--tertiary-type:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Empty State & Primary Button
+```css
+#task-container-opportunity .ui-empty-title       { color: var(--ink) !important; font-weight: 600 !important; }
+#task-container-opportunity .ui-empty-description { color: var(--ink-3) !important; }
+
+#task-container-opportunity #tasks-empty-search-result-btn-positive-action {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+}
+#task-container-opportunity #tasks-empty-search-result-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+}
+```
+
+### Tasks Filter Popover (`.tasks-filter-popover`)
+
+![Tasks Filter Popover Screenshot](/opportunity-tasks-filter-popover-screenshot.png)
+
+```css
+.tasks-filter-popover {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+```
+
+> ⚠️ **„Alles löschen"-Button** — GHL überschreibt `--n-border` mit `!important` via `.ui-button.hr-button--default-type`. Fix: Klasse + ID kombinieren für gleiche Spezifität:
+> ```css
+> .ui-button.hr-button--default-type#tasks-filter-clear-all {
+>   --n-border: none !important;
+>   border: none !important;
+> }
+> button#tasks-filter-clear-all .hr-button__content { color: var(--wine-2) !important; }
+> ```
+
+### Tasks Sort Popover (`:has(#sort-direction-button-jkl)`)
+```css
+.hr-popover:has(#sort-direction-button-jkl) {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+.hr-popover:has(#sort-direction-button-jkl) .hr-radio--checked .hr-radio__dot {
+  background-color: var(--wine) !important;
+}
+.hr-popover:has(#sort-direction-button-jkl) #sort-direction-button-jkl .bg-gray-50 {
+  background-color: var(--wine-lt) !important;
+  border-radius: 50% !important;
+}
+.hr-popover:has(#sort-direction-button-jkl) #sort-direction-button-jkl .text-blue-500 {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 82d · Notizen Tab (`#notes-container-opportunity`)
+
+![Opportunity Notizen Tab Screenshot](/opportunity-notes-tab-screenshot.png)
+
+Identische Pattern wie **82c** (Icon Buttons, Search Input, Empty State) — nur eigener ID-Scope.
+
+### „Anmerkung Hinzufügen" Button
+```css
+#notes-container-opportunity #add-note-button {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+#notes-container-opportunity #add-note-button:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Notes Filter Popover (`.notes-filters-v2-popover`)
+
+```css
+.notes-filters-v2-popover {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+```
+
+> ⚠️ Gleicher „Alles löschen"-Fix wie bei Tasks:
+> ```css
+> .ui-button.hr-button--default-type#notes-filter-clear-all {
+>   --n-border: none !important;
+>   border: none !important;
+> }
+> ```
+
+---
+
+## 82e · Zahlungen Tab (`.crm-opportunities-modal-tab-payments`)
+
+![Opportunity Zahlungen Tab Screenshot](/opportunity-payments-tab-screenshot.png)
+
+### „Aktivitäten" Dropdown-Button (Primary — `#menu-btn`)
+```css
+.crm-opportunities-modal-tab-payments #menu-btn {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  --n-color:       var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-text-color:  #ffffff !important;
+}
+.crm-opportunities-modal-tab-payments #menu-btn:hover {
+  background-color: var(--wine-2) !important;
+}
+```
+
+### Aktivitäten Dropdown-Menü (teleportiert — `.v-vl-visible-items`)
+```css
+.v-vl-visible-items > div               { background-color: var(--surface) !important; color: var(--ink-2) !important; }
+.v-vl-visible-items > div:hover         { background-color: var(--wine-lt) !important; }
+.v-vl-visible-items > div:hover .text-md { color: var(--wine-2) !important; }
+```
+
+### Tabelle (`.hr-data-table`)
+```css
+.crm-opportunities-modal-tab-payments .hr-data-table {
+  --n-border-color:         var(--line-hard) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+/* Tabellen-Header */
+.crm-opportunities-modal-tab-payments .hr-data-table-th {
+  background-color: var(--wine-lt) !important;
+}
+.crm-opportunities-modal-tab-payments .hr-data-table-th__title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+/* Row Hover */
+.crm-opportunities-modal-tab-payments .hr-data-table-tr:hover .hr-data-table-td {
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## 82f · Verknüpfte Objekte Tab (`.crm-opportunities-modal-tab-associations`)
+
+![Opportunity Verknüpfte Objekte Tab Screenshot](/opportunity-associations-tab-screenshot.png)
+
+### „Objekte Konfigurieren" Button (`#open-obj-settings-btn`)
+```css
+.crm-opportunities-modal-tab-associations #open-obj-settings-btn {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: transparent !important;
+  color: var(--ink-2) !important;
+  --n-color-hover:      var(--wine-lt) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+.crm-opportunities-modal-tab-associations #open-obj-settings-btn:hover {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+/* Button Content zentriert */
+.crm-opportunities-modal-tab-associations #open-obj-settings-btn .hr-button__content {
+  justify-content: center !important;
+  width: 100% !important;
+}
+```
+
+---
+
+## Übergreifende Besonderheiten
+
+- **Teleportiertes Modal** — kein Parent-Context vorhanden, daher `:has()` als Scope-Ersatz zwingend nötig.
+- **Teleportierte Dropdowns** (`.hr-base-select-menu`, `.v-vl-visible-items`) — werden global gescopert, da kein Parent-Selektor möglich.
+- **„Alles löschen"-Button** in Filter-Popovers — GHL setzt `--n-border` via `.ui-button.hr-button--default-type` mit `!important`. Fix: ID + Klasse kombinieren für gleiche Spezifität (`button#[id]`).
+- **Tailwind-Klassen** in der Sidebar (`bg-blue-50`, `text-blue-700`) — direkter Color-Override nötig, keine NaïveUI-Vars verfügbar.
+- **Tags Popover** hat keine eigene ID — Scope ausschließlich über `.oppo-tags-select-popover`.
+- **82c und 82d** teilen die gleichen Pattern — nur die Scope-IDs unterscheiden sich (`#task-container-opportunity` vs. `#notes-container-opportunity`).
