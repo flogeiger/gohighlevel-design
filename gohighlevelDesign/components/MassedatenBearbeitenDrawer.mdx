@@ -1,0 +1,199 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/MassedatenBearbeitenDrawer" />
+
+# Massedaten bearbeiten Drawer — CSS Dokumentation
+
+Der **„Massedaten bearbeiten"** Drawer (`Section 88`) öffnet sich nach dem Auswählen mehrerer Einträge in der Listenansicht. Er hat zwei Zustände die dynamisch wechseln:
+
+| State | Beschreibung | Trigger |
+|---|---|---|
+| **State A · Feld-Auswahl** | Suchfeld + Collapse-Liste aller verfügbaren Felder | Initial beim Öffnen |
+| **State B · Feld-Bearbeitung** | Formular-Zeilen mit Inputs + Delete + Add-Field Button | Nach Klick auf ein Feld |
+
+**Scope:** `.hr-drawer-content.hl-drawer-content`
+
+---
+
+## State A · Feld-Auswahl
+
+![Massedaten bearbeiten Drawer State A Screenshot](/massedaten-drawer-stateA-screenshot.png)
+
+### Such-Input (`#search-input`)
+```css
+.hr-drawer-content.hl-drawer-content #search-input {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+.hr-drawer-content.hl-drawer-content #search-input .hr-input__prefix svg {
+  color: var(--ink-4) !important;
+}
+```
+
+### Collapse-Gruppe (`.hr-collapse`)
+```css
+.hr-drawer-content.hl-drawer-content .hr-collapse-item__header {
+  border-bottom: 1px solid var(--line-hard) !important;
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+.hr-drawer-content.hl-drawer-content .hr-collapse-item__header:hover {
+  color: var(--wine-2) !important;
+}
+/* Chevron default → wine wenn offen */
+.hr-drawer-content.hl-drawer-content .hr-collapse-item-arrow svg path {
+  fill: var(--ink-3) !important;
+}
+.hr-drawer-content.hl-drawer-content .hr-collapse-item--active .hr-collapse-item-arrow svg path {
+  fill: var(--wine) !important;
+}
+```
+
+### Feld-Items (`.field`)
+```css
+/* Default */
+.hr-drawer-content.hl-drawer-content .field {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+}
+.hr-drawer-content.hl-drawer-content .field:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+.hr-drawer-content.hl-drawer-content .field span        { color: var(--ink-2) !important; font-weight: 500 !important; }
+.hr-drawer-content.hl-drawer-content .field:hover span  { color: var(--wine-2) !important; }
+
+/* Disabled (ausgegraut) */
+.hr-drawer-content.hl-drawer-content .field-disabled {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: var(--surface) !important;
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+}
+.hr-drawer-content.hl-drawer-content .field-disabled span { color: var(--ink-4) !important; }
+```
+
+---
+
+## State B · Feld-Bearbeitung
+
+![Massedaten bearbeiten Drawer State B Screenshot](/massedaten-drawer-stateB-screenshot.png)
+
+### Formular-Zeilen (`.grid.field-layout`)
+Jede Zeile wird als Card dargestellt:
+```css
+.hr-drawer-content.hl-drawer-content .grid.field-layout {
+  background-color: #ffffff !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  margin-bottom: 10px !important;
+}
+```
+
+### Text-Input (Wert, €-Prefix etc.)
+```css
+.hr-drawer-content.hl-drawer-content .hr-form-item-blank .hr-input {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+.hr-drawer-content.hl-drawer-content .hr-form-item-blank .hr-input .hr-input__prefix {
+  color: var(--ink-3) !important;
+  font-weight: 500 !important;
+}
+```
+
+### Select-Dropdown (Pipeline, Schritt, Status…)
+```css
+.hr-drawer-content.hl-drawer-content .hr-form-item-blank .hr-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-border-radius:     8px !important;
+}
+```
+
+### Delete-Button (`#delete-button`) — Danger on Hover
+```css
+.hr-drawer-content.hl-drawer-content #delete-button {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-3) !important;
+  border-radius: 8px !important;
+}
+.hr-drawer-content.hl-drawer-content #delete-button:hover {
+  color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  background-color: rgba(217, 45, 32, 0.06) !important;
+}
+```
+
+### „+ Feld hinzufügen" Button (`#add-field-btn`)
+```css
+.hr-drawer-content.hl-drawer-content #add-field-btn {
+  border: 1px solid var(--wine) !important;
+  color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+.hr-drawer-content.hl-drawer-content #add-field-btn:hover {
+  color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Footer Buttons (beide States)
+
+### Stornieren (`#negative-btn`)
+```css
+.hr-drawer-content.hl-drawer-content #negative-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+.hr-drawer-content.hl-drawer-content #negative-btn:hover {
+  color: var(--wine-2) !important;
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Speichern (`#positive-btn`)
+Direktes `background-color` Override notwendig da NaïveUI `--n-color` als Inline-Style setzt:
+```css
+.hr-drawer-content.hl-drawer-content #positive-btn {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+  --n-text-color: #ffffff !important;
+}
+.hr-drawer-content.hl-drawer-content #positive-btn:not(:disabled):hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.hr-drawer-content.hl-drawer-content #positive-btn:disabled {
+  opacity: 0.5 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **State A vs. State B** — beide Zustände teilen denselben Drawer-Scope. State A zeigt die Feldliste (`.field` + `.hr-collapse`), State B zeigt die Formular-Zeilen (`.grid.field-layout`). GHL blendet jeweils den anderen State aus — kein Scope-Wechsel notwendig.
+- **Delete-Button nutzt `danger`** — `#delete-button` ist eine destruktive Aktion, daher Wine-Logik ausgenommen. Hover zeigt `var(--danger)` mit 6% Rot-Hintergrund.
+- **Disabled Felder** — `.field-disabled` zeigt Felder die nicht editiert werden können (z.B. abhängige Pflichtfelder). Opacity-Behandlung statt Wine-Hover.
+- **`#positive-btn` background-image-Trick** nicht notwendig — direktes `background-color` greift hier da der Button kein NaïveUI Primary-Type mit Gradient-Override ist.
