@@ -1,0 +1,279 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/ImportPage" />
+
+# Import Page — CSS Dokumentation
+
+Die **„Importieren"** Seite (`Section 87`) ermöglicht den CSV-Import von Kontakten und Leads. Sie ist als **4-Schritt-Wizard** aufgebaut und wird unter `/opportunities/import` geöffnet.
+
+| Schritt | Name | Inhalt |
+|---|---|---|
+| **1 · Start** | Objekte auswählen | Checkbox-Cards: Kontakte / Leads |
+| **2 · Upload** | Datei hochladen | Drag & Drop Uploader + Import-Modus Dropdown |
+| **3 · Map** | Felder zuordnen | Mapping-Handbuch + Datentabelle |
+| **4 · Überprüfen** | Bestätigen | Auswahl bestätigen und abschließen |
+
+**Scope:** `.scrollable-div-main`
+
+---
+
+## Stepper (alle Schritte)
+
+Der Stepper ist in drei Zustände unterteilt: aktiv (`process`), abgeschlossen (`finish`) und wartend (`wait`).
+
+### Aktiver Schritt (`process`)
+```css
+.scrollable-div-main .n-step--process-status .n-step-indicator-slot__index {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+}
+.scrollable-div-main .n-step--process-status .n-step-content-header__title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+```
+
+### Abgeschlossener Schritt (`finish`)
+```css
+.scrollable-div-main .n-step--finish-status .n-step-indicator-slot {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.scrollable-div-main .n-step--finish-status .n-step-splitor {
+  background-color: var(--wine) !important;
+}
+/* Hacken-Icon → Wine */
+.scrollable-div-main .n-step--finish-status .n-step-indicator-slot img {
+  filter: brightness(0) saturate(100%)
+          invert(23%) sepia(60%) saturate(400%)
+          hue-rotate(300deg) brightness(80%) contrast(90%) !important;
+}
+```
+
+### Wartender Schritt (`wait`)
+```css
+.scrollable-div-main .n-step--wait-status {
+  --n-indicator-border-color: var(--line-hard) !important;
+  --n-indicator-text-color:   var(--ink-4) !important;
+  --n-header-text-color:      var(--ink-4) !important;
+}
+.scrollable-div-main .n-step--wait-status .n-step-content-header__title {
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+## Schritt 1 · Start — Objekte auswählen
+
+![Import Schritt 1 Screenshot](/import-step1-screenshot.png)
+
+### Checkbox-Cards (`.hl-checkbox-group-item`)
+Die Objekt-Auswahl-Karten (Kontakte / Leads) sind als toggle-fähige Button-Karten implementiert. GHL nutzt dafür `.hl-checkbox-group-item` mit `.active`-Klasse für den selektierten Zustand.
+
+```css
+/* Default */
+.scrollable-div-main .hl-checkbox-group-item {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-color-hover:  var(--wine-lt) !important;
+}
+.scrollable-div-main .hl-checkbox-group-item:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+
+/* Ausgewählt */
+.scrollable-div-main .hl-checkbox-group-item.active {
+  border: 1px solid var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Checkbox im Card
+```css
+.scrollable-div-main .n-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-color-checked:  var(--wine) !important;
+}
+.scrollable-div-main .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+/* Checkmark weiß */
+.scrollable-div-main .n-checkbox--checked .n-checkbox-box .n-checkbox-icon svg path {
+  fill: #ffffff !important;
+}
+```
+
+### Card Icons → Wine-Filter
+GHL lädt die Icons als `<img>` — CSS `filter` konvertiert zu Wine-Farbton:
+```css
+.scrollable-div-main .hl-checkbox-group-item-icon img {
+  filter: brightness(0) saturate(100%)
+          invert(23%) sepia(60%) saturate(400%)
+          hue-rotate(300deg) brightness(80%) contrast(90%) !important;
+}
+```
+
+### „Vorherige Importe" Card
+```css
+.scrollable-div-main .hl-card .dark-blue-text {
+  color: var(--wine-2) !important;
+  font-weight: 500 !important;
+}
+.scrollable-div-main .hl-card .dark-blue-text:hover {
+  color: var(--wine) !important;
+  text-decoration: underline !important;
+}
+```
+
+---
+
+## Schritt 2 · Upload — Datei hochladen
+
+![Import Schritt 2 Screenshot](/import-step2-screenshot.png)
+
+### Upload Dragger (`#bulk-import-upload`)
+```css
+.scrollable-div-main #bulk-import-upload .n-upload-dragger {
+  border: 1px dashed var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: var(--surface) !important;
+  --n-dragger-border-hover: 1px dashed var(--wine) !important;
+}
+.scrollable-div-main #bulk-import-upload .n-upload-dragger:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### „Wie importieren" Dropdown (`#select-opportunity-id`)
+```css
+.scrollable-div-main #select-opportunity-id .n-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+.scrollable-div-main #select-opportunity-id .n-base-selection__border {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+}
+```
+
+### Dropdown Options (teleportiert — `.n-base-select-option`)
+```css
+.n-base-select-option               { color: var(--ink-2) !important; }
+.n-base-select-option--pending      { background-color: var(--wine-lt) !important; }
+.n-base-select-option--selected     { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+.n-base-select-option:hover         { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+```
+
+---
+
+## Schritt 3 · Map — Felder zuordnen
+
+![Import Schritt 3 Screenshot](/import-step3-screenshot.png)
+
+### Mapping-Handbuch Card
+```css
+.scrollable-div-main .hl-card-content .text-black.hl-text-sm-medium {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+.scrollable-div-main .hl-card-content .hl-text-sm-normal {
+  color: var(--ink-2) !important;
+}
+```
+
+### Datentabelle (`.n-data-table`)
+```css
+.scrollable-div-main .n-data-table {
+  --n-border-color:   var(--line-hard) !important;
+  --n-td-color-hover: var(--wine-lt) !important;
+  --n-td-text-color:  var(--ink-2) !important;
+  --n-loading-color:  var(--wine) !important;
+}
+/* Tabellen-Header */
+.scrollable-div-main .n-data-table-th {
+  background-color: var(--wine-lt) !important;
+  --n-th-color: var(--wine-lt) !important;
+}
+.scrollable-div-main .n-data-table-th__title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+/* Row Hover */
+.scrollable-div-main .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Schritt 4 · Überprüfen
+
+Kein eigenes Screenshot notwendig — verwendet dieselben Tabellen- und Card-Patterns wie Schritt 3. Footer-Buttons sind identisch.
+
+---
+
+## Footer Buttons (alle Schritte)
+
+Der Footer wird über `footer:has(#back-button)` gescopert.
+
+### Zurück (outlined)
+```css
+#back-button {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+}
+#back-button:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Stornieren (Text-only)
+```css
+#cancel-button { border: none !important; background: transparent !important; }
+#cancel-button .n-button__content       { color: var(--ink-2) !important; }
+#cancel-button:hover .n-button__content { color: var(--wine-2) !important; }
+```
+
+### Nächste (Primary — `#next-import-button-1/2/3`)
+Jeder Schritt hat eine eigene Button-ID:
+```css
+#next-import-button-1,
+#next-import-button-2,
+#next-import-button-3 {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  --n-color:       var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-text-color:  #ffffff !important;
+}
+#next-import-button-1:hover,
+#next-import-button-2:hover,
+#next-import-button-3:hover {
+  background-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Stepper `finish`-Icon** — GHL rendert das Häkchen als `<img>`, nicht als SVG-inline. Fix: CSS `filter` zur Farbkonvertierung nach Wine.
+- **Checkbox-Card State-Border** — GHL fügt bei Hover einen blauen `box-shadow` hinzu. Fix: `box-shadow: none` + eigener Wine-Border auf `.n-button__state-border`.
+- **Card Icon Filter** — `brightness(0) saturate(100%) invert(23%) sepia(60%) saturate(400%) hue-rotate(300deg)` ist die berechnete Wine-Approximation für `#e9c2c5`-nahe Töne auf `<img>`-Elementen.
+- **Dropdown Options** (`.n-base-select-option`) sind global gescopert — kein Parent-Kontext möglich da teleportiert.
+- **3 Nächste-Button-IDs** — GHL erstellt pro Schritt einen neuen Button mit eigener ID (`-1`, `-2`, `-3`). Alle drei müssen explizit angesprochen werden.
