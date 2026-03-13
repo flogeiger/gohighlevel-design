@@ -1,0 +1,118 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/LaunchpadPage" />
+
+# Launchpad — CSS Dokumentation
+
+Die **„Launchpad"** Seite (`Section 96`) ist die Onboarding/Setup-Zentrale und über den Launchpad-Eintrag in der Hauptnavigation erreichbar. Sie zeigt eine Liste von Integrations- und Setup-Aktionen (App-Download, Google Business, Facebook, WhatsApp, etc.) als klickbare Zeilen mit Aktions-Buttons.
+
+**Scope:** `#launchpad`
+
+![Launchpad Page Screenshot](launchpad/launchpad-page-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Page Background | `#launchpad` |
+| Seiten-Titel | `.launchpad-title p` |
+| Item Container | `.launchpad-item-container` |
+| Item Zeilen | `.launchpad-item-sub-container` |
+| Zeilen-Trennlinie | `.launchpad-bottom-border` |
+| Beschreibungstext | `.item-info .font-normal` |
+| Aktions-Buttons | `.green-btn` / `.green-filled-button` |
+| Integrations-Icons | `.integration-icon` |
+
+---
+
+## Page Background & Titel
+
+```css
+#launchpad {
+  background-color: var(--bg) !important;
+}
+#launchpad .launchpad-title p {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+```
+
+---
+
+## Item Container (`.launchpad-item-container`)
+
+Alle Zeilen sind in einer einzigen abgerundeten Card zusammengefasst:
+```css
+#launchpad .launchpad-item-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+```
+
+---
+
+## Item Zeilen (`.launchpad-item-sub-container`)
+
+Jede Integrations-Zeile erhält einen dezenten Wine-Hover:
+```css
+#launchpad .launchpad-item-sub-container {
+  background-color: var(--surface) !important;
+  transition: background-color 0.2s !important;
+}
+#launchpad .launchpad-item-sub-container:hover {
+  background-color: var(--wine-lt) !important;
+}
+/* Trennlinie */
+#launchpad .launchpad-bottom-border {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+/* Beschreibungstext */
+#launchpad .item-info .font-normal { color: var(--ink-3) !important; }
+#launchpad .item-info span         { color: var(--ink-4) !important; }
+```
+
+---
+
+## Aktions-Buttons (`.green-btn` / `.green-filled-button`)
+
+GHL nutzt `.green-btn` und `.green-filled-button` für alle Aktions-Buttons („Link senden", „Verbinden", etc.) — beide werden auf Wine überschrieben:
+
+```css
+#launchpad .green-btn,
+#launchpad .green-filled-button {
+  background-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#launchpad .green-btn:hover,
+#launchpad .green-filled-button:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#launchpad .green-btn span,
+#launchpad .green-filled-button span { color: #ffffff !important; }
+```
+
+---
+
+## Integrations-Icons
+
+```css
+#launchpad .integration-icon {
+  border-radius: 8px !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **`.green-btn` Klasse** — GHL nutzt diesen semantischen Klassennamen für alle Setup/Connect-Buttons. Der Name referenziert das ursprüngliche Grün-Branding — der Wine-Override ersetzt es vollständig.
+- **Zeilen-Hover** — `.launchpad-item-sub-container` Hover nutzt `var(--wine-lt)` für ein dezentes Highlight ohne die Integrations-Icons zu überdecken.
+- **Keine NaïveUI-Komponenten** — Die Launchpad-Seite verwendet einfache HTML/CSS-Patterns statt NaïveUI-Komponenten. Keine `--n-*` Variablen-Overrides notwendig.
+- **`.launchpad-bottom-border`** — GHL wendet diese Klasse selektiv an um Trennlinien zwischen Zeilen einzufügen. Die letzte Zeile hat typischerweise keinen Border.
