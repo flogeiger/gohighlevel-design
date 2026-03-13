@@ -1,0 +1,182 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/DashboardAddWidgetModal" />
+
+# Dashboard — Widget hinzufügen Modal — CSS Dokumentation
+
+Das **„Widget hinzufügen"** Modal (`Section 87`) öffnet sich über den „+ Widget" Button auf der Opportunities-Seite. Es ermöglicht die Auswahl eines Dashboards und das Aktivieren/Deaktivieren von Widgets per Checkbox.
+
+**Scope:** `.n-card.n-modal.hl-modal`
+
+![Dashboard Add Widget Modal Screenshot](/dashboard-add-widget-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `.n-card.n-modal.hl-modal` |
+| Modal Header | `.n-card.hl-modal .n-card-header` |
+| Dashboard Select | `.n-card.hl-modal .n-select .n-base-selection` |
+| Widget Selector Sektion | `section[aria-labelledby="reporting_widget_selector-heading-top_widgets"]` |
+| Karussell-Buttons | `#reporting_widget_selector-btn-scroll_left/right` |
+| Widget Karten | `.border-primary-700` |
+| Widget Checkboxen | `.n-checkbox--checked` |
+| Modal Footer | `.n-card.hl-modal .n-card__footer` |
+| Cancel Button | `#dashboard_breadcrumb_add_widget_modal-footer_btn-cancel` |
+| Speichern Button | `#dashboard_breadcrumb_add_widget_modal-footer_btn-confirm_add` |
+| Dropdown Menu | `.n-base-select-menu.n-select-menu` (teleportiert) |
+
+---
+
+## Modal Header & Labels
+
+```css
+.n-card.hl-modal .n-card-header .hl-display-sm-semibold {
+  color: var(--ink) !important;
+}
+.n-card.hl-modal .n-card-header .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+.n-card.hl-modal .select-label {
+  color: var(--ink-2) !important;
+  font-weight: 500 !important;
+}
+```
+
+---
+
+## Dashboard Select Dropdown
+
+```css
+.n-card.hl-modal .n-select .n-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### Dropdown Menu (teleportiert — `.n-base-select-menu.n-select-menu`)
+Das Menü wird zu `<body>` teleportiert — eigener Scope notwendig:
+
+```css
+.n-base-select-menu.n-select-menu {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+.n-base-select-menu.n-select-menu .n-base-select-option--pending  { background-color: var(--wine-lt) !important; }
+.n-base-select-menu.n-select-menu .n-base-select-option--selected { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+
+/* "Erstellen Dashboard" Link im Action-Footer */
+.n-base-select-menu.n-select-menu .n-base-select-menu__action {
+  border-top: 1px solid var(--line-hard) !important;
+}
+.n-base-select-menu.n-select-menu .n-base-select-menu__action .text-primary-600 {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## Widget Selector Sektion
+
+Der hellrosa Hintergrundbereich mit „Ausgewählt Widgets (n)" + Karussell:
+
+```css
+.n-card.hl-modal section[aria-labelledby="reporting_widget_selector-heading-top_widgets"] {
+  background-color: var(--wine-pale) !important;
+  border-radius: 8px !important;
+}
+.n-card.hl-modal #reporting_widget_selector-heading-top_widgets {
+  color: var(--ink-2) !important;
+  font-weight: 600 !important;
+}
+```
+
+### Karussell-Pfeil-Buttons
+```css
+.n-card.hl-modal #reporting_widget_selector-btn-scroll_left,
+.n-card.hl-modal #reporting_widget_selector-btn-scroll_right {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-color-hover:  var(--wine-lt) !important;
+  border-radius: 50% !important;
+}
+.n-card.hl-modal #reporting_widget_selector-btn-scroll_left:hover svg,
+.n-card.hl-modal #reporting_widget_selector-btn-scroll_right:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Widget Karten & Checkboxen
+
+Aktive Widget-Karten erhalten einen Wine-Border über `.border-primary-700`:
+
+```css
+.n-card.hl-modal .border-primary-700 {
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+```
+
+### Checkbox — Wine Override
+NaïveUI setzt `--n-color-checked` als Inline-Style — direkte `background-color` Überschreibung notwendig:
+
+```css
+.n-card.hl-modal .n-checkbox.n-checkbox--checked .n-checkbox-box-wrapper .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.n-card.hl-modal .n-checkbox.n-checkbox--checked:hover .n-checkbox-box {
+  background-color: var(--wine-2) !important;
+}
+/* Checkmark SVG weiß */
+.n-card.hl-modal .n-checkbox.n-checkbox--checked .n-checkbox-box .n-checkbox-icon .check-icon path {
+  fill: #ffffff !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Stornieren (outlined Ghost)
+```css
+.n-card.hl-modal #dashboard_breadcrumb_add_widget_modal-footer_btn-cancel {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-text-color:       var(--ink-2) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+  --n-color-hover:      var(--wine-lt) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+### Speichern und hinzufügen (Primary — Wine)
+```css
+.n-card.hl-modal #dashboard_breadcrumb_add_widget_modal-footer_btn-confirm_add {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  --n-color:         var(--wine) !important;
+  --n-color-hover:   var(--wine-2) !important;
+  --n-border-radius: 8px !important;
+}
+.n-card.hl-modal #dashboard_breadcrumb_add_widget_modal-footer_btn-confirm_add:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Checkbox Inline-Style Override** — NaïveUI setzt `--n-color-checked` direkt als Inline-Style. CSS-Variablen greifen nicht — `background-color` direkt auf `.n-checkbox-box` ist der einzige zuverlässige Override.
+- **Widget Selector Hintergrund** — GHL nutzt `var(--wine-pale)` für die dezente rosa Fläche.
+- **Teleportiertes Dropdown** — `.n-base-select-menu.n-select-menu` wird zu `<body>` teleportiert. Der Action-Footer mit „Erstellen Dashboard" hat einen eigenen Border-Top und Link-Farbe.
+- **Karussell-Buttons** — werden über ihre expliziten IDs gescopert (`-btn-scroll_left` / `-btn-scroll_right`).
