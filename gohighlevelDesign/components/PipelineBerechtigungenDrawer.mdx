@@ -1,0 +1,168 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/PipelineBerechtigungenDrawer" />
+
+# Pipeline Freigabe & Berechtigungen Drawer — CSS Dokumentation
+
+Der **„Freigabe und Berechtigungen"** Drawer (`Section 91`) öffnet sich über das Kebab-Menü einer Pipeline-Zeile. Er steuert wer die Pipeline ansehen oder bearbeiten darf.
+
+**Scope:** `#pipeline-permissions-drawer-content`
+
+![Pipeline Berechtigungen Drawer Screenshot](/pipeline-berechtigungen-drawer-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Drawer Shell | `#pipeline-permissions-drawer-content` |
+| Beschreibungstext | `.pipeline-permissions-share-desc` |
+| „Link kopieren" Button | `#copy-link-btn` |
+| Permission Cards | `.crm-opportunities-pipeline-permissions-access-card` |
+| Aktive Card (Radio checked) | `:has(.hr-radio--checked)` |
+| Radio Buttons | `.hr-radio` |
+| Permission Selects | `.hr-base-selection` |
+| Abbrechen Button | `#cancel-permissions` |
+| Speichern Button | `#save-permissions` |
+
+---
+
+## Header
+
+```css
+#pipeline-permissions-drawer-content .hr-drawer-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#pipeline-permissions-drawer-content .hr-header-lite-title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+#pipeline-permissions-drawer-content #HLHeaderLite-close-button:hover {
+  background-color: var(--wine-lt) !important;
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## Zugriffseinstellungen
+
+### „Link kopieren" Button
+```css
+#pipeline-permissions-drawer-content #copy-link-btn       { color: var(--wine) !important; }
+#pipeline-permissions-drawer-content #copy-link-btn:hover { color: var(--wine-2) !important; }
+```
+
+### Permission Cards (`.crm-opportunities-pipeline-permissions-access-card`)
+Jede Option (Mit allen teilen / Mit ausgewählten teilen / Bestimmte ausschließen) ist eine klickbare Card:
+
+```css
+/* Default */
+#pipeline-permissions-drawer-content .crm-opportunities-pipeline-permissions-access-card {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+}
+#pipeline-permissions-drawer-content .crm-opportunities-pipeline-permissions-access-card:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+
+/* Aktiv — Card mit ausgewähltem Radio → wine-pale Hintergrund */
+#pipeline-permissions-drawer-content
+  .crm-opportunities-pipeline-permissions-access-card:has(.hr-radio--checked) {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-pale) !important;
+}
+```
+
+### Radio Buttons
+```css
+/* Checked */
+#pipeline-permissions-drawer-content .hr-radio.hr-radio--checked .hr-radio__dot {
+  background-color: var(--wine) !important;
+}
+#pipeline-permissions-drawer-content .hr-radio.hr-radio--checked .hr-radio__dot-wrapper {
+  border-color: var(--wine) !important;
+  background-color: var(--wine) !important;
+}
+/* Hover unchecked */
+#pipeline-permissions-drawer-content .hr-radio:not(.hr-radio--checked) .hr-radio__dot-wrapper:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+/* Focus Ring */
+#pipeline-permissions-drawer-content .hr-radio:focus-within .hr-radio__dot-wrapper {
+  box-shadow: 0 0 0 2px var(--wine-ring) !important;
+}
+/* Label — aktiv fett */
+#pipeline-permissions-drawer-content .hr-radio-label { color: var(--ink-2) !important; }
+#pipeline-permissions-drawer-content .hr-radio.hr-radio--checked .hr-radio-label {
+  color: var(--ink) !important;
+  font-weight: 500 !important;
+}
+```
+
+### Permission Selects (Nur Ansicht / Bearbeiten)
+```css
+/* Aktiv */
+#pipeline-permissions-drawer-content .hr-base-selection:not(.hr-base-selection--disabled) {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:     8px !important;
+  --n-caret-color:       var(--wine) !important;
+}
+/* Disabled (inaktive Card) */
+#pipeline-permissions-drawer-content .hr-base-selection.hr-base-selection--disabled {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Abbrechen (outlined Ghost)
+```css
+#pipeline-permissions-drawer-content #cancel-permissions {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#pipeline-permissions-drawer-content #cancel-permissions:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+```
+
+### Speichern (Primary — Wine)
+```css
+#pipeline-permissions-drawer-content #save-permissions {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+}
+#pipeline-permissions-drawer-content #save-permissions:not(:disabled):hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#pipeline-permissions-drawer-content #save-permissions:disabled {
+  opacity: 0.5 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **`:has(.hr-radio--checked)`** — Die aktive Card wird über den `:has()` Selektor gescopert. Sobald der Radio-Button gecheckt ist, erhält die Card `wine-pale` Hintergrund + Wine-Border — ohne JS.
+- **Disabled Selects** — Die Permission-Dropdowns der nicht-aktiven Cards sind disabled. Override via `.hr-base-selection--disabled` mit `opacity: 0.45`.
+- **`wine-pale` vs. `wine-lt`** — Aktive Cards nutzen `var(--wine-pale)` (sehr dezent) statt `wine-lt` um den Hintergrund ruhig zu halten während der Border die Auswahl klar kommuniziert.
+- **Radio-Focus-Ring** — Via `:focus-within` auf `.hr-radio__dot-wrapper` da NaïveUI den Ring als Inline-Style auf `<label>` setzt.
