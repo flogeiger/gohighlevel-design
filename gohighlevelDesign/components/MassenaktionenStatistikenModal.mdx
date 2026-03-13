@@ -1,0 +1,179 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Leads/MassenaktionenStatistikenModal" />
+
+# Massenaktionen Statistiken Modal — CSS Dokumentation
+
+Das **„Statistiken"** Modal (`Section 95`) öffnet sich über das Balkendiagramm-Icon (`⊟`) in einer Zeile der Massenaktionen-Seite. Es zeigt Statistik-Karten, gefilterte Tabs (Alle / Erfolg / Fehler), eine Detailtabelle und einen Download-Button.
+
+**Scope:** `#bulk-action-statistics-modal`
+
+![Massenaktionen Statistiken Modal Screenshot](/massenaktionen-statistiken-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `#bulk-action-statistics-modal` |
+| Close Button | `#hr-modal__close-button` |
+| Stats Cards | `.general-stats` |
+| Tabs | `.hr-tabs` / `.hr-tabs-bar` |
+| Tabelle | `#stats-table` / `#stats-table-wrapper` |
+| Tabellen-Header | `.hr-data-table__cell-header` |
+| Per-Page Dropdown | `#per-page-dropdown` |
+| Pagination Buttons | `#hr-prev-button` / `#next-button` |
+| Download Button | `#download-stats-button` |
+
+---
+
+## Modal Header
+
+```css
+#bulk-action-statistics-modal .text-gray-900 { color: var(--ink) !important; }
+#bulk-action-statistics-modal .text-gray-500 { color: var(--ink-3) !important; }
+#bulk-action-statistics-modal #hr-modal__close-button:hover {
+  background-color: var(--wine-lt) !important;
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## Stats Cards (`.general-stats`)
+
+Die drei Karten (Alle / Erfolg / Fehler) haben einen Wine-lt Hintergrund. Die Prozentzahlen (weiß/grün/gelb) sind semantische Status-Farben und werden bewusst **nicht** überschrieben:
+
+```css
+#bulk-action-statistics-modal .general-stats {
+  background-color: var(--wine-lt) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+}
+#bulk-action-statistics-modal .stat-heading       { color: var(--ink-3) !important; font-weight: 600 !important; }
+#bulk-action-statistics-modal .general-stat-count { color: var(--ink) !important; font-weight: 700 !important; }
+```
+
+---
+
+## Tabs (Alle / Erfolg / Fehler)
+
+```css
+#bulk-action-statistics-modal .hr-tabs {
+  --n-tab-text-color:        var(--ink-3) !important;
+  --n-tab-text-color-active: var(--wine-2) !important;
+  --n-bar-color:             var(--wine) !important;
+}
+#bulk-action-statistics-modal .hr-tabs-tab           { color: var(--ink-3) !important; }
+#bulk-action-statistics-modal .hr-tabs-tab--active   { color: var(--wine-2) !important; font-weight: 600 !important; }
+#bulk-action-statistics-modal .hr-tabs-tab:hover:not(.hr-tabs-tab--active) {
+  color: var(--ink) !important;
+  background-color: var(--wine-lt) !important;
+}
+/* Aktive Tab-Linie */
+#bulk-action-statistics-modal .hr-tabs-bar { background-color: var(--wine) !important; }
+```
+
+---
+
+## Detailtabelle (`#stats-table`)
+
+### Header
+```css
+#bulk-action-statistics-modal .hr-data-table__cell-header {
+  background-color: var(--wine-lt) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#bulk-action-statistics-modal .hr-data-table__cell-header .hr-text {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+```
+
+### Body Rows
+```css
+#bulk-action-statistics-modal .hr-data-table__body-row {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#bulk-action-statistics-modal .hr-data-table__body-row:hover {
+  background-color: var(--wine-lt) !important;
+}
+#bulk-action-statistics-modal .hr-data-table__body-cell .hr-text { color: var(--ink-2) !important; }
+```
+
+---
+
+## Pagination & Footer
+
+### Per-Page Dropdown
+```css
+#bulk-action-statistics-modal #per-page-dropdown .hr-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:     6px !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### Prev / Next Buttons
+```css
+#bulk-action-statistics-modal #hr-prev-button,
+#bulk-action-statistics-modal #next-button {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 6px !important;
+}
+#bulk-action-statistics-modal #hr-prev-button:not(:disabled):hover,
+#bulk-action-statistics-modal #next-button:not(:disabled):hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+#bulk-action-statistics-modal #hr-prev-button:disabled,
+#bulk-action-statistics-modal #next-button:disabled { opacity: 0.4 !important; }
+```
+
+### Aktive Seitennummer
+```css
+#bulk-action-statistics-modal .hr-pagination-item__active button {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+  background-color: var(--wine-lt) !important;
+  border-radius: 4px !important;
+}
+#bulk-action-statistics-modal .hr-pagination-item__active button .hr-button__border {
+  border-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Download Button (`#download-stats-button`)
+
+```css
+#bulk-action-statistics-modal #download-stats-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+}
+#bulk-action-statistics-modal #download-stats-button .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#bulk-action-statistics-modal #download-stats-button:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Statistik-Prozentzahlen bleiben semantisch** — Die farbigen Prozentwerte in den Stats-Cards (weiß = neutral, grün = Erfolg, gelb/orange = Fehler) sind GHL-gerenderte Inline-Styles mit semantischer Bedeutung. Diese werden bewusst nicht überschrieben.
+- **Tabs nutzen `--n-bar-color`** — Der aktive Tab-Indikator läuft über `.hr-tabs-bar`. Sowohl CSS-Variable als auch direktes `background-color` werden gesetzt für maximale Kompatibilität.
+- **Status-Badge „Success"** bleibt grün — gleiche Logik wie Section 93.
+- **Download Button** — Gleicher direkter `background-color` Override wie bei Primary-Buttons in Section 88–92.
