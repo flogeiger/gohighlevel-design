@@ -1,0 +1,164 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/QuickFilterDrawer" />
+
+# Schnell-Filter Drawer — CSS Dokumentation
+
+Der **„Schnell-Filter"** Drawer (`Section 99`) öffnet sich über den „+ Schnell-Filter" Button auf der Dashboard-Seite. Er hat zwei Zustände die dynamisch wechseln:
+
+| State | Beschreibung | Trigger |
+|---|---|---|
+| **State A · Leer** | Empty State mit „Schnell-Filter Hinzufügen" Button | Initial beim Öffnen |
+| **State B · Filter hinzufügen** | Suchfeld + Modul-Dropdown + Collapse-Liste | Nach Klick auf „+ Schnell-Filter Hinzufügen" |
+
+**Scope:** `.hl-drawer-content:has(.quick-filter-custom-height)`
+
+![Schnell-Filter Drawer Screenshot](/dashboard-quick-filter-drawer-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Drawer Shell | `.hl-drawer-content:has(.quick-filter-custom-height)` |
+| Filter-Zähler | `.quick-filter-custom-height .text-gray-400` |
+| „Klären" Button | `#location_dashboard_quick_filters-btn-clear_filters` |
+| Filter Icon | `.quick-filter-custom-height .bg-gray-100.rounded-full` |
+| „Schnell-Filter Hinzufügen" | `#location_dashboard_quick_filters-btn-add_quick_filters` |
+| Suchfeld | `#search-input` |
+| Modul-Dropdown | `#quick-filter-module-dropdown` |
+| Collapse-Liste | `.location-dashboard-collapse` |
+| Stornieren Button | `#quick-filter-panel-drawer-content-btn-negative-action` |
+| Hinzufügen Button | `#quick-filter-panel-drawer-content-btn-positive-action` |
+
+---
+
+## State A · Leer (Empty State)
+
+### Filter Icon Container
+```css
+.quick-filter-custom-height .bg-gray-100.rounded-full {
+  background-color: var(--wine-lt) !important;
+}
+.quick-filter-custom-height .bg-gray-100.rounded-full svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+```
+
+### Filter-Zähler & „Klären" Button
+```css
+.quick-filter-custom-height .text-gray-400 { color: var(--ink-4) !important; }
+.quick-filter-custom-height .text-gray-900 { color: var(--ink) !important; }
+/* Klären Button (deaktiviert solange keine Filter vorhanden) */
+#location_dashboard_quick_filters-btn-clear_filters {
+  color: var(--ink-4) !important;
+  opacity: 0.5 !important;
+}
+```
+
+### „+ Schnell-Filter Hinzufügen" Button (Primary)
+```css
+#location_dashboard_quick_filters-btn-add_quick_filters {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location_dashboard_quick_filters-btn-add_quick_filters .n-button__border {
+  border-color: var(--wine) !important;
+}
+#location_dashboard_quick_filters-btn-add_quick_filters:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#location_dashboard_quick_filters-btn-add_quick_filters svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+```
+
+---
+
+## State B · Filter hinzufügen
+
+### Suchfeld (`#search-input`)
+```css
+#search-input {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:     8px !important;
+}
+#search-input .n-input__prefix svg {
+  color: var(--ink-4) !important;
+  stroke: var(--ink-4) !important;
+}
+```
+
+### Modul-Dropdown (`#quick-filter-module-dropdown`)
+```css
+#quick-filter-module-dropdown .n-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### Collapse-Liste (`.location-dashboard-collapse`)
+```css
+.location-dashboard-collapse .n-collapse {
+  --n-divider-color:    var(--line-hard) !important;
+  --n-title-text-color: var(--ink) !important;
+  --n-text-color:       var(--ink-2) !important;
+  --n-arrow-color:      var(--ink-3) !important;
+}
+```
+
+---
+
+## Footer Buttons (beide States)
+
+### Stornieren
+```css
+#quick-filter-panel-drawer-content-btn-negative-action {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#quick-filter-panel-drawer-content-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Hinzufügen (Primary)
+```css
+#quick-filter-panel-drawer-content-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#quick-filter-panel-drawer-content-btn-positive-action:not(:disabled):hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Scope via `:has()`** — Der Drawer hat keine eigene ID. Die Scoping-Strategie nutzt `.hl-drawer-content:has(.quick-filter-custom-height)` als eindeutigen Container-Selektor.
+- **State A → B Wechsel** — Beide States befinden sich im selben Drawer-Scope. GHL blendet State A aus und zeigt State B an — kein DOM-Wechsel, kein zusätzlicher Scope nötig.
+- **„Klären" Button deaktiviert** — Solange keine Filter vorhanden sind, ist `#location_dashboard_quick_filters-btn-clear_filters` funktional deaktiviert. `opacity: 0.5` signalisiert den inaktiven Zustand ohne den Wine-Override zu ändern.
+- **`#search-input` globale ID** — Diese ID wird auch in anderen Drawers verwendet (z.B. Section 88). Der Schnell-Filter Drawer ist durch seinen übergeordneten Scope (`:has(.quick-filter-custom-height)`) ausreichend isoliert.
