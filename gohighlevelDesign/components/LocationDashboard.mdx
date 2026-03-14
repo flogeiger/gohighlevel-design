@@ -1,0 +1,301 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/LocationDashboard" />
+
+# Location Dashboard — CSS Dokumentation
+
+Das **„Dashboard"** (`Section 98`) ist die zentrale Reporting-Übersicht und über den Dashboard-Eintrag in der Hauptnavigation erreichbar. Es zeigt Widget-Cards mit Charts, Tabellen und KPIs. Die Seite hat zwei Modi (View / Edit) sowie mehrere teleportierte Popovers.
+
+| Sub-Section | Beschreibung | Scope |
+|---|---|---|
+| **98** | Widget-Cards, Toolbar (Edit-Modus) | `#dashboard-wrapper` |
+| **98b** | Header View-Modus, Dashboard-Switcher Button | `#location-dashboard-header` |
+| **98c** | Dashboard-Switcher Popover | `#location_dashboard-popover_content-dashbaord_selector` |
+| **98d** | Widget Date Property Popover | `.location-dashboard_popover--opportunity-status-date-property-content` |
+
+**Scope:** `#dashboard-wrapper`
+
+![Location Dashboard Screenshot](/dashboard-page-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Page Background | `#dashboard-wrapper` |
+| Sticky Toolbar | `#location-dashboard-header` |
+| Dashboard-Name Input | `#location_dashboard_header-input-dashboard_name` |
+| Datepicker Button | `#reporting_common_datepicker-btn-trigger` |
+| AI Summarize Button | `#location_dashboard-btn-summarize_dashboard` |
+| Stornieren Button | `#location-dashboard_btn--cancel-dashboard` |
+| Änderungen speichern | `#location-dashboard_btn--save-dashboard` |
+| Widget hinzufügen | `#location-dashboard_btn--add-widget` |
+| Schnell-Filter Button | `#location_dashboard-btn-add_quick_filters` |
+| Widget Cards | `#dashboard-container .hl-card` |
+| Widget Selects | `#dashboard-container .n-base-selection` |
+| Dashboard bearbeiten | `#location-dashboard_btn--edit-dashboard` |
+| Dashboard-Switcher | `#location_dashboard-btn-dashboard_switcher` |
+
+---
+
+## 98 · Toolbar (Edit-Modus)
+
+### Dashboard-Name Input
+```css
+#location_dashboard_header-input-dashboard_name {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+### „Bearbeitungsmodus" Tag
+```css
+#location-dashboard-header .n-tag {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  border-radius: 20px !important;
+}
+```
+
+### Datepicker Button
+```css
+#reporting_common_datepicker-btn-trigger {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#reporting_common_datepicker-btn-trigger:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Footer Buttons
+
+```css
+/* Stornieren */
+#location-dashboard_btn--cancel-dashboard {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_btn--cancel-dashboard:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+
+/* Änderungen speichern (outlined wine) */
+#location-dashboard_btn--save-dashboard {
+  border: 1px solid var(--wine) !important;
+  color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_btn--save-dashboard:hover {
+  border-color: var(--wine-2) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+
+/* Widget hinzufügen (Primary) */
+#location-dashboard_btn--add-widget {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_btn--add-widget:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+### Schnell-Filter Button
+```css
+#location_dashboard-btn-add_quick_filters,
+#location_dashboard-btn-add_quick_filters * {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+#location_dashboard-btn-add_quick_filters:hover,
+#location_dashboard-btn-add_quick_filters:hover * {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+```
+
+---
+
+## 98 · Widget Cards
+
+```css
+#dashboard-container .hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.06) !important;
+}
+#dashboard-container .hl-card:hover {
+  box-shadow: 0 2px 10px rgba(139, 58, 74, 0.1) !important;
+}
+/* Card Header */
+#dashboard-container .hl-card-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#dashboard-container .hl-card-header .hl-text-md-medium { color: var(--ink) !important; }
+#dashboard-container .hl-card-header .hl-text-xs-regular { color: var(--ink-4) !important; }
+```
+
+### Widget Selects (Pipeline-Dropdown etc.)
+```css
+#dashboard-container .n-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### Lead Source Report Tabelle
+```css
+#dashboard-container .n-data-table-th {
+  background-color: var(--wine-lt) !important;
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+#dashboard-container .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## 98b · View-Modus Header
+
+### „Dashboard bearbeiten" Button (Primary)
+```css
+#location-dashboard_btn--edit-dashboard {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_btn--edit-dashboard:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+### Dashboard-Switcher Button
+```css
+#location_dashboard-btn-dashboard_switcher {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#location_dashboard-btn-dashboard_switcher:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Dashboard Dropdown Options (teleportiert)
+```css
+body .n-dropdown-option[id^="location_dashboard-dashboard_option-"] {
+  background-color: var(--surface) !important;
+  color: var(--ink-2) !important;
+}
+body .n-dropdown-option[id^="location_dashboard-dashboard_option-"]:hover {
+  background-color: var(--wine-lt) !important;
+}
+body .n-dropdown-option[id^="location_dashboard-dashboard_option-"]:hover .n-dropdown-option-body__label {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 98c · Dashboard-Switcher Popover (teleportiert)
+
+```css
+body #location_dashboard-popover_content-dashbaord_selector {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+}
+/* Suchfeld */
+body #location_dashboard-input-search_dashboard {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-border-radius:    8px !important;
+}
+/* Dashboard Cards (inaktiv) */
+body .location-dashboard-navigation .hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+body .location-dashboard-navigation .hl-card:hover {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+/* Dashboard Card aktiv */
+body .location-dashboard-navigation .hl-card.active_dashboard {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+body .location-dashboard-navigation .hl-card.active_dashboard p {
+  color: var(--wine-2) !important;
+  font-weight: 600 !important;
+}
+/* „Dashboard hinzufügen" Button */
+body #location_dashboard-btn-add_dashboard,
+body #location_dashboard-btn-add_dashboard * {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 98d · Widget Date Property Popover (teleportiert)
+
+```css
+body .n-popover:has(.location-dashboard_popover--opportunity-status-date-property-content) {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+}
+/* Optionen Hover */
+body .location-dashboard_popover--opportunity-status-date-property-content .flex.justify-between:hover {
+  background-color: var(--wine-lt) !important;
+}
+body .location-dashboard_popover--opportunity-status-date-property-content .flex.justify-between:hover p {
+  color: var(--wine-2) !important;
+}
+/* Aktive Option (text-primary-600 → wine) */
+body .location-dashboard_popover--opportunity-status-date-property-content .text-primary-600,
+body .location-dashboard_popover--opportunity-status-date-property-content .text-primary-600 p {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Zwei Modi** — Der Header unterscheidet zwischen View-Modus (98b: Dashboard bearbeiten + Switcher) und Edit-Modus (98: Stornieren + Speichern + Widget hinzufügen). Die Button-IDs wechseln je nach Modus.
+- **`#location-dashboard_btn--save-dashboard`** — Abweichend vom Standard: „Änderungen speichern" ist ein **outlined wine** Button (kein Primary), da „Widget hinzufügen" die primäre Aktion im Edit-Modus ist.
+- **Teleportierte Popovers** (98c + 98d) — Beide Popovers werden zu `<body>` teleportiert. Scoping via `:has()` auf den inneren Container.
+- **Dashboard Dropdown Options** — Werden über `[id^="location_dashboard-dashboard_option-"]` attribut-basiert gescopert da die IDs dynamisch erzeugt werden.
+- **Widget Charts** — Die Diagramm-Farben (Kreisdiagramm-Blau, Balken etc.) werden nicht überschrieben — diese sind semantische Datendarstellungen.
+- **Typo im GHL-Selektor** — `#location_dashboard-popover_content-dashbaord_selector` enthält einen GHL-seitigen Tippfehler (`dashbaord` statt `dashboard`). Der Selektor muss exakt so geschrieben werden.
