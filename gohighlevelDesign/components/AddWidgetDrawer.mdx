@@ -1,0 +1,248 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/AddWidgetDrawer" />
+
+# Widget hinzufügen Drawer — CSS Dokumentation
+
+Der **„Neues Widget hinzufügen"** Drawer (`Section 100`) öffnet sich über den „+ Widget hinzufügen" Button im Edit-Modus des Dashboards. Er besteht aus zwei Ebenen:
+
+| Ebene | Beschreibung | Scope |
+|---|---|---|
+| **100 · Widget-Auswahl** | 4 Tabs: Widgets / Komponenten / Themen / Benutzerdefiniert | `:has(.location-dashboard-custom-height)` |
+| **100b · Widget-Konfiguration** | Configure + Conditions Tabs + Speichern | `:has(#location_dashboard_manage_widget-btn-save_widget)` |
+
+![Add Widget Drawer Screenshot](/dashboard-add-widget-drawer-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Drawer Shell (Auswahl) | `.hl-drawer-content:has(.location-dashboard-custom-height)` |
+| Drawer Shell (Konfiguration) | `.hl-drawer-content:has(#location_dashboard_manage_widget-btn-save_widget)` |
+| Tabs (beide Ebenen) | `.hl-tabs` / `.n-tabs-bar` |
+| Suchfeld | `#search-input` |
+| Filter-Buttons aktiv | `.n-button.border-primary-400` |
+| Collapse-Liste | `.location-dashboard-collapse` |
+| Count-Tags | `.n-tag.hl-success` |
+| Widget-Karten (Tab 2) | `.location-dashboard-element-widgets-card.hl-card` |
+| Theme-Karten (Tab 3) | `.location-dashboard-border-select-theme.hl-card` |
+| Custom Metric Button (Tab 4) | `#reporting-custom_metric_panel-add_custom_metric_btn` |
+| Zurück Button | `#location_dashboard-btn-back_widget` |
+| Title Input | `#title` |
+| Metric Select | `#aggregations` |
+| Add Filter Button | `#add-filter` |
+| Speichern Button | `#location_dashboard_manage_widget-btn-save_widget` |
+
+---
+
+## 100 · Tabs
+
+Beide Drawer-Ebenen nutzen dasselbe Tab-Pattern:
+```css
+.hl-drawer-content:has(.location-dashboard-custom-height) .hl-tabs,
+.hl-drawer-content:has(#location_dashboard_manage_widget-btn-save_widget) .hl-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color:        var(--ink-3) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+  --n-tab-border-color:      var(--line-hard) !important;
+}
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-tabs-bar,
+.hl-drawer-content:has(#location_dashboard_manage_widget-btn-save_widget) .n-tabs-bar {
+  background-color: var(--wine) !important;
+}
+/* Aktive Tab-Beschriftung */
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-tabs-tab--active,
+.hl-drawer-content:has(#location_dashboard_manage_widget-btn-save_widget) .n-tabs-tab--active {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 100 · Tab 1 — Widgets
+
+### Suchfeld
+```css
+.hl-drawer-content:has(.location-dashboard-custom-height) #search-input {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+### Filter-Buttons (aktiv / inaktiv)
+```css
+/* Aktiv (border-primary-400 + bg-primary-50) */
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-button.border-primary-400 {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-button.border-primary-400 p {
+  color: var(--wine-2) !important;
+}
+/* Inaktiv */
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-button--default-type.p-3 {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-3) !important;
+  border-radius: 8px !important;
+}
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-button--default-type.p-3:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Collapse-Liste (Kontakte, Termine, Leads…)
+```css
+.hl-drawer-content:has(.location-dashboard-custom-height) .location-dashboard-collapse .n-collapse {
+  --n-divider-color:    var(--line-hard) !important;
+  --n-title-text-color: var(--ink) !important;
+  --n-text-color:       var(--ink-2) !important;
+  --n-arrow-color:      var(--ink-3) !important;
+}
+```
+
+### Count-Badges (`.n-tag.hl-success`)
+```css
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-tag.hl-success {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+.hl-drawer-content:has(.location-dashboard-custom-height) .n-tag.hl-success .n-tag__content {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 100 · Tab 2 — Komponenten
+
+```css
+.hl-drawer-content:has(.location-dashboard-custom-height) .location-dashboard-element-widgets-card.hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+.hl-drawer-content:has(.location-dashboard-custom-height) .location-dashboard-element-widgets-card.hl-card:hover {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 100 · Tab 3 — Themen
+
+```css
+.hl-drawer-content:has(.location-dashboard-custom-height) .location-dashboard-border-select-theme.hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+.hl-drawer-content:has(.location-dashboard-custom-height) .location-dashboard-border-select-theme.hl-card:hover {
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 100 · Tab 4 — Benutzerdefiniert Statistiken
+
+```css
+/* "Benutzerdefiniert Messdaten Erstellen" Button */
+#reporting-custom_metric_panel-add_custom_metric_btn {
+  border: 1px solid var(--wine) !important;
+  border-radius: 8px !important;
+  background-color: var(--wine-lt) !important;
+}
+#reporting-custom_metric_panel-add_custom_metric_btn:hover {
+  border-color: var(--wine-2) !important;
+}
+#reporting-custom_metric_panel-add_custom_metric_btn svg,
+#reporting-custom_metric_panel-add_custom_metric_btn p {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 100b · Widget-Konfiguration
+
+### Zurück Button
+```css
+#location_dashboard-btn-back_widget,
+#location_dashboard-btn-back_widget * {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+#location_dashboard-btn-back_widget:hover,
+#location_dashboard-btn-back_widget:hover * {
+  color: var(--wine-2) !important;
+}
+```
+
+### Title Input + Metric Select
+```css
+/* Title */
+.hl-drawer-content:has(#location_dashboard_manage_widget-btn-save_widget) #title {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+/* Metric Select */
+.hl-drawer-content:has(#location_dashboard_manage_widget-btn-save_widget) #aggregations .n-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+### „Add Filter" Button (Conditions Tab)
+```css
+#add-filter {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#add-filter:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+#add-filter svg, #add-filter p { color: var(--wine) !important; }
+```
+
+### Speichern Button (Primary)
+```css
+#location_dashboard_manage_widget-btn-save_widget {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location_dashboard_manage_widget-btn-save_widget:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Zwei Scopes via `:has()`** — Auswahl-Ebene nutzt `:has(.location-dashboard-custom-height)`, Konfigurations-Ebene nutzt `:has(#location_dashboard_manage_widget-btn-save_widget)`. Beide sind notwendig da GHL die Drawer-Inhalte dynamisch austauscht.
+- **Filter-Buttons aktiv** — GHL setzt `.border-primary-400` und `.bg-primary-50` als Tailwind-Klassen direkt am Button-Element. Direkter Override via Klassenname notwendig — keine NaïveUI-Vars verfügbar.
+- **Count-Badges** — `.n-tag.hl-success` ist GHLs eigene Variante des NaïveUI-Tags für Erfolgszustände. Hier wine-lt Hintergrund statt Grün.
+- **`#search-input`** — Globale ID die in mehreren Drawers vorkommt. Durch den Drawer-Scope `:has(.location-dashboard-custom-height)` ausreichend isoliert.
+- **Chart-Farben** — Die Kreisdiagramm- und Balkenfarben der Widget-Vorschauen werden nicht überschrieben — semantische Datendarstellung.
