@@ -1,0 +1,135 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/ManageTimezoneModal" />
+
+# Dashboard-Zeitzone verwalten Modal — CSS Dokumentation
+
+Das **„Dashboard-Zeitzone verwalten"** Modal (`Section 105`) öffnet sich über das Kebab-Menü eines Dashboards. Es ermöglicht die Auswahl der bevorzugten Zeitzone für alle Dashboard-Widgets.
+
+**Scope:** `body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn)`
+
+![Dashboard Zeitzone Modal Screenshot](/dashboard-timezone-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `body .hl-modal:has(#...manage_timezone-modal-close-btn)` |
+| Close Button | `#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn` |
+| Header Icon | `.icon.icon-primary svg` |
+| Zeitzone Select | `#location_dashboard-select-timezone` |
+| Info-Box | `.bg-gray-100` |
+| Stornieren | `#...manage_timezone-btn-negative-action` |
+| Speichern | `#...manage_timezone-btn-positive-action` |
+
+---
+
+## Modal Header
+
+```css
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn) .hl-text-md-medium {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn) .hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+/* Header Icon (icon-primary) → wine, Hintergrund transparent */
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn) .icon.icon-primary {
+  background-color: transparent !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn) .icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+/* Close Button */
+#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn {
+  border-color: var(--line-hard) !important;
+  color: var(--ink-3) !important;
+}
+#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Zeitzone Select (`#location_dashboard-select-timezone`)
+
+```css
+#location_dashboard-select-timezone .n-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+```
+
+---
+
+## Info-Box (`.bg-gray-100`)
+
+GHL setzt einen grauen Hintergrund für die Hinweis-Box — wird auf wine-lt überschrieben:
+
+```css
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn) .bg-gray-100 {
+  background-color: var(--wine-lt) !important;
+  border-radius: 8px !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn) .bg-gray-100 svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-manage_timezone-modal-close-btn) .bg-gray-100 p {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Stornieren
+```css
+#location-dashboard_modal-footer--location_dashboard-modal-manage_timezone-btn-negative-action {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--location_dashboard-modal-manage_timezone-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Speichern (Primary — Wine)
+```css
+#location-dashboard_modal-footer--location_dashboard-modal-manage_timezone-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--location_dashboard-modal-manage_timezone-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **`.icon.icon-primary`** — Dieses Modal verwendet `.icon-primary` als Icon-Variante. Gleicher Fix wie Section 102/103: `background-color: transparent` auf dem Container, SVG direkt auf wine.
+- **`.bg-gray-100` Info-Box** — Tailwind-Klasse direkt am Container. Der wine-lt Hintergrund signalisiert einen informativen (nicht warnenden) Hinweis — keine danger-Farbe notwendig.
+- **Gleiche Struktur wie Section 103** — Heading, Description, Select, Info-Box und Footer folgen exakt demselben Pattern wie das „Kopieren"-Modal.
