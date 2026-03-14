@@ -1,0 +1,170 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/PermissionsModal" />
+
+# Berechtigungen verwalten Modal — CSS Dokumentation
+
+Das **„Berechtigungen verwalten"** Modal (`Section 101`) öffnet sich über das Kebab-Menü eines Dashboards. Es ermöglicht das Festlegen von Zugriffsrechten (Privat / Agenturnutzer / Kontoadministrator / Konto-Benutzer) sowie das Aktivieren des Privat-Modus via Toggle.
+
+**Scope:** `body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn)`
+
+![Dashboard Berechtigungen Modal Screenshot](/dashboard-permissions-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `body .hl-modal:has(#...modal-close-btn)` |
+| Close Button | `#location-dashboard_modal-header--manage-permissions-modal-close-btn` |
+| Header Icon | `.hl-icon-container .icon svg` |
+| Privates Dashboard Card | `.bg-gray-50` |
+| Toggle Switch | `#location_dashboard_permissions_selector-switch-is_private` |
+| Info Icon + Text | `.flex.items-start svg` |
+| Permission Selects | `#location-dashboard_select--agency_user` / `--account_admin` / `--account_user` |
+| Stornieren | `#location-dashboard_modal-footer--manage-permissions-btn-negative-action` |
+| Speichern | `#location-dashboard_modal-footer--manage-permissions-btn-positive-action` |
+
+---
+
+## Modal Header
+
+```css
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .description {
+  color: var(--ink-3) !important;
+}
+/* Header Icon → wine */
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .hl-icon-container .icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+/* Close Button */
+#location-dashboard_modal-header--manage-permissions-modal-close-btn {
+  border-color: var(--line-hard) !important;
+  color: var(--ink-3) !important;
+}
+#location-dashboard_modal-header--manage-permissions-modal-close-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Privates Dashboard Card (`.bg-gray-50`)
+
+```css
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .bg-gray-50 {
+  background-color: var(--wine-lt) !important;
+  border-radius: 8px !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .bg-gray-50 .hl-text-sm-medium {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .bg-gray-50 p {
+  color: var(--ink-2) !important;
+}
+```
+
+### Toggle Switch (`#location_dashboard_permissions_selector-switch-is_private`)
+```css
+#location_dashboard_permissions_selector-switch-is_private {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+```
+
+### Info Icon + Text
+```css
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .flex.items-start svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .flex.items-start p {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## Eigentümer-Zeile
+
+```css
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .hl-text-sm-normal {
+  color: var(--ink-2) !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-close-btn) .text-gray-500 {
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+## Permission Selects
+
+Drei identisch gestaltete Dropdowns für Agenturnutzer, Kontoadministrator und Konto-Benutzer:
+
+```css
+#location-dashboard_select--agency_user .n-base-selection,
+#location-dashboard_select--account_admin .n-base-selection,
+#location-dashboard_select--account_user .n-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Stornieren
+```css
+#location-dashboard_modal-footer--manage-permissions-btn-negative-action {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--manage-permissions-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Speichern (Primary)
+```css
+#location-dashboard_modal-footer--manage-permissions-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--manage-permissions-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Modal Scope via `body` + `:has()`** — Das Modal ist zu `<body>` teleportiert. Der kombinierte Selektor `body .hl-modal:has(#...close-btn)` ist notwendig um maximale Spezifität gegen GHL-eigene Styles zu erreichen.
+- **Toggle Switch** — `--n-rail-color-active` steuert die aktive Farbe des Sliders. Kein direktes `background-color` nötig — NaïveUI-Var greift hier zuverlässig.
+- **`bg-gray-50` Card** — GHL setzt Tailwind-Klasse direkt am Container. Direkter Override auf `background-color` notwendig — `var(--wine-lt)` als dezenter Hintergrund für die Privat-Modus-Karte.
+- **Info Icon** — Das Warn-Icon neben dem Hinweistext wird via `svg` Selektor auf Wine gesetzt. `stroke` statt `fill` da das Icon Outline-Style nutzt.
+- **Eigentümer-Zeile** — Hat keinen eigenen Selektor/ID — wird über Tailwind-Klassen (`.hl-text-sm-normal`, `.text-gray-500`) gestylt.
