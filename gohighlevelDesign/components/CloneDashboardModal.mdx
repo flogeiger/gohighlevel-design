@@ -1,0 +1,134 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/CloneDashboardModal" />
+
+# Dashboard klonen Modal — CSS Dokumentation
+
+Das **„Dashboard klonen"** Modal (`Section 102`) öffnet sich über das Kebab-Menü eines Dashboards. Es ermöglicht das Duplizieren eines Dashboards mit neuem Namen und optionalem Privat-Modus.
+
+**Scope:** `body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn)`
+
+![Dashboard Klonen Modal Screenshot](/dashboard-clone-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `body .hl-modal:has(#...clone-dashboard-modal-close-btn)` |
+| Close Button | `#location-dashboard_modal-header--clone-dashboard-modal-close-btn` |
+| Header Icon | `.icon.icon-success svg` |
+| Dashboard-Name Input | `#location-dashboard_input--clone-dashboard-name` |
+| Privates Dashboard Card | `.bg-gray-50` |
+| Toggle Switch | `#location_dashboard_permissions_selector-switch-is_private` |
+| Stornieren | `#location-dashboard_modal-footer--clone-dashboard-btn-negative-action` |
+| Klon | `#location-dashboard_modal-footer--clone-dashboard-btn-positive-action` |
+
+---
+
+## Modal Header
+
+```css
+body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn) .title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+/* Header Icon (icon-success) → wine, Hintergrund transparent */
+body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn) .icon.icon-success {
+  background-color: transparent !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn) .icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+/* Close Button */
+#location-dashboard_modal-header--clone-dashboard-modal-close-btn {
+  border-color: var(--line-hard) !important;
+  color: var(--ink-3) !important;
+}
+#location-dashboard_modal-header--clone-dashboard-modal-close-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Dashboard-Name Input (`#location-dashboard_input--clone-dashboard-name`)
+
+```css
+#location-dashboard_input--clone-dashboard-name {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+---
+
+## Privates Dashboard Card & Toggle
+
+```css
+/* Card Hintergrund */
+body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn) .bg-gray-50 {
+  background-color: var(--wine-lt) !important;
+  border-radius: 8px !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn) .bg-gray-50 .hl-text-sm-medium {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn) .bg-gray-50 .hl-text-sm-normal {
+  color: var(--ink-2) !important;
+}
+/* Toggle Switch */
+body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close-btn) #location_dashboard_permissions_selector-switch-is_private {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Stornieren
+```css
+#location-dashboard_modal-footer--clone-dashboard-btn-negative-action {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--clone-dashboard-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Klon (Primary — Wine)
+```css
+#location-dashboard_modal-footer--clone-dashboard-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--clone-dashboard-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **`.icon.icon-success` Hintergrund** — GHL setzt auf dem Icon-Container eine grüne Hintergrundfarbe via `.icon-success`. Fix: `background-color: transparent` direkt auf `.icon.icon-success` — das SVG selbst wird separat auf wine gesetzt.
+- **Gleiche Toggle-ID wie Section 101** — `#location_dashboard_permissions_selector-switch-is_private` wird in beiden Modals (Berechtigungen + Klon) verwendet. Da beide Modals nie gleichzeitig offen sind, gibt es keinen Konflikt.
+- **Struktur ähnlich Section 101** — Privates Dashboard Card (`.bg-gray-50`), Toggle und Footer-Buttons folgen exakt demselben Pattern wie das Berechtigungen-Modal.
