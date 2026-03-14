@@ -1,0 +1,120 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/CreateDashboardPage" />
+
+# Neues Dashboard erstellen — CSS Dokumentation
+
+Die **„Neues Dashboard"** Auswahl-Seite (`Section 106`) öffnet sich über „+ Dashboard hinzufügen" im Dashboard-Switcher. Sie präsentiert drei Optionskarten zur Erstellungsmethode.
+
+**Scope:** `.create-dashboard-ui`
+
+![Neues Dashboard Seite Screenshot](/dashboard-create-page-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Toolbar | `.hl-toolbar .bg-white` |
+| Zurück Button | `#location_dashboard_create-btn-back` |
+| Container Card | `.create-dashboard-ui` |
+| Section Heading | `.text-gray-900.hl-text-lg-medium` |
+| Option Cards | `.create-dashboard-ui .hl-card` |
+| Auswählen (Leer) | `#reporting_create_prompt_card-button-blank-dashboard` |
+| Auswählen (Vorlagen) | `#reporting_create_prompt_card-button-template-library` |
+| Auswählen (Klonen) | `#reporting_create_prompt_card-button-clone-dashboard` |
+
+---
+
+## Toolbar
+
+```css
+.hl-toolbar .bg-white {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+/* Seitentitel */
+.hl-toolbar .hl-text-sm-medium { color: var(--ink) !important; }
+```
+
+### „< Zurück" Button
+```css
+#location_dashboard_create-btn-back,
+#location_dashboard_create-btn-back * {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+#location_dashboard_create-btn-back:hover,
+#location_dashboard_create-btn-back:hover * {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+```
+
+---
+
+## Section Heading
+
+```css
+.container:has(.create-dashboard-ui) .text-gray-900.hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+.container:has(.create-dashboard-ui) .text-gray-500.hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## Option Cards (`.create-dashboard-ui .hl-card`)
+
+Die drei Karten (Leer / Vorlagenbibliothek / Klonen) erhalten bei Hover einen Wine-Border und -Hintergrund. Die mittlere Karte (aktuell ausgewählt) zeigt bereits einen wine-lt Hintergrund:
+
+```css
+.create-dashboard-ui .hl-card {
+  background-color: var(--surface) !important;
+  border: 2px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  transition: border-color 0.15s, background-color 0.15s !important;
+}
+.create-dashboard-ui .hl-card:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+/* Card-Titel */
+.create-dashboard-ui .hl-card .text-gray-900 { color: var(--ink) !important; }
+/* Card-Beschreibung */
+.create-dashboard-ui .hl-card .text-gray-600 { color: var(--ink-3) !important; }
+```
+
+---
+
+## „Auswählen" Buttons
+
+Alle drei Buttons haben identisches Styling — outlined mit wine hover:
+
+```css
+#reporting_create_prompt_card-button-blank-dashboard,
+#reporting_create_prompt_card-button-template-library,
+#reporting_create_prompt_card-button-clone-dashboard {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#reporting_create_prompt_card-button-blank-dashboard:hover,
+#reporting_create_prompt_card-button-template-library:hover,
+#reporting_create_prompt_card-button-clone-dashboard:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **Aktive Karte (mittlere)** — GHL hebt die zuletzt geklickte/empfohlene Karte mit einem rosa Border hervor. Der `border: 2px solid var(--wine)` Override greift für diesen Zustand automatisch via Hover-Pattern. Für einen dedizierten „aktiv"-State kann zusätzlich `.hl-card.active` oder `.hl-card[aria-selected="true"]` gescopert werden.
+- **Illustrationen** — Die Inline-SVG-Illustrationen in den Karten werden nicht überschrieben — sie sind dekorative Elemente ohne Branding-Relevanz.
+- **`Zurück`-Button** — Nutzt `color: var(--wine)` im Default-State (nicht erst bei Hover) — signalisiert als Link-Button statt als regulärer Action-Button.
