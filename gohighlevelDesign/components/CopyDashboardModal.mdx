@@ -1,0 +1,127 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/CopyDashboardModal" />
+
+# Dashboard kopieren Modal — CSS Dokumentation
+
+Das **„Kopieren in ein anderes Konto"** Modal (`Section 103`) öffnet sich über das Kebab-Menü eines Dashboards. Es ermöglicht das Kopieren eines Dashboards in ein anderes Konto mit neuem Namen und Konto-Auswahl.
+
+**Scope:** `body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn)`
+
+![Dashboard Kopieren Modal Screenshot](/dashboard-copy-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `body .hl-modal:has(#...duplicate_dashboard-modal-close-btn)` |
+| Close Button | `#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn` |
+| Header Icon | `.icon.icon-custom svg` |
+| Dashboard-Name Input | `#dashboard_name` |
+| Konto Select | `#location-dropdown` |
+| Stornieren | `#...duplicate_dashboard-btn-negative-action` |
+| Duplikat | `#...duplicate_dashboard-btn-positive-action` |
+
+---
+
+## Modal Header
+
+```css
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn) .hl-text-md-medium {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn) .hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+/* Header Icon (icon-custom) → wine, Hintergrund transparent */
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn) .icon.icon-custom {
+  background-color: transparent !important;
+}
+body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn) .icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+/* Close Button */
+#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn {
+  border-color: var(--line-hard) !important;
+  color: var(--ink-3) !important;
+}
+#location-dashboard_modal-header--location_dashboard-modal-duplicate_dashboard-modal-close-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Formular
+
+### Dashboard-Name Input (`#dashboard_name`)
+```css
+#dashboard_name {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-ring) !important;
+  --n-border-radius:    8px !important;
+}
+```
+
+### Konto Select (`#location-dropdown`)
+```css
+#location-dropdown .n-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-ring) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Stornieren
+```css
+#location-dashboard_modal-footer--location_dashboard-modal-duplicate_dashboard-btn-negative-action {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--location_dashboard-modal-duplicate_dashboard-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Duplikat (Primary — Wine)
+```css
+#location-dashboard_modal-footer--location_dashboard-modal-duplicate_dashboard-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#location-dashboard_modal-footer--location_dashboard-modal-duplicate_dashboard-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+- **`.icon.icon-custom`** — Dieses Modal verwendet `.icon-custom` statt `.icon-success` (Section 102). Gleicher Fix: `background-color: transparent` auf dem Container, SVG direkt auf wine.
+- **`#dashboard_name`** — Kurze, generische ID. Da dieses Modal nie gleichzeitig mit anderen Modals offen ist, gibt es keinen DOM-Konflikt.
+- **Ähnlichkeit zu Section 102** — Struktur und Pattern sind nahezu identisch mit dem Klonen-Modal — der einzige Unterschied ist das zusätzliche Konto-Select (`#location-dropdown`) und die abweichenden Button-IDs.
