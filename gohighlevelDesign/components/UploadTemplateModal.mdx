@@ -1,0 +1,144 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Dashboard/UploadTemplateModal" />
+
+# Zu Vorlagen hochladen Modal — CSS Dokumentation
+
+Das **„Zu Dashboards und Reporting-Vorlagen hochladen"** Modal (`Section 104`) öffnet sich über das Kebab-Menü eines Dashboards. Es ermöglicht das Hochladen eines Dashboards als wiederverwendbare Vorlage mit Name und Kategorie.
+
+**Scope:** `#create-template-modal`
+
+> ⚠️ Dieses Modal verwendet den **`hr-`** Komponenten-Präfix statt `n-` (NaïveUI). Selektoren wie `.hr-button__border`, `.hr-input`, `.hr-base-selection` etc. gelten statt der üblichen NaïveUI-Klassen.
+
+![Upload Template Modal Screenshot](/dashboard-upload-template-modal-screenshot.png)
+
+---
+
+## Betroffene Selektoren & Struktur
+
+| Element | Selektor |
+|---|---|
+| Modal Shell | `#create-template-modal` |
+| Close Button | `#hr-modal__close-button` |
+| Upload Icon Avatar | `#page-template-library__create-template-upload-icon` |
+| Name Input | `#page-template-library__create-template-name-input` |
+| Kategorie Select | `#page-template-library__create-template-category-selector` |
+| Hinweis Alert | `#create-template-modal-note` |
+| Stornieren | `#page-template-library__create-template-cancel-btn` |
+| Upload Button | `#page-template-library__create-template-upload-btn-dashboards` |
+
+---
+
+## Modal Header
+
+```css
+#create-template-modal .hr-text-2xl { color: var(--ink) !important; }
+/* Upload Icon Avatar → wine */
+#page-template-library__create-template-upload-icon .hr-avatar {
+  background-color: var(--wine-lt) !important;
+}
+#page-template-library__create-template-upload-icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+/* Close Button */
+#hr-modal__close-button       { color: var(--ink-3) !important; }
+#hr-modal__close-button:hover { color: var(--wine-2) !important; }
+#hr-modal__close-button svg   { stroke: var(--ink-3) !important; }
+#hr-modal__close-button:hover svg { stroke: var(--wine-2) !important; }
+```
+
+---
+
+## Name Input (`#page-template-library__create-template-name-input`)
+
+```css
+#page-template-library__create-template-name-input {
+  --n-border:           1px solid var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--wine-ring) !important;
+}
+```
+
+---
+
+## Kategorie Select (`#page-template-library__create-template-category-selector`)
+
+```css
+#page-template-library__create-template-category-selector .hr-base-selection {
+  --n-border:            1px solid var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-radius:     8px !important;
+  --n-box-shadow-active: 0 0 0 4px var(--wine-ring) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--wine-ring) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+```
+
+---
+
+## Hinweis Alert (`#create-template-modal-note`)
+
+GHL setzt hier einen orangefarbenen Warning-Alert — wird auf wine-lt überschrieben:
+
+```css
+#create-template-modal-note {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+#create-template-modal-note .hr-alert__icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+#create-template-modal-note .hr-alert-body__title span,
+#create-template-modal-note .hr-alert-body__content span {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Footer Buttons
+
+### Stornieren
+```css
+#page-template-library__create-template-cancel-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+}
+#page-template-library__create-template-cancel-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+### Upload (Primary — Wine)
+```css
+#page-template-library__create-template-upload-btn-dashboards {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+#page-template-library__create-template-upload-btn-dashboards:hover:not([disabled]) {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#page-template-library__create-template-upload-btn-dashboards p { color: #ffffff !important; }
+```
+
+---
+
+## Besonderheiten
+
+- **`hr-` Präfix statt `n-`** — Dieses Modal ist eine andere GHL-Komponente die nicht NaïveUI verwendet, sondern eigene `hr-`-Klassen. Selektoren wie `.hr-button__border`, `.hr-base-selection`, `.hr-input` etc. sind hier maßgeblich.
+- **Hinweis Alert Farbe** — GHL setzt `border-color` und `background-color` für den Warning-Alert auf Orange. Beide werden direkt auf wine-Töne überschrieben — kein `--n-*` Variablen-Override möglich.
+- **Upload Icon Avatar** — `.hr-avatar` hat eine GHL-generierte Hintergrundfarbe. `background-color: var(--wine-lt)` überschreibt direkt.
+- **Box-Shadow 4px** — Dieses Modal nutzt `0 0 0 4px` Focus-Ring statt dem üblichen `2px`. Konsistent mit dem GHL-Design-System für Template-Library-Modals.
