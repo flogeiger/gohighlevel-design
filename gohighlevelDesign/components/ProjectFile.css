@@ -12630,4 +12630,128 @@ div.font-sans.hl-wrapper-container.invoicesApp header.hl-header {
   margin-bottom: 0 !important;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   111 · AI AGENTS (Erste Schritte)
+   Root: .hl-wrapper-container.bg-gray-25
+   ════════════════════════════════════════════════════════════════ */
 
+/* ── 111.1 Page Background ── */
+.hl-wrapper-container.bg-gray-25 {
+  background-color: var(--bg) !important;
+}
+
+/* ── 111.2 Header ── */
+section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+
+/* ── 111.3 NaïveUI Tabs (linke vertikale Nav) ── */
+.hl-tabs.n-tabs--card-type {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine-2) !important;
+}
+
+/* Inaktiver Tab */
+.hl-tabs .n-tabs-tab {
+  background-color: transparent !important;
+  border-radius: 10px !important;
+  transition: background-color 0.12s !important;
+}
+.hl-tabs .n-tabs-tab:hover {
+  background-color: var(--wine-lt) !important;
+}
+.hl-tabs .n-tabs-tab .hlui-text {
+  color: var(--ink-3) !important;
+  font-weight: 600 !important;
+}
+.hl-tabs .n-tabs-tab svg {
+  color: var(--ink-3) !important;
+  stroke: var(--ink-3) !important;
+}
+
+/* Aktiver Tab */
+.hl-tabs .n-tabs-tab--active {
+  background-color: var(--surface) !important;
+}
+.hl-tabs .n-tabs-tab--active .bg-white {
+  background-color: var(--surface) !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.08) !important;
+  border-radius: 10px !important;
+}
+/* Aktiver Tab Text + Icon → wine */
+.hl-tabs .n-tabs-tab--active .text-\[\#004EEB\],
+.hl-tabs .n-tabs-tab--active .hlui-text {
+  color: var(--wine-2) !important;
+}
+.hl-tabs .n-tabs-tab--active svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+/* Inaktiver Tab Text → ink-3 */
+.hl-tabs .n-tabs-tab:not(.n-tabs-tab--active) .text-\[\#667085\],
+.hl-tabs .n-tabs-tab:not(.n-tabs-tab--active) .hlui-text {
+  color: var(--ink-3) !important;
+}
+.hl-tabs .n-tabs-tab:not(.n-tabs-tab--active) svg {
+  color: var(--ink-3) !important;
+  stroke: var(--ink-3) !important;
+}
+
+/* ── 111.4 Content Card ── */
+.ai-agents-getting-started-card.hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  overflow: hidden !important;
+}
+
+/* ── 111.5 Getting Started Items ── */
+/* Trennlinien */
+.ai-agents-getting-started-card .border-b {
+  border-bottom-color: var(--line-hard) !important;
+}
+
+/* Aktive Zeile (klickbar) */
+.ai-agents-getting-started-card .cursor-pointer {
+  transition: background-color 0.12s, color 0.12s !important;
+}
+.ai-agents-getting-started-card .cursor-pointer:hover {
+  background-color: var(--wine-lt) !important;
+}
+/* + Icon */
+.ai-agents-getting-started-card .cursor-pointer svg:first-child {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+/* Titel aktive Zeile */
+.ai-agents-getting-started-card .cursor-pointer .hlui-text[size="lg"] {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+.ai-agents-getting-started-card .cursor-pointer:hover .hlui-text[size="lg"] {
+  color: var(--wine-2) !important;
+}
+/* Beschreibungstext */
+.ai-agents-getting-started-card .text-gray-500 {
+  color: var(--ink-4) !important;
+  font-size: 13px !important;
+}
+/* Chevron rechts */
+.ai-agents-getting-started-card .cursor-pointer svg.w-4 {
+  color: var(--ink-4) !important;
+  transition: color 0.12s !important;
+}
+.ai-agents-getting-started-card .cursor-pointer:hover svg.w-4 {
+  color: var(--wine-2) !important;
+}
+
+/* Deaktivierte Zeilen (opacity-50) */
+.ai-agents-getting-started-card .opacity-50 .hlui-text[size="lg"] {
+  color: var(--ink-3) !important;
+}
+.ai-agents-getting-started-card .opacity-50 svg {
+  color: var(--ink-4) !important;
+  stroke: var(--ink-4) !important;
+}
