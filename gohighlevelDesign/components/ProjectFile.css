@@ -12175,3 +12175,459 @@ body .hr-base-select-option.hr-base-select-option--selected .hr-avatar__containe
   border-color: var(--wine-2) !important;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   110 · RECHNUNGEN (Invoices)
+   Root: .invoicesApp, #invoice_listing
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── 110.1 Page Header ── */
+#invoice_listing .hl-header {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  padding-bottom: 16px !important;
+}
+#invoice_listing .hl-title-container .title {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+#invoice_listing .hl-title-container .description {
+  color: var(--ink-3) !important;
+  font-size: 14px !important;
+}
+
+/* Einstellungen Button (outlined) */
+#pg-invoices_btn-settings {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#pg-invoices_btn-settings:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+#pg-invoices_btn-settings .n-button__border { border-color: var(--line-hard) !important; }
+#pg-invoices_btn-settings .n-button__state-border { display: none !important; }
+#pg-invoices_btn-settings:hover .n-button__content,
+#pg-invoices_btn-settings:hover .n-button__content svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+
+/* Neu Button (primary → wine) */
+#create-invoice-btn {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+button#create-invoice-btn:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#create-invoice-btn .n-button__border { border-color: var(--wine) !important; }
+#create-invoice-btn .n-button__state-border { display: none !important; }
+
+/* ── 110.2 Alert Banner ── */
+#payment-integration-alert {
+  background-color: var(--wine-lt) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 12px !important;
+}
+#payment-integration-alert .n-alert__icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+#payment-integration-alert .n-alert-body__content .title p {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+/* Zahlungsgateway Button im Alert */
+#pg-invoices__btn_resolve_stripe_connection_alert {
+  border: 1px solid var(--wine) !important;
+  color: var(--wine-2) !important;
+  border-radius: 8px !important;
+  background-color: transparent !important;
+  transition: all 0.12s !important;
+}
+#pg-invoices__btn_resolve_stripe_connection_alert:hover {
+  background-color: var(--wine) !important;
+  color: #ffffff !important;
+}
+#pg-invoices__btn_resolve_stripe_connection_alert .n-button__border { border-color: var(--wine) !important; }
+#pg-invoices__btn_resolve_stripe_connection_alert .n-button__state-border { display: none !important; }
+/* Close Button */
+#payment-integration-alert .n-base-close { color: var(--ink-3) !important; }
+#payment-integration-alert .n-base-close:hover { color: var(--wine-2) !important; }
+
+/* ── 110.3 Statistik Karten ── */
+#invoice_listing .hl-statistic {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  transition: box-shadow 0.12s !important;
+}
+#invoice_listing .hl-statistic:hover {
+  box-shadow: 0 4px 12px rgba(107, 45, 62, 0.08) !important;
+}
+#invoice_listing .hl-statistic .title {
+  color: var(--ink-3) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+#invoice_listing .hl-statistic .hl-display-sm-semibold {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+}
+
+/* ── 110.4 Filter Bar ── */
+#invoice_listing .filter-bar {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  padding: 12px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Datepicker (NaïveUI n-input) */
+#invoices-date-range .n-input {
+  border-radius: 8px !important;
+}
+#invoices-date-range .n-input__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#invoices-date-range .n-input__state-border { display: none !important; }
+#invoices-date-range .n-input:hover .n-input__border { border-color: var(--wine) !important; }
+#invoices-date-range .n-input--focus .n-input__border { border-color: var(--wine) !important; }
+#invoices-date-range .n-input__input-el::placeholder { color: var(--ink-4) !important; }
+#invoices-date-range .n-input__placeholder { color: var(--ink-4) !important; }
+#invoices-date-range .n-base-icon { color: var(--ink-4) !important; }
+
+/* Suchfeld */
+#hl-table-invoices-filter-text-search .n-input__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#hl-table-invoices-filter-text-search .n-input__state-border { display: none !important; }
+#hl-table-invoices-filter-text-search:hover .n-input__border { border-color: var(--wine) !important; }
+#hl-table-invoices-filter-text-search.n-input--focus .n-input__border { border-color: var(--wine) !important; }
+#hl-table-invoices-filter-text-search .n-input__prefix svg { color: var(--ink-4) !important; }
+#hl-table-invoices-filter-text-search .n-input__input-el::placeholder { color: var(--ink-4) !important; }
+
+/* Filter Button */
+.hl-table-filter-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+.hl-table-filter-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+.hl-table-filter-btn .n-button__border { border-color: var(--line-hard) !important; }
+.hl-table-filter-btn .n-button__state-border { display: none !important; }
+.hl-table-filter-btn:hover .n-button__content svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+
+/* CSV Export Button */
+#table-export-csd {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  opacity: 0.5 !important;
+}
+#table-export-csd .n-button__border { border-color: var(--line-hard) !important; }
+#table-export-csd .n-button__state-border { display: none !important; }
+
+/* ── 110.5 NaïveUI Data Table ── */
+.invoicesApp .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-bottom: 2px solid var(--line-hard) !important;
+}
+.invoicesApp .n-data-table-th__title {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+.invoicesApp .n-data-table-th--sortable:hover .n-data-table-th__title {
+  color: var(--wine-2) !important;
+}
+.invoicesApp .n-data-table-th svg { color: var(--ink-4) !important; }
+.invoicesApp .n-data-table-th--sortable:hover svg { color: var(--wine-2) !important; }
+
+/* Table Rows */
+.invoicesApp .n-data-table-tr {
+  border-bottom: 1px solid var(--line-hard) !important;
+  transition: background-color 0.1s !important;
+}
+.invoicesApp .n-data-table-td {
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+  border-bottom: none !important;
+}
+.invoicesApp .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--wine-lt) !important;
+}
+
+/* Scrollbar */
+.invoicesApp .n-scrollbar-rail--vertical .n-scrollbar-rail__scrollbar { background-color: var(--line-hard) !important; }
+.invoicesApp .n-scrollbar-rail--vertical .n-scrollbar-rail__scrollbar:hover { background-color: var(--wine) !important; }
+
+/* ── 110.6 Empty State ── */
+#invoice_listing .n-data-table-empty { padding: 48px 0 !important; }
+#invoice_listing .hl-empty-icon-container {
+  background-color: var(--wine-lt) !important;
+  border-radius: 50% !important;
+  width: 56px !important;
+  height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 16px !important;
+}
+#invoice_listing .hl-empty-icon svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+#invoice_listing .hl-empty-title {
+  color: var(--ink-3) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+/* ── Enhancement: Hintergrund bereinigen ── */
+#invoice_listing,
+#invoice_listing main,
+.invoicesApp,
+.invoicesApp .n-config-provider {
+  background-color: var(--bg) !important;
+}
+
+/* ── Enhancement: Neu Button kräftiger ── */
+button#create-invoice-btn:not([disabled]) {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(107, 45, 62, 0.25) !important;
+}
+button#create-invoice-btn:not([disabled]):hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  box-shadow: 0 4px 12px rgba(107, 45, 62, 0.35) !important;
+}
+
+/* ── Enhancement: Statistik Karten ── */
+#invoice_listing .hl-statistic {
+  border-radius: 16px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  transition: box-shadow 0.15s, transform 0.15s !important;
+}
+#invoice_listing .hl-statistic:hover {
+  box-shadow: 0 6px 20px rgba(107, 45, 62, 0.10) !important;
+  transform: translateY(-1px) !important;
+}
+#invoice_listing .hl-statistic .hl-statistic-header {
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  margin-bottom: 12px !important;
+}
+
+/* ── Enhancement: Alert border-radius + shadow ── */
+#payment-integration-alert {
+  box-shadow: 0 2px 8px rgba(107,45,62,0.08) !important;
+}
+/* Alert n-alert__border → wine */
+#payment-integration-alert .n-alert__border {
+  border-color: var(--wine) !important;
+  opacity: 0.4 !important;
+}
+
+/* ── Enhancement: Table Container Card ── */
+#invoice_listing .table-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+}
+#invoice_listing .ghl-table-custom-header {
+  background-color: var(--surface) !important;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#invoice_listing .filter-bar {
+  border-bottom: none !important;
+  padding: 0 !important;
+}
+
+/* ── Enhancement: Datepicker als Card ── */
+#invoices-date-range .n-input {
+  background-color: var(--bg) !important;
+  border-radius: 8px !important;
+}
+#invoices-date-range .n-input__border {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+}
+
+/* Suchfeld als Card */
+#hl-table-invoices-filter-text-search {
+  background-color: var(--bg) !important;
+}
+
+/* ── Enhancement: Table Header ── */
+.invoicesApp .n-data-table-thead {
+  background-color: var(--bg) !important;
+}
+.invoicesApp .n-data-table-th {
+  background-color: var(--bg) !important;
+  padding: 14px 12px !important;
+}
+
+/* ── Enhancement: Empty State Search Icon ── */
+#invoice_listing .hl-empty {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 48px 0 !important;
+}
+#invoice_listing .hl-empty-icon-container {
+  width: 56px !important;
+  height: 56px !important;
+  background-color: var(--wine-lt) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+  border: 1px solid var(--wine) !important;
+  opacity: 0.8 !important;
+}
+#invoice_listing .hl-empty-icon svg {
+  width: 24px !important;
+  height: 24px !important;
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+#invoice_listing .hl-empty-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--ink-3) !important;
+}
+
+/* ── Fix: Header Hintergrund bunte Streifen → surface ── */
+#invoice_listing .hl-header,
+#invoice_listing header.hl-header,
+.invoicesApp header,
+.invoicesApp .hl-header,
+.invoicesApp .hl-header-content,
+#invoice_listing .hl-header-content {
+  background-color: var(--surface) !important;
+  background: var(--surface) !important;
+  background-image: none !important;
+}
+/* Parent-Container der den Hintergrund setzt */
+.invoicesApp #invoice_listing,
+.invoicesApp main#invoice_listing {
+  background-color: var(--bg) !important;
+  background: var(--bg) !important;
+  background-image: none !important;
+}
+/* Force override aller möglichen gradient-Quellen */
+.force-font,
+.invoicesApp .force-font {
+  background-image: none !important;
+}
+
+/* ── Fix: Seiten-Hintergrund weiß → var(--bg) ── */
+/* Der Container sitzt außerhalb von #invoice_listing */
+.hl-wrapper-container.invoicesApp,
+div.hl-wrapper-container.invoicesApp,
+.invoicesApp > .n-config-provider,
+.invoicesApp > .n-config-provider > main {
+  background-color: var(--bg) !important;
+}
+/* mx-auto Container */
+.invoicesApp .mx-auto.max-w-7xl {
+  background-color: var(--bg) !important;
+}
+/* Header explizit surface */
+.invoicesApp .hl-header {
+  background-color: var(--surface) !important;
+  padding: 24px 0 16px !important;
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+/* Bereich zwischen Header und Content → bg */
+.invoicesApp .my-8 {
+  background-color: var(--bg) !important;
+}
+
+/* ── Fix FINAL: Hintergrund ── */
+/* Root-Element direkt */
+div.font-sans.hl-wrapper-container.invoicesApp,
+div.font-sans.hl-wrapper-container.invoicesApp > div.n-config-provider,
+div.font-sans.hl-wrapper-container.invoicesApp > div.n-config-provider > main,
+div.font-sans.hl-wrapper-container.invoicesApp main#invoice_listing {
+  background-color: var(--bg) !important;
+  background: var(--bg) !important;
+}
+/* Header = surface */
+div.font-sans.hl-wrapper-container.invoicesApp main#invoice_listing > header.hl-header,
+div.font-sans.hl-wrapper-container.invoicesApp header.hl-header {
+  background-color: var(--surface) !important;
+  background: var(--surface) !important;
+}
+
+/* ── Accept white background — subtile Tiefe statt Farbe ── */
+/* Header bekommt einen sauberen Schatten statt Hintergrundfarbe */
+.invoicesApp header.hl-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  padding-bottom: 20px !important;
+}
+/* Content-Bereich leicht separieren */
+.invoicesApp .my-8.md\:container {
+  background-color: var(--bg) !important;
+  border-radius: 0 !important;
+  padding-top: 24px !important;
+}
+
+/* ── Fix: Header als nahtloser Teil der Seite ── */
+/* Der weiße Kasten kommt vom mx-auto Container mit weißem BG */
+.invoicesApp main#invoice_listing,
+.invoicesApp .mx-auto.max-w-7xl.force-font {
+  background-color: var(--bg) !important;
+  background: var(--bg) !important;
+}
+/* Header bekommt gleiche Farbe wie Seite → kein weißer Kasten */
+.invoicesApp header.hl-header,
+#invoice_listing header.hl-header {
+  background-color: var(--bg) !important;
+  background: var(--bg) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  box-shadow: none !important;
+  padding: 24px 0 20px !important;
+}
+
+/* ── Header-Card bewusst stylen statt weißen Kasten kämpfen ── */
+/* GHL lädt sein CSS nach unserem → background:white gewinnt immer */
+/* Lösung: Header-Kasten als echte Card mit wine-Akzent */
+#invoice_listing header.hl-header {
+  border-radius: 0 !important;
+  border-top: 3px solid var(--wine) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  border-left: none !important;
+  border-right: none !important;
+  padding: 20px 0 !important;
+  margin-bottom: 0 !important;
+}
+
+

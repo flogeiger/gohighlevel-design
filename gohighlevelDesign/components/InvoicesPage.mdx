@@ -1,0 +1,347 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesPage" />
+
+# Zahlungen – Rechnungen (Section 110)
+
+Die Rechnungen-Seite (`/zahlungen → Rechnungen und Kostenvoranschläge`) ist Teil des **Payments-Moduls**. Root-Klasse ist `.invoicesApp` mit dem Haupt-Container `#invoice_listing`. Die Seite nutzt NaïveUI (`n-` Prefix) für Buttons, DataTable und Inputs. Besonderheit: GHL setzt den Header-Hintergrund per nachgeladenem CSS mit `background: white` — gelöst durch einen `border-top: 3px solid var(--wine)` Akzent statt Hintergrundkampf.
+
+![Invoices Page Screenshot](./invoices-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `.invoicesApp`, `#invoice_listing` |
+| Page Header | `#invoice_listing .hl-header` |
+| Alert Banner | `#payment-integration-alert` |
+| Statistik Karten | `#invoice_listing .hl-statistic` |
+| Filter Bar | `#invoice_listing .filter-bar` |
+| NaïveUI DataTable | `.invoicesApp .n-data-table-th`, `.n-data-table-tr` |
+| Empty State | `#invoice_listing .hl-empty` |
+
+---
+
+## 110.1 – Page Header
+
+Enthält Seitentitel, Beschreibungstext, „Einstellungen"- und „+ Neu"-Button.
+
+```css
+/* ── 110.1 Page Header ── */
+#invoice_listing .hl-title-container .title {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+#invoice_listing .hl-title-container .description {
+  color: var(--ink-3) !important;
+  font-size: 14px !important;
+}
+
+/* Header wine top-border statt Hintergrundkampf */
+#invoice_listing header.hl-header {
+  border-radius: 0 !important;
+  border-top: 3px solid var(--wine) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  border-left: none !important;
+  border-right: none !important;
+  padding: 20px 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Einstellungen Button (outlined) */
+#pg-invoices_btn-settings {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#pg-invoices_btn-settings:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+#pg-invoices_btn-settings .n-button__border { border-color: var(--line-hard) !important; }
+#pg-invoices_btn-settings .n-button__state-border { display: none !important; }
+#pg-invoices_btn-settings:hover .n-button__content,
+#pg-invoices_btn-settings:hover .n-button__content svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+
+/* + Neu Button (primary → wine) */
+#create-invoice-btn {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(107, 45, 62, 0.25) !important;
+  transition: all 0.12s !important;
+}
+button#create-invoice-btn:not([disabled]):hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  box-shadow: 0 4px 12px rgba(107, 45, 62, 0.35) !important;
+}
+#create-invoice-btn .n-button__border { border-color: var(--wine) !important; }
+#create-invoice-btn .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 110.2 – Alert Banner
+
+Info-Banner „Verbinden Sie mindestens ein Zahlungsgateway…" mit CTA-Button und Close-Icon.
+
+```css
+/* ── 110.2 Alert Banner ── */
+#payment-integration-alert {
+  background-color: var(--wine-lt) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(107,45,62,0.08) !important;
+}
+#payment-integration-alert .n-alert__icon svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+#payment-integration-alert .n-alert__border {
+  border-color: var(--wine) !important;
+  opacity: 0.4 !important;
+}
+#payment-integration-alert .n-alert-body__content .title p {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+
+/* Zahlungsgateway einbinden Button */
+#pg-invoices__btn_resolve_stripe_connection_alert {
+  border: 1px solid var(--wine) !important;
+  color: var(--wine-2) !important;
+  border-radius: 8px !important;
+  background-color: transparent !important;
+  transition: all 0.12s !important;
+}
+#pg-invoices__btn_resolve_stripe_connection_alert:hover {
+  background-color: var(--wine) !important;
+  color: #ffffff !important;
+}
+#pg-invoices__btn_resolve_stripe_connection_alert .n-button__border { border-color: var(--wine) !important; }
+#pg-invoices__btn_resolve_stripe_connection_alert .n-button__state-border { display: none !important; }
+
+/* Close Button */
+#payment-integration-alert .n-base-close { color: var(--ink-3) !important; }
+#payment-integration-alert .n-base-close:hover { color: var(--wine-2) !important; }
+```
+
+---
+
+## 110.3 – Statistik Karten
+
+Vier Karten: „Im Entwurf", „Geschuldet", „Erhalten", „Überfällig".
+
+```css
+/* ── 110.3 Statistik Karten ── */
+#invoice_listing .hl-statistic {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  transition: box-shadow 0.15s, transform 0.15s !important;
+}
+#invoice_listing .hl-statistic:hover {
+  box-shadow: 0 6px 20px rgba(107, 45, 62, 0.10) !important;
+  transform: translateY(-1px) !important;
+}
+#invoice_listing .hl-statistic .title {
+  color: var(--ink-3) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+#invoice_listing .hl-statistic .hl-display-sm-semibold {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+}
+#invoice_listing .hl-statistic .hl-statistic-header {
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  margin-bottom: 12px !important;
+}
+```
+
+---
+
+## 110.4 – Filter Bar
+
+Datepicker, Suchfeld, Filter-Button und CSV-Export.
+
+```css
+/* ── 110.4 Filter Bar ── */
+#invoice_listing .filter-bar {
+  background-color: var(--surface) !important;
+  padding: 0 !important;
+  border-bottom: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Datepicker */
+#invoices-date-range .n-input { background-color: var(--bg) !important; border-radius: 8px !important; }
+#invoices-date-range .n-input__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#invoices-date-range .n-input__state-border { display: none !important; }
+#invoices-date-range .n-input:hover .n-input__border { border-color: var(--wine) !important; }
+#invoices-date-range .n-input--focus .n-input__border { border-color: var(--wine) !important; }
+#invoices-date-range .n-input__input-el::placeholder { color: var(--ink-4) !important; }
+#invoices-date-range .n-input__placeholder { color: var(--ink-4) !important; }
+#invoices-date-range .n-base-icon { color: var(--ink-4) !important; }
+
+/* Suchfeld */
+#hl-table-invoices-filter-text-search { background-color: var(--bg) !important; }
+#hl-table-invoices-filter-text-search .n-input__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#hl-table-invoices-filter-text-search .n-input__state-border { display: none !important; }
+#hl-table-invoices-filter-text-search:hover .n-input__border { border-color: var(--wine) !important; }
+#hl-table-invoices-filter-text-search.n-input--focus .n-input__border { border-color: var(--wine) !important; }
+#hl-table-invoices-filter-text-search .n-input__prefix svg { color: var(--ink-4) !important; }
+#hl-table-invoices-filter-text-search .n-input__input-el::placeholder { color: var(--ink-4) !important; }
+
+/* Filter Button */
+.hl-table-filter-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+.hl-table-filter-btn:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+.hl-table-filter-btn .n-button__border { border-color: var(--line-hard) !important; }
+.hl-table-filter-btn .n-button__state-border { display: none !important; }
+.hl-table-filter-btn:hover .n-button__content svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+
+/* CSV Export Button */
+#table-export-csd {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  opacity: 0.5 !important;
+}
+#table-export-csd .n-button__border { border-color: var(--line-hard) !important; }
+#table-export-csd .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 110.5 – NaïveUI Data Table
+
+Spalten-Header, Rows und Scrollbar.
+
+```css
+/* ── 110.5 NaïveUI Data Table ── */
+.invoicesApp .n-data-table-thead { background-color: var(--bg) !important; }
+.invoicesApp .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-bottom: 2px solid var(--line-hard) !important;
+  padding: 14px 12px !important;
+}
+.invoicesApp .n-data-table-th__title {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+.invoicesApp .n-data-table-th--sortable:hover .n-data-table-th__title { color: var(--wine-2) !important; }
+.invoicesApp .n-data-table-th svg { color: var(--ink-4) !important; }
+.invoicesApp .n-data-table-th--sortable:hover svg { color: var(--wine-2) !important; }
+
+/* Rows */
+.invoicesApp .n-data-table-tr {
+  border-bottom: 1px solid var(--line-hard) !important;
+  transition: background-color 0.1s !important;
+}
+.invoicesApp .n-data-table-td {
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+  border-bottom: none !important;
+}
+.invoicesApp .n-data-table-tr:hover .n-data-table-td { background-color: var(--wine-lt) !important; }
+
+/* Table Container Card */
+#invoice_listing .table-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+}
+#invoice_listing .ghl-table-custom-header {
+  background-color: var(--surface) !important;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* Scrollbar */
+.invoicesApp .n-scrollbar-rail--vertical .n-scrollbar-rail__scrollbar { background-color: var(--line-hard) !important; }
+.invoicesApp .n-scrollbar-rail--vertical .n-scrollbar-rail__scrollbar:hover { background-color: var(--wine) !important; }
+```
+
+---
+
+## 110.6 – Empty State
+
+Leere Tabelle mit Icon-Container und Text.
+
+```css
+/* ── 110.6 Empty State ── */
+#invoice_listing .n-data-table-empty { padding: 48px 0 !important; }
+#invoice_listing .hl-empty {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 48px 0 !important;
+}
+#invoice_listing .hl-empty-icon-container {
+  width: 56px !important;
+  height: 56px !important;
+  background-color: var(--wine-lt) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+  opacity: 0.8 !important;
+}
+#invoice_listing .hl-empty-icon svg {
+  width: 24px !important;
+  height: 24px !important;
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+#invoice_listing .hl-empty-title {
+  color: var(--ink-3) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Header-Hintergrund-Problem:** GHL lädt nach dem eigenen CSS ein weiteres Stylesheet nach, das `background: white` auf den Header setzt und mit `!important` gewinnt. Statt diesen Kampf zu führen, wird der Header mit `border-top: 3px solid var(--wine)` als bewusster Akzent gestaltet — der weiße Hintergrund wird akzeptiert und durch die wine-Linie oben und den `border-bottom` zur `--line-hard` eingerahmt.
+
+**Alert-Button (outlined/ghost):** Der „Zahlungsgateway einbinden"-Button ist ein Ghost-Button — transparent mit wine-Border, fill auf Hover. Anderes Pattern als die meisten anderen Sekundär-Buttons (die wine-lt als Hintergrund nutzen).
+
+**Statistik-Karten hover:** Einzige Stelle im Projekt mit `transform: translateY(-1px)` — subtiler Lift-Effekt der den Klick-Charakter der Karten kommuniziert.
+
+**NaïveUI DataTable vs. Tabulator:** Diese Seite verwendet `.n-data-table-*` (Section 109 Contacts verwendet Tabulator.js mit `.tabulator-*`). Selektoren nicht verwechseln.
