@@ -1,0 +1,606 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Contacts/ContactsPage" />
+
+# Kontakte – Listenansicht (Section 109)
+
+Die Kontakte-Seite verwendet die **Highrise Component Library** (`hr-` Prefix) statt NaïveUI (`n-` Prefix). Die Tabelle wird von **Tabulator.js** gerendert — einem eigenständigen Grid-Framework mit eigenen Selektoren. Die Seite gliedert sich in: Pipeline Ribbon (Header), Views-Bar, Quick Filter Bar, Tabulator-Grid und Footer-Pagination.
+
+![Contacts Page Screenshot](./contacts-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `.hr-config-provider`, `.platform-ui__highrise` |
+| Header Bar | `.pipeline-ribbon` |
+| Views Bar | `#views-bar` |
+| Quick Filter Bar | `.quick-filter-bar` |
+| Tabulator Header | `.tabulator-header`, `.tabulator-col` |
+| Tabulator Rows | `.tabulator-row`, `.tabulator-cell` |
+| Tabulator Footer | `.tabulator-footer` |
+| Bulk Actions | `.bulk-actions` |
+
+> **Wichtig:** Diese Seite verwendet `hr-button` statt `n-button`. Die CSS-Custom-Properties heißen entsprechend `--hr-*` bzw. müssen direkt auf `background-color` gesetzt werden, da NaïveUI-Vars hier nicht greifen.
+
+---
+
+## 109.1 – Pipeline Ribbon (Header Bar)
+
+Enthält Seitentitel, Kontakt-Zähler, „Importieren"- und „Hinzufügen Kontakt"-Button sowie ein Kebab-Menü.
+
+```css
+/* ── 109.1 Pipeline Ribbon ── */
+.pipeline-ribbon {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+.pipeline-ribbon .smartlist-title {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
+.pipeline-ribbon .count {
+  color: var(--wine-2) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+/* Importieren Button (outlined) */
+#import-btn {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#import-btn .hr-button__border { border-color: var(--line-hard) !important; }
+#import-btn .hr-button__state-border { display: none !important; }
+
+button#import-btn:hover,
+button#import-btn:focus {
+  background-color: var(--wine-lt) !important;
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+button#import-btn:hover .hr-button__content,
+button#import-btn:hover .hr-button__content span,
+button#import-btn:hover .hr-button__content svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+button#import-btn:hover .hr-button__border { border-color: var(--wine) !important; }
+.hr-button.hr-button--default-type.ui-button#import-btn:not([disabled]):hover,
+.hr-button.hr-button--default-type.ui-button#import-btn:not([disabled]):focus {
+  background-color: var(--wine-lt) !important;
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+.hr-button.hr-button--default-type.ui-button#import-btn:hover .hr-button__content {
+  color: var(--wine-2) !important;
+}
+.hr-button.hr-button--default-type.ui-button#import-btn:hover svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+
+/* Hinzufügen Kontakt Button (primary → wine) */
+#add-record-btn {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#add-record-btn .hr-button__border { border-color: var(--wine) !important; }
+#add-record-btn .hr-button__state-border { display: none !important; }
+
+button#add-record-btn:hover,
+button#add-record-btn:focus,
+button#add-record-btn:active {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+button#add-record-btn:hover .hr-button__border { border-color: var(--wine-2) !important; }
+.hr-button.hr-button--primary-type.ui-button#add-record-btn:not([disabled]):hover,
+.hr-button.hr-button--primary-type.ui-button#add-record-btn:not([disabled]):focus,
+.hr-button.hr-button--primary-type.ui-button#add-record-btn:not([disabled]):active {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Catch-all hr-button Typen */
+.hr-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+  color: #ffffff !important;
+}
+.hr-button--primary-type:hover .hr-button__content,
+.hr-button--primary-type:hover span { color: #ffffff !important; }
+.hr-button--default-type:hover {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+.hr-button--default-type:hover .hr-button__content,
+.hr-button--default-type:hover span { color: var(--wine-2) !important; }
+.hr-button--default-type .hr-button__state-border { display: none !important; }
+.hr-button--primary-type .hr-button__state-border { display: none !important; }
+.hr-button--default-type .hr-button__border { border-color: var(--line-hard) !important; }
+.hr-button--primary-type .hr-button__border { border-color: var(--wine) !important; }
+
+/* Kebab Icon */
+.pipeline-ribbon .hover\:bg-gray-100:hover { background-color: var(--wine-lt) !important; }
+```
+
+---
+
+## 109.2 – Views Bar (Alle / + Intelligente Liste)
+
+Tab-Leiste mit aktiver Ansicht und Hover-Underline.
+
+```css
+/* ── 109.2 Views Bar ── */
+#views-bar {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#views-bar .view {
+  color: var(--ink-3) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 8px 12px !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.12s !important;
+}
+#views-bar .view:hover { color: var(--wine-2) !important; border-bottom-color: var(--wine) !important; }
+#views-bar .view.active {
+  color: var(--wine-2) !important;
+  border-bottom: 2px solid var(--wine) !important;
+  font-weight: 700 !important;
+  margin-bottom: -1px !important;
+}
+#views-bar .view svg { color: var(--ink-3) !important; }
+#views-bar .view.active svg { color: var(--wine-2) !important; }
+#views-bar .view svg path[stroke="black"] { stroke: var(--ink-3) !important; }
+
+/* Bar-Unterlinie */
+#views-bar .bar { border-bottom: 1px solid var(--line-hard) !important; }
+#views-bar .bar-parent,
+#views-bar [hasunsavedchanges] { border-bottom-color: var(--line-hard) !important; }
+.bar-parent .view.active,
+.d-flex.bar .view.active {
+  border-bottom: 2px solid var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+.bar-parent .view.active svg,
+.d-flex.bar .view.active svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+
+/* ::after Pseudo-Element (blauer Strich) → entfernen */
+.d-flex.view.cursor-pointer.active::after,
+.view.active::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+  background: none !important;
+}
+```
+
+---
+
+## 109.3 – Quick Filter Bar
+
+Leiste mit „Erweiterte Filter", „Sortieren", Suchfeld und „Felder verwalten".
+
+```css
+/* ── 109.3 Quick Filter Bar ── */
+.quick-filter-bar {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#list-view-advance-filter-btn { color: var(--ink-2) !important; font-size: 13px !important; transition: color 0.12s !important; }
+#list-view-advance-filter-btn:hover,
+#list-view-advance-filter-btn:hover span { color: var(--wine-2) !important; }
+#list-view-advance-filter-btn svg { color: var(--ink-3) !important; }
+#list-view-advance-filter-btn:hover svg { color: var(--wine-2) !important; }
+
+#list-view-sort-btn { color: var(--ink-2) !important; font-size: 13px !important; transition: color 0.12s !important; }
+#list-view-sort-btn:hover { color: var(--wine-2) !important; }
+#list-view-sort-btn svg { color: var(--ink-3) !important; }
+#list-view-sort-btn:hover svg { color: var(--wine-2) !important; }
+
+.quick-filter-bar .search-box {
+  border-color: var(--line-hard) !important;
+  border-radius: 8px !important;
+  transition: border-color 0.12s !important;
+}
+.quick-filter-bar .search-box:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px var(--wine-ring) !important;
+}
+#list-view-record-search { color: var(--ink-2) !important; font-size: 14px !important; }
+#list-view-record-search::placeholder { color: var(--ink-4) !important; }
+
+.manage-fields { color: var(--ink-3) !important; font-size: 13px !important; transition: color 0.12s !important; }
+.manage-fields:hover { color: var(--wine-2) !important; }
+.manage-fields svg { color: var(--ink-3) !important; }
+.manage-fields:hover svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## 109.4 – Tabulator Header
+
+Spalten-Header mit Sortier-Icons und Header-Checkbox.
+
+```css
+/* ── 109.4 Tabulator Header ── */
+.tabulator-header {
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+.tabulator-col {
+  background-color: var(--bg) !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+.tabulator-col-title {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+.tabulator-col-sorter svg { color: var(--ink-4) !important; }
+.tabulator-col:hover .tabulator-col-title { color: var(--wine-2) !important; }
+.tabulator-col:hover .tabulator-col-sorter svg { color: var(--wine-2) !important; }
+
+/* Header Checkbox */
+.tabulator-col.selector input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 1.5px solid var(--line-hard) !important;
+  border-radius: 4px !important;
+  background-color: var(--surface) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.12s !important;
+}
+.tabulator-col.selector input[type="checkbox"]:hover { border-color: var(--wine) !important; }
+.tabulator-col.selector input[type="checkbox"]:checked {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.tabulator-col.selector input[type="checkbox"]:checked::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 4px !important;
+  top: 1px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: 2px solid #ffffff !important;
+  border-top: none !important;
+  border-left: none !important;
+  transform: rotate(45deg) !important;
+}
+```
+
+---
+
+## 109.5 – Tabulator Rows
+
+Zeilen mit Zebra-Striping, Hover und Frozen-Cell-Handling.
+
+```css
+/* ── 109.5 Tabulator Rows ── */
+.tabulator-row {
+  border-bottom: 1px solid var(--line-hard) !important;
+  border-top: none !important;
+  transition: background-color 0.1s !important;
+}
+.tabulator-row.tabulator-row-odd { background-color: var(--surface) !important; }
+.tabulator-row.tabulator-row-even { background-color: var(--bg) !important; }
+.tabulator-row:hover { background-color: var(--wine-lt) !important; }
+.tabulator-row:hover .tabulator-cell { background-color: transparent !important; }
+
+/* Frozen (Sticky) Cells */
+.tabulator-cell.tabulator-frozen { background-color: inherit !important; }
+.tabulator-row:hover .tabulator-cell.tabulator-frozen { background-color: var(--wine-lt) !important; }
+
+/* Zellen-Border entfernen (Row-Border reicht) */
+.tabulator-cell { border-right: none !important; }
+
+/* Row Checkboxen */
+.tabulator-cell.selector input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 1.5px solid var(--line-hard) !important;
+  border-radius: 4px !important;
+  background-color: var(--surface) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.12s !important;
+}
+.tabulator-cell.selector input[type="checkbox"]:hover { border-color: var(--wine) !important; }
+.tabulator-cell.selector input[type="checkbox"]:checked {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.tabulator-cell.selector input[type="checkbox"]:checked::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 4px !important;
+  top: 1px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: 2px solid #ffffff !important;
+  border-top: none !important;
+  border-left: none !important;
+  transform: rotate(45deg) !important;
+}
+```
+
+---
+
+## 109.6 – Kontakt Avatar + Name
+
+Name-Link und Options-Kebab-Icon in der ersten Spalte.
+
+```css
+/* ── 109.6 Contact Avatar + Name ── */
+.tabulator-cell .contact-name-link {
+  color: var(--ink-2) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  transition: color 0.12s !important;
+}
+.tabulator-row:hover .contact-name-link { color: var(--wine-2) !important; }
+
+.list-individual-contact-options-icon { color: var(--ink-4) !important; transition: color 0.12s !important; }
+.tabulator-row:hover .list-individual-contact-options-icon { color: var(--wine-2) !important; }
+```
+
+---
+
+## 109.7 – Cell Content
+
+Zell-Icons, Copy-Buttons, Timestamps und Last-Activity.
+
+```css
+/* ── 109.7 Cell Content ── */
+.tabulator-cell svg path[stroke-linecap="round"] { stroke: var(--ink-4) !important; }
+
+.copy-icon { border-color: var(--line-hard) !important; }
+.copy-icon:hover { border-color: var(--wine) !important; }
+.copy-icon svg path { stroke: var(--ink-3) !important; }
+
+.tabulator-cell [style*="font-size: 13px"] { color: var(--ink-3) !important; }
+
+.tabulator-cell [tabulator-field="lastActivity"] svg path { stroke: var(--ink-4) !important; }
+.tabulator-row:hover [tabulator-field="lastActivity"] svg path { stroke: var(--wine-2) !important; }
+```
+
+---
+
+## 109.8 – Tabulator Footer & Pagination
+
+Footer mit Seitenangabe, Page-Size-Dropdown und Pagination-Buttons.
+
+```css
+/* ── 109.8 Tabulator Footer ── */
+.tabulator-footer {
+  background-color: var(--surface) !important;
+  border-top: 1px solid var(--line-hard) !important;
+}
+.tabulator-footer .tabulator-page-counter { color: var(--ink-3) !important; font-size: 13px !important; }
+.tabulator-footer label { color: var(--ink-3) !important; font-size: 13px !important; }
+.tabulator-page-size {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+}
+.tabulator-page-size:focus { border-color: var(--wine) !important; outline: none !important; }
+
+/* Pagination Buttons */
+.tabulator-page {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+  padding: 2px 8px !important;
+  transition: all 0.12s !important;
+}
+.tabulator-page:hover:not([disabled]) {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+.tabulator-page.active {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.tabulator-page[disabled] { opacity: 0.4 !important; cursor: not-allowed !important; }
+
+/* Focus-Ring */
+.tabulator-page:focus,
+.tabulator-page:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--wine-ring) !important;
+  border-color: var(--wine) !important;
+}
+button.tabulator-page.active,
+button.tabulator-page.active:hover,
+button.tabulator-page.active:focus,
+button.tabulator-page.active:focus-visible {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Nuclear override (Tabulator setzt color:#175CD3 inline) */
+.my-table.tabulator .tabulator-footer .tabulator-paginator button.tabulator-page.active,
+.my-table.tabulator .tabulator-footer .tabulator-paginator span.tabulator-pages button.tabulator-page.active {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+.my-table.tabulator .tabulator-footer .tabulator-paginator button.tabulator-page:not(.active):not([disabled]) {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  background-color: transparent !important;
+}
+.my-table.tabulator .tabulator-footer .tabulator-paginator button.tabulator-page:not(.active):not([disabled]):hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+.my-table.tabulator .tabulator-footer .tabulator-paginator button.tabulator-page[disabled] {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-4) !important;
+  opacity: 0.4 !important;
+}
+
+/* Resize Handles */
+.tabulator-col-resize-handle {
+  border-right: none !important;
+  width: 1px !important;
+  background-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## 109.9 – Bulk Actions Bar
+
+Erscheint wenn Zeilen ausgewählt sind — zeigt Anzahl, „Alle auswählen", Exportieren und Mehr-Button.
+
+```css
+/* ── 109.9 Bulk Actions Bar ── */
+.bulk-actions { align-items: center !important; gap: 12px !important; }
+.bulk-action { align-items: center !important; gap: 8px !important; }
+.bulk-action .inner-count { color: var(--ink-2) !important; font-size: 13px !important; font-weight: 600 !important; }
+.bulk-action .cursor-pointer {
+  color: var(--wine-2) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  transition: color 0.12s !important;
+}
+.bulk-action .cursor-pointer:hover { color: var(--wine) !important; }
+
+.contact-bulk-action-options {
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+  gap: 4px !important;
+  padding: 4px 10px !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+  transition: all 0.12s !important;
+}
+.contact-bulk-action-options:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+.contact-bulk-action-options svg { color: var(--ink-3) !important; }
+.contact-bulk-action-options:hover svg { color: var(--wine-2) !important; }
+
+.bulk-actions .more {
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+  gap: 4px !important;
+  padding: 4px 10px !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 6px !important;
+  align-items: center !important;
+  transition: all 0.12s !important;
+}
+.bulk-actions .more:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+.bulk-actions .more svg path { fill: var(--ink-3) !important; }
+.bulk-actions .more:hover svg path { fill: var(--wine-2) !important; }
+```
+
+---
+
+## 109.10 – Empty State
+
+Leere Tabelle mit SVG-Illustration und CTA-Button.
+
+```css
+/* ── 109.10 Empty State ── */
+.tabulator-placeholder-contents {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 40px 20px !important;
+}
+.tabulator-placeholder-contents svg path[fill="#84CAFF"],
+.tabulator-placeholder-contents svg path[stroke="#84ADFF"] { fill: var(--wine-lt) !important; stroke: var(--wine) !important; }
+.tabulator-placeholder-contents svg path[fill="#FEC84B"],
+.tabulator-placeholder-contents svg rect[fill="#FEC84B"] { fill: var(--wine) !important; opacity: 0.7 !important; }
+.tabulator-placeholder-contents svg path[fill="#D0D5DD"],
+.tabulator-placeholder-contents svg path[stroke="#D0D5DD"] { fill: var(--line-hard) !important; stroke: var(--line-hard) !important; }
+.tabulator-placeholder-contents [style*="font-weight:600"],
+.tabulator-placeholder-contents [style*="font-weight: 600"] { color: var(--ink) !important; }
+.tabulator-placeholder-contents [style*="color:#667085"],
+.tabulator-placeholder-contents [style*="color: #667085"] { color: var(--ink-4) !important; }
+
+/* CTA Button */
+#add-object-record-button-Kontakt {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  transition: all 0.12s !important;
+}
+#add-object-record-button-Kontakt:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#add-object-record-button-Kontakt .n-button__border { border-color: var(--wine) !important; }
+#add-object-record-button-Kontakt .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 109.11 – Scrollbar
+
+```css
+/* ── 109.11 Scrollbar ── */
+.tabulator-tableholder::-webkit-scrollbar { width: 4px !important; height: 4px !important; }
+.tabulator-tableholder::-webkit-scrollbar-track { background: transparent !important; }
+.tabulator-tableholder::-webkit-scrollbar-thumb { background-color: var(--line-hard) !important; border-radius: 100px !important; }
+.tabulator-tableholder::-webkit-scrollbar-thumb:hover { background-color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`hr-` statt `n-` Prefix:** Die Kontakte-Seite nutzt die Highrise Component Library. Button-Klassen lauten `.hr-button`, `.hr-button__border`, `.hr-button__content` — nicht `.n-button` wie im Rest der Plattform.
+
+**Tabulator.js Pagination:** Tabulator setzt `color: #175CD3` direkt per JavaScript als Inline-Style auf aktive Pagination-Buttons. Normale `!important` CSS-Regeln werden überschrieben. Der „nuclear override" mit `.my-table.tabulator .tabulator-footer .tabulator-paginator` erhöht die Spezifität soweit, dass er greift.
+
+**`hr-button` Hover:** NaïveUI-CSS-Vars wie `--n-color-hover` greifen hier nicht. Stattdessen müssen `background-color` und `background` direkt auf dem Element mit maximal hoher Spezifität (`button#id:hover`) überschrieben werden.
+
+**Views-Bar `::after`-Streifen:** GHL rendert den aktiven blauen Streifen als `::after`-Pseudo-Element auf `.view.active`. Dieser wird mit `display: none !important; content: none !important` entfernt und durch einen direkten `border-bottom: 2px solid var(--wine)` auf dem Element ersetzt.
+
+**Checkbox-Pattern:** Identisches `appearance: none` + `::after` Häkchen-Pattern wie in Section 108 (Conversations). Wird einheitlich auf Header-Checkbox (`.tabulator-col.selector`) und Row-Checkboxen (`.tabulator-cell.selector`) angewendet.
