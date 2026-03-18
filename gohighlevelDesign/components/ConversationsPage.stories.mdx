@@ -1,0 +1,509 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Conversations/ConversationsPage" />
+
+# Conversations – Konversationen (Section 108)
+
+Die Konversationen-Seite ist das zentrale Kommunikations-Hub in GHL. Sie besteht aus drei Spalten: der **Konversationsliste** (links), dem **Nachrichtenbereich** (Mitte) mit Compose-Box, sowie dem **Kontakt-Panel** (rechts). Zusätzlich existiert ein schmales **Mini-Panel** ganz rechts mit Icon-Schnellzugriff.
+
+![Conversations Page Screenshot](./conversations-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root (gesamt) | `#conversations .hl_conversations` |
+| Sub-Filter Tabs | `.hl_conversations--messages-list-v2 nav a` |
+| Suchfeld | `#search_conversations` |
+| Filter + Compose Icons | `#quickFilterDropdownOuter`, `[title*="Neue Nachricht"]` |
+| Konversationsliste | `#conversation-list` |
+| Konversations-Header | `#central-panel-header` |
+| Mittlere Spalte | `#central-panel` |
+| Compose Box | `.message-input-wrap`, `.new-message-composer` |
+| Rechtes Kontakt-Panel | `.new-conversations-right-panel` |
+| Mini-Panel | `.mini-panel` |
+
+---
+
+## 108.1 – Sub-Filter Tabs
+
+Die Tabs „Ungel…", „Neueste", „Mit S…", „Alle" oben in der linken Spalte.
+
+```css
+/* ── 108.1 Sub-Filter Tabs ── */
+.hl_conversations--messages-list-v2 nav a {
+  color: var(--ink-3) !important;
+  font-weight: 500 !important;
+  transition: color 0.15s, border-color 0.15s !important;
+}
+.hl_conversations--messages-list-v2 nav a:hover {
+  color: var(--wine-2) !important;
+  border-color: var(--wine) !important;
+}
+.hl_conversations--messages-list-v2 nav a[aria-current="page"],
+.hl_conversations--messages-list-v2 nav a[style*="56, 160"] {
+  color: var(--wine-2) !important;
+  border-color: var(--wine) !important;
+}
+.hl_conversations--messages-list-v2 .border-b-2 {
+  border-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## 108.2 – Suchfeld
+
+Focus-Ring des Suchfelds in Wine.
+
+```css
+/* ── 108.2 Suchfeld ── */
+#search_conversations:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--wine-ring) !important;
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 108.3 – Filter + Compose Icons
+
+Icons für den Quick-Filter-Dropdown und den „Neue Nachricht"-Button.
+
+```css
+/* ── 108.3 Filter + Compose Icons ── */
+#quickFilterDropdownOuter .dropdown-toggle svg,
+#conversations [title*="Neue Nachricht"] svg {
+  color: var(--ink-3) !important;
+  stroke: var(--ink-3) !important;
+  transition: color 0.15s !important;
+}
+#quickFilterDropdownOuter .dropdown-toggle:hover svg,
+#conversations [title*="Neue Nachricht"]:hover svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+```
+
+---
+
+## 108.4 – Ergebniszähler
+
+Der graue Zählertext „6 Ergebnisse".
+
+```css
+/* ── 108.4 Ergebniszähler ── */
+#conversations span[style*="156, 163, 175"] {
+  color: var(--ink-4) !important;
+}
+```
+
+---
+
+## 108.5 – Sortier-Dropdown
+
+Das „Neueste – Alle" Dropdown in der linken Spalte.
+
+```css
+/* ── 108.5 Sortier-Dropdown ── */
+#conversations .sort-option { color: var(--ink-2) !important; font-size: 12px !important; }
+#conversations .sort-option svg { color: var(--ink-3) !important; }
+#conversations .sort-option-item { color: var(--ink-2) !important; }
+```
+
+---
+
+## 108.6 – Konversationsliste
+
+Einzelne Listeneinträge mit Hover und Selected-State.
+
+```css
+/* ── 108.6 Konversationsliste ── */
+#conversation-list .messages-list--item-v2 {
+  border-bottom: 1px solid var(--line-hard) !important;
+  transition: background-color 0.12s !important;
+}
+#conversation-list .messages-list--item-v2:hover {
+  background-color: var(--wine-lt) !important;
+}
+#conversation-list .conversation-selected-v2 {
+  background-color: var(--wine-lt) !important;
+  border-left: 3px solid var(--wine) !important;
+  border-right: 3px solid var(--wine) !important;
+}
+#conversation-list .time-date { color: var(--ink-4) !important; font-size: 11px !important; }
+#conversation-list .icon-v2 svg path { stroke: var(--ink-4) !important; }
+
+/* Unread Badge */
+#conversation-list .bg-blue-500 {
+  background-color: var(--wine) !important;
+  color: #ffffff !important;
+}
+
+/* Pseudo-Elemente für den aktiven Streifen */
+#conversation-list .conversation-selected-v2::after,
+#conversation-list .conversation-selected-v2::before {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 108.7 – Empty States
+
+Leere Listenansicht und leerer Konversationsbereich.
+
+```css
+/* ── 108.7 Empty States ── */
+#conversation-list li.text-center svg circle { fill: var(--wine-lt) !important; }
+#conversation-list li.text-center svg path[fill="#9CA3AF"],
+#conversation-list li.text-center svg path[fill="#BBBEC4"] { fill: var(--wine) !important; opacity: 0.35 !important; }
+#conversation-list li.text-center b { color: var(--ink-3) !important; font-weight: 600 !important; }
+
+.hl_conversations .flex.flex-col.justify-center.items-center.h-screen svg circle { fill: var(--wine-lt) !important; }
+.hl_conversations .flex.flex-col.justify-center.items-center.h-screen svg path[fill="#9CA3AF"],
+.hl_conversations .flex.flex-col.justify-center.items-center.h-screen svg path[fill="#BBBEC4"] { fill: var(--wine) !important; opacity: 0.35 !important; }
+.hl_conversations .flex.flex-col.justify-center.items-center.h-screen b { color: var(--ink-3) !important; font-weight: 600 !important; }
+```
+
+---
+
+## 108.8 – Konversations-Header
+
+Die Kopfzeile der mittleren Spalte mit Kontaktname, Icon-Buttons und Activity-Dropdown.
+
+```css
+/* ── 108.8 Konversations-Header ── */
+#central-panel-header { border-bottom: 1px solid var(--line-hard) !important; }
+#central-panel-header h2.conversation-header-text { color: var(--ink) !important; font-weight: 700 !important; }
+#central-panel-header .button-group button { border-color: var(--line-hard) !important; transition: all 0.12s !important; }
+#central-panel-header .button-group button:hover { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+#central-panel-header .button-group button svg path { stroke: var(--ink-3) !important; }
+#central-panel-header .button-group button:hover svg path { stroke: var(--wine-2) !important; }
+#central-panel-header #activityDropdownMenuButton { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#central-panel-header #activityDropdownMenuButton:hover { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+```
+
+---
+
+## 108.9 – Activity Cards (mittlere Spalte)
+
+Cards für Termine, Kontaktaktionen und E-Mail-Thread-Items.
+
+```css
+/* ── 108.9 Activity Cards ── */
+#central-panel .cardUi.hl-card,
+#central-panel .hl-card-content {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+}
+#central-panel .blue-icon,
+#central-panel .activity-icons.blue-icon { color: var(--wine) !important; stroke: var(--wine) !important; }
+#central-panel .activity-title { color: var(--ink) !important; font-weight: 600 !important; font-size: 13px !important; }
+#central-panel .activity-innerIcon { color: var(--wine) !important; stroke: var(--wine) !important; opacity: 0.7 !important; width: 14px !important; height: 14px !important; }
+#central-panel .date-time { color: var(--ink-3) !important; font-size: 12px !important; }
+#central-panel .dividerMargin { border-color: var(--line-hard) !important; margin: 8px 0 !important; }
+#central-panel .appointment-body { color: var(--ink-2) !important; font-size: 13px !important; font-weight: 500 !important; }
+#central-panel #date-label { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; border: 1px solid var(--wine) !important; border-radius: 100px !important; font-weight: 600 !important; }
+#central-panel .sender-name { color: var(--ink) !important; font-weight: 600 !important; }
+#central-panel .timestamp-style { color: var(--ink-4) !important; font-size: 11px !important; }
+
+/* View Appointment Button */
+#central-panel .view-button,
+#central-panel .hl-text-btn.view-button,
+#central-panel .hl-text-btn.view-button .n-button__content,
+#central-panel .hl-text-btn.view-button .n-button__content span {
+  color: var(--wine) !important;
+  font-weight: 600 !important;
+}
+#central-panel .view-button:hover,
+#central-panel .hl-text-btn.view-button:hover,
+#central-panel .hl-text-btn.view-button:hover .n-button__content span {
+  color: var(--wine-2) !important;
+}
+
+/* Contact Activity Card */
+#central-panel .contactCard.hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+}
+#central-panel .contactCard .blue-icon { color: var(--wine) !important; stroke: var(--wine) !important; }
+#central-panel .contactCard .activity-title-contact { color: var(--ink) !important; font-weight: 600 !important; font-size: 13px !important; }
+#central-panel .contactCard .activity-body-contact { color: var(--ink-3) !important; font-size: 12px !important; margin-top: 2px !important; }
+
+/* E-Mail Thread Items */
+.email-view-container.bg-gray-custom,
+.new-email-thread-view--collapsed-container .email-view-container {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+}
+.email-view-container.bg-gray-custom:hover,
+.new-email-thread-view--collapsed-container .email-view-container:hover {
+  background-color: rgba(107, 45, 62, 0.12) !important;
+  border-color: var(--wine-2) !important;
+}
+.email-view-container .sender-name { color: var(--wine-2) !important; }
+.email-view-container .text-gray-700 { color: var(--ink-2) !important; }
+.email-view-container .text-gray-600 { color: var(--ink-3) !important; }
+.email-view-container .email-details--icon-container svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+  opacity: 0.6 !important;
+}
+.email-view-container .email-details--icon-container:hover svg { opacity: 1 !important; }
+
+/* Activity Filter Dropdown */
+.activityDropdownMenu {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(44,62,80,0.10) !important;
+  padding: 4px !important;
+}
+.activityDropdownMenu .custom-dropdown-item { color: var(--ink-2) !important; border-radius: 6px !important; transition: background-color 0.12s !important; }
+.activityDropdownMenu .custom-dropdown-item:hover,
+.activityDropdownMenu .custom-dropdown-item.custom-hover:hover {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine-2) !important;
+}
+.activityDropdownMenu .custom-dropdown-item span { color: var(--ink-2) !important; font-size: 13px !important; }
+.activityDropdownMenu .custom-dropdown-item:hover span { color: var(--wine-2) !important; }
+
+/* Activity Filter Custom Checkboxen */
+.activityFilterCheckbox {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  border: 1.5px solid var(--line-hard) !important;
+  border-radius: 4px !important;
+  background-color: var(--surface) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+  transition: all 0.12s !important;
+}
+.activityFilterCheckbox:hover { border-color: var(--wine) !important; }
+.activityFilterCheckbox:checked { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+.activityFilterCheckbox:checked::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 4px !important;
+  top: 1px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: 2px solid #ffffff !important;
+  border-top: none !important;
+  border-left: none !important;
+  transform: rotate(45deg) !important;
+}
+```
+
+---
+
+## 108.10 – Compose Box
+
+Unterer Bereich mit Channel-Tabs, Toolbar und Send/Clear-Buttons.
+
+```css
+/* ── 108.10 Compose Box ── */
+.message-input-wrap { border-top: 1px solid var(--line-hard) !important; }
+
+/* Internal Comment Tab */
+#internal-comment { color: var(--ink-3) !important; font-size: 13px !important; transition: color 0.15s !important; }
+#internal-comment:hover { color: var(--wine-2) !important; }
+#internal-comment.active,
+#internal-comment.nav-link.active {
+  color: var(--wine-2) !important;
+  border-bottom: 2px solid var(--wine) !important;
+  font-weight: 700 !important;
+}
+
+/* Channel Tabs (E-Mail, SMS …) */
+.new-channel-bar .nav-link { color: var(--ink-3) !important; font-weight: 500 !important; border-bottom: 2px solid transparent !important; }
+.new-channel-bar .nav-link.active,
+.new-channel-bar .open-email-tab.active { color: var(--wine-2) !important; border-bottom-color: var(--wine) !important; font-weight: 700 !important; }
+.new-channel-bar .nav-link:hover,
+.channel-tabs-container .nav-link:hover,
+.new-channel-bar a.nav-link:hover { border-bottom-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* Bootstrap nav-tabs hover override */
+.message-input-wrap .nav-tabs .nav-link:hover,
+.message-input-wrap .nav-link:not(.active):hover {
+  border-color: transparent transparent var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+.message-input-wrap .nav-link.active,
+.message-input-wrap .internal-comment-tab.active {
+  color: var(--wine-2) !important;
+  border-bottom-color: var(--wine) !important;
+}
+.message-input-wrap .nav-link:hover,
+.message-input-wrap .internal-comment-tab:hover { color: var(--wine-2) !important; }
+
+/* Toolbar Icons */
+.toolbar_button:hover { background-color: var(--wine-lt) !important; border-radius: 6px !important; }
+.toolbar_button:hover svg,
+.toolbar_button:hover .toolbar-button__icon { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+.new-message-composer .text-gray-500.h-8.w-8:hover,
+.new-message-composer .text-gray-500.h-8.w-8:hover svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+.new-message-composer .text-gray-500.h-8.w-8:hover { background-color: var(--wine-lt) !important; }
+.new-message-composer section .text-gray-500:hover svg,
+.new-message-composer section div:hover svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+.new-message-composer .hover\:bg-gray-100:hover { background-color: var(--wine-lt) !important; }
+
+/* Clear Button */
+#clear { border: 1px solid var(--line-hard) !important; color: var(--ink-2) !important; border-radius: 8px !important; }
+#clear:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+#clear .n-button__border { border-color: var(--line-hard) !important; }
+#clear .n-button__state-border { display: none !important; }
+
+/* Send Button */
+#send-sms { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; color: #ffffff !important; border-radius: 8px 0 0 8px !important; }
+#send-sms:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; }
+#send-sms .n-button__border, #send-sms .n-button__state-border { border-color: var(--wine) !important; }
+
+/* Schedule Later Button */
+#schedule-later { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; color: #ffffff !important; border-radius: 0 8px 8px 0 !important; }
+#schedule-later .n-button__border, #schedule-later .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 108.11 – Rechtes Kontakt-Panel & Mini-Panel
+
+Das Kontakt-Panel mit Owner/Followers, DND-Sektion und das schmale Icon-Panel ganz rechts.
+
+```css
+/* ── 108.11 Rechtes Kontakt-Panel ── */
+.new-conversations-right-panel { border-left: 1px solid var(--line-hard) !important; }
+.new-conversations-right-panel .bg-gray-500 { background-color: var(--wine) !important; }
+.new-conversations-right-panel .text-primary-700 { color: var(--wine) !important; }
+.new-conversations-right-panel .bg-gray-200 { background-color: var(--wine-lt) !important; }
+.new-conversations-right-panel .bg-gray-200:hover { background-color: var(--wine) !important; }
+.new-conversations-right-panel .bg-gray-200 svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+.new-conversations-right-panel .bg-gray-200:hover svg { color: #ffffff !important; stroke: #ffffff !important; }
+.new-conversations-right-panel .text-gray-700.font-semibold { color: var(--ink) !important; font-weight: 600 !important; }
+.new-conversations-right-panel .text-gray-500 { color: var(--ink-4) !important; }
+.new-conversations-right-panel .bg-primary-700 { background-color: var(--wine) !important; }
+.new-conversations-right-panel .horizontal-line,
+.new-conversations-right-panel hr { border-color: var(--line-hard) !important; }
+#new-crp--contacts-add-email-icon svg, #new-crp--contacts-add-phone-icon svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+
+/* Owner / Followers Selects */
+#new-conversation-right-panel--contact-owner .n-base-selection,
+#new-conversation-right-panel--contact-followers .n-base-selection { border: none !important; }
+#new-conversation-right-panel--contact-owner .n-base-selection__border,
+#new-conversation-right-panel--contact-followers .n-base-selection__border { border: none !important; }
+#new-conversation-right-panel--contact-owner .n-base-selection__state-border,
+#new-conversation-right-panel--contact-followers .n-base-selection__state-border { display: none !important; }
+
+/* DND Sektion */
+.new-conversations-right-panel [data-v-f0d4cc20-s] .text-gray-700.font-semibold { color: var(--ink) !important; font-weight: 600 !important; }
+.new-conversations-right-panel [data-v-f0d4cc20-s] .text-gray-600 { color: var(--ink-3) !important; }
+.new-conversations-right-panel [data-v-f0d4cc20-s] .font-medium.text-gray-700 { color: var(--ink-2) !important; font-size: 13px !important; font-weight: 500 !important; }
+.new-conversations-right-panel [data-v-f0d4cc20-s] svg { color: var(--ink-3) !important; stroke: var(--ink-3) !important; }
+.new-conversations-right-panel .inline-flex.items-center.ml-1.cursor-pointer svg { color: var(--ink-4) !important; stroke: var(--ink-4) !important; }
+
+/* DND Custom Checkboxen */
+.new-conversations-right-panel input[type="checkbox"].h-4 {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  border: 1.5px solid var(--line-hard) !important;
+  border-radius: 4px !important;
+  background-color: var(--surface) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.12s !important;
+  flex-shrink: 0 !important;
+}
+.new-conversations-right-panel input[type="checkbox"].h-4:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+.new-conversations-right-panel input[type="checkbox"].h-4:checked {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.new-conversations-right-panel input[type="checkbox"].h-4:checked::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 4px !important;
+  top: 1px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: 2px solid #ffffff !important;
+  border-top: none !important;
+  border-left: none !important;
+  transform: rotate(45deg) !important;
+}
+
+/* Aktionen Button + Dropdown */
+.hl_conversations a.sort-option.bg-blue-600,
+.hl_conversations a[style*="color: white"] {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: background-color 0.12s !important;
+}
+.hl_conversations a.sort-option.bg-blue-600:hover { background-color: var(--wine-2) !important; }
+.hl_conversations a.sort-option.bg-blue-600 svg { color: #ffffff !important; stroke: #ffffff !important; }
+
+.hl_conversations .dropright .dropdown-menu {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(44,62,80,0.10) !important;
+  padding: 4px 8px !important;
+}
+.hl_conversations .dropright .dropdown-menu li { border-radius: 6px !important; transition: background-color 0.12s !important; padding: 4px 6px !important; }
+.hl_conversations .dropright .dropdown-menu li:hover { background-color: var(--wine-lt) !important; }
+.hl_conversations .dropright .dropdown-menu .sort-option-item { color: var(--ink-2) !important; font-size: 13px !important; }
+.hl_conversations .dropright .dropdown-menu li:hover .sort-option-item { color: var(--wine-2) !important; }
+.hl_conversations .dropright .dropdown-menu li svg path { stroke: var(--ink-3) !important; }
+.hl_conversations .dropright .dropdown-menu li:hover svg path { stroke: var(--wine-2) !important; }
+
+/* Mini-Panel */
+.mini-panel { border-left: 1px solid var(--line-hard) !important; }
+.mini-panel .p-\[9px\]:hover { background-color: var(--wine-lt) !important; }
+.mini-panel .text-primary-600, .mini-panel .bg-primary-50 { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+.mini-panel .text-primary-600 svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+.mini-panel .p-\[9px\]:hover svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+.mini-panel hr { border-color: var(--line-hard) !important; }
+
+/* DND accent-color Fallback */
+.new-conversations-right-panel input[type="checkbox"] { accent-color: var(--wine) !important; }
+
+/* Scrollbar */
+.hl_conversations ::-webkit-scrollbar { width: 4px !important; }
+.hl_conversations ::-webkit-scrollbar-track { background: transparent !important; }
+.hl_conversations ::-webkit-scrollbar-thumb { background-color: var(--line-hard) !important; border-radius: 100px !important; }
+.hl_conversations ::-webkit-scrollbar-thumb:hover { background-color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`data-v-f0d4cc20-s` (DND-Sektion):** Dieser Selektor ist ein Vue-Scoped-Attribute und kann sich nach GHL-Deployments ändern. Bei Bruch → DOM inspizieren und neues `data-v-*` Attribut ermitteln.
+
+**`[style*="56, 160"]` (aktiver Tab):** GHL setzt den aktiven Tab-Underline per Inline-Style (`color: rgb(56, 160, ...)`). Der Attribut-Selektor `[style*="56, 160"]` fangt das ab, ist aber fragil. Alternativ: `[aria-current="page"]`.
+
+**Send + Schedule-Later:** Beide Buttons bilden eine zusammengesetzte Gruppe — `#send-sms` hat `border-radius: 8px 0 0 8px`, `#schedule-later` hat `border-radius: 0 8px 8px 0`.
+
+**Custom Checkboxen:** `appearance: none` entfernt das native Browser-Styling vollständig. Das Häkchen wird als `::after`-Pseudo-Element mit `border-top: none; border-left: none; transform: rotate(45deg)` gezeichnet. Gleiches Muster wird in Section 108.9 (Activity Filter) und Section 108.11 (DND) verwendet.
+
+**Channel-Tab hover override:** GHL setzt den blauen Hover-Streifen über Bootstrap `.nav-tabs` — es braucht `border-color: transparent transparent var(--wine)` (Shorthand für oben/seiten/unten) um nur den unteren Border zu überschreiben.
