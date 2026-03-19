@@ -12872,3 +12872,154 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 .social-planner .feature-card .hr-button--tertiary-type:hover .hr-button__border {
   border-color: var(--wine) !important;
 }
+
+/* ════════════════════════════════════════════════════════════════
+   114 · FUNNELS
+   Root: section#funnels, #FunnelList
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Hintergrund ── */
+section#funnels.hl_wrapper--inner,
+#funnels, #FunnelList,
+#FunnelList .hl-wrapper-container,
+#FunnelList .n-config-provider,
+#FunnelList .max-w-7xl {
+  background-color: var(--bg) !important;
+}
+#funnels .hl-header {
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  padding-bottom: 16px !important;
+}
+#funnels .hl-header .title { color: var(--ink) !important; font-weight: 700 !important; }
+#funnels .hl-header .description { color: var(--ink-3) !important; }
+
+/* ── Tabellen-Container ── */
+#funnels .table-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+#funnels .ghl-table-custom-header {
+  background-color: var(--surface) !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* ── Global state-border fix innerhalb Funnels ── */
+#funnels .n-button__state-border,
+#FunnelList .n-button__state-border {
+  border-width: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ── Ordner erstellen ── */
+#create-folder-button {
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+  color: var(--ink-2) !important;
+}
+#create-folder-button .n-button__border { border-color: var(--line-hard) !important; }
+#create-folder-button:hover .n-button__border { border-color: var(--wine) !important; }
+#create-folder-button:hover { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+
+/* ── Neuer Funnel ── */
+html body #create-new-button.n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+html body #create-new-button.n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#create-new-button .n-button__border { border-color: var(--wine) !important; }
+
+/* ── View Buttons ── */
+#recentButton, #ListButton {
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#recentButton .n-button__border, #ListButton .n-button__border { border-color: var(--line-hard) !important; }
+#recentButton:hover .n-button__border, #ListButton:hover .n-button__border { border-color: var(--wine) !important; }
+#recentButton:hover, #ListButton:hover { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+#ListButton.hl-active-btn { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+#ListButton.hl-active-btn .n-button__border { border-color: var(--wine) !important; }
+
+/* ── Suchfeld ── */
+#hl-table-funnel-list-filter-text-search .n-input__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#hl-table-funnel-list-filter-text-search .n-input__state-border { display: none !important; }
+#hl-table-funnel-list-filter-text-search:hover .n-input__border { border-color: var(--wine) !important; }
+
+/* ── Breadcrumb ── */
+#funnels .n-breadcrumb-item__link { color: var(--ink-3) !important; }
+#funnels .n-breadcrumb-item__link:hover { color: var(--wine-2) !important; }
+
+/* ── Tabelle ── */
+#funnels .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-bottom: 2px solid var(--line-hard) !important;
+}
+#funnels .n-data-table-th__title {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+#funnels .n-data-table-tr { border-bottom: 1px solid var(--line-hard) !important; }
+#funnels .n-data-table-td { border-bottom: none !important; }
+#funnels .n-data-table-tr:not(.n-data-table-tr--summary):hover .n-data-table-td {
+  background-color: var(--wine-lt) !important;
+}
+#funnels .hover\:text-primary-600:hover { color: var(--wine-2) !important; }
+#funnels .text-success-600 { color: var(--wine-2) !important; font-weight: 600 !important; }
+#funnels .hl-text-sm-medium { color: var(--ink-2) !important; }
+
+/* ── Kebab Button ── */
+#funnels button#table1-drop-action-dropdown-trigger {
+  border-radius: 50% !important;
+  transition: all 0.12s !important;
+}
+#funnels button#table1-drop-action-dropdown-trigger .n-button__border { border-color: var(--line-hard) !important; }
+#funnels button#table1-drop-action-dropdown-trigger:hover .n-button__border { border-color: var(--wine) !important; }
+#funnels button#table1-drop-action-dropdown-trigger:hover { background-color: var(--wine-lt) !important; }
+
+/* ── Dropdown ── */
+#table1-drop.n-dropdown-menu {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(44,62,80,0.10) !important;
+}
+#table1-drop .n-dropdown-option-body__label { color: var(--ink-2) !important; font-size: 13px !important; }
+#table1-drop .n-dropdown-option-body__prefix svg { color: var(--ink-3) !important; }
+#table1-drop .n-dropdown-option-body--pending .n-dropdown-option-body__label { color: var(--wine-2) !important; }
+#table1-drop .n-dropdown-option-body--pending .n-dropdown-option-body__prefix svg { color: var(--wine-2) !important; }
+#table1-drop .n-dropdown-option-body--pending::before { background-color: var(--wine-lt) !important; }
+#table1-drop #delete-funnel .n-dropdown-option-body__label { color: var(--danger) !important; }
+#table1-drop #delete-funnel .n-dropdown-option-body__prefix svg { color: var(--danger) !important; }
+
+/* ── Pagination ── */
+html body #funnel-list-pagination .n-pagination-item--active {
+  color: var(--wine-2) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+}
+#funnel-list-previous, #funnel-list-next {
+  border-radius: 6px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#funnel-list-previous .n-button__border, #funnel-list-next .n-button__border {
+  border-color: var(--line-hard) !important;
+}
+#funnel-list-previous:hover:not([disabled]) .n-button__border,
+#funnel-list-next:hover:not([disabled]) .n-button__border {
+  border-color: var(--wine) !important;
+}

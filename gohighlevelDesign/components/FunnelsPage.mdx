@@ -1,0 +1,248 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Pages/FunnelsPage" />
+
+# Seiten – Funnels Liste (Section 114)
+
+Die Funnels-Listenansicht (`Seiten → Funnels`) zeigt alle Funnels in einer NaïveUI DataTable mit Breadcrumb-Navigation, View-Toggle und Kebab-Dropdown. Root-Selektoren sind `section#funnels` und `#FunnelList`. NaïveUI `n-button__state-border` wird global innerhalb des Scopes auf `border-width: 0` gesetzt — das ist der globale State-Border-Fix für dieses Modul.
+
+![Funnels Page Screenshot](./funnels-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `section#funnels`, `#FunnelList` |
+| Page Header | `#funnels .hl-header` |
+| Tabellen-Container | `#funnels .table-container` |
+| Custom Table Header | `#funnels .ghl-table-custom-header` |
+| View Buttons | `#recentButton`, `#ListButton` |
+| Suchfeld | `#hl-table-funnel-list-filter-text-search` |
+| Breadcrumb | `#funnels .n-breadcrumb-item__link` |
+| DataTable | `#funnels .n-data-table-th`, `.n-data-table-tr` |
+| Kebab Dropdown | `#table1-drop.n-dropdown-menu` |
+| Pagination | `#funnel-list-pagination`, `#funnel-list-previous/next` |
+
+---
+
+## 114.1 – Hintergrund & Page Header
+
+```css
+/* ── Hintergrund ── */
+section#funnels.hl_wrapper--inner,
+#funnels, #FunnelList,
+#FunnelList .hl-wrapper-container,
+#FunnelList .n-config-provider,
+#FunnelList .max-w-7xl {
+  background-color: var(--bg) !important;
+}
+
+/* ── Page Header ── */
+#funnels .hl-header {
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+  padding-bottom: 16px !important;
+}
+#funnels .hl-header .title { color: var(--ink) !important; font-weight: 700 !important; }
+#funnels .hl-header .description { color: var(--ink-3) !important; }
+```
+
+---
+
+## 114.2 – Header Buttons
+
+„Ordner erstellen" (outlined) und „+ Neuer Funnel" (primary → wine).
+
+```css
+/* Global state-border fix */
+#funnels .n-button__state-border,
+#FunnelList .n-button__state-border {
+  border-width: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Ordner erstellen */
+#create-folder-button {
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+  color: var(--ink-2) !important;
+}
+#create-folder-button .n-button__border { border-color: var(--line-hard) !important; }
+#create-folder-button:hover .n-button__border { border-color: var(--wine) !important; }
+#create-folder-button:hover { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+
+/* Neuer Funnel */
+html body #create-new-button.n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+html body #create-new-button.n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#create-new-button .n-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## 114.3 – Tabellen-Container & Filter Bar
+
+Container-Card, View-Toggle-Buttons, Suchfeld und Breadcrumb.
+
+```css
+/* Tabellen-Container */
+#funnels .table-container {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+#funnels .ghl-table-custom-header {
+  background-color: var(--surface) !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* View Buttons (Recent / List) */
+#recentButton, #ListButton {
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#recentButton .n-button__border, #ListButton .n-button__border { border-color: var(--line-hard) !important; }
+#recentButton:hover .n-button__border, #ListButton:hover .n-button__border { border-color: var(--wine) !important; }
+#recentButton:hover, #ListButton:hover { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+
+/* Aktiver View Button */
+#ListButton.hl-active-btn { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+#ListButton.hl-active-btn .n-button__border { border-color: var(--wine) !important; }
+
+/* Suchfeld */
+#hl-table-funnel-list-filter-text-search .n-input__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#hl-table-funnel-list-filter-text-search .n-input__state-border { display: none !important; }
+#hl-table-funnel-list-filter-text-search:hover .n-input__border { border-color: var(--wine) !important; }
+
+/* Breadcrumb */
+#funnels .n-breadcrumb-item__link { color: var(--ink-3) !important; }
+#funnels .n-breadcrumb-item__link:hover { color: var(--wine-2) !important; }
+```
+
+---
+
+## 114.4 – NaïveUI DataTable
+
+Header, Rows, Funnel-Name-Link und Schritte-Zähler.
+
+```css
+/* Header */
+#funnels .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-bottom: 2px solid var(--line-hard) !important;
+}
+#funnels .n-data-table-th__title {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+
+/* Rows */
+#funnels .n-data-table-tr { border-bottom: 1px solid var(--line-hard) !important; }
+#funnels .n-data-table-td { border-bottom: none !important; }
+#funnels .n-data-table-tr:not(.n-data-table-tr--summary):hover .n-data-table-td {
+  background-color: var(--wine-lt) !important;
+}
+
+/* Funnel Name hover */
+#funnels .hover\:text-primary-600:hover { color: var(--wine-2) !important; }
+
+/* Schritte Anzahl (text-success-600 grün → wine) */
+#funnels .text-success-600 { color: var(--wine-2) !important; font-weight: 600 !important; }
+
+/* Timestamps */
+#funnels .hl-text-sm-medium { color: var(--ink-2) !important; }
+```
+
+---
+
+## 114.5 – Kebab Button & Dropdown
+
+Runder Kebab-Button pro Zeile und das Dropdown-Menü mit Löschen-Option in Danger-Farbe.
+
+```css
+/* Kebab Button */
+#funnels button#table1-drop-action-dropdown-trigger {
+  border-radius: 50% !important;
+  transition: all 0.12s !important;
+}
+#funnels button#table1-drop-action-dropdown-trigger .n-button__border { border-color: var(--line-hard) !important; }
+#funnels button#table1-drop-action-dropdown-trigger:hover .n-button__border { border-color: var(--wine) !important; }
+#funnels button#table1-drop-action-dropdown-trigger:hover { background-color: var(--wine-lt) !important; }
+
+/* Dropdown Menü */
+#table1-drop.n-dropdown-menu {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(44,62,80,0.10) !important;
+}
+#table1-drop .n-dropdown-option-body__label { color: var(--ink-2) !important; font-size: 13px !important; }
+#table1-drop .n-dropdown-option-body__prefix svg { color: var(--ink-3) !important; }
+
+/* Hover State */
+#table1-drop .n-dropdown-option-body--pending .n-dropdown-option-body__label { color: var(--wine-2) !important; }
+#table1-drop .n-dropdown-option-body--pending .n-dropdown-option-body__prefix svg { color: var(--wine-2) !important; }
+#table1-drop .n-dropdown-option-body--pending::before { background-color: var(--wine-lt) !important; }
+
+/* Löschen → Danger */
+#table1-drop #delete-funnel .n-dropdown-option-body__label { color: var(--danger) !important; }
+#table1-drop #delete-funnel .n-dropdown-option-body__prefix svg { color: var(--danger) !important; }
+```
+
+---
+
+## 114.6 – Pagination
+
+NaïveUI Pagination mit aktiver Seite und Prev/Next-Buttons.
+
+```css
+/* Aktive Seite */
+html body #funnel-list-pagination .n-pagination-item--active {
+  color: var(--wine-2) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+}
+
+/* Prev / Next */
+#funnel-list-previous, #funnel-list-next {
+  border-radius: 6px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#funnel-list-previous .n-button__border, #funnel-list-next .n-button__border {
+  border-color: var(--line-hard) !important;
+}
+#funnel-list-previous:hover:not([disabled]) .n-button__border,
+#funnel-list-next:hover:not([disabled]) .n-button__border {
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`html body #create-new-button`:** Der primäre „Neuer Funnel"-Button benötigt die vollständige Präfix-Kette `html body` für ausreichend Spezifität — GHL überschreibt den Hintergrund sonst mit seinem eigenen Primary-Blau.
+
+**`#table1-drop #delete-funnel`:** Einzige Stelle in Section 114 mit `var(--danger)` — der Löschen-Eintrag im Dropdown behält bewusst die rote Signalfarbe bei, keine Wine-Überschreibung.
+
+**`n-button__state-border` Global-Fix:** Statt jeden Button einzeln mit `display: none` zu versehen, wird der State-Border für den gesamten `#funnels`- und `#FunnelList`-Scope mit `border-width: 0; border-color: transparent; box-shadow: none` neutralisiert.
+
+**`text-success-600` → wine:** GHL färbt den Schritte-Zähler grün. Da Wine die einzige Akzentfarbe des Skins ist, wird Grün hier durch wine-2 ersetzt — inhaltlich neutral, da der Zähler keine Statusbedeutung trägt.
