@@ -1,0 +1,189 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Memberships/ClientPortalDashboard" />
+
+# Mitgliedschaften – Kundenportal Dashboard (Section 115)
+
+Das Kundenportal-Dashboard (`Mitgliedschaften → Kundenportal`) ist die Übersichtsseite für das White-Label Client Portal. Root-Selektoren sind `section#clientportal-builder` und `#clientportal-builder-mount`. Besonderheit: Der **Branded Banner** oben verwendet als einziges Element im gesamten Skin einen echten `linear-gradient` aus wine und wine-2 — kein Flat-Color.
+
+![Client Portal Dashboard Screenshot](./client-portal-dashboard-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `section#clientportal-builder`, `#clientportal-builder-mount` |
+| Branded Banner | `a.branded-banner` |
+| Page Header | `#clientportal-builder-mount .hl-header` |
+| Content Cards | `#clientportal-builder-mount .hl-card` |
+| Info-Box | `#clientportal-builder-mount .bg-gray-50.rounded-xl` |
+| Portal URL Link | `#clientportal-builder-mount a[href*="clientclub"]` |
+| Statistik-Karten | `.hl-display-sm-semibold.text-gray-900` |
+| Aktionen Card | `button#main-button-client-modal` |
+
+---
+
+## 115.1 – Hintergrund
+
+```css
+/* ── 115.1 Hintergrund ── */
+section#clientportal-builder,
+#clientportal-builder-mount,
+#clientportal-builder-mount .hl-wrapper-container,
+#clientportal-builder-mount .n-config-provider {
+  background-color: var(--bg) !important;
+}
+```
+
+---
+
+## 115.2 – Branded Banner
+
+Das einzige Element im Skin mit einem echten wine-Gradient. Enthält Titel und Subtitle in Weiß.
+
+```css
+/* ── 115.2 Branded Banner ── */
+a.branded-banner {
+  background: linear-gradient(135deg, var(--wine) 0%, var(--wine-2) 100%) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 16px rgba(107,45,62,0.20) !important;
+  display: block !important;
+  padding: 20px 24px !important;
+  text-decoration: none !important;
+  transition: box-shadow 0.15s, transform 0.15s !important;
+}
+a.branded-banner:hover {
+  box-shadow: 0 8px 24px rgba(107,45,62,0.28) !important;
+  transform: translateY(-1px) !important;
+}
+a.branded-banner .title { color: #ffffff !important; font-weight: 700 !important; font-size: 18px !important; }
+a.branded-banner .subtitle { color: rgba(255,255,255,0.8) !important; font-size: 14px !important; margin-top: 4px !important; }
+```
+
+---
+
+## 115.3 – Header
+
+```css
+/* ── 115.3 Header ── */
+#clientportal-builder-mount .hl-header .title { color: var(--ink) !important; font-weight: 700 !important; }
+#clientportal-builder-mount .hl-header .description { color: var(--ink-3) !important; }
+```
+
+---
+
+## 115.4 – Cards
+
+Alle `.hl-card` Elemente auf der Seite — inkl. hover shadow.
+
+```css
+/* ── 115.4 Cards ── */
+#clientportal-builder-mount .hl-card,
+#clientportal-builder-mount .roundedBorder.hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  transition: box-shadow 0.12s !important;
+}
+#clientportal-builder-mount .hl-card:hover {
+  box-shadow: 0 4px 12px rgba(107,45,62,0.08) !important;
+}
+
+/* Card Titel */
+#clientportal-builder-mount .hl-text-lg-medium.font-semibold.text-gray-900 { color: var(--ink) !important; font-weight: 700 !important; }
+#clientportal-builder-mount .font-semibold.text-gray-700 { color: var(--ink-2) !important; font-weight: 600 !important; }
+```
+
+---
+
+## 115.5 – Info-Box & Portal URL
+
+„Was ist ein Kundenportal?"-Box mit URL-Link und Copy-Icon.
+
+```css
+/* ── 115.5 Info-Box & Portal URL ── */
+#clientportal-builder-mount .bg-gray-50.rounded-xl {
+  background-color: var(--bg) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+}
+#clientportal-builder-mount .text-gray-500 { color: var(--ink-4) !important; }
+
+/* Portal URL Link */
+#clientportal-builder-mount a[href*="clientclub"] {
+  color: var(--wine-2) !important;
+  text-decoration: none !important;
+  transition: color 0.12s !important;
+}
+#clientportal-builder-mount a[href*="clientclub"]:hover { color: var(--wine) !important; }
+
+/* Copy Icon */
+#clientportal-builder-mount .text-primary-600 { color: var(--wine-2) !important; }
+```
+
+---
+
+## 115.6 – Statistik-Karten (Eingeladen / Benutzer)
+
+```css
+/* ── 115.6 Statistik-Karten ── */
+#clientportal-builder-mount .hl-text-md-regular.text-gray-600 { color: var(--ink-3) !important; font-size: 13px !important; }
+#clientportal-builder-mount .hl-display-sm-semibold.text-gray-900 { color: var(--ink) !important; font-weight: 700 !important; font-size: 28px !important; }
+```
+
+---
+
+## 115.7 – Aktionen Card
+
+Trennlinien, Avatar-Icons und Aktions-Buttons (Generieren / Einladen / Senden).
+
+```css
+/* ── 115.7 Aktionen Card ── */
+/* Trennlinien */
+#clientportal-builder-mount .border-gray-200 { border-color: var(--line-hard) !important; }
+
+/* Action Label */
+#clientportal-builder-mount .hl-text-md-regular.text-gray-700 { color: var(--ink-2) !important; font-size: 14px !important; }
+
+/* Avatar Icons */
+#clientportal-builder-mount .n-avatar.bg-primary-100 { background-color: var(--wine-lt) !important; }
+#clientportal-builder-mount .n-avatar svg.text-primary-600 { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+
+/* Aktions-Buttons */
+#clientportal-builder-mount button#main-button-client-modal {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#clientportal-builder-mount button#main-button-client-modal:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+#clientportal-builder-mount button#main-button-client-modal .n-button__border { border-color: var(--line-hard) !important; }
+#clientportal-builder-mount button#main-button-client-modal:hover .n-button__border { border-color: var(--wine) !important; }
+#clientportal-builder-mount button#main-button-client-modal .n-button__state-border { border-width: 0 !important; border-color: transparent !important; }
+```
+
+---
+
+## 115.8 – Kundenportal-App Card
+
+```css
+/* ── 115.8 Kundenportal-App Card ── */
+#clientportal-builder-mount .hl-text-lg-medium.text-gray-700 { color: var(--ink-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`linear-gradient` auf Branded Banner:** Einziges Element im gesamten Skin mit einem echten Farbverlauf. `135deg, var(--wine) → var(--wine-2)` erzeugt einen subtilen Tiefeneffekt von dunkel nach hell innerhalb des Wine-Farbbereichs.
+
+**`a[href*="clientclub"]`:** Attribut-Selektor auf Basis des URL-Musters — robuster als Klassen-Selektoren, da GHL die Portal-URL dynamisch rendert. Gilt für alle `clientclub.net`-Links auf der Seite.
+
+**`button#main-button-client-modal`:** Alle drei Aktions-Buttons (Generieren, Einladen, Senden) teilen dieselbe ID — GHL rendert sie vermutlich per `v-for`. Der Selektor trifft alle drei gleichzeitig.
