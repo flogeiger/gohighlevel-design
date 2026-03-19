@@ -1,0 +1,103 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/CustomReportsPage" />
+
+# Berichterstattung – Benutzerdefinierte Berichte
+
+Die Berichterstattungs-Seite (`Berichterstattung → Benutzerdefinierte Berichte`) zeigt eine Landing/Empty-State-Ansicht mit Feature-Checkliste, „Neuer Bericht"-CTA und einem Dashboard-Link. Scope ist `.custom-report-wrapper` (`div.hl-wrapper-container.custom-report-wrapper`). Die Seite nutzt NaïveUI (`n-button`). Besonderheit: Die grünen `success-`-Farben der Check-Badges werden auf wine umgefärbt.
+
+![Custom Reports Page Screenshot](./custom-reports-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `.custom-report-wrapper` |
+| Heading Icon | `.bg-gray-100.rounded-\[28px\]` |
+| Feature Check Badges | `.bg-success-100`, `.text-success-500` |
+| „Neuer Bericht" Button | `.custom-report-wrapper .n-button--primary-type` |
+| Dashboard Text-Link | `.custom-report-wrapper .text-primary-600` |
+| Divider | `.custom-report-wrapper .n-divider__line` |
+
+---
+
+## Heading Icon
+
+```css
+.custom-report-wrapper .text-gray-600 {
+  color: var(--wine) !important;
+}
+.custom-report-wrapper .bg-gray-100.rounded-\[28px\] {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Feature Check Badges
+
+Die ✓-Kreis-Badges neben den Feature-Texten nutzen `bg-success-100` / `text-success-500` — werden auf wine umgefärbt.
+
+```css
+.custom-report-wrapper .bg-success-100 {
+  background-color: var(--wine-lt) !important;
+}
+.custom-report-wrapper .text-success-500 {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## „Neuer Bericht" Button (primary → wine)
+
+```css
+html body .custom-report-wrapper .n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(91,25,45,0.25) !important;
+}
+html body .custom-report-wrapper .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.custom-report-wrapper .n-button--primary-type .n-button__border { border-color: var(--wine) !important; }
+.custom-report-wrapper .n-button--primary-type .n-button__state-border { display: none !important; }
+```
+
+---
+
+## Text-Link „Versuchen Sie Dashboards"
+
+```css
+.custom-report-wrapper .text-primary-600 {
+  color: var(--wine) !important;
+}
+html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Divider
+
+```css
+.custom-report-wrapper .n-divider__line {
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`success-` → wine:** Die grünen Check-Badges (`bg-success-100`, `text-success-500`) haben keine semantische Warnbedeutung — sie signalisieren Features. Daher wine-Überschreibung wie auf allen anderen Seiten mit `text-success-*`.
+
+**`html body`-Präfix:** Nötig für den primären Button — GHL lädt Primary-Blau nachträglich. Gleiche Strategie wie Section 114 (Funnels) und Section 116 (Media).
+
+**Scope `.custom-report-wrapper`:** Sehr spezifischer Root-Scope — keine Kollisionen mit anderen Seiten möglich.

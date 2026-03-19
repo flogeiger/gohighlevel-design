@@ -13655,3 +13655,73 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
 .reputationApp .bg-primary-600 {
   background-color: var(--wine) !important;
 }
+
+
+/* ================================================
+   Section 112 – Berichte (Reports)
+   Scope: .custom-report-wrapper
+   GHL-Root: div.hl-wrapper-container.custom-report-wrapper
+   ================================================ */
+
+/* --------------------------------------------------
+   Heading-Icon (Trend-Chart oben links)
+   gray-600 → wine
+   -------------------------------------------------- */
+.custom-report-wrapper .text-gray-600 {
+  color: var(--wine) !important;
+}
+.custom-report-wrapper .bg-gray-100.rounded-\[28px\] {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   Feature-Check-Icons (✓ Kreis-Badges)
+   success-green → wine
+   -------------------------------------------------- */
+.custom-report-wrapper .bg-success-100 {
+  background-color: var(--wine-lt) !important;
+}
+.custom-report-wrapper .text-success-500 {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Primary Button "Neuer Bericht"
+   #custom-report-btn-new-report-toggle
+   -------------------------------------------------- */
+html body .custom-report-wrapper .n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  border-radius:    8px !important;
+  box-shadow:       0 1px 4px rgba(91, 25, 45, .25) !important;
+}
+html body .custom-report-wrapper .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+.custom-report-wrapper .n-button--primary-type .n-button__border {
+  border-color: var(--wine) !important;
+}
+.custom-report-wrapper .n-button--primary-type .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   Text-Link "Versuchen Sie Dashboards"
+   #report_empty-btn-try_dashboards
+   primary-blue → wine
+   -------------------------------------------------- */
+.custom-report-wrapper .text-primary-600 {
+  color: var(--wine) !important;
+}
+html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
+  color: var(--wine-2) !important;
+}
+
+/* --------------------------------------------------
+   Divider-Linie
+   -------------------------------------------------- */
+.custom-report-wrapper .n-divider__line {
+  background-color: var(--wine-lt) !important;
+}
