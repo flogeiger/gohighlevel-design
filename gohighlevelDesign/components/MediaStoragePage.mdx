@@ -1,0 +1,328 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="MediaDrive/MediaStoragePage" />
+
+# Medien-Drive – Medienspeicherung (Section 116)
+
+Die Medienspeicherungs-Seite (`Medien-Drive`) ist das Datei-Management-System in GHL. Root-Selektoren sind `#media-storage-wrapper` und `#mediaCenter`. Die Seite hat zwei View-Modi: **Grid-View** (Standard, Thumbnail-Kacheln) und **List-View** (NaïveUI DataTable). Besonderheit: Das Context-Menu ist eine eigenständige Vue-Bibliothek (`.vue-simple-context-menu`) — kein NaïveUI-Dropdown. Der letzte Menüeintrag (Papierkorb) erhält immer `var(--danger)`.
+
+![Media Storage Page Screenshot](./media-storage-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#media-storage-wrapper`, `#mediaCenter` |
+| Header Buttons | `#hl-connect-google-drive`, `#hl-image-ai-action`, `#hl-media-create-folder`, `#hl-media-upload`, `#media-header-dropdown` |
+| Filter Bar | `#media-storage-category-menu`, `#media-search-input`, `#sortFilter`, `#media-file-type-menu` |
+| View Toggle | `#media-grid-list-switch` |
+| Ordner Section | `#folders`, `.folder-card-wrapper.hl-card` |
+| Context Menu | `.vue-simple-context-menu` |
+| Dateien Section | `#mediaCenter .file-item` |
+| List-View Tabelle | `#mediaCenter .n-data-table-*` |
+| Pagination | `#my-media-list-view-previous/next` |
+
+---
+
+## 116.1 – Hintergrund
+
+```css
+/* ── 116.1 Hintergrund ── */
+#media-storage-wrapper,
+#mediaCenter,
+#mediaCenter .hl-wrapper-container,
+#mediaCenter .n-config-provider,
+#mediaCenter .max-w-full.bg-white,
+#mediaCenter .bg-white {
+  background-color: var(--bg) !important;
+}
+```
+
+---
+
+## 116.2 – Header Buttons
+
+Connect Drive, Content AI, Ordner erstellen, Upload (primary) und Mehr-Optionen.
+
+```css
+/* Global state-border fix */
+#mediaCenter .n-button__state-border {
+  border-width: 0 !important;
+  border-color: transparent !important;
+}
+
+/* Connect Drive */
+#hl-connect-google-drive {
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#hl-connect-google-drive .n-button__border { border-color: var(--line-hard) !important; }
+#hl-connect-google-drive:hover .n-button__border { border-color: var(--wine) !important; }
+#hl-connect-google-drive:hover { background-color: var(--wine-lt) !important; }
+
+/* Content AI */
+#hl-image-ai-action {
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+#hl-image-ai-action .n-button__border { border-color: var(--line-hard) !important; }
+#hl-image-ai-action:hover .n-button__border { border-color: var(--wine) !important; }
+#hl-image-ai-action:hover { background-color: var(--wine-lt) !important; }
+
+/* Ordner erstellen */
+#hl-media-create-folder {
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#hl-media-create-folder .n-button__border { border-color: var(--line-hard) !important; }
+#hl-media-create-folder:hover .n-button__border { border-color: var(--wine) !important; }
+#hl-media-create-folder:hover { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+
+/* Upload (primary → wine) */
+html body #hl-media-upload.n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+html body #hl-media-upload.n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#hl-media-upload .n-button__border { border-color: var(--wine) !important; }
+#hl-media-upload .hl-text-sm-medium { color: #ffffff !important; }
+
+/* Mehr-Optionen */
+#media-header-dropdown {
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#media-header-dropdown .n-button__border { border-color: var(--line-hard) !important; }
+#media-header-dropdown:hover .n-button__border { border-color: var(--wine) !important; }
+#media-header-dropdown:hover { background-color: var(--wine-lt) !important; }
+#media-header-dropdown svg { color: var(--ink-2) !important; }
+```
+
+---
+
+## 116.3 – Filter Bar
+
+Kategorie-Dropdown, Suchfeld, Sort-Filter, Datei-Typ-Filter und Grid/List-Toggle.
+
+```css
+/* ── 116.3 Filter Bar ── */
+/* Kategorie Dropdown */
+#media-storage-category-menu .n-base-selection__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#media-storage-category-menu .n-base-selection__state-border { display: none !important; }
+#media-storage-category-menu .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+
+/* Suchfeld */
+#media-search-input .n-input__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#media-search-input .n-input__state-border { display: none !important; }
+#media-search-input:hover .n-input__border { border-color: var(--wine) !important; }
+#media-search-input .n-input__prefix svg { color: var(--ink-4) !important; }
+
+/* Sort Filter */
+#sortFilter .n-base-selection__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#sortFilter .n-base-selection__state-border { display: none !important; }
+#sortFilter .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+
+/* Datei-Typ Filter */
+#media-file-type-menu .n-base-selection__border { border-color: var(--line-hard) !important; border-radius: 8px !important; }
+#media-file-type-menu .n-base-selection__state-border { display: none !important; }
+#media-file-type-menu .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+
+/* Grid / List View Toggle */
+#media-grid-list-switch .n-button {
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#media-grid-list-switch .n-button .n-button__border { border-color: var(--line-hard) !important; }
+#media-grid-list-switch .n-button:hover .n-button__border { border-color: var(--wine) !important; }
+#media-grid-list-switch .n-button:hover { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+#media-grid-list-switch .n-button.hl-active-btn { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+#media-grid-list-switch .n-button.hl-active-btn .n-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## 116.4 – Ordner Section
+
+Ordner-Header und Folder-Cards mit Hover-Border.
+
+```css
+/* ── 116.4 Ordner Section ── */
+#folders .text-gray-600.hl-text-sm-medium { color: var(--ink-3) !important; font-weight: 600 !important; }
+#folders button svg { color: var(--ink-3) !important; }
+
+/* Folder Cards */
+#mediaCenter .folder-card-wrapper.hl-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  transition: all 0.12s !important;
+}
+#mediaCenter .folder-card-wrapper.hl-card:hover {
+  border-color: var(--wine) !important;
+  box-shadow: 0 4px 12px rgba(107,45,62,0.08) !important;
+}
+#mediaCenter .folder-card-wrapper svg { color: var(--ink-3) !important; }
+#mediaCenter .folder-card-wrapper .hl-text-sm-medium { color: var(--ink) !important; }
+
+/* Folder Kebab */
+#media-folder-dropdown .n-button__border { border-color: transparent !important; }
+#media-folder-dropdown:hover { background-color: var(--wine-lt) !important; }
+```
+
+---
+
+## 116.5 – Context Menu
+
+Eigenständige Vue-Bibliothek (`.vue-simple-context-menu`) — kein NaïveUI-Dropdown. Letzter Eintrag (Papierkorb) immer in `var(--danger)`.
+
+```css
+/* ── 116.5 Context Menu ── */
+.vue-simple-context-menu {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(44,62,80,0.10) !important;
+  padding: 4px 0 !important;
+}
+.vue-simple-context-menu__item {
+  color: var(--ink-2) !important;
+  font-size: 13px !important;
+  padding: 8px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: background-color 0.1s !important;
+  border-radius: 6px !important;
+  margin: 2px 4px !important;
+}
+.vue-simple-context-menu__item:hover { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+.vue-simple-context-menu__item svg { color: var(--ink-3) !important; }
+.vue-simple-context-menu__item:hover svg { color: var(--wine-2) !important; }
+
+/* Letzter Eintrag (Papierkorb) → danger */
+.vue-simple-context-menu__item:last-child { color: var(--danger) !important; }
+.vue-simple-context-menu__item:last-child svg { color: var(--danger) !important; }
+.vue-simple-context-menu__item:last-child:hover { background-color: rgba(217,45,32,0.06) !important; }
+```
+
+---
+
+## 116.6 – Dateien Section (Grid-View)
+
+File-Items mit Scale-Hover und Drag-Select-Area.
+
+```css
+/* ── 116.6 Dateien Section ── */
+#mediaCenter .files .text-gray-600.hl-text-sm-medium { color: var(--ink-3) !important; font-weight: 600 !important; }
+
+/* File Items */
+#mediaCenter .file-item {
+  border-radius: 10px !important;
+  transition: all 0.15s !important;
+}
+#mediaCenter .file-item:hover {
+  box-shadow: 0 4px 12px rgba(107,45,62,0.12) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Drag Select Area */
+#mediaCenter .drag-select__area { background: rgba(107,45,62,0.15) !important; }
+
+/* Scrollbar */
+#mediaCenter .n-scrollbar-rail__scrollbar { background-color: var(--line-hard) !important; }
+#mediaCenter .n-scrollbar-rail__scrollbar:hover { background-color: var(--wine) !important; }
+```
+
+---
+
+## 116.7 – List-View Tabelle
+
+NaïveUI DataTable mit Checkboxen und Kebab-Button.
+
+```css
+/* ── 116.7 List-View Tabelle ── */
+#mediaCenter .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-bottom: 2px solid var(--line-hard) !important;
+}
+#mediaCenter .n-data-table-th__title {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+#mediaCenter .n-data-table-tr { border-bottom: 1px solid var(--line-hard) !important; }
+#mediaCenter .n-data-table-td { border-bottom: none !important; }
+#mediaCenter .n-data-table-tr:not(.n-data-table-tr--summary):hover .n-data-table-td { background-color: var(--wine-lt) !important; }
+#mediaCenter .n-data-table-td .text-gray-900 { color: var(--ink-2) !important; }
+
+/* Checkboxen */
+html body #mediaCenter .n-checkbox.n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#mediaCenter .n-checkbox-box__border { border-color: var(--line-hard) !important; }
+#mediaCenter .n-checkbox:hover .n-checkbox-box__border { border-color: var(--wine) !important; }
+
+/* Kebab Button */
+#mediaCenter button#my-media-action-action-dropdown-trigger {
+  border-radius: 50% !important;
+  transition: all 0.12s !important;
+}
+#mediaCenter button#my-media-action-action-dropdown-trigger .n-button__state-border { border-width: 0 !important; border-color: transparent !important; }
+#mediaCenter button#my-media-action-action-dropdown-trigger:hover { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+```
+
+---
+
+## 116.8 – Pagination (List-View)
+
+```css
+/* ── 116.8 Pagination ── */
+html body #mediaCenter .n-pagination-item.n-pagination-item--active {
+  color: var(--wine-2) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+}
+#my-media-list-view-previous, #my-media-list-view-next {
+  border-radius: 6px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+#my-media-list-view-previous .n-button__border,
+#my-media-list-view-next .n-button__border { border-color: var(--line-hard) !important; }
+#my-media-list-view-previous .n-button__state-border,
+#my-media-list-view-next .n-button__state-border { border-width: 0 !important; border-color: transparent !important; }
+#my-media-list-view-previous:hover:not([disabled]) .n-button__border,
+#my-media-list-view-next:hover:not([disabled]) .n-button__border { border-color: var(--wine) !important; }
+
+/* Seiten-Größe Select */
+#mediaCenter .ghl-table-footer .n-select .n-base-selection__border { border-color: var(--line-hard) !important; border-radius: 6px !important; }
+#mediaCenter .ghl-table-footer .n-select .n-base-selection__state-border { display: none !important; }
+#mediaCenter .ghl-table-footer .n-select .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`.vue-simple-context-menu`:** Diese Seite ist die einzige im Projekt, die eine eigenständige Vue-Bibliothek für das Context-Menu verwendet — kein NaïveUI-Dropdown. Das Styling muss global (ohne Scope-Präfix) gesetzt werden, da das Menu außerhalb des `#mediaCenter`-DOM-Baums gemountet wird.
+
+**`transform: scale(1.02)` auf File Items:** Einzige Stelle im Projekt mit Scale-Hover (statt `translateY`). Passt zum visuellen Charakter des Grid-Views, wo Kacheln als "aufhebbar" wahrgenommen werden sollen.
+
+**`drag-select__area`:** Die Drag-Select-Fläche beim Markieren mehrerer Dateien per Maus-Drag wird mit `rgba(107,45,62,0.15)` in wine eingefärbt — halbtransparentes Wine statt Standard-Blau.
+
+**`html body #hl-media-upload`:** Gleiche `html body`-Spezifitätskette wie bei Section 114 (`#create-new-button`) nötig, um GHL's nachgeladenes Primary-Blau zu überschreiben.
