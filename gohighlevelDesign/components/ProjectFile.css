@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 
 
@@ -12754,4 +12753,122 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 .ai-agents-getting-started-card .opacity-50 svg {
   color: var(--ink-4) !important;
   stroke: var(--ink-4) !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   112 · SOCIAL PLANNER (Landing Page)
+   Root: .social-planner, .landing-root
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── 112.1 Hero Header ── */
+.social-planner .landing-root .hero-grid #hero-header .header-title {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+.social-planner .landing-root .hero-grid #hero-header + p {
+  color: var(--ink-3) !important;
+}
+.social-planner .landing-root p.text-gray-600 {
+  color: var(--ink-3) !important;
+}
+
+/* ── 112.2 Platform Buttons ── */
+.social-planner .platforms-wrap button {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+  box-shadow: 0 1px 3px rgba(44,62,80,0.06) !important;
+}
+.social-planner .platforms-wrap button:hover {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  box-shadow: 0 2px 8px rgba(107,45,62,0.10) !important;
+  transform: translateY(-1px) !important;
+}
+.social-planner .platforms-wrap button p {
+  color: var(--ink-2) !important;
+  font-weight: 600 !important;
+}
+.social-planner .platforms-wrap button:hover p {
+  color: var(--wine-2) !important;
+}
+
+/* ── 112.3 CTA Box (blau → wine) ── */
+.social-planner .cta-box {
+  background-color: var(--wine-lt) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 10px !important;
+}
+.social-planner .cta-box #schedule-heading {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+.social-planner .cta-box #schedule-description {
+  color: var(--ink-3) !important;
+}
+/* "Jetzt planen" Link → wine */
+.social-planner .cta-box #sp-pg-landing-btn-schedule-now .hr-button__content p {
+  color: var(--wine-2) !important;
+  font-weight: 700 !important;
+}
+.social-planner .cta-box #sp-pg-landing-btn-schedule-now svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+.social-planner .cta-box #sp-pg-landing-btn-schedule-now:hover .hr-button__content p {
+  color: var(--wine) !important;
+}
+
+/* ── 112.4 Feature Cards ── */
+.social-planner .feature-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  transition: all 0.15s !important;
+}
+.social-planner .feature-card:hover {
+  border-color: var(--wine) !important;
+  box-shadow: 0 6px 20px rgba(107,45,62,0.10) !important;
+  transform: translateY(-2px) !important;
+}
+/* Feature Card Image Background */
+.social-planner .feature-card .bg-gray-100 {
+  background-color: var(--wine-lt) !important;
+}
+/* Feature Card Titel */
+.social-planner .feature-card .feature-card-body .text-gray-900 {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+/* Feature Card Text */
+.social-planner .feature-card .feature-card-body .text-gray-600 {
+  color: var(--ink-4) !important;
+  font-size: 13px !important;
+}
+/* Feature Card Buttons (hr-button--tertiary) */
+.social-planner .feature-card .hr-button--tertiary-type {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+.social-planner .feature-card .hr-button--tertiary-type:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+.social-planner .feature-card .hr-button--tertiary-type .hr-button__border {
+  border-color: var(--line-hard) !important;
+}
+.social-planner .feature-card .hr-button--tertiary-type .hr-button__state-border {
+  display: none !important;
+}
+.social-planner .feature-card .hr-button--tertiary-type:hover .hr-button__content {
+  color: var(--wine-2) !important;
+}
+.social-planner .feature-card .hr-button--tertiary-type:hover .hr-button__border {
+  border-color: var(--wine) !important;
 }
