@@ -13725,3 +13725,384 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 .custom-report-wrapper .n-divider__line {
   background-color: var(--wine-lt) !important;
 }
+
+/* ================================================
+   Section 113 – Marktplatz (Marketplace)
+   Scope: #marketplace-app
+   Root: #marketplace-app .hr-wrapper-container.platform-ui__highrise
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Tabs – Balken + aktiver Tab + Hover
+   -------------------------------------------------- */
+#marketplace-app .hr-tabs-bar {
+  background-color: var(--wine) !important;
+}
+#marketplace-app .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--wine) !important;
+}
+#marketplace-app .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   2. View-Selector (Dropdown „Agenturansicht")
+   -------------------------------------------------- */
+#marketplace-app .hr-base-selection:hover .hr-base-selection__border {
+  border-color: var(--wine) !important;
+}
+#marketplace-app .hr-base-selection.hr-base-selection--focus .hr-base-selection__border,
+#marketplace-app .hr-base-selection.hr-base-selection--active .hr-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91, 25, 45, .2) !important;
+}
+#marketplace-app .hr-base-selection__state-border {
+  display: none !important;
+}
+/* Chevron-Pfeil */
+#marketplace-app .hr-base-selection .hr-base-icon {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   3. Suchfeld „Apps Suchen"
+   -------------------------------------------------- */
+#marketplace-app .hr-input:hover .hr-input__border {
+  border-color: var(--wine) !important;
+}
+#marketplace-app .hr-input.hr-input--focus .hr-input__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91, 25, 45, .2) !important;
+}
+#marketplace-app .hr-input__state-border {
+  display: none !important;
+}
+/* Lupe */
+#marketplace-app #user-query-search .hr-input__prefix svg {
+  color: var(--wine) !important;
+  opacity: 0.65;
+}
+
+/* --------------------------------------------------
+   4. Filter-Navigation (linke Spalte)
+   -------------------------------------------------- */
+#marketplace-app .hr-collapse-item-arrow {
+  color: var(--wine) !important;
+}
+#marketplace-app .hr-collapse-item__header:hover .hr-collapse-item__header-main {
+  color: var(--wine) !important;
+}
+#marketplace-app .hr-collapse-item + .hr-collapse-item {
+  border-top-color: var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   5. App-Karten
+   -------------------------------------------------- */
+/* Avatar-Hintergrund: Blau → wine-lt */
+#marketplace-app .hr-avatar.default-avatar {
+  background: var(--wine-lt) !important;
+}
+/* Hover: wine Border + Schatten */
+#marketplace-app .crm-marketplace-app-details-card:hover {
+  border-color: var(--wine) !important;
+  box-shadow: 0 4px 16px rgba(91, 25, 45, .12) !important;
+}
+
+/* --------------------------------------------------
+   6. Sterne-Bewertung
+   -------------------------------------------------- */
+#marketplace-app .star-empty {
+  color: #ddd !important;
+}
+#marketplace-app .star-filled {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   7. Tags
+   -------------------------------------------------- */
+/* „Frei zu Installieren" (Primary) → wine */
+#marketplace-app .hr-tag.ui-primary {
+  background-color: rgba(91, 25, 45, .08) !important;
+  color:            var(--wine) !important;
+}
+#marketplace-app .hr-tag.ui-primary .hr-tag__border {
+  border-color: rgba(91, 25, 45, .25) !important;
+}
+/* ✓ WL-Tag: hellblau beibehalten (Drittanbieter-Branding) */
+
+/* --------------------------------------------------
+   8. Einstellungen-Button (Zahnrad)
+   -------------------------------------------------- */
+#marketplace-app button#header-settings:hover {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   9. Dropdown-Optionen (Select geöffnet)
+   -------------------------------------------------- */
+#marketplace-app .n-base-select-option.n-base-select-option--selected,
+#marketplace-app .n-base-select-option:hover {
+  color: var(--wine) !important;
+}
+#marketplace-app .n-base-select-option.n-base-select-option--selected::before {
+  background-color: var(--wine-lt) !important;
+}
+#marketplace-app .n-base-select-option:hover::before {
+  background-color: var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   10. Pagination
+   -------------------------------------------------- */
+#marketplace-app .hr-pagination-item--active {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#marketplace-app .hr-pagination-item--clickable:hover {
+  color: var(--wine) !important;
+}
+#marketplace-app .hr-pagination .hr-button:hover,
+#marketplace-app .hr-pagination .hr-button:focus {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#marketplace-app .hr-pagination .hr-button .hr-button__border {
+  border-color: transparent !important;
+}
+#marketplace-app .hr-pagination .hr-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* ================================================
+   Section 113 – Addendum: Sub-Tabs
+   "Installierte Apps" + "App-Weiterverkauf"
+   ================================================ */
+
+/* --------------------------------------------------
+   Segment-Tabs (Agenturansicht / Unterkonto-Ansicht)
+   -------------------------------------------------- */
+#marketplace-app .hr-tabs--segment-type .hr-tabs-capsule {
+  background-color: var(--wine) !important;
+  border-radius: 4px !important;
+}
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: #fff !important;
+}
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--wine) !important;
+}
+
+
+/* --------------------------------------------------
+   Radio-Buttons – konsolidierter Fix
+   -------------------------------------------------- */
+
+/* 1. Viereck-Outline vom Label komplett weg */
+#marketplace-app label.hr-radio {
+  outline: none !important;
+  box-shadow: none !important;
+}
+#marketplace-app label.hr-radio:focus,
+#marketplace-app label.hr-radio:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 2. Native input ausblenden (kein Outline vom Browser) */
+#marketplace-app .hr-radio-input {
+  display: none !important;
+}
+
+/* 3. Kreis-Ring: Default grau */
+#marketplace-app .hr-radio__dot-wrapper {
+  outline: none !important;
+  border: none !important;
+  box-shadow: inset 0 0 0 1.5px rgb(224, 224, 230) !important;
+}
+
+/* 4. Kreis-Ring: Hover → wine (direkt auf dem wrapper, nicht über label:hover) */
+#marketplace-app .hr-radio__dot-wrapper:hover,
+#marketplace-app .hr-radio:hover > .hr-radio__dot-wrapper,
+#marketplace-app .hr-radio:hover .hr-radio__dot-wrapper {
+  box-shadow: inset 0 0 0 1.5px var(--wine) !important;
+}
+
+/* 5. Kreis-Ring: Checked → wine */
+#marketplace-app .hr-radio--checked .hr-radio__dot-wrapper {
+  box-shadow: inset 0 0 0 1.5px var(--wine) !important;
+}
+
+/* 6. Innerer Dot → wine */
+#marketplace-app .hr-radio__dot--checked {
+  background-color: var(--wine) !important;
+}
+
+/* 7. NaïveUI CSS-Variablen überschreiben */
+#marketplace-app .hr-radio {
+  --n-dot-color-active:  var(--wine) !important;
+  --n-box-shadow-active: inset 0 0 0 1.5px var(--wine) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1.5px var(--wine) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1.5px var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Checkboxen (Kategorien-Filter + App-Liste)
+   -------------------------------------------------- */
+#marketplace-app .hr-checkbox.hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#marketplace-app .hr-checkbox:hover .hr-checkbox-box {
+  border-color: var(--wine) !important;
+}
+#marketplace-app .hr-checkbox.hr-checkbox--checked .hr-checkbox-box__border {
+  border-color: var(--wine) !important;
+}
+/* Haken immer weiß */
+#marketplace-app .hr-checkbox-icon .check-icon path {
+  fill: #fff !important;
+}
+
+/* --------------------------------------------------
+   Count-Badge (blau → wine)
+   -------------------------------------------------- */
+#marketplace-app .hr-badge .hr-badge-sup {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+  box-shadow: 0 0 0 1px rgba(91, 25, 45, .2) !important;
+}
+#marketplace-app .hr-tag.ui-info {
+  background-color: rgba(91, 25, 45, .1) !important;
+  color:            var(--wine) !important;
+  border-color:     rgba(91, 25, 45, .25) !important;
+}
+
+/* --------------------------------------------------
+   Aktive Filter-Tags (closable)
+   -------------------------------------------------- */
+#marketplace-app .hr-tag.hr-tag--closable.ui-default {
+  background-color: var(--wine-lt) !important;
+  border-color:     rgba(91, 25, 45, .25) !important;
+  color:            var(--wine) !important;
+}
+#marketplace-app .hr-tag.hr-tag--closable.ui-default .hr-tag__border {
+  border-color: rgba(91, 25, 45, .25) !important;
+}
+#marketplace-app .hr-tag.hr-tag--closable .hr-tag__close {
+  color: var(--wine) !important;
+  opacity: 0.6;
+}
+#marketplace-app .hr-tag.hr-tag--closable .hr-tag__close:hover {
+  opacity: 1;
+  color: var(--wine-2) !important;
+}
+/* "Filter löschen" Link */
+#marketplace-app .show-btn button {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Segment-Tabs (Agenturansicht / Unterkonto-Ansicht)
+   -------------------------------------------------- */
+#marketplace-app .hr-tabs--segment-type .hr-tabs-capsule {
+  background-color: var(--wine) !important;
+  border-radius: 4px !important;
+}
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: #fff !important;
+}
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Table-Header + Suchfeld
+   -------------------------------------------------- */
+#marketplace-app .hr-data-table__cell-header {
+  border-bottom-color: var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   Primary-Button „Anwenden"
+   -------------------------------------------------- */
+#marketplace-app button#bulk-update-markup.hr-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#marketplace-app button#bulk-update-markup.hr-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+
+/* --------------------------------------------------
+   App-Weiterverkauf: „Ihr Gewinn" + App-Name hover
+   -------------------------------------------------- */
+#marketplace-app .border-none.text-blue-600 {
+  color: var(--wine) !important;
+}
+#marketplace-app .ui-card-footer .hr-button:not([disabled]):hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#marketplace-app .ui-card-footer .hr-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   Pagination (neue Variante hr-pagination-cntr)
+   -------------------------------------------------- */
+#marketplace-app .hr-pagination-item__active .hr-button {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Segment-Tab aktiver Text → IMMER weiß
+   (Text sitzt auf der wine-Capsule)
+   -------------------------------------------------- */
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active .hr-tabs-tab__label,
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active {
+  color: #fff !important;
+}
+
+/* --------------------------------------------------
+   Primary-Buttons (z.B. „Retry") → wine
+   Verwendet --n-color: var(--primary-600)
+   -------------------------------------------------- */
+#marketplace-app .hr-button--primary-type,
+#marketplace-app .hr-button.hr-button--primary {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#marketplace-app .hr-button--primary-type:hover,
+#marketplace-app .hr-button.hr-button--primary:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#marketplace-app .hr-button--primary-type .hr-button__border,
+#marketplace-app .hr-button.hr-button--primary .hr-button__border {
+  border-color: transparent !important;
+}
+#marketplace-app .hr-button--primary-type .hr-button__state-border,
+#marketplace-app .hr-button.hr-button--primary .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   Pagination (neue hr-pagination-cntr Variante)
+   Aktive Seite „1" → wine Border + wine Text
+   -------------------------------------------------- */
+#marketplace-app .hr-pagination-item__active {
+  border-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+  border-radius: 4px !important;
+}
+#marketplace-app .hr-pagination-item__active .hr-button {
+  color: var(--wine) !important;
+}
+/* Vorherige / Nächste hover → wine */
+#marketplace-app .hr-pages-cntr .hr-button:not([disabled]):hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
