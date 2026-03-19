@@ -1,0 +1,294 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/ReputationOverview" />
+
+# Ruf – Übersicht / Bewertungen (Section 117)
+
+Die Reputation-Seite (`Ruf`) nutzt die **Highrise Component Library** (`hr-` und `ui-` Prefix) — keine NaïveUI. Root-Klassen sind `.reputationApp` und `.hr-config-provider`. Die Seite enthält eine Onboarding-Card mit Progress-Dots, Tabs (`hr-tabs`), Statistik-Cards mit Highcharts SVG-Charts sowie einen Warning-Banner für die GMB-Verknüpfung. Besonderheit: Highcharts-Balken werden direkt per SVG-Attribut-Selektor auf Wine umgefärbt.
+
+![Reputation Overview Screenshot](./reputation-overview-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `.reputationApp`, `.hr-config-provider` |
+| Header | `.ui-display-sm-medium.font-semibold.text-black` |
+| Onboarding Card | `.reputationApp .ui-card` |
+| Tabs | `.reputationApp .hr-tabs-tab` |
+| Filter Button | `#reviews-rating-filter` |
+| Warning Banner | `.border-warning-200.bg-warning-50` |
+| Statistik Cards | `.ui-display-sm-semibold.text-gray-900` |
+| Progress Circle | `.hr-progress-graph-circle-fill` |
+| Highcharts | `.highcharts-point.highcharts-color-0` |
+| Bewertungs-Cards | `.rounded-lg.border.border-gray-200.bg-white.shadow` |
+| Empty State | `.ui-empty-title`, `.ui-empty-icon-container` |
+
+---
+
+## 117.1 – Hintergrund
+
+```css
+/* ── 117.1 Hintergrund ── */
+.reputationApp,
+.reputationApp .hr-wrapper-container,
+.reputationApp .hr-config-provider {
+  background-color: var(--bg) !important;
+}
+
+/* Global state-border fix */
+.reputationApp .hr-button__state-border {
+  border-width: 0 !important;
+  border-color: transparent !important;
+}
+```
+
+---
+
+## 117.2 – Header
+
+„Überprüfung anfordern"-Button (primary → wine).
+
+```css
+/* ── 117.2 Header ── */
+.reputationApp .ui-display-sm-medium.font-semibold.text-black {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+
+html body .reputationApp #send-review-request-button.hr-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+html body .reputationApp #send-review-request-button.hr-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.reputationApp #send-review-request-button .hr-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## 117.3 – Onboarding Card
+
+Card mit Willkommenstext, Progress-Dots, Onboarding-Items und „Überspringen"-Link.
+
+```css
+/* ── 117.3 Onboarding Card ── */
+.reputationApp .ui-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+}
+.reputationApp .ui-card-content { background-color: var(--surface) !important; }
+.reputationApp .ui-text-lg-medium.text-gray-900 { color: var(--ink) !important; font-weight: 600 !important; }
+.reputationApp .ui-text-sm-regular { color: var(--ink-3) !important; }
+
+/* "Onboarding überspringen" Link */
+.reputationApp .text-primary-600[role="button"] { color: var(--wine-2) !important; transition: color 0.12s !important; }
+.reputationApp .text-primary-600[role="button"]:hover { color: var(--wine) !important; }
+
+/* Progress Dots (inaktiv) */
+.reputationApp .h-2.w-8.rounded-full.bg-gray-200 { background-color: var(--line-hard) !important; }
+/* Progress Dots (aktiv) */
+.reputationApp .bg-primary-600 { background-color: var(--wine) !important; }
+
+/* Onboarding Items */
+.reputationApp .grid.grid-cols-2 [role="button"] {
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 10px !important;
+  transition: all 0.12s !important;
+}
+.reputationApp .grid.grid-cols-2 [role="button"]:hover {
+  border-color: var(--wine) !important;
+  box-shadow: 0 4px 12px rgba(107,45,62,0.08) !important;
+  background-color: var(--wine-lt) !important;
+}
+.reputationApp .grid.grid-cols-2 .text-gray-700.ui-text-sm-medium { color: var(--ink-2) !important; }
+.reputationApp .grid.grid-cols-2 .text-primary-700 { color: var(--wine-2) !important; }
+.reputationApp .grid.grid-cols-2 svg.text-gray-200 { color: var(--line-hard) !important; }
+
+/* Check-Icons */
+.reputationApp svg.text-primary-600 { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+```
+
+---
+
+## 117.4 – Tabs
+
+`hr-tabs` mit aktivem Underline-Bar.
+
+```css
+/* ── 117.4 Tabs ── */
+.reputationApp .hr-tabs-tab__label { color: var(--ink-3) !important; }
+.reputationApp .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine-2) !important; font-weight: 600 !important; }
+.reputationApp .hr-tabs-bar { background-color: var(--wine) !important; }
+.reputationApp .hr-tabs-tab:hover .hr-tabs-tab__label { color: var(--wine-2) !important; }
+```
+
+---
+
+## 117.5 – Filter Button
+
+```css
+/* ── 117.5 Filter Button ── */
+.reputationApp #reviews-rating-filter {
+  border-radius: 8px !important;
+  color: var(--ink-2) !important;
+  transition: all 0.12s !important;
+}
+.reputationApp #reviews-rating-filter .hr-button__border { border-color: var(--line-hard) !important; }
+.reputationApp #reviews-rating-filter:hover .hr-button__border { border-color: var(--wine) !important; }
+.reputationApp #reviews-rating-filter:hover { color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+```
+
+---
+
+## 117.6 – Warning Banner
+
+GMB-Verknüpfungs-Hinweis — behält die originale Warning-Gelb-Palette, kein Wine-Override.
+
+```css
+/* ── 117.6 Warning Banner ── */
+.reputationApp .border-warning-200.bg-warning-50 {
+  background-color: rgba(254,243,199,0.5) !important;
+  border-color: rgb(253,230,138) !important;
+  border-radius: 10px !important;
+}
+.reputationApp .text-warning-700 { color: rgb(180,120,0) !important; }
+.reputationApp #overview-review-link-setup-button { color: rgb(180,120,0) !important; }
+```
+
+---
+
+## 117.7 – Statistik Cards & Progress Circle
+
+Zahlen, Labels, Trend-Prozent und SVG Progress-Circle.
+
+```css
+/* ── 117.7 Statistik Cards ── */
+.reputationApp .ui-text-lg-medium.mb-4.text-gray-900,
+.reputationApp .ui-text-lg-medium.mb-6.text-gray-900 { color: var(--ink) !important; font-weight: 600 !important; }
+.reputationApp .ui-display-sm-semibold.text-gray-900,
+.reputationApp .ui-display-sm-medium.text-gray-900 { color: var(--ink) !important; font-weight: 700 !important; }
+.reputationApp .text-gray-600.ui-text-sm-medium { color: var(--ink-3) !important; }
+.reputationApp .ui-text-sm-medium { color: var(--ink-2) !important; }
+
+/* Progress Circle */
+.reputationApp .hr-progress-graph-circle-fill:not(.hr-progress-graph-circle-fill--empty) {
+  stroke: var(--wine) !important;
+}
+.reputationApp .hr-progress-graph-circle-rail { stroke: var(--bg) !important; }
+```
+
+---
+
+## 117.8 – Stimmung Icons
+
+Sentiment-Badges — `text-success-600` (grün) wird auf wine-2 umgefärbt.
+
+```css
+/* ── 117.8 Stimmung Icons ── */
+.reputationApp .text-success-600 { color: var(--wine-2) !important; }
+.reputationApp [style*="rgb(236, 253, 243)"] { background-color: var(--wine-lt) !important; }
+.reputationApp [style*="rgb(209, 250, 223)"] { background-color: rgba(107,45,62,0.08) !important; }
+```
+
+---
+
+## 117.9 – Highcharts Charts
+
+SVG-Balken direkt per `fill`-Attribut auf Wine umgefärbt.
+
+```css
+/* ── 117.9 Highcharts Charts ── */
+.reputationApp .highcharts-point.highcharts-color-0,
+.reputationApp .highcharts-series .highcharts-point[fill="#155EEF"] {
+  fill: var(--wine) !important;
+}
+```
+
+---
+
+## 117.10 – Tags & Yext / Listings Card
+
+```css
+/* ── 117.10 Tags ── */
+.reputationApp .hr-tag.ui-default {
+  background-color: var(--bg) !important;
+  border-color: var(--line-hard) !important;
+  color: var(--ink-3) !important;
+  border-radius: 6px !important;
+}
+
+/* ── 117.11 Yext / Listings Card ── */
+.reputationApp .yextApp .ui-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+}
+.reputationApp .yextApp .ui-text-md-medium { color: var(--ink-2) !important; }
+.reputationApp .yextApp .hr-button--tertiary-type {
+  border: 1px solid var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  border-radius: 8px !important;
+  transition: all 0.12s !important;
+}
+.reputationApp .yextApp .hr-button--tertiary-type .hr-button__border { border-color: var(--line-hard) !important; }
+.reputationApp .yextApp .hr-button--tertiary-type:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## 117.12 – Bewertungs-Cards & Empty State
+
+```css
+/* ── 117.12 Bewertungs-Cards ── */
+.reputationApp .rounded-lg.border.border-gray-200.bg-white.shadow {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--line-hard) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+}
+.reputationApp .border.border-b-gray-200 { border-color: var(--line-hard) !important; }
+.reputationApp .ui-text-md-medium.text-gray-900 { color: var(--ink) !important; }
+
+/* Empty State */
+.reputationApp .ui-empty-title { color: var(--ink) !important; font-weight: 600 !important; }
+.reputationApp .ui-empty-description { color: var(--ink-3) !important; }
+.reputationApp .ui-empty-icon svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+.reputationApp .ui-empty-icon-container { background-color: var(--wine-lt) !important; border-radius: 12px !important; }
+
+html body .reputationApp .ui-empty-actions .hr-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.reputationApp .ui-empty-actions .hr-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`ui-` Prefix:** Diese Seite mischt `hr-` (Buttons, Tabs) und `ui-` (Cards, Texte, Empty State) Präfixe aus der Highrise-Library — beide kommen vor, keine NaïveUI.
+
+**Highcharts SVG-Override:** Highcharts rendert Balken mit `fill="#155EEF"` direkt als SVG-Attribut. Der Attribut-Selektor `[fill="#155EEF"]` ist fragil — bei Highcharts-Updates kann sich die Farbe ändern. Robuster: `.highcharts-color-0` (Highcharts-Farbindex-Klasse).
+
+**Warning Banner bleibt gelb:** Der GMB-Verknüpfungs-Hinweis behält bewusst die originale `warning-` Farbpalette. Wine wäre hier semantisch falsch — Warnungen bleiben gelb.
+
+**`text-success-600` → wine:** Gleiche Entscheidung wie Section 114 (Funnels) — positive Sentiment-Badges in Wine statt Grün, da Wine die einzige Akzentfarbe des Skins ist.
