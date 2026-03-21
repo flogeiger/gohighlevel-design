@@ -12756,6 +12756,282 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 }
 
 /* ================================================
+   Section 121 – Agent Studio (Agenten-Verzeichnis)
+   Scope: .agent-directory-content-wrap
+   hr- Highrise Library
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Primary-600/800/900 Variablen → wine
+   hr-button--primary nutzt var(--primary-600) direkt
+   -------------------------------------------------- */
+.agent-directory-content-wrap {
+  --primary-600: #5b192d !important;
+  --primary-800: #3d1020 !important;
+  --primary-900: #3d1020 !important;
+  --primary-200: #f0dde0 !important;
+  --primary-100: #f0dde0 !important;
+  --primary-300: #f0dde0 !important;
+}
+
+.agent-directory-content-wrap #create-agent-button,
+.agent-directory-content-wrap #positive-empty-agents-message {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  color:            #fff !important;
+}
+.agent-directory-content-wrap #create-agent-button:hover,
+.agent-directory-content-wrap #positive-empty-agents-message:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+  color:            #fff !important;
+}
+.agent-directory-content-wrap #create-agent-button p,
+.agent-directory-content-wrap #positive-empty-agents-message p,
+.agent-directory-content-wrap #create-agent-button i,
+.agent-directory-content-wrap #create-agent-button svg,
+.agent-directory-content-wrap #positive-empty-agents-message i,
+.agent-directory-content-wrap #positive-empty-agents-message svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+.agent-directory-content-wrap #create-agent-button .hr-button__border,
+.agent-directory-content-wrap #create-agent-button .hr-button__state-border,
+.agent-directory-content-wrap #positive-empty-agents-message .hr-button__border,
+.agent-directory-content-wrap #positive-empty-agents-message .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   2. „New Folder" Secondary Button hover → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap #new-folder-button:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.agent-directory-content-wrap #new-folder-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. Suchfeld hover/focus → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap #agent-list-table-wrapper-header-global-filter {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-loading-color:    var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+.agent-directory-content-wrap #agent-list-table-wrapper-header-global-filter .hr-input__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   4. Tabellen-Header → wine-lt Underline
+   -------------------------------------------------- */
+.agent-directory-content-wrap #agent-list-table .hr-data-table__cell-header {
+  border-bottom: 2px solid var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   5. Tabellen-Checkbox → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap #agent-list-table input[type="checkbox"]:checked {
+  accent-color: var(--wine) !important;
+}
+.agent-directory-content-wrap #agent-list-table input[type="checkbox"]:focus {
+  outline-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   6. Empty State Icon Kreis → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap #empty-empty-agents-message .hr-icon-wrapper {
+  background-color: var(--wine-lt) !important;
+}
+.agent-directory-content-wrap #empty-empty-agents-message .hr-icon-wrapper i {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   7. Alert Box (primary-blue → wine-lt)
+   -------------------------------------------------- */
+.agent-directory-content-wrap #agent-directory-important-note {
+  --n-color:             var(--wine-lt) !important;
+  --n-border:            1px solid var(--wine-lt) !important;
+  --n-icon-color:        var(--wine) !important;
+  --n-title-text-color:  var(--wine) !important;
+  --n-content-text-color:var(--wine) !important;
+  background-color:      var(--wine-lt) !important;
+  border-color:          var(--wine) !important;
+}
+.agent-directory-content-wrap #agent-directory-important-note svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   8. Sort-by Button hover → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap #sort-button:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.agent-directory-content-wrap #sort-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   9. Pagination aktive Seite → wine
+   Exakter Selector: button[data-v-23397495] mit --primary-500
+   -------------------------------------------------- */
+.agent-directory-content-wrap .hr-pagination-item__active button[data-v-23397495] {
+  border-color: var(--wine) !important;
+}
+.agent-directory-content-wrap .hr-pagination-item__active button[data-v-23397495] p {
+  color: var(--wine) !important;
+}
+/* Rows-per-page Select hover → wine */
+.agent-directory-content-wrap #per-page-dropdown .hr-base-selection:hover .hr-base-selection__border {
+  border-color: var(--wine) !important;
+}
+.agent-directory-content-wrap #per-page-dropdown {
+  --n-border-hover:  1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   10. Sort-Dropdown (#sort-dropdown) → wine
+   -------------------------------------------------- */
+#sort-dropdown {
+  --n-option-text-color-active:       var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+  --n-option-color-active:            transparent !important;
+}
+#sort-dropdown .hr-dropdown-option--selected .hr-dropdown-option-title p,
+#sort-dropdown .hr-dropdown-option--selected p {
+  color: var(--wine) !important;
+}
+#sort-dropdown .hr-dropdown-option--selected,
+#sort-dropdown .hr-dropdown-option.hr-dropdown-option--selected {
+  background-color: transparent !important;
+}
+#sort-dropdown .hr-dropdown-option--selected-checkmark {
+  color: var(--wine) !important;
+}
+#sort-dropdown .hr-dropdown-option--selected-checkmark svg {
+  stroke: var(--wine) !important;
+}
+#sort-dropdown .hr-dropdown-option:hover {
+  background-color: rgba(91,25,45,.05) !important;
+}
+
+/* ================================================
+   Section 121b – „Neuen Ordner erstellen" Modal
+   Scope: #folder-modal (hr- Library, floating)
+   ================================================ */
+
+/* --------------------------------------------------
+   1. --primary Variablen → wine im Modal-Scope
+   -------------------------------------------------- */
+#folder-modal {
+  --primary-600: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+  --n-icon-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   2. „Speichern" Primary Button → wine
+   -------------------------------------------------- */
+#folder-modal-save-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  color:            #fff !important;
+}
+#folder-modal-save-btn:hover:not([disabled]) {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#folder-modal-save-btn p {
+  color: #fff !important;
+}
+#folder-modal-save-btn .hr-button__border,
+#folder-modal-save-btn .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. „Abbrechen" Button hover → wine Text
+   -------------------------------------------------- */
+#folder-modal-cancel-btn:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   4. Textfeld #folder-name hover/focus → wine
+   -------------------------------------------------- */
+#folder-name {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#folder-name .hr-input__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   5. Agenten-Select hover/focus → wine
+   -------------------------------------------------- */
+#associated-agents-select .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+  --n-box-shadow-active: 0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-hover:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+}
+#associated-agents-select .hr-base-selection__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   6. Modal Header Icon → wine
+   -------------------------------------------------- */
+#folder-modal .hr-dialog__icon svg {
+  fill: var(--wine) !important;
+  color: var(--wine) !important;
+}
+
+/* ================================================
+   Section 121c – „Agent erstellen" Dropdown
+   Scope: #create-agent-dropdown (floating)
+   ================================================ */
+#create-agent-dropdown {
+  --n-option-text-color-active:       var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+  --n-option-color-active:            rgba(91,25,45,.08) !important;
+}
+#create-agent-dropdown .hr-dropdown-option:hover {
+  background-color: rgba(91,25,45,.05) !important;
+}
+#create-agent-dropdown .hr-dropdown-option:hover p {
+  color: var(--wine) !important;
+}
+
+
+
+
+
+/* ================================================
    Section 120 – Conversation AI Agents
    Scope: .hl-wrapper-container:has(#create-bot-button)
    Gilt für BEIDE Tabs (Agentenliste + Dashboard)
