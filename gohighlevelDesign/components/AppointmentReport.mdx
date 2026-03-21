@@ -1,0 +1,166 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/AppointmentReport" />
+
+# Berichterstattung – Terminberichte (Section 118)
+
+Der Terminbericht (`Berichterstattung → Terminbericht`) nutzt **NaïveUI** (`n-` Prefix). Scope ist `#appointment-reporting-dashboard`. Die Seite zeigt acht Stat-Karten (Gebucht, Bestätigt, Abgesagt, Neu, Erschienen, Nichterscheinen, Ungültig, Verschoben), zwei Donut-Charts (Kanal / Quelle mit ECharts) sowie eine DataTable mit Pagination. Besonderheit: Die ECharts-Donut-Ringe nutzen hardcodierte `fill="#53B1FD"` — kein CSS-Override möglich.
+
+![Appointment Report Screenshot](./appointment-report-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#appointment-reporting-dashboard` |
+| Datepicker | `.n-input`, `.n-date-picker-icon` |
+| Select-Dropdowns | `.n-base-selection` |
+| Default Buttons | `.n-button--default-type` |
+| DataTable | `.n-data-table-th` |
+| Kontakt-Links | `.n-data-table-td a.text-blue-500` |
+| Stat-Karten Zahlen | `.text-5xl.text-gray-900` |
+| Pagination | `.n-pagination-item--active` |
+| Wrapper-Fix | `section.hl_topbar-tabs:has(#appointment-reporting-dashboard)` |
+
+---
+
+## 118.1 – Datepicker
+
+```css
+/* ── 118.1 Datepicker ── */
+#appointment-reporting-dashboard .n-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-input:hover .n-input__border { border-color: var(--wine) !important; }
+#appointment-reporting-dashboard .n-input:focus-within .n-input__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#appointment-reporting-dashboard .n-input__state-border { display: none !important; }
+#appointment-reporting-dashboard .n-date-picker-icon { color: var(--wine) !important; }
+```
+
+---
+
+## 118.2 – Select-Dropdowns
+
+Alle Dropdowns (Kalender, Hinzugefügtes Datum, Quelle, Filter, Seiten-Größe).
+
+```css
+/* ── 118.2 Select-Dropdowns ── */
+#appointment-reporting-dashboard .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+#appointment-reporting-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
+#appointment-reporting-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#appointment-reporting-dashboard .n-base-selection__state-border { display: none !important; }
+#appointment-reporting-dashboard .n-base-icon.n-base-suffix__arrow { color: var(--wine) !important; }
+```
+
+---
+
+## 118.3 – Buttons
+
+```css
+/* ── 118.3 Buttons ── */
+#appointment-reporting-dashboard .n-button--default-type {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-button--default-type:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#appointment-reporting-dashboard .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 118.4 – Stat-Karten & DataTable
+
+```css
+/* ── 118.4 Stat-Karten Zahlen ── */
+#appointment-reporting-dashboard .text-5xl.text-gray-900 { color: var(--wine) !important; }
+
+/* ── DataTable ── */
+#appointment-reporting-dashboard .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-data-table-th { border-bottom: 2px solid var(--wine-lt) !important; }
+
+/* Kontakt-Links */
+#appointment-reporting-dashboard .n-data-table-td a.text-blue-500 { color: var(--wine) !important; }
+#appointment-reporting-dashboard .n-data-table-td a.text-blue-500:hover { color: var(--wine-2) !important; }
+```
+
+---
+
+## 118.5 – Pagination
+
+```css
+/* ── 118.5 Pagination ── */
+#appointment-reporting-dashboard .n-pagination {
+  --n-item-text-color-active: var(--wine) !important;
+  --n-item-text-color-pressed: var(--wine) !important;
+  --n-item-text-color-hover: var(--wine) !important;
+  --n-item-border-active: 1px solid var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-pagination-item--active { color: var(--wine) !important; border-color: var(--wine) !important; }
+
+/* Pagination Tabellen-spezifisch */
+#appointment-reporting-dashboard_table--appointments-pagination .n-button--default-type:hover {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard_table--appointments-pagination {
+  --n-item-text-color-active: var(--wine) !important;
+  --n-item-text-color-pressed: var(--wine) !important;
+  --n-item-text-color-hover: var(--wine) !important;
+  --n-item-border-active: 1px solid var(--wine) !important;
+}
+#appointment-reporting-dashboard_table--appointments-pagination .n-pagination-item--active {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 118.6 – Wrapper-Fix
+
+```css
+/* ── 118.6 Wrapper-Fix ── */
+section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
+  background-color: transparent !important;
+  background: none !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**ECharts Donut-Ringe (blau):** Die Kanal- und Quellen-Donut-Charts verwenden ECharts mit hardcodiertem `fill="#53B1FD"`. SVG-Attribut-Selektoren greifen hier nicht zuverlässig, da ECharts die Farben direkt im JS-Rendering setzt. Kein CSS-Override möglich — die blauen Ringe bleiben bewusst unangetastet.
+
+**Doppelte Pagination-Selektoren:** Die Tabellen-Pagination hat eine eigene ID (`#appointment-reporting-dashboard_table--appointments-pagination`) zusätzlich zur allgemeinen `.n-pagination`. Beide müssen separat gestylt werden — gleiche Strategie wie Section 117 (Call Report).
+
+**`:has()` Wrapper-Fix:** Gleiche Strategie wie Sections 116/117 — verhindert Kollisionen mit anderen Reporting-Tabs.

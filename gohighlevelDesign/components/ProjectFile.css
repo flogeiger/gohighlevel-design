@@ -15053,6 +15053,154 @@ section.hl_topbar-tabs:has(#call-reporting-dashboard) {
 
 
 
+/* ================================================
+   Section 118 – Terminberichte
+   Scope: #appointment-reporting-dashboard
+   NaïveUI n- Prefix
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Datepicker → wine
+   -------------------------------------------------- */
+#appointment-reporting-dashboard .n-input {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:    var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-input:hover .n-input__border {
+  border-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-input:focus-within .n-input__border {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#appointment-reporting-dashboard .n-input__state-border {
+  display: none !important;
+}
+#appointment-reporting-dashboard .n-date-picker-icon {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   2. Alle Select-Dropdowns → wine
+   (Kalender, Filter, Quelle, Status, Seite)
+   -------------------------------------------------- */
+#appointment-reporting-dashboard .n-base-selection {
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-base-selection:hover .n-base-selection__border {
+  border-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
+#appointment-reporting-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#appointment-reporting-dashboard .n-base-selection__state-border {
+  display: none !important;
+}
+#appointment-reporting-dashboard .n-base-icon.n-base-suffix__arrow {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   3. Buttons (Insights, Spalte, Export) hover → wine
+   -------------------------------------------------- */
+#appointment-reporting-dashboard .n-button--default-type {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+  --n-border-focus:       1px solid var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-button--default-type:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   4. Tabellen-Header → wine-lt Underline
+   -------------------------------------------------- */
+#appointment-reporting-dashboard .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color:        var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-data-table-th {
+  border-bottom: 2px solid var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   5. Tabellen Kontakt-Links (text-blue-500) → wine
+   -------------------------------------------------- */
+#appointment-reporting-dashboard .n-data-table-td a.text-blue-500 {
+  color: var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-data-table-td a.text-blue-500:hover {
+  color: var(--wine-2) !important;
+}
+
+/* --------------------------------------------------
+   6. Pagination aktive Seite → wine
+   -------------------------------------------------- */
+#appointment-reporting-dashboard .n-pagination {
+  --n-item-text-color-active:  var(--wine) !important;
+  --n-item-text-color-pressed: var(--wine) !important;
+  --n-item-text-color-hover:   var(--wine) !important;
+  --n-item-border-active:      1px solid var(--wine) !important;
+}
+#appointment-reporting-dashboard .n-pagination-item--active {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   8. Stat-Karten Zahlen → wine
+   (Gebucht, Bestätigt, Abgesagt, Neu, etc.)
+   -------------------------------------------------- */
+#appointment-reporting-dashboard .text-5xl.text-gray-900 {
+  color: var(--wine) !important;
+}
+
+/* Bewusst nicht geändert:
+   ECharts SVG-Balken/-Donut: hardcodierte fill="#53B1FD"
+   → kein CSS-Override möglich */
+section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* --------------------------------------------------
+   9. Pagination: Previous/Next Buttons hover → wine
+   Inline CSS-Variablen überschreiben
+   -------------------------------------------------- */
+#appointment-reporting-dashboard_table--appointments-pagination .n-button--default-type:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#appointment-reporting-dashboard_table--appointments-pagination {
+  --n-item-text-color-active:  var(--wine) !important;
+  --n-item-text-color-pressed: var(--wine) !important;
+  --n-item-text-color-hover:   var(--wine) !important;
+  --n-item-border-active:      1px solid var(--wine) !important;
+}
+#appointment-reporting-dashboard_table--appointments-pagination .n-pagination-item--active {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
 
 /* ================================================
    Section 113 – Marktplatz (Marketplace)
