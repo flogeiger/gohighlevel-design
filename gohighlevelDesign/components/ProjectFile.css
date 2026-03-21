@@ -13282,6 +13282,287 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   color: var(--wine) !important;
 }
 
+/* ================================================
+   Section 123 – Voice AI Agents
+   Scope: .hl-wrapper-container:has(#outbound-calls-btn)
+   NaïveUI n- Prefix, inline #155EEF
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Primary Buttons → wine
+   (#outbound-calls-btn, #create-agent-btn,
+    #empty-agents-state-btn-positive-action)
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type {
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-pressed:  var(--wine) !important;
+  --n-color-focus:    var(--wine-2) !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+  background-color:   var(--wine) !important;
+  border-color:       var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type .n-button__border,
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   2. „Ordner erstellen" Default-Button hover → wine
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#outbound-calls-btn) #create-folder-btn {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+  --n-border-focus:       1px solid var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) #create-folder-btn:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) #create-folder-btn .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. Tab Bar + aktiver Tab → wine
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-bar {
+  background-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab--active {
+  color:            var(--wine) !important;
+  background-color: transparent !important;
+  box-shadow:       none !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab:hover {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   4. Seitenbalken-Fix
+   -------------------------------------------------- */
+section.hl_topbar-tabs:has(#outbound-calls-btn) {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* ================================================
+   Section 123b – Voice AI Sort-Dropdown
+   NaïveUI n-dropdown (floating, kein hr-)
+   ================================================ */
+.hl-wrapper-container:has(#outbound-calls-btn) ~ .n-dropdown-menu,
+.n-dropdown-menu:has(.n-dropdown-option-body__label) {
+  --n-option-text-color-active:       var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+  --n-option-color-active:            rgba(91,25,45,.08) !important;
+}
+
+/* Da das Dropdown floating ist, targetieren wir global via n-dropdown-option--pending */
+.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending {
+  background-color: rgba(91,25,45,.06) !important;
+}
+.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending .n-dropdown-option-body__label {
+  color: var(--wine) !important;
+}
+.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending .n-dropdown-option-body__prefix svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+
+/* ================================================
+   Section 123c – „X ausgewählt" Tag (hl-primary)
+   ================================================ */
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary {
+  --n-color:             rgba(91,25,45,.1) !important;
+  --n-border:            1px solid rgba(91,25,45,.3) !important;
+  --n-text-color:        var(--wine) !important;
+  --n-close-icon-color:  var(--wine) !important;
+  --n-close-icon-color-hover:   var(--wine) !important;
+  --n-close-icon-color-pressed: var(--wine) !important;
+  --n-color-checked:     var(--wine) !important;
+  --n-color-checked-hover: var(--wine-2) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary .n-tag__border {
+  border-color: rgba(91,25,45,.3) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary .hl-text-sm-normal {
+  color: var(--wine) !important;
+}
+
+/* ================================================
+   Section 123d – „Voice-AI-Agent erstellen" Modal
+   Scope: .n-modal:has(#create-agent-selection-modal-footer-btn-positive-action)
+   ================================================ */
+
+/* „Weiter" Primary Button → wine */
+#create-agent-selection-modal-footer-btn-positive-action {
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-pressed:  var(--wine) !important;
+  --n-color-focus:    var(--wine-2) !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+  background-color:   var(--wine) !important;
+  border-color:       var(--wine) !important;
+}
+#create-agent-selection-modal-footer-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#create-agent-selection-modal-footer-btn-positive-action .n-button__border,
+#create-agent-selection-modal-footer-btn-positive-action .n-button__state-border {
+  display: none !important;
+}
+
+/* „Abbrechen" Button hover → wine */
+#create-agent-selection-modal-footer-btn-negative-action {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+}
+#create-agent-selection-modal-footer-btn-negative-action:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#create-agent-selection-modal-footer-btn-negative-action .n-button__state-border {
+  display: none !important;
+}
+
+/* Close-Button neutral */
+#create-agent-selection-modal-header-modal-close-btn {
+  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
+  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
+}
+#create-agent-selection-modal-header-modal-close-btn .n-button__state-border {
+  display: none !important;
+}
+
+/* Ausgewählte Karte Border (border-primary) → wine */
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) .border-primary {
+  border-color: var(--wine) !important;
+}
+
+/* Radio-Button checked → wine */
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) .n-radio {
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+  --n-dot-color-active:  var(--wine) !important;
+}
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) .n-radio__dot--checked {
+  background-color: var(--wine) !important;
+}
+
+/* Modal --n-color-target → wine */
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) {
+  --n-color-target: var(--wine) !important;
+}
+
+/* ================================================
+   Section 123e – „Neuer Ordner" Modal (Voice AI)
+   Scope: .n-modal:has(#folder-agent-modal-footer-create-btn-positive-action)
+   ================================================ */
+
+/* „Ordner erstellen" Primary Button → wine */
+#folder-agent-modal-footer-create-btn-positive-action {
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-pressed:  var(--wine) !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+  background-color:   var(--wine) !important;
+  border-color:       var(--wine) !important;
+}
+#folder-agent-modal-footer-create-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#folder-agent-modal-footer-create-btn-positive-action .n-button__border,
+#folder-agent-modal-footer-create-btn-positive-action .n-button__state-border {
+  display: none !important;
+}
+
+/* „Abbrechen" hover → wine */
+#folder-agent-modal-footer-create-btn-negative-action {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+}
+#folder-agent-modal-footer-create-btn-negative-action:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#folder-agent-modal-footer-create-btn-negative-action .n-button__state-border {
+  display: none !important;
+}
+
+/* Close-Button neutral */
+#folder-agent-modal-header-create-modal-close-btn {
+  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
+  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
+}
+#folder-agent-modal-header-create-modal-close-btn .n-button__state-border {
+  display: none !important;
+}
+
+/* Ordnername Input hover/focus → wine */
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-input {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:    var(--wine) !important;
+}
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-input__state-border {
+  display: none !important;
+}
+
+/* Assoziierte Agenten Select → wine */
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-base-selection {
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-base-selection__state-border {
+  display: none !important;
+}
+
+
+
 
 
 /* ================================================

@@ -1,0 +1,246 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/VoiceAIAgents" />
+
+# AI-Assistenten – Voice AI Agents (Sections 123–123e)
+
+Die Voice AI Agents-Seite (`AI-Assistenten → Voice AI`) nutzt **NaïveUI** (`n-` Prefix). Scope-Anker ist `#outbound-calls-btn`. Die Seite teilt die gleiche Struktur wie Section 120 (Conversation AI) — DataTable mit Tabs, Sort-Dropdown, Suchfeld und Pagination. Diese MDX-Datei deckt 5 Sub-Sections ab:
+
+- **123** — Agentenliste (Hauptseite)
+- **123b** — Sort-Dropdown (floating)
+- **123c** — „X ausgewählt" Tag
+- **123d** — Voice AI Agent erstellen Modal
+- **123e** — Neuer Ordner Modal (Voice AI)
+
+![Voice AI Agents Screenshot](./voice-ai-agents-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 123 | `.hl-wrapper-container:has(#outbound-calls-btn)` |
+| 123b | `.n-dropdown-menu` (floating, global) |
+| 123c | `.hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary` |
+| 123d | `.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action)` |
+| 123e | `.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action)` |
+
+---
+
+## Section 123 – Voice AI Agentenliste
+
+### Primary Buttons
+
+```css
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type {
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine) !important;
+  --n-color-focus: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type .n-button__border,
+.hl-wrapper-container:has(#outbound-calls-btn) .n-button--primary-type .n-button__state-border { display: none !important; }
+```
+
+### „Ordner erstellen" Default Button
+
+```css
+.hl-wrapper-container:has(#outbound-calls-btn) #create-folder-btn {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) #create-folder-btn:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+.hl-wrapper-container:has(#outbound-calls-btn) #create-folder-btn .n-button__state-border { display: none !important; }
+```
+
+### Tabs & Wrapper-Fix
+
+```css
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-bar { background-color: var(--wine) !important; }
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab--active { color: var(--wine) !important; background-color: transparent !important; box-shadow: none !important; }
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab--active .n-tabs-tab__label { color: var(--wine) !important; }
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab:hover { background-color: transparent !important; box-shadow: none !important; }
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tabs-tab:hover .n-tabs-tab__label { color: var(--wine) !important; }
+
+section.hl_topbar-tabs:has(#outbound-calls-btn) { background-color: transparent !important; background: none !important; }
+```
+
+---
+
+## Section 123b – Sort-Dropdown (floating)
+
+```css
+/* Floating NaïveUI Dropdown global */
+.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending {
+  background-color: rgba(91,25,45,0.06) !important;
+}
+.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending .n-dropdown-option-body__label {
+  color: var(--wine) !important;
+}
+.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending .n-dropdown-option-body__prefix svg {
+  color: var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+```
+
+---
+
+## Section 123c – „X ausgewählt" Tag
+
+```css
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary {
+  --n-color: rgba(91,25,45,0.1) !important;
+  --n-border: 1px solid rgba(91,25,45,0.3) !important;
+  --n-text-color: var(--wine) !important;
+  --n-close-icon-color: var(--wine) !important;
+  --n-close-icon-color-hover: var(--wine) !important;
+  --n-close-icon-color-pressed: var(--wine) !important;
+}
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary .n-tag__border { border-color: rgba(91,25,45,0.3) !important; }
+.hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary .hl-text-sm-normal { color: var(--wine) !important; }
+```
+
+---
+
+## Section 123d – Voice AI Agent erstellen Modal
+
+```css
+/* „Weiter" Primary Button */
+#create-agent-selection-modal-footer-btn-positive-action {
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine) !important;
+  --n-color-focus: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#create-agent-selection-modal-footer-btn-positive-action:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#create-agent-selection-modal-footer-btn-positive-action .n-button__border,
+#create-agent-selection-modal-footer-btn-positive-action .n-button__state-border { display: none !important; }
+
+/* „Abbrechen" hover */
+#create-agent-selection-modal-footer-btn-negative-action {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+}
+#create-agent-selection-modal-footer-btn-negative-action:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#create-agent-selection-modal-footer-btn-negative-action .n-button__state-border { display: none !important; }
+
+/* Close-Button neutral */
+#create-agent-selection-modal-header-modal-close-btn {
+  --n-border-hover: 1px solid rgb(224,224,230) !important;
+  --n-border-pressed: 1px solid rgb(224,224,230) !important;
+}
+#create-agent-selection-modal-header-modal-close-btn .n-button__state-border { display: none !important; }
+
+/* Ausgewählte Karte + Radio + Modal color-target */
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) .border-primary { border-color: var(--wine) !important; }
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) .n-radio {
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus: inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-hover: inset 0 0 0 1px var(--wine) !important;
+  --n-dot-color-active: var(--wine) !important;
+}
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) .n-radio__dot--checked { background-color: var(--wine) !important; }
+.n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) { --n-color-target: var(--wine) !important; }
+```
+
+---
+
+## Section 123e – Neuer Ordner Modal (Voice AI)
+
+```css
+/* „Ordner erstellen" Primary */
+#folder-agent-modal-footer-create-btn-positive-action {
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#folder-agent-modal-footer-create-btn-positive-action:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#folder-agent-modal-footer-create-btn-positive-action .n-button__border,
+#folder-agent-modal-footer-create-btn-positive-action .n-button__state-border { display: none !important; }
+
+/* „Abbrechen" hover */
+#folder-agent-modal-footer-create-btn-negative-action {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+}
+#folder-agent-modal-footer-create-btn-negative-action:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#folder-agent-modal-footer-create-btn-negative-action .n-button__state-border { display: none !important; }
+
+/* Close neutral */
+#folder-agent-modal-header-create-modal-close-btn {
+  --n-border-hover: 1px solid rgb(224,224,230) !important;
+  --n-border-pressed: 1px solid rgb(224,224,230) !important;
+}
+#folder-agent-modal-header-create-modal-close-btn .n-button__state-border { display: none !important; }
+
+/* Input + Select */
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-input__state-border { display: none !important; }
+
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-base-selection__state-border { display: none !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`#outbound-calls-btn` als Scope-Anker:** Gleiche `:has()`-Strategie wie Section 120 (`#create-bot-button`) — kein eigener Root-Identifier. Der „ausgehende Anrufe speichern"-Button dient als stabiler Ankerpunkt.
+
+**Sort-Dropdown global (123b):** Das NaïveUI-Dropdown für „Sortieren nach" wird außerhalb des Scopes gemountet — globale `.n-dropdown-option-body--pending` Selektoren nötig. Achtung: Diese greifen auf **alle** NaïveUI-Dropdowns auf der Seite, nicht nur das Sort-Dropdown.
+
+**`n-tag.hl-primary` (123c):** GHL nutzt eine eigene `hl-primary` Klasse auf NaïveUI-Tags — erlaubt gezielten Override ohne Kollision mit anderen `n-tag` Instanzen.
+
+**Strukturell identisch mit Section 120:** Voice AI und Conversation AI teilen dieselbe Seitenarchitektur — nur die Scope-Anker unterscheiden sich (`#outbound-calls-btn` vs. `#create-bot-button`).
