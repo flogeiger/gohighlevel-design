@@ -1,0 +1,212 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/AgentReport" />
+
+# Berichterstattung – Agentenbericht (Section 119)
+
+Der Agentenbericht (`Berichterstattung → Agentenbericht`) nutzt **Bootstrap + CTK Datepicker** — kein NaïveUI. Scope ist `#reporting-agent-dashboard`. Die Seite zeigt Stat-Karten (Leads, Konversionsraten, SMS, E-Mail), einen CTK Datepicker, Bootstrap-Select und eine **Bestenliste** mit dunkelwinem (`#5b192d`) Hintergrund als einzigem echten Dark-Element im gesamten Skin.
+
+![Agent Report Screenshot](./agent-report-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#reporting-agent-dashboard` |
+| Wrapper-Fix | `section.hl_topbar-tabs:has(#reporting-agent-dashboard)` |
+| „Abrufen"-Button | `.btn-blue` |
+| „Vergleichen"-Link | `.btn-link` |
+| CTK Datepicker | `.header-picker`, `.datepicker-day` |
+| Bootstrap-Select | `.bootstrap-select .btn-light` |
+| Stat-Karten | `.card` |
+| Bestenliste | `.leader-board` |
+| Trend-Prozente | `.going-up`, `.text-success` |
+| Sekundär-Buttons | `.btn-secondary` |
+
+---
+
+## 119.1 – Hintergrund & Wrapper-Fix
+
+```css
+/* ── 119.1 Hintergrund ── */
+#reporting-agent-dashboard { background-color: #f8f5f5 !important; }
+
+section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
+  background-color: transparent !important;
+  background: none !important;
+}
+```
+
+---
+
+## 119.2 – Header Buttons
+
+„Abrufen" (primary) und „Vergleichen" (Link-Button).
+
+```css
+/* ── 119.2 Header Buttons ── */
+#reporting-agent-dashboard .btn-blue {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #fff !important;
+}
+#reporting-agent-dashboard .btn-blue:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+
+#reporting-agent-dashboard .btn-link { color: var(--wine) !important; }
+#reporting-agent-dashboard .btn-link:hover { color: var(--wine-2) !important; }
+```
+
+---
+
+## 119.3 – CTK Datepicker
+
+Gleiche Komponente wie Sections 114/115 — nur anderer Root-Scope.
+
+```css
+/* ── 119.3 CTK Datepicker ── */
+#reporting-agent-dashboard .icon.icon-calendar { color: var(--wine) !important; }
+#reporting-agent-dashboard .hl_datepicker .icon { color: var(--wine) !important; }
+#reporting-agent-dashboard .icon-arrow-down-1 { color: var(--wine) !important; }
+
+#reporting-agent-dashboard .header-picker { background-color: var(--wine) !important; }
+#reporting-agent-dashboard .custom-button-content { color: var(--wine) !important; fill: var(--wine) !important; }
+#reporting-agent-dashboard .custom-button-effect { background-color: var(--wine-lt) !important; }
+#reporting-agent-dashboard .datepicker-day-effect { background-color: var(--wine-lt) !important; }
+#reporting-agent-dashboard .datepicker-day.selected .datepicker-day-effect,
+#reporting-agent-dashboard .datepicker-day.first .datepicker-day-effect,
+#reporting-agent-dashboard .datepicker-day.last .datepicker-day-effect { background-color: var(--wine) !important; }
+#reporting-agent-dashboard .datepicker-day.selected .datepicker-day-text,
+#reporting-agent-dashboard .datepicker-day.first .datepicker-day-text,
+#reporting-agent-dashboard .datepicker-day.last .datepicker-day-text { color: #fff !important; }
+#reporting-agent-dashboard .datepicker-button.validate { background-color: var(--wine) !important; color: #fff !important; }
+```
+
+---
+
+## 119.4 – Bootstrap-Select
+
+Agenten-Auswahl-Dropdown.
+
+```css
+/* ── 119.4 Bootstrap-Select ── */
+#reporting-agent-dashboard .bootstrap-select .btn-light { border-color: var(--wine-lt) !important; }
+#reporting-agent-dashboard .bootstrap-select .btn-light:hover,
+#reporting-agent-dashboard .bootstrap-select .btn-light:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#reporting-agent-dashboard .bootstrap-select .dropdown-item.selected,
+#reporting-agent-dashboard .bootstrap-select .dropdown-item:active {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine) !important;
+}
+#reporting-agent-dashboard .bootstrap-select .dropdown-item:hover { background-color: var(--wine-lt) !important; }
+#reporting-agent-dashboard .bs-ok-default.check-mark { color: var(--wine) !important; }
+#reporting-agent-dashboard .bs-ok-default.check-mark::before { border-color: var(--wine) !important; color: var(--wine) !important; }
+#reporting-agent-dashboard .dropdown-item.selected .check-mark,
+#reporting-agent-dashboard .dropdown-item.selected .bs-ok-default { color: var(--wine) !important; }
+
+/* Bootstrap-Select Checkmark global (Dropdown außerhalb Scope) */
+.bootstrap-select .dropdown-menu .bs-ok-default.check-mark { color: var(--wine) !important; }
+.bootstrap-select .dropdown-menu .bs-ok-default.check-mark::after { border-color: var(--wine) !important; }
+.bootstrap-select .dropdown-menu li a span.check-mark { color: var(--wine) !important; }
+.dropdown-menu.show .dropdown-item .bs-ok-default::after {
+  border-right-color: var(--wine) !important;
+  border-bottom-color: var(--wine) !important;
+}
+.bs-ok-default:after { border-color: var(--wine) transparent var(--wine) var(--wine) !important; }
+```
+
+---
+
+## 119.5 – Stat-Karten & Trend-Prozente
+
+```css
+/* ── 119.5 Stat-Karten ── */
+#reporting-agent-dashboard .card {
+  border-top: 3px solid var(--wine-lt) !important;
+  box-shadow: 0 1px 8px rgba(91,25,45,0.08) !important;
+}
+
+/* Trend-Prozente (going-up / text-success → wine) */
+#reporting-agent-dashboard .going-up { color: var(--wine) !important; }
+#reporting-agent-dashboard .text-success { color: var(--wine) !important; }
+
+/* Sekundär-Buttons */
+#reporting-agent-dashboard .btn-secondary { border-color: var(--wine-lt) !important; }
+#reporting-agent-dashboard .btn-secondary:hover,
+#reporting-agent-dashboard .btn-secondary:focus {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 119.6 – Bestenliste (Dark Card)
+
+Einziges Dark-Element im gesamten Skin — dunkelwiner Hintergrund (`#5b192d`) mit weißem Text.
+
+```css
+/* ── 119.6 Bestenliste ── */
+#reporting-agent-dashboard .leader-board,
+#reporting-agent-dashboard .leader-board .card,
+#reporting-agent-dashboard .leader-board .card-body {
+  background-color: #5b192d !important;
+  border-top-color: #5b192d !important;
+  border-color: #5b192d !important;
+}
+#reporting-agent-dashboard .leader-board,
+#reporting-agent-dashboard .leader-board h1,
+#reporting-agent-dashboard .leader-board h2,
+#reporting-agent-dashboard .leader-board h3,
+#reporting-agent-dashboard .leader-board h4,
+#reporting-agent-dashboard .leader-board h5,
+#reporting-agent-dashboard .leader-board div,
+#reporting-agent-dashboard .leader-board span,
+#reporting-agent-dashboard .leader-board th,
+#reporting-agent-dashboard .leader-board td { color: #fff !important; }
+
+/* Dropdown-Button in Bestenliste */
+#reporting-agent-dashboard .leader-board .btn-secondary,
+#reporting-agent-dashboard .leader-board .btn-secondary.dropdown-toggle {
+  background-color: rgba(255,255,255,0.15) !important;
+  border-color: rgba(255,255,255,0.5) !important;
+  color: #fff !important;
+}
+
+/* Tabellen-Trennlinien */
+#reporting-agent-dashboard .leader-board .table td,
+#reporting-agent-dashboard .leader-board .table th { border-color: rgba(255,255,255,0.2) !important; }
+#reporting-agent-dashboard .agent-reporting__leaderboard thead th {
+  border-bottom: 2px solid rgba(255,255,255,0.4) !important;
+  color: #fff !important;
+}
+
+/* Bestenliste Dropdown-Menu (außerhalb Scope via data-v Attribut) */
+ul.dropdown-menu[aria-labelledby*="dropdown-"][data-v-8342d4a8],
+ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6] { color: var(--ink) !important; }
+ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:hover,
+ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:focus {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Bestenliste Dark Card:** Die `.leader-board`-Card ist das einzige echte Dark-Element im SalonQueen-Skin. Der dunkelwine Hintergrund (`#5b192d` = wine extra dunkel) signalisiert Exklusivität / Gamification-Kontext. Alle Texte innerhalb werden pauschal auf `#fff` gesetzt.
+
+**Bootstrap statt NaïveUI:** Wie Sections 114/115 — Bootstrap-Klassen (`.btn-blue`, `.btn-link`, `.btn-secondary`, `.card`) statt NaïveUI/Highrise.
+
+**Bootstrap-Select Checkmark global:** Das Häkchen im Bootstrap-Select-Dropdown rendert außerhalb des `#reporting-agent-dashboard` Scopes — die Checkmark-Selektoren müssen global ohne Scope-Präfix gesetzt werden. Gleiche Problematik wie das Context-Menu in Section 116 (Media Storage).
+
+**`data-v-*` Dropdown:** Das Bestenlisten-Dropdown-Menü wird mit Vue-Scoped-Attributen gerendert (`data-v-8342d4a8`, `data-v-e82c04c6`). Diese können sich nach GHL-Deployments ändern — bei Bruch DOM inspizieren.

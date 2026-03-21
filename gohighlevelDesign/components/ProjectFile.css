@@ -15051,7 +15051,244 @@ section.hl_topbar-tabs:has(#call-reporting-dashboard) {
   border-color:     var(--wine-2) !important;
 }
 
+/* ================================================
+   Section 119 – Agentenbericht
+   Scope: #reporting-agent-dashboard
+   Bootstrap + CTK Datepicker (kein NaïveUI)
+   ================================================ */
 
+/* --------------------------------------------------
+   0. Äußerer Wrapper-Balken (hl_topbar-tabs) → weg
+   -------------------------------------------------- */
+section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* --------------------------------------------------
+   1. Hintergrund
+   -------------------------------------------------- */
+#reporting-agent-dashboard {
+  background-color: #f8f5f5 !important;
+}
+
+/* --------------------------------------------------
+   2. „Abrufen" Primary-Button → wine
+   -------------------------------------------------- */
+#reporting-agent-dashboard .btn-blue {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  color: #fff !important;
+}
+#reporting-agent-dashboard .btn-blue:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+
+/* --------------------------------------------------
+   3. „Vergleichen" Link-Button → wine
+   -------------------------------------------------- */
+#reporting-agent-dashboard .btn-link {
+  color: var(--wine) !important;
+}
+#reporting-agent-dashboard .btn-link:hover {
+  color: var(--wine-2) !important;
+}
+
+/* --------------------------------------------------
+   4. Kalender-Icon (icon-calendar) → wine
+   -------------------------------------------------- */
+#reporting-agent-dashboard .icon.icon-calendar {
+  color: var(--wine) !important;
+}
+/* Fallback falls es ein img oder SVG ist */
+#reporting-agent-dashboard .hl_datepicker .icon {
+  color: var(--wine) !important;
+}
+/* Der Pfeil-Down neben dem Datepicker */
+#reporting-agent-dashboard .icon-arrow-down-1 {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   5. Bootstrap Select Dropdown
+   -------------------------------------------------- */
+#reporting-agent-dashboard .bootstrap-select .btn-light {
+  border-color: var(--wine-lt) !important;
+}
+#reporting-agent-dashboard .bootstrap-select .btn-light:hover,
+#reporting-agent-dashboard .bootstrap-select .btn-light:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+/* Aktive/selected Item → wine */
+#reporting-agent-dashboard .bootstrap-select .dropdown-item.selected,
+#reporting-agent-dashboard .bootstrap-select .dropdown-item:active {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine) !important;
+}
+#reporting-agent-dashboard .bootstrap-select .dropdown-item:hover {
+  background-color: var(--wine-lt) !important;
+}
+/* Checkmark (Bootstrap Select) → wine */
+#reporting-agent-dashboard .bs-ok-default.check-mark {
+  color: var(--wine) !important;
+}
+#reporting-agent-dashboard .bs-ok-default.check-mark::before {
+  border-color: var(--wine) !important;
+  color: var(--wine) !important;
+}
+/* Bootstrap Select generisches check-mark span pseudo-element */
+#reporting-agent-dashboard .dropdown-item.selected .check-mark,
+#reporting-agent-dashboard .dropdown-item.selected .bs-ok-default {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   6. CTK Datepicker → wine (war rgb(24,139,246))
+   -------------------------------------------------- */
+#reporting-agent-dashboard .header-picker {
+  background-color: var(--wine) !important;
+}
+#reporting-agent-dashboard .custom-button-content {
+  color: var(--wine) !important;
+  fill:  var(--wine) !important;
+}
+#reporting-agent-dashboard .custom-button-effect {
+  background-color: var(--wine-lt) !important;
+}
+#reporting-agent-dashboard .datepicker-day-effect {
+  background-color: var(--wine-lt) !important;
+}
+#reporting-agent-dashboard .datepicker-day.selected .datepicker-day-effect,
+#reporting-agent-dashboard .datepicker-day.first .datepicker-day-effect,
+#reporting-agent-dashboard .datepicker-day.last .datepicker-day-effect {
+  background-color: var(--wine) !important;
+}
+#reporting-agent-dashboard .datepicker-day.selected .datepicker-day-text,
+#reporting-agent-dashboard .datepicker-day.first .datepicker-day-text,
+#reporting-agent-dashboard .datepicker-day.last .datepicker-day-text {
+  color: #fff !important;
+}
+#reporting-agent-dashboard .datepicker-button.validate {
+  background-color: var(--wine) !important;
+  color: #fff !important;
+}
+
+/* --------------------------------------------------
+   7. Karten Card-Header → wine-lt Top-Border
+   -------------------------------------------------- */
+#reporting-agent-dashboard .card {
+  border-top: 3px solid var(--wine-lt) !important;
+  box-shadow: 0 1px 8px rgba(91,25,45,.08) !important;
+}
+
+/* --------------------------------------------------
+   8. Bestenliste Karte → wine (dark)
+   -------------------------------------------------- */
+#reporting-agent-dashboard .leader-board,
+#reporting-agent-dashboard .leader-board .card,
+#reporting-agent-dashboard .leader-board .card-body {
+  background-color: #5b192d !important;
+  border-top-color: #5b192d !important;
+  border-color: #5b192d !important;
+}
+#reporting-agent-dashboard .leader-board,
+#reporting-agent-dashboard .leader-board h1,
+#reporting-agent-dashboard .leader-board h2,
+#reporting-agent-dashboard .leader-board h3,
+#reporting-agent-dashboard .leader-board h4,
+#reporting-agent-dashboard .leader-board h5,
+#reporting-agent-dashboard .leader-board div,
+#reporting-agent-dashboard .leader-board span,
+#reporting-agent-dashboard .leader-board th,
+#reporting-agent-dashboard .leader-board td {
+  color: #fff !important;
+}
+/* Dropdown-Button in Bestenliste */
+#reporting-agent-dashboard .leader-board .btn-secondary,
+#reporting-agent-dashboard .leader-board .btn-secondary.dropdown-toggle {
+  background-color: rgba(255,255,255,.15) !important;
+  border-color:     rgba(255,255,255,.5) !important;
+  color: #fff !important;
+}
+/* Tabellen-Trennlinie */
+#reporting-agent-dashboard .leader-board .table td,
+#reporting-agent-dashboard .leader-board .table th {
+  border-color: rgba(255,255,255,.2) !important;
+}
+
+/* --------------------------------------------------
+   9. .going-up + .text-success → wine
+   -------------------------------------------------- */
+#reporting-agent-dashboard .going-up {
+  color: var(--wine) !important;
+}
+#reporting-agent-dashboard .text-success {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   10. Konversionsraten / Bestenliste Dropdown-Buttons
+   -------------------------------------------------- */
+#reporting-agent-dashboard .btn-secondary {
+  border-color: var(--wine-lt) !important;
+}
+#reporting-agent-dashboard .btn-secondary:hover,
+#reporting-agent-dashboard .btn-secondary:focus {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine) !important;
+  color:            var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   11. Bestenliste Tabellen-Header
+   -------------------------------------------------- */
+#reporting-agent-dashboard .agent-reporting__leaderboard thead th {
+  border-bottom: 2px solid rgba(255,255,255,.4) !important;
+  color: #fff !important;
+}
+
+
+/* --------------------------------------------------
+   12. Bestenliste Dropdown-Menu (position:fixed,
+       außerhalb #reporting-agent-dashboard Scope)
+       Targetiert via data-v-8342d4a8 Attribut
+   -------------------------------------------------- */
+ul.dropdown-menu[aria-labelledby*="dropdown-"][data-v-8342d4a8],
+ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6] {
+  color: var(--ink) !important;
+}
+ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:hover,
+ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:focus {
+  background-color: var(--wine-lt) !important;
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   13. Bootstrap-Select Checkmark global → wine
+   Das Dropdown liegt außerhalb #reporting-agent-dashboard
+   -------------------------------------------------- */
+/* Die Checkmark ist ein CSS-gezeichnetes Icon via ::before */
+.bootstrap-select .dropdown-menu .bs-ok-default.check-mark {
+  color: var(--wine) !important;
+}
+.bootstrap-select .dropdown-menu .bs-ok-default.check-mark::after {
+  border-color: var(--wine) !important;
+}
+/* Bootstrap Select setzt das Häkchen via content + border */
+.bootstrap-select .dropdown-menu li a span.check-mark {
+  color: var(--wine) !important;
+}
+/* Spezifischerer Selector für die gerenderte Bootstrap Select Checkmark */
+.dropdown-menu.show .dropdown-item .bs-ok-default::after {
+  border-right-color: var(--wine) !important;
+  border-bottom-color: var(--wine) !important;
+}
+/* Falls Bootstrap Select das Häkchen als border-trick zeichnet */
+.bs-ok-default:after {
+  border-color: var(--wine) transparent var(--wine) var(--wine) !important;
+}
 
 /* ================================================
    Section 118 – Terminberichte
