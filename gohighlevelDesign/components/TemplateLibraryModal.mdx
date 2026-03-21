@@ -1,0 +1,135 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/TemplateLibraryModal" />
+
+# AI-Assistenten – Vorlagenbibliothek Modal (Section 122)
+
+Das Vorlagenbibliothek-Modal öffnet sich im Agent Studio beim Auswählen einer Vorlage. Scope ist `#tl-location-wrapper`. Die Seite nutzt die **Highrise Library** (`hr-` Prefix) mit `--primary-*` CSS-Variablen. Aufbau: linke Sidebar mit Kategorie-Filtern (Collapse + Checkboxen), rechter Hauptbereich mit Filter-Bar (Suchfeld, Sort-Select, Grid/List-Toggle) und Vorlagen-Kacheln.
+
+![Template Library Modal Screenshot](./template-library-modal-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#tl-location-wrapper` |
+| Filter-Button | `#tl-filterbar-btn-toggle_filter` |
+| „Filter klären" Link | `#tl-filterbar-btn-clear_filters` |
+| Suchfeld | `#tl-filterbar-input-search` |
+| Sort-Select | `#tl-filterbar-select-sort` |
+| Grid/List Toggle | `#tl-filterbar-btn-view_grid/list` |
+| Sidebar aktiver Filter | `.template-filter-option.option-active` |
+| Kategorie-Checkboxen | `.hr-checkbox` |
+| Collapse aktiv | `.hr-collapse-item--active` |
+
+---
+
+## 122.1 – CSS-Variablen Override
+
+```css
+#tl-location-wrapper {
+  --primary-600: var(--wine) !important;
+  --primary-700: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+}
+```
+
+---
+
+## 122.2 – Filter-Bar Buttons & Links
+
+```css
+/* Filter-Button hover */
+#tl-location-wrapper #tl-filterbar-btn-toggle_filter:hover {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
+/* „Filter klären" Link */
+#tl-location-wrapper #tl-filterbar-btn-clear_filters { color: var(--wine) !important; }
+#tl-location-wrapper #tl-filterbar-btn-clear_filters i { color: var(--wine) !important; }
+
+/* Grid/List View Toggle hover */
+#tl-location-wrapper #tl-filterbar-btn-view_grid:hover,
+#tl-location-wrapper #tl-filterbar-btn-view_list:hover {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 122.3 – Suchfeld & Sort-Select
+
+```css
+/* Suchfeld */
+#tl-filterbar-input-search {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important;
+}
+#tl-filterbar-input-search .hr-input__state-border { display: none !important; }
+
+/* Sort-Select */
+#tl-filterbar-select-sort .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0px 0px 0px 4px rgba(91,25,45,0.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-hover: 0px 0px 0px 4px rgba(91,25,45,0.15), 0px 1px 2px 0px #1018280D !important;
+}
+```
+
+---
+
+## 122.4 – Sidebar Filter & Checkboxen
+
+```css
+/* Aktiver Filter + primary-600/700 Texte */
+#tl-location-wrapper .template-filter-option.option-active i,
+#tl-location-wrapper .template-filter-option.option-active p,
+#tl-location-wrapper .text-primary-600,
+#tl-location-wrapper .text-primary-700 { color: var(--wine) !important; }
+
+/* Sidebar Hover */
+#tl-location-wrapper .template-filter-option:hover p { color: var(--wine) !important; }
+
+/* Kategorie-Checkboxen */
+#tl-location-wrapper .hr-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-color-checked: var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15) !important;
+  --n-color-hover: var(--wine-lt) !important;
+  --n-border-disabled-checked: 1px solid var(--wine-lt) !important;
+  --n-color-disabled-checked: var(--wine-lt) !important;
+}
+#tl-location-wrapper .hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
+/* Filter-Tag Text */
+#tl-location-wrapper .hr-checkbox.hr-checkbox--checked + span p { color: var(--wine) !important; }
+
+/* Collapse aktiver Header */
+#tl-location-wrapper .hr-collapse-item--active .hr-collapse-item__header-main p { color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`--primary-600` + `--primary-700` beide überschrieben:** Im Gegensatz zu Section 121 (nur `--primary-600`) verwendet diese Seite zusätzlich `--primary-700` für aktive Sidebar-Filter-Texte — beide werden auf `var(--wine)` gesetzt.
+
+**`#tl-filterbar-input-search` ohne Scope-Präfix:** Das Suchfeld-Element hat eine eigene ID außerhalb des `#tl-location-wrapper`-Scopes — direkte ID-Selektion nötig.
+
+**Vorlagen-Kacheln bleiben unverändert:** Die Vorlagen-Thumbnail-Bilder (z.B. blaue Agent-Grafiken) sind externe Bilder — kein CSS-Override. Nur UI-Elemente (Buttons, Checkboxen, Hover-States) werden angepasst.

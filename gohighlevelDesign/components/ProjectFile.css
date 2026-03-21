@@ -13165,7 +13165,122 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   color: var(--wine) !important;
 }
 
+/* ================================================
+   Section 122 – Vorlagenbibliothek Modal
+   Scope: #tl-location-wrapper
+   hr- Library, --primary-* Variablen
+   ================================================ */
 
+/* --------------------------------------------------
+   1. --primary Variablen → wine im Scope
+   -------------------------------------------------- */
+#tl-location-wrapper {
+  --primary-600: var(--wine) !important;
+  --primary-700: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   2. Filter-Button hover → wine
+   -------------------------------------------------- */
+#tl-location-wrapper #tl-filterbar-btn-toggle_filter:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   3. „Filter klären" Link-Button → wine
+   -------------------------------------------------- */
+#tl-location-wrapper #tl-filterbar-btn-clear_filters {
+  color: var(--wine) !important;
+}
+#tl-location-wrapper #tl-filterbar-btn-clear_filters i {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   4. Suchfeld hover/focus → wine
+   -------------------------------------------------- */
+#tl-filterbar-input-search {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#tl-filterbar-input-search .hr-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   5. Sort-Select hover/focus → wine
+   -------------------------------------------------- */
+#tl-filterbar-select-sort .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+  --n-box-shadow-active: 0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-hover:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+}
+
+/* --------------------------------------------------
+   6. Grid/List View Buttons hover → wine
+   -------------------------------------------------- */
+#tl-location-wrapper #tl-filterbar-btn-view_grid:hover,
+#tl-location-wrapper #tl-filterbar-btn-view_list:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   7. Sidebar aktiver Filter (option-active) → wine
+   -------------------------------------------------- */
+#tl-location-wrapper .template-filter-option.option-active i,
+#tl-location-wrapper .template-filter-option.option-active p,
+#tl-location-wrapper .text-primary-600,
+#tl-location-wrapper .text-primary-700 {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   8. Sidebar Hover → wine
+   -------------------------------------------------- */
+#tl-location-wrapper .template-filter-option:hover p {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   9. Kategorie-Checkboxen checked → wine
+   -------------------------------------------------- */
+#tl-location-wrapper .hr-checkbox {
+  --n-border-checked:    1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-color-checked:     var(--wine) !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15) !important;
+  --n-color-hover:       var(--wine-lt) !important;
+  --n-border-disabled-checked: 1px solid var(--wine-lt) !important;
+  --n-color-disabled-checked:  var(--wine-lt) !important;
+}
+#tl-location-wrapper .hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   10. Filter-Tag (aktive Kategorie) → wine
+   -------------------------------------------------- */
+#tl-location-wrapper .hr-checkbox.hr-checkbox--checked + span p {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   11. Sidebar Collapse-Arrow aktiv → wine
+   -------------------------------------------------- */
+#tl-location-wrapper .hr-collapse-item--active .hr-collapse-item__header-main p {
+  color: var(--wine) !important;
+}
 
 
 
