@@ -1,0 +1,94 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/NewBotModal" />
+
+# AI-Assistenten – Neuen Bot erstellen Modal (Section 120b)
+
+Das „Neuen Bot erstellen"-Modal öffnet sich nach Klick auf „+ Erstellen" in Section 120. Es zeigt drei Bot-Typ-Karten (Geführte Formulareinrichtung / Prompt-basierter Bot / Flow-basierter Builder) mit je einem „Neuen Bot erstellen"-Button. Scope ist `.n-modal:has(#create-new-bot-button)`. Besonderheit: Die Bot-Typ-Icons sind Bilder (`<img>`) — sie werden via CSS `hue-rotate` von Blau (~220°) auf Wine/Rosa (~330°) getönt.
+
+![New Bot Modal Screenshot](./new-bot-modal-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root (Scope-Anker) | `.n-modal:has(#create-new-bot-button)` |
+| „Neuen Bot erstellen" Buttons | `#create-new-bot-button` |
+| Empfohlen / Neu-Badge Text | `.text-primary-700` |
+| Neu-Badge Hintergrund | `.bg-primary-50` |
+| Modal color-target | `.n-modal` CSS-Var |
+| Close-Button | `#pg-chat-widget-template-selector__header-modal-close-btn` |
+| Bot-Typ Icons | `img[alt="Bot-Typ Bild"]` |
+
+---
+
+## 120b.1 – „Neuen Bot erstellen" Buttons (default hover)
+
+```css
+/* ── 120b.1 Neuen Bot erstellen Buttons ── */
+.n-modal:has(#create-new-bot-button) #create-new-bot-button {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+.n-modal:has(#create-new-bot-button) #create-new-bot-button:hover {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+.n-modal:has(#create-new-bot-button) #create-new-bot-button .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 120b.2 – Empfohlen / Neu-Badge
+
+```css
+/* ── 120b.2 Text + Badge ── */
+.n-modal:has(#create-new-bot-button) .text-primary-700 { color: var(--wine) !important; }
+.n-modal:has(#create-new-bot-button) .bg-primary-50 { background-color: var(--wine-lt) !important; }
+```
+
+---
+
+## 120b.3 – Modal color-target & Close-Button
+
+```css
+/* ── 120b.3 Modal + Close ── */
+.n-modal:has(#create-new-bot-button) { --n-color-target: var(--wine) !important; }
+
+/* Close-Button: kein blauer Border */
+.n-modal:has(#create-new-bot-button) #pg-chat-widget-template-selector__header-modal-close-btn {
+  --n-border-hover: 1px solid rgb(224,224,230) !important;
+  --n-border-pressed: 1px solid rgb(224,224,230) !important;
+  --n-border-focus: 1px solid rgb(224,224,230) !important;
+}
+```
+
+---
+
+## 120b.4 – Bot-Typ Icons (CSS hue-rotate)
+
+```css
+/* ── 120b.4 Bot-Typ Icons ── */
+/* Blau (~220°) → Wine/Rosa (~330°) via hue-rotate(110deg) */
+.n-modal:has(#create-new-bot-button) img[alt="Bot-Typ Bild"] {
+  filter: hue-rotate(110deg) saturate(0.8) brightness(0.95) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`hue-rotate` auf `<img>` Icons:** Die Bot-Typ-Icons sind Raster-Bilder, keine SVGs — kein `stroke`/`fill`-Override möglich. Der CSS `filter: hue-rotate(110deg)` dreht den Farbton von ~220° (Blau) auf ~330° (Rosa/Wine). `saturate(0.8)` dämpft die Sättigung leicht, `brightness(0.95)` verhindert zu helles Ergebnis. Dieses Pattern ist im gesamten Skin einzigartig.
+
+**`#create-new-bot-button` als Scope-Anker im Modal:** Gleiche `:has()`-Strategie wie Section 120 — kein eigener Root-Identifier vorhanden, stabiler Button-ID als Ankerpunkt.
+
+**Close-Button neutraler Border:** Der Close-Button würde auf Hover einen blauen NaïveUI-Default-Border zeigen. Da er kein wine-Verhalten benötigt, wird der Hover-Border explizit auf das neutrale Grau `rgb(224,224,230)` fixiert.

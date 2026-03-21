@@ -12892,7 +12892,71 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background: none !important;
 }
 
-
+/* ================================================
+   Section 120b – „Neuen Bot erstellen" Modal
+   Scope: .n-modal:has(#create-new-bot-button)
+   ================================================ */
+ 
+/* --------------------------------------------------
+   1. „Neuen Bot erstellen" Buttons (default) hover → wine
+   -------------------------------------------------- */
+.n-modal:has(#create-new-bot-button) #create-new-bot-button {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+  --n-border-focus:       1px solid var(--wine) !important;
+}
+.n-modal:has(#create-new-bot-button) #create-new-bot-button:hover {
+  color:            var(--wine) !important;
+  border-color:     var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+.n-modal:has(#create-new-bot-button) #create-new-bot-button .n-button__state-border {
+  display: none !important;
+}
+ 
+/* --------------------------------------------------
+   2. .text-primary-700 (Empfohlen, Neu-Badge Text) → wine
+   -------------------------------------------------- */
+.n-modal:has(#create-new-bot-button) .text-primary-700 {
+  color: var(--wine) !important;
+}
+ 
+/* --------------------------------------------------
+   3. .bg-primary-50 (Neu-Badge Hintergrund) → wine-lt
+   -------------------------------------------------- */
+.n-modal:has(#create-new-bot-button) .bg-primary-50 {
+  background-color: var(--wine-lt) !important;
+}
+ 
+/* --------------------------------------------------
+   4. Modal --n-color-target → wine
+   -------------------------------------------------- */
+.n-modal:has(#create-new-bot-button) {
+  --n-color-target: var(--wine) !important;
+}
+ 
+/* --------------------------------------------------
+   5. Close-Button hover → kein blauer Border
+   -------------------------------------------------- */
+.n-modal:has(#create-new-bot-button) #pg-chat-widget-template-selector__header-modal-close-btn {
+  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
+  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
+  --n-border-focus:   1px solid rgb(224, 224, 230) !important;
+}
+ 
+/* --------------------------------------------------
+   6. Bot-Typ Icons – CSS Filter wine-Tönung
+   hue-rotate: blau (~220°) → wine/rosa (~330°)
+   Differenz: ~110° drehen + leichte Sättigung
+   -------------------------------------------------- */
+.n-modal:has(#create-new-bot-button) img[alt="Bot-Typ Bild"] {
+  filter: hue-rotate(110deg) saturate(0.8) brightness(0.95) !important;
+}
+ 
 
 
 
