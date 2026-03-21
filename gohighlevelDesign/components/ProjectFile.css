@@ -14185,6 +14185,369 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
   margin-top: -8px !important;
 }
 
+/* ================================================
+   Section 115 – Facebook Ads Report
+   Scope: #reporting-facebook-dashboard
+   ================================================ */
+
+/* --------------------------------------------------
+   HINTERGRUND-FIX: Dunklen Overlay überschreiben
+   -------------------------------------------------- */
+#reporting-facebook-dashboard,
+#reporting-facebook-dashboard .hl_wrapper--inner,
+#reporting-facebook-dashboard .hl_dashboard,
+#reporting-facebook-dashboard .container-fluid,
+#reporting-facebook-dashboard .ad-reporting-container {
+  background-color: #f8f5f5 !important;
+  color: var(--ink) !important;
+}
+
+/* --------------------------------------------------
+   Hauptkarte (weißer Bereich) – Akzent oben
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .card.hl_dashboard--pipeline-value {
+  background-color: #fff !important;
+  border-top: 3px solid var(--wine-lt) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 8px rgba(91, 25, 45, .08) !important;
+}
+
+/* --------------------------------------------------
+   Titel-Zeile + "Google Ads Report" Heading
+   -------------------------------------------------- */
+#reporting-facebook-dashboard #ads-title {
+  color: var(--ink) !important;
+}
+
+/* --------------------------------------------------
+   „Feedback geben" Button
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .btn-outline-primary {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+  background:   transparent !important;
+  border-radius: 6px !important;
+}
+#reporting-facebook-dashboard .btn-outline-primary:hover {
+  background-color: var(--wine) !important;
+  color: #fff !important;
+}
+
+/* --------------------------------------------------
+   Datepicker Input
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .field-input {
+  color: var(--ink) !important;
+  background: #fff !important;
+}
+
+/* --------------------------------------------------
+   Datepicker Header (dodgerblue → wine)
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .header-picker {
+  background-color: var(--wine) !important;
+  border-radius: 4px 4px 0 0 !important;
+}
+
+/* --------------------------------------------------
+   Shortcut- und Monatsbuttons
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .custom-button-content {
+  color: var(--wine) !important;
+  fill:  var(--wine) !important;
+}
+#reporting-facebook-dashboard .custom-button-effect {
+  background-color: var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   Kalender: Range-Tage + Selected
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .datepicker-day.between {
+  background-color: rgba(91, 25, 45, .07) !important;
+}
+#reporting-facebook-dashboard .datepicker-day.selected {
+  background-color: var(--wine) !important;
+  border-radius: 50% !important;
+}
+#reporting-facebook-dashboard .datepicker-day.selected .datepicker-day-text {
+  color: #fff !important;
+  font-weight: 600;
+}
+#reporting-facebook-dashboard .datepicker-day-effect {
+  background-color: var(--wine-lt) !important;
+}
+#reporting-facebook-dashboard .datepicker-today {
+  border-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Validate-Button (✓)
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .datepicker-button.validate {
+  background-color: var(--wine) !important;
+  border-radius: 50% !important;
+}
+#reporting-facebook-dashboard .datepicker-button.validate path {
+  fill: #fff !important;
+}
+
+/* --------------------------------------------------
+   Stat-Karten (Ansichten / Klicks / Konversionen)
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .flex-child .top-row-box__top {
+  background: #fff !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding: 12px !important;
+}
+#reporting-facebook-dashboard .top-row-box__mid span {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+/* Box-Titel Underline → wine */
+#reporting-facebook-dashboard .box-title span {
+  color: var(--ink) !important;
+  border-bottom: 2px solid var(--wine-lt) !important;
+  padding-bottom: 2px !important;
+}
+
+/* --------------------------------------------------
+   Mittlere Zeile (KPIs)
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .flex-child {
+  background: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(91, 25, 45, .08) !important;
+}
+#reporting-facebook-dashboard .mid-row-box__top_title span {
+  color: var(--ink) !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid var(--wine-lt) !important;
+}
+#reporting-facebook-dashboard .mid-row-box__bottom span {
+  color: var(--wine) !important;
+  font-weight: 700 !important;
+}
+
+/* --------------------------------------------------
+   Tabellen-Links (Kampagnen-Namen)
+   -------------------------------------------------- */
+#reporting-facebook-dashboard #ads-report td a {
+  color: var(--wine) !important;
+  text-decoration: underline;
+}
+#reporting-facebook-dashboard #ads-report td a:hover {
+  color: var(--wine-2) !important;
+}
+
+/* Table-Header wine Unterstrich */
+#reporting-facebook-dashboard #ads-report thead th {
+  border-bottom: 2px solid var(--wine-lt) !important;
+  color: var(--ink) !important;
+}
+
+/* --------------------------------------------------
+   „Spalte" Button
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .hl-table-button {
+  border-radius: 6px !important;
+}
+#reporting-facebook-dashboard .hl-table-button:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+  background:   var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   Pagination (Bootstrap)
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .pagination .page-item.active .page-link {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+}
+#reporting-facebook-dashboard .pagination .page-link:hover {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Modal OK-Button
+   -------------------------------------------------- */
+#reporting-facebook-dashboard #modal .btn-primary {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  border-radius: 6px !important;
+}
+#reporting-facebook-dashboard #modal .btn-primary:hover {
+  background-color: var(--wine-2) !important;
+}
+#reporting-facebook-dashboard #modal input:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91, 25, 45, .2) !important;
+  outline: none !important;
+}
+
+/* --------------------------------------------------
+   Feedback Panel – Seitenpanel Header
+   -------------------------------------------------- */
+#reporting-facebook-dashboard .ghl-sidepanel [style*="background: rgb(45, 55, 72)"] {
+  background: var(--wine) !important;
+}
+
+/* Feedback „Nachricht senden" Button */
+#reporting-facebook-dashboard .submit-feedback-button {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  border-radius: 6px !important;
+}
+#reporting-facebook-dashboard .submit-feedback-button:hover {
+  background-color: var(--wine-2) !important;
+}
+/* Anhängen-Link */
+#reporting-facebook-dashboard .submit-feedback-screen a {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   „Hier klicken" – Integration-Hinweis Link → wine
+   -------------------------------------------------- */
+#reporting-facebook-dashboard #integrations_settings span {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Schwarzer Launchpad-Balken → kein Custom-CSS möglich
+   (GHL globale Navigation, außerhalb des Scopes)
+   -------------------------------------------------- */
+
+/* --------------------------------------------------
+   FIX: „Spalte" Button → wine
+   Klasse: .hl-table-button mit curious-blue Farbe
+   -------------------------------------------------- */
+#reporting-facebook-dashboard button.hl-table-button,
+#reporting-facebook-dashboard .hl-table-button {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+  background:   #fff !important;
+}
+#reporting-facebook-dashboard .hl-table-button:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   FIX: Checkboxen in Spalten-Modifier → wine
+   Klassen: .text-curious-blue-600, checked-state
+   -------------------------------------------------- */
+#reporting-facebook-dashboard input[type="checkbox"] {
+  accent-color: var(--wine) !important;
+}
+#reporting-facebook-dashboard input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px rgba(91, 25, 45, .25) !important;
+  outline: none !important;
+}
+
+/* --------------------------------------------------
+   FIX: „Hier klicken" Link → wine
+   -------------------------------------------------- */
+#reporting-facebook-dashboard #integrations_settings span[style*="color: rgb(0, 86, 179)"] {
+  color: var(--wine) !important;
+}
+#reporting-facebook-dashboard #integrations_settings span {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   FIX: Kampagnen-Links in Tabelle
+   (inline style rgb(30, 64, 175) → wine)
+   -------------------------------------------------- */
+#reporting-facebook-dashboard #ads-report td a[style*="color"] {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   FIX: Checkboxen – NaïveUI/Tailwind curious-blue
+   → wine via appearance-none Override
+   -------------------------------------------------- */
+#reporting-facebook-dashboard input[type="checkbox"].text-curious-blue-600,
+#reporting-facebook-dashboard .tw-checkbox input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid #d1d5db !important;
+  border-radius: 3px !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+#reporting-facebook-dashboard input[type="checkbox"].text-curious-blue-600:checked,
+#reporting-facebook-dashboard .tw-checkbox input[type="checkbox"]:checked {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#reporting-facebook-dashboard input[type="checkbox"].text-curious-blue-600:checked::after,
+#reporting-facebook-dashboard .tw-checkbox input[type="checkbox"]:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 3px !important;
+  top: 0px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: 2px solid #fff !important;
+  border-top: none !important;
+  border-left: none !important;
+  transform: rotate(45deg) !important;
+}
+#reporting-facebook-dashboard input[type="checkbox"]:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* --------------------------------------------------
+   FIX: Dunkler Balken unter der Reporting-Navigation
+   Der Balken gehört zum GHL Reporting-Tab-System
+   -------------------------------------------------- */
+.hl_wrapper--inner.hl_dashboard .hl-tabs-bar {
+  background-color: transparent !important;
+  height: 0 !important;
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   FIX: Dunkler Balken (Launchpad / Reporting Nav)
+   Breiter Selector ohne Dashboard-Scope
+   -------------------------------------------------- */
+.hl_dashboard .hl-tabs-bar,
+.hl_wrapper--inner .hl-tabs-bar,
+#reporting-facebook-dashboard + .hl-tabs-bar,
+.hl_dashboard > .hl-tabs-nav .hl-tabs-bar {
+  display: none !important;
+}
+
+/* GHL Launchpad-Trennlinie */
+.hl-launchpad-separator,
+.hl_dashboard--divider,
+[class*="launchpad"] .divider {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   Dunkler Balken: section.hl_wrapper.hl_topbar-tabs
+   → Dieser Wrapper enthält den gesamten Header,
+     kein CSS-Fix möglich ohne Header zu verstecken.
+   -------------------------------------------------- */
+
+/* --------------------------------------------------
+   Dunkler Balken verstecken via negativem margin-top
+   Den Inhalt nach oben ziehen sodass der Balken
+   hinter der Navigation verschwindet
+   -------------------------------------------------- */
+section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
+  margin-top: -8px !important;
+}
 
 
 

@@ -1,0 +1,152 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/FacebookAdsReport" />
+
+# Berichterstattung – Facebook Ads Report (Section 115)
+
+Der Facebook Ads Report (`Berichterstattung → Bericht zu Facebook-Ads`) ist strukturell **identisch mit Section 114 (Google Ads Report)** — gleiche Bootstrap + Vue-Datepicker Architektur, gleiche CSS-Klassen, nur anderer Root-Scope: `#reporting-facebook-dashboard` statt `#reporting-adwords-dashboard`. Alle Patterns, Besonderheiten und Fixes aus Section 114 gelten hier 1:1.
+
+![Facebook Ads Report Screenshot](./facebook-ads-report-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+Identisch mit Section 114 — Root-Scope ausgetauscht:
+
+| Section 114 | Section 115 |
+|---|---|
+| `#reporting-adwords-dashboard` | `#reporting-facebook-dashboard` |
+
+Alle anderen Selektoren (`.card`, `.flex-child`, `.datepicker-*`, `#ads-report`, `.pagination`, etc.) sind gleich.
+
+---
+
+## Vollständiges CSS
+
+```css
+/* ── Hintergrund ── */
+#reporting-facebook-dashboard,
+#reporting-facebook-dashboard .hl_wrapper--inner,
+#reporting-facebook-dashboard .hl_dashboard,
+#reporting-facebook-dashboard .container-fluid,
+#reporting-facebook-dashboard .ad-reporting-container {
+  background-color: #f8f5f5 !important;
+  color: var(--ink) !important;
+}
+
+/* Hauptkarte */
+#reporting-facebook-dashboard .card.hl_dashboard--pipeline-value {
+  background-color: #fff !important;
+  border-top: 3px solid var(--wine-lt) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 8px rgba(91,25,45,0.08) !important;
+}
+#reporting-facebook-dashboard #ads-title { color: var(--ink) !important; }
+
+/* Feedback Button */
+#reporting-facebook-dashboard .btn-outline-primary {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  background: transparent !important;
+  border-radius: 6px !important;
+}
+#reporting-facebook-dashboard .btn-outline-primary:hover { background-color: var(--wine) !important; color: #fff !important; }
+
+/* Vue Datepicker */
+#reporting-facebook-dashboard .field-input { color: var(--ink) !important; background: #fff !important; }
+#reporting-facebook-dashboard .header-picker { background-color: var(--wine) !important; border-radius: 4px 4px 0 0 !important; }
+#reporting-facebook-dashboard .custom-button-content { color: var(--wine) !important; fill: var(--wine) !important; }
+#reporting-facebook-dashboard .custom-button-effect { background-color: var(--wine-lt) !important; }
+#reporting-facebook-dashboard .datepicker-day.between { background-color: rgba(91,25,45,0.07) !important; }
+#reporting-facebook-dashboard .datepicker-day.selected { background-color: var(--wine) !important; border-radius: 50% !important; }
+#reporting-facebook-dashboard .datepicker-day.selected .datepicker-day-text { color: #fff !important; font-weight: 600; }
+#reporting-facebook-dashboard .datepicker-day-effect { background-color: var(--wine-lt) !important; }
+#reporting-facebook-dashboard .datepicker-today { border-color: var(--wine) !important; }
+#reporting-facebook-dashboard .datepicker-button.validate { background-color: var(--wine) !important; border-radius: 50% !important; }
+#reporting-facebook-dashboard .datepicker-button.validate path { fill: #fff !important; }
+
+/* Stat-Karten */
+#reporting-facebook-dashboard .flex-child .top-row-box__top { background: #fff !important; border-radius: 8px 8px 0 0 !important; padding: 12px !important; }
+#reporting-facebook-dashboard .top-row-box__mid span { color: var(--ink) !important; font-weight: 700 !important; }
+#reporting-facebook-dashboard .box-title span { color: var(--ink) !important; border-bottom: 2px solid var(--wine-lt) !important; padding-bottom: 2px !important; }
+
+/* KPI-Zeile */
+#reporting-facebook-dashboard .flex-child { background: #fff !important; border-radius: 8px !important; box-shadow: 0 1px 4px rgba(91,25,45,0.08) !important; }
+#reporting-facebook-dashboard .mid-row-box__top_title span { color: var(--ink) !important; font-size: 13px !important; border-bottom: 1px solid var(--wine-lt) !important; }
+#reporting-facebook-dashboard .mid-row-box__bottom span { color: var(--wine) !important; font-weight: 700 !important; }
+
+/* Tabelle */
+#reporting-facebook-dashboard #ads-report thead th { border-bottom: 2px solid var(--wine-lt) !important; color: var(--ink) !important; }
+#reporting-facebook-dashboard #ads-report td a { color: var(--wine) !important; text-decoration: underline; }
+#reporting-facebook-dashboard #ads-report td a:hover { color: var(--wine-2) !important; }
+#reporting-facebook-dashboard #ads-report td a[style*="color"] { color: var(--wine) !important; }
+
+/* „Spalte" Button */
+#reporting-facebook-dashboard button.hl-table-button,
+#reporting-facebook-dashboard .hl-table-button { color: var(--wine) !important; border-color: var(--wine) !important; background: #fff !important; border-radius: 6px !important; }
+#reporting-facebook-dashboard .hl-table-button:hover { background-color: var(--wine-lt) !important; }
+
+/* Checkboxen */
+#reporting-facebook-dashboard input[type="checkbox"] { accent-color: var(--wine) !important; }
+#reporting-facebook-dashboard input[type="checkbox"]:focus { box-shadow: 0 0 0 2px rgba(91,25,45,0.25) !important; outline: none !important; }
+#reporting-facebook-dashboard input[type="checkbox"].text-curious-blue-600,
+#reporting-facebook-dashboard .tw-checkbox input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid #d1d5db !important;
+  border-radius: 3px !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+#reporting-facebook-dashboard input[type="checkbox"].text-curious-blue-600:checked,
+#reporting-facebook-dashboard .tw-checkbox input[type="checkbox"]:checked { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#reporting-facebook-dashboard input[type="checkbox"].text-curious-blue-600:checked::after,
+#reporting-facebook-dashboard .tw-checkbox input[type="checkbox"]:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 3px !important;
+  top: 0px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: 2px solid #fff !important;
+  border-top: none !important;
+  border-left: none !important;
+  transform: rotate(45deg) !important;
+}
+#reporting-facebook-dashboard input[type="checkbox"]:disabled { opacity: 0.5 !important; cursor: not-allowed !important; }
+
+/* Pagination */
+#reporting-facebook-dashboard .pagination .page-item.active .page-link { background-color: var(--wine) !important; border-color: var(--wine) !important; color: #fff !important; border-radius: 4px !important; }
+#reporting-facebook-dashboard .pagination .page-link:hover { color: var(--wine) !important; }
+
+/* Modal */
+#reporting-facebook-dashboard #modal .btn-primary { background-color: var(--wine) !important; border-color: var(--wine) !important; border-radius: 6px !important; }
+#reporting-facebook-dashboard #modal .btn-primary:hover { background-color: var(--wine-2) !important; }
+#reporting-facebook-dashboard #modal input:focus { border-color: var(--wine) !important; box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important; outline: none !important; }
+
+/* Feedback Panel */
+#reporting-facebook-dashboard .ghl-sidepanel [style*="background: rgb(45, 55, 72)"] { background: var(--wine) !important; }
+#reporting-facebook-dashboard .submit-feedback-button { background-color: var(--wine) !important; border-color: var(--wine) !important; border-radius: 6px !important; }
+#reporting-facebook-dashboard .submit-feedback-button:hover { background-color: var(--wine-2) !important; }
+#reporting-facebook-dashboard .submit-feedback-screen a { color: var(--wine) !important; }
+
+/* Integrations-Link */
+#reporting-facebook-dashboard #integrations_settings span[style*="color: rgb(0, 86, 179)"],
+#reporting-facebook-dashboard #integrations_settings span { color: var(--wine) !important; }
+
+/* Dunkler Balken Fix */
+section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard { margin-top: -8px !important; }
+```
+
+---
+
+## Besonderheiten
+
+**1:1 Klon von Section 114:** Das CSS ist strukturell identisch mit dem Google Ads Report — nur der Root-Scope wurde von `#reporting-adwords-dashboard` auf `#reporting-facebook-dashboard` geändert. Für alle Pattern-Details und Erklärungen → siehe **Section 114 (GoogleAdsReport)**.
+
+**Wartungshinweis:** Wenn Section 114 (Google Ads) CSS-Fixes bekommt, müssen diese in der Regel auch hier eingepflegt werden — beide Sections teilen dieselbe Rendering-Engine.
