@@ -1,0 +1,161 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/ConversationAIAgents" />
+
+# AI-Assistenten – Conversation AI Agents (Section 120)
+
+Die Conversation AI Agents-Seite (`AI-Assistenten → Conversation AI`) nutzt **NaïveUI** (`n-` Prefix). Der Scope verwendet `:has(#create-bot-button)` auf dem `.hl-wrapper-container` — da es keine eigene Root-ID gibt, wird der Button als Ankerpunkt genutzt. Die Seite hat zwei Tabs: **Agentenliste** (DataTable mit Suchfeld und Checkboxen) und **Dashboard**. Beide Tabs werden vom gleichen Scope abgedeckt.
+
+![Conversation AI Agents Screenshot](./conversation-ai-agents-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root (Scope-Anker) | `.hl-wrapper-container:has(#create-bot-button)` |
+| „Erstellen"-Button | `.n-button--primary-type` |
+| „Wissensdatenbank verwalten" | `#conversation-ai-settings-header-btn-secondary` |
+| Tabs | `.n-tabs-bar`, `.n-tabs-tab--active` |
+| Suchfeld | `#hl-table-ai-bots-table-filter-text-search` |
+| DataTable | `.n-data-table-th` |
+| Checkboxen | `.n-checkbox` |
+| Status-Icons | `[style*="--primary-700"]` |
+| Wrapper-Fix | `section.hl_topbar-tabs:has(#create-bot-button)` |
+
+---
+
+## 120.1 – Primary Buttons
+
+„+ Erstellen" und Empty-State-Button.
+
+```css
+/* ── 120.1 Primary Buttons ── */
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type {
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine) !important;
+  --n-color-focus: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type .n-button__border,
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 120.2 – „Wissensdatenbank verwalten" Button
+
+```css
+/* ── 120.2 Wissensdatenbank Button ── */
+.hl-wrapper-container:has(#create-bot-button) #conversation-ai-settings-header-btn-secondary {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) #conversation-ai-settings-header-btn-secondary:hover {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) #conversation-ai-settings-header-btn-secondary .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 120.3 – Tabs
+
+```css
+/* ── 120.3 Tabs ── */
+.hl-wrapper-container:has(#create-bot-button) .n-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-bar { background-color: var(--wine) !important; }
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab--active {
+  color: var(--wine) !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab--active .n-tabs-tab__label { color: var(--wine) !important; }
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab:hover { background-color: transparent !important; box-shadow: none !important; }
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab:hover .n-tabs-tab__label { color: var(--wine) !important; }
+```
+
+---
+
+## 120.4 – Suchfeld, DataTable & Checkboxen
+
+```css
+/* ── 120.4 Suchfeld ── */
+.hl-wrapper-container:has(#create-bot-button) #hl-table-ai-bots-table-filter-text-search {
+  --n-caret-color: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) #hl-table-ai-bots-table-filter-text-search .n-input__state-border { display: none !important; }
+
+/* DataTable */
+.hl-wrapper-container:has(#create-bot-button) .n-data-table-th { border-bottom: 2px solid var(--wine-lt) !important; }
+.hl-wrapper-container:has(#create-bot-button) .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+
+/* Checkboxen */
+.hl-wrapper-container:has(#create-bot-button) .n-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-color-checked: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.3) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-checkbox.n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 120.5 – Status-Icons & Wrapper-Fix
+
+```css
+/* ── 120.5 Status-Icons ── */
+.hl-wrapper-container:has(#create-bot-button) [style*="--primary-700"] {
+  --primary-700: var(--wine) !important;
+  color: var(--wine) !important;
+}
+
+/* Wrapper-Fix */
+section.hl_topbar-tabs:has(#create-bot-button) {
+  background-color: transparent !important;
+  background: none !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`:has(#create-bot-button)` als Scope:** Diese Seite hat keine eigene Root-ID wie `#attribution-dashboard`. Stattdessen dient `#create-bot-button` (der „+ Erstellen"-Button) als stabiler Ankerpunkt für den `:has()`-Selector auf dem `.hl-wrapper-container`. Dieses Pattern eignet sich für alle Seiten ohne eindeutige Root-ID.
+
+**`--n-color` Override für Primary-Buttons:** Auf dieser Seite reicht `background-color` allein nicht — NaïveUI liest den Hintergrund primär aus `--n-color`. Beide Wege (`--n-color` + `background-color`) werden parallel gesetzt für maximale Zuverlässigkeit.
+
+**Beide Tabs (Agentenliste + Dashboard):** Der `:has()`-Scope bleibt aktiv unabhängig davon, welcher Tab aktiv ist — GHL tauscht den Tab-Inhalt per Vue-Reaktivität aus, der Wrapper bleibt konstant.

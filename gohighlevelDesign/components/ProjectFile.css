@@ -12755,6 +12755,149 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   stroke: var(--ink-4) !important;
 }
 
+/* ================================================
+   Section 120 – Conversation AI Agents
+   Scope: .hl-wrapper-container:has(#create-bot-button)
+   Gilt für BEIDE Tabs (Agentenliste + Dashboard)
+   NaïveUI n- Prefix, inline #155EEF
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Primary Buttons → wine
+   (#create-bot-button, #empty-agents-state-btn-positive-action,
+    alle .n-button--primary-type auf dieser Seite)
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type {
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-pressed:  var(--wine) !important;
+  --n-color-focus:    var(--wine-2) !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+  background-color:   var(--wine) !important;
+  border-color:       var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type .n-button__border,
+.hl-wrapper-container:has(#create-bot-button) .n-button--primary-type .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   2. Default Button „Wissensdatenbank verwalten" hover → wine
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#create-bot-button) #conversation-ai-settings-header-btn-secondary {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+  --n-border-focus:       1px solid var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) #conversation-ai-settings-header-btn-secondary:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) #conversation-ai-settings-header-btn-secondary .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. Tab Bar + aktiver Tab → wine, kein weißer Kasten
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#create-bot-button) .n-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-bar {
+  background-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab--active {
+  color:            var(--wine) !important;
+  background-color: transparent !important;
+  box-shadow:       none !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine) !important;
+}
+/* Hover: kein weißer Kasten */
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab:hover {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   4. Suchfeld (Agentenliste Tab) → wine
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#create-bot-button) #hl-table-ai-bots-table-filter-text-search {
+  --n-caret-color:      var(--wine) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:    var(--wine) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) #hl-table-ai-bots-table-filter-text-search .n-input__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   5. Tabellen-Header → wine-lt Underline
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#create-bot-button) .n-data-table-th {
+  border-bottom: 2px solid var(--wine-lt) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color:        var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   6. Checkbox → wine
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#create-bot-button) .n-checkbox {
+  --n-border-checked:   1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-color-checked:    var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.3) !important;
+}
+.hl-wrapper-container:has(#create-bot-button) .n-checkbox.n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   7. --primary-700 Icons (Status, Zuletzt aktualisiert)
+   -------------------------------------------------- */
+.hl-wrapper-container:has(#create-bot-button) [style*="--primary-700"] {
+  --primary-700: var(--wine) !important;
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   8. Seitenbalken-Fix (hl_topbar-tabs)
+   -------------------------------------------------- */
+section.hl_topbar-tabs:has(#create-bot-button) {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+
+
+
+
+
+
 
 /* ════════════════════════════════════════════════════════════════
    112 · SOCIAL PLANNER (Landing Page)
