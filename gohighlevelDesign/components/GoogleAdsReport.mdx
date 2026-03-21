@@ -1,0 +1,294 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/GoogleAdsReport" />
+
+# Berichterstattung – Google Ads Report (Section 114)
+
+Der Google Ads Report (`Berichterstattung → Google Ads Report`) ist ein eigenständiges Legacy-Modul — kein NaïveUI, kein Highrise, sondern **Bootstrap + Vue-Datepicker**. Scope ist `#reporting-adwords-dashboard`. Besonderheiten: Der Datepicker ist eine eigenständige Vue-Komponente (`header-picker`, `datepicker-day`) mit eigenen Klassen. Checkboxen in der Spalten-Auswahl benötigen `appearance: none` Override, da sie `text-curious-blue-600` als Tailwind-Klasse nutzen.
+
+![Google Ads Report Screenshot](./google-ads-report-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#reporting-adwords-dashboard` |
+| Hauptkarte | `.card.hl_dashboard--pipeline-value` |
+| Datepicker | `.header-picker`, `.datepicker-day` |
+| Stat-Karten | `.flex-child .top-row-box__top` |
+| KPI-Zeile | `.mid-row-box__top_title`, `.mid-row-box__bottom` |
+| Tabelle | `#ads-report thead th`, `#ads-report td a` |
+| „Spalte" Button | `.hl-table-button` |
+| Checkboxen | `input[type="checkbox"].text-curious-blue-600` |
+| Pagination | `.pagination .page-item.active .page-link` |
+| Modal | `#modal .btn-primary` |
+| Feedback Panel | `.ghl-sidepanel`, `.submit-feedback-button` |
+
+---
+
+## 114.1 – Hintergrund & Hauptkarte
+
+```css
+/* ── 114.1 Hintergrund ── */
+#reporting-adwords-dashboard,
+#reporting-adwords-dashboard .hl_wrapper--inner,
+#reporting-adwords-dashboard .hl_dashboard,
+#reporting-adwords-dashboard .container-fluid,
+#reporting-adwords-dashboard .ad-reporting-container {
+  background-color: #f8f5f5 !important;
+  color: var(--ink) !important;
+}
+
+/* Hauptkarte */
+#reporting-adwords-dashboard .card.hl_dashboard--pipeline-value {
+  background-color: #fff !important;
+  border-top: 3px solid var(--wine-lt) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 8px rgba(91,25,45,0.08) !important;
+}
+
+/* Heading */
+#reporting-adwords-dashboard #ads-title { color: var(--ink) !important; }
+```
+
+---
+
+## 114.2 – Feedback-Button & Integrations-Link
+
+```css
+/* ── 114.2 Feedback & Links ── */
+/* „Feedback geben" Button (outlined) */
+#reporting-adwords-dashboard .btn-outline-primary {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  background: transparent !important;
+  border-radius: 6px !important;
+}
+#reporting-adwords-dashboard .btn-outline-primary:hover {
+  background-color: var(--wine) !important;
+  color: #fff !important;
+}
+
+/* „Hier klicken" Integrations-Link */
+#reporting-adwords-dashboard #integrations_settings span[style*="color: rgb(0, 86, 179)"],
+#reporting-adwords-dashboard #integrations_settings span { color: var(--wine) !important; }
+```
+
+---
+
+## 114.3 – Vue Datepicker
+
+Eigenständige Vue-Datepicker-Komponente mit Header, Range-Tagen, Selected-State und Validate-Button.
+
+```css
+/* ── 114.3 Vue Datepicker ── */
+/* Datepicker Input */
+#reporting-adwords-dashboard .field-input { color: var(--ink) !important; background: #fff !important; }
+
+/* Header (dodgerblue → wine) */
+#reporting-adwords-dashboard .header-picker {
+  background-color: var(--wine) !important;
+  border-radius: 4px 4px 0 0 !important;
+}
+
+/* Shortcut / Monatsbuttons */
+#reporting-adwords-dashboard .custom-button-content { color: var(--wine) !important; fill: var(--wine) !important; }
+#reporting-adwords-dashboard .custom-button-effect { background-color: var(--wine-lt) !important; }
+
+/* Range-Tage */
+#reporting-adwords-dashboard .datepicker-day.between { background-color: rgba(91,25,45,0.07) !important; }
+#reporting-adwords-dashboard .datepicker-day.selected {
+  background-color: var(--wine) !important;
+  border-radius: 50% !important;
+}
+#reporting-adwords-dashboard .datepicker-day.selected .datepicker-day-text { color: #fff !important; font-weight: 600; }
+#reporting-adwords-dashboard .datepicker-day-effect { background-color: var(--wine-lt) !important; }
+#reporting-adwords-dashboard .datepicker-today { border-color: var(--wine) !important; }
+
+/* Validate-Button (✓) */
+#reporting-adwords-dashboard .datepicker-button.validate {
+  background-color: var(--wine) !important;
+  border-radius: 50% !important;
+}
+#reporting-adwords-dashboard .datepicker-button.validate path { fill: #fff !important; }
+```
+
+---
+
+## 114.4 – Stat-Karten & KPI-Zeile
+
+```css
+/* ── 114.4 Stat-Karten & KPIs ── */
+/* Stat-Karten (Ansichten / Klicks / Konversionen) */
+#reporting-adwords-dashboard .flex-child .top-row-box__top {
+  background: #fff !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding: 12px !important;
+}
+#reporting-adwords-dashboard .top-row-box__mid span { color: var(--ink) !important; font-weight: 700 !important; }
+#reporting-adwords-dashboard .box-title span {
+  color: var(--ink) !important;
+  border-bottom: 2px solid var(--wine-lt) !important;
+  padding-bottom: 2px !important;
+}
+
+/* KPI-Zeile */
+#reporting-adwords-dashboard .flex-child {
+  background: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(91,25,45,0.08) !important;
+}
+#reporting-adwords-dashboard .mid-row-box__top_title span {
+  color: var(--ink) !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid var(--wine-lt) !important;
+}
+#reporting-adwords-dashboard .mid-row-box__bottom span { color: var(--wine) !important; font-weight: 700 !important; }
+```
+
+---
+
+## 114.5 – Tabelle
+
+```css
+/* ── 114.5 Tabelle ── */
+/* Header */
+#reporting-adwords-dashboard #ads-report thead th {
+  border-bottom: 2px solid var(--wine-lt) !important;
+  color: var(--ink) !important;
+}
+
+/* Kampagnen-Links */
+#reporting-adwords-dashboard #ads-report td a { color: var(--wine) !important; text-decoration: underline; }
+#reporting-adwords-dashboard #ads-report td a:hover { color: var(--wine-2) !important; }
+#reporting-adwords-dashboard #ads-report td a[style*="color"] { color: var(--wine) !important; }
+
+/* „Spalte" Button */
+#reporting-adwords-dashboard button.hl-table-button,
+#reporting-adwords-dashboard .hl-table-button {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  background: #fff !important;
+  border-radius: 6px !important;
+}
+#reporting-adwords-dashboard .hl-table-button:hover { background-color: var(--wine-lt) !important; }
+```
+
+---
+
+## 114.6 – Checkboxen (Spalten-Auswahl)
+
+Tailwind `text-curious-blue-600`-Checkboxen benötigen vollständigen `appearance: none` Override.
+
+```css
+/* ── 114.6 Checkboxen ── */
+/* accent-color Fallback */
+#reporting-adwords-dashboard input[type="checkbox"] { accent-color: var(--wine) !important; }
+#reporting-adwords-dashboard input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.25) !important;
+  outline: none !important;
+}
+
+/* appearance-none Override für curious-blue Checkboxen */
+#reporting-adwords-dashboard input[type="checkbox"].text-curious-blue-600,
+#reporting-adwords-dashboard .tw-checkbox input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid #d1d5db !important;
+  border-radius: 3px !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+#reporting-adwords-dashboard input[type="checkbox"].text-curious-blue-600:checked,
+#reporting-adwords-dashboard .tw-checkbox input[type="checkbox"]:checked {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#reporting-adwords-dashboard input[type="checkbox"].text-curious-blue-600:checked::after,
+#reporting-adwords-dashboard .tw-checkbox input[type="checkbox"]:checked::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 3px !important;
+  top: 0px !important;
+  width: 5px !important;
+  height: 9px !important;
+  border: 2px solid #fff !important;
+  border-top: none !important;
+  border-left: none !important;
+  transform: rotate(45deg) !important;
+}
+#reporting-adwords-dashboard input[type="checkbox"]:disabled { opacity: 0.5 !important; cursor: not-allowed !important; }
+```
+
+---
+
+## 114.7 – Pagination, Modal & Feedback Panel
+
+```css
+/* ── 114.7 Pagination (Bootstrap) ── */
+#reporting-adwords-dashboard .pagination .page-item.active .page-link {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+}
+#reporting-adwords-dashboard .pagination .page-link:hover { color: var(--wine) !important; }
+
+/* Modal OK-Button */
+#reporting-adwords-dashboard #modal .btn-primary {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 6px !important;
+}
+#reporting-adwords-dashboard #modal .btn-primary:hover { background-color: var(--wine-2) !important; }
+#reporting-adwords-dashboard #modal input:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  outline: none !important;
+}
+
+/* Feedback Panel */
+#reporting-adwords-dashboard .ghl-sidepanel [style*="background: rgb(45, 55, 72)"] { background: var(--wine) !important; }
+#reporting-adwords-dashboard .submit-feedback-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-radius: 6px !important;
+}
+#reporting-adwords-dashboard .submit-feedback-button:hover { background-color: var(--wine-2) !important; }
+#reporting-adwords-dashboard .submit-feedback-screen a { color: var(--wine) !important; }
+```
+
+---
+
+## 114.8 – Dunkler Reporting-Balken Fix
+
+```css
+/* ── 114.8 Dunkler Balken Fix ── */
+.hl_wrapper--inner.hl_dashboard .hl-tabs-bar { background-color: transparent !important; height: 0 !important; display: none !important; }
+.hl_dashboard .hl-tabs-bar,
+.hl_wrapper--inner .hl-tabs-bar,
+#reporting-adwords-dashboard + .hl-tabs-bar,
+.hl_dashboard > .hl-tabs-nav .hl-tabs-bar { display: none !important; }
+
+section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard { margin-top: -8px !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Bootstrap statt NaïveUI/Highrise:** Diese Seite ist das einzige Modul im Projekt, das Bootstrap-Klassen (`btn-outline-primary`, `btn-primary`, `.pagination .page-item`) verwendet. Alle anderen Seiten nutzen NaïveUI oder Highrise.
+
+**Vue Datepicker (eigenständige Library):** Die Kalender-Komponente hat eigene Klassen wie `.header-picker`, `.datepicker-day`, `.datepicker-button.validate`. Kein Overlap mit NaïveUI-Datepicker-Klassen.
+
+**`text-curious-blue-600` Checkboxen:** GHL verwendet Tailwind-JIT-Farben für Checkbox-States. `accent-color` allein reicht nicht — vollständiger `appearance: none` Override mit `::after`-Häkchen nötig (gleiches Muster wie Sections 108/109).
+
+**Inline-Style Override für Kampagnen-Links:** `#ads-report td a[style*="color"]` — GHL setzt `color: rgb(30, 64, 175)` direkt als Inline-Style auf die Tabellen-Links. Attribut-Selektor nötig.
+
+**Dunkler Balken:** Der schwarze Trennbalken unter der Reporting-Navigation gehört zum GHL `hl-tabs-bar` System. Er wird mit `display: none` + `height: 0` entfernt — kein visueller Verlust da die Tab-Navigation selbst erhalten bleibt.
