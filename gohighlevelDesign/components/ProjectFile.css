@@ -14005,6 +14005,413 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   background: none !important;
 }
 
+/* ================================================
+   Section 125 – Sprachauswahl Modal
+   Scope: .n-modal:has(#voice-selection-modal-footer-btn-positive-action)
+   NaïveUI n- Prefix, inline #155EEF
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Buttons – Footer
+   -------------------------------------------------- */
+
+/* „Stimme speichern" Primary → wine */
+#voice-selection-modal-footer-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-pressed:  var(--wine) !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+}
+#voice-selection-modal-footer-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#voice-selection-modal-footer-btn-positive-action .n-button__border,
+#voice-selection-modal-footer-btn-positive-action .n-button__state-border {
+  display: none !important;
+}
+
+/* „Abbrechen" hover → wine */
+#voice-selection-modal-footer-btn-negative-action {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+}
+#voice-selection-modal-footer-btn-negative-action:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#voice-selection-modal-footer-btn-negative-action .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   2. Close-Button – neutral
+   -------------------------------------------------- */
+#voice-selection-modal-header-modal-close-btn {
+  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
+  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
+}
+#voice-selection-modal-header-modal-close-btn .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. Tab-Buttons (Bibliothek / Meine Stimmen)
+   Scope: innerhalb des Modals
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .custom-tab-active {
+  color:            var(--wine) !important;
+  border-color:     var(--wine) !important;
+  border-bottom:    2px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .custom-tab:hover {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   4. „Stimme in Gebrauch" Play-Button hover → wine
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   5. Filter Selects (Anbieter, Sprache, Akzent, Geschlecht)
+   Alle .n-base-selection innerhalb des Modals → wine
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-base-selection {
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.15) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-base-selection__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   6. Suchfeld #voice-search → wine
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-search {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-loading-color:    var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-search .n-input__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   7. „Zurücksetzen" Button hover → wine
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   8. Voice Card Play-Buttons (#play-voice) hover → wine
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   9. Ausgewählte Voice Card (`.selected`) → wine Border
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-card.selected {
+  border:   2px solid var(--wine) !important;
+  outline:  none !important;
+}
+
+/* --------------------------------------------------
+   10. Toggle Switches (Gefällt mir / Nur hohe Qualität) → wine
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-switch.n-switch--active .n-switch__rail {
+  background-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   11. Pagination
+   -------------------------------------------------- */
+
+/* Aktive Seite → wine */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-pagination {
+  --n-item-text-color-active:   var(--wine) !important;
+  --n-item-text-color-hover:    var(--wine) !important;
+  --n-item-border-active:       1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-pagination-item--active {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-pagination-item--clickable:hover {
+  color: var(--wine) !important;
+}
+
+/* Previous / Next Buttons → wine, kein blauer Hover-Border */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next {
+  background-color:   var(--wine) !important;
+  border-color:       var(--wine) !important;
+  color:              #fff !important;
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-text-color:         #fff !important;
+  --n-text-color-hover:   #fff !important;
+  --n-text-color-pressed: #fff !important;
+  --n-text-color-focus:   #fff !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous:hover,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous .n-button__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   12. Voice Tags (Hohe Qualität, Sprache, Akzent, Geschlecht)
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-tag {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+  border-color:     rgba(91,25,45,.25) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-tag svg {
+  color: var(--wine) !important;
+  fill:  var(--wine) !important;
+}
+
+/* Spezifisch je Tag-Typ für sauberes Überschreiben */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-high-quality,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-language,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-accent,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-gender {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+  border-color:     rgba(91,25,45,.2) !important;
+}
+
+/* --------------------------------------------------
+   13. Play-Button „Stimme in Gebrauch" → solid wine wie Speichern-Button
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library {
+  background-color:   var(--wine) !important;
+  border-color:       var(--wine) !important;
+  color:              #fff !important;
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-pressed:  var(--wine) !important;
+  --n-text-color:         #fff !important;
+  --n-text-color-hover:   #fff !important;
+  --n-text-color-pressed: #fff !important;
+  --n-text-color-focus:   #fff !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   14. Alle Voice Card Play-Buttons (#play-voice) → solid wine wie Speichern
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice {
+  background-color:   var(--wine) !important;
+  border-color:       var(--wine) !important;
+  color:              #fff !important;
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-pressed:  var(--wine) !important;
+  --n-text-color:         #fff !important;
+  --n-text-color-hover:   #fff !important;
+  --n-text-color-pressed: #fff !important;
+  --n-text-color-focus:   #fff !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice svg {
+  color:  #fff !important;
+  stroke: #fff !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   15. „Meine Stimmen" Tab – alle Elemente
+   -------------------------------------------------- */
+
+/* „Benutzerdefinierte Stimme hinzufügen" (oben + Empty State) → wine */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty {
+  background-color:  var(--wine) !important;
+  border-color:      var(--wine) !important;
+  --n-color:         var(--wine) !important;
+  --n-color-hover:   var(--wine-2) !important;
+  --n-border:        1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine-2) !important;
+  --n-ripple-color:  var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top:hover,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top .n-button__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty .n-button__state-border {
+  display: none !important;
+}
+
+/* Filter Selects „Meine Stimmen" → wine */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-provider-filter .n-base-selection,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-language-filter .n-base-selection,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-accent-filter .n-base-selection,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-gender-filter .n-base-selection {
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.15) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-provider-filter .n-base-selection__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-language-filter .n-base-selection__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-accent-filter .n-base-selection__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-gender-filter .n-base-selection__state-border {
+  display: none !important;
+}
+
+/* Suchfeld „Meine Stimmen" → wine */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-search {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-loading-color:    var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-search .n-input__state-border {
+  display: none !important;
+}
+
+/* „Zurücksetzen" Button „Meine Stimmen" hover → wine */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters-my-voices {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters-my-voices:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters-my-voices .n-button__state-border {
+  display: none !important;
+}
+
+/* Toggle Switch „Nur hohe Qualität" (My Voices) → wine */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .my-voices-content .n-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .my-voices-content .n-switch.n-switch--active .n-switch__rail {
+  background-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   16. „Stimme in Gebrauch" Card – Gradient komplett entfernen → wine-lt
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-in-use-card,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-in-use-content,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-in-use-section {
+  background:       var(--wine-lt) !important;
+  background-image: none !important;
+  background-color: var(--wine-lt) !important;
+  border-color:     rgba(91,25,45,.2) !important;
+}
+
+/* --------------------------------------------------
+   17. Modal-Titel „Sprachauswahl" → schwarz
+   -------------------------------------------------- */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-card-header .title {
+  color: var(--ink) !important;
+}
+
 
 
 /* ================================================

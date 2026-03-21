@@ -1,0 +1,291 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/VoiceSelectionModal" />
+
+# AI-Assistenten – Sprachauswahl Modal (Section 125)
+
+Das Sprachauswahl-Modal öffnet sich beim Klick auf „Stimme auswählen" im Voice AI Agent bearbeiten. Scope ist `.n-modal:has(#voice-selection-modal-footer-btn-positive-action)`. Das Modal hat zwei Tabs: **Bibliothek** (575+ Stimmen mit Filtern, Suchfeld, Toggles, Pagination) und **Meine Stimmen** (benutzerdefinierte Stimmen). Oben ist eine „Stimme in Gebrauch"-Card mit wine-lt Hintergrund.
+
+![Voice Selection Modal Screenshot](./voice-selection-modal-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `.n-modal:has(#voice-selection-modal-footer-btn-positive-action)` |
+| „Stimme speichern" | `#voice-selection-modal-footer-btn-positive-action` |
+| „Abbrechen" | `#voice-selection-modal-footer-btn-negative-action` |
+| Close-Button | `#voice-selection-modal-header-modal-close-btn` |
+| Tabs | `.custom-tab-active`, `.custom-tab` |
+| Filter Selects | `.n-base-selection` |
+| Suchfeld | `#voice-search` |
+| „Zurücksetzen" | `#reset-filters` |
+| Play-Buttons | `#play-voice`, `#play-voice-in-use-library` |
+| Voice Card selected | `.voice-card.selected` |
+| Toggles | `.n-switch` |
+| Pagination | `#voice-pagination-previous/next`, `.n-pagination-item--active` |
+| Voice Tags | `.voice-tag`, `.tag-high-quality` etc. |
+| „Stimme in Gebrauch" Card | `.voice-in-use-card` |
+| „Meine Stimmen" Tab | `#add-custom-voice-top/empty`, `#my-voices-*` |
+
+---
+
+## 125.1 – Footer Buttons & Close
+
+```css
+/* „Stimme speichern" Primary */
+#voice-selection-modal-footer-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#voice-selection-modal-footer-btn-positive-action:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#voice-selection-modal-footer-btn-positive-action .n-button__border,
+#voice-selection-modal-footer-btn-positive-action .n-button__state-border { display: none !important; }
+
+/* „Abbrechen" hover */
+#voice-selection-modal-footer-btn-negative-action {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+}
+#voice-selection-modal-footer-btn-negative-action:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#voice-selection-modal-footer-btn-negative-action .n-button__state-border { display: none !important; }
+
+/* Close neutral */
+#voice-selection-modal-header-modal-close-btn {
+  --n-border-hover: 1px solid rgb(224,224,230) !important;
+  --n-border-pressed: 1px solid rgb(224,224,230) !important;
+}
+#voice-selection-modal-header-modal-close-btn .n-button__state-border { display: none !important; }
+
+/* Modal-Titel */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-card-header .title { color: var(--ink) !important; }
+```
+
+---
+
+## 125.2 – Tabs, Filter-Bar & Suchfeld
+
+```css
+/* Custom Tabs */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .custom-tab-active {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  border-bottom: 2px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .custom-tab:hover { color: var(--wine) !important; }
+
+/* Filter Selects */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.15) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.15) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-base-selection__state-border { display: none !important; }
+
+/* Suchfeld */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-search {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.15) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-search .n-input__state-border { display: none !important; }
+
+/* „Zurücksetzen" hover */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 125.3 – Play-Buttons, Voice Cards & Toggles
+
+```css
+/* Play-Buttons (Voice Cards + „In Gebrauch") → solid wine */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #fff !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine) !important;
+  --n-text-color: #fff !important;
+  --n-text-color-hover: #fff !important;
+  --n-text-color-pressed: #fff !important;
+  --n-text-color-focus: #fff !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice svg,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library svg { color: #fff !important; stroke: #fff !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice:hover,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice .n-button__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library .n-button__state-border { display: none !important; }
+
+/* Voice Card ausgewählt */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-card.selected { border: 2px solid var(--wine) !important; outline: none !important; }
+
+/* Toggles */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-switch.n-switch--active .n-switch__rail { background-color: var(--wine) !important; }
+```
+
+---
+
+## 125.4 – Pagination & Voice Tags
+
+```css
+/* Pagination */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-pagination {
+  --n-item-text-color-active: var(--wine) !important;
+  --n-item-text-color-hover: var(--wine) !important;
+  --n-item-border-active: 1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-pagination-item--active { color: var(--wine) !important; border-color: var(--wine) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-pagination-item--clickable:hover { color: var(--wine) !important; }
+
+/* Previous / Next als Primary */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #fff !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-text-color: #fff !important;
+  --n-text-color-hover: #fff !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous:hover,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-previous .n-button__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next .n-button__state-border { display: none !important; }
+
+/* Voice Tags */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-tag { background-color: var(--wine-lt) !important; color: var(--wine) !important; border-color: rgba(91,25,45,0.25) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-tag svg { color: var(--wine) !important; fill: var(--wine) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-high-quality,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-language,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-accent,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-gender { background-color: var(--wine-lt) !important; color: var(--wine) !important; border-color: rgba(91,25,45,0.2) !important; }
+```
+
+---
+
+## 125.5 – „Stimme in Gebrauch" Card & „Meine Stimmen" Tab
+
+```css
+/* „Stimme in Gebrauch" Card → wine-lt, kein Gradient */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-in-use-card,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-in-use-content,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-in-use-section {
+  background: var(--wine-lt) !important;
+  background-image: none !important;
+  background-color: var(--wine-lt) !important;
+  border-color: rgba(91,25,45,0.2) !important;
+}
+
+/* „Benutzerdefinierte Stimme hinzufügen" */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top:hover,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-top .n-button__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty .n-button__border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #add-custom-voice-empty .n-button__state-border { display: none !important; }
+
+/* „Meine Stimmen" Filter Selects */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-provider-filter .n-base-selection,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-language-filter .n-base-selection,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-accent-filter .n-base-selection,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-gender-filter .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.15) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.15) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-provider-filter .n-base-selection__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-language-filter .n-base-selection__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-accent-filter .n-base-selection__state-border,
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-gender-filter .n-base-selection__state-border { display: none !important; }
+
+/* „Meine Stimmen" Suchfeld */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-search {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.15) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-search .n-input__state-border { display: none !important; }
+
+/* „Zurücksetzen" Meine Stimmen hover */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters-my-voices {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+}
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters-my-voices:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) #reset-filters-my-voices .n-button__state-border { display: none !important; }
+
+/* Toggle „Meine Stimmen" */
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .my-voices-content .n-switch { --n-rail-color-active: var(--wine) !important; --n-loading-color: var(--wine) !important; }
+.n-modal:has(#voice-selection-modal-footer-btn-positive-action) .my-voices-content .n-switch.n-switch--active .n-switch__rail { background-color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Play-Buttons als Primary (solid wine):** Im Gegensatz zu den meisten Play/Zuhören-Buttons im Skin (die outlined sind) werden hier `#play-voice` und `#play-voice-in-use-library` als vollständig ausgefüllte Primary-Buttons gestylt — konsistent mit dem „Stimme speichern"- und „Zurück/Weiter"-Button der Pagination.
+
+**`voice-in-use-card` Gradient entfernt:** GHL setzt auf dieser Card einen blauen `background-image: linear-gradient(...)`. Dieser wird mit `background-image: none !important; background-color: var(--wine-lt) !important` vollständig überschrieben.
+
+**Custom Tabs (nicht NaïveUI):** Die Bibliothek/Meine-Stimmen-Tabs sind keine `.n-tabs` — GHL verwendet eigene Klassen `.custom-tab` und `.custom-tab-active`. Daher kein `--n-bar-color` Override nötig, sondern direktes `border-bottom: 2px solid var(--wine)` auf `.custom-tab-active`.
+
+**Pagination Previous/Next als Primary:** Die Previous/Next-Buttons in der Voice-Pagination sind ungewöhnlicherweise Primary-Buttons (ausgefüllt) — kein Hover-only-Override wie bei normalen Default-Pagination-Buttons.
