@@ -1,0 +1,281 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/CallReport" />
+
+# Berichterstattung – Bericht anrufen (Section 117)
+
+Der Anruf-Bericht (`Berichterstattung → Bericht anrufen`) nutzt **NaïveUI** (`n-` Prefix). Scope ist `#call-reporting-dashboard`. Die Seite enthält Tabs (Ankommend / Ausgehend), Datepicker, Select-Dropdown, Filter-Button, Aktualisieren- und Layout-Button sowie Donut-Charts. Der Filter-Drawer ist ein NaïveUI-Drawer mit neun Select-Feldern, einem Duration-Input mit +/- Buttons und zwei Toggle-Switches.
+
+![Call Report Screenshot](./call-report-screenshot.png)
+![Call Report Filter Drawer Screenshot](./call-report-filter-drawer-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#call-reporting-dashboard` |
+| Tabs | `.n-tabs-bar`, `.n-tabs-tab--active` |
+| Datepicker | `.n-input`, `.n-date-picker-icon` |
+| Select-Dropdowns | `.n-base-selection` |
+| Default Buttons | `.n-button--default-type` |
+| Aktiver Filter-Tab | `.hl-active-btn` |
+| DataTable | `.n-data-table-th` |
+| Filter-Drawer Selects | `#call-reporting-dashboard_select--filter-*` |
+| Switches | `#call-reporting-dashboard_switch--filter-*` |
+| Drawer Footer | `#call-reporting-dashboard_drawer-content--filters-btn-*` |
+| Widget-Modal | `#dashboard_breadcrumb-modal-add_widget` |
+
+---
+
+## 117.1 – Tabs
+
+```css
+/* ── 117.1 Tabs ── */
+#call-reporting-dashboard .n-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine) !important;
+  --n-tab-color: transparent !important;
+  --n-tab-color-segment: transparent !important;
+}
+#call-reporting-dashboard .n-tabs-bar { background-color: var(--wine) !important; }
+#call-reporting-dashboard .n-tabs-tab--active { background-color: transparent !important; box-shadow: none !important; }
+#call-reporting-dashboard .n-tabs-tab--active .n-tabs-tab__label { color: var(--wine) !important; }
+#call-reporting-dashboard .n-tabs-tab:hover .n-tabs-tab__label { color: var(--wine) !important; }
+```
+
+---
+
+## 117.2 – Datepicker
+
+```css
+/* ── 117.2 Datepicker ── */
+#call-reporting-dashboard .n-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#call-reporting-dashboard .n-input:hover .n-input__border { border-color: var(--wine) !important; }
+#call-reporting-dashboard .n-input:focus-within .n-input__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#call-reporting-dashboard .n-input__state-border { display: none !important; }
+#call-reporting-dashboard .n-date-picker-icon { color: var(--wine) !important; }
+```
+
+---
+
+## 117.3 – Select-Dropdowns
+
+```css
+/* ── 117.3 Select-Dropdowns ── */
+#call-reporting-dashboard .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#call-reporting-dashboard .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+#call-reporting-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
+#call-reporting-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#call-reporting-dashboard .n-base-selection__state-border { display: none !important; }
+#call-reporting-dashboard .n-base-icon.n-base-suffix__arrow { color: var(--wine) !important; }
+```
+
+---
+
+## 117.4 – Default Buttons & Aktiver Filter-Tab
+
+```css
+/* ── 117.4 Default Buttons ── */
+#call-reporting-dashboard .n-button--default-type {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+#call-reporting-dashboard .n-button--default-type:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#call-reporting-dashboard .n-button__state-border { display: none !important; }
+
+/* Aktiver Filter-Tab (hl-active-btn) */
+#call-reporting-dashboard .hl-active-btn {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+#call-reporting-dashboard .hl-active-btn .n-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## 117.5 – DataTable
+
+```css
+/* ── 117.5 DataTable ── */
+#call-reporting-dashboard .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#call-reporting-dashboard .n-data-table-th { border-bottom: 2px solid var(--wine-lt) !important; }
+#call-reporting-dashboard .n-data-table-th--active .n-data-table-th__title { color: var(--wine) !important; }
+```
+
+---
+
+## 117.6 – Filter-Drawer
+
+Neun Select-Felder, ein Duration-Input mit +/- Buttons und zwei Toggle-Switches (Qualifizierter Lead / Erste Mal). Footer mit Löschen und Anwenden.
+
+```css
+/* ── 117.6 Filter-Drawer Selects ── */
+#call-reporting-dashboard_select--filter-marketing-campaign .n-base-selection,
+#call-reporting-dashboard_select--filter-source-type .n-base-selection,
+#call-reporting-dashboard_select--filter-call-status .n-base-selection,
+#call-reporting-dashboard_select--filter-disposition .n-base-selection,
+#call-reporting-dashboard_select--filter-device-type .n-base-selection,
+#call-reporting-dashboard_select--filter-keyword .n-base-selection,
+#call-reporting-dashboard_select--filter-campaign .n-base-selection,
+#call-reporting-dashboard_select--filter-landing .n-base-selection,
+#call-reporting-dashboard_select--filter-referrer .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#call-reporting-dashboard_select--filter-marketing-campaign .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-source-type .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-call-status .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-disposition .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-device-type .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-keyword .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-campaign .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-landing .n-base-selection:hover .n-base-selection__border,
+#call-reporting-dashboard_select--filter-referrer .n-base-selection:hover .n-base-selection__border {
+  border-color: var(--wine) !important;
+}
+
+/* Duration Input */
+#call-reporting-dashboard_select--filter-duration .n-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#call-reporting-dashboard_select--filter-duration .n-input:hover .n-input__border { border-color: var(--wine) !important; }
+#call-reporting-dashboard_select--filter-duration .n-input__state-border { display: none !important; }
+#call-reporting-dashboard_select--filter-duration .n-button:hover { color: var(--wine) !important; }
+
+/* Switches */
+#call-reporting-dashboard_switch--filter-qualified-lead,
+#call-reporting-dashboard_switch--filter-first-time {
+  --n-rail-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#call-reporting-dashboard_switch--filter-qualified-lead[aria-checked="true"] .n-switch__rail,
+#call-reporting-dashboard_switch--filter-first-time[aria-checked="true"] .n-switch__rail {
+  background-color: var(--wine) !important;
+}
+
+/* Footer Buttons */
+#call-reporting-dashboard_drawer-content--filters-btn-negative-action:hover {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#call-reporting-dashboard_drawer-content--filters-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#call-reporting-dashboard_drawer-content--filters-btn-positive-action:hover:not(:disabled) {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 117.7 – Widget-Modal (Dashboard hinzufügen)
+
+```css
+/* ── 117.7 Widget-Modal ── */
+#dashboard_breadcrumb-modal-add_widget { --n-color-target: var(--wine) !important; }
+
+/* Select im Modal */
+#dashboard_breadcrumb_add_widget_modal-select-dashboard .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#dashboard_breadcrumb_add_widget_modal-select-dashboard .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+#dashboard_breadcrumb_add_widget_modal-select-dashboard .n-base-selection__state-border { display: none !important; }
+#dashboard_breadcrumb_add_widget_modal-select-dashboard .n-base-icon.n-base-suffix__arrow { color: var(--wine) !important; }
+
+/* Checkboxen */
+#dashboard_breadcrumb-modal-add_widget .n-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-color-checked: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#dashboard_breadcrumb-modal-add_widget .n-checkbox--checked .n-checkbox-box { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#dashboard_breadcrumb-modal-add_widget .n-checkbox-box__border { border-color: var(--wine) !important; }
+#dashboard_breadcrumb-modal-add_widget .border-primary-700 { border-color: var(--wine) !important; }
+#dashboard_breadcrumb-modal-add_widget .n-button--default-type:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+
+/* Footer */
+#dashboard_breadcrumb_add_widget_modal-footer_btn-cancel:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#dashboard_breadcrumb_add_widget_modal-footer_btn-confirm_add { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#dashboard_breadcrumb_add_widget_modal-footer_btn-confirm_add:hover:not(:disabled) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+
+/* Dropdown aktiv */
+#dashboard_breadcrumb-modal-add_widget .n-base-select-menu {
+  --n-option-check-color: var(--wine) !important;
+  --n-option-text-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+
+/* „Erstellen Dashboard" Link */
+#dashboard_breadcrumb_add_widget_modal-btn-create_dashboard .text-primary-600 { color: var(--wine) !important; }
+#dashboard_breadcrumb_add_widget_modal-btn-create_dashboard svg { stroke: var(--wine) !important; }
+```
+
+---
+
+## 117.8 – Wrapper-Balken Fix
+
+```css
+/* ── 117.8 Wrapper-Fix ── */
+section.hl_topbar-tabs:has(#call-reporting-dashboard) {
+  background-color: transparent !important;
+  background: none !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Toggle-Switches via `aria-checked`:** NaïveUI Switches setzen den aktiven Hintergrund über eine CSS Custom Property `--n-rail-color-active`. Da diese als Inline-Style gesetzt werden kann, ist zusätzlich ein direkter Override via `[aria-checked="true"] .n-switch__rail` nötig — beide Wege zusammen sichern zuverlässig den wine-Hintergrund.
+
+**9 Filter-Selects einzeln gelistet:** Die Filter-Drawer-Selects haben alle IDs nach Schema `#call-reporting-dashboard_select--filter-{name}`. Da sie im Drawer außerhalb des normalen DOM-Flows gerendert werden, können sie nicht über den übergeordneten `#call-reporting-dashboard` Scope erreicht werden — jeder ID-Selektor muss explizit aufgeführt werden.
+
+**`:has()` Wrapper-Fix:** Gleiche Strategie wie Section 116 (Attribution) — verhindert Kollisionen mit anderen Reporting-Tabs.
