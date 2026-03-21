@@ -13027,6 +13027,144 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   color: var(--wine) !important;
 }
 
+/* ================================================
+   Section 121d – „Agent erstellen" Modal
+   Scope: #create-agent-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#create-agent-modal {
+  --primary-600: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+  --n-icon-color: var(--wine) !important;
+}
+
+/* „Agenten erstellen" Primary Button → wine */
+#create-agent-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  color:            #fff !important;
+}
+#create-agent-btn:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#create-agent-btn p { color: #fff !important; }
+#create-agent-btn .hr-button__border,
+#create-agent-btn .hr-button__state-border { display: none !important; }
+
+/* „Zurück" Button hover → wine */
+#back-btn:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+
+/* Textfelder #agent-name + #agent-description hover/focus → wine */
+#agent-name,
+#agent-description {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#agent-name .hr-input__state-border,
+#agent-description .hr-input__state-border { display: none !important; }
+
+/* Modal Header Icon → wine */
+#create-agent-modal .hr-dialog__icon svg {
+  fill: var(--wine) !important;
+}
+#create-agent-modal .hr-header-lite-icon-item i {
+  color: var(--wine) !important;
+}
+
+/* ================================================
+   Section 121e – Tabellen-Header Extras
+   ================================================ */
+
+/* --------------------------------------------------
+   „Selected" Tag (hr-tag--blue) → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap .hr-tag--blue {
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-border-active:1px solid var(--wine-2) !important;
+  --n-text-color:   var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+  --n-color-hover:  var(--wine-lt) !important;
+  --n-color-pressed:var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color:        var(--wine) !important;
+}
+.agent-directory-content-wrap .hr-tag--blue .hr-tag__border {
+  border-color: var(--wine) !important;
+}
+.agent-directory-content-wrap .hr-tag--blue .hr-text {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   „Bulk Actions" Button hover → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap #bulk-actions-button:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.agent-directory-content-wrap #bulk-actions-button:hover p,
+.agent-directory-content-wrap #bulk-actions-button:hover svg {
+  color: var(--wine) !important;
+}
+.agent-directory-content-wrap #bulk-actions-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* ================================================
+   Section 121f – Tabellen-Zeilen Extras
+   ================================================ */
+
+/* --------------------------------------------------
+   Checkbox checked → wine (accent-color + background)
+   Bootstrap setzt background-color: currentColor
+   -------------------------------------------------- */
+.agent-directory-content-wrap #agent-list-table input[type="checkbox"] {
+  accent-color: var(--wine) !important;
+}
+.agent-directory-content-wrap #agent-list-table input[type="checkbox"]:checked {
+  accent-color:     var(--wine) !important;
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  color:            var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Agenten-Name Link hover (hover:text-blue-500) → wine
+   -------------------------------------------------- */
+.agent-directory-content-wrap .agent-name-cell-clickable:hover,
+.agent-directory-content-wrap .agent-name-cell-clickable:hover * {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Action-Dropdown (floating, ID enthält UUID)
+   Targetiert via ID-Prefix
+   -------------------------------------------------- */
+[id^="action-dropdown-"] {
+  --n-option-text-color-active:       var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+  --n-option-color-active:            rgba(91,25,45,.08) !important;
+}
+[id^="action-dropdown-"] .hr-dropdown-option:hover {
+  background-color: rgba(91,25,45,.05) !important;
+}
+[id^="action-dropdown-"] .hr-dropdown-option:hover p,
+[id^="action-dropdown-"] .hr-dropdown-option:hover i {
+  color: var(--wine) !important;
+}
+
 
 
 

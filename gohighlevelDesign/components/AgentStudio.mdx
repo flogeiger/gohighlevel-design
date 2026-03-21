@@ -2,39 +2,41 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="AI-Agents/AgentStudio" />
 
-# AI-Assistenten – Agent Studio (Section 121)
+# AI-Assistenten – Agent Studio (Sections 121–121f)
 
-Das Agent Studio (`AI-Assistenten → Agent Studio`) nutzt die **Highrise Library** (`hr-` Prefix). Scope ist `.agent-directory-content-wrap`. Die Seite enthält eine Alert-Box, Sort-Button mit Dropdown, Suchfeld, DataTable mit Checkboxen und Pagination. Zusätzlich gibt es zwei Sub-Sections: **121b** (Neuer Ordner Modal, `#folder-modal`) und **121c** (Agent erstellen Dropdown, `#create-agent-dropdown`).
+Das Agent Studio (`AI-Assistenten → Agent Studio`) nutzt die **Highrise Library** (`hr-` Prefix). Scope ist `.agent-directory-content-wrap`. Diese MDX-Datei deckt 6 Sub-Sections ab:
 
-Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponentenrendering — diese werden am Root-Scope überschrieben statt per Klassen-Override.
+- **121** — Agentenliste (DataTable, Alert, Sort, Pagination)
+- **121b** — Neuer Ordner Modal (`#folder-modal`)
+- **121c** — Agent erstellen Dropdown (`#create-agent-dropdown`)
+- **121d** — Agent erstellen Modal (`#create-agent-modal`)
+- **121e** — Tabellen-Header Extras (Selected-Tag, Bulk Actions)
+- **121f** — Tabellen-Zeilen Extras (Checkboxen, Name-Link, Action-Dropdown)
+
+Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt — diese werden am Root-Scope überschrieben statt per Klassen-Override.
 
 ![Agent Studio Screenshot](./agent-studio-screenshot.png)
 
 ---
 
-## Struktur & Root-Selektor
+## Struktur & Root-Selektoren
 
-| Bereich | Selektor |
+| Section | Scope |
 |---|---|
-| Root | `.agent-directory-content-wrap` |
-| „Agent erstellen" Button | `#create-agent-button` |
-| „Neuer Ordner" Button | `#new-folder-button` |
-| Sort-Button | `#sort-button` |
-| Suchfeld | `#agent-list-table-wrapper-header-global-filter` |
-| DataTable | `#agent-list-table .hr-data-table__cell-header` |
-| Alert Box | `#agent-directory-important-note` |
-| Pagination | `.hr-pagination-item__active` |
-| Rows-per-page | `#per-page-dropdown` |
-| Sort-Dropdown | `#sort-dropdown` |
-| Ordner-Modal | `#folder-modal` |
-| Agent-Dropdown | `#create-agent-dropdown` |
+| 121 | `.agent-directory-content-wrap` |
+| 121b | `#folder-modal` |
+| 121c | `#create-agent-dropdown` |
+| 121d | `#create-agent-modal` |
+| 121e | `.agent-directory-content-wrap` (Erweiterungen) |
+| 121f | `.agent-directory-content-wrap` + `[id^="action-dropdown-"]` |
 
 ---
 
-## 121.1 – CSS-Variablen Override (Root-Scope)
+## Section 121 – Agentenliste
+
+### CSS-Variablen Override (Root-Scope)
 
 ```css
-/* ── 121.1 CSS-Variablen ── */
 .agent-directory-content-wrap {
   --primary-600: #5b192d !important;
   --primary-800: #3d1020 !important;
@@ -45,12 +47,9 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
 }
 ```
 
----
-
-## 121.2 – Primary Buttons (Agent erstellen / Empty State)
+### Primary Buttons (Agent erstellen / Empty State)
 
 ```css
-/* ── 121.2 Primary Buttons ── */
 .agent-directory-content-wrap #create-agent-button,
 .agent-directory-content-wrap #positive-empty-agents-message {
   background-color: var(--wine) !important;
@@ -65,7 +64,9 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
 }
 .agent-directory-content-wrap #create-agent-button p,
 .agent-directory-content-wrap #positive-empty-agents-message p,
+.agent-directory-content-wrap #create-agent-button i,
 .agent-directory-content-wrap #create-agent-button svg,
+.agent-directory-content-wrap #positive-empty-agents-message i,
 .agent-directory-content-wrap #positive-empty-agents-message svg { color: #fff !important; stroke: #fff !important; }
 .agent-directory-content-wrap #create-agent-button .hr-button__border,
 .agent-directory-content-wrap #create-agent-button .hr-button__state-border,
@@ -73,21 +74,16 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
 .agent-directory-content-wrap #positive-empty-agents-message .hr-button__state-border { display: none !important; }
 ```
 
----
-
-## 121.3 – Secondary Buttons & Alert Box
+### Secondary Buttons, Alert, Suchfeld, DataTable, Pagination
 
 ```css
-/* ── 121.3 Secondary Buttons ── */
-/* „Neuer Ordner" hover */
+/* Neuer Ordner + Sort hover */
 .agent-directory-content-wrap #new-folder-button:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
 .agent-directory-content-wrap #new-folder-button .hr-button__state-border { display: none !important; }
-
-/* Sort-Button hover */
 .agent-directory-content-wrap #sort-button:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
 .agent-directory-content-wrap #sort-button .hr-button__state-border { display: none !important; }
 
-/* ── Alert Box ── */
+/* Alert Box */
 .agent-directory-content-wrap #agent-directory-important-note {
   --n-color: var(--wine-lt) !important;
   --n-border: 1px solid var(--wine-lt) !important;
@@ -98,14 +94,8 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
   border-color: var(--wine) !important;
 }
 .agent-directory-content-wrap #agent-directory-important-note svg { color: var(--wine) !important; stroke: var(--wine) !important; }
-```
 
----
-
-## 121.4 – Suchfeld, DataTable & Checkboxen
-
-```css
-/* ── 121.4 Suchfeld ── */
+/* Suchfeld */
 .agent-directory-content-wrap #agent-list-table-wrapper-header-global-filter {
   --n-border-hover: 1px solid var(--wine) !important;
   --n-border-focus: 1px solid var(--wine) !important;
@@ -119,24 +109,17 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
 .agent-directory-content-wrap #agent-list-table .hr-data-table__cell-header { border-bottom: 2px solid var(--wine-lt) !important; }
 
 /* Checkboxen */
-.agent-directory-content-wrap #agent-list-table input[type="checkbox"]:checked { accent-color: var(--wine) !important; }
+.agent-directory-content-wrap #agent-list-table input[type="checkbox"] { accent-color: var(--wine) !important; }
+.agent-directory-content-wrap #agent-list-table input[type="checkbox"]:checked { accent-color: var(--wine) !important; background-color: var(--wine) !important; border-color: var(--wine) !important; color: var(--wine) !important; }
 .agent-directory-content-wrap #agent-list-table input[type="checkbox"]:focus { outline-color: var(--wine) !important; }
 
 /* Empty State Icon */
 .agent-directory-content-wrap #empty-empty-agents-message .hr-icon-wrapper { background-color: var(--wine-lt) !important; }
 .agent-directory-content-wrap #empty-empty-agents-message .hr-icon-wrapper i { color: var(--wine) !important; }
-```
 
----
-
-## 121.5 – Pagination & Sort-Dropdown
-
-```css
-/* ── 121.5 Pagination ── */
+/* Pagination */
 .agent-directory-content-wrap .hr-pagination-item__active button[data-v-23397495] { border-color: var(--wine) !important; }
 .agent-directory-content-wrap .hr-pagination-item__active button[data-v-23397495] p { color: var(--wine) !important; }
-
-/* Rows-per-page Select */
 .agent-directory-content-wrap #per-page-dropdown .hr-base-selection:hover .hr-base-selection__border { border-color: var(--wine) !important; }
 .agent-directory-content-wrap #per-page-dropdown {
   --n-border-hover: 1px solid var(--wine) !important;
@@ -145,7 +128,7 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
   --n-loading-color: var(--wine) !important;
 }
 
-/* Sort-Dropdown (floating, außerhalb Scope) */
+/* Sort-Dropdown (floating) */
 #sort-dropdown {
   --n-option-text-color-active: var(--wine) !important;
   --n-option-text-color-child-active: var(--wine) !important;
@@ -161,10 +144,9 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
 
 ---
 
-## 121b – Neuer Ordner Modal (`#folder-modal`)
+## Section 121b – Neuer Ordner Modal
 
 ```css
-/* ── 121b Ordner Modal ── */
 #folder-modal {
   --primary-600: var(--wine) !important;
   --primary-800: var(--wine-2) !important;
@@ -174,18 +156,12 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
   --primary-100: var(--wine-lt) !important;
   --n-icon-color: var(--wine) !important;
 }
-
-/* Speichern-Button */
 #folder-modal-save-btn { background-color: var(--wine) !important; border-color: var(--wine) !important; color: #fff !important; }
 #folder-modal-save-btn:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
 #folder-modal-save-btn p { color: #fff !important; }
 #folder-modal-save-btn .hr-button__border,
 #folder-modal-save-btn .hr-button__state-border { display: none !important; }
-
-/* Abbrechen-Button hover */
 #folder-modal-cancel-btn:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
-
-/* Textfeld */
 #folder-name {
   --n-border-hover: 1px solid var(--wine) !important;
   --n-border-focus: 1px solid var(--wine) !important;
@@ -193,8 +169,6 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
   --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important;
 }
 #folder-name .hr-input__state-border { display: none !important; }
-
-/* Agenten-Select */
 #associated-agents-select .hr-base-selection {
   --n-border-active: 1px solid var(--wine) !important;
   --n-border-focus: 1px solid var(--wine) !important;
@@ -203,17 +177,14 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
   --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), 0px 1px 2px 0px #1018280D !important;
 }
 #associated-agents-select .hr-base-selection__state-border { display: none !important; }
-
-/* Header Icon */
 #folder-modal .hr-dialog__icon svg { fill: var(--wine) !important; color: var(--wine) !important; }
 ```
 
 ---
 
-## 121c – Agent erstellen Dropdown (`#create-agent-dropdown`)
+## Section 121c – Agent erstellen Dropdown
 
 ```css
-/* ── 121c Agent Dropdown ── */
 #create-agent-dropdown {
   --n-option-text-color-active: var(--wine) !important;
   --n-option-text-color-child-active: var(--wine) !important;
@@ -225,10 +196,90 @@ Besonderheit: Highrise nutzt `--primary-600` CSS-Variablen direkt im Komponenten
 
 ---
 
+## Section 121d – Agent erstellen Modal
+
+```css
+#create-agent-modal {
+  --primary-600: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+  --n-icon-color: var(--wine) !important;
+}
+#create-agent-btn { background-color: var(--wine) !important; border-color: var(--wine) !important; color: #fff !important; }
+#create-agent-btn:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#create-agent-btn p { color: #fff !important; }
+#create-agent-btn .hr-button__border,
+#create-agent-btn .hr-button__state-border { display: none !important; }
+#back-btn:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#agent-name,
+#agent-description {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important;
+}
+#agent-name .hr-input__state-border,
+#agent-description .hr-input__state-border { display: none !important; }
+#create-agent-modal .hr-dialog__icon svg { fill: var(--wine) !important; }
+#create-agent-modal .hr-header-lite-icon-item i { color: var(--wine) !important; }
+```
+
+---
+
+## Section 121e – Tabellen-Header Extras
+
+```css
+/* Selected-Tag (hr-tag--blue → wine) */
+.agent-directory-content-wrap .hr-tag--blue {
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-text-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine-2) !important;
+  --n-color-hover: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine) !important;
+}
+.agent-directory-content-wrap .hr-tag--blue .hr-tag__border { border-color: var(--wine) !important; }
+.agent-directory-content-wrap .hr-tag--blue .hr-text { color: var(--wine) !important; }
+
+/* Bulk Actions Button hover */
+.agent-directory-content-wrap #bulk-actions-button:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+.agent-directory-content-wrap #bulk-actions-button:hover p,
+.agent-directory-content-wrap #bulk-actions-button:hover svg { color: var(--wine) !important; }
+.agent-directory-content-wrap #bulk-actions-button .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## Section 121f – Tabellen-Zeilen Extras
+
+```css
+/* Agenten-Name Link hover */
+.agent-directory-content-wrap .agent-name-cell-clickable:hover,
+.agent-directory-content-wrap .agent-name-cell-clickable:hover * { color: var(--wine) !important; }
+
+/* Action-Dropdown (ID-Prefix, floating) */
+[id^="action-dropdown-"] {
+  --n-option-text-color-active: var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+  --n-option-color-active: rgba(91,25,45,0.08) !important;
+}
+[id^="action-dropdown-"] .hr-dropdown-option:hover { background-color: rgba(91,25,45,0.05) !important; }
+[id^="action-dropdown-"] .hr-dropdown-option:hover p,
+[id^="action-dropdown-"] .hr-dropdown-option:hover i { color: var(--wine) !important; }
+```
+
+---
+
 ## Besonderheiten
 
-**`--primary-600` auf Root-Scope:** Highrise rendert Button-Farben direkt via `var(--primary-600)` ohne über Klassen-Overrides erreichbar zu sein. Die Lösung ist, `--primary-600` auf `.agent-directory-content-wrap` selbst zu überschreiben — alle Highrise-Komponenten darunter erben den neuen Wert.
+**`--primary-600` Root-Override:** Highrise rendert Button-Farben direkt via `var(--primary-600)` — kein Klassen-Override möglich. Lösung: CSS-Var auf `.agent-directory-content-wrap` selbst setzen, alle Kindkomponenten erben den Wert. Gleiches Pattern in `#folder-modal` und `#create-agent-modal`.
 
-**Floating Dropdowns (`#sort-dropdown`, `#create-agent-dropdown`):** Beide werden außerhalb des `.agent-directory-content-wrap`-Scopes im DOM gemountet. Sie müssen global via ID targetiert werden — kein Scope-Präfix möglich.
+**Floating Dropdowns ohne Scope:** `#sort-dropdown`, `#create-agent-dropdown` und `[id^="action-dropdown-"]` werden außerhalb des DOM-Scopes gemountet. Globale ID-Selektoren nötig.
 
-**`data-v-23397495` Pagination:** Der aktive Pagination-Button hat ein Vue-Scoped-Attribut. Fragil bei GHL-Deployments — alternativ: `.hr-pagination-item__active button` (ohne `data-v`), falls der `data-v`-Wert sich ändert.
+**`[id^="action-dropdown-"]` (Prefix-Selektor):** Das Zeilen-Action-Dropdown enthält eine dynamische UUID in der ID (z.B. `action-dropdown-abc123`). Der `^=`-Präfix-Selektor matched alle IDs die mit `action-dropdown-` beginnen — robuster als ein exakter Selektor.
+
+**`data-v-23397495` Pagination:** Vue-Scoped-Attribut — kann sich nach GHL-Deployments ändern. Fallback: `.hr-pagination-item__active button` (ohne `data-v`).
