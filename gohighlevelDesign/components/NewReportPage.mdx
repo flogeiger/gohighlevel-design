@@ -1,0 +1,115 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/NewReportPage" />
+
+# Berichterstattung – Neuer Bericht (Section 112b)
+
+Die „Neuer Bericht"-Seite wird nach Klick auf „+ Neuer Bericht" in Section 112 geöffnet. Scope ist `#location-custom-reports`. Die Seite zeigt drei Auswahl-Karten (Leerer Bericht / Vorlagenbibliothek / Klonen), eine Sticky-Toolbar oben mit „Zurück"-Button und optional einen Dashboard-Select-Dropdown. NaïveUI (`n-button`, `n-base-selection`) wird verwendet.
+
+![New Report Page Screenshot](./new-report-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#location-custom-reports` |
+| Sticky Toolbar | `#location-custom-reports .hl-toolbar` |
+| Zurück-Button | `#report_create-btn-back` |
+| Auswahl-Karten | `#location-custom-reports .hl-card` |
+| „Auswählen" / „Klon" Buttons | `.n-button--default-type` |
+| Import-Button (primary) | `.n-button--primary-type` |
+| Dashboard-Select | `.n-base-selection` |
+
+---
+
+## 112b.1 – Toolbar
+
+Sticky Top Bar mit Zurück-Button und wine-Trennlinie.
+
+```css
+/* ── 112b.1 Toolbar ── */
+#location-custom-reports .hl-toolbar {
+  border-bottom: 2px solid var(--wine-lt) !important;
+}
+
+/* Zurück-Button hover */
+#location-custom-reports #report_create-btn-back:hover { color: var(--wine) !important; }
+#location-custom-reports #report_create-btn-back:hover p,
+#location-custom-reports #report_create-btn-back:hover svg { color: var(--wine) !important; }
+```
+
+---
+
+## 112b.2 – Auswahl-Karten
+
+Drei Karten mit Hover-State (wine Border + wine-lt Hintergrund) und Beschreibungstext.
+
+```css
+/* ── 112b.2 Auswahl-Karten ── */
+#location-custom-reports .hl-card:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+#location-custom-reports .hl-card:hover p.text-gray-600 {
+  color: var(--wine) !important;
+  opacity: 0.85;
+}
+```
+
+---
+
+## 112b.3 – Buttons
+
+„Auswählen" / „Klon" (default) und Import-Button (primary → wine).
+
+```css
+/* ── 112b.3 Buttons ── */
+/* Default Buttons hover */
+#location-custom-reports .n-button--default-type:not(#report_create-btn-back):hover {
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#location-custom-reports .n-button--default-type .n-button__border { border-color: transparent !important; }
+#location-custom-reports .n-button--default-type .n-button__state-border { display: none !important; }
+
+/* Import-Button (primary → wine) */
+#location-custom-reports .n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  box-shadow: 0 1px 4px rgba(91,25,45,0.25) !important;
+}
+#location-custom-reports .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#location-custom-reports .n-button--primary-type .n-button__border { border-color: transparent !important; }
+#location-custom-reports .n-button--primary-type .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 112b.4 – Dashboard-Select
+
+NaïveUI Select-Dropdown mit wine Focus-Ring.
+
+```css
+/* ── 112b.4 Dashboard-Select ── */
+#location-custom-reports .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+#location-custom-reports .n-base-selection.n-base-selection--active .n-base-selection__border,
+#location-custom-reports .n-base-selection.n-base-selection--focus .n-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#location-custom-reports .n-base-selection__state-border { display: none !important; }
+#location-custom-reports .n-base-selection .n-base-icon { color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`:not(#report_create-btn-back)` Ausnahme:** Der Zurück-Button ist ebenfalls ein `n-button--default-type` — wird aber explizit ausgenommen, damit sein Hover separat mit nur `color: wine` (kein border) gestaltet werden kann.
+
+**`border-color: transparent` auf `.n-button__border`:** Die Karten-Buttons haben im Default-State keinen sichtbaren Border — er wird erst auf Hover via `border-color: var(--wine)` eingeblendet. Daher transparent statt `var(--line-hard)` als Default.

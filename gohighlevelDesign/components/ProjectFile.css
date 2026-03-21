@@ -13727,6 +13727,106 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 }
 
 /* ================================================
+   Section 112b – Berichte: Neuer Bericht erstellen
+   Scope: #location-custom-reports
+   ================================================ */
+
+/* --------------------------------------------------
+   Karten (hover: border-primary-600 + bg-primary-50)
+   -------------------------------------------------- */
+#location-custom-reports .hl-card:hover {
+  border-color: var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+
+/* --------------------------------------------------
+   „Auswählen" / „Klon" Buttons (default-type) hover
+   -------------------------------------------------- */
+#location-custom-reports .n-button--default-type:not(#report_create-btn-back):hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#location-custom-reports .n-button--default-type .n-button__border {
+  border-color: transparent !important;
+}
+#location-custom-reports .n-button--default-type .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   Zurück-Button hover
+   -------------------------------------------------- */
+#location-custom-reports #report_create-btn-back:hover {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Import-Button (primary) → wine
+   -------------------------------------------------- */
+#location-custom-reports .n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  box-shadow: 0 1px 4px rgba(91, 25, 45, .25) !important;
+}
+#location-custom-reports .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#location-custom-reports .n-button--primary-type .n-button__border {
+  border-color: transparent !important;
+}
+#location-custom-reports .n-button--primary-type .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   Dashboard-Select (n-base-selection)
+   Hover / Focus → wine Border
+   -------------------------------------------------- */
+#location-custom-reports .n-base-selection:hover .n-base-selection__border {
+  border-color: var(--wine) !important;
+}
+#location-custom-reports .n-base-selection.n-base-selection--active .n-base-selection__border,
+#location-custom-reports .n-base-selection.n-base-selection--focus .n-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91, 25, 45, .2) !important;
+}
+#location-custom-reports .n-base-selection__state-border {
+  display: none !important;
+}
+/* Chevron-Pfeil */
+#location-custom-reports .n-base-selection .n-base-icon {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Toolbar (Sticky Top Bar)
+   -------------------------------------------------- */
+/* Dezente wine-Trennlinie unten */
+#location-custom-reports .hl-toolbar {
+  border-bottom: 2px solid var(--wine-lt) !important;
+}
+
+/* Zurück-Pfeil + Text hover → wine */
+#location-custom-reports #report_create-btn-back:hover p,
+#location-custom-reports #report_create-btn-back:hover svg {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   Karten-Hover: Text-Farben auch im Hover wine
+   -------------------------------------------------- */
+#location-custom-reports .hl-card:hover p.text-gray-600 {
+  color: var(--wine) !important;
+  opacity: 0.85;
+}
+
+
+
+
+
+
+/* ================================================
    Section 113 – Marktplatz (Marketplace)
    Scope: #marketplace-app
    Root: #marketplace-app .hr-wrapper-container.platform-ui__highrise
