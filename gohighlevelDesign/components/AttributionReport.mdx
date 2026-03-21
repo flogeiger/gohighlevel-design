@@ -1,0 +1,204 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reporting/AttributionReport" />
+
+# Berichterstattung – Attributionsbericht (Section 116)
+
+Der Attributionsbericht (`Berichterstattung → Attributionsbericht`) nutzt **NaïveUI** (`n-` Prefix) — im Gegensatz zu Sections 114/115 (Bootstrap). Scope ist `#attribution-dashboard`. Die Seite enthält einen Datepicker, Radio-Button-Pills (Erste / Letzte Zuordnung), einen Aktualisieren-Button, Stat-Karten, Sub-Tabs und ein Select-Dropdown für das Zeitintervall. Besonderheit: NaïveUI setzt viele Farben als CSS-Variablen per Inline-Style (`--n-bar-color`, `--n-dot-color-active` etc.) — diese müssen direkt auf dem betroffenen Element überschrieben werden.
+
+![Attribution Report Screenshot](./attribution-report-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#attribution-dashboard` |
+| Tabs | `.n-tabs-bar`, `.n-tabs-tab--active` |
+| Datepicker | `.n-input`, `.n-date-picker-icon` |
+| Radio-Pills | `.n-radio-button--checked`, `.n-radio-group` |
+| Buttons | `.n-button--default-type` |
+| Select-Dropdowns | `.n-base-selection` |
+| DataTable | `.n-data-table-th`, `.n-data-table-td a` |
+| Stat-Karten | `.hl-card .icon`, `.stat-number` |
+| Wrapper-Fix | `section.hl_topbar-tabs:has(#attribution-dashboard)` |
+
+---
+
+## 116.1 – Tabs
+
+```css
+/* ── 116.1 Tabs ── */
+#attribution-dashboard .n-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine) !important;
+  --n-tab-color: transparent !important;
+  --n-tab-color-segment: transparent !important;
+}
+#attribution-dashboard .n-tabs-bar { background-color: var(--wine) !important; }
+#attribution-dashboard .n-tabs-tab--active { background-color: transparent !important; box-shadow: none !important; }
+#attribution-dashboard .n-tabs-tab--active .n-tabs-tab__label { color: var(--wine) !important; }
+#attribution-dashboard .n-tabs-tab:hover .n-tabs-tab__label { color: var(--wine) !important; }
+#attribution-dashboard .n-tabs-nav { background-color: transparent !important; }
+```
+
+---
+
+## 116.2 – Datepicker
+
+NaïveUI Input mit wine Hover/Focus-Border und Kalender-Icon.
+
+```css
+/* ── 116.2 Datepicker ── */
+#attribution-dashboard .n-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#attribution-dashboard .n-input:hover .n-input__border { border-color: var(--wine) !important; }
+#attribution-dashboard .n-input:focus-within .n-input__border,
+#attribution-dashboard .n-input--focus .n-input__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#attribution-dashboard .n-input__state-border { display: none !important; }
+#attribution-dashboard .n-date-picker-icon { color: var(--wine) !important; }
+```
+
+---
+
+## 116.3 – Radio-Button-Pills (Erste / Letzte Zuordnung)
+
+NaïveUI Radio-Group im Pill-Stil mit wine aktivem State.
+
+```css
+/* ── 116.3 Radio-Pills ── */
+#attribution-dashboard .n-radio {
+  --n-dot-color-active: var(--wine) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus: inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-hover: inset 0 0 0 1px var(--wine) !important;
+}
+#attribution-dashboard .n-radio__dot--checked { background-color: var(--wine) !important; }
+#attribution-dashboard .n-radio--checked .n-radio__dot-wrapper,
+#attribution-dashboard .n-radio:hover .n-radio__dot-wrapper { box-shadow: inset 0 0 0 1.5px var(--wine) !important; }
+
+/* Radio-Group Pill aktiv */
+#attribution-dashboard .n-radio-group {
+  --n-button-border-color-active: var(--wine) !important;
+  --n-button-box-shadow-focus: inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-button-text-color-hover: var(--wine) !important;
+  --n-button-text-color-active: var(--wine) !important;
+}
+#attribution-dashboard .n-radio-button--checked { color: var(--wine) !important; border-color: var(--wine) !important; }
+#attribution-dashboard .n-radio-button--checked .n-radio-button__state-border {
+  border-color: var(--wine) !important;
+  box-shadow: inset 0 0 0 1px var(--wine) !important;
+}
+#attribution-dashboard .n-radio-button:not(.n-radio-button--checked):hover { color: var(--wine) !important; }
+```
+
+---
+
+## 116.4 – Buttons (Default)
+
+Alle Default-Buttons (Aktualisieren, Spalte, Exportieren, Pagination) auf Hover wine.
+
+```css
+/* ── 116.4 Default Buttons ── */
+#attribution-dashboard .n-button--default-type {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+#attribution-dashboard .n-button--default-type:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#attribution-dashboard .n-button__state-border { display: none !important; }
+```
+
+---
+
+## 116.5 – Select-Dropdowns (Intervall + Seiten-Größe)
+
+```css
+/* ── 116.5 Select-Dropdowns ── */
+#attribution-dashboard .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#attribution-dashboard .n-base-selection:hover .n-base-selection__border { border-color: var(--wine) !important; }
+#attribution-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
+#attribution-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#attribution-dashboard .n-base-selection__state-border { display: none !important; }
+#attribution-dashboard .n-base-icon.n-base-suffix__arrow { color: var(--wine) !important; }
+```
+
+---
+
+## 116.6 – DataTable
+
+```css
+/* ── 116.6 DataTable ── */
+#attribution-dashboard .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+#attribution-dashboard .n-data-table-th { border-bottom: 2px solid var(--wine-lt) !important; }
+#attribution-dashboard .n-data-table-th--active .n-data-table__sorter,
+#attribution-dashboard .n-data-table-th--active .n-data-table-th__title { color: var(--wine) !important; }
+
+/* Page-URL Links */
+#attribution-dashboard .n-data-table-td a { color: var(--wine) !important; }
+#attribution-dashboard .n-data-table-td a svg { stroke: var(--wine) !important; }
+#attribution-dashboard .n-data-table-td a:hover { color: var(--wine-2) !important; }
+#attribution-dashboard .n-data-table-td a:hover svg { stroke: var(--wine-2) !important; }
+```
+
+---
+
+## 116.7 – Stat-Karten
+
+```css
+/* ── 116.7 Stat-Karten ── */
+#attribution-dashboard .hl-card .icon { stroke: var(--wine) !important; color: var(--wine) !important; }
+#attribution-dashboard .stat-number { color: var(--wine) !important; }
+```
+
+---
+
+## 116.8 – Wrapper-Balken Fix
+
+```css
+/* ── 116.8 Wrapper-Fix ── */
+section.hl_topbar-tabs:has(#attribution-dashboard) {
+  background-color: transparent !important;
+  background: none !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**NaïveUI CSS-Variablen als Inline-Style:** NaïveUI setzt viele Farbwerte direkt als CSS Custom Properties auf dem Element (z.B. `--n-bar-color: #18a058`). Diese müssen mit `--n-var: wert !important` auf dem gleichen oder einem Eltern-Element überschrieben werden — nicht über klassische Selektor-Überschreibungen.
+
+**Radio-Pills vs. Radio-Circles:** Diese Seite verwendet beide NaïveUI Radio-Varianten: normale `.n-radio` (Kreise) für Einzel-Auswahl und `.n-radio-button` (Pills) für die Erste/Letzte-Zuordnung-Gruppe. Beide benötigen separate Overrides.
+
+**Kein Bootstrap:** Im Gegensatz zu Sections 114/115 (Google/Facebook Ads) verwendet diese Seite NaïveUI — keine Bootstrap-Klassen wie `.btn-primary` oder `.page-item`.
+
+**`:has()` Wrapper-Fix:** Der äußere `hl_topbar-tabs`-Wrapper wird gezielt via `:has(#attribution-dashboard)` selektiert — verhindert Kollisionen mit anderen Reporting-Tabs, die denselben Wrapper-Selektor teilen.

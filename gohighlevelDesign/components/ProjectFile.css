@@ -14549,6 +14549,208 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
   margin-top: -8px !important;
 }
 
+/* ================================================
+   Section 116 – Attributionsbericht
+   Scope: #attribution-dashboard
+   NaïveUI n- Prefix
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Tabs Bar + aktiver Tab → wine
+   Kein weißer Background-Box um aktiven Tab
+   -------------------------------------------------- */
+#attribution-dashboard .n-tabs {
+  --n-bar-color:            var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+  --n-tab-color:            transparent !important;
+  --n-tab-color-segment:    transparent !important;
+}
+#attribution-dashboard .n-tabs-bar {
+  background-color: var(--wine) !important;
+}
+#attribution-dashboard .n-tabs-tab--active {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+#attribution-dashboard .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine) !important;
+}
+#attribution-dashboard .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--wine) !important;
+}
+#attribution-dashboard .n-tabs-nav {
+  background-color: transparent !important;
+}
+
+/* --------------------------------------------------
+   2. Datepicker (n-input--pair) → wine
+   Inline-CSS nutzt #36ad6a / #18a058 → überschreiben
+   -------------------------------------------------- */
+#attribution-dashboard .n-input {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-caret-color:      var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:    var(--wine) !important;
+}
+#attribution-dashboard .n-input:hover .n-input__border {
+  border-color: var(--wine) !important;
+}
+#attribution-dashboard .n-input:focus-within .n-input__border,
+#attribution-dashboard .n-input--focus .n-input__border {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#attribution-dashboard .n-input__state-border {
+  display: none !important;
+}
+/* Kalender-Icon */
+#attribution-dashboard .n-date-picker-icon {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   3. Radio-Buttons (Erste / Letzte Zuordnung)
+   Aktiv: blau (#155EEF) → wine
+   -------------------------------------------------- */
+#attribution-dashboard .n-radio {
+  --n-dot-color-active:  var(--wine) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+}
+#attribution-dashboard .n-radio__dot--checked {
+  background-color: var(--wine) !important;
+}
+#attribution-dashboard .n-radio--checked .n-radio__dot-wrapper,
+#attribution-dashboard .n-radio:hover .n-radio__dot-wrapper {
+  box-shadow: inset 0 0 0 1.5px var(--wine) !important;
+}
+
+/* Radio-Button (pill) aktiv → wine Text + Border */
+#attribution-dashboard .n-radio-group {
+  --n-button-border-color-active: var(--wine) !important;
+  --n-button-box-shadow-focus:    inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-button-text-color-hover:    var(--wine) !important;
+  --n-button-text-color-active:   var(--wine) !important;
+}
+#attribution-dashboard .n-radio-button--checked {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#attribution-dashboard .n-radio-button--checked .n-radio-button__state-border {
+  border-color: var(--wine) !important;
+  box-shadow:   inset 0 0 0 1px var(--wine) !important;
+}
+#attribution-dashboard .n-radio-button:not(.n-radio-button--checked):hover {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   4. Alle n-button--default-type hover → wine
+   (Aktualisieren, Spalte, Exportieren, Filter,
+    Vorherige, Nächste)
+   -------------------------------------------------- */
+#attribution-dashboard .n-button--default-type {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-text-color-pressed: var(--wine) !important;
+  --n-text-color-focus:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+  --n-border-focus:       1px solid var(--wine) !important;
+}
+#attribution-dashboard .n-button--default-type:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#attribution-dashboard .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   5. Select-Dropdowns (Interval + Seiten-Größe)
+   Inline-CSS: #18a058 / #36ad6a → wine
+   -------------------------------------------------- */
+#attribution-dashboard .n-base-selection {
+  --n-border-active:      1px solid var(--wine) !important;
+  --n-border-focus:       1px solid var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-caret-color:        var(--wine) !important;
+  --n-box-shadow-active:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:   0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:      var(--wine) !important;
+}
+#attribution-dashboard .n-base-selection:hover .n-base-selection__border {
+  border-color: var(--wine) !important;
+}
+#attribution-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
+#attribution-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#attribution-dashboard .n-base-selection__state-border {
+  display: none !important;
+}
+/* Chevron-Pfeil → wine */
+#attribution-dashboard .n-base-icon.n-base-suffix__arrow {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   6. Tabellen-Header → wine-lt Underline
+   Aktive Sortierspalte-Icon → wine
+   -------------------------------------------------- */
+#attribution-dashboard .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color:        var(--wine) !important;
+}
+#attribution-dashboard .n-data-table-th {
+  border-bottom: 2px solid var(--wine-lt) !important;
+}
+#attribution-dashboard .n-data-table-th--active .n-data-table__sorter,
+#attribution-dashboard .n-data-table-th--active .n-data-table-th__title {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   7. Page-URL Links → wine (SVG-Link-Icon)
+   -------------------------------------------------- */
+#attribution-dashboard .n-data-table-td a {
+  color: var(--wine) !important;
+}
+#attribution-dashboard .n-data-table-td a svg {
+  stroke: var(--wine) !important;
+}
+#attribution-dashboard .n-data-table-td a:hover {
+  color: var(--wine-2) !important;
+}
+#attribution-dashboard .n-data-table-td a:hover svg {
+  stroke: var(--wine-2) !important;
+}
+
+/* --------------------------------------------------
+   8. Stat-Karten: Icon + Zahl → wine
+   -------------------------------------------------- */
+#attribution-dashboard .hl-card .icon {
+  stroke: var(--wine) !important;
+  color:  var(--wine) !important;
+}
+#attribution-dashboard .stat-number {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   9. Äußerer Wrapper-Balken links/rechts entfernen
+   Nur für Attribution-Dashboard targeten via :has()
+   -------------------------------------------------- */
+section.hl_topbar-tabs:has(#attribution-dashboard) {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+
 
 
 
