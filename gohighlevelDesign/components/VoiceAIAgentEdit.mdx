@@ -1,0 +1,338 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/VoiceAIAgentEdit" />
+
+# AI-Assistenten – Voice AI Agent bearbeiten (Sections 124–124f)
+
+Die Agent-Bearbeitungsseite (`Voice AI → Agent bearbeiten`) nutzt **NaïveUI** mit `#save-voice-ai-setting` als Scope-Anker. Sie hat 4 Tabs: **Agentendetails**, **Agentenziele**, **Telefon und Verfügbarkeit** und **Dashboard und Audit-Protokolle** (eigener Scope `#go-back-btn`). Diese MDX-Datei deckt alle Sub-Sections ab.
+
+- **124** — Agentendetails Tab (Inputs, Selects, Speichern, Zuhören)
+- **124b** — Dropdown-Tree Popover (`#additional-action-items-list`)
+- **124c** — Agentenziele Tab (Checkboxen, Switches, Wissensdatenbank)
+- **124d** — Telefon & Verfügbarkeit Tab (Upgrade, Rufnummern)
+- **124f** — Dashboard & Audit-Protokolle Tab (`#go-back-btn`)
+
+![Voice AI Agent Edit Screenshot](./voice-ai-agent-edit-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 124 | `.hl-wrapper-container:has(#save-voice-ai-setting)` |
+| 124b | `#additional-action-items-list` |
+| 124c | `.hl-wrapper-container:has(#save-voice-ai-setting)` (Ziele-Tab) |
+| 124d | `.hl-wrapper-container:has(#save-voice-ai-setting)` (Telefon-Tab) |
+| 124f | `.hl-wrapper-container:has(#go-back-btn)` |
+
+---
+
+## Section 124 – Agentendetails Tab
+
+### Tabs
+
+```css
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-tabs-bar { background-color: var(--wine) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-tabs-tab--active { color: var(--wine) !important; background-color: transparent !important; box-shadow: none !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-tabs-tab--active .n-tabs-tab__label { color: var(--wine) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-tabs-tab:hover { background-color: transparent !important; box-shadow: none !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-tabs-tab:hover .n-tabs-tab__label { color: var(--wine) !important; }
+```
+
+### Inputs & Selects
+
+```css
+/* Alle n-input */
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-input__state-border { display: none !important; }
+
+/* Alle n-base-selection */
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-base-selection__state-border { display: none !important; }
+```
+
+### Speichern Button & Zuhören Button
+
+```css
+/* Speichern Primary */
+.hl-wrapper-container:has(#save-voice-ai-setting) #save-voice-ai-setting {
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) #save-voice-ai-setting:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) #save-voice-ai-setting .n-button__border,
+.hl-wrapper-container:has(#save-voice-ai-setting) #save-voice-ai-setting .n-button__state-border { display: none !important; }
+
+/* „Zuhören" Button */
+.hl-wrapper-container:has(#save-voice-ai-setting) #play-voice-display {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) #play-voice-display:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+/* Equalizer-Bild hue-rotate → wine */
+.hl-wrapper-container:has(#save-voice-ai-setting) #play-voice-display img[alt="Equalizer"] {
+  filter: hue-rotate(110deg) saturate(0.8) brightness(0.9) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) #play-voice-display .n-button__state-border { display: none !important; }
+```
+
+### text-primary-* & bg-primary-* Klassen
+
+```css
+.hl-wrapper-container:has(#save-voice-ai-setting) .text-primary-700,
+.hl-wrapper-container:has(#save-voice-ai-setting) .text-primary-600,
+.hl-wrapper-container:has(#save-voice-ai-setting) .text-primary-500 { color: var(--wine) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .bg-primary-25 { background-color: var(--wine-lt) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .bg-primary-100 { background-color: rgba(91,25,45,0.1) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .bg-primary-50 { background-color: rgba(91,25,45,0.05) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .border-primary-200 { border-color: rgba(91,25,45,0.3) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .hover\:bg-primary-100:hover { background-color: rgba(91,25,45,0.15) !important; }
+
+/* „Erweiterte Einstellungen" Link */
+.hl-wrapper-container:has(#save-voice-ai-setting) #advanced-settings { color: var(--wine) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) #advanced-settings svg { color: var(--wine) !important; }
+
+/* Wrapper-Fix */
+section.hl_topbar-tabs:has(#save-voice-ai-setting) { background-color: transparent !important; background: none !important; }
+```
+
+---
+
+## Section 124b – Dropdown-Tree Popover
+
+```css
+/* Suchfeld */
+#additional-action-items-list #dropdown-tree-search {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#additional-action-items-list #dropdown-tree-search .n-input__state-border { display: none !important; }
+
+/* Items hover + aktiv */
+#additional-action-items-list .dropdown-tree__item:hover { background-color: var(--wine-lt) !important; }
+#additional-action-items-list .dropdown-tree__item:hover .dropdown-tree__item--label,
+#additional-action-items-list .dropdown-tree__item:hover .dropdown-tree__item--label span,
+#additional-action-items-list .dropdown-tree__item:hover .n-ellipsis,
+#additional-action-items-list .dropdown-tree__item:hover .n-ellipsis span,
+#additional-action-items-list .dropdown-tree__item:hover svg { color: var(--wine) !important; }
+#additional-action-items-list .dropdown-tree__item--active,
+#additional-action-items-list .dropdown-tree__item.active { background-color: var(--wine-lt) !important; color: var(--wine) !important; }
+```
+
+---
+
+## Section 124c – Agentenziele Tab
+
+```css
+/* „Wechseln" + „Neu erstellen" Buttons */
+.hl-wrapper-container:has(#save-voice-ai-setting) #switch-btn,
+.hl-wrapper-container:has(#save-voice-ai-setting) #upgrade-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #fff !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-text-color: #fff !important;
+  --n-text-color-hover: #fff !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) #switch-btn:hover,
+.hl-wrapper-container:has(#save-voice-ai-setting) #upgrade-button:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; color: #fff !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) #switch-btn .n-button__state-border,
+.hl-wrapper-container:has(#save-voice-ai-setting) #upgrade-button .n-button__state-border,
+.hl-wrapper-container:has(#save-voice-ai-setting) #switch-btn .n-button__border,
+.hl-wrapper-container:has(#save-voice-ai-setting) #upgrade-button .n-button__border { display: none !important; }
+
+/* Wissensdatenbank Select */
+.hl-wrapper-container:has(#save-voice-ai-setting) #select-knowledge-base .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Checkbox-Gruppe */
+.hl-wrapper-container:has(#save-voice-ai-setting) .hl-checkbox-group-item {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) .hl-checkbox-group-item:hover { border-color: var(--wine) !important; color: var(--wine) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .hl-checkbox-group-item.active { border-color: var(--wine) !important; color: var(--wine) !important; outline: none !important; box-shadow: none !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) .hl-checkbox-group-item .n-button__state-border { display: none !important; }
+
+/* NaïveUI Checkboxen */
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-checkbox {
+  --n-border-checked: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-color-checked: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.3) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-checkbox.n-checkbox--checked .n-checkbox-box,
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-checkbox--checked .n-checkbox-box { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+
+/* Toggle Switches */
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-loading-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) .n-switch.n-switch--active .n-switch__rail { background-color: var(--wine) !important; }
+```
+
+---
+
+## Section 124d – Telefon & Verfügbarkeit Tab
+
+```css
+/* Upgrade + Neue Rufnummer Buttons */
+.hl-wrapper-container:has(#save-voice-ai-setting) #ai-pricing-component #upgrade-button,
+.hl-wrapper-container:has(#save-voice-ai-setting) #buy-new-number-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  color: #fff !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-text-color: #fff !important;
+  --n-text-color-hover: #fff !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+.hl-wrapper-container:has(#save-voice-ai-setting) #ai-pricing-component #upgrade-button:hover,
+.hl-wrapper-container:has(#save-voice-ai-setting) #buy-new-number-button:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.hl-wrapper-container:has(#save-voice-ai-setting) #ai-pricing-component #upgrade-button .n-button__state-border,
+.hl-wrapper-container:has(#save-voice-ai-setting) #ai-pricing-component #upgrade-button .n-button__border,
+.hl-wrapper-container:has(#save-voice-ai-setting) #buy-new-number-button .n-button__state-border,
+.hl-wrapper-container:has(#save-voice-ai-setting) #buy-new-number-button .n-button__border { display: none !important; }
+
+/* Rufnummern Select */
+.hl-wrapper-container:has(#save-voice-ai-setting) #select-id-inbound-number .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+```
+
+---
+
+## Section 124f – Dashboard & Audit-Protokolle Tab
+
+```css
+/* Scope: #go-back-btn */
+.hl-wrapper-container:has(#go-back-btn) .n-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine) !important;
+}
+.hl-wrapper-container:has(#go-back-btn) .n-tabs-bar { background-color: var(--wine) !important; }
+.hl-wrapper-container:has(#go-back-btn) .n-tabs-tab--active .n-tabs-tab__label { color: var(--wine) !important; }
+.hl-wrapper-container:has(#go-back-btn) .n-tabs-tab--active { background-color: transparent !important; box-shadow: none !important; }
+.hl-wrapper-container:has(#go-back-btn) .n-tabs-tab:hover .n-tabs-tab__label { color: var(--wine) !important; }
+
+/* Datepicker */
+.hl-wrapper-container:has(#go-back-btn) #date-range .n-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+
+/* Aktive Metric-Card */
+.hl-wrapper-container:has(#go-back-btn) .metric-card.active { border-color: var(--wine) !important; outline: 1px solid var(--wine) !important; }
+
+/* Selects */
+.hl-wrapper-container:has(#go-back-btn) #select-id .n-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+
+/* DataTable */
+.hl-wrapper-container:has(#go-back-btn) .n-data-table { --n-th-icon-color-active: var(--wine) !important; --n-loading-color: var(--wine) !important; }
+.hl-wrapper-container:has(#go-back-btn) .n-data-table-th--hover { color: var(--wine) !important; }
+
+/* „Filter zurücksetzen" hover */
+.hl-wrapper-container:has(#go-back-btn) #empty-call-logs-list-btn-negative-action {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+}
+.hl-wrapper-container:has(#go-back-btn) #empty-call-logs-list-btn-negative-action:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+.hl-wrapper-container:has(#go-back-btn) #empty-call-logs-list-btn-negative-action .n-button__state-border { display: none !important; }
+
+/* „Zurück" Primary */
+.hl-wrapper-container:has(#go-back-btn) #go-back-btn {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+.hl-wrapper-container:has(#go-back-btn) #go-back-btn:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.hl-wrapper-container:has(#go-back-btn) #go-back-btn .n-button__border,
+.hl-wrapper-container:has(#go-back-btn) #go-back-btn .n-button__state-border { display: none !important; }
+
+/* Wrapper-Fix */
+section.hl_topbar-tabs:has(#go-back-btn) { background-color: transparent !important; background: none !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Zwei Scope-Anker:** Agentendetails/Agentenziele/Telefon nutzen `#save-voice-ai-setting`; das Dashboard-Tab wechselt den Anker zu `#go-back-btn` — GHL rendert den Footer-Button kontextabhängig.
+
+**`hue-rotate` auf Equalizer-Bild (124):** Gleiche Technik wie Section 120b (Bot-Typ Icons) — Raster-Bild kann nicht per `fill` gefärbt werden, daher `hue-rotate(110deg)`.
+
+**`hl-checkbox-group-item`:** GHL-eigene Button-Gruppe, kein Standard-NaïveUI-Checkbox — verhält sich wie ein Toggle-Button, hat `.active`-Klasse statt `checked`-State.
+
+**`#upgrade-button` in `#ai-pricing-component`:** GHL setzt `color: rgb(91,37,208)` als Inline-Style direkt auf diesem Button (lila). Der spezifischere Scope `#ai-pricing-component #upgrade-button` ist nötig um den Inline-Style mit `!important` zu überschreiben.
