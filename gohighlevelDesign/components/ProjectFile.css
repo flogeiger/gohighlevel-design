@@ -17741,3 +17741,163 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
   border-color: var(--akzent) !important;
 }
 .hr-modal.ui-modal .hr-pagination .hr-button .hr-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 126 – Marktplatz App-Detailseite
+   Scope: #marketplace-app
+   hr- Prefix (Highrise Library)
+   ================================================ */
+
+/* --------------------------------------------------
+   1. „Zurück" Link → wine
+   -------------------------------------------------- */
+#marketplace-app .text-primary-500 {
+  color: var(--wine) !important;
+}
+#marketplace-app .text-primary-500:hover {
+  color: var(--wine-2) !important;
+}
+
+/* --------------------------------------------------
+   2. Tab Bar → wine
+   -------------------------------------------------- */
+#marketplace-app .hr-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+}
+#marketplace-app .hr-tabs-bar {
+  background-color: var(--wine) !important;
+}
+#marketplace-app .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--wine) !important;
+}
+#marketplace-app .hr-tabs-tab--active {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+}
+#marketplace-app .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   3. „Installieren" Primary Button → wine
+   -------------------------------------------------- */
+#marketplace-app #install-btn-2 {
+  background-color:  var(--wine) !important;
+  border-color:      var(--wine) !important;
+  --n-color:         var(--wine) !important;
+  --n-color-hover:   var(--wine-2) !important;
+  --n-border:        1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine-2) !important;
+  --n-ripple-color:  var(--wine) !important;
+}
+#marketplace-app #install-btn-2:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#marketplace-app #install-btn-2 .hr-button__border,
+#marketplace-app #install-btn-2 .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   4. „Schreibe eine Bewertung" Primary Button → wine
+   -------------------------------------------------- */
+#marketplace-app #write-review-btn {
+  background-color:  var(--wine) !important;
+  border-color:      var(--wine) !important;
+  --n-color:         var(--wine) !important;
+  --n-color-hover:   var(--wine-2) !important;
+  --n-border:        1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine-2) !important;
+  --n-ripple-color:  var(--wine) !important;
+}
+#marketplace-app #write-review-btn .hr-button__border,
+#marketplace-app #write-review-btn .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   5. „Neuestes zuerst" Sort-Button hover → wine
+   -------------------------------------------------- */
+#marketplace-app #sort-dropdown-btn {
+  --n-ripple-color:       var(--wine) !important;
+  --n-text-color-hover:   var(--wine) !important;
+  --n-border-hover:       1px solid var(--wine) !important;
+  --n-border-pressed:     1px solid var(--wine) !important;
+}
+#marketplace-app #sort-dropdown-btn:hover {
+  color:        var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#marketplace-app #sort-dropdown-btn .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   6. View-Selector Select → wine
+   -------------------------------------------------- */
+#marketplace-app #view-selector-view-mode .hr-base-selection {
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.15) !important;
+}
+#marketplace-app #view-selector-view-mode .hr-base-selection__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   7. Tags – „White-Label verifiziert" + Anwendungsfall (blau) → wine
+   -------------------------------------------------- */
+#marketplace-app .ui-success.hr-tag,
+#marketplace-app .ui-primary.hr-tag {
+  background-color: rgba(91,25,45,.08) !important;
+  border-color:     rgba(91,25,45,.25) !important;
+  --n-color:              rgba(91,25,45,.08) !important;
+  --n-color-checked:      var(--wine) !important;
+  --n-color-checked-hover: var(--wine-2) !important;
+  --n-text-color:         var(--wine) !important;
+  --n-close-icon-color:   var(--wine) !important;
+  --n-border:             1px solid rgba(91,25,45,.25) !important;
+}
+#marketplace-app .ui-success .hr-tag__border,
+#marketplace-app .ui-primary .hr-tag__border {
+  border-color: rgba(91,25,45,.25) !important;
+}
+
+/* --------------------------------------------------
+   8. Support-Links (E-Mail, Telefon) → wine
+   -------------------------------------------------- */
+#marketplace-app .text-primary-600,
+#marketplace-app a[style*="color: rgb(21, 94, 239)"] {
+  color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   9. Progress Bars (Bewertungs-Balken) → wine
+   Inline --n-fill-color: #2080f0 überschreiben
+   -------------------------------------------------- */
+#marketplace-app .hr-progress {
+  --n-fill-color:  var(--wine) !important;
+  --n-icon-color:  var(--wine) !important;
+}
+#marketplace-app .hr-progress-graph-line-fill {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+}
+#marketplace-app .hr-progress-graph-line-fill::before,
+#marketplace-app .hr-progress-graph-line-fill::after {
+  background-color: var(--wine) !important;
+}
+
+/* --------------------------------------------------
+   10. App Avatar Hintergrund → wine-lt
+   -------------------------------------------------- */
+#marketplace-app .hr-avatar[style*="--primary-100"] {
+  background: var(--wine-lt) !important;
+}

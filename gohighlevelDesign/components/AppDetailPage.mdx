@@ -1,0 +1,156 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketplace/AppDetailPage" />
+
+# App-Marktplatz – App-Detailseite (Section 126)
+
+Die App-Detailseite öffnet sich nach Klick auf eine App-Kachel im Marktplatz. Scope bleibt `#marketplace-app`. Die Seite zeigt App-Header (Avatar, Name, Sterne, Tags), Tab-Navigation (Overview, Reviews etc.), einen „Installieren"-Button, Metadaten-Tabelle, Screenshot-Galerie, Progress-Bar-Bewertungen und Support-Links.
+
+![App Detail Page Screenshot](./app-detail-page-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#marketplace-app` (gleich wie Section 113) |
+| „Zurück" Link | `.text-primary-500` |
+| Tab Bar | `.hr-tabs-bar`, `.hr-tabs-tab--active` |
+| „Installieren" Button | `#install-btn-2` |
+| „Schreibe eine Bewertung" | `#write-review-btn` |
+| Sort-Button | `#sort-dropdown-btn` |
+| View-Selector | `#view-selector-view-mode .hr-base-selection` |
+| Tags (WL Verified etc.) | `.ui-success.hr-tag`, `.ui-primary.hr-tag` |
+| Support-Links | `.text-primary-600`, `a[style*="color: rgb(21, 94, 239)"]` |
+| Progress Bars | `.hr-progress`, `.hr-progress-graph-line-fill` |
+| App Avatar | `.hr-avatar[style*="--primary-100"]` |
+
+---
+
+## 126.1 – „Zurück" Link & Tab Bar
+
+```css
+/* ── 126.1 Zurück + Tabs ── */
+#marketplace-app .text-primary-500 { color: var(--wine) !important; }
+#marketplace-app .text-primary-500:hover { color: var(--wine-2) !important; }
+
+#marketplace-app .hr-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine) !important;
+}
+#marketplace-app .hr-tabs-bar { background-color: var(--wine) !important; }
+#marketplace-app .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine) !important; }
+#marketplace-app .hr-tabs-tab--active { background-color: transparent !important; box-shadow: none !important; }
+#marketplace-app .hr-tabs-tab:hover .hr-tabs-tab__label { color: var(--wine) !important; }
+```
+
+---
+
+## 126.2 – Buttons
+
+„Installieren" und „Schreibe eine Bewertung" (Primary), Sort-Button (Default hover).
+
+```css
+/* „Installieren" */
+#marketplace-app #install-btn-2 {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#marketplace-app #install-btn-2:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#marketplace-app #install-btn-2 .hr-button__border,
+#marketplace-app #install-btn-2 .hr-button__state-border { display: none !important; }
+
+/* „Schreibe eine Bewertung" */
+#marketplace-app #write-review-btn {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#marketplace-app #write-review-btn .hr-button__border,
+#marketplace-app #write-review-btn .hr-button__state-border { display: none !important; }
+
+/* Sort-Button hover */
+#marketplace-app #sort-dropdown-btn {
+  --n-ripple-color: var(--wine) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-pressed: 1px solid var(--wine) !important;
+}
+#marketplace-app #sort-dropdown-btn:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#marketplace-app #sort-dropdown-btn .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## 126.3 – View-Selector & Tags
+
+```css
+/* View-Selector Select */
+#marketplace-app #view-selector-view-mode .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.15) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.15) !important;
+}
+#marketplace-app #view-selector-view-mode .hr-base-selection__state-border { display: none !important; }
+
+/* Tags (White-Label Verified, Anwendungsfall) */
+#marketplace-app .ui-success.hr-tag,
+#marketplace-app .ui-primary.hr-tag {
+  background-color: rgba(91,25,45,0.08) !important;
+  border-color: rgba(91,25,45,0.25) !important;
+  --n-color: rgba(91,25,45,0.08) !important;
+  --n-text-color: var(--wine) !important;
+  --n-border: 1px solid rgba(91,25,45,0.25) !important;
+}
+#marketplace-app .ui-success .hr-tag__border,
+#marketplace-app .ui-primary .hr-tag__border { border-color: rgba(91,25,45,0.25) !important; }
+
+/* Support-Links */
+#marketplace-app .text-primary-600,
+#marketplace-app a[style*="color: rgb(21, 94, 239)"] { color: var(--wine) !important; }
+```
+
+---
+
+## 126.4 – Progress Bars & App Avatar
+
+```css
+/* Progress Bars (Bewertungs-Balken) */
+#marketplace-app .hr-progress {
+  --n-fill-color: var(--wine) !important;
+  --n-icon-color: var(--wine) !important;
+}
+#marketplace-app .hr-progress-graph-line-fill { background-color: var(--wine) !important; background: var(--wine) !important; }
+#marketplace-app .hr-progress-graph-line-fill::before,
+#marketplace-app .hr-progress-graph-line-fill::after { background-color: var(--wine) !important; }
+
+/* App Avatar */
+#marketplace-app .hr-avatar[style*="--primary-100"] { background: var(--wine-lt) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Gleicher Scope `#marketplace-app`:** Section 126 ist eine Unterseite von Section 113 — kein eigener Root-Scope. Alle Selektoren sind innerhalb desselben `#marketplace-app` Containers gültig, da GHL die Detailseite per Vue-Router in denselben Wrapper rendert.
+
+**`a[style*="color: rgb(21, 94, 239)"]`:** Support-Links (E-Mail, Telefon) setzen ihre Farbe als Inline-Style — Attribut-Selektor nötig. Gleiche Strategie wie Kampagnen-Links in Section 114 (Google Ads).
+
+**Progress Bars — `--n-fill-color` + direktes `background-color`:** NaïveUI setzt die Füllfarbe über `--n-fill-color` als Inline-Style. Beide Wege (`--n-fill-color` auf `.hr-progress` + `background-color` auf `.hr-progress-graph-line-fill`) werden parallel gesetzt — der `::before`/`::after` Override fängt animierte Varianten ab.
+
+**`.ui-success.hr-tag`:** Das „White-Label Verified"-Badge nutzt `.ui-success` (grün) statt `.ui-primary` (blau) — beide werden einheitlich auf wine umgefärbt, da die semantische Bedeutung (Verifikation) durch den Badge-Text kommuniziert wird.
