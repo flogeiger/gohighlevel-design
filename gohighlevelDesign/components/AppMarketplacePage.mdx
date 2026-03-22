@@ -2,51 +2,46 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Marketplace/AppMarketplacePage" />
 
-# App-Marktplatz (Section 113)
+# App-Marktplatz (Sections 113 & 113b)
 
-Der App-Marktplatz (`App-Marktplatz`) nutzt ausschließlich die **Highrise Component Library** (`hr-` Prefix). Root-Scope ist `#marketplace-app`. Die Seite enthält horizontale Tabs, einen View-Selector-Dropdown, ein Suchfeld, eine Filter-Sidebar (Collapse + Checkboxen + Radio-Buttons), App-Kacheln mit Sternebewertung und Pagination. Besonderheit: Radio-Buttons müssen über `box-shadow` auf `.hr-radio__dot-wrapper` direkt gestylt werden — CSS-Variablen-Overrides auf dem Label-Element greifen nicht zuverlässig.
+Der App-Marktplatz (`App-Marktplatz`) nutzt ausschließlich die **Highrise Component Library** (`hr-` Prefix). Root-Scope ist `#marketplace-app`. Die Seite enthält horizontale Tabs, einen View-Selector-Dropdown, ein Suchfeld, eine Filter-Sidebar (Collapse + Checkboxen + Radio-Buttons), App-Kacheln mit Sternebewertung und Pagination.
+
+**Neu in dieser Version:** Section **113b** (Pricing-Modal) und überarbeitete Radio-Button- und Checkbox-Patterns mit vollständigen Fokus/Hover/Checked-States.
 
 ![App Marketplace Page Screenshot](./app-marketplace-page-screenshot.png)
 
 ---
 
-## Struktur & Root-Selektor
+## Struktur & Root-Selektoren
 
-| Bereich | Selektor |
+| Section | Scope |
 |---|---|
-| Root | `#marketplace-app` |
-| Tabs (horizontal) | `.hr-tabs-bar`, `.hr-tabs-tab--active` |
-| Segment-Tabs | `.hr-tabs--segment-type .hr-tabs-capsule` |
-| View-Dropdown | `.hr-base-selection` |
-| Suchfeld | `#user-query-search .hr-input` |
-| Filter-Sidebar | `.hr-collapse-item`, `.hr-checkbox`, `.hr-radio` |
-| App-Kacheln | `.crm-marketplace-app-details-card` |
-| Sterne | `.star-filled`, `.star-empty` |
-| Tags | `.hr-tag.ui-primary`, `.hr-tag.hr-tag--closable` |
-| Pagination | `.hr-pagination-item--active`, `.hr-pages-cntr` |
+| 113 | `#marketplace-app` |
+| 113b Pricing Modal | `.hr-modal.ui-modal` (teleportiert, global) |
 
 ---
 
 ## 113.1 – Tabs & Segment-Tabs
 
-Horizontale Haupt-Tabs und Segment-Tabs (Agenturansicht / Unterkonto-Ansicht).
-
 ```css
 /* Haupt-Tabs */
 #marketplace-app .hr-tabs-bar { background-color: var(--wine) !important; }
-#marketplace-app .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine) !important; }
+#marketplace-app .hr-tabs-tab--active .hr-tabs-tab__label,
 #marketplace-app .hr-tabs-tab:hover .hr-tabs-tab__label { color: var(--wine) !important; }
 
-/* Segment-Tabs */
+/* Segment-Tabs (Agenturansicht / Unterkonto-Ansicht) */
 #marketplace-app .hr-tabs--segment-type .hr-tabs-capsule {
   background-color: var(--wine) !important;
   border-radius: 4px !important;
 }
+/* Aktiver Tab: Text weiß – direkt auf Label + alle Kinder */
 #marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active .hr-tabs-tab__label,
-#marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active {
-  color: #fff !important;
-}
-#marketplace-app .hr-tabs--segment-type .hr-tabs-tab:hover .hr-tabs-tab__label {
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active .hr-tabs-tab__label *,
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active,
+#agency-view-selector .hr-tabs-tab--active .hr-tabs-tab__label,
+#agency-view-selector .hr-tabs-tab--active .hr-tabs-tab__label * { color: #ffffff !important; }
+/* Hover-Tab: wine */
+#marketplace-app .hr-tabs--segment-type .hr-tabs-tab:not(.hr-tabs-tab--active):hover .hr-tabs-tab__label {
   color: var(--wine) !important;
 }
 ```
@@ -55,14 +50,14 @@ Horizontale Haupt-Tabs und Segment-Tabs (Agenturansicht / Unterkonto-Ansicht).
 
 ## 113.2 – View-Selector Dropdown
 
-„Agenturansicht / Unterkonto-Ansicht"-Dropdown mit wine Focus-Ring.
-
 ```css
-/* ── 113.2 View-Selector ── */
-#marketplace-app .hr-base-selection:hover .hr-base-selection__border { border-color: var(--wine) !important; }
+#marketplace-app .hr-base-selection:hover .hr-base-selection__border,
 #marketplace-app .hr-base-selection.hr-base-selection--focus .hr-base-selection__border,
 #marketplace-app .hr-base-selection.hr-base-selection--active .hr-base-selection__border {
   border-color: var(--wine) !important;
+}
+#marketplace-app .hr-base-selection.hr-base-selection--focus .hr-base-selection__border,
+#marketplace-app .hr-base-selection.hr-base-selection--active .hr-base-selection__border {
   box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
 }
 #marketplace-app .hr-base-selection__state-border { display: none !important; }
@@ -71,7 +66,7 @@ Horizontale Haupt-Tabs und Segment-Tabs (Agenturansicht / Unterkonto-Ansicht).
 /* Dropdown-Optionen */
 #marketplace-app .n-base-select-option.n-base-select-option--selected,
 #marketplace-app .n-base-select-option:hover { color: var(--wine) !important; }
-#marketplace-app .n-base-select-option.n-base-select-option--selected::before { background-color: var(--wine-lt) !important; }
+#marketplace-app .n-base-select-option.n-base-select-option--selected::before,
 #marketplace-app .n-base-select-option:hover::before { background-color: var(--wine-lt) !important; }
 ```
 
@@ -80,60 +75,78 @@ Horizontale Haupt-Tabs und Segment-Tabs (Agenturansicht / Unterkonto-Ansicht).
 ## 113.3 – Suchfeld
 
 ```css
-/* ── 113.3 Suchfeld ── */
-#marketplace-app .hr-input:hover .hr-input__border { border-color: var(--wine) !important; }
-#marketplace-app .hr-input.hr-input--focus .hr-input__border {
-  border-color: var(--wine) !important;
-  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
-}
+#marketplace-app .hr-input:hover .hr-input__border,
+#marketplace-app .hr-input.hr-input--focus .hr-input__border { border-color: var(--wine) !important; }
+#marketplace-app .hr-input.hr-input--focus .hr-input__border { box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important; }
 #marketplace-app .hr-input__state-border { display: none !important; }
 #marketplace-app #user-query-search .hr-input__prefix svg { color: var(--wine) !important; opacity: 0.65; }
 ```
 
 ---
 
-## 113.4 – Filter-Sidebar
-
-Collapse-Items, Checkboxen und Radio-Buttons.
+## 113.4 – Filter-Sidebar (Collapse, Checkboxen, Radio-Buttons)
 
 ```css
-/* ── 113.4 Filter-Sidebar ── */
 /* Collapse */
-#marketplace-app .hr-collapse-item-arrow { color: var(--wine) !important; }
+#marketplace-app .hr-collapse-item-arrow,
 #marketplace-app .hr-collapse-item__header:hover .hr-collapse-item__header-main { color: var(--wine) !important; }
 #marketplace-app .hr-collapse-item + .hr-collapse-item { border-top-color: var(--wine-lt) !important; }
 
-/* Checkboxen */
+/* Checkboxen — vollständige States */
+#marketplace-app .hr-checkbox-box { border: 1px solid #e0e0e6 !important; border-radius: 2px !important; }
+#marketplace-app .hr-checkbox:hover .hr-checkbox-box { border-color: var(--wine) !important; box-shadow: none !important; }
+#marketplace-app .hr-checkbox:focus .hr-checkbox-box,
+#marketplace-app .hr-checkbox:focus-within .hr-checkbox-box,
+#marketplace-app .hr-checkbox:focus-visible .hr-checkbox-box {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#marketplace-app .hr-checkbox--checked .hr-checkbox-box,
 #marketplace-app .hr-checkbox.hr-checkbox--checked .hr-checkbox-box {
   background-color: var(--wine) !important;
   border-color: var(--wine) !important;
 }
-#marketplace-app .hr-checkbox:hover .hr-checkbox-box { border-color: var(--wine) !important; }
-#marketplace-app .hr-checkbox.hr-checkbox--checked .hr-checkbox-box__border { border-color: var(--wine) !important; }
-#marketplace-app .hr-checkbox-icon .check-icon path { fill: #fff !important; }
-
-/* Radio-Buttons */
-/* Outline und native input komplett entfernen */
-#marketplace-app label.hr-radio { outline: none !important; box-shadow: none !important; }
-#marketplace-app label.hr-radio:focus,
-#marketplace-app label.hr-radio:focus-visible { outline: none !important; box-shadow: none !important; }
-#marketplace-app .hr-radio-input { display: none !important; }
-
-/* Kreis-Ring via box-shadow (einzig zuverlässige Methode) */
-#marketplace-app .hr-radio__dot-wrapper {
-  outline: none !important;
-  border: none !important;
-  box-shadow: inset 0 0 0 1.5px rgb(224,224,230) !important;
+#marketplace-app .hr-checkbox--checked:hover .hr-checkbox-box,
+#marketplace-app .hr-checkbox.hr-checkbox--checked:hover .hr-checkbox-box {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
 }
-#marketplace-app .hr-radio__dot-wrapper:hover,
-#marketplace-app .hr-radio:hover > .hr-radio__dot-wrapper,
-#marketplace-app .hr-radio:hover .hr-radio__dot-wrapper {
+#marketplace-app .hr-checkbox-box__border { display: none !important; }
+#marketplace-app .hr-checkbox--checked .hr-checkbox-icon .check-icon path,
+#marketplace-app .hr-checkbox-icon .check-icon path { fill: #ffffff !important; stroke: none !important; }
+#marketplace-app .hr-checkbox:focus,
+#marketplace-app .hr-checkbox:focus-visible { outline: none !important; box-shadow: none !important; }
+
+/* Radio-Buttons — via .hr-radio__dot (nicht __dot-wrapper) */
+#marketplace-app label.hr-radio,
+#marketplace-app label.hr-radio:hover,
+#marketplace-app label.hr-radio:focus,
+#marketplace-app label.hr-radio:focus-visible,
+#marketplace-app label.hr-radio:focus-within,
+#marketplace-app label.hr-radio:active { outline: none !important; box-shadow: none !important; }
+#marketplace-app .hr-radio__dot-wrapper { outline: none !important; border: none !important; }
+#marketplace-app .hr-radio-input { display: none !important; }
+#marketplace-app .hr-radio__dot {
+  box-shadow: inset 0 0 0 1.5px #e0e0e6 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 50% !important;
+}
+#marketplace-app .hr-radio:hover .hr-radio__dot,
+#marketplace-app .hr-radio:focus .hr-radio__dot,
+#marketplace-app .hr-radio:focus-within .hr-radio__dot,
+#marketplace-app .hr-radio:active .hr-radio__dot { box-shadow: inset 0 0 0 1.5px var(--wine) !important; }
+#marketplace-app .hr-radio--checked .hr-radio__dot,
+#marketplace-app .hr-radio__dot.hr-radio__dot--checked {
+  background: transparent !important;
+  border: none !important;
   box-shadow: inset 0 0 0 1.5px var(--wine) !important;
 }
-#marketplace-app .hr-radio--checked .hr-radio__dot-wrapper { box-shadow: inset 0 0 0 1.5px var(--wine) !important; }
-#marketplace-app .hr-radio__dot--checked { background-color: var(--wine) !important; }
-
-/* NaïveUI CSS-Variablen als Fallback */
+#marketplace-app .hr-radio__dot--checked::before {
+  background: var(--wine) !important;
+  background-color: var(--wine) !important;
+}
+/* NaïveUI CSS-Variablen Fallback */
 #marketplace-app .hr-radio {
   --n-dot-color-active: var(--wine) !important;
   --n-box-shadow-active: inset 0 0 0 1.5px var(--wine) !important;
@@ -141,7 +154,7 @@ Collapse-Items, Checkboxen und Radio-Buttons.
   --n-box-shadow-focus: inset 0 0 0 1.5px var(--wine) !important;
 }
 
-/* Aktive Filter-Tags (closable) */
+/* Aktive Filter-Tags */
 #marketplace-app .hr-tag.hr-tag--closable.ui-default {
   background-color: var(--wine-lt) !important;
   border-color: rgba(91,25,45,0.25) !important;
@@ -149,27 +162,20 @@ Collapse-Items, Checkboxen und Radio-Buttons.
 }
 #marketplace-app .hr-tag.hr-tag--closable.ui-default .hr-tag__border { border-color: rgba(91,25,45,0.25) !important; }
 #marketplace-app .hr-tag.hr-tag--closable .hr-tag__close { color: var(--wine) !important; opacity: 0.6; }
-#marketplace-app .hr-tag.hr-tag--closable .hr-tag__close:hover { opacity: 1; color: var(--wine-2) !important; }
-
-/* "Filter löschen" Link */
+#marketplace-app .hr-tag.hr-tag--closable .hr-tag__close:hover { color: var(--wine-2) !important; opacity: 1; }
 #marketplace-app .show-btn button { color: var(--wine) !important; }
 ```
 
 ---
 
-## 113.5 – App-Kacheln
-
-Avatar-Hintergrund, Hover-Border und Sternebewertung.
+## 113.5 – App-Kacheln & Sterne
 
 ```css
-/* ── 113.5 App-Kacheln ── */
 #marketplace-app .hr-avatar.default-avatar { background: var(--wine-lt) !important; }
 #marketplace-app .crm-marketplace-app-details-card:hover {
   border-color: var(--wine) !important;
   box-shadow: 0 4px 16px rgba(91,25,45,0.12) !important;
 }
-
-/* Sterne */
 #marketplace-app .star-empty { color: #ddd !important; }
 #marketplace-app .star-filled { color: var(--wine) !important; }
 ```
@@ -178,114 +184,145 @@ Avatar-Hintergrund, Hover-Border und Sternebewertung.
 
 ## 113.6 – Tags & Badges
 
-„Frei"-Tag (primary), Count-Badge und Info-Tags.
-
 ```css
-/* ── 113.6 Tags & Badges ── */
-/* „Frei zu Installieren" */
-#marketplace-app .hr-tag.ui-primary {
-  background-color: rgba(91,25,45,0.08) !important;
-  color: var(--wine) !important;
-}
+#marketplace-app .hr-tag.ui-primary { background-color: rgba(91,25,45,0.08) !important; color: var(--wine) !important; }
 #marketplace-app .hr-tag.ui-primary .hr-tag__border { border-color: rgba(91,25,45,0.25) !important; }
-
-/* Count-Badge */
-#marketplace-app .hr-badge .hr-badge-sup {
-  background-color: var(--wine-lt) !important;
-  color: var(--wine) !important;
-  box-shadow: 0 0 0 1px rgba(91,25,45,0.2) !important;
-}
-#marketplace-app .hr-tag.ui-info {
-  background-color: rgba(91,25,45,0.1) !important;
-  color: var(--wine) !important;
-  border-color: rgba(91,25,45,0.25) !important;
-}
+#marketplace-app .hr-badge .hr-badge-sup { background-color: var(--wine-lt) !important; color: var(--wine) !important; box-shadow: 0 0 0 1px rgba(91,25,45,0.2) !important; }
+#marketplace-app .hr-tag.ui-info { background-color: rgba(91,25,45,0.1) !important; color: var(--wine) !important; border-color: rgba(91,25,45,0.25) !important; }
 ```
 
 ---
 
-## 113.7 – Einstellungen-Button & Primary-Buttons
+## 113.7 – Buttons (Primary, Tertiary, App-Weiterverkauf)
 
 ```css
-/* ── 113.7 Buttons ── */
 /* Einstellungen Zahnrad */
 #marketplace-app button#header-settings:hover { color: var(--wine) !important; }
 
-/* Alle Primary-Buttons */
+/* Primary-Buttons — Text explizit weiß */
 #marketplace-app .hr-button--primary-type,
-#marketplace-app .hr-button.hr-button--primary {
-  background-color: var(--wine) !important;
-  border-color: var(--wine) !important;
-}
+#marketplace-app .hr-button.hr-button--primary,
+#marketplace-app .hr-button--default-type.hr-button--primary,
+#marketplace-app button#bulk-update-markup.hr-button--primary-type { background-color: var(--wine) !important; }
 #marketplace-app .hr-button--primary-type:hover,
-#marketplace-app .hr-button.hr-button--primary:hover {
-  background-color: var(--wine-2) !important;
-  border-color: var(--wine-2) !important;
-}
-#marketplace-app .hr-button--primary-type .hr-button__border,
-#marketplace-app .hr-button.hr-button--primary .hr-button__border { border-color: transparent !important; }
+#marketplace-app .hr-button.hr-button--primary:hover,
+#marketplace-app .hr-button--default-type.hr-button--primary:hover,
+#marketplace-app button#bulk-update-markup.hr-button--primary-type:hover { background-color: var(--wine-2) !important; }
+#marketplace-app .hr-button--primary-type .hr-button__content,
+#marketplace-app .hr-button--primary-type .hr-button__content *,
+#marketplace-app .hr-button--primary-type .hr-button__content p,
+#marketplace-app .hr-button.hr-button--primary .hr-button__content,
+#marketplace-app .hr-button.hr-button--primary .hr-button__content *,
+#marketplace-app .hr-button.hr-button--primary .hr-button__content p { color: #ffffff !important; }
+#marketplace-app .hr-button--primary-type .hr-button__border { border-color: var(--wine) !important; }
+#marketplace-app .hr-button--primary-type:hover .hr-button__border { border-color: var(--wine-2) !important; }
 #marketplace-app .hr-button--primary-type .hr-button__state-border,
 #marketplace-app .hr-button.hr-button--primary .hr-button__state-border { display: none !important; }
 
-/* „Anwenden"-Button (App-Weiterverkauf) */
-#marketplace-app button#bulk-update-markup.hr-button--primary-type {
-  background-color: var(--wine) !important;
-  border-color: var(--wine) !important;
-}
-#marketplace-app button#bulk-update-markup.hr-button--primary-type:hover {
-  background-color: var(--wine-2) !important;
-  border-color: var(--wine-2) !important;
-}
+/* Tertiary-Buttons (explizit nur nicht-primary) */
+#marketplace-app .hr-button--tertiary-type:not(.hr-button--primary) .hr-button__border { border-color: transparent !important; }
+#marketplace-app .hr-button--tertiary-type:not(.hr-button--primary):not([disabled]):hover .hr-button__border,
+#marketplace-app .hr-button--tertiary-type:not(.hr-button--primary):not([disabled]):focus .hr-button__border { border-color: var(--wine) !important; }
+#marketplace-app .hr-button--tertiary-type:not(.hr-button--primary):not([disabled]):hover .hr-button__content,
+#marketplace-app .hr-button--tertiary-type:not(.hr-button--primary):not([disabled]):hover .hr-button__content *,
+#marketplace-app .hr-button--tertiary-type:not(.hr-button--primary):not([disabled]):focus .hr-button__content,
+#marketplace-app .hr-button--tertiary-type:not(.hr-button--primary):not([disabled]):focus .hr-button__content * { color: var(--wine) !important; }
+#marketplace-app .hr-button--tertiary-type .hr-button__state-border { display: none !important; }
 
-/* App-Weiterverkauf: „Ihr Gewinn" Link + Card-Footer hover */
+/* App-Weiterverkauf */
 #marketplace-app .border-none.text-blue-600 { color: var(--wine) !important; }
-#marketplace-app .ui-card-footer .hr-button:not([disabled]):hover {
-  color: var(--wine) !important;
-  border-color: var(--wine) !important;
-}
+#marketplace-app .ui-card-footer .hr-button:not([disabled]):hover { color: var(--wine) !important; border-color: var(--wine) !important; }
 #marketplace-app .ui-card-footer .hr-button .hr-button__state-border { display: none !important; }
 ```
 
 ---
 
-## 113.8 – Pagination
+## 113.8 – Pagination & DataTable
 
 ```css
-/* ── 113.8 Pagination ── */
-#marketplace-app .hr-pagination-item--active {
-  color: var(--wine) !important;
-  border: 1px solid var(--wine) !important;
-  border-radius: 4px !important;
-}
-#marketplace-app .hr-pagination-item--active .hr-button { color: var(--wine) !important; }
-#marketplace-app .hr-pagination-item__active {
-  border-color: var(--wine) !important;
-  border: 1px solid var(--wine) !important;
-  border-radius: 4px !important;
-}
+#marketplace-app .hr-pagination-item--active,
+#marketplace-app .hr-pagination-item__active { color: var(--wine) !important; border: 1px solid var(--wine) !important; border-radius: 4px !important; }
+#marketplace-app .hr-pagination-item--active .hr-button,
 #marketplace-app .hr-pagination-item__active .hr-button { color: var(--wine) !important; }
 #marketplace-app .hr-pagination-item--clickable:hover { color: var(--wine) !important; }
 #marketplace-app .hr-pagination .hr-button:hover,
 #marketplace-app .hr-pagination .hr-button:focus { color: var(--wine) !important; border-color: var(--wine) !important; }
 #marketplace-app .hr-pagination .hr-button .hr-button__border { border-color: transparent !important; }
 #marketplace-app .hr-pagination .hr-button .hr-button__state-border { display: none !important; }
-#marketplace-app .hr-pages-cntr .hr-button:not([disabled]):hover {
-  color: var(--wine) !important;
-  border-color: var(--wine) !important;
-}
-
-/* DataTable Header */
+#marketplace-app .hr-pages-cntr .hr-button:not([disabled]):hover { color: var(--wine) !important; border-color: var(--wine) !important; }
 #marketplace-app .hr-data-table__cell-header { border-bottom-color: var(--wine-lt) !important; }
+```
+
+---
+
+## Section 113b – Pricing Modal (`.hr-modal.ui-modal`)
+
+Das Pricing-Modal wird außerhalb von `#marketplace-app` teleportiert — kein Scope-Präfix möglich, globale `.hr-modal.ui-modal` Selektoren nötig.
+
+```css
+/* ── 113b.1 Input-Felder ── */
+.hr-modal.ui-modal .hr-input:hover .hr-input__border { border-color: var(--wine) !important; }
+.hr-modal.ui-modal .hr-input.hr-input--focus .hr-input__border {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+.hr-modal.ui-modal .hr-input__state-border { display: none !important; }
+.hr-modal.ui-modal .hr-input__prefix svg { color: var(--ink-3) !important; opacity: 0.65; }
+
+/* ── 113b.2 Tertiary Icon-Buttons (Dokument-Icon) ── */
+.hr-modal.ui-modal .hr-button--tertiary-type svg.text-primary-600,
+.hr-modal.ui-modal .hr-button--tertiary-type .hr-button__content svg { color: var(--ink-3) !important; }
+.hr-modal.ui-modal .hr-button--tertiary-type:hover svg.text-primary-600,
+.hr-modal.ui-modal .hr-button--tertiary-type:hover .hr-button__content svg,
+.hr-modal.ui-modal .hr-button--tertiary-type:focus svg.text-primary-600,
+.hr-modal.ui-modal .hr-button--tertiary-type:focus .hr-button__content svg { color: var(--wine) !important; }
+.hr-modal.ui-modal .hr-button--tertiary-type .hr-button__border { border-color: transparent !important; }
+.hr-modal.ui-modal .hr-button--tertiary-type:hover .hr-button__border,
+.hr-modal.ui-modal .hr-button--tertiary-type:focus .hr-button__border { border-color: var(--wine) !important; }
+.hr-modal.ui-modal .hr-button--tertiary-type .hr-button__state-border { display: none !important; }
+
+/* ── 113b.3 Close-Button ── */
+.hr-modal.ui-modal button#modal-header-modal-close-btn .hr-button__border { border-color: transparent !important; }
+.hr-modal.ui-modal button#modal-header-modal-close-btn:hover .hr-button__border { border-color: var(--wine) !important; }
+.hr-modal.ui-modal button#modal-header-modal-close-btn .hr-button__state-border { display: none !important; }
+
+/* ── 113b.4 „Stornieren" Button ── */
+.hr-modal.ui-modal button#modal-footer-btn-negative-action .hr-button__border { border-color: #e0e0e6 !important; }
+.hr-modal.ui-modal button#modal-footer-btn-negative-action:hover { color: var(--wine) !important; }
+.hr-modal.ui-modal button#modal-footer-btn-negative-action:hover .hr-button__border { border-color: var(--wine) !important; }
+.hr-modal.ui-modal button#modal-footer-btn-negative-action .hr-button__state-border { display: none !important; }
+
+/* ── 113b.5 „Speichern" Primary Button ── */
+.hr-modal.ui-modal button#modal-footer-btn-positive-action,
+.hr-modal.ui-modal .hr-button.hr-button--primary-type { background-color: var(--wine) !important; color: #fff !important; }
+.hr-modal.ui-modal button#modal-footer-btn-positive-action .hr-button__border,
+.hr-modal.ui-modal .hr-button.hr-button--primary-type .hr-button__border { border-color: var(--wine) !important; }
+.hr-modal.ui-modal button#modal-footer-btn-positive-action:hover,
+.hr-modal.ui-modal .hr-button.hr-button--primary-type:hover { background-color: var(--wine-2) !important; }
+.hr-modal.ui-modal button#modal-footer-btn-positive-action:hover .hr-button__border,
+.hr-modal.ui-modal .hr-button.hr-button--primary-type:hover .hr-button__border { border-color: var(--wine-2) !important; }
+.hr-modal.ui-modal .hr-button.hr-button--primary-type .hr-button__state-border { display: none !important; }
+
+/* ── 113b.6 Pagination im Modal ── */
+.hr-modal.ui-modal .hr-pagination-item--active { color: var(--wine) !important; border: 1px solid var(--wine) !important; border-radius: 3px !important; }
+.hr-modal.ui-modal .hr-pagination-item--clickable:hover { color: var(--wine) !important; }
+.hr-modal.ui-modal .hr-pagination .hr-button:hover,
+.hr-modal.ui-modal .hr-pagination .hr-button:focus { color: var(--wine) !important; }
+.hr-modal.ui-modal .hr-pagination .hr-button:hover .hr-button__border,
+.hr-modal.ui-modal .hr-pagination .hr-button:focus .hr-button__border { border-color: var(--wine) !important; }
+.hr-modal.ui-modal .hr-pagination .hr-button .hr-button__state-border { display: none !important; }
 ```
 
 ---
 
 ## Besonderheiten
 
-**Radio-Button `box-shadow`-Trick:** GHL rendert den Radio-Ring via `box-shadow: inset 0 0 0 1.5px <farbe>` direkt auf `.hr-radio__dot-wrapper`. CSS-Variablen-Overrides auf dem Label-Element (`--n-box-shadow-*`) greifen nicht zuverlässig, weil Highrise sie als Inline-Style setzt. Der direkte `box-shadow`-Override auf `.hr-radio__dot-wrapper` mit `:hover`-Scope ist die einzig verlässliche Lösung — gleiches Muster wie in Section 84 (Leads Kanban).
+**Radio-Button `.hr-radio__dot` statt `__dot-wrapper`:** Die neue Version targetiert `.hr-radio__dot` direkt (nicht `.hr-radio__dot-wrapper`). Der checked-Innenpunkt wird via `::before` auf dem `__dot--checked` Element gesetzt — `background-color: var(--wine)`.
 
-**`✓ WL`-Tag bleibt hellblau:** Das „White Label"-Badge signalisiert Drittanbieter-Kompatibilität — es wird bewusst nicht auf Wine umgefärbt, da es eine Drittanbieter-Kennzeichnung ist.
+**Checkbox Hover-Checked State:** Expliziter Override für `.hr-checkbox--checked:hover` → `var(--wine-2)` (Darkening on hover im Checked-State).
 
-**Doppelte Pagination-Klassen:** GHL nutzt auf dieser Seite zwei verschiedene Pagination-Systeme: `.hr-pagination-item--active` (ältere Variante) und `.hr-pagination-item__active` (neuere `hr-pagination-cntr`-Variante). Beide müssen separat gestylt werden.
+**Tertiary-Buttons mit `:not(.hr-button--primary)`:** Verhindert Kollisionen wenn Tertiary + Primary Klassen kombiniert werden.
 
-**Segment-Tab Text auf Wine-Capsule:** Aktiver Tab-Text muss explizit `color: #fff` gesetzt bekommen — er sitzt auf der wine-farbenen Capsule und wäre sonst wine-on-wine nicht lesbar.
+**113b Pricing Modal teleportiert:** Das Modal liegt außerhalb des `#marketplace-app` DOM-Baums — globale `.hr-modal.ui-modal` Selektoren. Gleiches Problem wie Context-Menu (Section 116) und Bootstrap-Select-Checkmarks (Section 119).
+
+**Primary-Button Text explizit weiß:** NaïveUI setzt `--n-text-color` als Inline-Style intern — `background-color` allein reicht nicht. Direktes `.hr-button__content, .hr-button__content *, .hr-button__content p { color: #ffffff }` sichert weiße Schrift.
