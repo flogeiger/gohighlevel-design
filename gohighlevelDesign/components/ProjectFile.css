@@ -14986,8 +14986,664 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   stroke: var(--akzent) !important;
 }
 
+/* ================================================
+   Section 122d – Wissensdatenbank Detail/Bearbeiten
+   Scope: #edit-knowledge-base-card
+   ================================================ */
+
+/* --primary Variablen → wine */
+#edit-knowledge-base-card {
+  --primary-700: var(--akzent) !important;
+  --primary-600: var(--akzent) !important;
+  --primary-50:  var(--akzent-hell) !important;
+}
+
+/* --------------------------------------------------
+   1. Tabs (Alle, Web-Crawler, FAQ etc.)
+   --n-tab-text-color-active: var(--primary-700)
+   -------------------------------------------------- */
+#knowledge-base-assets-tabs .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#knowledge-base-assets-tabs .hr-tabs-tab--active .hr-tabs-tab__label,
+#knowledge-base-assets-tabs .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   2. Bearbeiten-Stift (bg-primary-50 text-primary-600)
+   -------------------------------------------------- */
+#edit-knowledge-base-card .bg-primary-50 {
+  background-color: var(--akzent-hell) !important;
+}
+#edit-knowledge-base-card .text-primary-600,
+#edit-knowledge-base-card .text-primary-600 svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   3. Quick-Action Tags (Web-Crawler, FAQ, Rich-Text etc.)
+   hr-tag--blue → wine
+   -------------------------------------------------- */
+#edit-knowledge-base-card .hr-tag--blue {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-color-hover:  var(--akzent-hell) !important;
+}
+#edit-knowledge-base-card .hr-tag--blue .hr-tag__count-wrapper,
+#edit-knowledge-base-card .hr-tag--blue .hr-tag__count-wrapper *,
+#edit-knowledge-base-card .hr-tag--blue svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+#edit-knowledge-base-card .hr-tag--blue .hr-tag__border {
+  border-color: var(--akzent) !important;
+}
+#edit-knowledge-base-card .hr-tag--blue:hover {
+  background-color: color-mix(in srgb, var(--akzent) 12%, white) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   4. Zurück-Pfeil hover → wine
+   -------------------------------------------------- */
+#edit-knowledge-base-card #back:hover svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* ================================================
+   Section 122e – Wissensdatenbank Web-Crawler Tab
+   Scope: #edit-knowledge-base-card (erweitert)
+   ================================================ */
+
+/* --primary Variablen → wine (gilt für alle Sub-Tabs) */
+#edit-knowledge-base-card .hr-tab-pane {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-50:  var(--akzent-hell) !important;
+}
+
+/* --------------------------------------------------
+   1. „Website hinzufügen" Primary Buttons
+   -------------------------------------------------- */
+#add-website-button,
+#add-website-empty-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#add-website-button:hover,
+#add-website-empty-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#add-website-button p,
+#add-website-button i,
+#add-website-button svg,
+#add-website-empty-button p,
+#add-website-empty-button i,
+#add-website-empty-button svg { color: #fff !important; }
+#add-website-button .hr-button__border,
+#add-website-button .hr-button__state-border,
+#add-website-empty-button .hr-button__border,
+#add-website-empty-button .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. Generische Primary Buttons in Sub-Tabs
+   (FAQ, Rich-Text, Tabellen, Datei-Upload)
+   -------------------------------------------------- */
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary p,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary i,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary svg { color: #fff !important; }
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary .hr-button__border,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. Sekundäre/Tertiary Buttons hover → wine
+   -------------------------------------------------- */
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary:hover,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary:hover p,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary:hover svg {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   4. Suchfelder hover/focus → wine
+   -------------------------------------------------- */
+#edit-knowledge-base-card .hr-tab-pane .hr-input--stateful {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   5. Checkboxen checked → wine
+   -------------------------------------------------- */
+#edit-knowledge-base-card .hr-tab-pane input[type="checkbox"] {
+  accent-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   6. Tabellenzeilen-Links hover → wine
+   -------------------------------------------------- */
+#edit-knowledge-base-card .hr-tab-pane .hover\:text-blue-500:hover,
+#edit-knowledge-base-card .hr-tab-pane a:hover {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   7. Status-Badges (hr-tag--blue) → wine
+   hr-tag--success bleibt grün (semantisch korrekt)
+   -------------------------------------------------- */
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue .hr-tag__count-wrapper,
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue .hr-tag__count-wrapper * {
+  color: var(--akzent) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue .hr-tag__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ================================================
+   Section 122f – „Website hinzufügen" Modal
+   Scope: #web-crawling-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#web-crawling-modal {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-500: var(--akzent) !important;
+  --n-icon-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   1. URL-Eingabefeld hover/focus → wine
+   -------------------------------------------------- */
+#url-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#url-input .hr-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. „Modus auswählen" Select hover/focus → wine
+   -------------------------------------------------- */
+#select-crawl-mode .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-hover:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-active: 0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-loading-color:     var(--akzent) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+#select-crawl-mode .hr-base-selection__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   3. „Stornieren"-Button hover → wine
+   -------------------------------------------------- */
+#modal-cancel-button:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#modal-cancel-button:hover p { color: var(--akzent) !important; }
+#modal-cancel-button .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   4. „Website hinzufügen"-Button → wine
+   -------------------------------------------------- */
+#extract-data-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#extract-data-button:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#extract-data-button p { color: #fff !important; }
+#extract-data-button .hr-button__border,
+#extract-data-button .hr-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 122g – FAQ Modal
+   Scope: #faq-addition-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#faq-addition-modal {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-500: var(--akzent) !important;
+  --n-icon-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   1. Frage + Antwort Textarea hover/focus → wine
+   -------------------------------------------------- */
+#faq-question,
+#faq-answer {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#faq-question .hr-input__state-border,
+#faq-answer .hr-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. „Stornieren"-Button hover → wine
+   -------------------------------------------------- */
+#faq-modal-cancel-button:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#faq-modal-cancel-button:hover p { color: var(--akzent) !important; }
+#faq-modal-cancel-button .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   3. „Speichern"-Button → wine
+   -------------------------------------------------- */
+#faq-modal-save-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#faq-modal-save-button:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#faq-modal-save-button p { color: #fff !important; }
+#faq-modal-save-button .hr-button__border,
+#faq-modal-save-button .hr-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 122h – Tabellen-Upload Modal
+   Scope: #table-upload-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#table-upload-modal {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-500: var(--akzent) !important;
+  --n-icon-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   1. Progress-Steps (aktiver Schritt → wine)
+   -------------------------------------------------- */
+#table-upload-modal .hr-progress-step--current {
+  --n-progress-stroke-color: var(--akzent) !important;
+  --n-background-color:      var(--akzent) !important;
+}
+#table-upload-modal .hr-progress-step--current .hr-progress-step__line-bar {
+  background-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   2. Upload-Dropzone hover → wine Border
+   -------------------------------------------------- */
+#table-upload-modal .hr-upload--dragger-inside {
+  --n-dragger-border-hover: 1px solid var(--akzent) !important;
+}
+#table-upload-modal .hr-upload-dragger:hover {
+  border-color: var(--akzent) !important;
+}
+#table-upload-modal .table-upload-dropzone__action-primary {
+  color: var(--akzent) !important;
+}
+#table-upload-modal .hr-upload-icon svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   3. Name-Eingabefeld hover/focus → wine
+   -------------------------------------------------- */
+#table-source-name {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#table-source-name .hr-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   4. „Stornieren"-Button hover → wine
+   -------------------------------------------------- */
+#table-upload-cancel:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#table-upload-cancel:hover p { color: var(--akzent) !important; }
+#table-upload-cancel .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   5. „Nächste"-Button → wine
+   -------------------------------------------------- */
+#table-upload-next {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#table-upload-next:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#table-upload-next p { color: #fff !important; }
+#table-upload-next .hr-button__border,
+#table-upload-next .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   6. Schließen-Button (X oben rechts) hover → wine
+   -------------------------------------------------- */
+#table-upload-modal-close:hover svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   Section 122h Ergänzung – Tabellen-Upload Schritt 2
+   (Spaltenauswahl)
+   -------------------------------------------------- */
+
+/* Abgeschlossener Schritt (Checkmark + Border) → wine */
+#table-upload-modal .hr-progress-step--complete {
+  --n-progress-stroke-color: var(--akzent) !important;
+  --n-background-color:      var(--akzent-hell) !important;
+}
+#table-upload-modal .hr-progress-step--complete .hr-progress-step__icon svg path {
+  fill: var(--akzent) !important;
+}
+#table-upload-modal .hr-progress-step--complete .hr-progress-step__line-bar {
+  background-color: var(--akzent) !important;
+}
+
+/* Checkboxen → wine */
+#table-upload-modal input[type="checkbox"] {
+  accent-color: var(--akzent) !important;
+}
+
+/* Select-Dropdowns focus → wine */
+#table-upload-modal select:focus {
+  outline:       none !important;
+  border-color:  var(--akzent) !important;
+  box-shadow:    0 0 0 3px rgba(91,25,45,.15) !important;
+}
+
+/* Pagination aktive Seite → wine */
+#table-upload-modal .hr-pagination-item__active .hr-button p {
+  color: var(--akzent) !important;
+}
+#table-upload-modal .hr-pagination-item__active {
+  border-bottom: 2px solid var(--akzent) !important;
+}
+
+/* Pagination Prev/Next hover → wine */
+#table-upload-modal #hr-prev-button-v-0:hover,
+#table-upload-modal #next-button-v-0:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#table-upload-modal #hr-prev-button-v-0:hover p,
+#table-upload-modal #next-button-v-0:hover p { color: var(--akzent) !important; }
+#table-upload-modal #hr-prev-button-v-0 .hr-button__state-border,
+#table-upload-modal #next-button-v-0 .hr-button__state-border { display: none !important; }
+
+/* „Vorherige"-Button hover → wine */
+#table-upload-previous:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#table-upload-previous:hover p { color: var(--akzent) !important; }
+#table-upload-previous .hr-button__state-border { display: none !important; }
+
+/* „Nächste"-Button Schritt 2 → wine */
+#table-upload-next-2 {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#table-upload-next-2:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#table-upload-next-2 p { color: #fff !important; }
+#table-upload-next-2 .hr-button__border,
+#table-upload-next-2 .hr-button__state-border { display: none !important; }
+
+/* Pagination v-1 aktive Seite → wine */
+#table-upload-modal #column-selection-pagination .hr-pagination-item__active .hr-button p {
+  color: var(--akzent) !important;
+}
+#table-upload-modal #column-selection-pagination .hr-pagination-item__active {
+  border-bottom: 2px solid var(--akzent) !important;
+}
+
+/* Pagination v-1 Seitenbuttons hover → wine */
+#table-upload-modal #column-selection-pagination .hr-pagination-item:not(.hr-pagination-item__active) .hr-button:hover p {
+  color: var(--akzent) !important;
+}
+
+/* Prev/Next v-1 hover → wine */
+#table-upload-modal #hr-prev-button-v-1:hover,
+#table-upload-modal #next-button-v-1:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#table-upload-modal #hr-prev-button-v-1:hover p,
+#table-upload-modal #next-button-v-1:hover p { color: var(--akzent) !important; }
+#table-upload-modal #hr-prev-button-v-1 .hr-button__state-border,
+#table-upload-modal #next-button-v-1 .hr-button__state-border { display: none !important; }
 
 
+/* --------------------------------------------------
+   Section 122h Ergänzung – Tabellen-Upload Schritt 3
+   (Zusammenfassung)
+   -------------------------------------------------- */
+
+/* Summary-Tabs aktiv → wine */
+#table-upload-modal .summary-step-tabs .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#table-upload-modal .summary-step-tabs .hr-tabs-tab--active .hr-tabs-tab__label,
+#table-upload-modal .summary-step-tabs .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+
+/* Progress-Bar (Kontingent) → wine */
+#table-upload-modal .progress-bar-fill {
+  background-color: var(--akzent) !important;
+}
+
+/* „Erledigt"-Button → wine */
+#table-upload-finish {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#table-upload-finish:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#table-upload-finish p { color: #fff !important; }
+#table-upload-finish .hr-button__border,
+#table-upload-finish .hr-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 122i – Rich-Text Editor Modal
+   Scope: #rich-text-editor-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#rich-text-editor-modal {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-500: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   1. Dateiname-Eingabefeld hover/focus → wine
+   -------------------------------------------------- */
+#rich-text-modal-name-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#rich-text-modal-name-input .hr-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. Editor Toolbar – aktive Buttons → wine
+   -------------------------------------------------- */
+#rich-text-editor-modal .hr-editor__toolbar-button:hover {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+}
+#rich-text-editor-modal .hr-editor__toolbar-button--active,
+#rich-text-editor-modal .hr-editor__toolbar-button[aria-pressed="true"] {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   3. Editor Content – Fokus-Outline → wine
+   -------------------------------------------------- */
+#rich-text-editor-modal .hr-editor__wrapper {
+  border-color: var(--akzent) !important;
+}
+#rich-text-editor-modal .tiptap:focus {
+  outline: none !important;
+}
+#rich-text-editor-modal .hr-editor__wrapper:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0px 0px 0px 4px rgba(91,25,45,.15) !important;
+}
+
+/* --------------------------------------------------
+   4. „Stornieren"-Button hover → wine
+   -------------------------------------------------- */
+#rich-text-modal-cancel:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#rich-text-modal-cancel:hover p { color: var(--akzent) !important; }
+#rich-text-modal-cancel .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   5. „Speichern"-Button → wine
+   -------------------------------------------------- */
+#rich-text-modal-save {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#rich-text-modal-save:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#rich-text-modal-save p { color: #fff !important; }
+#rich-text-modal-save .hr-button__border,
+#rich-text-modal-save .hr-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 122j – Datei-Upload Modal
+   Scope: #file-upload-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#file-upload-modal {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --n-icon-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   1. Upload-Dropzone hover → wine Border + Icon
+   -------------------------------------------------- */
+#kb-file-upload {
+  --n-dragger-border-hover: 1px solid var(--akzent) !important;
+}
+#kb-file-upload .hr-upload-dragger:hover {
+  border-color: var(--akzent) !important;
+}
+#kb-file-upload .hr-upload-icon svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+#file-upload-modal #upload-click-text {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   2. „Stornieren"-Button hover → wine
+   -------------------------------------------------- */
+#file-upload-cancel:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#file-upload-cancel:hover p { color: var(--akzent) !important; }
+#file-upload-cancel .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   3. „Dateien hochladen"-Button → wine
+   -------------------------------------------------- */
+#file-upload-submit {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#file-upload-submit:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#file-upload-submit p { color: #fff !important; }
+#file-upload-submit .hr-button__border,
+#file-upload-submit .hr-button__state-border { display: none !important; }
 
 
 

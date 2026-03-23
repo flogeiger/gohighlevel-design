@@ -1,0 +1,320 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/KnowledgeBaseDetail" />
+
+# AI-Assistenten – Wissensdatenbank Detail/Bearbeiten (Sections 122d–122j)
+
+Die Wissensdatenbank-Detailseite öffnet sich nach Klick auf eine Datenbank in der Liste. Scope ist `#edit-knowledge-base-card`. Sie hat 6 Tabs: **Alle**, **Web-Crawler**, **FAQ**, **Tabellen**, **Rich-Text**, **Datei-Upload** — jeder Tab öffnet sein eigenes Modal. Diese MDX-Datei deckt alle Sub-Sections ab:
+
+- **122d** — Detailseite (Tabs, Quick-Action Tags, Bearbeiten-Stift)
+- **122e** — Tab-Inhalte allgemein (Buttons, Inputs, Checkboxen, Status-Badges)
+- **122f** — „Website hinzufügen" Modal (`#web-crawling-modal`)
+- **122g** — FAQ Modal (`#faq-addition-modal`)
+- **122h** — Tabellen-Upload Modal (`#table-upload-modal`, 3 Schritte)
+- **122i** — Rich-Text Editor Modal (`#rich-text-editor-modal`)
+- **122j** — Datei-Upload Modal (`#file-upload-modal`)
+
+![Knowledge Base Detail Screenshot](./knowledge-base-detail-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 122d | `#edit-knowledge-base-card` |
+| 122e | `#edit-knowledge-base-card .hr-tab-pane` |
+| 122f | `#web-crawling-modal` |
+| 122g | `#faq-addition-modal` |
+| 122h | `#table-upload-modal` |
+| 122i | `#rich-text-editor-modal` |
+| 122j | `#file-upload-modal` |
+
+---
+
+## Section 122d – Detailseite
+
+```css
+/* CSS-Variablen */
+#edit-knowledge-base-card {
+  --primary-700: var(--wine) !important;
+  --primary-600: var(--wine) !important;
+  --primary-50: var(--wine-lt) !important;
+}
+
+/* Tabs */
+#knowledge-base-assets-tabs .hr-tabs-bar { background-color: var(--wine) !important; }
+#knowledge-base-assets-tabs .hr-tabs-tab--active .hr-tabs-tab__label,
+#knowledge-base-assets-tabs .hr-tabs-tab:hover .hr-tabs-tab__label { color: var(--wine) !important; }
+
+/* Bearbeiten-Stift */
+#edit-knowledge-base-card .bg-primary-50 { background-color: var(--wine-lt) !important; }
+#edit-knowledge-base-card .text-primary-600,
+#edit-knowledge-base-card .text-primary-600 svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+
+/* Quick-Action Tags (hr-tag--blue → wine) */
+#edit-knowledge-base-card .hr-tag--blue {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-color-hover: var(--wine-lt) !important;
+}
+#edit-knowledge-base-card .hr-tag--blue .hr-tag__count-wrapper,
+#edit-knowledge-base-card .hr-tag--blue .hr-tag__count-wrapper *,
+#edit-knowledge-base-card .hr-tag--blue svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+#edit-knowledge-base-card .hr-tag--blue .hr-tag__border { border-color: var(--wine) !important; }
+#edit-knowledge-base-card .hr-tag--blue:hover {
+  background-color: color-mix(in srgb, var(--wine) 12%, white) !important;
+  border-color: var(--wine-2) !important;
+}
+
+/* Zurück-Pfeil hover */
+#edit-knowledge-base-card #back:hover svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+```
+
+---
+
+## Section 122e – Tab-Inhalte allgemein
+
+```css
+/* CSS-Variablen für alle Sub-Tabs */
+#edit-knowledge-base-card .hr-tab-pane {
+  --primary-600: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+  --primary-50: var(--wine-lt) !important;
+}
+
+/* Primary Buttons */
+#add-website-button,
+#add-website-empty-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#add-website-button:hover,
+#add-website-empty-button:hover { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#add-website-button p, #add-website-button i, #add-website-button svg,
+#add-website-empty-button p, #add-website-empty-button i, #add-website-empty-button svg { color: #fff !important; }
+#add-website-button .hr-button__border, #add-website-button .hr-button__state-border,
+#add-website-empty-button .hr-button__border, #add-website-empty-button .hr-button__state-border { display: none !important; }
+
+/* Generische Primary Buttons in Sub-Tabs */
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary p,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary i,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary svg { color: #fff !important; }
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary .hr-button__border,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary .hr-button__state-border { display: none !important; }
+
+/* Sekundäre Buttons hover */
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary:hover,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary:hover p,
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary:hover svg { color: var(--wine) !important; border-color: var(--wine) !important; }
+#edit-knowledge-base-card .hr-tab-pane .hr-button--secondary .hr-button__state-border { display: none !important; }
+
+/* Suchfelder */
+#edit-knowledge-base-card .hr-tab-pane .hr-input--stateful {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-input__state-border { display: none !important; }
+
+/* Checkboxen */
+#edit-knowledge-base-card .hr-tab-pane input[type="checkbox"] { accent-color: var(--wine) !important; }
+
+/* Tabellenzeilen-Links hover */
+#edit-knowledge-base-card .hr-tab-pane .hover\:text-blue-500:hover,
+#edit-knowledge-base-card .hr-tab-pane a:hover { color: var(--wine) !important; }
+
+/* Status-Badges (hr-tag--blue) */
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine) !important;
+}
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue .hr-tag__count-wrapper,
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue .hr-tag__count-wrapper * { color: var(--wine) !important; }
+#edit-knowledge-base-card .hr-tab-pane .hr-tag--blue .hr-tag__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## Section 122f – „Website hinzufügen" Modal
+
+```css
+#web-crawling-modal {
+  --primary-600: var(--wine) !important; --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important; --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important; --primary-100: var(--wine-lt) !important;
+  --primary-500: var(--wine) !important; --n-icon-color: var(--wine) !important;
+}
+#url-input { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-caret-color: var(--wine) !important; --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important; }
+#url-input .hr-input__state-border { display: none !important; }
+#select-crawl-mode .hr-base-selection { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-border-active: 1px solid var(--wine) !important; --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), 0px 1px 2px 0px #1018280D !important; --n-loading-color: var(--wine) !important; --n-caret-color: var(--wine) !important; }
+#select-crawl-mode .hr-base-selection__state-border { display: none !important; }
+#modal-cancel-button:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#modal-cancel-button:hover p { color: var(--wine) !important; }
+#modal-cancel-button .hr-button__state-border { display: none !important; }
+#extract-data-button { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#extract-data-button:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#extract-data-button p { color: #fff !important; }
+#extract-data-button .hr-button__border, #extract-data-button .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## Section 122g – FAQ Modal
+
+```css
+#faq-addition-modal {
+  --primary-600: var(--wine) !important; --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important; --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important; --primary-100: var(--wine-lt) !important;
+  --primary-500: var(--wine) !important; --n-icon-color: var(--wine) !important;
+}
+#faq-question, #faq-answer { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-caret-color: var(--wine) !important; --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important; }
+#faq-question .hr-input__state-border, #faq-answer .hr-input__state-border { display: none !important; }
+#faq-modal-cancel-button:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#faq-modal-cancel-button:hover p { color: var(--wine) !important; }
+#faq-modal-cancel-button .hr-button__state-border { display: none !important; }
+#faq-modal-save-button { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#faq-modal-save-button:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#faq-modal-save-button p { color: #fff !important; }
+#faq-modal-save-button .hr-button__border, #faq-modal-save-button .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## Section 122h – Tabellen-Upload Modal (3 Schritte)
+
+```css
+#table-upload-modal {
+  --primary-600: var(--wine) !important; --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important; --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important; --primary-100: var(--wine-lt) !important;
+  --primary-500: var(--wine) !important; --n-icon-color: var(--wine) !important;
+}
+
+/* Progress Steps */
+#table-upload-modal .hr-progress-step--current { --n-progress-stroke-color: var(--wine) !important; --n-background-color: var(--wine) !important; }
+#table-upload-modal .hr-progress-step--current .hr-progress-step__line-bar { background-color: var(--wine) !important; }
+#table-upload-modal .hr-progress-step--complete { --n-progress-stroke-color: var(--wine) !important; --n-background-color: var(--wine-lt) !important; }
+#table-upload-modal .hr-progress-step--complete .hr-progress-step__icon svg path { fill: var(--wine) !important; }
+#table-upload-modal .hr-progress-step--complete .hr-progress-step__line-bar { background-color: var(--wine) !important; }
+
+/* Upload-Dropzone */
+#table-upload-modal .hr-upload-dragger:hover { border-color: var(--wine) !important; }
+#table-upload-modal .table-upload-dropzone__action-primary { color: var(--wine) !important; }
+#table-upload-modal .hr-upload-icon svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+
+/* Inputs & Checkboxen */
+#table-source-name { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-caret-color: var(--wine) !important; --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important; }
+#table-source-name .hr-input__state-border { display: none !important; }
+#table-upload-modal input[type="checkbox"] { accent-color: var(--wine) !important; }
+
+/* Footer Buttons */
+#table-upload-cancel:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#table-upload-cancel:hover p { color: var(--wine) !important; }
+#table-upload-cancel .hr-button__state-border { display: none !important; }
+#table-upload-next { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#table-upload-next:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#table-upload-next p { color: #fff !important; }
+#table-upload-next .hr-button__border, #table-upload-next .hr-button__state-border { display: none !important; }
+#table-upload-next-2 { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#table-upload-next-2:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#table-upload-next-2 p { color: #fff !important; }
+#table-upload-next-2 .hr-button__border, #table-upload-next-2 .hr-button__state-border { display: none !important; }
+#table-upload-previous:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#table-upload-previous:hover p { color: var(--wine) !important; }
+#table-upload-previous .hr-button__state-border { display: none !important; }
+#table-upload-finish { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#table-upload-finish:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#table-upload-finish p { color: #fff !important; }
+#table-upload-finish .hr-button__border, #table-upload-finish .hr-button__state-border { display: none !important; }
+#table-upload-modal-close:hover svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+
+/* Pagination (v-0 und v-1) */
+#table-upload-modal .hr-pagination-item__active .hr-button p { color: var(--wine) !important; }
+#table-upload-modal .hr-pagination-item__active { border-bottom: 2px solid var(--wine) !important; }
+#table-upload-modal #hr-prev-button-v-0:hover, #table-upload-modal #next-button-v-0:hover,
+#table-upload-modal #hr-prev-button-v-1:hover, #table-upload-modal #next-button-v-1:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#table-upload-modal #hr-prev-button-v-0:hover p, #table-upload-modal #next-button-v-0:hover p,
+#table-upload-modal #hr-prev-button-v-1:hover p, #table-upload-modal #next-button-v-1:hover p { color: var(--wine) !important; }
+#table-upload-modal #hr-prev-button-v-0 .hr-button__state-border, #table-upload-modal #next-button-v-0 .hr-button__state-border,
+#table-upload-modal #hr-prev-button-v-1 .hr-button__state-border, #table-upload-modal #next-button-v-1 .hr-button__state-border { display: none !important; }
+
+/* Schritt 3: Summary-Tabs + Progress-Bar + Erledigt */
+#table-upload-modal .summary-step-tabs .hr-tabs-bar { background-color: var(--wine) !important; }
+#table-upload-modal .summary-step-tabs .hr-tabs-tab--active .hr-tabs-tab__label,
+#table-upload-modal .summary-step-tabs .hr-tabs-tab:hover .hr-tabs-tab__label { color: var(--wine) !important; }
+#table-upload-modal .progress-bar-fill { background-color: var(--wine) !important; }
+```
+
+---
+
+## Section 122i – Rich-Text Editor Modal
+
+```css
+#rich-text-editor-modal {
+  --primary-600: var(--wine) !important; --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important; --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important; --primary-100: var(--wine-lt) !important;
+  --primary-500: var(--wine) !important;
+}
+#rich-text-modal-name-input { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-caret-color: var(--wine) !important; --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important; }
+#rich-text-modal-name-input .hr-input__state-border { display: none !important; }
+#rich-text-editor-modal .hr-editor__toolbar-button:hover { background-color: var(--wine-lt) !important; color: var(--wine) !important; }
+#rich-text-editor-modal .hr-editor__toolbar-button--active,
+#rich-text-editor-modal .hr-editor__toolbar-button[aria-pressed="true"] { background-color: var(--wine-lt) !important; color: var(--wine) !important; }
+#rich-text-editor-modal .hr-editor__wrapper { border-color: var(--wine) !important; }
+#rich-text-editor-modal .tiptap:focus { outline: none !important; }
+#rich-text-editor-modal .hr-editor__wrapper:focus-within { border-color: var(--wine) !important; box-shadow: 0px 0px 0px 4px rgba(91,25,45,0.15) !important; }
+#rich-text-modal-cancel:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#rich-text-modal-cancel:hover p { color: var(--wine) !important; }
+#rich-text-modal-cancel .hr-button__state-border { display: none !important; }
+#rich-text-modal-save { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#rich-text-modal-save:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#rich-text-modal-save p { color: #fff !important; }
+#rich-text-modal-save .hr-button__border, #rich-text-modal-save .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## Section 122j – Datei-Upload Modal
+
+```css
+#file-upload-modal {
+  --primary-600: var(--wine) !important; --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important; --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important; --primary-100: var(--wine-lt) !important;
+  --n-icon-color: var(--wine) !important;
+}
+#kb-file-upload .hr-upload-dragger:hover { border-color: var(--wine) !important; }
+#kb-file-upload .hr-upload-icon svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+#file-upload-modal #upload-click-text { color: var(--wine) !important; }
+#file-upload-cancel:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#file-upload-cancel:hover p { color: var(--wine) !important; }
+#file-upload-cancel .hr-button__state-border { display: none !important; }
+#file-upload-submit { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#file-upload-submit:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#file-upload-submit p { color: #fff !important; }
+#file-upload-submit .hr-button__border, #file-upload-submit .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`color-mix()` auf Tag-Hover:** Section 122d nutzt `color-mix(in srgb, var(--wine) 12%, white)` für den Hover-Hintergrund der Quick-Action Tags — einzige Stelle im Projekt mit dieser CSS-Funktion. Browser-Support: Chromium 111+, Firefox 113+.
+
+**`.hr-tag--success` bleibt grün (122e):** Status-Badges mit Erfolgs-Bedeutung (z.B. „Crawled") behalten bewusst grüne Farbe — nur `.hr-tag--blue` (neutrale Info-Tags) werden auf wine umgefärbt.
+
+**Tabellen-Upload 3 Schritte — doppelte Pagination:** Schritt 2 hat zwei Pagination-Instanzen (`v-0` für Dateivorschau, `v-1` für Spaltenauswahl), beide mit eigenen `#hr-prev-button-v-{n}` / `#next-button-v-{n}` IDs.
+
+**Rich-Text Tiptap Editor:** Der Editor nutzt das Tiptap-Framework — Wrapper-Border und Focus-Shadow werden auf `.hr-editor__wrapper:focus-within` gesetzt, nicht auf `.tiptap` direkt (das hat `outline: none`).
