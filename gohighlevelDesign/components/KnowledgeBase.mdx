@@ -1,0 +1,194 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/KnowledgeBase" />
+
+# AI-Assistenten – Wissensdatenbank (Sections 122–122c)
+
+Die Wissensdatenbank (`AI-Assistenten → Wissensdatenbank`) nutzt die **Highrise Library** (`hr-` Prefix) mit `--primary-*` CSS-Variablen. Root-Scope ist `#knowledge-base-container`. Die Seite enthält eine DataTable mit Sort-Button, Aktions-Dropdown pro Zeile und einen „Wissensdatenbank erstellen"-Button.
+
+- **122** — Hauptseite (DataTable, Sort, Aktionen)
+- **122b** — „Wissensdatenbank erstellen" Modal (`#create-knowledge-base-modal`)
+- **122c** — Sort-Dropdown Sonderregel (nur aktive Option wine, Hover neutral)
+
+![Knowledge Base Screenshot](./knowledge-base-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 122 | `#knowledge-base-container` |
+| 122b | `#create-knowledge-base-modal` |
+| 122c | `#kb-sort-dropdown-menu` (floating) |
+
+---
+
+## Section 122 – Hauptseite
+
+### CSS-Variablen Override
+
+```css
+#knowledge-base-container {
+  --primary-600: var(--wine) !important;
+  --primary-700: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+  --primary-500: var(--wine) !important;
+  --primary-300: var(--wine-lt) !important;
+}
+```
+
+### „Wissensdatenbank erstellen" Button
+
+```css
+#create-knowledge-base-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#create-knowledge-base-button:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#create-knowledge-base-button p,
+#create-knowledge-base-button i,
+#create-knowledge-base-button svg { color: #fff !important; }
+#create-knowledge-base-button .hr-button__border,
+#create-knowledge-base-button .hr-button__state-border { display: none !important; }
+```
+
+### Header-Link, Suchfeld & Sort-Button
+
+```css
+/* Header-Link */
+#knowledge-base-container a[style*="primary-700"] { color: var(--wine) !important; }
+#knowledge-base-container a[style*="primary-700"]:hover { color: var(--wine-2) !important; }
+
+/* Suchfeld */
+#knowledge-base-search {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important;
+}
+#knowledge-base-search .hr-input__state-border { display: none !important; }
+
+/* Sort-Button hover */
+#kb-sort-button:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#kb-sort-button:hover p,
+#kb-sort-button:hover svg { color: var(--wine) !important; }
+#kb-sort-button .hr-button__state-border { display: none !important; }
+```
+
+### DataTable & Aktions-Buttons
+
+```css
+/* Tabellen-Name hover */
+#knowledge-base-container .hr-data-table__body-cell p.cursor-pointer:hover { color: var(--wine) !important; }
+
+/* Info-Icon */
+#knowledge-base-container .hr-data-table__body-cell svg.text-primary-700 { color: var(--wine) !important; }
+
+/* Aktions-Button (⋮) hover — ID-Prefix */
+#knowledge-base-container [id^="kb-action-button-"]:hover { color: var(--wine) !important; }
+#knowledge-base-container [id^="kb-action-button-"]:hover p,
+#knowledge-base-container [id^="kb-action-button-"]:hover svg { color: var(--wine) !important; }
+#knowledge-base-container [id^="kb-action-button-"] .hr-button__state-border { display: none !important; }
+
+/* Aktions-Dropdown (floating, ID-Prefix) */
+[id^="kb-action-dropdown-"] {
+  --n-option-text-color-active: var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+  --n-option-color-active: rgba(91,25,45,0.08) !important;
+}
+[id^="kb-action-dropdown-"] .hr-dropdown-option:hover { background-color: rgba(91,25,45,0.05) !important; }
+[id^="kb-action-dropdown-"] .hr-dropdown-option:hover p,
+[id^="kb-action-dropdown-"] .hr-dropdown-option:hover i { color: var(--wine) !important; }
+
+/* Sort-Dropdown (floating) */
+#kb-sort-dropdown {
+  --n-option-text-color-active: var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+}
+#kb-sort-dropdown .hr-dropdown-option--selected p,
+#kb-sort-dropdown .hr-dropdown-option--selected-checkmark { color: var(--wine) !important; }
+#kb-sort-dropdown .hr-dropdown-option:hover { background-color: rgba(91,25,45,0.05) !important; }
+#kb-sort-dropdown .hr-dropdown-option:hover p { color: var(--wine) !important; }
+```
+
+---
+
+## Section 122b – „Wissensdatenbank erstellen" Modal
+
+```css
+#create-knowledge-base-modal {
+  --primary-600: var(--wine) !important;
+  --primary-800: var(--wine-2) !important;
+  --primary-900: var(--wine-2) !important;
+  --primary-300: var(--wine-lt) !important;
+  --primary-200: var(--wine-lt) !important;
+  --primary-100: var(--wine-lt) !important;
+  --primary-500: var(--wine) !important;
+  --n-icon-color: var(--wine) !important;
+}
+
+/* Eingabefelder */
+#knowledge-base-name-input,
+#description-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,0.15), var(--shadow-xs) !important;
+}
+#knowledge-base-name-input .hr-input__state-border,
+#description-input .hr-input__state-border { display: none !important; }
+
+/* „Stornieren" hover */
+#create-kb-cancel-button:hover { color: var(--wine) !important; border-color: var(--wine) !important; }
+#create-kb-cancel-button:hover p { color: var(--wine) !important; }
+#create-kb-cancel-button .hr-button__state-border { display: none !important; }
+
+/* „Hinzufügen" Primary */
+#create-kb-submit-button { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#create-kb-submit-button:hover:not([disabled]) { background-color: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#create-kb-submit-button p { color: #fff !important; }
+#create-kb-submit-button .hr-button__border,
+#create-kb-submit-button .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## Section 122c – Sort-Dropdown Sonderregel
+
+Nur die aktiv selektierte Option erhält wine — Hover bleibt neutral grau.
+
+```css
+/* Hover neutral */
+#kb-sort-dropdown-menu {
+  --n-option-text-color-active: rgba(52,64,84,1) !important;
+  --n-option-text-color-child-active: rgba(52,64,84,1) !important;
+  --n-option-color-active: rgb(243,243,245) !important;
+}
+#kb-sort-dropdown-menu .hr-dropdown-option:hover { background-color: rgb(243,243,245) !important; }
+#kb-sort-dropdown-menu .hr-dropdown-option:hover p { color: rgba(52,64,84,1) !important; }
+
+/* Nur aktive Option → wine */
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected { background-color: rgba(91,25,45,0.05) !important; }
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected p { color: var(--wine) !important; }
+#kb-sort-dropdown-menu .hr-dropdown-option--selected .hr-dropdown-option--selected-checkmark,
+#kb-sort-dropdown-menu .hr-dropdown-option--selected .hr-dropdown-option--selected-checkmark svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected .hr-dropdown-option-avatar > i,
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected .hr-dropdown-option-avatar > i svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`--primary-*` Root-Override:** Gleiche Strategie wie Section 121 (Agent Studio) — Highrise rendert Farben direkt via CSS-Variablen. Override auf `#knowledge-base-container` propagiert zu allen Kindkomponenten.
+
+**`[id^="kb-action-button-"]` und `[id^="kb-action-dropdown-"]` (Prefix-Selektoren):** Die Aktions-Buttons und -Dropdowns pro Zeile enthalten dynamische IDs (z.B. `kb-action-button-abc123`). Der `^=`-Präfix-Selektor matched alle — gleiche Strategie wie `[id^="action-dropdown-"]` in Section 121f.
+
+**Sort-Dropdown Sonderregel (122c):** Im Gegensatz zu allen anderen Dropdowns im Projekt wird hier Hover bewusst **nicht** wine-gefärbt — nur die aktiv selektierte Option. Begründung: Das Sort-Dropdown hat einen anderen UX-Kontext (Auswahl bleibt sichtbar markiert) und wine-on-hover würde mit der Selektion visuell konkurrieren.

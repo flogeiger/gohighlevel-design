@@ -13161,6 +13161,164 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 }
 
 /* ================================================
+   Section 121g – „Agent bearbeiten" Modal
+   Scope: #edit-agent-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#edit-agent-modal {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-500: var(--akzent) !important;
+  --n-icon-color: var(--akzent) !important;
+}
+
+/* Modal Header Icon → wine */
+#edit-agent-modal .hr-dialog__icon svg {
+  fill:   var(--akzent) !important;
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* Eingabefelder hover/focus → wine */
+#edit-agent-name,
+#edit-agent-description {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#edit-agent-name .hr-input__state-border,
+#edit-agent-description .hr-input__state-border { display: none !important; }
+
+/* „Cancel"-Button hover → wine */
+#edit-agent-modal-cancel-btn:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#edit-agent-modal-cancel-btn:hover p {
+  color: var(--akzent) !important;
+}
+#edit-agent-modal-cancel-btn .hr-button__state-border { display: none !important; }
+
+/* „Save Changes"-Button → wine */
+#edit-agent-modal-save-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#edit-agent-modal-save-btn:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#edit-agent-modal-save-btn p { color: #fff !important; }
+#edit-agent-modal-save-btn .hr-button__border,
+#edit-agent-modal-save-btn .hr-button__state-border { display: none !important; }
+
+/* Close-Button (X) hover → dezent */
+#edit-agent-modal #hr-modal__close-button:hover {
+  color: var(--akzent) !important;
+}
+
+/* ================================================
+   Section 121h – „Agent in Ordner verschieben" Modal
+   Scope: .hr-dialog:has(#move-dialog-folder-select)
+   ================================================ */
+
+/* --primary Variablen → wine */
+.hr-dialog:has(#move-dialog-folder-select) {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --n-icon-color: var(--akzent) !important;
+}
+
+/* Modal Header Icon → wine */
+.hr-dialog:has(#move-dialog-folder-select) .hr-dialog__icon svg {
+  fill:   var(--akzent) !important;
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* Selects hover/focus → wine */
+#move-dialog-selected-agents .hr-base-selection,
+#move-dialog-folder-select .hr-base-selection {
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-border-focus:       1px solid var(--akzent) !important;
+  --n-border-active:      1px solid var(--akzent) !important;
+  --n-box-shadow-hover:   0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-focus:   0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-active:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-loading-color:      var(--akzent) !important;
+  --n-caret-color:        var(--akzent) !important;
+}
+#move-dialog-selected-agents .hr-base-selection__state-border,
+#move-dialog-folder-select .hr-base-selection__state-border { display: none !important; }
+
+/* „Cancel"-Button hover → wine */
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--secondary:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--secondary:hover p {
+  color: var(--akzent) !important;
+}
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--secondary .hr-button__state-border {
+  display: none !important;
+}
+
+/* „Move Agent"-Button → wine */
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--primary {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--primary:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--primary p { color: #fff !important; }
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--primary .hr-button__border,
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--primary .hr-button__state-border {
+  display: none !important;
+}
+
+/* ================================================
+   Section 121i – „Agent löschen" Bestätigungs-Modal
+   Scope: #confirmation-modal
+   ================================================ */
+
+#confirmation-modal .hr-dialog__icon svg {
+  fill:   var(--akzent) !important;
+  color:  var(--akzent) !important;
+}
+
+/* Trash-Icon im Header → Rot (semantisch korrekt) */
+#confirmation-modal .hr-header-lite-icon-item i {
+  color: var(--fehler) !important;
+}
+#confirmation-modal .hr-header-lite-icon-item svg {
+  color:  var(--fehler) !important;
+  stroke: var(--fehler) !important;
+}
+
+/* „Abbrechen" hover → Akzent */
+#confirmation-modal-cancel-btn:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#confirmation-modal-cancel-btn:hover p { color: var(--akzent) !important; }
+#confirmation-modal-cancel-btn .hr-button__state-border { display: none !important; }
+
+/* „Agent löschen" → Rot bleibt, nur State-Border weg */
+#confirmation-modal-confirm-btn .hr-button__state-border { display: none !important; }
+
+/* ================================================
    Section 122 – Vorlagenbibliothek Modal
    Scope: #tl-location-wrapper
    hr- Library, --primary-* Variablen
@@ -14611,6 +14769,223 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   filter: hue-rotate(110deg) saturate(0.8) brightness(0.95) !important;
 }
  
+/* ================================================
+   Section 122 – Wissensdatenbank
+   Scope: #knowledge-base-container
+   ================================================ */
+
+/* --primary Variablen → wine */
+#knowledge-base-container {
+  --primary-600: var(--akzent) !important;
+  --primary-700: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-500: var(--akzent) !important;
+  --primary-300: var(--akzent-hell) !important;
+}
+
+/* --------------------------------------------------
+   1. „Wissensdatenbank erstellen" Primary Button
+   -------------------------------------------------- */
+#create-knowledge-base-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#create-knowledge-base-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#create-knowledge-base-button p,
+#create-knowledge-base-button i,
+#create-knowledge-base-button svg { color: #fff !important; }
+#create-knowledge-base-button .hr-button__border,
+#create-knowledge-base-button .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. Header-Link „Schauen Sie sich diesen kurzen Leitfaden an"
+   -------------------------------------------------- */
+#knowledge-base-container a[style*="primary-700"] {
+  color: var(--akzent) !important;
+}
+#knowledge-base-container a[style*="primary-700"]:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   3. Suchfeld hover/focus → wine
+   -------------------------------------------------- */
+#knowledge-base-search {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#knowledge-base-search .hr-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   4. „Sortieren"-Button hover → wine
+   -------------------------------------------------- */
+#kb-sort-button:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#kb-sort-button:hover p,
+#kb-sort-button:hover svg { color: var(--akzent) !important; }
+#kb-sort-button .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   5. Tabellen-Name hover (hover:text-blue-500)
+   -------------------------------------------------- */
+#knowledge-base-container .hr-data-table__body-cell p.cursor-pointer:hover {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   6. Info-Icon in Tabellenzeile (text-primary-700)
+   -------------------------------------------------- */
+#knowledge-base-container .hr-data-table__body-cell svg.text-primary-700 {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   7. Tabellen-Aktions-Button (⋮) hover
+   -------------------------------------------------- */
+#knowledge-base-container [id^="kb-action-button-"]:hover {
+  color: var(--akzent) !important;
+}
+#knowledge-base-container [id^="kb-action-button-"]:hover p,
+#knowledge-base-container [id^="kb-action-button-"]:hover svg {
+  color: var(--akzent) !important;
+}
+#knowledge-base-container [id^="kb-action-button-"] .hr-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   8. Aktions-Dropdown (floating, ID-Prefix)
+   -------------------------------------------------- */
+[id^="kb-action-dropdown-"] {
+  --n-option-text-color-active:       var(--akzent) !important;
+  --n-option-text-color-child-active: var(--akzent) !important;
+  --n-option-color-active:            rgba(91,25,45,.08) !important;
+}
+[id^="kb-action-dropdown-"] .hr-dropdown-option:hover {
+  background-color: rgba(91,25,45,.05) !important;
+}
+[id^="kb-action-dropdown-"] .hr-dropdown-option:hover p,
+[id^="kb-action-dropdown-"] .hr-dropdown-option:hover i {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   9. Sort-Dropdown (floating)
+   -------------------------------------------------- */
+#kb-sort-dropdown {
+  --n-option-text-color-active:       var(--akzent) !important;
+  --n-option-text-color-child-active: var(--akzent) !important;
+}
+#kb-sort-dropdown .hr-dropdown-option--selected p,
+#kb-sort-dropdown .hr-dropdown-option--selected-checkmark {
+  color: var(--akzent) !important;
+}
+#kb-sort-dropdown .hr-dropdown-option:hover {
+  background-color: rgba(91,25,45,.05) !important;
+}
+#kb-sort-dropdown .hr-dropdown-option:hover p {
+  color: var(--akzent) !important;
+}
+
+/* ================================================
+   Section 122b – „Wissensdatenbank erstellen" Modal
+   Scope: #create-knowledge-base-modal
+   ================================================ */
+
+/* --primary Variablen → wine */
+#create-knowledge-base-modal {
+  --primary-600: var(--akzent) !important;
+  --primary-800: var(--akzent-dunkel) !important;
+  --primary-900: var(--akzent-dunkel) !important;
+  --primary-300: var(--akzent-hell) !important;
+  --primary-200: var(--akzent-hell) !important;
+  --primary-100: var(--akzent-hell) !important;
+  --primary-500: var(--akzent) !important;
+  --n-icon-color: var(--akzent) !important;
+}
+
+/* Eingabefelder hover/focus → wine */
+#knowledge-base-name-input,
+#description-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+}
+#knowledge-base-name-input .hr-input__state-border,
+#description-input .hr-input__state-border { display: none !important; }
+
+/* „Stornieren"-Button hover → wine */
+#create-kb-cancel-button:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#create-kb-cancel-button:hover p { color: var(--akzent) !important; }
+#create-kb-cancel-button .hr-button__state-border { display: none !important; }
+
+/* „Hinzufügen"-Button → wine */
+#create-kb-submit-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#create-kb-submit-button:hover:not([disabled]) {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#create-kb-submit-button p { color: #fff !important; }
+#create-kb-submit-button .hr-button__border,
+#create-kb-submit-button .hr-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 122c – Wissensdatenbank Sort-Dropdown
+   Scope: #kb-sort-dropdown-menu (floating)
+   ================================================ */
+
+/* NaïveUI-Variablen zurücksetzen auf neutral */
+#kb-sort-dropdown-menu {
+  --n-option-text-color-active:       rgba(52, 64, 84, 1) !important;
+  --n-option-text-color-child-active: rgba(52, 64, 84, 1) !important;
+  --n-option-color-active:            rgb(243, 243, 245) !important;
+}
+
+/* Hover → dezent grau, kein wine */
+#kb-sort-dropdown-menu .hr-dropdown-option:hover {
+  background-color: rgb(243, 243, 245) !important;
+}
+#kb-sort-dropdown-menu .hr-dropdown-option:hover p {
+  color: rgba(52, 64, 84, 1) !important;
+}
+
+/* NUR aktiv selektierte Option → wine */
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected {
+  background-color: rgba(91,25,45,.05) !important;
+}
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected p {
+  color: var(--akzent) !important;
+}
+#kb-sort-dropdown-menu .hr-dropdown-option--selected .hr-dropdown-option--selected-checkmark,
+#kb-sort-dropdown-menu .hr-dropdown-option--selected .hr-dropdown-option--selected-checkmark svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* Icon der selektierten Option → wine */
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected .hr-dropdown-option-avatar > i,
+#kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected .hr-dropdown-option-avatar > i svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
 
 
 
