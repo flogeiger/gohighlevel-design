@@ -1,0 +1,157 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketplace/MarketplaceSettings" />
+
+# App-Marktplatz – Einstellungen (Section 113c)
+
+Die Marketplace-Einstellungen (`Einstellungen → App-Marktplatz`) sind eine Agency-Level-Seite mit eigenem Root-Scope `#marketplace-main` — getrennt von `#marketplace-app` (Sections 113/126). Die Seite hat drei Tabs: **Marketplace Visibility**, **Manage App Access** (mit Toggle, Suchfeld, DataTable und Kategorien-Sidebar) und **App Usage Limits**. Besonderheit: GHL setzt auf `.ui-button.hr-button--tertiary-type` einen `--n-text-color: var(--primary-700)` Override per Stylesheet — dagegen braucht es ID-Spezifität (`#marketplace-main`).
+
+![Marketplace Settings Screenshot](./marketplace-settings-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#marketplace-main` |
+| Tab Bar | `.hr-tabs-bar`, `.hr-tabs-tab--active` |
+| Toggle Switch | `.hr-switch--active .hr-switch__rail` |
+| Radio-Buttons | `.hr-radio__dot`, `.hr-radio__dot--checked::before` |
+| Tabellen-Header | `.hr-data-table-th` |
+| „Zurück"-Button | `button#manage-perms` |
+| Tertiary-Buttons | `.ui-button.hr-button--tertiary-type` |
+| Pagination | `.hr-pagination-item--active` |
+
+---
+
+## 113c.1 – Tab Bar
+
+```css
+#marketplace-main .hr-tabs-bar { background-color: var(--wine) !important; }
+#marketplace-main .hr-tabs-tab--active .hr-tabs-tab__label,
+#marketplace-main .hr-tabs-tab:hover .hr-tabs-tab__label { color: var(--wine) !important; }
+```
+
+---
+
+## 113c.2 – Toggle Switch
+
+```css
+#marketplace-main .hr-switch--active .hr-switch__rail { background-color: var(--wine) !important; }
+#marketplace-main .hr-switch:focus .hr-switch__rail,
+#marketplace-main .hr-switch:focus-visible .hr-switch__rail {
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+```
+
+---
+
+## 113c.3 – Radio-Buttons
+
+Gleiches Pattern wie Section 113 — `.hr-radio__dot` via `box-shadow`.
+
+```css
+#marketplace-main .hr-radio-input { display: none !important; }
+#marketplace-main label.hr-radio,
+#marketplace-main label.hr-radio:hover,
+#marketplace-main label.hr-radio:focus,
+#marketplace-main label.hr-radio:focus-visible,
+#marketplace-main label.hr-radio:focus-within,
+#marketplace-main label.hr-radio:active { outline: none !important; box-shadow: none !important; }
+#marketplace-main .hr-radio__dot-wrapper { outline: none !important; border: none !important; }
+#marketplace-main .hr-radio__dot {
+  box-shadow: inset 0 0 0 1.5px #e0e0e6 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 50% !important;
+}
+#marketplace-main .hr-radio:hover .hr-radio__dot,
+#marketplace-main .hr-radio:focus .hr-radio__dot,
+#marketplace-main .hr-radio:focus-within .hr-radio__dot,
+#marketplace-main .hr-radio:active .hr-radio__dot { box-shadow: inset 0 0 0 1.5px var(--wine) !important; }
+#marketplace-main .hr-radio--checked .hr-radio__dot,
+#marketplace-main .hr-radio__dot.hr-radio__dot--checked {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: inset 0 0 0 1.5px var(--wine) !important;
+}
+#marketplace-main .hr-radio__dot--checked::before { background: var(--wine) !important; background-color: var(--wine) !important; }
+```
+
+---
+
+## 113c.4 – Tabellen-Header & „Zurück"-Button
+
+```css
+/* DataTable Header */
+#marketplace-main .hr-data-table-th { background-color: var(--bg) !important; }
+#marketplace-main .hr-data-table-th--sortable:hover .hr-data-table-th__title { color: var(--wine) !important; }
+
+/* „Zurück"-Button hover */
+#marketplace-main button#manage-perms:hover,
+#marketplace-main button#manage-perms:hover .hr-button__content,
+#marketplace-main button#manage-perms:hover .hr-button__content * { color: var(--wine) !important; }
+```
+
+---
+
+## 113c.5 – Tertiary-Buttons (Set Usage Limits, Änderungen speichern)
+
+GHL setzt `--n-text-color: var(--primary-700)` per Stylesheet auf `.ui-button.hr-button--tertiary-type`. Die ID-Spezifität von `#marketplace-main` gewinnt gegen dieses Override.
+
+```css
+/* GHL Custom Properties mit ID-Spezifität überschreiben */
+#marketplace-main .ui-button.hr-button--tertiary-type {
+  --n-text-color: var(--ink-3) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-text-color-focus: var(--wine) !important;
+  --n-color: transparent !important;
+  --n-color-hover: var(--wine-lt) !important;
+  --n-color-focus: var(--wine-lt) !important;
+  --n-border: 1px solid #e0e0e6 !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+
+/* color direkt auf Button + alle Kinder auf Hover */
+#marketplace-main .ui-button.hr-button--tertiary-type:hover,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus { color: var(--wine) !important; }
+#marketplace-main .ui-button.hr-button--tertiary-type:hover .hr-button__content,
+#marketplace-main .ui-button.hr-button--tertiary-type:hover .hr-button__content *,
+#marketplace-main .ui-button.hr-button--tertiary-type:hover svg,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus .hr-button__content,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus .hr-button__content *,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus svg { color: var(--wine) !important; }
+
+/* Border */
+#marketplace-main .ui-button.hr-button--tertiary-type .hr-button__border { border-color: transparent !important; }
+#marketplace-main .ui-button.hr-button--tertiary-type:hover .hr-button__border,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus .hr-button__border { border-color: var(--wine) !important; }
+#marketplace-main .ui-button.hr-button--tertiary-type .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## 113c.6 – Pagination
+
+```css
+#marketplace-main .hr-pagination-item--active { color: var(--wine) !important; border: 1px solid var(--wine) !important; border-radius: 3px !important; }
+#marketplace-main .hr-pagination-item--clickable:hover { color: var(--wine) !important; }
+#marketplace-main .hr-pagination .hr-button:hover,
+#marketplace-main .hr-pagination .hr-button:focus { color: var(--wine) !important; }
+#marketplace-main .hr-pagination .hr-button:hover .hr-button__border,
+#marketplace-main .hr-pagination .hr-button:focus .hr-button__border { border-color: var(--wine) !important; }
+#marketplace-main .hr-pagination .hr-button .hr-button__state-border { display: none !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`#marketplace-main` vs `#marketplace-app`:** Marketplace Settings hat einen eigenen Root-Scope (`#marketplace-main`) — getrennt von der normalen Marktplatz-Seite (`#marketplace-app`). Kein Scope-Overlap, kein Konflikt.
+
+**Tertiary-Button GHL-Override-Problem:** GHL setzt `.ui-button.hr-button--tertiary-type { --n-text-color: var(--primary-700) }` mit Klassen-Spezifität. Da `#marketplace-main` eine ID ist (Spezifität: 1-0-0 vs. 0-2-0), gewinnt unser Override — plus direktes `color: var(--wine)` auf `:hover` als Sicherheitsnetz.
+
+**Agency-Level Seite:** Diese Seite ist nur auf Agency-Ebene sichtbar (nicht in Sub-Accounts). Linke Navigation zeigt Agency-Items wie „Sub-Accounts", „Reselling", „SaaS Configurator".

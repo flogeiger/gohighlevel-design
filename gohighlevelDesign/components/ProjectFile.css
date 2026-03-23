@@ -17901,3 +17901,154 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 #marketplace-app .hr-avatar[style*="--primary-100"] {
   background: var(--wine-lt) !important;
 }
+
+/* ================================================
+   Section 113c – Marktplatz-Einstellungen
+   Scope: #marketplace-main
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Line-Tabs
+   -------------------------------------------------- */
+#marketplace-main .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#marketplace-main .hr-tabs-tab--active .hr-tabs-tab__label,
+#marketplace-main .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   2. Toggle-Switch
+   -------------------------------------------------- */
+#marketplace-main .hr-switch--active .hr-switch__rail {
+  background-color: var(--akzent) !important;
+}
+#marketplace-main .hr-switch:focus .hr-switch__rail,
+#marketplace-main .hr-switch:focus-visible .hr-switch__rail {
+  box-shadow: 0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* --------------------------------------------------
+   3. Radio-Buttons
+   -------------------------------------------------- */
+#marketplace-main .hr-radio-input { display: none !important; }
+
+#marketplace-main label.hr-radio,
+#marketplace-main label.hr-radio:hover,
+#marketplace-main label.hr-radio:focus,
+#marketplace-main label.hr-radio:focus-visible,
+#marketplace-main label.hr-radio:focus-within,
+#marketplace-main label.hr-radio:active {
+  outline:    none !important;
+  box-shadow: none !important;
+}
+#marketplace-main .hr-radio__dot-wrapper {
+  outline: none !important;
+  border:  none !important;
+}
+#marketplace-main .hr-radio__dot {
+  box-shadow:    inset 0 0 0 1.5px #e0e0e6 !important;
+  background:    transparent !important;
+  border:        none !important;
+  border-radius: 50% !important;
+}
+#marketplace-main .hr-radio:hover        .hr-radio__dot,
+#marketplace-main .hr-radio:focus        .hr-radio__dot,
+#marketplace-main .hr-radio:focus-within .hr-radio__dot,
+#marketplace-main .hr-radio:active       .hr-radio__dot {
+  box-shadow: inset 0 0 0 1.5px var(--akzent) !important;
+}
+#marketplace-main .hr-radio--checked .hr-radio__dot,
+#marketplace-main .hr-radio__dot.hr-radio__dot--checked {
+  background: transparent !important;
+  border:     none !important;
+  box-shadow: inset 0 0 0 1.5px var(--akzent) !important;
+}
+#marketplace-main .hr-radio__dot--checked::before {
+  background:       var(--akzent) !important;
+  background-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   4. Tabellen-Header
+   -------------------------------------------------- */
+#marketplace-main .hr-data-table-th {
+  background-color: var(--tabelle-kopf) !important;
+}
+#marketplace-main .hr-data-table-th--sortable:hover .hr-data-table-th__title {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   5. „Zurück"-Button (ui-text-btn)
+   GHL setzt --n-text-color-hover: var(--primary-800) !important
+   → ID-Spezifität schlägt Klassen-Spezifität
+   -------------------------------------------------- */
+#marketplace-main .ui-button.hr-button--default-type.ui-text-btn {
+  --n-text-color:         var(--nav-farbe) !important;
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-focus:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent-dunkel) !important;
+}
+#marketplace-main .ui-button.hr-button--default-type.ui-text-btn:hover,
+#marketplace-main .ui-button.hr-button--default-type.ui-text-btn:focus {
+  color: var(--akzent) !important;
+}
+#marketplace-main .ui-button.hr-button--default-type.ui-text-btn:hover *,
+#marketplace-main .ui-button.hr-button--default-type.ui-text-btn:focus * {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   6. Tertiary-Buttons (Set Usage Limits, Änderungen speichern)
+   -------------------------------------------------- */
+#marketplace-main .ui-button.hr-button--tertiary-type {
+  --n-text-color:       var(--text-schwach) !important;
+  --n-text-color-hover: var(--akzent) !important;
+  --n-text-color-focus: var(--akzent) !important;
+  --n-color:            transparent !important;
+  --n-color-hover:      var(--akzent-hell) !important;
+  --n-color-focus:      var(--akzent-hell) !important;
+  --n-border:           1px solid #e0e0e6 !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-ripple-color:     var(--akzent) !important;
+}
+#marketplace-main .ui-button.hr-button--tertiary-type:hover,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus {
+  color: var(--akzent) !important;
+}
+#marketplace-main .ui-button.hr-button--tertiary-type:hover .hr-button__content,
+#marketplace-main .ui-button.hr-button--tertiary-type:hover .hr-button__content *,
+#marketplace-main .ui-button.hr-button--tertiary-type:hover svg,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus .hr-button__content,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus .hr-button__content *,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus svg {
+  color: var(--akzent) !important;
+}
+#marketplace-main .ui-button.hr-button--tertiary-type .hr-button__border {
+  border-color: transparent !important;
+}
+#marketplace-main .ui-button.hr-button--tertiary-type:hover .hr-button__border,
+#marketplace-main .ui-button.hr-button--tertiary-type:focus .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#marketplace-main .ui-button.hr-button--tertiary-type .hr-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   7. Pagination
+   -------------------------------------------------- */
+#marketplace-main .hr-pagination-item--active {
+  color:         var(--akzent) !important;
+  border:        1px solid var(--akzent) !important;
+  border-radius: 3px !important;
+}
+#marketplace-main .hr-pagination-item--clickable:hover { color: var(--akzent) !important; }
+#marketplace-main .hr-pagination .hr-button:hover,
+#marketplace-main .hr-pagination .hr-button:focus      { color: var(--akzent) !important; }
+#marketplace-main .hr-pagination .hr-button:hover .hr-button__border,
+#marketplace-main .hr-pagination .hr-button:focus .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#marketplace-main .hr-pagination .hr-button .hr-button__state-border { display: none !important; }
