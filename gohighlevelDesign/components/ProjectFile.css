@@ -16453,6 +16453,116 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   display: none !important;
 }
 
+/* ================================================
+   Section 125 – AI Agent Templates
+   Scope: #agent-templates-container
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Hintergrund weiß
+   -------------------------------------------------- */
+#agent-templates-container,
+#agent-templates-container .hl_wrapper--inner,
+#agent-templates-container .hr-wrapper-container,
+#agent-templates-container .hr-config-provider {
+  background-color: #ffffff !important;
+}
+
+/* --------------------------------------------------
+   2. Radio-Input → wine
+   Bootstrap [type=radio]:checked nutzt currentColor
+   → color auf wine setzen damit currentColor = wine
+   -------------------------------------------------- */
+#agent-templates-container input[type="radio"].hr-radio-input {
+  color:        var(--akzent) !important;
+  accent-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   3. Radio-Dot → wine
+   -------------------------------------------------- */
+#agent-templates-container .hr-radio__dot--checked {
+  background-color: var(--akzent) !important;
+}
+#agent-templates-container .hr-radio--checked .hr-radio__dot-wrapper {
+  box-shadow:    inset 0 0 0 1px var(--akzent) !important;
+  border-radius: 50% !important;
+}
+#agent-templates-container .hr-radio:hover .hr-radio__dot-wrapper {
+  box-shadow:    inset 0 0 0 1px var(--akzent) !important;
+  border-radius: 50% !important;
+}
+
+/* --------------------------------------------------
+   4. Checkboxen → wine
+   [data-v-9e23f5aa] überschreibt mit var(--gray-100)
+   → höhere Spezifität nötig
+   -------------------------------------------------- */
+#agent-templates-container .hr-checkbox.ui-checkbox.hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#agent-templates-container .hr-checkbox.ui-checkbox:hover .hr-checkbox-box {
+  border-color: var(--akzent) !important;
+}
+
+/* Check-Icon → weiß */
+#agent-templates-container .hr-checkbox--checked .check-icon path {
+  fill: #ffffff !important;
+}
+
+/* --------------------------------------------------
+   5. Suchfeld → wine
+   -------------------------------------------------- */
+#agent-templates-container #bot-search-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+#agent-templates-container #bot-search-input .hr-input__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   6. „Bezahlt" Tag → wine
+   -------------------------------------------------- */
+#agent-templates-container .hr-tag.ui-primary {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent-a25) !important;
+}
+#agent-templates-container .hr-tag.ui-primary .hr-tag__content,
+#agent-templates-container .hr-tag.ui-primary .hr-tag__content div {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   7. Sterne → wine
+   -------------------------------------------------- */
+#agent-templates-container .star-filled {
+  color: var(--akzent) !important;
+}
+#agent-templates-container .star-empty {
+  color: var(--akzent-a25) !important;
+}
+
+/* --------------------------------------------------
+   8. Bot-Karte hover → wine Border
+   -------------------------------------------------- */
+#agent-templates-container .bot-card:hover {
+  outline:      2px solid var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   9. Karten-Titel → wine
+   -------------------------------------------------- */
+#agent-templates-container .text-purple-900 {
+  color: var(--akzent-dunkel) !important;
+}
+
+
 
 
 

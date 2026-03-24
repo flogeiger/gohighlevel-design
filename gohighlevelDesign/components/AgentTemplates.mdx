@@ -1,0 +1,109 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/AgentTemplates" />
+
+# AI-Assistenten – Agenten-Vorlagen (Section 125)
+
+Die Agenten-Vorlagen-Seite (`AI-Assistenten → Agenten-Vorlagen`) zeigt eine Bibliothek von KI-Agenten-Templates mit Filter-Sidebar (Kategorien, Anwendungsfälle, Geschäft Nische, Preisgestaltung) und Template-Kacheln. Root-Scope ist `#agent-templates-container`. Die Seite nutzt die **Highrise Library** (`hr-` Prefix). Besonderheit: Checkboxen werden von einem scoped Vue-Stylesheet mit `var(--gray-100)` überschrieben — höhere Spezifität via `.hr-checkbox.ui-checkbox.hr-checkbox--checked` nötig.
+
+![Agent Templates Screenshot](./agent-templates-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#agent-templates-container` |
+| Radio-Buttons | `.hr-radio__dot--checked`, `.hr-radio--checked .hr-radio__dot-wrapper` |
+| Checkboxen | `.hr-checkbox.ui-checkbox.hr-checkbox--checked .hr-checkbox-box` |
+| Suchfeld | `#bot-search-input` |
+| „Bezahlt" Tag | `.hr-tag.ui-primary` |
+| Sterne | `.star-filled`, `.star-empty` |
+| Bot-Karten | `.bot-card:hover` |
+| Karten-Titel | `.text-purple-900` |
+
+---
+
+## 125.1 – Hintergrund
+
+```css
+#agent-templates-container,
+#agent-templates-container .hl_wrapper--inner,
+#agent-templates-container .hr-wrapper-container,
+#agent-templates-container .hr-config-provider {
+  background-color: #ffffff !important;
+}
+```
+
+---
+
+## 125.2 – Radio-Buttons & Checkboxen
+
+```css
+/* Radio-Input */
+#agent-templates-container input[type="radio"].hr-radio-input {
+  color: var(--wine) !important;
+  accent-color: var(--wine) !important;
+}
+
+/* Radio-Dot */
+#agent-templates-container .hr-radio__dot--checked { background-color: var(--wine) !important; }
+#agent-templates-container .hr-radio--checked .hr-radio__dot-wrapper { box-shadow: inset 0 0 0 1px var(--wine) !important; border-radius: 50% !important; }
+#agent-templates-container .hr-radio:hover .hr-radio__dot-wrapper { box-shadow: inset 0 0 0 1px var(--wine) !important; border-radius: 50% !important; }
+
+/* Checkboxen — höhere Spezifität nötig gegen Vue-scoped var(--gray-100) */
+#agent-templates-container .hr-checkbox.ui-checkbox.hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#agent-templates-container .hr-checkbox.ui-checkbox:hover .hr-checkbox-box { border-color: var(--wine) !important; }
+/* Check-Icon weiß */
+#agent-templates-container .hr-checkbox--checked .check-icon path { fill: #ffffff !important; }
+```
+
+---
+
+## 125.3 – Suchfeld
+
+```css
+#agent-templates-container #bot-search-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#agent-templates-container #bot-search-input .hr-input__state-border { display: none !important; }
+```
+
+---
+
+## 125.4 – Tags, Sterne & Bot-Karten
+
+```css
+/* „Bezahlt" Tag */
+#agent-templates-container .hr-tag.ui-primary { background-color: var(--wine-lt) !important; border-color: rgba(91,25,45,0.25) !important; }
+#agent-templates-container .hr-tag.ui-primary .hr-tag__content,
+#agent-templates-container .hr-tag.ui-primary .hr-tag__content div { color: var(--wine) !important; }
+
+/* Sterne */
+#agent-templates-container .star-filled { color: var(--wine) !important; }
+#agent-templates-container .star-empty { color: rgba(91,25,45,0.25) !important; }
+
+/* Bot-Karte hover */
+#agent-templates-container .bot-card:hover { outline: 2px solid var(--wine) !important; border-color: var(--wine) !important; }
+
+/* Karten-Titel (text-purple-900 → wine-2) */
+#agent-templates-container .text-purple-900 { color: var(--wine-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Checkbox-Spezifitäts-Problem:** GHL setzt über einen Vue-Scoped-Style `background-color: var(--gray-100)` auf `.hr-checkbox--checked .hr-checkbox-box`. Da Vue-Scoped-Styles `[data-v-*]`-Attribute als Spezifitäts-Booster nutzen, reicht `.hr-checkbox--checked` allein nicht aus. Der kombinierte Selektor `.hr-checkbox.ui-checkbox.hr-checkbox--checked .hr-checkbox-box` gewinnt durch Klassen-Anhäufung (3 Klassen = Spezifität 0-3-0 vs. `[data-v-*]`-Klasse = 0-1-1).
+
+**`text-purple-900` → wine-2:** Die Karten-Titel nutzen Tailwind-Purple statt Primary-Blue — beide werden auf wine umgefärbt. Wine-2 (dunkleres Wine) passt besser als wine für Titeltext.
+
+**`star-empty` mit `rgba(91,25,45,0.25)`:** Leere Sterne erhalten eine transparente wine-Variante statt Grau — subtiler als komplett grau, hält den wine-Kontext aufrecht.
