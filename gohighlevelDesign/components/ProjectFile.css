@@ -15752,6 +15752,707 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 #file-upload-submit .hr-button__border,
 #file-upload-submit .hr-button__state-border { display: none !important; }
 
+/* ================================================
+   Section 124 – Conversation AI Einstellungen
+   Scope: #conversation-ai-settings-v2
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Tabs → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-tabs {
+  --n-bar-color:             var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent) !important;
+  --n-tab-text-color-hover:  var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   2. „Als primären Bot festlegen" → Primary-Style
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #primary-bot {
+  --n-color:              var(--akzent) !important;
+  --n-color-hover:        var(--akzent-dunkel) !important;
+  --n-color-pressed:      var(--akzent) !important;
+  --n-text-color:         #ffffff !important;
+  --n-text-color-hover:   #ffffff !important;
+  --n-text-color-pressed: #ffffff !important;
+  --n-text-color-focus:   #ffffff !important;
+  --n-border:             1px solid var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:       var(--akzent) !important;
+  background-color:       var(--akzent) !important;
+  border-color:           var(--akzent) !important;
+  color:                  #ffffff !important;
+}
+#conversation-ai-settings-v2 #primary-bot:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#conversation-ai-settings-v2 #primary-bot .n-button__border,
+#conversation-ai-settings-v2 #primary-bot .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   3. „Bot-Testversion" Button → Primary-Style
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #bot-trial-redirect {
+  --n-color:              var(--akzent) !important;
+  --n-color-hover:        var(--akzent-dunkel) !important;
+  --n-color-pressed:      var(--akzent) !important;
+  --n-text-color:         #ffffff !important;
+  --n-text-color-hover:   #ffffff !important;
+  --n-text-color-pressed: #ffffff !important;
+  --n-text-color-focus:   #ffffff !important;
+  --n-border:             1px solid var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:       var(--akzent) !important;
+  background-color:       var(--akzent) !important;
+  border-color:           var(--akzent) !important;
+  color:                  #ffffff !important;
+}
+#conversation-ai-settings-v2 #bot-trial-redirect:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#conversation-ai-settings-v2 #bot-trial-redirect .n-button__border,
+#conversation-ai-settings-v2 #bot-trial-redirect .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   4. „Upgrade auf AI Employee" → Primary-Style
+   IMG via filter weiß, inline color überschreiben
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #upgrade-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #upgrade-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#conversation-ai-settings-v2 #upgrade-button .n-button__content,
+#conversation-ai-settings-v2 #upgrade-button .n-button__content span {
+  color: #ffffff !important;
+}
+#conversation-ai-settings-v2 #upgrade-button svg {
+  color:  #ffffff !important;
+  stroke: #ffffff !important;
+}
+#conversation-ai-settings-v2 #upgrade-button img {
+  filter: brightness(0) invert(1) !important;
+}
+#conversation-ai-settings-v2 #upgrade-button .n-button__border,
+#conversation-ai-settings-v2 #upgrade-button .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   5. Radio-Dot → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-radio__dot--checked {
+  background-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   6. „AI bot trial" Text + Icon → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .bot-trial-featured-card .flex[style*="primary-700"],
+#conversation-ai-settings-v2 .bot-trial-featured-card .flex[style*="primary-700"] svg,
+#conversation-ai-settings-v2 .bot-trial-featured-card .flex[style*="primary-700"] p {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   7. Radio-Karte aktiv Border → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #ai-mode-radio .n-radio-button--checked .n-radio-button__state-border {
+  box-shadow: inset 0 0 0 1px var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #ai-mode-radio .n-radio-button--checked {
+  background-color: rgba(91,25,45,.04) !important;
+}
+
+/* --------------------------------------------------
+   8. Antwortlänge Radio-Gruppe → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #response-length-radio .n-radio-button--checked {
+  box-shadow:       0 0 0 2px var(--akzent) !important;
+  background-color: rgba(91,25,45,.04) !important;
+}
+#conversation-ai-settings-v2 #response-length-radio .n-radio-button:hover {
+  box-shadow: 0 0 0 1px var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #response-length-radio .n-radio-button__state-border {
+  display: none !important;
+}
+#conversation-ai-settings-v2 #response-length-radio .n-radio-button--checked .response-length-text {
+  color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #response-length-radio .n-radio-button:hover .response-length-text {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   9. Icons in Radio-Button-Karten → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .icon-primary svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .hl-icon-container .icon-primary {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   10. Checkboxen → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-checkbox {
+  --n-border-checked:   1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-color-checked:    var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   11. Eingabefelder hover/focus → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-input.hl-input-text {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:    var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   12. Number-Inputs → wine
+   -------------------------------------------------- */
+#time-auto .n-input,
+#max-auto-number .n-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#max-auto-number .n-button:hover { color: var(--akzent) !important; }
+
+/* --------------------------------------------------
+   13. Selects hover/focus → wine
+   -------------------------------------------------- */
+#select-channel .n-base-selection,
+#time-type-auto .n-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-caret-color:       var(--akzent) !important;
+  --n-loading-color:     var(--akzent) !important;
+  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#select-channel .n-base-selection__state-border,
+#time-type-auto .n-base-selection__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   14. Switches aktiv → wine
+   -------------------------------------------------- */
+#sleep-enabled.n-switch--active .n-switch__rail,
+#response-style-toggle.n-switch--active .n-switch__rail,
+#conversation-ai-settings-v2 .n-switch--active .n-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   15. Footer-Buttons
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting {
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-ripple-color:       var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting .n-button__state-border {
+  display: none !important;
+}
+
+#save-ai-employee {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#save-ai-employee:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#save-ai-employee .n-button__border,
+#save-ai-employee .n-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 124b – Conversation AI Bot-Training Tab
+   Scope: #conversation-ai-settings-v2
+   ================================================ */
+
+/* --------------------------------------------------
+   1. „Wissensdatenbank auswählen" Select → wine
+   -------------------------------------------------- */
+#select-knowledge-base .n-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-caret-color:       var(--akzent) !important;
+  --n-loading-color:     var(--akzent) !important;
+  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#select-knowledge-base .n-base-selection__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. „Neu erstellen" Button → Primary-Style
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #create-knowledge-base-btn {
+  --n-color:              var(--akzent) !important;
+  --n-color-hover:        var(--akzent-dunkel) !important;
+  --n-color-pressed:      var(--akzent) !important;
+  --n-text-color:         #ffffff !important;
+  --n-text-color-hover:   #ffffff !important;
+  --n-text-color-pressed: #ffffff !important;
+  --n-text-color-focus:   #ffffff !important;
+  --n-border:             1px solid var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:       var(--akzent) !important;
+  background-color:       var(--akzent) !important;
+  border-color:           var(--akzent) !important;
+  color:                  #ffffff !important;
+}
+#conversation-ai-settings-v2 #create-knowledge-base-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#conversation-ai-settings-v2 #create-knowledge-base-btn svg {
+  color:  #ffffff !important;
+  stroke: #ffffff !important;
+}
+#conversation-ai-settings-v2 #create-knowledge-base-btn .n-button__border,
+#conversation-ai-settings-v2 #create-knowledge-base-btn .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. Avatar-Icon (Stern) → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-avatar[style*="primary-700"] {
+  color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-avatar[style*="primary-700"] svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   4. „Reset" Button hover → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #reset-conversation {
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-ripple-color:       var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #reset-conversation:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #reset-conversation:hover svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #reset-conversation .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   5. Textarea focus → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #send-bot-trial-message:focus {
+  outline:      none !important;
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 2px rgba(91,25,45,.15) !important;
+}
+
+/* --------------------------------------------------
+   6. Send-Button (#btn-1) → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #btn-1 {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #btn-1:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#conversation-ai-settings-v2 #btn-1 .n-button__border,
+#conversation-ai-settings-v2 #btn-1 .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   7. Footer-Buttons Training Tab
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #cancel-knowledge-base-changes {
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-ripple-color:       var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-knowledge-base-changes:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-knowledge-base-changes .n-button__state-border {
+  display: none !important;
+}
+
+#save-knowledge-base-changes {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#save-knowledge-base-changes:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#save-knowledge-base-changes .n-button__border,
+#save-knowledge-base-changes .n-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 124c – Conversation AI Bot-Ziele Tab
+   Scope: #conversation-ai-settings-v2
+   ================================================ */
+
+/* --------------------------------------------------
+   1. „Mehr erfahren" Link → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 a.text-primary-700 {
+  color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 a.text-primary-700:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   2. „Benutzerdefinierten Wert hinzufügen" → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #custom-field-button .text-primary-700 {
+  color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #custom-field-button svg.text-primary-700 {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   3. Flow-Builder Card → wine Hintergrund + Border
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #edit-bot-goals-content {
+  background:   var(--akzent-hell) !important;
+  border-color: rgba(91,25,45,.2) !important;
+}
+
+/* --------------------------------------------------
+   4. Flow-Builder SVG Icon → rosa
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #edit-bot-goals-content img {
+  filter: hue-rotate(90deg) saturate(70%) brightness(110%) !important;
+}
+
+/* --------------------------------------------------
+   5. „Flow Builder starten" → Primary-Style
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #launch-flow-builder-button {
+  --n-color:              var(--akzent) !important;
+  --n-color-hover:        var(--akzent-dunkel) !important;
+  --n-color-pressed:      var(--akzent) !important;
+  --n-text-color:         #ffffff !important;
+  --n-text-color-hover:   #ffffff !important;
+  --n-text-color-pressed: #ffffff !important;
+  --n-text-color-focus:   #ffffff !important;
+  --n-border:             1px solid var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:       var(--akzent) !important;
+  background-color:       var(--akzent) !important;
+  border-color:           var(--akzent) !important;
+  color:                  #ffffff !important;
+}
+#conversation-ai-settings-v2 #launch-flow-builder-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#conversation-ai-settings-v2 #launch-flow-builder-button .n-button__border,
+#conversation-ai-settings-v2 #launch-flow-builder-button .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   6. Tonfall-Select → wine
+   -------------------------------------------------- */
+#tone-select .n-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-caret-color:       var(--akzent) !important;
+  --n-loading-color:     var(--akzent) !important;
+  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#tone-select .n-base-selection__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   7. Textareas hover/focus → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #personality-input,
+#conversation-ai-settings-v2 #goal-input,
+#conversation-ai-settings-v2 #instructions-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-loading-color:    var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #personality-input .n-input__state-border,
+#conversation-ai-settings-v2 #goal-input .n-input__state-border,
+#conversation-ai-settings-v2 #instructions-input .n-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   8. Checkboxen → wine
+   Inline --n-color-checked schlägt Variables
+   → .n-checkbox-box direkt targetieren
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-checkbox:hover .n-checkbox-box__border {
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .n-checkbox:focus .n-checkbox-box__border {
+  border-color:  var(--akzent) !important;
+  box-shadow:    0 0 0 2px rgba(91,25,45,.2) !important;
+}
+
+/* --------------------------------------------------
+   9. Action-Buttons hover → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .actions-button {
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-ripple-color:       var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .actions-button:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .actions-button:hover .action-name {
+  color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 .actions-button .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   10. Switches aktiv → wine
+   -------------------------------------------------- */
+#toggle-enable-cancel-scenario.n-switch--active .n-switch__rail,
+#toggle-enable-reschedule-scenario.n-switch--active .n-switch__rail,
+#summary-enabled-switch.n-switch--active .n-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   11. Avatar-Icon → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-avatar[style*="primary-700"] svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   12. Reset-Button hover → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #reset-conversation {
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-ripple-color:       var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #reset-conversation:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #reset-conversation:hover svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #reset-conversation .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   13. Send-Button (#btn-1) → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #btn-1 {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #btn-1:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#conversation-ai-settings-v2 #btn-1 .n-button__border,
+#conversation-ai-settings-v2 #btn-1 .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   14. Textarea Chat-Eingabe focus → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #send-bot-trial-message:focus {
+  outline:      none !important;
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 2px rgba(91,25,45,.15) !important;
+}
+
+/* --------------------------------------------------
+   15. Footer-Buttons Goals Tab
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting {
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-ripple-color:       var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting .n-button__state-border {
+  display: none !important;
+}
+
+#save-conversation-ai-setting {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#save-conversation-ai-setting:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#save-conversation-ai-setting .n-button__border,
+#save-conversation-ai-setting .n-button__state-border { display: none !important; }
+
+/* ================================================
+   Section 124d – Conversation AI Dashboard Tab
+   Scope: #conversation-ai-settings-v2
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Kanal-Select → wine
+   -------------------------------------------------- */
+#channel-select .n-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-caret-color:       var(--akzent) !important;
+  --n-loading-color:     var(--akzent) !important;
+  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#channel-select .n-base-selection__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. Datepicker hover/focus → wine
+   -------------------------------------------------- */
+#filters-date-picker .n-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#filters-date-picker .n-input__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   3. Statistik-Karte selektiert → wine Border
+   Scoped Style hat border-color: var(--primary-300)
+   → .hl-statistic direkt targetieren
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .statistic-card-wrapper.selected .hl-statistic {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+#conversation-ai-settings-v2 .statistic-card-wrapper.clickable:hover .hl-statistic {
+  border-color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   4. Glühbirnen-Icon → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .bg-primary-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#conversation-ai-settings-v2 .text-primary-600 {
+  color: var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   5. Tabellen-Header Sort-Icon + Loading → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 .n-data-table {
+  --n-th-icon-color-active: var(--akzent) !important;
+  --n-loading-color:        var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   6. Kontakt-Select (#select-id) → wine
+   -------------------------------------------------- */
+#select-id .n-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-caret-color:       var(--akzent) !important;
+  --n-loading-color:     var(--akzent) !important;
+  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+#select-id .n-base-selection__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   7. Footer „Stornieren" Button hover → wine
+   -------------------------------------------------- */
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting {
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-ripple-color:       var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#conversation-ai-settings-v2 #cancel-conversation-ai-setting .n-button__state-border {
+  display: none !important;
+}
+
 
 
 
