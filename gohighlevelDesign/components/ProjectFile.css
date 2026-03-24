@@ -13524,26 +13524,38 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 }
 
 /* ================================================
-   Section 123b – Voice AI Sort-Dropdown
-   NaïveUI n-dropdown (floating, kein hr-)
+   Section 123b – Voice AI Sort-Dropdown (floating)
+   Hover: voller Akzent-Hintergrund + weißer Text
    ================================================ */
-.hl-wrapper-container:has(#outbound-calls-btn) ~ .n-dropdown-menu,
-.n-dropdown-menu:has(.n-dropdown-option-body__label) {
+
+.n-dropdown-menu {
+  --n-option-color-hover:             var(--akzent) !important;
+  --n-option-color-active:            rgba(91,25,45,.05) !important;
   --n-option-text-color-active:       var(--akzent) !important;
   --n-option-text-color-child-active: var(--akzent) !important;
-  --n-option-color-active:            rgba(91,25,45,.08) !important;
+  --n-option-text-color-hover:        #ffffff !important;
 }
 
-/* Da das Dropdown floating ist, targetieren wir global via n-dropdown-option--pending */
-.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending {
-  background-color: rgba(91,25,45,.06) !important;
+/* Hover → voller Akzent-Hintergrund + weiß */
+.n-dropdown-menu .n-dropdown-option-body.n-dropdown-option-body--pending {
+  background-color: var(--akzent) !important;
 }
-.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending .n-dropdown-option-body__label {
-  color: var(--akzent) !important;
+.n-dropdown-menu .n-dropdown-option-body.n-dropdown-option-body--pending .n-dropdown-option-body__label {
+  color: #ffffff !important;
 }
-.n-dropdown-menu .n-dropdown-option .n-dropdown-option-body--pending .n-dropdown-option-body__prefix svg {
-  color: var(--akzent) !important;
+.n-dropdown-menu .n-dropdown-option-body.n-dropdown-option-body--pending .n-dropdown-option-body__prefix svg {
+  color:  #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Selektierte Option (--selected) → wine Text */
+.n-dropdown-menu .n-dropdown-option--selected .n-dropdown-option-body__label,
+.n-dropdown-menu .n-dropdown-option--selected .n-dropdown-option-body__prefix svg {
+  color:  var(--akzent) !important;
   stroke: var(--akzent) !important;
+}
+.n-dropdown-menu .n-dropdown-option--selected {
+  background-color: rgba(91,25,45,.05) !important;
 }
 
 /* ================================================
@@ -13713,6 +13725,101 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 .n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-base-selection__state-border {
   display: none !important;
 }
+
+/* ================================================
+   Section 123f – „Agenten in Ordner verschieben" Modal
+   Scope: .move-to-folder-modal
+   ================================================ */
+
+/* --------------------------------------------------
+   1. „Agenten verschieben" Primary Button → wine
+   -------------------------------------------------- */
+#move-to-folder-modal-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  color:            #fff !important;
+}
+#move-to-folder-modal-footer-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#move-to-folder-modal-footer-btn-positive-action .n-button__border,
+#move-to-folder-modal-footer-btn-positive-action .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   2. „Abbrechen" Button hover → wine
+   -------------------------------------------------- */
+#move-to-folder-modal-footer-btn-negative-action:hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+#move-to-folder-modal-footer-btn-negative-action .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   3. Close-Button (X) → neutral
+   -------------------------------------------------- */
+#move-to-folder-modal-header-modal-close-btn .n-button__state-border { display: none !important; }
+
+/* --------------------------------------------------
+   4. „Verfügbare Ordner" Select hover/focus → wine
+   -------------------------------------------------- */
+.move-to-folder-modal .n-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-caret-color:       var(--akzent) !important;
+  --n-loading-color:     var(--akzent) !important;
+  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+}
+.move-to-folder-modal .n-base-selection__state-border { display: none !important; }
+
+/* ================================================
+   Section 123g – „IP-Schutz konfigurieren" Modal
+   Scope: .n-modal:has(#enable-ip-protection)
+   ================================================ */
+
+/* --------------------------------------------------
+   1. Checkbox → wine
+   -------------------------------------------------- */
+#enable-ip-protection {
+  --n-border-checked:        1px solid var(--akzent) !important;
+  --n-border-focus:          1px solid var(--akzent) !important;
+  --n-box-shadow-focus:      0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-color-checked:         var(--akzent) !important;
+  --n-border-disabled-checked: 1px solid var(--akzent-hell) !important;
+  --n-color-disabled-checked: var(--akzent-hell) !important;
+}
+
+/* --------------------------------------------------
+   2. „Stornieren" Button hover → wine
+   -------------------------------------------------- */
+.n-modal:has(#enable-ip-protection) .n-button--default-type:not(#undefined-modal-close-btn):hover {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+.n-modal:has(#enable-ip-protection) .n-button--default-type:not(#undefined-modal-close-btn) .n-button__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   3. „Vorlage erstellen" Primary Button → wine
+   -------------------------------------------------- */
+.n-modal:has(#enable-ip-protection) .n-button--primary-type {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+.n-modal:has(#enable-ip-protection) .n-button--primary-type:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+.n-modal:has(#enable-ip-protection) .n-button--primary-type .n-button__border,
+.n-modal:has(#enable-ip-protection) .n-button--primary-type .n-button__state-border {
+  display: none !important;
+}
+
+
 
 /* ================================================
    Section 124 – Voice AI Agent bearbeiten
