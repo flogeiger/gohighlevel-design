@@ -146,7 +146,27 @@ i[class*="fa-"], .fas, .far, .fab, .fal {
   font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands" !important;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   Section 126 – Conversations Top-Navigation
+   Scope: .topmenu-nav
+   ════════════════════════════════════════════════════════════════ */
 
+/* Aktiver Tab → wine */
+.topmenu-nav .topmenu-navitem.active {
+  color:        var(--akzent-dunkel) !important;
+  border-color: var(--akzent-dunkel) !important;
+}
+
+/* Aktiver Tab Unterstrich → wine */
+.topmenu-nav .topmenu-navitem.active::after {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* Hover → wine */
+.topmenu-nav .topmenu-navitem:hover {
+  color: var(--akzent) !important;
+}
 
 /* ════════════════════════════════════════════════════════════════
    8 · MANAGE VIEW DRAWER (#calendar-view-filter-drawer)
