@@ -16828,7 +16828,183 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--base-white) !important;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   Section 128 – Agent Logs
+   Scope: #agent-logs-content
+   ════════════════════════════════════════════════════════════════ */
 
+/* --------------------------------------------------
+   1. Suchfeld → wine
+   -------------------------------------------------- */
+#agent-logs-content #agent-logs-search-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+}
+#agent-logs-content #agent-logs-search-input .hr-input__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   2. Alle „Anwenden"-Buttons in Popovers → wine
+   -------------------------------------------------- */
+.hr-popover__content [id^="filter-apply-"] {
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent-dunkel) !important;
+  --n-color-focus:   var(--akzent-dunkel) !important;
+  --n-border:        1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent-dunkel) !important;
+  --n-border-focus:  1px solid var(--akzent-dunkel) !important;
+}
+.hr-popover__content [id^="filter-apply-"] p {
+  color: var(--base-white) !important;
+}
+
+/* --------------------------------------------------
+   3. Filter-Popover Select (Zeitstempel) → wine
+   -------------------------------------------------- */
+.hr-popover__content #filter-single-timestamp .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-hover:  0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   4. Filter-Popover Inputs (agentName etc.) → wine
+   -------------------------------------------------- */
+.hr-popover__content [id^="filter-input-"] {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+}
+.hr-popover__content [id^="filter-input-"] .hr-input__state-border {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   5. Sort + Add-Filter Dropdown – ausgewählte Option → wine
+   -------------------------------------------------- */
+#agent-logs-sort-chip-dropdown .hr-dropdown-option--selected .hr-dropdown-option-title,
+#agent-logs-add-filter-dropdown .hr-dropdown-option--selected .hr-dropdown-option-title,
+#agent-logs-sort-dropdown .hr-dropdown-option--selected .hr-dropdown-option-title {
+  color: var(--akzent-dunkel) !important;
+}
+#agent-logs-sort-chip-dropdown .hr-dropdown-option--selected-checkmark svg,
+#agent-logs-add-filter-dropdown .hr-dropdown-option--selected-checkmark svg,
+#agent-logs-sort-dropdown .hr-dropdown-option--selected-checkmark svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+#agent-logs-sort-chip-dropdown .hr-dropdown-option--selected,
+#agent-logs-add-filter-dropdown .hr-dropdown-option--selected,
+#agent-logs-sort-dropdown .hr-dropdown-option--selected {
+  --n-option-color-active: var(--akzent-hell) !important;
+}
+
+/* --------------------------------------------------
+   6. Dropdown Suche → wine
+   -------------------------------------------------- */
+#agent-logs-sort-chip-dropdown .hr-input,
+#agent-logs-add-filter-dropdown .hr-input,
+#agent-logs-sort-dropdown .hr-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+}
+
+/* --------------------------------------------------
+   7. Empty-State Icon → wine
+   -------------------------------------------------- */
+#agent-logs-content #empty-agent-logs-empty .hr-icon-wrapper {
+  background-color: var(--akzent-hell) !important;
+}
+#agent-logs-content #empty-agent-logs-empty .hr-icon-wrapper i {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   8. Pagination Rows-per-page Select → wine
+   -------------------------------------------------- */
+#agent-logs-content #per-page-dropdown .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   9. Aktive Pagination-Seite → wine
+   Vue scoped [data-v-23397495] → Attribut-Selektor nötig
+   -------------------------------------------------- */
+#agent-logs-pagination .hr-pagination-item__active.hr-pagination-item[data-v-23397495] {
+  border-color: var(--akzent) !important;
+}
+#agent-logs-pagination .hr-pagination-item__active.hr-pagination-item[data-v-23397495] button p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   10. Column Manager Popover → wine
+   -------------------------------------------------- */
+
+/* Suchfeld */
+#search-columns {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+}
+#search-columns .hr-input__state-border {
+  display: none !important;
+}
+
+/* „Alles auswählen" Button */
+#select-all-columns-button p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* Checkboxen → wine */
+.hr-popover__content #remaining-column-checkbox.hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+.hr-popover__content #remaining-column-checkbox.hr-checkbox--checked .hr-checkbox-box__border {
+  border-color: var(--akzent) !important;
+}
+.hr-popover__content #remaining-column-checkbox .check-icon path {
+  fill: var(--base-white) !important;
+}
+.hr-popover__content #remaining-column-checkbox:hover .hr-checkbox-box {
+  border-color: var(--akzent) !important;
+}
+.hr-popover__content #remaining-column-checkbox:focus .hr-checkbox-box {
+  box-shadow:   0 0 0 4px var(--akzent-a20) !important;
+  border-color: var(--akzent) !important;
+}
+
+/* Disabled-checked → akzent-blass */
+.hr-popover__content #remaining-column-checkbox.hr-checkbox--disabled.hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--akzent-blass) !important;
+  border-color:     var(--akzent-blass) !important;
+}
+
+.hr-v-2-17-0 .hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-23397495] {
+  border-color: var(--akzent) !important;
+}
+.hr-v-2-17-0 .hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-23397495] p {
+  color: var(--akzent-dunkel) !important;
+}
 
 
 

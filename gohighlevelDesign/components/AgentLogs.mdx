@@ -1,0 +1,177 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/AgentLogs" />
+
+# AI-Assistenten – Agentenprotokolle (Section 128)
+
+Die Agent Logs Seite (`AI-Assistenten → Agent Logs`) zeigt eine DataTable mit Agentenaktivitätsprotokollen. Root-Scope ist `#agent-logs-content`. Die Seite enthält eine Suchleiste, Filter-Chips (Zeitstempel, Filter hinzufügen, Sortieren), einen Column Manager Popover (6/8 Spalten) und Pagination mit Rows-per-page Select.
+
+Besonderheit: Die aktive Pagination-Seite wird via Vue-Scoped-Attribut `[data-v-23397495]` gestylt — zwei parallele Selektoren nötig (`#agent-logs-pagination` + `.hr-v-2-17-0`).
+
+![Agent Logs Screenshot](./agent-logs-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#agent-logs-content` |
+| Suchfeld | `#agent-logs-search-input` |
+| Filter-Popover Buttons | `.hr-popover__content [id^="filter-apply-"]` |
+| Filter-Popover Select | `.hr-popover__content #filter-single-timestamp` |
+| Filter-Popover Inputs | `.hr-popover__content [id^="filter-input-"]` |
+| Sort / Add-Filter Dropdown | `#agent-logs-sort-chip-dropdown`, `#agent-logs-add-filter-dropdown`, `#agent-logs-sort-dropdown` |
+| Empty-State | `#empty-agent-logs-empty` |
+| Pagination Select | `#per-page-dropdown` |
+| Aktive Pagination-Seite | `#agent-logs-pagination .hr-pagination-item__active[data-v-23397495]` |
+| Column Manager | `#search-columns`, `#remaining-column-checkbox`, `#select-all-columns-button` |
+
+---
+
+## 128.1 – Suchfeld & Filter-Popover
+
+```css
+/* Suchfeld */
+#agent-logs-content #agent-logs-search-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+}
+#agent-logs-content #agent-logs-search-input .hr-input__state-border { display: none !important; }
+
+/* „Anwenden"-Buttons in Popovers (ID-Präfix) */
+.hr-popover__content [id^="filter-apply-"] {
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine-2) !important;
+  --n-color-focus: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-border-focus: 1px solid var(--wine-2) !important;
+}
+.hr-popover__content [id^="filter-apply-"] p { color: #ffffff !important; }
+
+/* Zeitstempel Select */
+.hr-popover__content #filter-single-timestamp .hr-base-selection {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-hover: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-active: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Filter-Inputs (agentName etc., ID-Präfix) */
+.hr-popover__content [id^="filter-input-"] {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+}
+.hr-popover__content [id^="filter-input-"] .hr-input__state-border { display: none !important; }
+```
+
+---
+
+## 128.2 – Sort & Add-Filter Dropdowns
+
+```css
+/* Ausgewählte Option — alle drei Dropdown-IDs */
+#agent-logs-sort-chip-dropdown .hr-dropdown-option--selected .hr-dropdown-option-title,
+#agent-logs-add-filter-dropdown .hr-dropdown-option--selected .hr-dropdown-option-title,
+#agent-logs-sort-dropdown .hr-dropdown-option--selected .hr-dropdown-option-title { color: var(--wine-2) !important; }
+
+#agent-logs-sort-chip-dropdown .hr-dropdown-option--selected-checkmark svg,
+#agent-logs-add-filter-dropdown .hr-dropdown-option--selected-checkmark svg,
+#agent-logs-sort-dropdown .hr-dropdown-option--selected-checkmark svg { color: var(--wine) !important; stroke: var(--wine) !important; }
+
+#agent-logs-sort-chip-dropdown .hr-dropdown-option--selected,
+#agent-logs-add-filter-dropdown .hr-dropdown-option--selected,
+#agent-logs-sort-dropdown .hr-dropdown-option--selected { --n-option-color-active: var(--wine-lt) !important; }
+
+/* Suchfeld in Dropdowns */
+#agent-logs-sort-chip-dropdown .hr-input,
+#agent-logs-add-filter-dropdown .hr-input,
+#agent-logs-sort-dropdown .hr-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+}
+```
+
+---
+
+## 128.3 – Empty-State & Pagination
+
+```css
+/* Empty-State Icon */
+#agent-logs-content #empty-agent-logs-empty .hr-icon-wrapper { background-color: var(--wine-lt) !important; }
+#agent-logs-content #empty-agent-logs-empty .hr-icon-wrapper i { color: var(--wine-2) !important; }
+
+/* Rows-per-page Select */
+#agent-logs-content #per-page-dropdown .hr-base-selection {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Aktive Pagination-Seite — Vue-Scoped Attribut-Selektor */
+#agent-logs-pagination .hr-pagination-item__active.hr-pagination-item[data-v-23397495] { border-color: var(--wine) !important; }
+#agent-logs-pagination .hr-pagination-item__active.hr-pagination-item[data-v-23397495] button p { color: var(--wine-2) !important; }
+
+/* Fallback via .hr-v-2-17-0 Versionierungs-Klasse */
+.hr-v-2-17-0 .hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-23397495] { border-color: var(--wine) !important; }
+.hr-v-2-17-0 .hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-23397495] p { color: var(--wine-2) !important; }
+```
+
+---
+
+## 128.4 – Column Manager Popover
+
+```css
+/* Suchfeld */
+#search-columns {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-caret-color: var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+}
+#search-columns .hr-input__state-border { display: none !important; }
+
+/* „Alles auswählen" */
+#select-all-columns-button p { color: var(--wine-2) !important; }
+
+/* Checkboxen (vollständige States) */
+.hr-popover__content #remaining-column-checkbox.hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hr-popover__content #remaining-column-checkbox.hr-checkbox--checked .hr-checkbox-box__border { border-color: var(--wine) !important; }
+.hr-popover__content #remaining-column-checkbox .check-icon path { fill: #ffffff !important; }
+.hr-popover__content #remaining-column-checkbox:hover .hr-checkbox-box { border-color: var(--wine) !important; }
+.hr-popover__content #remaining-column-checkbox:focus .hr-checkbox-box { box-shadow: 0 0 0 4px rgba(91,25,45,0.2) !important; border-color: var(--wine) !important; }
+
+/* Disabled-checked → wine-lt */
+.hr-popover__content #remaining-column-checkbox.hr-checkbox--disabled.hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine-lt) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Vue-Scoped `[data-v-23397495]` für Pagination:** GHL setzt den aktiven Pagination-Border direkt via Vue-Scoped-Style mit einem `[data-v-*]` Attribut-Selektor (Spezifität: 0-1-1). Ohne den Attribut-Selektor im Override gewinnt der GHL-Style. Zwei Selektoren werden parallel gesetzt: `#agent-logs-pagination [data-v-23397495]` und `.hr-v-2-17-0 ... [data-v-23397495]` — letzerer als Fallback für andere Highrise-Versionen.
+
+**`[id^="filter-apply-"]` und `[id^="filter-input-"]` (ID-Präfix):** Filter-Popovers erzeugen dynamische IDs pro Spalte (z.B. `filter-apply-agentName`, `filter-input-contactName`). Präfix-Selektor matched alle — gleiche Strategie wie `[id^="kb-action-button-"]` in Section 122 und `[id^="action-dropdown-"]` in Section 121f.
+
+**`#remaining-column-checkbox` hat disabled-checked Sonderfall:** Pflicht-Spalten (Name des Agenten) sind checked + disabled. `var(--wine-lt)` statt `var(--wine)` signalisiert visuell den nicht-interaktiven Zustand.
