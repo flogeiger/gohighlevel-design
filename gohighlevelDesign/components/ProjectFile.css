@@ -133,6 +133,108 @@
   /* ── GRADIENT: Primär-Button ─────────────────────────────────────── */
   --verlauf-button: linear-gradient(135deg, var(--akzent), var(--akzent-dunkel));
 
+  /* ── WEISS (Weiß-Utility) ────────────────────────────────────────── */
+  --weiss:              #ffffff;   /* Reines Weiß – Text & Hintergründe             */
+  --weiss-warm:         #f8f5f5;   /* Warm-Weiß – subtile Hintergründe              */
+  --rosa-subtil:        #f0dde0;   /* Sehr helles Rosa – Sekundär-Hintergrund       */
+  --akzent-blass-3:     #f5e4e6;   /* Sehr helles Akzent-Rosa                       */
+
+  /* ── WINE (Primäre Dunkelfarbe) ──────────────────────────────────── */
+  --wine:               #5b192d;   /* Dunkles Wine/Burgund – Primär                 */
+  --wine-2:             #6b2d3e;   /* Mittleres Wine                                */
+  --wine-3:             #8b3a4a;   /* Helles Wine                                   */
+  --wine-4:             #9b1e3c;   /* Alternative Wine-Variante                     */
+  --wine-tief:          #3d1020;   /* Sehr dunkles Wine                             */
+  --wine-lt:            #fdf2f3;   /* Wine-Light – sehr heller Hintergrund          */
+
+  /* ── ALPHA-WERTE: Wine ───────────────────────────────────────────── */
+  --wine-a04:   color-mix(in srgb, var(--wine)  4%, transparent);
+  --wine-a05:   color-mix(in srgb, var(--wine)  5%, transparent);
+  --wine-a07:   color-mix(in srgb, var(--wine)  7%, transparent);
+  --wine-a08:   color-mix(in srgb, var(--wine)  8%, transparent);
+  --wine-a10:   color-mix(in srgb, var(--wine) 10%, transparent);
+  --wine-a15:   color-mix(in srgb, var(--wine) 15%, transparent);
+  --wine-a20:   color-mix(in srgb, var(--wine) 20%, transparent);
+  --wine-a25:   color-mix(in srgb, var(--wine) 25%, transparent);
+  --wine-a30:   color-mix(in srgb, var(--wine) 30%, transparent);
+
+  /* ── ALPHA-WERTE: Wine-2 ─────────────────────────────────────────── */
+  --wine-2-a08: color-mix(in srgb, var(--wine-2)  8%, transparent);
+  --wine-2-a10: color-mix(in srgb, var(--wine-2) 10%, transparent);
+  --wine-2-a12: color-mix(in srgb, var(--wine-2) 12%, transparent);
+  --wine-2-a15: color-mix(in srgb, var(--wine-2) 15%, transparent);
+  --wine-2-a20: color-mix(in srgb, var(--wine-2) 20%, transparent);
+  --wine-2-a25: color-mix(in srgb, var(--wine-2) 25%, transparent);
+  --wine-2-a28: color-mix(in srgb, var(--wine-2) 28%, transparent);
+  --wine-2-a35: color-mix(in srgb, var(--wine-2) 35%, transparent);
+
+  /* ── ALPHA-WERTE: Wine-3 / Wine-4 ───────────────────────────────── */
+  --wine-3-a10: color-mix(in srgb, var(--wine-3) 10%, transparent);
+  --wine-4-a20: color-mix(in srgb, var(--wine-4) 20%, transparent);
+
+  /* ── ALPHA-WERTE: Nav (ergänzt) ──────────────────────────────────── */
+  --nav-a08:    color-mix(in srgb, var(--nav-farbe)  8%, transparent);
+
+  /* ── STATUS: FEHLER (ergänzt) ────────────────────────────────────── */
+  --fehler-dunkel:      #991b1b;   /* Sehr dunkles Rot                              */
+  --fehler-2:           #d92d20;   /* Alternative Fehlerfarbe                       */
+  --fehler-a06:   color-mix(in srgb, var(--fehler)   6%, transparent);
+  --fehler-a08:   color-mix(in srgb, var(--fehler)   8%, transparent);
+  --fehler-2-a06: color-mix(in srgb, var(--fehler-2) 6%, transparent);
+
+  /* ── ALPHA-WERTE: Schwarz (ergänzt) ──────────────────────────────── */
+  --black-a08:          rgba(0,0,0,0.08);
+  --black-a12:          rgba(0,0,0,0.12);
+
+  /* ── ALPHA-WERTE: Weiß (ergänzt) ────────────────────────────────── */
+  --white-a80:          rgba(255,255,255,0.80);
+
+  /* ── STATUS: ERFOLG (Grün) ───────────────────────────────────────── */
+  --erfolg:                   #18a058;   /* Erfolg-Hauptfarbe                       */
+  --erfolg-hover:             #36ad6a;   /* Erfolg – Hover                          */
+  --erfolg-dunkel:            #065f46;   /* Erfolg – dunkel                         */
+  --erfolg-dunkel-2:          #027a48;   /* Erfolg – sehr dunkel                    */
+  --erfolg-hintergrund:       #d1fae5;   /* Erfolg – Hintergrund hell               */
+  --erfolg-hintergrund-mittel: rgb(209, 250, 223); /* Erfolg – Hintergrund mittel  */
+  --erfolg-hintergrund-hell:  rgb(236, 253, 243);  /* Erfolg – Hintergrund sehr hell */
+
+  /* ── STATUS: WARNUNG (ergänzt) ───────────────────────────────────── */
+  --warnung-hintergrund-2:    #fef3c7;   /* Warnung – alternative Hintergrundfarbe  */
+  --warnung-highlight:        #fec84b;   /* Warnung – Highlight-Gelb                */
+  --warnung-gelb:             rgb(253,230,138);  /* Warnung – helles Gelb           */
+  --warnung-amber:            rgb(180,120,0);    /* Warnung – Bernstein/Dunkelgold   */
+  --warnung-hintergrund-a50:  color-mix(in srgb, var(--warnung-hintergrund) 50%, transparent);
+
+  /* ── BLAU (GHL / Info-Farben) ────────────────────────────────────── */
+  --blau:               #155eef;   /* GHL Primärblau                                */
+  --blau-naiv:          #2080f0;   /* NaïveUI Blau                                  */
+  --blau-dunkel:        rgb(2, 106, 162);    /* Info-Blau dunkel                    */
+  --blau-mittel:        rgb(0, 86, 179);     /* Blau mittel                         */
+  --blau-nav:           rgb(30, 64, 175);    /* Navigationsblau                     */
+  --blau-hell:          #53b1fd;   /* Blau hell                                     */
+  --blau-hell-2:        #84adff;   /* Blau sehr hell                                */
+  --blau-hell-3:        #84caff;   /* Blau sehr hell (kalt)                         */
+  --info-blau:          rgb(24, 139, 246);   /* Info-Blau leuchtend                 */
+
+  /* ── GRAU (UI-Grautöne) ──────────────────────────────────────────── */
+  --grau-ui:            #e0e0e6;   /* UI-Grau – neutrale Rahmen & Shadows           */
+  --grau-ui-2:          #d1d5db;   /* UI-Grau – etwas dunkler                       */
+  --grau-schrift:       #667085;   /* Textgrau – Labels & Sekundärtext              */
+  --grau-schrift-2:     #475467;   /* Textgrau – etwas dunkler                      */
+  --grau-mittel-ui:     #9ca3af;   /* Grau mittel – UI-Elemente                     */
+  --grau-rand:          #bbbec4;   /* Grau – Randfarbe                              */
+  --grau-neutral:       rgb(243, 243, 245);  /* Grau sehr hell – Hintergrundflächen */
+  --grau-dunkel:        rgb(52, 64, 84);     /* Grau dunkel – Text/Icons            */
+  --grau-nav:           rgb(45, 55, 72);     /* Grau Navigation                     */
+
+  /* ── SCHATTEN ────────────────────────────────────────────────────── */
+  --schatten-farbe:     #101828;   /* Schatten-Basisfarbe (dunkel)                  */
+  --schatten-subtil:    #1018280D; /* Schatten sehr schwach (RRGGBBAA 5%)           */
+
+  /* ── SONSTIGE ────────────────────────────────────────────────────── */
+  --lila:               rgb(91, 37, 208);    /* Lila – Badge-Farbe                  */
+
+
 }
 
 
@@ -288,7 +390,7 @@ button#clear-all-filters-btn svg,
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border: 1px solid var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
   transition: background-color 0.2s, border-color 0.2s !important;
 }
@@ -300,7 +402,7 @@ button#clear-all-filters-btn svg,
 }
 #launchpad .green-btn span,
 #launchpad .green-filled-button span {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 
 /* ── Integration Icons — leichte Abrundung ── */
@@ -344,7 +446,7 @@ button#clear-all-filters-btn svg,
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
   color: var(--nav-hover) !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
 }
 .hl-text-input:focus {
@@ -379,7 +481,7 @@ button#clear-all-filters-btn svg,
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border: 1px solid var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
   transition: background-color 0.2s, border-color 0.2s !important;
 }
@@ -394,7 +496,7 @@ button#clear-all-filters-btn svg,
 .btn.btn-primary span,
 .launchpad-filled-button span,
 .launchpad-blue-btn span {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 /* Disabled state */
 .btn.btn-primary:disabled,
@@ -411,7 +513,7 @@ button#clear-all-filters-btn svg,
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 .fb-container .yes-button:hover {
@@ -457,7 +559,7 @@ button#clear-all-filters-btn svg,
 .modal-container .tag-input {
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   transition: border-color 0.2s, box-shadow 0.2s !important;
 }
 .modal-container .tag-input:focus-within {
@@ -584,7 +686,7 @@ button#clear-all-filters-btn svg,
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location-dashboard_btn--add-widget .n-button__border {
@@ -659,10 +761,10 @@ button#clear-all-filters-btn svg,
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
-  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
 }
 #dashboard-container .hl-card:hover {
-  box-shadow: 0 2px 10px rgba(139, 58, 74, 0.1) !important;
+  box-shadow: 0 2px 10px var(--wine-3-a10) !important;
 }
 
 /* Widget Card Header */
@@ -818,7 +920,7 @@ button#clear-all-filters-btn svg,
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location-dashboard_btn--edit-dashboard .n-button__border,
@@ -836,8 +938,8 @@ button#clear-all-filters-btn svg,
 }
 #location-dashboard_btn--edit-dashboard svg,
 #location-dashboard_btn--edit-dashboard p {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
+  color: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 
 /* ── Dashboard Dropdown Options (teleported, global) ── */
@@ -1072,7 +1174,7 @@ body .location-dashboard_popover--opportunity-status-date-property-content .text
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location_dashboard_quick_filters-btn-add_quick_filters .n-button__border {
@@ -1087,8 +1189,8 @@ body .location-dashboard_popover--opportunity-status-date-property-content .text
   border-color: var(--akzent-dunkel) !important;
 }
 #location_dashboard_quick_filters-btn-add_quick_filters svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
+  color: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 
 /* ── State B: Filter hinzufügen ── */
@@ -1169,7 +1271,7 @@ body .location-dashboard_popover--opportunity-status-date-property-content .text
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #quick-filter-panel-drawer-content-btn-positive-action .n-button__border {
@@ -1515,7 +1617,7 @@ body .location-dashboard_popover--opportunity-status-date-property-content .text
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location_dashboard_manage_widget-btn-save_widget .n-button__border {
@@ -1658,7 +1760,7 @@ body .hl-modal:has(#location-dashboard_modal-header--manage-permissions-modal-cl
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location-dashboard_modal-footer--manage-permissions-btn-positive-action .n-button__border {
@@ -1785,7 +1887,7 @@ body .hl-modal:has(#location-dashboard_modal-header--clone-dashboard-modal-close
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location-dashboard_modal-footer--clone-dashboard-btn-positive-action .n-button__border {
@@ -1902,7 +2004,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-du
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location-dashboard_modal-footer--location_dashboard-modal-duplicate_dashboard-btn-positive-action .n-button__border {
@@ -1993,9 +2095,9 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-du
   --n-border-active:     1px solid var(--akzent) !important;
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-radius:     8px !important;
-  --n-box-shadow-active: 0 0 0 4px var(--akzent-ring), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-focus:  0 0 0 4px var(--akzent-ring), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-hover:  0 0 0 4px var(--akzent-ring), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-ring), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-ring), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-hover:  0 0 0 4px var(--akzent-ring), 0px 1px 2px 0px var(--schatten-subtil) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
 }
@@ -2047,7 +2149,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-du
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #page-template-library__create-template-upload-btn-dashboards .hr-button__border {
@@ -2062,7 +2164,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-du
   border-color: var(--akzent-dunkel) !important;
 }
 #page-template-library__create-template-upload-btn-dashboards p {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 
 /* ============================================================
@@ -2166,7 +2268,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #location-dashboard_modal-footer--location_dashboard-modal-manage_timezone-btn-positive-action .n-button__border {
@@ -2398,10 +2500,10 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
 #clear .n-button__state-border { display: none !important; }
 
 /* Send Button → wine */
-#send-sms { background-color: var(--akzent) !important; background: var(--akzent) !important; border-color: var(--akzent) !important; color: #ffffff !important; border-radius: 8px 0 0 8px !important; }
+#send-sms { background-color: var(--akzent) !important; background: var(--akzent) !important; border-color: var(--akzent) !important; color: var(--weiss) !important; border-radius: 8px 0 0 8px !important; }
 #send-sms:hover { background-color: var(--akzent-dunkel) !important; background: var(--akzent-dunkel) !important; }
 #send-sms .n-button__border, #send-sms .n-button__state-border { border-color: var(--akzent) !important; }
-#schedule-later { background-color: var(--akzent-dunkel) !important; background: var(--akzent-dunkel) !important; border-color: var(--akzent-dunkel) !important; color: #ffffff !important; border-radius: 0 8px 8px 0 !important; }
+#schedule-later { background-color: var(--akzent-dunkel) !important; background: var(--akzent-dunkel) !important; border-color: var(--akzent-dunkel) !important; color: var(--weiss) !important; border-radius: 0 8px 8px 0 !important; }
 #schedule-later .n-button__border, #schedule-later .n-button__state-border { display: none !important; }
 
 /* ── 108.11 Rechtes Kontakt-Panel ── */
@@ -2411,7 +2513,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
 .new-conversations-right-panel .bg-gray-200 { background-color: var(--akzent-hell) !important; }
 .new-conversations-right-panel .bg-gray-200:hover { background-color: var(--akzent) !important; }
 .new-conversations-right-panel .bg-gray-200 svg { color: var(--akzent-dunkel) !important; stroke: var(--akzent-dunkel) !important; }
-.new-conversations-right-panel .bg-gray-200:hover svg { color: #ffffff !important; stroke: #ffffff !important; }
+.new-conversations-right-panel .bg-gray-200:hover svg { color: var(--weiss) !important; stroke: var(--weiss) !important; }
 .new-conversations-right-panel .text-gray-700.font-semibold { color: var(--nav-farbe) !important; font-weight: 600 !important; }
 .new-conversations-right-panel .text-gray-500 { color: var(--text-schwach) !important; }
 .new-conversations-right-panel .bg-primary-700 { background-color: var(--akzent) !important; }
@@ -2511,7 +2613,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
 }
 .email-view-container.bg-gray-custom:hover,
 .new-email-thread-view--collapsed-container .email-view-container:hover {
-  background-color: rgba(107, 45, 62, 0.12) !important;
+  background-color: var(--wine-2-a12) !important;
   border-color: var(--akzent-dunkel) !important;
 }
 /* Sender Name + Subject Text */
@@ -2533,7 +2635,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
-  box-shadow: 0 8px 24px rgba(44,62,80,0.10) !important;
+  box-shadow: 0 8px 24px var(--nav-a10) !important;
   padding: 4px !important;
 }
 .activityDropdownMenu .custom-dropdown-item {
@@ -2585,7 +2687,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   top: 1px !important;
   width: 5px !important;
   height: 9px !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid var(--weiss) !important;
   border-top: none !important;
   border-left: none !important;
   transform: rotate(45deg) !important;
@@ -2596,7 +2698,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
 .hl_conversations a[style*="color: white"] {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
   font-weight: 600 !important;
   transition: background-color 0.12s !important;
@@ -2605,8 +2707,8 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   background-color: var(--akzent-dunkel) !important;
 }
 .hl_conversations a.sort-option.bg-blue-600 svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
+  color: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 
 /* ── Aktionen Dropdown Menü ── */
@@ -2614,7 +2716,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
-  box-shadow: 0 8px 24px rgba(44,62,80,0.10) !important;
+  box-shadow: 0 8px 24px var(--nav-a10) !important;
   padding: 4px 8px !important;
 }
 .hl_conversations .dropright .dropdown-menu li {
@@ -2642,7 +2744,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
 /* ── Unread Badge (blaue Zahl) → wine ── */
 #conversation-list .bg-blue-500 {
   background-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 
 /* ── DND Sektion (rechtes Panel) ── */
@@ -2702,7 +2804,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   top: 1px !important;
   width: 5px !important;
   height: 9px !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid var(--weiss) !important;
   border-top: none !important;
   border-left: none !important;
   transform: rotate(45deg) !important;
@@ -2713,7 +2815,7 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
 }
 #central-panel .contactCard .blue-icon {
   color: var(--akzent) !important;
@@ -4199,7 +4301,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   --n-border-radius: 8px !important;
   transition: all 0.12s !important;
 }
-#trash-btn:hover { background: rgba(220, 38, 38, 0.06) !important; }
+#trash-btn:hover { background: var(--fehler-a06) !important; }
 #trash-btn .n-button__border {
   border-color: var(--linie-stark) !important;
   border-radius: 8px !important;
@@ -4452,7 +4554,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 
 /* ════════════════════════════════════════════════════════════════
    76.2 · CHECKBOX (#column-checkbox / .hl-checkbox)
-   NaïveUI setzt --n-color-checked: #155EEF inline →
+   NaïveUI setzt --n-color-checked: var(--blau) inline →
    background-color direkt auf .n-checkbox-box überschreiben
    ════════════════════════════════════════════════════════════════ */
 
@@ -4799,7 +4901,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   background: var(--hintergrund-karte) !important;
   border-radius: 12px !important;
   border: 1px solid var(--linie-stark) !important;
-  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10) !important;
+  box-shadow: 0 8px 32px var(--nav-a10) !important;
 }
 
 /* ── Header title (contact name) */
@@ -4890,7 +4992,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   transition: all 0.12s !important;
 }
 #edit-appt-delete-button:hover {
-  background: rgba(220, 38, 38, 0.06) !important;
+  background: var(--fehler-a06) !important;
   border-color: var(--fehler) !important;
 }
 #edit-appt-delete-button .n-button__border { border-color: transparent !important; }
@@ -5186,7 +5288,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   background: var(--hintergrund-karte) !important;
   border-radius: 12px !important;
   border: 1px solid var(--linie-stark) !important;
-  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10) !important;
+  box-shadow: 0 8px 32px var(--nav-a10) !important;
 }
 
 /* ── Error icon container */
@@ -5201,7 +5303,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   height: 40px !important;
   min-width: 40px !important;
   border-radius: 50% !important;
-  background: rgba(220, 38, 38, 0.08) !important;
+  background: var(--fehler-a08) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -5272,8 +5374,8 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   transition: all 0.12s !important;
 }
 #confirmation-footer-btn-positive-action:hover {
-  background-color: #B42318 !important;
-  border-color: #B42318 !important;
+  background-color: var(--fehler-text) !important;
+  border-color: var(--fehler-text) !important;
   transform: translateY(-1px) !important;
 }
 #confirmation-footer-btn-positive-action .n-button__content { color: var(--hintergrund-karte) !important; }
@@ -5616,9 +5718,9 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 #CalendarSchedule .hl-checkbox.n-checkbox--checked .n-checkbox-icon,
 #CalendarSchedule .hl-checkbox.n-checkbox--checked .n-checkbox-icon svg,
 #CalendarSchedule .hl-checkbox.n-checkbox--checked .n-checkbox-icon svg path {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: #ffffff !important;
+  color: var(--weiss) !important;
+  fill: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 
 /* ── Time pickers */
@@ -5718,9 +5820,9 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 #schedule-calendars-dropdown-id .hl-checkbox.n-checkbox--checked .n-checkbox-icon,
 #schedule-calendars-dropdown-id .hl-checkbox.n-checkbox--checked .n-checkbox-icon svg,
 #schedule-calendars-dropdown-id .hl-checkbox.n-checkbox--checked .n-checkbox-icon svg path {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: #ffffff !important;
+  color: var(--weiss) !important;
+  fill: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 
 /* ── Blue text overrides */
@@ -6456,13 +6558,13 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 .n-checkbox--checked .n-checkbox-icon svg,
 .n-checkbox--checked .n-checkbox-icon svg path,
 .n-checkbox--checked .n-checkbox-icon .check-icon {
-  fill: #ffffff !important;
-  color: #ffffff !important;
-  stroke: #ffffff !important;
+  fill: var(--weiss) !important;
+  color: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 
 /* Tailwind text-blue-* global override → wine (gilt auch für teleportierte NaïveUI Popups) */
-[class*="text-blue-"] { color: #d4a0a4 !important; }
+[class*="text-blue-"] { color: var(--akzent-dunkel) !important; }
 
 
 /* ════════════════════════════════════════════════════════════════
@@ -6596,7 +6698,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   background-color: var(--akzent) !important;
   background: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
   transition: all 0.12s !important;
 }
@@ -6740,7 +6842,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   top: 1px !important;
   width: 5px !important;
   height: 9px !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid var(--weiss) !important;
   border-top: none !important;
   border-left: none !important;
   transform: rotate(45deg) !important;
@@ -6791,7 +6893,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   top: 1px !important;
   width: 5px !important;
   height: 9px !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid var(--weiss) !important;
   border-top: none !important;
   border-left: none !important;
   transform: rotate(45deg) !important;
@@ -6868,7 +6970,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 .tabulator-page.active {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   font-weight: 700 !important;
 }
 .tabulator-page[disabled] {
@@ -6927,7 +7029,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 /* Hinzufügen Kontakt Button hover */
 #add-record-btn:hover .hr-button__content,
 #add-record-btn:hover span {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 /* NaïveUI overrides für hr-button hover state */
 #import-btn:hover {
@@ -6935,7 +7037,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   --n-border-hover: 1px solid var(--akzent) !important;
 }
 #add-record-btn:hover {
-  --n-text-color-hover: #ffffff !important;
+  --n-text-color-hover: var(--weiss) !important;
   --n-color-hover: var(--akzent-dunkel) !important;
   --n-border-hover: 1px solid var(--akzent-dunkel) !important;
 }
@@ -6944,11 +7046,11 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
   background-color: var(--akzent-dunkel) !important;
   background: var(--akzent-dunkel) !important;
   border-color: var(--akzent-dunkel) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 .hr-button--primary-type:hover .hr-button__content,
 .hr-button--primary-type:hover span {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 /* Default type hover */
 .hr-button--default-type:hover {
@@ -7129,7 +7231,7 @@ button#import-btn:hover .hr-button__border {
   background: var(--akzent) !important;
   border-color: var(--akzent) !important;
   border-radius: 8px !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   transition: all 0.12s !important;
 }
 #add-object-record-button-Kontakt:hover {
@@ -7195,7 +7297,7 @@ button.tabulator-page.active:focus,
 button.tabulator-page.active:focus-visible {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -7224,7 +7326,7 @@ button.tabulator-page:not(.active):focus-visible {
   background-color: var(--akzent) !important;
   background: var(--akzent) !important;
   border: 1px solid var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   outline: none !important;
 }
 .my-table.tabulator .tabulator-footer .tabulator-paginator button.tabulator-page:not(.active):not([disabled]) {
@@ -7657,7 +7759,7 @@ button.tabulator-page:not(.active):focus-visible {
 .hr-card.hr-modal {
   background-color: var(--hintergrund-karte) !important;
   border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+  box-shadow: 0 8px 32px var(--black-a12) !important;
 }
 
 /* ── Modal Header ── */
@@ -7714,13 +7816,13 @@ button.tabulator-page:not(.active):focus-visible {
 /* ── Sidebar Nav: ACTIVE button (bg-blue-50 text-blue-800) ── */
 .crm-opportunities-modal-body .wrapperHeader button.bg-blue-50 {
   background-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   font-weight: 700 !important;
   border-radius: 6px !important;
 }
 .crm-opportunities-modal-body .wrapperHeader button.bg-blue-50:hover {
   background-color: var(--akzent-dunkel) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 
 /* ── "Felder hinzufügen/verwalten" link ── */
@@ -8444,7 +8546,7 @@ button.tabulator-page:not(.active):focus-visible {
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
-  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.10) !important;
+  box-shadow: 0 8px 24px var(--nav-a10) !important;
   padding: 8px !important;
 }
 
@@ -8677,13 +8779,13 @@ button.tabulator-page:not(.active):focus-visible {
   background-color: var(--akzent) !important;
   border: 1px solid var(--akzent) !important;
   border-radius: 8px !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   --n-color:        var(--akzent) !important;
   --n-color-hover:  var(--akzent-dunkel) !important;
   --n-border:       1px solid var(--akzent) !important;
   --n-border-hover: 1px solid var(--akzent-dunkel) !important;
   --n-ripple-color: var(--akzent) !important;
-  --n-text-color:   #ffffff !important;
+  --n-text-color:   var(--weiss) !important;
 }
 #task-container-opportunity #tasks-empty-search-result-btn-positive-action:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -8783,7 +8885,7 @@ button#tasks-filter-clear-all:hover .hr-button__content {
   background-color: var(--akzent) !important;
 }
 .tasks-filter-popover .hr-tag .hr-avatar__text {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 .tasks-filter-popover .hr-base-close svg {
   color: var(--akzent-dunkel) !important;
@@ -8949,13 +9051,13 @@ button#tasks-filter-clear-all:hover .hr-button__content {
   background-color: var(--akzent) !important;
   border: 1px solid var(--akzent) !important;
   border-radius: 8px !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   --n-color:        var(--akzent) !important;
   --n-color-hover:  var(--akzent-dunkel) !important;
   --n-border:       1px solid var(--akzent) !important;
   --n-border-hover: 1px solid var(--akzent-dunkel) !important;
   --n-ripple-color: var(--akzent) !important;
-  --n-text-color:   #ffffff !important;
+  --n-text-color:   var(--weiss) !important;
 }
 #notes-container-opportunity #notes-empty-zero-state-btn-positive-action:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -9055,7 +9157,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
   background-color: var(--akzent) !important;
 }
 .notes-filters-v2-popover .hr-tag .hr-avatar__text {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 .notes-filters-v2-popover .hr-base-close svg {
   color: var(--akzent-dunkel) !important;
@@ -9090,7 +9192,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
   background-color: var(--akzent) !important;
   border: 1px solid var(--akzent) !important;
   border-radius: 8px !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   --n-color:          var(--akzent) !important;
   --n-color-hover:    var(--akzent-dunkel) !important;
   --n-color-pressed:  var(--akzent) !important;
@@ -9099,10 +9201,10 @@ button#notes-filter-clear-all:hover .hr-button__content {
   --n-border-hover:   1px solid var(--akzent-dunkel) !important;
   --n-border-pressed: 1px solid var(--akzent) !important;
   --n-border-focus:   1px solid var(--akzent-dunkel) !important;
-  --n-text-color:         #ffffff !important;
-  --n-text-color-hover:   #ffffff !important;
-  --n-text-color-pressed: #ffffff !important;
-  --n-text-color-focus:   #ffffff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-ripple-color:   var(--akzent) !important;
 }
 .crm-opportunities-modal-tab-payments #menu-btn:hover {
@@ -9117,7 +9219,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
   border: 1px solid var(--akzent-dunkel) !important;
 }
 .crm-opportunities-modal-tab-payments #menu-btn svg {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 
 /* ── "Kategorien" Dropdown (#payment-type) ── */
@@ -9183,7 +9285,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
   --n-border-color:       var(--linie-stark) !important;
   --n-th-icon-color:      var(--text-schwach) !important;
   --n-th-icon-color-active: var(--akzent) !important;
-  --n-td-color:           #ffffff !important;
+  --n-td-color:           var(--weiss) !important;
   --n-td-color-hover:     var(--akzent-hell) !important;
   --n-td-text-color:      var(--nav-hover) !important;
   --n-loading-color:      var(--akzent) !important;
@@ -9550,7 +9652,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
 /* ── Date / Appointment Pill (.ui-primary tag) ── */
 .hr-drawer-content-wrapper:has(.crm-opportunities-card-wrapper) .ui-primary.hr-tag {
   --n-color:          var(--akzent-hell) !important;
-  --n-border:         1px solid rgba(155, 30, 60, 0.2) !important;
+  --n-border:         1px solid var(--wine-4-a20) !important;
   --n-text-color:     var(--akzent-dunkel) !important;
   --n-close-icon-color: var(--akzent-dunkel) !important;
   background-color: var(--akzent-hell) !important;
@@ -9759,10 +9861,10 @@ button#notes-filter-clear-all:hover .hr-button__content {
   border-radius: 6px !important;
 }
 #unsaved-setting-footer-btn-positive-action:hover {
-  background-image: linear-gradient(#B42318, #B42318) !important;
+  background-image: linear-gradient(var(--fehler-text), var(--fehler-text)) !important;
 }
 #unsaved-setting-footer-btn-positive-action:hover .hr-button__border {
-  border-color: #B42318 !important;
+  border-color: var(--fehler-text) !important;
 }
 #unsaved-setting-footer-btn-positive-action .hr-button__content {
   color: var(--hintergrund-karte) !important;
@@ -9873,7 +9975,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
 
 /* ── Active-Count-Badge ── */
 .hr-drawer-content-wrapper:has(#assigned_to) .bg-blue-100 {
-  background-color: rgba(255,255,255,0.25) !important;
+  background-color: var(--white-a25) !important;
 }
 .hr-drawer-content-wrapper:has(#assigned_to) .text-blue-500 {
   color: var(--hintergrund-karte) !important;
@@ -10060,14 +10162,14 @@ button#notes-filter-clear-all:hover .hr-button__content {
 .scrollable-div-main .n-step--process-status {
   --n-indicator-border-color: var(--akzent) !important;
   --n-indicator-color:        var(--akzent) !important;
-  --n-indicator-text-color:   #ffffff !important;
+  --n-indicator-text-color:   var(--weiss) !important;
   --n-header-text-color:      var(--nav-farbe) !important;
   --n-description-text-color: var(--text-gedaempft) !important;
 }
 .scrollable-div-main .n-step--process-status .n-step-indicator-slot__index {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 .scrollable-div-main .n-step--process-status .n-step-content-header__title {
   color: var(--nav-farbe) !important;
@@ -10081,7 +10183,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
 .scrollable-div-main .n-step--finish-status {
   --n-indicator-border-color: var(--akzent) !important;
   --n-indicator-color:        var(--akzent) !important;
-  --n-indicator-text-color:   #ffffff !important;
+  --n-indicator-text-color:   var(--weiss) !important;
   --n-header-text-color:      var(--nav-farbe) !important;
   --n-description-text-color: var(--text-gedaempft) !important;
   --n-splitor-color:          var(--akzent) !important;
@@ -10126,7 +10228,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
    ============================================================ */
 
 .scrollable-div-main .hl-card {
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
 }
@@ -10146,7 +10248,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
 .scrollable-div-main .hl-checkbox-group-item {
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   --n-border:         1px solid var(--linie-stark) !important;
   --n-border-hover:   1px solid var(--akzent) !important;
   --n-border-focus:   1px solid var(--akzent) !important;
@@ -10258,7 +10360,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
   filter: brightness(0) invert(1) !important;
 }
 .scrollable-div-main .n-checkbox--checked .n-checkbox-box .n-checkbox-icon svg path {
-  fill: #ffffff !important;
+  fill: var(--weiss) !important;
 }
 
 /* ── Stepper Finish-Status: Hacken Icon → Wine (nicht blau) ── */
@@ -10335,7 +10437,7 @@ button#notes-filter-clear-all:hover .hr-button__content {
    ============================================================ */
 
 footer:has(#back-button) {
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   border-top: 1px solid var(--linie-stark) !important;
 }
 
@@ -10367,12 +10469,12 @@ footer:has(#back-button) {
   background-color: var(--akzent) !important;
   border: 1px solid var(--akzent) !important;
   border-radius: 8px !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   --n-color:        var(--akzent) !important;
   --n-color-hover:  var(--akzent-dunkel) !important;
   --n-border:       1px solid var(--akzent) !important;
   --n-border-hover: 1px solid var(--akzent-dunkel) !important;
-  --n-text-color:   #ffffff !important;
+  --n-text-color:   var(--weiss) !important;
   --n-ripple-color: var(--akzent) !important;
 }
 #next-import-button-1:hover,
@@ -10446,7 +10548,7 @@ footer:has(#back-button) {
 /* Tabelle Rows */
 .scrollable-div-main .n-data-table {
   --n-border-color:   var(--linie-stark) !important;
-  --n-td-color:       #ffffff !important;
+  --n-td-color:       var(--weiss) !important;
   --n-td-color-hover: var(--akzent-hell) !important;
   --n-td-text-color:  var(--nav-hover) !important;
   --n-loading-color:  var(--akzent) !important;
@@ -10527,7 +10629,7 @@ footer:has(#back-button) {
 
 /* Checkbox wine — maximale Spezifität gegen inline --n-color-checked */
 .n-card.hl-modal .n-checkbox--checked {
-  --n-check-mark-color: #ffffff !important;
+  --n-check-mark-color: var(--weiss) !important;
 }
 /* Direkte background-color Überschreibung — ignoriert CSS Variable */
 .n-card.hl-modal .n-checkbox.n-checkbox--checked .n-checkbox-box-wrapper .n-checkbox-box {
@@ -10545,7 +10647,7 @@ footer:has(#back-button) {
 /* SVG fill weiß */
 .n-card.hl-modal .n-checkbox.n-checkbox--checked .n-checkbox-box .n-checkbox-icon .check-icon,
 .n-card.hl-modal .n-checkbox.n-checkbox--checked .n-checkbox-box .n-checkbox-icon .check-icon path {
-  fill: #ffffff !important;
+  fill: var(--weiss) !important;
 }
 
 /* Widget Titel & Werte */
@@ -10557,7 +10659,7 @@ footer:has(#back-button) {
 /* ── Modal Footer ── */
 .n-card.hl-modal .n-card__footer {
   border-top: 1px solid var(--linie-stark) !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
 }
 
 /* Cancel Button (outlined) */
@@ -10607,7 +10709,7 @@ footer:has(#back-button) {
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px var(--black-a08) !important;
   --n-color: var(--hintergrund-karte) !important;
   --n-border-radius: 8px !important;
 }
@@ -10759,7 +10861,7 @@ footer:has(#back-button) {
 .hr-drawer-content.hl-drawer-content .field {
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   cursor: pointer !important;
   transition: border-color 0.2s, background-color 0.2s !important;
 }
@@ -10793,7 +10895,7 @@ footer:has(#back-button) {
 
 /* Jede Feld-Zeile als Card */
 .hr-drawer-content.hl-drawer-content .grid.field-layout {
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
   padding: 12px 14px !important;
@@ -10859,7 +10961,7 @@ footer:has(#back-button) {
 .hr-drawer-content.hl-drawer-content #delete-button:hover {
   color:            var(--fehler) !important;
   border-color:     var(--fehler) !important;
-  background-color: rgba(217, 45, 32, 0.06) !important;
+  background-color: var(--fehler-2-a06) !important;
 }
 .hr-drawer-content.hl-drawer-content #delete-button .hr-button__border {
   border-color: var(--linie-stark) !important;
@@ -10908,7 +11010,7 @@ footer:has(#back-button) {
 /* Speichern — inline --n-color override wie Section 87 pattern */
 .hr-drawer-content.hl-drawer-content #positive-btn {
   --n-border-radius: 8px !important;
-  --n-text-color:    #ffffff !important;
+  --n-text-color:    var(--weiss) !important;
   border-color: var(--akzent) !important;
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
@@ -10952,7 +11054,7 @@ footer:has(#back-button) {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 #pipeline-page #primary-blue:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -11239,7 +11341,7 @@ footer:has(#back-button) {
 /* Checkmark weiß */
 #pipeline-modal .hr-checkbox.hr-checkbox--checked .check-icon,
 #pipeline-modal .hr-checkbox.hr-checkbox--checked .check-icon path {
-  fill: #ffffff !important;
+  fill: var(--weiss) !important;
 }
 /* Label */
 #pipeline-modal .hr-checkbox__label .hr-text {
@@ -11253,7 +11355,7 @@ footer:has(#back-button) {
 }
 #pipeline-modal .crm-opportunities-pipeline-stage-delete-btn:hover {
   color: var(--fehler) !important;
-  background-color: rgba(217, 45, 32, 0.06) !important;
+  background-color: var(--fehler-2-a06) !important;
 }
 #pipeline-modal .crm-opportunities-pipeline-stage-delete-btn svg {
   stroke: currentColor !important;
@@ -11269,7 +11371,7 @@ footer:has(#back-button) {
 #pipeline-modal #cancel {
   border: 1px solid var(--linie-stark) !important;
   color: var(--nav-hover) !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   border-radius: 8px !important;
   transition: border-color 0.2s, background-color 0.2s, color 0.2s !important;
 }
@@ -11290,7 +11392,7 @@ footer:has(#back-button) {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #pipeline-modal #save .hr-button__border {
@@ -11378,7 +11480,7 @@ footer:has(#back-button) {
 #pipeline-permissions-drawer-content .crm-opportunities-pipeline-permissions-access-card {
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   transition: border-color 0.2s, background-color 0.2s !important;
 }
 #pipeline-permissions-drawer-content .crm-opportunities-pipeline-permissions-access-card:hover {
@@ -11463,7 +11565,7 @@ footer:has(#back-button) {
 #pipeline-permissions-drawer-content #cancel-permissions {
   border: 1px solid var(--linie-stark) !important;
   color: var(--nav-hover) !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   border-radius: 8px !important;
   transition: border-color 0.2s, background-color 0.2s, color 0.2s !important;
 }
@@ -11484,7 +11586,7 @@ footer:has(#back-button) {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #pipeline-permissions-drawer-content #save-permissions .hr-button__border {
@@ -11620,7 +11722,7 @@ footer:has(#back-button) {
 }
 #pipeline-copy-sub-account-modal .hr-base-selection-tag-wrapper .hr-tag__close:hover {
   color: var(--akzent-dunkel) !important;
-  background-color: rgba(233, 194, 197, 0.3) !important;
+  background-color: var(--akzent-a30) !important;
 }
 
 /* ── Modal Footer ── */
@@ -11633,7 +11735,7 @@ footer:has(#back-button) {
 #pipeline-copy-sub-account-modal #cancel {
   border: 1px solid var(--linie-stark) !important;
   color: var(--nav-hover) !important;
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
   border-radius: 8px !important;
   transition: border-color 0.2s, background-color 0.2s, color 0.2s !important;
 }
@@ -11654,7 +11756,7 @@ footer:has(#back-button) {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #pipeline-copy-sub-account-modal #copy .hr-button__border {
@@ -11808,18 +11910,18 @@ footer:has(#back-button) {
 
 /* Status Badge — "Vollständig" (green) bleibt, aber konsistentere Varianten */
 #bulkActionsList .bg-green-100 {
-  background-color: #d1fae5 !important;
-  color: #065f46 !important;
+  background-color: var(--erfolg-hintergrund) !important;
+  color: var(--erfolg-dunkel) !important;
 }
 /* Status in-progress / pending */
 #bulkActionsList .bg-yellow-100 {
-  background-color: #fef3c7 !important;
-  color: #92400e !important;
+  background-color: var(--warnung-hintergrund-2) !important;
+  color: var(--warnung-text) !important;
 }
 /* Status failed */
 #bulkActionsList .bg-red-100 {
-  background-color: #fee2e2 !important;
-  color: #991b1b !important;
+  background-color: var(--fehler-hintergrund) !important;
+  color: var(--fehler-dunkel) !important;
 }
 
 /* Avatar */
@@ -11958,11 +12060,11 @@ footer:has(#back-button) {
 
 /* ── NUCLEAR FIX: Selected Option Background — Hex direkt, kein var() ──
    GHL setzt --n-option-color-active inline auf Parent → var(--akzent-hell) kann
-   brechen. Hex-Fallback (#fdf2f3 = wine-lt) greift immer.               */
+   brechen. Hex-Fallback (var(--wine-lt) = wine-lt) greift immer.               */
 .hr-base-select-option.hr-base-select-option--selected,
 .hr-base-select-option.hr-base-select-option--selected:hover {
-  background-color: #fdf2f3 !important;
-  background:       #fdf2f3 !important;
+  background-color: var(--wine-lt) !important;
+  background:       var(--wine-lt) !important;
   color:            var(--akzent-dunkel) !important;
 }
 .hr-base-select-option.hr-base-select-option--selected .hr-base-select-option__content,
@@ -11981,8 +12083,8 @@ body .hr-base-select-option.hr-base-select-option--selected,
 body .hr-base-select-option.hr-base-select-option--selected:not(:hover),
 body .hr-virtual-list .hr-base-select-option.hr-base-select-option--selected,
 .hr-base-select-menu .hr-base-select-option.hr-base-select-option--selected {
-  background-color: #fdf2f3 !important;
-  background:       #fdf2f3 !important;
+  background-color: var(--wine-lt) !important;
+  background:       var(--wine-lt) !important;
   color: var(--akzent-dunkel) !important;
 }
 /* Avatar bg transparent damit kein Konflikt */
@@ -11991,8 +12093,8 @@ body .hr-base-select-option.hr-base-select-option--selected .hr-avatar__containe
 }
 /* GHL CSS Variable direkt auf dem Menu Container neutralisieren */
 .hr-base-select-menu {
-  --n-option-color-active: #fdf2f3 !important;
-  --n-option-color-active-pending: #f5e4e6 !important;
+  --n-option-color-active: var(--wine-lt) !important;
+  --n-option-color-active-pending: var(--akzent-blass-3) !important;
 }
 
 /* ── Empty State ── */
@@ -12174,7 +12276,7 @@ body .hr-base-select-option.hr-base-select-option--selected .hr-avatar__containe
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 #bulk-action-statistics-modal #download-stats-button .hr-button__border {
@@ -12234,7 +12336,7 @@ body .hr-base-select-option.hr-base-select-option--selected .hr-avatar__containe
   background-color: var(--akzent) !important;
   background: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
   transition: all 0.12s !important;
 }
@@ -12270,7 +12372,7 @@ button#create-invoice-btn:hover {
 }
 #pg-invoices__btn_resolve_stripe_connection_alert:hover {
   background-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 #pg-invoices__btn_resolve_stripe_connection_alert .n-button__border { border-color: var(--akzent) !important; }
 #pg-invoices__btn_resolve_stripe_connection_alert .n-button__state-border { display: none !important; }
@@ -12287,7 +12389,7 @@ button#create-invoice-btn:hover {
   transition: box-shadow 0.12s !important;
 }
 #invoice_listing .hl-statistic:hover {
-  box-shadow: 0 4px 12px rgba(107, 45, 62, 0.08) !important;
+  box-shadow: 0 4px 12px var(--wine-2-a08) !important;
 }
 #invoice_listing .hl-statistic .title {
   color: var(--text-gedaempft) !important;
@@ -12427,24 +12529,24 @@ button#create-invoice-btn:not([disabled]) {
   background-color: var(--akzent) !important;
   background: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   font-weight: 600 !important;
-  box-shadow: 0 2px 8px rgba(107, 45, 62, 0.25) !important;
+  box-shadow: 0 2px 8px var(--wine-2-a25) !important;
 }
 button#create-invoice-btn:not([disabled]):hover {
   background-color: var(--akzent-dunkel) !important;
   background: var(--akzent-dunkel) !important;
-  box-shadow: 0 4px 12px rgba(107, 45, 62, 0.35) !important;
+  box-shadow: 0 4px 12px var(--wine-2-a35) !important;
 }
 
 /* ── Enhancement: Statistik Karten ── */
 #invoice_listing .hl-statistic {
   border-radius: 16px !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
   transition: box-shadow 0.15s, transform 0.15s !important;
 }
 #invoice_listing .hl-statistic:hover {
-  box-shadow: 0 6px 20px rgba(107, 45, 62, 0.10) !important;
+  box-shadow: 0 6px 20px var(--wine-2-a10) !important;
   transform: translateY(-1px) !important;
 }
 #invoice_listing .hl-statistic .hl-statistic-header {
@@ -12455,7 +12557,7 @@ button#create-invoice-btn:not([disabled]):hover {
 
 /* ── Enhancement: Alert border-radius + shadow ── */
 #payment-integration-alert {
-  box-shadow: 0 2px 8px rgba(107,45,62,0.08) !important;
+  box-shadow: 0 2px 8px var(--wine-2-a08) !important;
 }
 /* Alert n-alert__border → wine */
 #payment-integration-alert .n-alert__border {
@@ -12469,7 +12571,7 @@ button#create-invoice-btn:not([disabled]):hover {
   border: 1px solid var(--linie-stark) !important;
   border-radius: 16px !important;
   overflow: hidden !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
 }
 #invoice_listing .ghl-table-custom-header {
   background-color: var(--hintergrund-karte) !important;
@@ -12604,7 +12706,7 @@ div.font-sans.hl-wrapper-container.invoicesApp header.hl-header {
 /* Header bekommt einen sauberen Schatten statt Hintergrundfarbe */
 .invoicesApp header.hl-header {
   border-bottom: 1px solid var(--linie-stark) !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
   padding-bottom: 20px !important;
 }
 /* Content-Bereich leicht separieren */
@@ -12690,7 +12792,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 }
 .hl-tabs .n-tabs-tab--active .bg-white {
   background-color: var(--hintergrund-karte) !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.08) !important;
+  box-shadow: 0 1px 4px var(--nav-a08) !important;
   border-radius: 10px !important;
 }
 /* Aktiver Tab Text + Icon → wine */
@@ -12717,7 +12819,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 16px !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
   overflow: hidden !important;
 }
 
@@ -12781,25 +12883,25 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
    hr-button--primary nutzt var(--primary-600) direkt
    -------------------------------------------------- */
 .agent-directory-content-wrap {
-  --primary-600: #5b192d !important;
-  --primary-800: #3d1020 !important;
-  --primary-900: #3d1020 !important;
-  --primary-200: #f0dde0 !important;
-  --primary-100: #f0dde0 !important;
-  --primary-300: #f0dde0 !important;
+  --primary-600: var(--wine) !important;
+  --primary-800: var(--wine-tief) !important;
+  --primary-900: var(--wine-tief) !important;
+  --primary-200: var(--rosa-subtil) !important;
+  --primary-100: var(--rosa-subtil) !important;
+  --primary-300: var(--rosa-subtil) !important;
 }
 
 .agent-directory-content-wrap #create-agent-button,
 .agent-directory-content-wrap #positive-empty-agents-message {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
 }
 .agent-directory-content-wrap #create-agent-button:hover,
 .agent-directory-content-wrap #positive-empty-agents-message:hover {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
 }
 .agent-directory-content-wrap #create-agent-button p,
 .agent-directory-content-wrap #positive-empty-agents-message p,
@@ -12807,8 +12909,8 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 .agent-directory-content-wrap #create-agent-button svg,
 .agent-directory-content-wrap #positive-empty-agents-message i,
 .agent-directory-content-wrap #positive-empty-agents-message svg {
-  color: #fff !important;
-  stroke: #fff !important;
+  color: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 .agent-directory-content-wrap #create-agent-button .hr-button__border,
 .agent-directory-content-wrap #create-agent-button .hr-button__state-border,
@@ -12836,7 +12938,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
   --n-loading-color:    var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 .agent-directory-content-wrap #agent-list-table-wrapper-header-global-filter .hr-input__state-border {
   display: none !important;
@@ -12941,7 +13043,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   stroke: var(--akzent) !important;
 }
 #sort-dropdown .hr-dropdown-option:hover {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 
 /* ================================================
@@ -12968,14 +13070,14 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 #folder-modal-save-btn {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
 }
 #folder-modal-save-btn:hover:not([disabled]) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
 #folder-modal-save-btn p {
-  color: #fff !important;
+  color: var(--weiss) !important;
 }
 #folder-modal-save-btn .hr-button__border,
 #folder-modal-save-btn .hr-button__state-border {
@@ -12997,7 +13099,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #folder-name .hr-input__state-border {
   display: none !important;
@@ -13010,9 +13112,9 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-active: 1px solid var(--akzent) !important;
   --n-border-focus:  1px solid var(--akzent) !important;
   --n-border-hover:  1px solid var(--akzent) !important;
-  --n-box-shadow-active: 0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-hover:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-active: 0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-hover:  0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
 }
 #associated-agents-select .hr-base-selection__state-border {
   display: none !important;
@@ -13033,10 +13135,10 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 #create-agent-dropdown {
   --n-option-text-color-active:       var(--akzent) !important;
   --n-option-text-color-child-active: var(--akzent) !important;
-  --n-option-color-active:            rgba(91,25,45,.08) !important;
+  --n-option-color-active:            var(--wine-a08) !important;
 }
 #create-agent-dropdown .hr-dropdown-option:hover {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 #create-agent-dropdown .hr-dropdown-option:hover p {
   color: var(--akzent) !important;
@@ -13062,13 +13164,13 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 #create-agent-btn {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
 }
 #create-agent-btn:hover {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#create-agent-btn p { color: #fff !important; }
+#create-agent-btn p { color: var(--weiss) !important; }
 #create-agent-btn .hr-button__border,
 #create-agent-btn .hr-button__state-border { display: none !important; }
 
@@ -13084,7 +13186,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #agent-name .hr-input__state-border,
 #agent-description .hr-input__state-border { display: none !important; }
@@ -13170,10 +13272,10 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 [id^="action-dropdown-"] {
   --n-option-text-color-active:       var(--akzent) !important;
   --n-option-text-color-child-active: var(--akzent) !important;
-  --n-option-color-active:            rgba(91,25,45,.08) !important;
+  --n-option-color-active:            var(--wine-a08) !important;
 }
 [id^="action-dropdown-"] .hr-dropdown-option:hover {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 [id^="action-dropdown-"] .hr-dropdown-option:hover p,
 [id^="action-dropdown-"] .hr-dropdown-option:hover i {
@@ -13210,7 +13312,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #edit-agent-name .hr-input__state-border,
 #edit-agent-description .hr-input__state-border { display: none !important; }
@@ -13234,7 +13336,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#edit-agent-modal-save-btn p { color: #fff !important; }
+#edit-agent-modal-save-btn p { color: var(--weiss) !important; }
 #edit-agent-modal-save-btn .hr-button__border,
 #edit-agent-modal-save-btn .hr-button__state-border { display: none !important; }
 
@@ -13272,9 +13374,9 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-hover:       1px solid var(--akzent) !important;
   --n-border-focus:       1px solid var(--akzent) !important;
   --n-border-active:      1px solid var(--akzent) !important;
-  --n-box-shadow-hover:   0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-focus:   0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-active:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-hover:   0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-focus:   0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-active:  0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
   --n-loading-color:      var(--akzent) !important;
   --n-caret-color:        var(--akzent) !important;
 }
@@ -13302,7 +13404,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-.hr-dialog:has(#move-dialog-folder-select) .hr-button--primary p { color: #fff !important; }
+.hr-dialog:has(#move-dialog-folder-select) .hr-button--primary p { color: var(--weiss) !important; }
 .hr-dialog:has(#move-dialog-folder-select) .hr-button--primary .hr-button__border,
 .hr-dialog:has(#move-dialog-folder-select) .hr-button--primary .hr-button__state-border {
   display: none !important;
@@ -13382,7 +13484,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #tl-filterbar-input-search .hr-input__state-border { display: none !important; }
 
@@ -13393,9 +13495,9 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-active: 1px solid var(--akzent) !important;
   --n-border-focus:  1px solid var(--akzent) !important;
   --n-border-hover:  1px solid var(--akzent) !important;
-  --n-box-shadow-active: 0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-hover:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-active: 0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-hover:  0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
 }
 
 /* --------------------------------------------------
@@ -13431,7 +13533,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
   --n-border-checked:    1px solid var(--akzent) !important;
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-color-checked:     var(--akzent) !important;
-  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15) !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px var(--wine-a15) !important;
   --n-color-hover:       var(--akzent-hell) !important;
   --n-border-disabled-checked: 1px solid var(--akzent-hell) !important;
   --n-color-disabled-checked:  var(--akzent-hell) !important;
@@ -13458,7 +13560,7 @@ section[data-v-2bf0c8b7] .hlui-text[size="xl"] {
 /* ================================================
    Section 123 – Voice AI Agents
    Scope: .hl-wrapper-container:has(#outbound-calls-btn)
-   NaïveUI n- Prefix, inline #155EEF
+   NaïveUI n- Prefix, inline var(--blau)
    ================================================ */
 
 /* --------------------------------------------------
@@ -13550,10 +13652,10 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 
 .n-dropdown-menu {
   --n-option-color-hover:             var(--akzent) !important;
-  --n-option-color-active:            rgba(91,25,45,.05) !important;
+  --n-option-color-active:            var(--wine-a05) !important;
   --n-option-text-color-active:       var(--akzent) !important;
   --n-option-text-color-child-active: var(--akzent) !important;
-  --n-option-text-color-hover:        #ffffff !important;
+  --n-option-text-color-hover:        var(--weiss) !important;
 }
 
 /* Hover → voller Akzent-Hintergrund + weiß */
@@ -13561,11 +13663,11 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   background-color: var(--akzent) !important;
 }
 .n-dropdown-menu .n-dropdown-option-body.n-dropdown-option-body--pending .n-dropdown-option-body__label {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 .n-dropdown-menu .n-dropdown-option-body.n-dropdown-option-body--pending .n-dropdown-option-body__prefix svg {
-  color:  #ffffff !important;
-  stroke: #ffffff !important;
+  color:  var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 
 /* Selektierte Option (--selected) → wine Text */
@@ -13575,15 +13677,15 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   stroke: var(--akzent) !important;
 }
 .n-dropdown-menu .n-dropdown-option--selected {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 
 /* ================================================
    Section 123c – „X ausgewählt" Tag (hl-primary)
    ================================================ */
 .hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary {
-  --n-color:             rgba(91,25,45,.1) !important;
-  --n-border:            1px solid rgba(91,25,45,.3) !important;
+  --n-color:             var(--wine-a10) !important;
+  --n-border:            1px solid var(--wine-a30) !important;
   --n-text-color:        var(--akzent) !important;
   --n-close-icon-color:  var(--akzent) !important;
   --n-close-icon-color-hover:   var(--akzent) !important;
@@ -13592,7 +13694,7 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   --n-color-checked-hover: var(--akzent-dunkel) !important;
 }
 .hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary .n-tag__border {
-  border-color: rgba(91,25,45,.3) !important;
+  border-color: var(--wine-a30) !important;
 }
 .hl-wrapper-container:has(#outbound-calls-btn) .n-tag.hl-primary .hl-text-sm-normal {
   color: var(--akzent) !important;
@@ -13642,8 +13744,8 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 
 /* Close-Button neutral */
 #create-agent-selection-modal-header-modal-close-btn {
-  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
-  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
+  --n-border-hover:   1px solid var(--grau-ui) !important;
+  --n-border-pressed: 1px solid var(--grau-ui) !important;
 }
 #create-agent-selection-modal-header-modal-close-btn .n-button__state-border {
   display: none !important;
@@ -13657,7 +13759,7 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 /* Radio-Button checked → wine */
 .n-modal:has(#create-agent-selection-modal-footer-btn-positive-action) .n-radio {
   --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
-  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--wine-a20) !important;
   --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
   --n-dot-color-active:  var(--akzent) !important;
 }
@@ -13713,8 +13815,8 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 
 /* Close-Button neutral */
 #folder-agent-modal-header-create-modal-close-btn {
-  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
-  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
+  --n-border-hover:   1px solid var(--grau-ui) !important;
+  --n-border-pressed: 1px solid var(--grau-ui) !important;
 }
 #folder-agent-modal-header-create-modal-close-btn .n-button__state-border {
   display: none !important;
@@ -13725,7 +13827,7 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 .n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-input__state-border {
@@ -13738,8 +13840,8 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:     var(--akzent) !important;
 }
 .n-modal:has(#folder-agent-modal-footer-create-btn-positive-action) .n-base-selection__state-border {
@@ -13757,7 +13859,7 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 #move-to-folder-modal-footer-btn-positive-action {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
 }
 #move-to-folder-modal-footer-btn-positive-action:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -13789,9 +13891,9 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
 }
 .move-to-folder-modal .n-base-selection__state-border { display: none !important; }
 
@@ -13806,7 +13908,7 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 #enable-ip-protection {
   --n-border-checked:        1px solid var(--akzent) !important;
   --n-border-focus:          1px solid var(--akzent) !important;
-  --n-box-shadow-focus:      0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:      0 0 0 2px var(--wine-a20) !important;
   --n-color-checked:         var(--akzent) !important;
   --n-border-disabled-checked: 1px solid var(--akzent-hell) !important;
   --n-color-disabled-checked: var(--akzent-hell) !important;
@@ -13844,7 +13946,7 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
 /* ================================================
    Section 124 – Voice AI Agent bearbeiten
    Scope: .hl-wrapper-container:has(#save-voice-ai-setting)
-   NaïveUI + inline #155EEF + .text-primary-* Klassen
+   NaïveUI + inline var(--blau) + .text-primary-* Klassen
    ================================================ */
 
 /* --------------------------------------------------
@@ -13881,7 +13983,7 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .n-input__state-border {
@@ -13896,8 +13998,8 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:     var(--akzent) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .n-base-selection__state-border {
@@ -13962,16 +14064,16 @@ section.hl_topbar-tabs:has(#outbound-calls-btn) {
   background-color: var(--akzent-hell) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .bg-primary-100 {
-  background-color: rgba(91,25,45,.1) !important;
+  background-color: var(--wine-a10) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .bg-primary-50 {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .border-primary-200 {
-  border-color: rgba(91,25,45,.3) !important;
+  border-color: var(--wine-a30) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .hover\:bg-primary-100:hover {
-  background-color: rgba(91,25,45,.15) !important;
+  background-color: var(--wine-a15) !important;
 }
 
 /* --------------------------------------------------
@@ -14002,7 +14104,7 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
 }
 #additional-action-items-list #dropdown-tree-search .n-input__state-border {
   display: none !important;
@@ -14038,13 +14140,13 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
 .hl-wrapper-container:has(#save-voice-ai-setting) #upgrade-button {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
   --n-color:          var(--akzent) !important;
   --n-color-hover:    var(--akzent-dunkel) !important;
   --n-color-pressed:  var(--akzent) !important;
-  --n-text-color:         #fff !important;
-  --n-text-color-hover:   #fff !important;
-  --n-text-color-pressed: #fff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
   --n-border:         1px solid var(--akzent) !important;
   --n-border-hover:   1px solid var(--akzent-dunkel) !important;
   --n-ripple-color:   var(--akzent) !important;
@@ -14053,7 +14155,7 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
 .hl-wrapper-container:has(#save-voice-ai-setting) #upgrade-button:hover {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) #switch-btn .n-button__state-border,
 .hl-wrapper-container:has(#save-voice-ai-setting) #upgrade-button .n-button__state-border,
@@ -14069,8 +14171,8 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:     var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
 }
@@ -14107,7 +14209,7 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
   --n-border-checked:   1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-color-checked:    var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.3) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a30) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .n-checkbox.n-checkbox--checked .n-checkbox-box,
 .hl-wrapper-container:has(#save-voice-ai-setting) .n-checkbox--checked .n-checkbox-box {
@@ -14120,7 +14222,7 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
    -------------------------------------------------- */
 .hl-wrapper-container:has(#save-voice-ai-setting) .n-switch {
   --n-rail-color-active: var(--akzent) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:     var(--akzent) !important;
 }
 .hl-wrapper-container:has(#save-voice-ai-setting) .n-switch.n-switch--active .n-switch__rail {
@@ -14132,15 +14234,15 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
    ================================================ */
 
 /* „Upgrade" Button (#upgrade-button im ai-pricing-component) → wine
-   Hat inline color: rgb(91,37,208) → muss mit !important überschrieben */
+   Hat inline color: var(--lila) → muss mit !important überschrieben */
 .hl-wrapper-container:has(#save-voice-ai-setting) #ai-pricing-component #upgrade-button {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
   --n-color:          var(--akzent) !important;
   --n-color-hover:    var(--akzent-dunkel) !important;
-  --n-text-color:         #fff !important;
-  --n-text-color-hover:   #fff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
   --n-border:         1px solid var(--akzent) !important;
   --n-border-hover:   1px solid var(--akzent-dunkel) !important;
 }
@@ -14157,11 +14259,11 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
 .hl-wrapper-container:has(#save-voice-ai-setting) #buy-new-number-button {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
   --n-color:          var(--akzent) !important;
   --n-color-hover:    var(--akzent-dunkel) !important;
-  --n-text-color:         #fff !important;
-  --n-text-color-hover:   #fff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
   --n-border:         1px solid var(--akzent) !important;
   --n-border-hover:   1px solid var(--akzent-dunkel) !important;
 }
@@ -14179,8 +14281,8 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
 }
@@ -14217,7 +14319,7 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
 }
 
 /* Aktive Metric-Card → wine Border */
@@ -14231,8 +14333,8 @@ section.hl_topbar-tabs:has(#save-voice-ai-setting) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
 }
@@ -14288,7 +14390,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 /* ================================================
    Section 125 – Sprachauswahl Modal
    Scope: .n-modal:has(#voice-selection-modal-footer-btn-positive-action)
-   NaïveUI n- Prefix, inline #155EEF
+   NaïveUI n- Prefix, inline var(--blau)
    ================================================ */
 
 /* --------------------------------------------------
@@ -14334,8 +14436,8 @@ section.hl_topbar-tabs:has(#go-back-btn) {
    2. Close-Button – neutral
    -------------------------------------------------- */
 #voice-selection-modal-header-modal-close-btn {
-  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
-  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
+  --n-border-hover:   1px solid var(--grau-ui) !important;
+  --n-border-pressed: 1px solid var(--grau-ui) !important;
 }
 #voice-selection-modal-header-modal-close-btn .n-button__state-border {
   display: none !important;
@@ -14380,8 +14482,8 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.15) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a15) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a15) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-base-selection__state-border {
   display: none !important;
@@ -14394,7 +14496,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a15) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-search .n-input__state-border {
@@ -14447,7 +14549,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-switch {
   --n-rail-color-active: var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .n-switch.n-switch--active .n-switch__rail {
   background-color: var(--akzent) !important;
@@ -14476,13 +14578,13 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #voice-pagination-next {
   background-color:   var(--akzent) !important;
   border-color:       var(--akzent) !important;
-  color:              #fff !important;
+  color:              var(--weiss) !important;
   --n-color:          var(--akzent) !important;
   --n-color-hover:    var(--akzent-dunkel) !important;
-  --n-text-color:         #fff !important;
-  --n-text-color-hover:   #fff !important;
-  --n-text-color-pressed: #fff !important;
-  --n-text-color-focus:   #fff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-border:         1px solid var(--akzent) !important;
   --n-border-hover:   1px solid var(--akzent-dunkel) !important;
   --n-border-pressed: 1px solid var(--akzent) !important;
@@ -14507,7 +14609,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-tag {
   background-color: var(--akzent-hell) !important;
   color:            var(--akzent) !important;
-  border-color:     rgba(91,25,45,.25) !important;
+  border-color:     var(--wine-a25) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .voice-tag svg {
   color: var(--akzent) !important;
@@ -14521,7 +14623,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .tag-gender {
   background-color: var(--akzent-hell) !important;
   color:            var(--akzent) !important;
-  border-color:     rgba(91,25,45,.2) !important;
+  border-color:     var(--wine-a20) !important;
 }
 
 /* --------------------------------------------------
@@ -14530,14 +14632,14 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library {
   background-color:   var(--akzent) !important;
   border-color:       var(--akzent) !important;
-  color:              #fff !important;
+  color:              var(--weiss) !important;
   --n-color:          var(--akzent) !important;
   --n-color-hover:    var(--akzent-dunkel) !important;
   --n-color-pressed:  var(--akzent) !important;
-  --n-text-color:         #fff !important;
-  --n-text-color-hover:   #fff !important;
-  --n-text-color-pressed: #fff !important;
-  --n-text-color-focus:   #fff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-border:         1px solid var(--akzent) !important;
   --n-border-hover:   1px solid var(--akzent-dunkel) !important;
   --n-border-pressed: 1px solid var(--akzent) !important;
@@ -14545,8 +14647,8 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-ripple-color:   var(--akzent) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library svg {
-  color: #fff !important;
-  stroke: #fff !important;
+  color: var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice-in-use-library:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -14563,14 +14665,14 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice {
   background-color:   var(--akzent) !important;
   border-color:       var(--akzent) !important;
-  color:              #fff !important;
+  color:              var(--weiss) !important;
   --n-color:          var(--akzent) !important;
   --n-color-hover:    var(--akzent-dunkel) !important;
   --n-color-pressed:  var(--akzent) !important;
-  --n-text-color:         #fff !important;
-  --n-text-color-hover:   #fff !important;
-  --n-text-color-pressed: #fff !important;
-  --n-text-color-focus:   #fff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-border:         1px solid var(--akzent) !important;
   --n-border-hover:   1px solid var(--akzent-dunkel) !important;
   --n-border-pressed: 1px solid var(--akzent) !important;
@@ -14578,8 +14680,8 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-ripple-color:   var(--akzent) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice svg {
-  color:  #fff !important;
-  stroke: #fff !important;
+  color:  var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #play-voice:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -14627,8 +14729,8 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.15) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a15) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a15) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-provider-filter .n-base-selection__state-border,
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-language-filter .n-base-selection__state-border,
@@ -14642,7 +14744,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a15) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) #my-voices-search .n-input__state-border {
@@ -14667,7 +14769,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .my-voices-content .n-switch {
   --n-rail-color-active: var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
 }
 .n-modal:has(#voice-selection-modal-footer-btn-positive-action) .my-voices-content .n-switch.n-switch--active .n-switch__rail {
   background-color: var(--akzent) !important;
@@ -14682,7 +14784,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   background:       var(--akzent-hell) !important;
   background-image: none !important;
   background-color: var(--akzent-hell) !important;
-  border-color:     rgba(91,25,45,.2) !important;
+  border-color:     var(--wine-a20) !important;
 }
 
 /* --------------------------------------------------
@@ -14698,7 +14800,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
    Section 120 – Conversation AI Agents
    Scope: .hl-wrapper-container:has(#create-bot-button)
    Gilt für BEIDE Tabs (Agentenliste + Dashboard)
-   NaïveUI n- Prefix, inline #155EEF
+   NaïveUI n- Prefix, inline var(--blau)
    ================================================ */
 
 /* --------------------------------------------------
@@ -14783,7 +14885,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-caret-color:      var(--akzent) !important;
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 .hl-wrapper-container:has(#create-bot-button) #hl-table-ai-bots-table-filter-text-search .n-input__state-border {
@@ -14808,7 +14910,7 @@ section.hl_topbar-tabs:has(#go-back-btn) {
   --n-border-checked:   1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-color-checked:    var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.3) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a30) !important;
 }
 .hl-wrapper-container:has(#create-bot-button) .n-checkbox.n-checkbox--checked .n-checkbox-box {
   background-color: var(--akzent) !important;
@@ -14882,9 +14984,9 @@ section.hl_topbar-tabs:has(#create-bot-button) {
    5. Close-Button hover → kein blauer Border
    -------------------------------------------------- */
 .n-modal:has(#create-new-bot-button) #pg-chat-widget-template-selector__header-modal-close-btn {
-  --n-border-hover:   1px solid rgb(224, 224, 230) !important;
-  --n-border-pressed: 1px solid rgb(224, 224, 230) !important;
-  --n-border-focus:   1px solid rgb(224, 224, 230) !important;
+  --n-border-hover:   1px solid var(--grau-ui) !important;
+  --n-border-pressed: 1px solid var(--grau-ui) !important;
+  --n-border-focus:   1px solid var(--grau-ui) !important;
 }
  
 /* --------------------------------------------------
@@ -14926,7 +15028,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 }
 #create-knowledge-base-button p,
 #create-knowledge-base-button i,
-#create-knowledge-base-button svg { color: #fff !important; }
+#create-knowledge-base-button svg { color: var(--weiss) !important; }
 #create-knowledge-base-button .hr-button__border,
 #create-knowledge-base-button .hr-button__state-border { display: none !important; }
 
@@ -14947,7 +15049,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #knowledge-base-search .hr-input__state-border { display: none !important; }
 
@@ -14996,10 +15098,10 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 [id^="kb-action-dropdown-"] {
   --n-option-text-color-active:       var(--akzent) !important;
   --n-option-text-color-child-active: var(--akzent) !important;
-  --n-option-color-active:            rgba(91,25,45,.08) !important;
+  --n-option-color-active:            var(--wine-a08) !important;
 }
 [id^="kb-action-dropdown-"] .hr-dropdown-option:hover {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 [id^="kb-action-dropdown-"] .hr-dropdown-option:hover p,
 [id^="kb-action-dropdown-"] .hr-dropdown-option:hover i {
@@ -15018,7 +15120,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--akzent) !important;
 }
 #kb-sort-dropdown .hr-dropdown-option:hover {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 #kb-sort-dropdown .hr-dropdown-option:hover p {
   color: var(--akzent) !important;
@@ -15047,7 +15149,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #knowledge-base-name-input .hr-input__state-border,
 #description-input .hr-input__state-border { display: none !important; }
@@ -15069,7 +15171,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#create-kb-submit-button p { color: #fff !important; }
+#create-kb-submit-button p { color: var(--weiss) !important; }
 #create-kb-submit-button .hr-button__border,
 #create-kb-submit-button .hr-button__state-border { display: none !important; }
 
@@ -15080,22 +15182,22 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 
 /* NaïveUI-Variablen zurücksetzen auf neutral */
 #kb-sort-dropdown-menu {
-  --n-option-text-color-active:       rgba(52, 64, 84, 1) !important;
-  --n-option-text-color-child-active: rgba(52, 64, 84, 1) !important;
-  --n-option-color-active:            rgb(243, 243, 245) !important;
+  --n-option-text-color-active:       var(--grau-dunkel) !important;
+  --n-option-text-color-child-active: var(--grau-dunkel) !important;
+  --n-option-color-active:            var(--grau-neutral) !important;
 }
 
 /* Hover → dezent grau, kein wine */
 #kb-sort-dropdown-menu .hr-dropdown-option:hover {
-  background-color: rgb(243, 243, 245) !important;
+  background-color: var(--grau-neutral) !important;
 }
 #kb-sort-dropdown-menu .hr-dropdown-option:hover p {
-  color: rgba(52, 64, 84, 1) !important;
+  color: var(--grau-dunkel) !important;
 }
 
 /* NUR aktiv selektierte Option → wine */
 #kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected {
-  background-color: rgba(91,25,45,.05) !important;
+  background-color: var(--wine-a05) !important;
 }
 #kb-sort-dropdown-menu .hr-dropdown-option.hr-dropdown-option--selected p {
   color: var(--akzent) !important;
@@ -15215,7 +15317,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 #add-website-button svg,
 #add-website-empty-button p,
 #add-website-empty-button i,
-#add-website-empty-button svg { color: #fff !important; }
+#add-website-empty-button svg { color: var(--weiss) !important; }
 #add-website-button .hr-button__border,
 #add-website-button .hr-button__state-border,
 #add-website-empty-button .hr-button__border,
@@ -15235,7 +15337,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 }
 #edit-knowledge-base-card .hr-tab-pane .hr-button--primary p,
 #edit-knowledge-base-card .hr-tab-pane .hr-button--primary i,
-#edit-knowledge-base-card .hr-tab-pane .hr-button--primary svg { color: #fff !important; }
+#edit-knowledge-base-card .hr-tab-pane .hr-button--primary svg { color: var(--weiss) !important; }
 #edit-knowledge-base-card .hr-tab-pane .hr-button--primary .hr-button__border,
 #edit-knowledge-base-card .hr-tab-pane .hr-button--primary .hr-button__state-border {
   display: none !important;
@@ -15261,7 +15363,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #edit-knowledge-base-card .hr-tab-pane .hr-input__state-border { display: none !important; }
 
@@ -15321,7 +15423,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #url-input .hr-input__state-border { display: none !important; }
 
@@ -15332,9 +15434,9 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-active:     1px solid var(--akzent) !important;
-  --n-box-shadow-hover:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-focus:  0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
-  --n-box-shadow-active: 0px 0px 0px 4px rgba(91,25,45,.15), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-hover:  0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
+  --n-box-shadow-active: 0px 0px 0px 4px var(--wine-a15), 0px 1px 2px 0px var(--schatten-subtil) !important;
   --n-loading-color:     var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
 }
@@ -15361,7 +15463,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#extract-data-button p { color: #fff !important; }
+#extract-data-button p { color: var(--weiss) !important; }
 #extract-data-button .hr-button__border,
 #extract-data-button .hr-button__state-border { display: none !important; }
 
@@ -15390,7 +15492,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #faq-question .hr-input__state-border,
 #faq-answer .hr-input__state-border { display: none !important; }
@@ -15416,7 +15518,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#faq-modal-save-button p { color: #fff !important; }
+#faq-modal-save-button p { color: var(--weiss) !important; }
 #faq-modal-save-button .hr-button__border,
 #faq-modal-save-button .hr-button__state-border { display: none !important; }
 
@@ -15472,7 +15574,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #table-source-name .hr-input__state-border { display: none !important; }
 
@@ -15497,7 +15599,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#table-upload-next p { color: #fff !important; }
+#table-upload-next p { color: var(--weiss) !important; }
 #table-upload-next .hr-button__border,
 #table-upload-next .hr-button__state-border { display: none !important; }
 
@@ -15535,7 +15637,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 #table-upload-modal select:focus {
   outline:       none !important;
   border-color:  var(--akzent) !important;
-  box-shadow:    0 0 0 3px rgba(91,25,45,.15) !important;
+  box-shadow:    0 0 0 3px var(--wine-a15) !important;
 }
 
 /* Pagination aktive Seite → wine */
@@ -15574,7 +15676,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#table-upload-next-2 p { color: #fff !important; }
+#table-upload-next-2 p { color: var(--weiss) !important; }
 #table-upload-next-2 .hr-button__border,
 #table-upload-next-2 .hr-button__state-border { display: none !important; }
 
@@ -15631,7 +15733,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#table-upload-finish p { color: #fff !important; }
+#table-upload-finish p { color: var(--weiss) !important; }
 #table-upload-finish .hr-button__border,
 #table-upload-finish .hr-button__state-border { display: none !important; }
 
@@ -15658,7 +15760,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0px 0px 0px 4px rgba(91,25,45,.15), var(--shadow-xs) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--wine-a15), var(--shadow-xs) !important;
 }
 #rich-text-modal-name-input .hr-input__state-border { display: none !important; }
 
@@ -15686,7 +15788,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 }
 #rich-text-editor-modal .hr-editor__wrapper:focus-within {
   border-color: var(--akzent) !important;
-  box-shadow:   0px 0px 0px 4px rgba(91,25,45,.15) !important;
+  box-shadow:   0px 0px 0px 4px var(--wine-a15) !important;
 }
 
 /* --------------------------------------------------
@@ -15710,7 +15812,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#rich-text-modal-save p { color: #fff !important; }
+#rich-text-modal-save p { color: var(--weiss) !important; }
 #rich-text-modal-save .hr-button__border,
 #rich-text-modal-save .hr-button__state-border { display: none !important; }
 
@@ -15768,7 +15870,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#file-upload-submit p { color: #fff !important; }
+#file-upload-submit p { color: var(--weiss) !important; }
 #file-upload-submit .hr-button__border,
 #file-upload-submit .hr-button__state-border { display: none !important; }
 
@@ -15802,16 +15904,16 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-color:              var(--akzent) !important;
   --n-color-hover:        var(--akzent-dunkel) !important;
   --n-color-pressed:      var(--akzent) !important;
-  --n-text-color:         #ffffff !important;
-  --n-text-color-hover:   #ffffff !important;
-  --n-text-color-pressed: #ffffff !important;
-  --n-text-color-focus:   #ffffff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-border:             1px solid var(--akzent) !important;
   --n-border-hover:       1px solid var(--akzent-dunkel) !important;
   --n-ripple-color:       var(--akzent) !important;
   background-color:       var(--akzent) !important;
   border-color:           var(--akzent) !important;
-  color:                  #ffffff !important;
+  color:                  var(--weiss) !important;
 }
 #conversation-ai-settings-v2 #primary-bot:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -15827,16 +15929,16 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-color:              var(--akzent) !important;
   --n-color-hover:        var(--akzent-dunkel) !important;
   --n-color-pressed:      var(--akzent) !important;
-  --n-text-color:         #ffffff !important;
-  --n-text-color-hover:   #ffffff !important;
-  --n-text-color-pressed: #ffffff !important;
-  --n-text-color-focus:   #ffffff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-border:             1px solid var(--akzent) !important;
   --n-border-hover:       1px solid var(--akzent-dunkel) !important;
   --n-ripple-color:       var(--akzent) !important;
   background-color:       var(--akzent) !important;
   border-color:           var(--akzent) !important;
-  color:                  #ffffff !important;
+  color:                  var(--weiss) !important;
 }
 #conversation-ai-settings-v2 #bot-trial-redirect:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -15859,11 +15961,11 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 }
 #conversation-ai-settings-v2 #upgrade-button .n-button__content,
 #conversation-ai-settings-v2 #upgrade-button .n-button__content span {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 #conversation-ai-settings-v2 #upgrade-button svg {
-  color:  #ffffff !important;
-  stroke: #ffffff !important;
+  color:  var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 #conversation-ai-settings-v2 #upgrade-button img {
   filter: brightness(0) invert(1) !important;
@@ -15894,7 +15996,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   box-shadow: inset 0 0 0 1px var(--akzent) !important;
 }
 #conversation-ai-settings-v2 #ai-mode-radio .n-radio-button--checked {
-  background-color: rgba(91,25,45,.04) !important;
+  background-color: var(--wine-a04) !important;
 }
 
 /* --------------------------------------------------
@@ -15902,7 +16004,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
    -------------------------------------------------- */
 #conversation-ai-settings-v2 #response-length-radio .n-radio-button--checked {
   box-shadow:       0 0 0 2px var(--akzent) !important;
-  background-color: rgba(91,25,45,.04) !important;
+  background-color: var(--wine-a04) !important;
 }
 #conversation-ai-settings-v2 #response-length-radio .n-radio-button:hover {
   box-shadow: 0 0 0 1px var(--akzent) !important;
@@ -15934,7 +16036,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 #conversation-ai-settings-v2 .n-checkbox {
   --n-border-checked:   1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-color-checked:    var(--akzent) !important;
 }
 #conversation-ai-settings-v2 .n-checkbox--checked .n-checkbox-box {
@@ -15949,7 +16051,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 #conversation-ai-settings-v2 .n-input__state-border { display: none !important; }
@@ -15962,7 +16064,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
 }
 #max-auto-number .n-button:hover { color: var(--akzent) !important; }
 
@@ -15976,9 +16078,9 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
 }
 #select-channel .n-base-selection__state-border,
 #time-type-auto .n-base-selection__state-border { display: none !important; }
@@ -16034,9 +16136,9 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
 }
 #select-knowledge-base .n-base-selection__state-border { display: none !important; }
 
@@ -16047,24 +16149,24 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-color:              var(--akzent) !important;
   --n-color-hover:        var(--akzent-dunkel) !important;
   --n-color-pressed:      var(--akzent) !important;
-  --n-text-color:         #ffffff !important;
-  --n-text-color-hover:   #ffffff !important;
-  --n-text-color-pressed: #ffffff !important;
-  --n-text-color-focus:   #ffffff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-border:             1px solid var(--akzent) !important;
   --n-border-hover:       1px solid var(--akzent-dunkel) !important;
   --n-ripple-color:       var(--akzent) !important;
   background-color:       var(--akzent) !important;
   border-color:           var(--akzent) !important;
-  color:                  #ffffff !important;
+  color:                  var(--weiss) !important;
 }
 #conversation-ai-settings-v2 #create-knowledge-base-btn:hover {
   background-color: var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
 #conversation-ai-settings-v2 #create-knowledge-base-btn svg {
-  color:  #ffffff !important;
-  stroke: #ffffff !important;
+  color:  var(--weiss) !important;
+  stroke: var(--weiss) !important;
 }
 #conversation-ai-settings-v2 #create-knowledge-base-btn .n-button__border,
 #conversation-ai-settings-v2 #create-knowledge-base-btn .n-button__state-border {
@@ -16109,7 +16211,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 #conversation-ai-settings-v2 #send-bot-trial-message:focus {
   outline:      none !important;
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.15) !important;
+  box-shadow:   0 0 0 2px var(--wine-a15) !important;
 }
 
 /* --------------------------------------------------
@@ -16185,7 +16287,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
    -------------------------------------------------- */
 #conversation-ai-settings-v2 #edit-bot-goals-content {
   background:   var(--akzent-hell) !important;
-  border-color: rgba(91,25,45,.2) !important;
+  border-color: var(--wine-a20) !important;
 }
 
 /* --------------------------------------------------
@@ -16202,16 +16304,16 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-color:              var(--akzent) !important;
   --n-color-hover:        var(--akzent-dunkel) !important;
   --n-color-pressed:      var(--akzent) !important;
-  --n-text-color:         #ffffff !important;
-  --n-text-color-hover:   #ffffff !important;
-  --n-text-color-pressed: #ffffff !important;
-  --n-text-color-focus:   #ffffff !important;
+  --n-text-color:         var(--weiss) !important;
+  --n-text-color-hover:   var(--weiss) !important;
+  --n-text-color-pressed: var(--weiss) !important;
+  --n-text-color-focus:   var(--weiss) !important;
   --n-border:             1px solid var(--akzent) !important;
   --n-border-hover:       1px solid var(--akzent-dunkel) !important;
   --n-ripple-color:       var(--akzent) !important;
   background-color:       var(--akzent) !important;
   border-color:           var(--akzent) !important;
-  color:                  #ffffff !important;
+  color:                  var(--weiss) !important;
 }
 #conversation-ai-settings-v2 #launch-flow-builder-button:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -16231,9 +16333,9 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
 }
 #tone-select .n-base-selection__state-border { display: none !important; }
 
@@ -16246,7 +16348,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 #conversation-ai-settings-v2 #personality-input .n-input__state-border,
@@ -16267,7 +16369,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 }
 #conversation-ai-settings-v2 .n-checkbox:focus .n-checkbox-box__border {
   border-color:  var(--akzent) !important;
-  box-shadow:    0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow:    0 0 0 2px var(--wine-a20) !important;
 }
 
 /* --------------------------------------------------
@@ -16348,7 +16450,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 #conversation-ai-settings-v2 #send-bot-trial-message:focus {
   outline:      none !important;
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.15) !important;
+  box-shadow:   0 0 0 2px var(--wine-a15) !important;
 }
 
 /* --------------------------------------------------
@@ -16393,9 +16495,9 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
 }
 #channel-select .n-base-selection__state-border { display: none !important; }
 
@@ -16406,7 +16508,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
 }
 #filters-date-picker .n-input__state-border { display: none !important; }
 
@@ -16450,9 +16552,9 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   --n-border-active:     1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-hover:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-hover:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
 }
 #select-id .n-base-selection__state-border { display: none !important; }
 
@@ -16485,7 +16587,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 #agent-templates-container .hl_wrapper--inner,
 #agent-templates-container .hr-wrapper-container,
 #agent-templates-container .hr-config-provider {
-  background-color: #ffffff !important;
+  background-color: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
@@ -16529,7 +16631,7 @@ section.hl_topbar-tabs:has(#create-bot-button) {
 
 /* Check-Icon → weiß */
 #agent-templates-container .hr-checkbox--checked .check-icon path {
-  fill: #ffffff !important;
+  fill: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
@@ -16609,12 +16711,12 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   border: 1px solid var(--linie-stark) !important;
   border-radius: 8px !important;
   transition: all 0.12s !important;
-  box-shadow: 0 1px 3px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 3px var(--nav-a06) !important;
 }
 .social-planner .platforms-wrap button:hover {
   background-color: var(--akzent-hell) !important;
   border-color: var(--akzent) !important;
-  box-shadow: 0 2px 8px rgba(107,45,62,0.10) !important;
+  box-shadow: 0 2px 8px var(--wine-2-a10) !important;
   transform: translateY(-1px) !important;
 }
 .social-planner .platforms-wrap button p {
@@ -16656,12 +16758,12 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 12px !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
   transition: all 0.15s !important;
 }
 .social-planner .feature-card:hover {
   border-color: var(--akzent) !important;
-  box-shadow: 0 6px 20px rgba(107,45,62,0.10) !important;
+  box-shadow: 0 6px 20px var(--wine-2-a10) !important;
   transform: translateY(-2px) !important;
 }
 /* Feature Card Image Background */
@@ -16759,7 +16861,7 @@ section#funnels.hl_wrapper--inner,
 html body #create-new-button.n-button--primary-type {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 html body #create-new-button.n-button--primary-type:hover {
@@ -16824,7 +16926,7 @@ html body #create-new-button.n-button--primary-type:hover {
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
-  box-shadow: 0 4px 16px rgba(44,62,80,0.10) !important;
+  box-shadow: 0 4px 16px var(--nav-a10) !important;
 }
 #table1-drop .n-dropdown-option-body__label { color: var(--nav-hover) !important; font-size: 13px !important; }
 #table1-drop .n-dropdown-option-body__prefix svg { color: var(--text-gedaempft) !important; }
@@ -16872,23 +16974,23 @@ section#clientportal-builder,
 a.branded-banner {
   background: linear-gradient(135deg, var(--akzent) 0%, var(--akzent-dunkel) 100%) !important;
   border-radius: 16px !important;
-  box-shadow: 0 4px 16px rgba(107,45,62,0.20) !important;
+  box-shadow: 0 4px 16px var(--wine-2-a20) !important;
   display: block !important;
   padding: 20px 24px !important;
   text-decoration: none !important;
   transition: box-shadow 0.15s, transform 0.15s !important;
 }
 a.branded-banner:hover {
-  box-shadow: 0 8px 24px rgba(107,45,62,0.28) !important;
+  box-shadow: 0 8px 24px var(--wine-2-a28) !important;
   transform: translateY(-1px) !important;
 }
 a.branded-banner .title {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   font-weight: 700 !important;
   font-size: 18px !important;
 }
 a.branded-banner .subtitle {
-  color: rgba(255,255,255,0.8) !important;
+  color: var(--white-a80) !important;
   font-size: 14px !important;
   margin-top: 4px !important;
 }
@@ -16908,11 +17010,11 @@ a.branded-banner .subtitle {
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 16px !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
   transition: box-shadow 0.12s !important;
 }
 #clientportal-builder-mount .hl-card:hover {
-  box-shadow: 0 4px 12px rgba(107,45,62,0.08) !important;
+  box-shadow: 0 4px 12px var(--wine-2-a08) !important;
 }
 
 /* Card Titel */
@@ -17064,7 +17166,7 @@ a.branded-banner .subtitle {
 html body #hl-media-upload.n-button--primary-type {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 html body #hl-media-upload.n-button--primary-type:hover {
@@ -17072,7 +17174,7 @@ html body #hl-media-upload.n-button--primary-type:hover {
   border-color: var(--akzent-dunkel) !important;
 }
 #hl-media-upload .n-button__border { border-color: var(--akzent) !important; }
-#hl-media-upload .hl-text-sm-medium { color: #ffffff !important; }
+#hl-media-upload .hl-text-sm-medium { color: var(--weiss) !important; }
 
 /* Mehr-Optionen Button */
 #media-header-dropdown {
@@ -17135,7 +17237,7 @@ html body #hl-media-upload.n-button--primary-type:hover {
 }
 #mediaCenter .folder-card-wrapper.hl-card:hover {
   border-color: var(--akzent) !important;
-  box-shadow: 0 4px 12px rgba(107,45,62,0.08) !important;
+  box-shadow: 0 4px 12px var(--wine-2-a08) !important;
 }
 #mediaCenter .folder-card-wrapper svg { color: var(--text-gedaempft) !important; }
 #mediaCenter .folder-card-wrapper .hl-text-sm-medium { color: var(--nav-farbe) !important; }
@@ -17149,7 +17251,7 @@ html body #hl-media-upload.n-button--primary-type:hover {
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 10px !important;
-  box-shadow: 0 4px 16px rgba(44,62,80,0.10) !important;
+  box-shadow: 0 4px 16px var(--nav-a10) !important;
   padding: 4px 0 !important;
 }
 .vue-simple-context-menu__item {
@@ -17181,7 +17283,7 @@ html body #hl-media-upload.n-button--primary-type:hover {
   color: var(--fehler) !important;
 }
 .vue-simple-context-menu__item:last-child:hover {
-  background-color: rgba(217,45,32,0.06) !important;
+  background-color: var(--fehler-2-a06) !important;
 }
 
 /* ── 116.6 Dateien Section ── */
@@ -17194,13 +17296,13 @@ html body #hl-media-upload.n-button--primary-type:hover {
   ring-color: transparent !important;
 }
 #mediaCenter .file-item:hover {
-  box-shadow: 0 4px 12px rgba(107,45,62,0.12) !important;
+  box-shadow: 0 4px 12px var(--wine-2-a12) !important;
   transform: scale(1.02) !important;
 }
 
 /* Drag Select Area → wine */
 #mediaCenter .drag-select__area {
-  background: rgba(107,45,62,0.15) !important;
+  background: var(--wine-2-a15) !important;
 }
 
 /* Scrollbar */
@@ -17311,7 +17413,7 @@ html body #mediaCenter .n-pagination-item.n-pagination-item--active {
 html body .reputationApp #send-review-request-button.hr-button--primary-type {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 html body .reputationApp #send-review-request-button.hr-button--primary-type:hover {
@@ -17325,7 +17427,7 @@ html body .reputationApp #send-review-request-button.hr-button--primary-type:hov
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 16px !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
 }
 .reputationApp .ui-card-content { background-color: var(--hintergrund-karte) !important; }
 
@@ -17351,7 +17453,7 @@ html body .reputationApp #send-review-request-button.hr-button--primary-type:hov
 }
 .reputationApp .grid.grid-cols-2 [role="button"]:hover {
   border-color: var(--akzent) !important;
-  box-shadow: 0 4px 12px rgba(107,45,62,0.08) !important;
+  box-shadow: 0 4px 12px var(--wine-2-a08) !important;
   background-color: var(--akzent-hell) !important;
 }
 .reputationApp .grid.grid-cols-2 .text-gray-700.ui-text-sm-medium { color: var(--nav-hover) !important; }
@@ -17376,12 +17478,12 @@ html body .reputationApp #send-review-request-button.hr-button--primary-type:hov
 
 /* ── 117.6 Warning Banner ── */
 .reputationApp .border-warning-200.bg-warning-50 {
-  background-color: rgba(254,243,199,0.5) !important;
-  border-color: rgb(253,230,138) !important;
+  background-color: var(--warnung-hintergrund-a50) !important;
+  border-color: var(--warnung-gelb) !important;
   border-radius: 10px !important;
 }
-.reputationApp .text-warning-700 { color: rgb(180,120,0) !important; }
-.reputationApp #overview-review-link-setup-button { color: rgb(180,120,0) !important; }
+.reputationApp .text-warning-700 { color: var(--warnung-amber) !important; }
+.reputationApp #overview-review-link-setup-button { color: var(--warnung-amber) !important; }
 
 /* ── 117.7 Statistik Cards ── */
 /* Card Titel */
@@ -17409,7 +17511,7 @@ html body .reputationApp #send-review-request-button.hr-button--primary-type:hov
 /* Positiv (success-600 → wine-2) */
 .reputationApp .text-success-600 { color: var(--akzent-dunkel) !important; }
 .reputationApp [style*="rgb(236, 253, 243)"] { background-color: var(--akzent-hell) !important; }
-.reputationApp [style*="rgb(209, 250, 223)"] { background-color: rgba(107,45,62,0.08) !important; }
+.reputationApp [style*="rgb(209, 250, 223)"] { background-color: var(--wine-2-a08) !important; }
 
 /* ── 117.9 Highcharts Charts (SVG) → wine Farben ── */
 /* Bar-Charts Füllfarben: blau → wine Gradient */
@@ -17451,7 +17553,7 @@ html body .reputationApp #send-review-request-button.hr-button--primary-type:hov
   background-color: var(--hintergrund-karte) !important;
   border: 1px solid var(--linie-stark) !important;
   border-radius: 16px !important;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.06) !important;
+  box-shadow: 0 1px 4px var(--nav-a06) !important;
 }
 .reputationApp .border.border-b-gray-200 { border-color: var(--linie-stark) !important; }
 .reputationApp .ui-text-md-medium.text-gray-900 { color: var(--nav-farbe) !important; }
@@ -17466,7 +17568,7 @@ html body .reputationApp #send-review-request-button.hr-button--primary-type:hov
 html body .reputationApp .ui-empty-actions .hr-button--primary-type {
   background-color: var(--akzent) !important;
   border-color: var(--akzent) !important;
-  color: #ffffff !important;
+  color: var(--weiss) !important;
   border-radius: 8px !important;
 }
 html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
@@ -17524,7 +17626,7 @@ html body .custom-report-wrapper .n-button--primary-type {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
   border-radius:    8px !important;
-  box-shadow:       0 1px 4px rgba(91, 25, 45, .25) !important;
+  box-shadow:       0 1px 4px var(--wine-a25) !important;
 }
 html body .custom-report-wrapper .n-button--primary-type:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -17596,7 +17698,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 #location-custom-reports .n-button--primary-type {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  box-shadow: 0 1px 4px rgba(91, 25, 45, .25) !important;
+  box-shadow: 0 1px 4px var(--wine-a25) !important;
 }
 #location-custom-reports .n-button--primary-type:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -17619,7 +17721,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 #location-custom-reports .n-base-selection.n-base-selection--active .n-base-selection__border,
 #location-custom-reports .n-base-selection.n-base-selection--focus .n-base-selection__border {
   border-color: var(--akzent) !important;
-  box-shadow: 0 0 0 2px rgba(91, 25, 45, .2) !important;
+  box-shadow: 0 0 0 2px var(--wine-a20) !important;
 }
 #location-custom-reports .n-base-selection__state-border {
   display: none !important;
@@ -17664,7 +17766,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 #reporting-adwords-dashboard .hl_dashboard,
 #reporting-adwords-dashboard .container-fluid,
 #reporting-adwords-dashboard .ad-reporting-container {
-  background-color: #f8f5f5 !important;
+  background-color: var(--weiss-warm) !important;
   color: var(--nav-farbe) !important;
 }
 
@@ -17672,10 +17774,10 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
    Hauptkarte (weißer Bereich) – Akzent oben
    -------------------------------------------------- */
 #reporting-adwords-dashboard .card.hl_dashboard--pipeline-value {
-  background-color: #fff !important;
+  background-color: var(--weiss) !important;
   border-top: 3px solid var(--akzent-hell) !important;
   border-radius: 8px !important;
-  box-shadow: 0 1px 8px rgba(91, 25, 45, .08) !important;
+  box-shadow: 0 1px 8px var(--wine-a08) !important;
 }
 
 /* --------------------------------------------------
@@ -17696,7 +17798,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 }
 #reporting-adwords-dashboard .btn-outline-primary:hover {
   background-color: var(--akzent) !important;
-  color: #fff !important;
+  color: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
@@ -17704,7 +17806,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
    -------------------------------------------------- */
 #reporting-adwords-dashboard .field-input {
   color: var(--nav-farbe) !important;
-  background: #fff !important;
+  background: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
@@ -17730,14 +17832,14 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
    Kalender: Range-Tage + Selected
    -------------------------------------------------- */
 #reporting-adwords-dashboard .datepicker-day.between {
-  background-color: rgba(91, 25, 45, .07) !important;
+  background-color: var(--wine-a07) !important;
 }
 #reporting-adwords-dashboard .datepicker-day.selected {
   background-color: var(--akzent) !important;
   border-radius: 50% !important;
 }
 #reporting-adwords-dashboard .datepicker-day.selected .datepicker-day-text {
-  color: #fff !important;
+  color: var(--weiss) !important;
   font-weight: 600;
 }
 #reporting-adwords-dashboard .datepicker-day-effect {
@@ -17755,14 +17857,14 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
   border-radius: 50% !important;
 }
 #reporting-adwords-dashboard .datepicker-button.validate path {
-  fill: #fff !important;
+  fill: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
    Stat-Karten (Ansichten / Klicks / Konversionen)
    -------------------------------------------------- */
 #reporting-adwords-dashboard .flex-child .top-row-box__top {
-  background: #fff !important;
+  background: var(--weiss) !important;
   border-radius: 8px 8px 0 0 !important;
   padding: 12px !important;
 }
@@ -17781,9 +17883,9 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
    Mittlere Zeile (KPIs)
    -------------------------------------------------- */
 #reporting-adwords-dashboard .flex-child {
-  background: #fff !important;
+  background: var(--weiss) !important;
   border-radius: 8px !important;
-  box-shadow: 0 1px 4px rgba(91, 25, 45, .08) !important;
+  box-shadow: 0 1px 4px var(--wine-a08) !important;
 }
 #reporting-adwords-dashboard .mid-row-box__top_title span {
   color: var(--nav-farbe) !important;
@@ -17830,7 +17932,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 #reporting-adwords-dashboard .pagination .page-item.active .page-link {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #fff !important;
+  color: var(--weiss) !important;
   border-radius: 4px !important;
 }
 #reporting-adwords-dashboard .pagination .page-link:hover {
@@ -17850,7 +17952,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 }
 #reporting-adwords-dashboard #modal input:focus {
   border-color: var(--akzent) !important;
-  box-shadow: 0 0 0 2px rgba(91, 25, 45, .2) !important;
+  box-shadow: 0 0 0 2px var(--wine-a20) !important;
   outline: none !important;
 }
 
@@ -17895,7 +17997,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 #reporting-adwords-dashboard .hl-table-button {
   color:        var(--akzent) !important;
   border-color: var(--akzent) !important;
-  background:   #fff !important;
+  background:   var(--weiss) !important;
 }
 #reporting-adwords-dashboard .hl-table-button:hover {
   background-color: var(--akzent-hell) !important;
@@ -17910,7 +18012,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
   accent-color: var(--akzent) !important;
 }
 #reporting-adwords-dashboard input[type="checkbox"]:focus {
-  box-shadow: 0 0 0 2px rgba(91, 25, 45, .25) !important;
+  box-shadow: 0 0 0 2px var(--wine-a25) !important;
   outline: none !important;
 }
 
@@ -17926,7 +18028,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
 
 /* --------------------------------------------------
    FIX: Kampagnen-Links in Tabelle
-   (inline style rgb(30, 64, 175) → wine)
+   (inline style var(--blau-nav) → wine)
    -------------------------------------------------- */
 #reporting-adwords-dashboard #ads-report td a[style*="color"] {
   color: var(--akzent) !important;
@@ -17942,9 +18044,9 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
   -webkit-appearance: none !important;
   width: 18px !important;
   height: 18px !important;
-  border: 2px solid #d1d5db !important;
+  border: 2px solid var(--grau-ui-2) !important;
   border-radius: 3px !important;
-  background-color: #fff !important;
+  background-color: var(--weiss) !important;
   cursor: pointer !important;
   position: relative !important;
   flex-shrink: 0 !important;
@@ -17962,7 +18064,7 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
   top: 0px !important;
   width: 5px !important;
   height: 9px !important;
-  border: 2px solid #fff !important;
+  border: 2px solid var(--weiss) !important;
   border-top: none !important;
   border-left: none !important;
   transform: rotate(45deg) !important;
@@ -18028,7 +18130,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
 #reporting-facebook-dashboard .hl_dashboard,
 #reporting-facebook-dashboard .container-fluid,
 #reporting-facebook-dashboard .ad-reporting-container {
-  background-color: #f8f5f5 !important;
+  background-color: var(--weiss-warm) !important;
   color: var(--nav-farbe) !important;
 }
 
@@ -18036,10 +18138,10 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
    Hauptkarte (weißer Bereich) – Akzent oben
    -------------------------------------------------- */
 #reporting-facebook-dashboard .card.hl_dashboard--pipeline-value {
-  background-color: #fff !important;
+  background-color: var(--weiss) !important;
   border-top: 3px solid var(--akzent-hell) !important;
   border-radius: 8px !important;
-  box-shadow: 0 1px 8px rgba(91, 25, 45, .08) !important;
+  box-shadow: 0 1px 8px var(--wine-a08) !important;
 }
 
 /* --------------------------------------------------
@@ -18060,7 +18162,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
 }
 #reporting-facebook-dashboard .btn-outline-primary:hover {
   background-color: var(--akzent) !important;
-  color: #fff !important;
+  color: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
@@ -18068,7 +18170,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
    -------------------------------------------------- */
 #reporting-facebook-dashboard .field-input {
   color: var(--nav-farbe) !important;
-  background: #fff !important;
+  background: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
@@ -18094,14 +18196,14 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
    Kalender: Range-Tage + Selected
    -------------------------------------------------- */
 #reporting-facebook-dashboard .datepicker-day.between {
-  background-color: rgba(91, 25, 45, .07) !important;
+  background-color: var(--wine-a07) !important;
 }
 #reporting-facebook-dashboard .datepicker-day.selected {
   background-color: var(--akzent) !important;
   border-radius: 50% !important;
 }
 #reporting-facebook-dashboard .datepicker-day.selected .datepicker-day-text {
-  color: #fff !important;
+  color: var(--weiss) !important;
   font-weight: 600;
 }
 #reporting-facebook-dashboard .datepicker-day-effect {
@@ -18119,14 +18221,14 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
   border-radius: 50% !important;
 }
 #reporting-facebook-dashboard .datepicker-button.validate path {
-  fill: #fff !important;
+  fill: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
    Stat-Karten (Ansichten / Klicks / Konversionen)
    -------------------------------------------------- */
 #reporting-facebook-dashboard .flex-child .top-row-box__top {
-  background: #fff !important;
+  background: var(--weiss) !important;
   border-radius: 8px 8px 0 0 !important;
   padding: 12px !important;
 }
@@ -18145,9 +18247,9 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
    Mittlere Zeile (KPIs)
    -------------------------------------------------- */
 #reporting-facebook-dashboard .flex-child {
-  background: #fff !important;
+  background: var(--weiss) !important;
   border-radius: 8px !important;
-  box-shadow: 0 1px 4px rgba(91, 25, 45, .08) !important;
+  box-shadow: 0 1px 4px var(--wine-a08) !important;
 }
 #reporting-facebook-dashboard .mid-row-box__top_title span {
   color: var(--nav-farbe) !important;
@@ -18194,7 +18296,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
 #reporting-facebook-dashboard .pagination .page-item.active .page-link {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #fff !important;
+  color: var(--weiss) !important;
   border-radius: 4px !important;
 }
 #reporting-facebook-dashboard .pagination .page-link:hover {
@@ -18214,7 +18316,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
 }
 #reporting-facebook-dashboard #modal input:focus {
   border-color: var(--akzent) !important;
-  box-shadow: 0 0 0 2px rgba(91, 25, 45, .2) !important;
+  box-shadow: 0 0 0 2px var(--wine-a20) !important;
   outline: none !important;
 }
 
@@ -18259,7 +18361,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
 #reporting-facebook-dashboard .hl-table-button {
   color:        var(--akzent) !important;
   border-color: var(--akzent) !important;
-  background:   #fff !important;
+  background:   var(--weiss) !important;
 }
 #reporting-facebook-dashboard .hl-table-button:hover {
   background-color: var(--akzent-hell) !important;
@@ -18274,7 +18376,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
   accent-color: var(--akzent) !important;
 }
 #reporting-facebook-dashboard input[type="checkbox"]:focus {
-  box-shadow: 0 0 0 2px rgba(91, 25, 45, .25) !important;
+  box-shadow: 0 0 0 2px var(--wine-a25) !important;
   outline: none !important;
 }
 
@@ -18290,7 +18392,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
 
 /* --------------------------------------------------
    FIX: Kampagnen-Links in Tabelle
-   (inline style rgb(30, 64, 175) → wine)
+   (inline style var(--blau-nav) → wine)
    -------------------------------------------------- */
 #reporting-facebook-dashboard #ads-report td a[style*="color"] {
   color: var(--akzent) !important;
@@ -18306,9 +18408,9 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
   -webkit-appearance: none !important;
   width: 18px !important;
   height: 18px !important;
-  border: 2px solid #d1d5db !important;
+  border: 2px solid var(--grau-ui-2) !important;
   border-radius: 3px !important;
-  background-color: #fff !important;
+  background-color: var(--weiss) !important;
   cursor: pointer !important;
   position: relative !important;
   flex-shrink: 0 !important;
@@ -18326,7 +18428,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
   top: 0px !important;
   width: 5px !important;
   height: 9px !important;
-  border: 2px solid #fff !important;
+  border: 2px solid var(--weiss) !important;
   border-top: none !important;
   border-left: none !important;
   transform: rotate(45deg) !important;
@@ -18415,13 +18517,13 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
 
 /* --------------------------------------------------
    2. Datepicker (n-input--pair) → wine
-   Inline-CSS nutzt #36ad6a / #18a058 → überschreiben
+   Inline-CSS nutzt var(--erfolg-hover) / var(--erfolg) → überschreiben
    -------------------------------------------------- */
 #attribution-dashboard .n-input {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 #attribution-dashboard .n-input:hover .n-input__border {
@@ -18430,7 +18532,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
 #attribution-dashboard .n-input:focus-within .n-input__border,
 #attribution-dashboard .n-input--focus .n-input__border {
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow:   0 0 0 2px var(--wine-a20) !important;
 }
 #attribution-dashboard .n-input__state-border {
   display: none !important;
@@ -18442,12 +18544,12 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
 
 /* --------------------------------------------------
    3. Radio-Buttons (Erste / Letzte Zuordnung)
-   Aktiv: blau (#155EEF) → wine
+   Aktiv: blau (var(--blau)) → wine
    -------------------------------------------------- */
 #attribution-dashboard .n-radio {
   --n-dot-color-active:  var(--akzent) !important;
   --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
-  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--wine-a20) !important;
   --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
 }
 #attribution-dashboard .n-radio__dot--checked {
@@ -18461,7 +18563,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
 /* Radio-Button (pill) aktiv → wine Text + Border */
 #attribution-dashboard .n-radio-group {
   --n-button-border-color-active: var(--akzent) !important;
-  --n-button-box-shadow-focus:    inset 0 0 0 1px var(--akzent), 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-button-box-shadow-focus:    inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--wine-a20) !important;
   --n-button-text-color-hover:    var(--akzent) !important;
   --n-button-text-color-active:   var(--akzent) !important;
 }
@@ -18501,15 +18603,15 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
 
 /* --------------------------------------------------
    5. Select-Dropdowns (Interval + Seiten-Größe)
-   Inline-CSS: #18a058 / #36ad6a → wine
+   Inline-CSS: var(--erfolg) / var(--erfolg-hover) → wine
    -------------------------------------------------- */
 #attribution-dashboard .n-base-selection {
   --n-border-active:      1px solid var(--akzent) !important;
   --n-border-focus:       1px solid var(--akzent) !important;
   --n-border-hover:       1px solid var(--akzent) !important;
   --n-caret-color:        var(--akzent) !important;
-  --n-box-shadow-active:  0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:   0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:   0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:      var(--akzent) !important;
 }
 #attribution-dashboard .n-base-selection:hover .n-base-selection__border {
@@ -18518,7 +18620,7 @@ section.hl_wrapper.hl_topbar-tabs > #reporting-facebook-dashboard {
 #attribution-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
 #attribution-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow:   0 0 0 2px var(--wine-a20) !important;
 }
 #attribution-dashboard .n-base-selection__state-border {
   display: none !important;
@@ -18618,7 +18720,7 @@ section.hl_topbar-tabs:has(#attribution-dashboard) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 #call-reporting-dashboard .n-input:hover .n-input__border {
@@ -18626,7 +18728,7 @@ section.hl_topbar-tabs:has(#attribution-dashboard) {
 }
 #call-reporting-dashboard .n-input:focus-within .n-input__border {
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow:   0 0 0 2px var(--wine-a20) !important;
 }
 #call-reporting-dashboard .n-input__state-border {
   display: none !important;
@@ -18643,8 +18745,8 @@ section.hl_topbar-tabs:has(#attribution-dashboard) {
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:     var(--akzent) !important;
 }
 #call-reporting-dashboard .n-base-selection:hover .n-base-selection__border {
@@ -18653,7 +18755,7 @@ section.hl_topbar-tabs:has(#attribution-dashboard) {
 #call-reporting-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
 #call-reporting-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow:   0 0 0 2px var(--wine-a20) !important;
 }
 #call-reporting-dashboard .n-base-selection__state-border {
   display: none !important;
@@ -18734,8 +18836,8 @@ section.hl_topbar-tabs:has(#call-reporting-dashboard) {
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
 }
 #dashboard_breadcrumb_add_widget_modal-select-dashboard .n-base-selection:hover .n-base-selection__border {
   border-color: var(--akzent) !important;
@@ -18752,7 +18854,7 @@ section.hl_topbar-tabs:has(#call-reporting-dashboard) {
   --n-border-checked:       1px solid var(--akzent) !important;
   --n-border-focus:         1px solid var(--akzent) !important;
   --n-color-checked:        var(--akzent) !important;
-  --n-box-shadow-focus:     0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:     0 0 0 2px var(--wine-a20) !important;
 }
 #dashboard_breadcrumb-modal-add_widget .n-checkbox--checked .n-checkbox-box {
   background-color: var(--akzent) !important;
@@ -18822,8 +18924,8 @@ section.hl_topbar-tabs:has(#call-reporting-dashboard) {
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
 }
 #call-reporting-dashboard_select--filter-marketing-campaign .n-base-selection:hover .n-base-selection__border,
 #call-reporting-dashboard_select--filter-source-type .n-base-selection:hover .n-base-selection__border,
@@ -18842,7 +18944,7 @@ section.hl_topbar-tabs:has(#call-reporting-dashboard) {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
 }
 #call-reporting-dashboard_select--filter-duration .n-input:hover .n-input__border {
   border-color: var(--akzent) !important;
@@ -18860,7 +18962,7 @@ section.hl_topbar-tabs:has(#call-reporting-dashboard) {
 #call-reporting-dashboard_switch--filter-first-time {
   --n-rail-color-active: var(--akzent) !important;
   --n-loading-color:     var(--akzent) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
 }
 #call-reporting-dashboard_switch--filter-qualified-lead[aria-checked="true"] .n-switch__rail,
 #call-reporting-dashboard_switch--filter-first-time[aria-checked="true"] .n-switch__rail {
@@ -18899,7 +19001,7 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
    1. Hintergrund
    -------------------------------------------------- */
 #reporting-agent-dashboard {
-  background-color: #f8f5f5 !important;
+  background-color: var(--weiss-warm) !important;
 }
 
 /* --------------------------------------------------
@@ -18908,7 +19010,7 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
 #reporting-agent-dashboard .btn-blue {
   background-color: var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: #fff !important;
+  color: var(--weiss) !important;
 }
 #reporting-agent-dashboard .btn-blue:hover {
   background-color: var(--akzent-dunkel) !important;
@@ -18949,7 +19051,7 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
 #reporting-agent-dashboard .bootstrap-select .btn-light:hover,
 #reporting-agent-dashboard .bootstrap-select .btn-light:focus {
   border-color: var(--akzent) !important;
-  box-shadow: 0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow: 0 0 0 2px var(--wine-a20) !important;
 }
 /* Aktive/selected Item → wine */
 #reporting-agent-dashboard .bootstrap-select .dropdown-item.selected,
@@ -18975,7 +19077,7 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
 }
 
 /* --------------------------------------------------
-   6. CTK Datepicker → wine (war rgb(24,139,246))
+   6. CTK Datepicker → wine (war var(--info-blau))
    -------------------------------------------------- */
 #reporting-agent-dashboard .header-picker {
   background-color: var(--akzent) !important;
@@ -18998,11 +19100,11 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
 #reporting-agent-dashboard .datepicker-day.selected .datepicker-day-text,
 #reporting-agent-dashboard .datepicker-day.first .datepicker-day-text,
 #reporting-agent-dashboard .datepicker-day.last .datepicker-day-text {
-  color: #fff !important;
+  color: var(--weiss) !important;
 }
 #reporting-agent-dashboard .datepicker-button.validate {
   background-color: var(--akzent) !important;
-  color: #fff !important;
+  color: var(--weiss) !important;
 }
 
 /* --------------------------------------------------
@@ -19010,7 +19112,7 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
    -------------------------------------------------- */
 #reporting-agent-dashboard .card {
   border-top: 3px solid var(--akzent-hell) !important;
-  box-shadow: 0 1px 8px rgba(91,25,45,.08) !important;
+  box-shadow: 0 1px 8px var(--wine-a08) !important;
 }
 
 /* --------------------------------------------------
@@ -19019,9 +19121,9 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
 #reporting-agent-dashboard .leader-board,
 #reporting-agent-dashboard .leader-board .card,
 #reporting-agent-dashboard .leader-board .card-body {
-  background-color: #5b192d !important;
-  border-top-color: #5b192d !important;
-  border-color: #5b192d !important;
+  background-color: var(--wine) !important;
+  border-top-color: var(--wine) !important;
+  border-color: var(--wine) !important;
 }
 #reporting-agent-dashboard .leader-board,
 #reporting-agent-dashboard .leader-board h1,
@@ -19033,19 +19135,19 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
 #reporting-agent-dashboard .leader-board span,
 #reporting-agent-dashboard .leader-board th,
 #reporting-agent-dashboard .leader-board td {
-  color: #fff !important;
+  color: var(--weiss) !important;
 }
 /* Dropdown-Button in Bestenliste */
 #reporting-agent-dashboard .leader-board .btn-secondary,
 #reporting-agent-dashboard .leader-board .btn-secondary.dropdown-toggle {
-  background-color: rgba(255,255,255,.15) !important;
-  border-color:     rgba(255,255,255,.5) !important;
-  color: #fff !important;
+  background-color: var(--white-a15) !important;
+  border-color:     var(--white-a50) !important;
+  color: var(--weiss) !important;
 }
 /* Tabellen-Trennlinie */
 #reporting-agent-dashboard .leader-board .table td,
 #reporting-agent-dashboard .leader-board .table th {
-  border-color: rgba(255,255,255,.2) !important;
+  border-color: var(--white-a20) !important;
 }
 
 /* --------------------------------------------------
@@ -19075,8 +19177,8 @@ section.hl_topbar-tabs:has(#reporting-agent-dashboard) {
    11. Bestenliste Tabellen-Header
    -------------------------------------------------- */
 #reporting-agent-dashboard .agent-reporting__leaderboard thead th {
-  border-bottom: 2px solid rgba(255,255,255,.4) !important;
-  color: #fff !important;
+  border-bottom: 2px solid var(--white-a40) !important;
+  color: var(--weiss) !important;
 }
 
 
@@ -19133,7 +19235,7 @@ ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:focus {
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:    var(--akzent) !important;
 }
 #appointment-reporting-dashboard .n-input:hover .n-input__border {
@@ -19141,7 +19243,7 @@ ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:focus {
 }
 #appointment-reporting-dashboard .n-input:focus-within .n-input__border {
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow:   0 0 0 2px var(--wine-a20) !important;
 }
 #appointment-reporting-dashboard .n-input__state-border {
   display: none !important;
@@ -19159,8 +19261,8 @@ ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:focus {
   --n-border-focus:      1px solid var(--akzent) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-caret-color:       var(--akzent) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.2) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.2) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
   --n-loading-color:     var(--akzent) !important;
 }
 #appointment-reporting-dashboard .n-base-selection:hover .n-base-selection__border {
@@ -19169,7 +19271,7 @@ ul.dropdown-menu.show[role="menu"] li a.dropdown-item[data-v-e82c04c6]:focus {
 #appointment-reporting-dashboard .n-base-selection.n-base-selection--active .n-base-selection__border,
 #appointment-reporting-dashboard .n-base-selection.n-base-selection--focus .n-base-selection__border {
   border-color: var(--akzent) !important;
-  box-shadow:   0 0 0 2px rgba(91,25,45,.2) !important;
+  box-shadow:   0 0 0 2px var(--wine-a20) !important;
 }
 #appointment-reporting-dashboard .n-base-selection__state-border {
   display: none !important;
@@ -19341,7 +19443,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 /* --------------------------------------------------
    6. Sterne-Bewertung
    -------------------------------------------------- */
-#marketplace-app .star-empty  { color: #ddd !important; }
+#marketplace-app .star-empty  { color: var(--grau-ui) !important; }
 #marketplace-app .star-filled { color: var(--akzent) !important; }
 
 /* --------------------------------------------------
@@ -19414,7 +19516,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
   border:  none !important;
 }
 #marketplace-app .hr-radio__dot {
-  box-shadow:    inset 0 0 0 1.5px #e0e0e6 !important;
+  box-shadow:    inset 0 0 0 1.5px var(--grau-ui) !important;
   background:    transparent !important;
   border:        none !important;
   border-radius: 50% !important;
@@ -19440,7 +19542,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
    12. Checkboxen
    -------------------------------------------------- */
 #marketplace-app .hr-checkbox-box {
-  border:        1px solid #e0e0e6 !important;
+  border:        1px solid var(--grau-ui) !important;
   border-radius: 2px !important;
 }
 #marketplace-app .hr-checkbox:hover .hr-checkbox-box {
@@ -19466,7 +19568,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 #marketplace-app .hr-checkbox-box__border { display: none !important; }
 #marketplace-app .hr-checkbox--checked .hr-checkbox-icon .check-icon path,
 #marketplace-app .hr-checkbox-icon .check-icon path {
-  fill:   #ffffff !important;
+  fill:   var(--weiss) !important;
   stroke: none !important;
 }
 #marketplace-app .hr-checkbox:focus,
@@ -19516,7 +19618,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 #marketplace-app .hr-tabs--segment-type .hr-tabs-tab--active,
 #agency-view-selector .hr-tabs-tab--active .hr-tabs-tab__label,
 #agency-view-selector .hr-tabs-tab--active .hr-tabs-tab__label * {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 
 /* Hover-Tab: Akzent */
@@ -19562,7 +19664,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 #marketplace-app .hr-button--default-type.hr-button--primary .hr-button__content,
 #marketplace-app .hr-button--default-type.hr-button--primary .hr-button__content *,
 #marketplace-app .hr-button--default-type.hr-button--primary .hr-button__content p {
-  color: #ffffff !important;
+  color: var(--weiss) !important;
 }
 
 #marketplace-app .hr-button--primary-type .hr-button__border,
@@ -19667,7 +19769,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 /* --------------------------------------------------
    4. Default-Button „Stornieren"
    -------------------------------------------------- */
-.hr-modal.ui-modal button#modal-footer-btn-negative-action .hr-button__border       { border-color: #e0e0e6 !important; }
+.hr-modal.ui-modal button#modal-footer-btn-negative-action .hr-button__border       { border-color: var(--grau-ui) !important; }
 .hr-modal.ui-modal button#modal-footer-btn-negative-action:hover                     { color: var(--akzent) !important; }
 .hr-modal.ui-modal button#modal-footer-btn-negative-action:hover .hr-button__border  { border-color: var(--akzent) !important; }
 .hr-modal.ui-modal button#modal-footer-btn-negative-action .hr-button__state-border  { display: none !important; }
@@ -19678,7 +19780,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 .hr-modal.ui-modal button#modal-footer-btn-positive-action,
 .hr-modal.ui-modal .hr-button.hr-button--primary-type {
   background-color: var(--akzent) !important;
-  color:            #fff !important;
+  color:            var(--weiss) !important;
 }
 .hr-modal.ui-modal button#modal-footer-btn-positive-action .hr-button__border,
 .hr-modal.ui-modal .hr-button.hr-button--primary-type .hr-button__border {
@@ -19813,8 +19915,8 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
   --n-border-hover:      1px solid var(--wine) !important;
   --n-caret-color:       var(--wine) !important;
   --n-loading-color:     var(--wine) !important;
-  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,.15) !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(91,25,45,.15) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a15) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a15) !important;
 }
 #marketplace-app #view-selector-view-mode .hr-base-selection__state-border {
   display: none !important;
@@ -19825,18 +19927,18 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
    -------------------------------------------------- */
 #marketplace-app .ui-success.hr-tag,
 #marketplace-app .ui-primary.hr-tag {
-  background-color: rgba(91,25,45,.08) !important;
-  border-color:     rgba(91,25,45,.25) !important;
-  --n-color:              rgba(91,25,45,.08) !important;
+  background-color: var(--wine-a08) !important;
+  border-color:     var(--wine-a25) !important;
+  --n-color:              var(--wine-a08) !important;
   --n-color-checked:      var(--wine) !important;
   --n-color-checked-hover: var(--wine-2) !important;
   --n-text-color:         var(--wine) !important;
   --n-close-icon-color:   var(--wine) !important;
-  --n-border:             1px solid rgba(91,25,45,.25) !important;
+  --n-border:             1px solid var(--wine-a25) !important;
 }
 #marketplace-app .ui-success .hr-tag__border,
 #marketplace-app .ui-primary .hr-tag__border {
-  border-color: rgba(91,25,45,.25) !important;
+  border-color: var(--wine-a25) !important;
 }
 
 /* --------------------------------------------------
@@ -19849,7 +19951,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
 
 /* --------------------------------------------------
    9. Progress Bars (Bewertungs-Balken) → wine
-   Inline --n-fill-color: #2080f0 überschreiben
+   Inline --n-fill-color: var(--blau-naiv) überschreiben
    -------------------------------------------------- */
 #marketplace-app .hr-progress {
   --n-fill-color:  var(--wine) !important;
@@ -19917,7 +20019,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
   border:  none !important;
 }
 #marketplace-main .hr-radio__dot {
-  box-shadow:    inset 0 0 0 1.5px #e0e0e6 !important;
+  box-shadow:    inset 0 0 0 1.5px var(--grau-ui) !important;
   background:    transparent !important;
   border:        none !important;
   border-radius: 50% !important;
@@ -19979,7 +20081,7 @@ section.hl_topbar-tabs:has(#appointment-reporting-dashboard) {
   --n-color:            transparent !important;
   --n-color-hover:      var(--akzent-hell) !important;
   --n-color-focus:      var(--akzent-hell) !important;
-  --n-border:           1px solid #e0e0e6 !important;
+  --n-border:           1px solid var(--grau-ui) !important;
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-ripple-color:     var(--akzent) !important;
