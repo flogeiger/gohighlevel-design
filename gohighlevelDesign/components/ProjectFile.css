@@ -16684,6 +16684,150 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--akzent-dunkel) !important;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   Section 127 – Content AI Dashboard
+   Scope: #content-ai-dashboard
+   ════════════════════════════════════════════════════════════════ */
+
+/* --------------------------------------------------
+   1. n-tabs Bar + aktiver Tab → wine
+   -------------------------------------------------- */
+#content-ai-dashboard .n-tabs {
+  --n-bar-color:            var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent-dunkel) !important;
+  --n-tab-text-color-hover:  var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   2. Upgrade-Button → Primary wine
+   -------------------------------------------------- */
+#content-ai-dashboard #upgrade-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#content-ai-dashboard #upgrade-button,
+#content-ai-dashboard #upgrade-button span,
+#content-ai-dashboard #upgrade-button svg {
+  color: #ffffff !important;
+}
+#content-ai-dashboard #upgrade-button svg path {
+  stroke: #ffffff !important;
+}
+#content-ai-dashboard #upgrade-button img {
+  filter: brightness(0) invert(1) !important;
+}
+#content-ai-dashboard #upgrade-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   3. Filter-Buttons aktiv (.hl-active-btn) → wine
+   -------------------------------------------------- */
+#content-ai-dashboard .hl-active-btn {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#content-ai-dashboard .hl-active-btn .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* Filter-Buttons hover → wine */
+#content-ai-dashboard .n-button:hover {
+  --n-text-color-hover:   var(--akzent-dunkel) !important;
+  --n-border-hover:       1px solid var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   4. Tabelle – Sortier-Icon aktiv + Loading → wine
+   -------------------------------------------------- */
+#content-ai-dashboard .n-data-table {
+  --n-th-icon-color-active: var(--akzent) !important;
+  --n-loading-color:        var(--akzent) !important;
+}
+
+/* --------------------------------------------------
+   5. Icon-Container Success → wine
+   -------------------------------------------------- */
+#content-ai-dashboard .icon.icon-success {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+#content-ai-dashboard .icon.icon-success svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   Section 127 – AI Employee Payment Modal
+   Scope: #conversations-ai-payment-wall
+   ════════════════════════════════════════════════════════════════ */
+
+/* --------------------------------------------------
+   1. Primary-Button „Bezahlen" → wine
+   -------------------------------------------------- */
+#conversations-ai-payment-wall #primary-blue {
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent-dunkel) !important;
+  --n-color-focus:   var(--akzent-dunkel) !important;
+  --n-border:        1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent-dunkel) !important;
+  --n-border-focus:  1px solid var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   2. Payment-Method Radio-Buttons aktiv → wine
+   -------------------------------------------------- */
+#conversations-ai-payment-wall .hr-radio-button--checked {
+  background-color: var(--akzent-hell) !important;
+  background:       var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+#conversations-ai-payment-wall .hr-radio-button--checked .hr-radio-button__state-border {
+  border-color: var(--akzent) !important;
+}
+
+/* Aktiv-Hover → wine */
+#conversations-ai-payment-wall .hr-radio-button--checked:hover {
+  background-color: var(--akzent-hover) !important;
+  background:       var(--akzent-hover) !important;
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+
+/* Inaktiv-Hover → wine */
+#conversations-ai-payment-wall .hr-radio-button:not(.hr-radio-button--checked):hover {
+  background-color: var(--akzent-a04) !important;
+  border-color:     var(--akzent-a25) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+
+/* --------------------------------------------------
+   3. Radio-Card (Kreditkarte) → wine
+   -------------------------------------------------- */
+#conversations-ai-payment-wall .hr-radio-card {
+  --n-radio-card-border-hover:  1px solid var(--akzent-a25) !important;
+  --n-radio-card-border-active: 1px solid var(--akzent) !important;
+  --n-icon-border:              4px solid var(--akzent-hell) !important;
+  --n-icon-background:          var(--akzent-hell) !important;
+}
+
+/* --------------------------------------------------
+   4. n-card Modal → --n-color-target wine
+   -------------------------------------------------- */
+.n-modal:has(#conversations-ai-payment-wall) {
+  --n-color-target: var(--akzent) !important;
+}
+
+#conversations-ai-payment-wall #primary-blue,
+#conversations-ai-payment-wall #primary-blue span,
+#conversations-ai-payment-wall #primary-blue p {
+  color: var(--base-white) !important;
+}
+
 
 
 

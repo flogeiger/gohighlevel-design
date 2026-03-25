@@ -1,0 +1,145 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI-Agents/ContentAIDashboard" />
+
+# AI-Assistenten – Content AI / Inhalts-KI (Section 127)
+
+Die Content AI Seite (`AI-Assistenten → Inhalts-KI`) zeigt Statistik-Karten und eine gefilterte DataTable für KI-generierte Medien. Root-Scope ist `#content-ai-dashboard`. Dazu gehört das **AI Employee Payment Modal** (`#conversations-ai-payment-wall`), das beim Klick auf „Upgrade to unlimited AI Employee plan" öffnet.
+
+- **127** — Content AI Dashboard (Tabs, Upgrade-Button, Filter-Buttons, DataTable)
+- **127b** — AI Employee Payment Modal (Bezahl-Button, Radio-Cards, Radio-Buttons)
+
+![Content AI Dashboard Screenshot](./content-ai-dashboard-screenshot.png)
+![AI Employee Payment Modal Screenshot](./ai-employee-payment-modal-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 127 | `#content-ai-dashboard` |
+| 127b | `#conversations-ai-payment-wall` + `.n-modal:has(#conversations-ai-payment-wall)` |
+
+---
+
+## Section 127 – Content AI Dashboard
+
+### Tabs
+
+```css
+#content-ai-dashboard .n-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine-2) !important;
+  --n-tab-text-color-hover: var(--wine-2) !important;
+}
+```
+
+### Upgrade-Button (Primary + img weiß)
+
+```css
+#content-ai-dashboard #upgrade-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#content-ai-dashboard #upgrade-button,
+#content-ai-dashboard #upgrade-button span,
+#content-ai-dashboard #upgrade-button svg { color: #ffffff !important; }
+#content-ai-dashboard #upgrade-button svg path { stroke: #ffffff !important; }
+#content-ai-dashboard #upgrade-button img { filter: brightness(0) invert(1) !important; }
+#content-ai-dashboard #upgrade-button:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+### Filter-Buttons & Tabelle
+
+```css
+/* Aktiver Filter-Button */
+#content-ai-dashboard .hl-active-btn { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#content-ai-dashboard .hl-active-btn .n-button__border { border-color: var(--wine) !important; }
+
+/* Filter-Buttons hover */
+#content-ai-dashboard .n-button:hover {
+  --n-text-color-hover: var(--wine-2) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+}
+
+/* DataTable */
+#content-ai-dashboard .n-data-table {
+  --n-th-icon-color-active: var(--wine) !important;
+  --n-loading-color: var(--wine) !important;
+}
+
+/* Icon-Container Success */
+#content-ai-dashboard .icon.icon-success { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+#content-ai-dashboard .icon.icon-success svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## Section 127b – AI Employee Payment Modal
+
+```css
+/* „Bezahlen" Primary Button */
+#conversations-ai-payment-wall #primary-blue {
+  --n-color: var(--wine) !important;
+  --n-color-hover: var(--wine-2) !important;
+  --n-color-pressed: var(--wine-2) !important;
+  --n-color-focus: var(--wine-2) !important;
+  --n-border: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-border-focus: 1px solid var(--wine-2) !important;
+}
+#conversations-ai-payment-wall #primary-blue,
+#conversations-ai-payment-wall #primary-blue span,
+#conversations-ai-payment-wall #primary-blue p { color: #ffffff !important; }
+
+/* Radio-Buttons aktiv (Bezahlen Via Karte / Agentur belasten) */
+#conversations-ai-payment-wall .hr-radio-button--checked {
+  background-color: var(--wine-lt) !important;
+  background: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+#conversations-ai-payment-wall .hr-radio-button--checked .hr-radio-button__state-border { border-color: var(--wine) !important; }
+
+/* Aktiv-Hover */
+#conversations-ai-payment-wall .hr-radio-button--checked:hover {
+  background-color: rgba(91,25,45,0.12) !important;
+  background: rgba(91,25,45,0.12) !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+
+/* Inaktiv-Hover */
+#conversations-ai-payment-wall .hr-radio-button:not(.hr-radio-button--checked):hover {
+  background-color: rgba(91,25,45,0.04) !important;
+  border-color: rgba(91,25,45,0.25) !important;
+  color: var(--wine-2) !important;
+}
+
+/* Radio-Card (Kreditkarte) */
+#conversations-ai-payment-wall .hr-radio-card {
+  --n-radio-card-border-hover: 1px solid rgba(91,25,45,0.25) !important;
+  --n-radio-card-border-active: 1px solid var(--wine) !important;
+  --n-icon-border: 4px solid var(--wine-lt) !important;
+  --n-icon-background: var(--wine-lt) !important;
+}
+
+/* Modal color-target */
+.n-modal:has(#conversations-ai-payment-wall) { --n-color-target: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`img` via `filter: brightness(0) invert(1)` (Upgrade-Button):** Das Upgrade-Button-Icon ist ein `<img>` Element — kein SVG. Gleiche Technik wie Section 124 (`#upgrade-button`). Filter macht das Bild weiß auf wine-Hintergrund.
+
+**`icon-success` → wine-lt Hintergrund:** Die grünen Success-Icon-Container in der Statistik werden von grün auf wine-lt umgefärbt — semantisch neutraler Kontext (Statistik-Cards), daher wine statt Grün.
+
+**Payment Modal — zwei Radio-Varianten:** Das Modal enthält `.hr-radio-button` (Zahlungsmethoden-Auswahl: Karte / Agentur) und `.hr-radio-card` (Kreditkarten-Auswahl). Beide werden separat gestylt.
