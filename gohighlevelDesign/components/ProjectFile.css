@@ -18401,6 +18401,150 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   --n-caret-color:       var(--akzent) !important;
 }
 
+/* ============================================================
+   SECTION 94b — Add Reviews Modal (#add-reviews-modal)
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#add-reviews-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Icon ── */
+#add-reviews-modal .hr-card-header svg {
+  color:            var(--akzent-dunkel) !important;
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+#add-reviews-modal .ui-text-lg-medium span {
+  color: var(--nav-farbe) !important;
+}
+#add-reviews-modal .ui-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+#add-reviews-modal button[aria-label="Schließen"] {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tab-Toggle (CSV / Manuell) ── */
+#add-reviews-modal .flex.space-x-1.rounded-lg {
+  background-color: var(--akzent-hell) !important;
+}
+#add-reviews-modal .flex.space-x-1.rounded-lg button.bg-white {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--akzent-dunkel) !important;
+  box-shadow:       0 1px 4px var(--akzent-a20) !important;
+}
+#add-reviews-modal .flex.space-x-1.rounded-lg button.text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+#add-reviews-modal .flex.space-x-1.rounded-lg button.text-gray-500:hover {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Info Banner (grauer Kasten) ── */
+#add-reviews-modal .rounded-xl.border.border-gray-300.bg-gray-50 {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#add-reviews-modal .rounded-xl .ui-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#add-reviews-modal .rounded-xl .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+#add-reviews-modal .rounded-xl svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "CSV-Vorlage herunterladen" Link-Button → wine ── */
+#add-reviews-modal #download-csv-template-button p {
+  color: var(--akzent-dunkel) !important;
+}
+#add-reviews-modal #download-csv-template-button svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Form Labels ── */
+#add-reviews-modal label,
+#add-reviews-modal .text-sm.font-medium.text-gray-700 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Selects & Inputs → wine Focus ── */
+#add-reviews-modal .hr-base-selection,
+#add-reviews-modal .hr-input {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* ── Upload Dragger → wine Border ── */
+#add-reviews-modal .hr-upload-dragger {
+  --n-dragger-border-hover: 1px dashed var(--akzent) !important;
+  border-color: var(--linie-stark) !important;
+}
+#add-reviews-modal .hr-upload-dragger:hover {
+  border-color: var(--akzent) !important;
+}
+#add-reviews-modal .text-blue-600 {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Primary Buttons → wine ── */
+#add-reviews-modal #csv-add-manual-platform-toggle,
+#add-reviews-modal #add-manual-platform-button-bottom,
+#add-reviews-modal #upload-submit-button,
+#add-reviews-modal #manual-submit-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#add-reviews-modal #csv-add-manual-platform-toggle:hover,
+#add-reviews-modal #add-manual-platform-button-bottom:hover,
+#add-reviews-modal #upload-submit-button:hover,
+#add-reviews-modal #manual-submit-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Cancel Buttons ── */
+#add-reviews-modal #csv-cancel-button,
+#add-reviews-modal #manual-cancel-button {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#add-reviews-modal #csv-cancel-button:hover,
+#add-reviews-modal #manual-cancel-button:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── Footer ── */
+#add-reviews-modal .sticky.bottom-0 {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Dropdown Menu → wine selected ── */
+#add-reviews-modal .hr-base-select-option--selected {
+  color: var(--akzent-dunkel) !important;
+}
+#add-reviews-modal .hr-base-select-option--selected .hr-base-icon svg {
+  color: var(--akzent) !important;
+}
+#add-reviews-modal .hr-base-select-option--pending {
+  background-color: var(--akzent-hell) !important;
+}
+
 
 
 
