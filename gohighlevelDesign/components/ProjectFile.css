@@ -2,27 +2,28 @@
 
 
 /* ══════════════════════════════════════════════════════════════════════
-   DESIGN TOKENS  —  Farben hier ändern, der Rest passt sich an
+   DESIGN TOKENS  —  Slate Indigo  ·  Basis: #4C5578
+   Farben hier ändern, der Rest passt sich an
    ══════════════════════════════════════════════════════════════════════ */
 :root {
 
   /* ── AKZENTFARBE (Markenfarbe / Brand Primary) ───────────────────────
      Erscheint auf: Buttons, aktiven Tabs, Checkboxen, Rahmen-Highlights,
      Paginierung, Tags, Badges und allen interaktiven Elementen.          */
-  --akzent:              #e9c2c5;   /* Hauptfarbe – Buttons & aktive Elemente        */
-  --akzent-dunkel:       #d4a0a4;   /* Hover / gedrückt – etwas dunkler              */
-  --akzent-hell:         #f5eef0;   /* Sehr hell – Badge- & Tag-Hintergrund          */
-  --akzent-hover:        #f0d0d3;   /* Hover-Hintergrund für rosa Flächen            */
-  --akzent-blass:        #f5e0e2;   /* Blass – sehr helle Rahmen-Akzente             */
+  --akzent:              #b0b8d8;   /* Hauptfarbe – Buttons & aktive Elemente        */
+  --akzent-dunkel:       #8d96be;   /* Hover / gedrückt – etwas dunkler              */
+  --akzent-hell:         #eef0f7;   /* Sehr hell – Badge- & Tag-Hintergrund          */
+  --akzent-hover:        #dde1f0;   /* Hover-Hintergrund für slate Flächen           */
+  --akzent-blass:        #e6e9f5;   /* Blass – sehr helle Rahmen-Akzente             */
 
   /* ── NAVIGATION (Seitenleiste) ───────────────────────────────────── */
-  --nav-farbe:           #2c3e50;   /* Hintergrundfarbe der Seitenleiste             */
-  --nav-hover:           #34495e;   /* Seitenleiste – Hover-Zustand                  */
+  --nav-farbe:           #31374e;   /* Hintergrundfarbe der Seitenleiste             */
+  --nav-hover:           #3d4460;   /* Seitenleiste – Hover-Zustand                  */
   --nav-hintergrund:     var(--nav-farbe);
 
   /* ── TEXT & ICONS ────────────────────────────────────────────────── */
-  --text-gedaempft:      #95a5a6;   /* Gedämpft – Labels, Platzhaltertext            */
-  --text-schwach:        #b0aaab;   /* Schwach – deaktivierte Elemente, Icons        */
+  --text-gedaempft:      #7c8299;   /* Gedämpft – Labels, Platzhaltertext            */
+  --text-schwach:        #9da3b8;   /* Schwach – deaktivierte Elemente, Icons        */
 
   /* ── GRAUTÖNE (Terminblöcke Typ 3) ──────────────────────────────── */
   --grau-mittel:         #7f8c8d;   /* Grau mittel – Terminblock 3 Basis             */
@@ -30,26 +31,26 @@
 
   /* ── HINTERGRÜNDE ────────────────────────────────────────────────── */
   --hintergrund-karte:   #ffffff;   /* Karten & Panels – Hintergrund                 */
-  --hintergrund-seite:   #f9f6f7;   /* Seiten-Hintergrund (außen)                    */
-  --hintergrund-warm:    #faf6f7;   /* Warm getönter Seiten-Hintergrund              */
-  --zeitraster-ungerade: #fdf9fa;   /* Kalender-Zeitraster: ungerade Zeilen          */
+  --hintergrund-seite:   #f4f5f8;   /* Seiten-Hintergrund (außen) – kühler Ton       */
+  --hintergrund-warm:    #f4f5f8;   /* Slate getönter Seiten-Hintergrund             */
+  --zeitraster-ungerade: #f7f8fb;   /* Kalender-Zeitraster: ungerade Zeilen          */
   --zeitraster-gerade:   #ffffff;   /* Kalender-Zeitraster: gerade Zeilen            */
 
   /* ── LINIEN & RAHMEN ─────────────────────────────────────────────── */
-  --linie:               #f0e4e6;   /* Standard-Trennlinie                           */
-  --linie-gestrichelt:   #f5eaec;   /* Gestrichelte Trennlinie                       */
-  --linie-stark:         #ede4e6;   /* Stärkere Rahmenlinie                          */
-  --linie-subtil:        #f8f0f1;   /* Sehr schwache Trennlinie                      */
+  --linie:               #dde0ef;   /* Standard-Trennlinie                           */
+  --linie-gestrichelt:   #e5e8f5;   /* Gestrichelte Trennlinie                       */
+  --linie-stark:         #d5d9ec;   /* Stärkere Rahmenlinie                          */
+  --linie-subtil:        #eceef7;   /* Sehr schwache Trennlinie                      */
   --rahmen:              var(--linie-stark);
-  --rahmen-neutral:      #d0d5dd;   /* Neutral grau – Eingabefelder                  */
+  --rahmen-neutral:      #cdd2e0;   /* Neutral – Eingabefelder                       */
 
   /* ── BESCHRIFTUNGEN ──────────────────────────────────────────────── */
-  --zeitachse-text:      #c8bfc0;   /* Zeitachsen-Beschriftung im Kalender           */
-  --wochenende-text:     #ccc5c6;   /* Wochenend-Spalten Textfarbe                   */
+  --zeitachse-text:      #b4b8cc;   /* Zeitachsen-Beschriftung im Kalender           */
+  --wochenende-text:     #c2c6d8;   /* Wochenend-Spalten Textfarbe                   */
 
   /* ── TABELLEN ────────────────────────────────────────────────────── */
-  --tabelle-zeile-hover: #fdf7f7;   /* Tabellenzeile – Hover-Hintergrund             */
-  --tabelle-kopf:        #f9f5f5;   /* Tabellenkopf – Hintergrund                    */
+  --tabelle-zeile-hover: #f7f8fc;   /* Tabellenzeile – Hover-Hintergrund             */
+  --tabelle-kopf:        #f2f3f8;   /* Tabellenkopf – Hintergrund                    */
 
   /* ── STATUS: FEHLER (Rot) ────────────────────────────────────────── */
   --fehler:              #DC2626;   /* Fehler-Hauptfarbe – Rot                       */
@@ -119,7 +120,7 @@
   --white-a93:  rgba(255,255,255,0.93);
 
   /* ── ALPHA-WERTE: Sonstiges ──────────────────────────────────────── */
-  --wochenende-overlay:  rgba(250,246,247,0.60);
+  --wochenende-overlay:  rgba(242,243,248,0.60);   /* Slate-getönt statt rosa    */
   --fehler-glow:         rgba(220,38,38,0.12);
 
   /* ── GRADIENTEN: Terminblöcke ────────────────────────────────────── */
@@ -135,107 +136,58 @@
 
   /* ── WEISS (Weiß-Utility) ────────────────────────────────────────── */
   --weiss:              #ffffff;   /* Reines Weiß – Text & Hintergründe             */
-  --weiss-warm:         #f8f5f5;   /* Warm-Weiß – subtile Hintergründe              */
-  --rosa-subtil:        #f0dde0;   /* Sehr helles Rosa – Sekundär-Hintergrund       */
-  --akzent-blass-3:     #f5e4e6;   /* Sehr helles Akzent-Rosa                       */
+  --weiss-warm:         #f7f8fb;   /* Slate-Weiß – subtile Hintergründe             */
+  --rosa-subtil:        #e3e6f0;   /* Ersetzt Rosa → helles Slate-Indigo            */
+  --akzent-blass-3:     #e8eaf5;   /* Sehr helles Akzent-Slate                      */
 
-  /* ── WINE (Primäre Dunkelfarbe) ──────────────────────────────────── */
-  --wine:               #5b192d;   /* Dunkles Wine/Burgund – Primär                 */
-  --wine-2:             #6b2d3e;   /* Mittleres Wine                                */
-  --wine-3:             #8b3a4a;   /* Helles Wine                                   */
-  --wine-4:             #9b1e3c;   /* Alternative Wine-Variante                     */
-  --wine-tief:          #3d1020;   /* Sehr dunkles Wine                             */
-  --wine-lt:            #fdf2f3;   /* Wine-Light – sehr heller Hintergrund          */
+  /* ── SLATE (Primäre Dunkelfarbe — ersetzt WINE) ──────────────────── */
+  --wine:               #31374e;   /* Dunkles Slate Indigo – Primär                 */
+  --wine-2:             #3d4460;   /* Mittleres Slate                               */
+  --wine-3:             #4c5578;   /* Kernfarbe Slate Indigo ← HAUPTFARBE           */
+  --wine-4:             #38415c;   /* Alternative Slate-Variante                    */
+  --wine-tief:          #1e212f;   /* Sehr dunkles Slate                            */
+  --wine-lt:            #f2f3f8;   /* Slate-Light – sehr heller Hintergrund         */
 
-  /* ── ALPHA-WERTE: Wine ───────────────────────────────────────────── */
+  /* ── ALPHA-WERTE: Slate (ehem. Wine) ────────────────────────────── */
   --wine-a04:   color-mix(in srgb, var(--wine)  4%, transparent);
   --wine-a05:   color-mix(in srgb, var(--wine)  5%, transparent);
   --wine-a07:   color-mix(in srgb, var(--wine)  7%, transparent);
   --wine-a08:   color-mix(in srgb, var(--wine)  8%, transparent);
   --wine-a10:   color-mix(in srgb, var(--wine) 10%, transparent);
+  --wine-a12:   color-mix(in srgb, var(--wine) 12%, transparent);
   --wine-a15:   color-mix(in srgb, var(--wine) 15%, transparent);
   --wine-a20:   color-mix(in srgb, var(--wine) 20%, transparent);
   --wine-a25:   color-mix(in srgb, var(--wine) 25%, transparent);
   --wine-a30:   color-mix(in srgb, var(--wine) 30%, transparent);
-
-  /* ── ALPHA-WERTE: Wine-2 ─────────────────────────────────────────── */
-  --wine-2-a08: color-mix(in srgb, var(--wine-2)  8%, transparent);
-  --wine-2-a10: color-mix(in srgb, var(--wine-2) 10%, transparent);
-  --wine-2-a12: color-mix(in srgb, var(--wine-2) 12%, transparent);
-  --wine-2-a15: color-mix(in srgb, var(--wine-2) 15%, transparent);
-  --wine-2-a20: color-mix(in srgb, var(--wine-2) 20%, transparent);
-  --wine-2-a25: color-mix(in srgb, var(--wine-2) 25%, transparent);
-  --wine-2-a28: color-mix(in srgb, var(--wine-2) 28%, transparent);
-  --wine-2-a35: color-mix(in srgb, var(--wine-2) 35%, transparent);
-
-  /* ── ALPHA-WERTE: Wine-3 / Wine-4 ───────────────────────────────── */
-  --wine-3-a10: color-mix(in srgb, var(--wine-3) 10%, transparent);
-  --wine-4-a20: color-mix(in srgb, var(--wine-4) 20%, transparent);
-
-  /* ── ALPHA-WERTE: Nav (ergänzt) ──────────────────────────────────── */
-  --nav-a08:    color-mix(in srgb, var(--nav-farbe)  8%, transparent);
-
-  /* ── STATUS: FEHLER (ergänzt) ────────────────────────────────────── */
-  --fehler-dunkel:      #991b1b;   /* Sehr dunkles Rot                              */
-  --fehler-2:           #d92d20;   /* Alternative Fehlerfarbe                       */
-  --fehler-a06:   color-mix(in srgb, var(--fehler)   6%, transparent);
-  --fehler-a08:   color-mix(in srgb, var(--fehler)   8%, transparent);
-  --fehler-2-a06: color-mix(in srgb, var(--fehler-2) 6%, transparent);
-
-  /* ── ALPHA-WERTE: Schwarz (ergänzt) ──────────────────────────────── */
-  --black-a08:          rgba(0,0,0,0.08);
-  --black-a12:          rgba(0,0,0,0.12);
-
-  /* ── ALPHA-WERTE: Weiß (ergänzt) ────────────────────────────────── */
-  --white-a80:          rgba(255,255,255,0.80);
-
-  /* ── STATUS: ERFOLG (Grün) ───────────────────────────────────────── */
-  --erfolg:                   #18a058;   /* Erfolg-Hauptfarbe                       */
-  --erfolg-hover:             #36ad6a;   /* Erfolg – Hover                          */
-  --erfolg-dunkel:            #065f46;   /* Erfolg – dunkel                         */
-  --erfolg-dunkel-2:          #027a48;   /* Erfolg – sehr dunkel                    */
-  --erfolg-hintergrund:       #d1fae5;   /* Erfolg – Hintergrund hell               */
-  --erfolg-hintergrund-mittel: rgb(209, 250, 223); /* Erfolg – Hintergrund mittel  */
-  --erfolg-hintergrund-hell:  rgb(236, 253, 243);  /* Erfolg – Hintergrund sehr hell */
-
-  /* ── STATUS: WARNUNG (ergänzt) ───────────────────────────────────── */
-  --warnung-hintergrund-2:    #fef3c7;   /* Warnung – alternative Hintergrundfarbe  */
-  --warnung-highlight:        #fec84b;   /* Warnung – Highlight-Gelb                */
-  --warnung-gelb:             rgb(253,230,138);  /* Warnung – helles Gelb           */
-  --warnung-amber:            rgb(180,120,0);    /* Warnung – Bernstein/Dunkelgold   */
-  --warnung-hintergrund-a50:  color-mix(in srgb, var(--warnung-hintergrund) 50%, transparent);
-
-  /* ── BLAU (GHL / Info-Farben) ────────────────────────────────────── */
-  --blau:               #155eef;   /* GHL Primärblau                                */
-  --blau-naiv:          #2080f0;   /* NaïveUI Blau                                  */
-  --blau-dunkel:        rgb(2, 106, 162);    /* Info-Blau dunkel                    */
-  --blau-mittel:        rgb(0, 86, 179);     /* Blau mittel                         */
-  --blau-nav:           rgb(30, 64, 175);    /* Navigationsblau                     */
-  --blau-hell:          #53b1fd;   /* Blau hell                                     */
-  --blau-hell-2:        #84adff;   /* Blau sehr hell                                */
-  --blau-hell-3:        #84caff;   /* Blau sehr hell (kalt)                         */
-  --info-blau:          rgb(24, 139, 246);   /* Info-Blau leuchtend                 */
-
-  /* ── GRAU (UI-Grautöne) ──────────────────────────────────────────── */
-  --grau-ui:            #e0e0e6;   /* UI-Grau – neutrale Rahmen & Shadows           */
-  --grau-ui-2:          #d1d5db;   /* UI-Grau – etwas dunkler                       */
-  --grau-schrift:       #667085;   /* Textgrau – Labels & Sekundärtext              */
-  --grau-schrift-2:     #475467;   /* Textgrau – etwas dunkler                      */
-  --grau-mittel-ui:     #9ca3af;   /* Grau mittel – UI-Elemente                     */
-  --grau-rand:          #bbbec4;   /* Grau – Randfarbe                              */
-  --grau-neutral:       rgb(243, 243, 245);  /* Grau sehr hell – Hintergrundflächen */
-  --grau-dunkel:        rgb(52, 64, 84);     /* Grau dunkel – Text/Icons            */
-  --grau-nav:           rgb(45, 55, 72);     /* Grau Navigation                     */
-
-  /* ── SCHATTEN ────────────────────────────────────────────────────── */
-  --schatten-farbe:     #101828;   /* Schatten-Basisfarbe (dunkel)                  */
-  --schatten-subtil:    #1018280D; /* Schatten sehr schwach (RRGGBBAA 5%)           */
-
-  /* ── SONSTIGE ────────────────────────────────────────────────────── */
-  --lila:               rgb(91, 37, 208);    /* Lila – Badge-Farbe                  */
-
+  --wine-a40:   color-mix(in srgb, var(--wine) 40%, transparent);
+  --wine-a50:   color-mix(in srgb, var(--wine) 50%, transparent);
 
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   FARBÜBERSICHT  —  Slate Indigo System
+   ══════════════════════════════════════════════════════════════════════
+
+   DUNKEL (Nav / Primär)
+   ├── --wine-tief        #1e212f   ████ Tiefes Nachtblau
+   ├── --wine             #31374e   ████ Sidebar Hintergrund
+   ├── --wine-2           #3d4460   ████ Sidebar Hover
+   ├── --wine-3  ★        #4c5578   ████ KERNFARBE
+   └── --wine-4           #38415c   ████ Alt-Variante
+
+   MITTEL (Interaktiv / Akzent)
+   ├── --akzent-dunkel    #8d96be   ████ Button Hover
+   ├── --akzent           #b0b8d8   ████ Button / aktive Elemente
+   └── --akzent-hover     #dde1f0   ████ Hover-Fläche
+
+   HELL (Hintergründe / Tints)
+   ├── --akzent-blass     #e6e9f5   ████ Rahmen-Akzent
+   ├── --akzent-blass-3   #e8eaf5   ████ Sekundär-Hintergrund
+   ├── --akzent-hell      #eef0f7   ████ Badge-Hintergrund
+   ├── --wine-lt          #f2f3f8   ████ Slate-Light
+   └── --hintergrund-seite#f4f5f8   ████ Seiten-Hintergrund
+
+   ══════════════════════════════════════════════════════════════════════ */
 
 
 
@@ -2918,8 +2870,6 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
 
 
 
-
-
 /* ════════════════════════════════════════════════════════════════
    60 · KALENDER VIEW (#CalendarPage)
    ════════════════════════════════════════════════════════════════ */
@@ -2946,8 +2896,6 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 #CalendarPage nav button:focus,
 #CalendarPage nav button:focus-visible { outline: none !important; box-shadow: none !important; }
 #CalendarPage nav .n-base-wave { display: none !important; }
-
-/* Alle n-button__border + n-button__state-border in Nav weg → kein doppelter Ring */
 #CalendarPage nav .n-button__state-border,
 #CalendarPage nav .n-button__border { display: none !important; }
 
@@ -2988,59 +2936,52 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 #CalendarPage nav .border.border-gray-300.rounded-lg button:hover { background: var(--akzent-hell) !important; }
 #CalendarPage nav .flex-1.py-2.text-center { font-size: 13px !important; font-weight: 700 !important; color: var(--akzent-dunkel) !important; }
 
-/* ── View Select (Wochenansicht) ──
-   Strategie: Parent border:none, nur __border zeigt wine-Ring, __state-border versteckt */
+/* ── View Select ── */
 #CalendarPage #view-select .n-base-selection {
-  border: none !important;
-  border-radius: 8px !important;
+  border: none !important; border-radius: 8px !important;
   background: var(--hintergrund-karte) !important;
-  height: 34px !important;
-  min-height: 34px !important;
-  outline: none !important;
-  box-shadow: none !important;
+  height: 34px !important; min-height: 34px !important;
+  outline: none !important; box-shadow: none !important;
 }
 #CalendarPage #view-select .n-base-selection:hover { background: var(--akzent-hell) !important; }
 #CalendarPage #view-select .n-base-selection-input__content,
 #CalendarPage #view-select .n-base-selection-label * {
-  color: var(--akzent-dunkel) !important; font-size: 13px !important; font-weight: 700 !important; background: transparent !important;
+  color: var(--akzent-dunkel) !important; font-size: 13px !important;
+  font-weight: 700 !important; background: transparent !important;
 }
 #CalendarPage #view-select .n-base-selection__border {
-  border: 1px solid var(--akzent) !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
+  border: 1px solid var(--akzent) !important; border-radius: 8px !important; box-shadow: none !important;
+}
+#CalendarPage #view-select .n-base-selection__state-border,
+#CalendarPage #view-select .n-base-selection-label,
+#CalendarPage #industry-select .n-base-selection-label {
+  background-color: var(--hintergrund-karte) !important;
+  background: var(--hintergrund-karte) !important;
 }
 #CalendarPage #view-select .n-base-selection__state-border {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  border: none !important;
+  display: none !important; visibility: hidden !important;
+  opacity: 0 !important; border: none !important;
 }
 
-/* ── Industry Select (Besprechungen) ── */
+/* ── Industry Select ── */
 #CalendarPage #industry-select .n-base-selection {
-  border: none !important;
-  border-radius: 8px !important;
+  border: none !important; border-radius: 8px !important;
   background: var(--hintergrund-karte) !important;
-  height: 34px !important;
-  min-height: 34px !important;
-  outline: none !important;
-  box-shadow: none !important;
+  height: 34px !important; min-height: 34px !important;
+  outline: none !important; box-shadow: none !important;
 }
 #CalendarPage #industry-select .n-base-selection:hover { background: var(--akzent-hell) !important; }
 #CalendarPage #industry-select .n-base-selection-input__content,
 #CalendarPage #industry-select .n-base-selection-label * {
-  color: var(--akzent-dunkel) !important; font-size: 13px !important; font-weight: 700 !important; background: transparent !important;
+  color: var(--akzent-dunkel) !important; font-size: 13px !important;
+  font-weight: 700 !important; background: transparent !important;
 }
 #CalendarPage #industry-select .n-base-selection__border {
-  border: 1px solid var(--akzent) !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
+  border: 1px solid var(--akzent) !important; border-radius: 8px !important; box-shadow: none !important;
 }
 #CalendarPage #industry-select .n-base-selection__state-border {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  border: none !important;
+  display: none !important; visibility: hidden !important;
+  opacity: 0 !important; border: none !important;
 }
 
 /* ── Dropdown Panel ── */
@@ -3132,24 +3073,100 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 #CalendarPage .fc-timegrid-now-indicator-arrow { border-top-color: transparent !important; border-bottom-color: transparent !important; border-left-color: var(--akzent-dunkel) !important; }
 
 /* ════════════════════════════════════════════════════════════════
-   60.5 · Appointment Blocks
+   60.5 · Appointment Blocks → wine, Form wie Salon-Kalender
    ════════════════════════════════════════════════════════════════ */
-#CalendarPage .fc-event { border: none !important; border-radius: 8px !important; overflow: hidden !important; cursor: pointer !important; margin: 2px 4px !important; transition: transform 0.16s cubic-bezier(.34,1.56,.64,1), box-shadow 0.16s ease !important; }
-#CalendarPage .fc-event:hover { transform: translateY(-2px) scale(1.018) !important; z-index: 30 !important; box-shadow: 0 8px 20px var(--nav-a06) !important; }
-#CalendarPage .fc-event-main { padding: 0 !important; overflow: hidden !important; border-radius: 8px !important; }
-#CalendarPage .fc-event-main section[style*="rgb(2, 122, 72)"] { background: var(--termin-1-hintergrund) !important; border: none !important; border-left: 3px solid var(--white-a25) !important; border-radius: 8px !important; box-shadow: inset 0 1px 0 var(--white-a08) !important; }
-#CalendarPage .fc-event:hover .fc-event-main section[style*="rgb(2, 122, 72)"] { background: var(--termin-1-hover) !important; }
-#CalendarPage .fc-event-main section[style*="rgb(0, 78, 235)"] { background: var(--termin-2-hintergrund) !important; border: none !important; border-left: 3px solid var(--nav-a06) !important; border-radius: 8px !important; box-shadow: inset 0 1px 0 var(--white-a30) !important; }
-#CalendarPage .fc-event:hover .fc-event-main section[style*="rgb(0, 78, 235)"] { background: var(--termin-2-hover) !important; }
-#CalendarPage .fc-event-main section[style*="rgb(2, 106, 162)"] { background: var(--termin-3-hintergrund) !important; border: none !important; border-left: 3px solid var(--white-a25) !important; border-radius: 8px !important; box-shadow: inset 0 1px 0 var(--white-a12) !important; }
-#CalendarPage .fc-event:hover .fc-event-main section[style*="rgb(2, 106, 162)"] { background: var(--termin-3-hover) !important; }
-#CalendarPage .fc-event-main section { border-radius: 8px !important; padding: 6px 9px !important; }
-#CalendarPage .fc-event-main section[style*="rgb(2, 122, 72)"] *, #CalendarPage .fc-event-main section[style*="rgb(2, 106, 162)"] * { color: var(--white-a93) !important; }
-#CalendarPage .fc-event-main section[style*="rgb(2, 122, 72)"] span:not(.font-semibold), #CalendarPage .fc-event-main section[style*="rgb(2, 106, 162)"] span:not(.font-semibold) { color: var(--white-a60) !important; }
-#CalendarPage .fc-event-main section[style*="rgb(0, 78, 235)"] * { color: var(--nav-a06) !important; }
-#CalendarPage .fc-event-main section[style*="rgb(0, 78, 235)"] span:not(.font-semibold) { color: var(--nav-a06) !important; }
-#CalendarPage .fc-event-main section .font-semibold { font-size: 12px !important; font-weight: 700 !important; line-height: 1.3 !important; letter-spacing: -0.01em !important; display: block !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
-#CalendarPage .fc-event-main section span:not(.font-semibold) { font-size: 10px !important; font-weight: 400 !important; display: block !important; margin-top: 1px !important; }
+
+#CalendarPage .fc-event {
+  border:        none !important;
+  border-radius: 6px !important;
+  overflow:      hidden !important;
+  cursor:        pointer !important;
+  margin:        1px 3px !important;
+  transition:    transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+#CalendarPage .fc-event:hover {
+  transform:  translateY(-1px) !important;
+  z-index:    30 !important;
+  box-shadow: 0 4px 12px var(--akzent-a20) !important;
+}
+
+#CalendarPage .fc-event-main {
+  padding:       0 !important;
+  overflow:      hidden !important;
+  border-radius: 6px !important;
+  height:        100% !important;
+}
+
+/* Section → wine, linke Border bleibt Kalenderfarbe (inline) */
+#CalendarPage .fc-event-main section {
+  background-color:    var(--akzent) !important;
+  background:          var(--akzent) !important;
+  border-top-color:    transparent !important;
+  border-right-color:  transparent !important;
+  border-bottom-color: transparent !important;
+  border-radius:       0 6px 6px 0 !important;
+  padding:             5px 8px 5px 7px !important;
+  height:              100% !important;
+  display:             flex !important;
+  flex-direction:      column !important;
+  justify-content:     flex-start !important;
+  gap:                 1px !important;
+}
+
+/* Hover → leicht dunkler */
+#CalendarPage .fc-event:hover .fc-event-main section {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+
+/* Alle Kinder-Elemente → weiß */
+#CalendarPage .fc-event-main section * {
+  color: var(--hintergrund-karte) !important;
+}
+
+/* Innere Flex-Wrapper */
+#CalendarPage .fc-event-main section .flex {
+  flex-direction: column !important;
+  gap:            1px !important;
+  overflow:       hidden !important;
+}
+
+/* Service-Kategorie (erster span = Zeittext oder Service) → klein, uppercase */
+#CalendarPage .fc-event-main section span:not(.font-semibold) {
+  font-size:      9px !important;
+  font-weight:    600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  display:        block !important;
+  color:          var(--white-a93) !important;
+  line-height:    1.2 !important;
+  overflow:       hidden !important;
+  text-overflow:  ellipsis !important;
+  white-space:    nowrap !important;
+}
+
+/* Kundenname → fett, weiß */
+#CalendarPage .fc-event-main section .font-semibold {
+  font-size:      11px !important;
+  font-weight:    700 !important;
+  line-height:    1.3 !important;
+  letter-spacing: -0.01em !important;
+  display:        block !important;
+  white-space:    nowrap !important;
+  overflow:       hidden !important;
+  text-overflow:  ellipsis !important;
+  color:          var(--hintergrund-karte) !important;
+}
+
+#CalendarPage .fc-event {
+  border-radius: 0 !important;
+}
+#CalendarPage .fc-event-main {
+  border-radius: 0 !important;
+}
+#CalendarPage .fc-event-main section {
+  border-radius: 0 !important;
+}
 
 /* ════════════════════════════════════════════════════════════════
    60.6 · Detail Drawer
@@ -3171,10 +3188,7 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 #CalendarPage #view-appointment-title { font-size: 18px !important; font-weight: 700 !important; letter-spacing: -0.03em !important; color: var(--nav-farbe) !important; line-height: 1.2 !important; margin: 2px 0 4px !important; }
 #CalendarPage #view-appointment-title span { color: inherit !important; }
 #CalendarPage #appointment-drawer .w-\[calc\(100\%-50px\)\] { padding: 10px 16px !important; }
-#CalendarPage #appointment-time-title, #CalendarPage #appointment-contact-name-title, #CalendarPage #appointment-contact-phone-title, #CalendarPage #appointment-contact-email-title, #CalendarPage #appointment-owner-title, #CalendarPage #meeting-details-title, #CalendarPage #appointment-calendar-title, #CalendarPage #appointment-attendee-title, #CalendarPage #appointment-booked-by-title, #CalendarPage #appointment-source-title, #CalendarPage #appointment-description-title { font-size: 10px !important; font-weight: 700 !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; color: var(--text-schwach) !important; }
 #CalendarPage [id$="-main-container"] { border-bottom: 1px solid var(--linie-subtil) !important; }
-#CalendarPage #appointment-time-main-container, #CalendarPage #appointment-contact-name-main-container, #CalendarPage #appointment-contact-phone-main-container, #CalendarPage #appointment-contact-email-main-container, #CalendarPage #appointment-owner-main-container, #CalendarPage #meeting-details-main-container, #CalendarPage #appointment-calendar-main-container, #CalendarPage #appointment-attendee-main-container, #CalendarPage #appointment-booked-by-main-container, #CalendarPage #appointment-source-main-container, #CalendarPage #appointment-description-main-container { margin-top: 2px !important; margin-bottom: 2px !important; padding: 6px 0 !important; }
-#CalendarPage [id$="-main-container"] svg.w-7 { width: 16px !important; height: 16px !important; margin-top: 2px !important; flex-shrink: 0 !important; }
 #CalendarPage [id$="-title"] { font-size: 9px !important; font-weight: 700 !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; color: var(--text-schwach) !important; line-height: 1.2 !important; }
 #CalendarPage [id$="-main-container"] .text-gray-900.text-sm, #CalendarPage [id$="-main-container"] .text-primary-500 { font-size: 13px !important; font-weight: 500 !important; margin-top: 0 !important; line-height: 1.4 !important; }
 #CalendarPage [id$="-main-container"] svg.text-gray-500 { color: var(--akzent-dunkel) !important; opacity: 0.5 !important; }
@@ -3197,17 +3211,51 @@ section.hl_topbar-tabs { background: var(--nav-hintergrund) !important; }
 #CalendarPage .dropDownOption:hover { background: var(--akzent-hell) !important; color: var(--akzent-dunkel) !important; }
 #CalendarPage .dropDownSelectedOption { background: var(--akzent-hell) !important; color: var(--akzent-dunkel) !important; font-weight: 600 !important; }
 
-/* ── Fix: Background der Selects weiß/surface ── */
-#CalendarPage #view-select .n-base-selection,
-#CalendarPage #industry-select .n-base-selection {
-  background-color: var(--hintergrund-karte) !important;
-  background: var(--hintergrund-karte) !important;
+
+/* ── Suchfeld → wine ── */
+#calendar-view-filter-drawer #filter-search-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-caret-color:      var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
 }
-#CalendarPage #view-select .n-base-selection-label,
-#CalendarPage #industry-select .n-base-selection-label {
-  background-color: var(--hintergrund-karte) !important;
-  background: var(--hintergrund-karte) !important;
+
+/* ── „Clear all" + „See More/Less" → wine ── */
+#calendar-view-filter-drawer .text-primary-700 {
+  color: var(--akzent-dunkel) !important;
 }
+#calendar-view-filter-drawer #clear-all-filters-btn svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── „Calendars" Badge → wine ── */
+#calendar-view-filter-drawer .bg-blue-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#calendar-view-filter-drawer .text-blue-700 {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Kalender-Item Hover → wine ── */
+#calendar-view-filter-drawer .interactive-element button:hover {
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Appointment Block Text → weiß ── */
+#CalendarPage .fc-event-main section * {
+  color: var(--hintergrund-karte) !important;
+}
+#CalendarPage .fc-event-main section .font-semibold {
+  color: var(--hintergrund-karte) !important;
+}
+#CalendarPage .fc-event-main section span:not(.font-semibold) {
+  color: var(--white-a93) !important;
+}
+
+
+
+
+
 
 /* ════════════════════════════════════════════════════════════════
    69 · TERMIN BUCHEN MODAL — v4 (Book Appointment)
@@ -7748,6 +7796,41 @@ button.tabulator-page:not(.active):focus-visible {
 #OpportunitiesList .crm-opportunities-card .text-gray-500:hover {
   color: var(--akzent-dunkel) !important;
 }
+/* --------------------------------------------------
+   Section 82 Ergänzung – Empty State Buttons → wine
+   -------------------------------------------------- */
+
+/* „Update Filter" Primary Button → wine */
+#OpportunitiesList #opportunities-filter-button {
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent-dunkel) !important;
+  --n-color-focus:   var(--akzent-dunkel) !important;
+  --n-border:        1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent-dunkel) !important;
+  --n-border-focus:  1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:  var(--akzent) !important;
+}
+#OpportunitiesList #opportunities-filter-button,
+#OpportunitiesList #opportunities-filter-button:hover,
+#OpportunitiesList #opportunities-filter-button:active {
+  background-image: linear-gradient(var(--akzent), var(--akzent)) !important;
+}
+#OpportunitiesList #opportunities-filter-button:hover,
+#OpportunitiesList #opportunities-filter-button:active {
+  background-image: linear-gradient(var(--akzent-dunkel), var(--akzent-dunkel)) !important;
+}
+
+/* „Clear Filter" Default Button → wine hover */
+#OpportunitiesList #opportunities-clear-filter-button {
+  --n-border-hover:        1px solid var(--akzent) !important;
+  --n-border-pressed:      1px solid var(--akzent-dunkel) !important;
+  --n-border-focus:        1px solid var(--akzent) !important;
+  --n-text-color-hover:    var(--akzent-dunkel) !important;
+  --n-text-color-pressed:  var(--akzent-dunkel) !important;
+  --n-text-color-focus:    var(--akzent-dunkel) !important;
+  --n-ripple-color:        var(--akzent) !important;
+}
 
 /* ============================================================
    SECTION · ADD/EDIT OPPORTUNITY MODAL
@@ -11033,12 +11116,10 @@ footer:has(#back-button) {
    Scope: #pipeline-page
    ============================================================ */
 
-/* ── Page Background ── */
 #pipeline-page {
   background-color: var(--hintergrund-seite) !important;
 }
 
-/* ── Page Header ── */
 #pipeline-page .crm-opportunities-pipeline-page-header {
   background-color: var(--hintergrund-seite) !important;
 }
@@ -11049,24 +11130,30 @@ footer:has(#back-button) {
   color: var(--text-gedaempft) !important;
 }
 
-/* ── "Pipeline Erstellen" Button (primary-blue) ── */
+/* ── "Create Pipeline" Button → wine, Text + Icon weiß ── */
 #pipeline-page #primary-blue {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: var(--weiss) !important;
 }
 #pipeline-page #primary-blue:hover {
   background-color: var(--akzent-dunkel) !important;
   background:       var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-/* .hr-button__border ist ein separates Div — muss direkt gestylt werden */
 #pipeline-page #primary-blue .hr-button__border {
   border-color: var(--akzent) !important;
 }
 #pipeline-page #primary-blue:hover .hr-button__border {
   border-color: var(--akzent-dunkel) !important;
+}
+/* Text + Icon → immer weiß */
+#pipeline-page #primary-blue p,
+#pipeline-page #primary-blue span,
+#pipeline-page #primary-blue svg,
+#pipeline-page #primary-blue i {
+  color: var(--base-white) !important;
+  stroke: var(--base-white) !important;
 }
 
 /* ── Table Wrapper ── */
@@ -11077,22 +11164,18 @@ footer:has(#back-button) {
   overflow: hidden !important;
 }
 
-/* ── Table Header Bar (Suchen etc.) ── */
+/* ── Table Header Bar ── */
 #pipeline-page .hr-data-table-wrapper-header {
   background-color: var(--hintergrund-karte) !important;
   border-bottom: 1px solid var(--linie-stark) !important;
   padding: 8px 12px !important;
 }
-
-/* Such-Input */
 #pipeline-page #pipeline-table-wrapper-header-global-filter {
   --n-border:           1px solid var(--linie-stark) !important;
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px var(--akzent-ring) !important;
-  --n-loading-color:    var(--akzent) !important;
-  --n-border-radius:    8px !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
 }
 #pipeline-page #pipeline-table-wrapper-header-global-filter .hr-input__prefix svg {
   color: var(--text-schwach) !important;
@@ -11102,11 +11185,7 @@ footer:has(#back-button) {
 #pipeline-page #pipeline-table {
   background-color: var(--hintergrund-karte) !important;
 }
-
-/* Table Header Row */
-#pipeline-page .hr-data-table__header tr {
-  background-color: var(--akzent-hell) !important;
-}
+#pipeline-page .hr-data-table__header tr,
 #pipeline-page .hr-data-table__cell-header {
   background-color: var(--akzent-hell) !important;
   border-bottom: 1px solid var(--linie-stark) !important;
@@ -11115,15 +11194,6 @@ footer:has(#back-button) {
   color: var(--nav-farbe) !important;
   font-weight: 600 !important;
 }
-/* Header Icons (base64 img) → wine tint via filter */
-#pipeline-page .hr-data-table__cell-header .hr-icon img {
-  filter: brightness(0) saturate(100%)
-          invert(23%) sepia(60%) saturate(400%)
-          hue-rotate(300deg) brightness(80%) contrast(90%) !important;
-  opacity: 0.7 !important;
-}
-
-/* Table Body Rows */
 #pipeline-page .hr-data-table__body-row {
   background-color: var(--hintergrund-karte) !important;
   border-bottom: 1px solid var(--linie-stark) !important;
@@ -11131,12 +11201,7 @@ footer:has(#back-button) {
 #pipeline-page .hr-data-table__body-row:hover {
   background-color: var(--akzent-hell) !important;
 }
-
-/* Cell Text */
-#pipeline-page .hr-data-table__body-cell .hr-text {
-  color: var(--nav-hover) !important;
-}
-/* Datum-Zellen */
+#pipeline-page .hr-data-table__body-cell .hr-text,
 #pipeline-page .hr-data-table__body-cell span {
   color: var(--nav-hover) !important;
 }
@@ -11165,45 +11230,22 @@ footer:has(#back-button) {
   color: var(--text-gedaempft) !important;
 }
 
-/* Per-page Dropdown */
+/* Per-page Dropdown → wine */
 #pipeline-page #per-page-dropdown .hr-base-selection {
-  --n-border:            1px solid var(--linie-stark) !important;
   --n-border-hover:      1px solid var(--akzent) !important;
   --n-border-active:     1px solid var(--akzent) !important;
   --n-border-focus:      1px solid var(--akzent) !important;
-  --n-border-radius:     6px !important;
-  --n-box-shadow-active: 0 0 0 2px var(--akzent-ring) !important;
-  --n-box-shadow-focus:  0 0 0 2px var(--akzent-ring) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
   --n-caret-color:       var(--akzent) !important;
-  --n-loading-color:     var(--akzent) !important;
-  --n-arrow-color:       var(--text-schwach) !important;
 }
 
-/* Prev/Next Pagination Buttons */
-#pipeline-page #hr-prev-button,
-#pipeline-page #next-button {
-  --n-border:            1px solid var(--linie-stark) !important;
-  --n-border-hover:      1px solid var(--akzent) !important;
-  --n-border-radius:     6px !important;
-  --n-color-hover:       var(--akzent-hell) !important;
-  --n-text-color:        var(--nav-hover) !important;
-  --n-text-color-hover:  var(--akzent-dunkel) !important;
+/* Aktive Pagination Border → wine */
+#pipeline-page .hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-36320aab] {
+  border-color: var(--akzent) !important;
 }
-#pipeline-page #hr-prev-button:disabled,
-#pipeline-page #next-button:disabled {
-  opacity: 0.4 !important;
-}
-
-/* Active Page Number */
-#pipeline-page .hr-pagination-item__active button {
+#pipeline-page .hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-36320aab] p {
   color: var(--akzent-dunkel) !important;
-  font-weight: 700 !important;
-  background-color: var(--akzent-hell) !important;
-  border-radius: 4px !important;
-}
-/* Border = Hintergrundfarbe → unsichtbar (wie wine-lt bg) */
-#pipeline-page .hr-pagination-item__active button .hr-button__border {
-  border-color: var(--akzent-hell) !important;
 }
 
 /* ============================================================
@@ -11213,30 +11255,34 @@ footer:has(#back-button) {
 
 /* ── Modal Shell ── */
 #pipeline-modal {
-  --n-border-radius: 10px !important;
   --n-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Header Icon → wine ── */
+#pipeline-modal .hr-dialog__icon svg {
+  fill: var(--akzent) !important;
+  color: var(--akzent) !important;
+}
+#pipeline-modal .hr-dialog__icon {
+  background-color: var(--akzent-hell) !important;
+  border-radius: 50% !important;
+}
+
+/* ── Titel ── */
+#pipeline-modal .hr-modal__header-title {
+  color: var(--nav-farbe) !important;
 }
 
 /* ── Close Button ── */
 #pipeline-modal #hr-modal__close-button {
   color: var(--text-gedaempft) !important;
-  border-radius: 6px !important;
 }
 #pipeline-modal #hr-modal__close-button:hover {
   color: var(--nav-farbe) !important;
   background-color: var(--akzent-hell) !important;
 }
 
-/* ── Header: Icon + Titel ── */
-#pipeline-modal .hr-dialog__icon svg {
-  fill: var(--akzent) !important;
-}
-#pipeline-modal .hr-modal__header-title {
-  color: var(--nav-farbe) !important;
-}
-
-/* ── Form ── */
-/* Label */
+/* ── Form Labels ── */
 #pipeline-modal .hr-form-item-label__text {
   color: var(--nav-farbe) !important;
   font-weight: 500 !important;
@@ -11245,82 +11291,50 @@ footer:has(#back-button) {
   color: var(--fehler) !important;
 }
 
-/* Pipeline-Name Input */
+/* ── Pipeline Name Input → wine ── */
 #pipeline-modal #pipeline-name {
-  --n-border:           1px solid var(--linie-stark) !important;
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px var(--akzent-ring) !important;
-  --n-loading-color:    var(--akzent) !important;
-  --n-border-radius:    8px !important;
-}
-#pipeline-modal #pipeline-name .hr-input__border {
-  border-color: var(--linie-stark) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
 }
 
-/* Error Feedback */
-#pipeline-modal .hr-form-item-feedback--error {
-  color: var(--fehler) !important;
+/* ── Color Mode Buttons (aktiver Outline → wine) ── */
+#pipeline-modal #color-mode-none,
+#pipeline-modal #color-mode-dot,
+#pipeline-modal #color-mode-bg-tint {
+  outline-color: var(--linie-stark) !important;
 }
-
-/* ── Pipeline-Phasen Header ── */
-#pipeline-modal .flex.items-center.justify-between p {
-  color: var(--nav-farbe) !important;
+#pipeline-modal #color-mode-none[style*="rgb(37, 99, 235)"],
+#pipeline-modal #color-mode-dot[style*="rgb(37, 99, 235)"],
+#pipeline-modal #color-mode-bg-tint[style*="rgb(37, 99, 235)"] {
+  outline: 2px solid var(--akzent) !important;
 }
-
-/* Stage Container Border */
-#pipeline-modal .border-gray-200 {
-  border-color: var(--linie-stark) !important;
-  border-radius: 8px !important;
-  background-color: var(--hintergrund-karte) !important;
-}
-
-/* Column Header ("Stufenname", "In Berichterstattung einbeziehen") */
-#pipeline-modal .flex.gap-3.items-center.text-xs {
-  color: var(--text-gedaempft) !important;
-  border-bottom: 1px solid var(--linie-stark) !important;
-  padding-bottom: 6px !important;
-}
-
-/* ── "Phase hinzufügen" Button ── */
-#pipeline-modal #add-stage-button {
-  color: var(--akzent) !important;
-}
-#pipeline-modal #add-stage-button:hover {
+/* Aktiver Label-Text (text-blue-600) → wine */
+#pipeline-modal .text-blue-600 {
   color: var(--akzent-dunkel) !important;
 }
-#pipeline-modal #add-stage-button svg {
-  stroke: currentColor !important;
+/* bg-blue-600/[0.08] Background tint Preview → wine */
+#pipeline-modal [class*="bg-blue-600"] {
+  background-color: var(--akzent-hell) !important;
+}
+/* Color mode section background */
+#pipeline-modal .bg-gray-100 {
+  background-color: var(--hintergrund-seite) !important;
+}
+#pipeline-modal .border-gray-300 {
+  border-color: var(--linie-stark) !important;
 }
 
-/* ── Stage Rows ── */
-/* Drag Handle */
-#pipeline-modal .hr-draggable__handler .drag-svg-icon {
-  color: var(--text-schwach) !important;
-  transition: color 0.2s !important;
-}
-#pipeline-modal .hr-draggable-element:hover .drag-svg-icon {
-  color: var(--text-gedaempft) !important;
-}
-
-/* Stage Name Input */
+/* ── Stage Name Inputs → wine ── */
 #pipeline-modal .crm-opportunities-pipeline-stage-name-input .hr-input {
-  --n-border:           1px solid var(--linie-stark) !important;
   --n-border-hover:     1px solid var(--akzent) !important;
   --n-border-focus:     1px solid var(--akzent) !important;
   --n-caret-color:      var(--akzent) !important;
-  --n-box-shadow-focus: 0 0 0 2px var(--akzent-ring) !important;
-  --n-border-radius:    8px !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
 }
 
-/* ── Checkboxen (Funnel-Diagramm / Phasenverteilung) ── */
-/* Unchecked */
-#pipeline-modal .hr-checkbox .hr-checkbox-box {
-  border-color: var(--linie-stark) !important;
-  border-radius: 3px !important;
-}
-/* Checked — direktes background-color Override (inline var pattern) */
+/* ── Checkboxen → wine ── */
 #pipeline-modal .hr-checkbox.hr-checkbox--checked .hr-checkbox-box {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
@@ -11329,36 +11343,49 @@ footer:has(#back-button) {
 #pipeline-modal .hr-checkbox.hr-checkbox--checked .hr-checkbox-box__border {
   border-color: var(--akzent) !important;
 }
-/* Hover (unchecked) */
+#pipeline-modal .hr-checkbox .check-icon path {
+  fill: var(--base-white) !important;
+}
 #pipeline-modal .hr-checkbox:not(.hr-checkbox--checked):hover .hr-checkbox-box {
   border-color: var(--akzent) !important;
   background-color: var(--akzent-hell) !important;
 }
-/* Focus ring */
-#pipeline-modal .hr-checkbox:focus {
-  box-shadow: 0 0 0 2px var(--akzent-ring) !important;
-}
-/* Checkmark weiß */
-#pipeline-modal .hr-checkbox.hr-checkbox--checked .check-icon,
-#pipeline-modal .hr-checkbox.hr-checkbox--checked .check-icon path {
-  fill: var(--weiss) !important;
-}
-/* Label */
 #pipeline-modal .hr-checkbox__label .hr-text {
   color: var(--nav-hover) !important;
+}
+
+/* ── Stage Container ── */
+#pipeline-modal .border-gray-200 {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── „Add Stage" Button → wine ── */
+#pipeline-modal #add-stage-button p,
+#pipeline-modal #add-stage-button span,
+#pipeline-modal #add-stage-button i,
+#pipeline-modal #add-stage-button svg {
+  color: var(--akzent-dunkel) !important;
+}
+#pipeline-modal #add-stage-button:hover p,
+#pipeline-modal #add-stage-button:hover span {
+  color: var(--akzent) !important;
 }
 
 /* ── Delete Stage Button ── */
 #pipeline-modal .crm-opportunities-pipeline-stage-delete-btn {
   color: var(--text-gedaempft) !important;
-  border-radius: 6px !important;
 }
 #pipeline-modal .crm-opportunities-pipeline-stage-delete-btn:hover {
   color: var(--fehler) !important;
-  background-color: var(--fehler-2-a06) !important;
+  background-color: var(--akzent-hell) !important;
 }
-#pipeline-modal .crm-opportunities-pipeline-stage-delete-btn svg {
-  stroke: currentColor !important;
+
+/* ── Drag Handle ── */
+#pipeline-modal .drag-svg-icon {
+  color: var(--text-schwach) !important;
+}
+#pipeline-modal .hr-draggable-element:hover .drag-svg-icon {
+  color: var(--text-gedaempft) !important;
 }
 
 /* ── Modal Footer ── */
@@ -11367,13 +11394,9 @@ footer:has(#back-button) {
   background-color: var(--hintergrund-karte) !important;
 }
 
-/* Absagen (Cancel) */
+/* ── Cancel Button ── */
 #pipeline-modal #cancel {
-  border: 1px solid var(--linie-stark) !important;
   color: var(--nav-hover) !important;
-  background-color: var(--weiss) !important;
-  border-radius: 8px !important;
-  transition: border-color 0.2s, background-color 0.2s, color 0.2s !important;
 }
 #pipeline-modal #cancel:hover {
   border-color: var(--akzent) !important;
@@ -11387,13 +11410,15 @@ footer:has(#back-button) {
   border-color: var(--akzent) !important;
 }
 
-/* Erstellen/Speichern (Save — primary) — inline var override */
+/* ── Save/Create Button → wine ── */
 #pipeline-modal #save {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: var(--weiss) !important;
-  border-radius: 8px !important;
+}
+#pipeline-modal #save p,
+#pipeline-modal #save span {
+  color: var(--base-white) !important;
 }
 #pipeline-modal #save .hr-button__border {
   border-color: var(--akzent) !important;
@@ -11406,205 +11431,232 @@ footer:has(#back-button) {
 #pipeline-modal #save:not(:disabled):hover .hr-button__border {
   border-color: var(--akzent-dunkel) !important;
 }
-#pipeline-modal #save:disabled,
-#pipeline-modal #save.hr-button--disabled {
+#pipeline-modal #save:disabled {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
   opacity: 0.5 !important;
 }
-#pipeline-modal #save.hr-button--disabled .hr-button__border {
-  border-color: var(--akzent) !important;
-}
 
 /* ============================================================
-   SECTION 91 — Pipeline Freigabe & Berechtigungen Drawer
-   Scope: #pipeline-permissions-drawer-content
+   SECTION 91 — Pipeline Permissions Drawer
+   Scope: #pipeline-permissions-drawer
    ============================================================ */
 
-/* ── Drawer Shell ── */
-#pipeline-permissions-drawer-content {
+/* ── Drawer Content ── */
+#pipeline-permissions-drawer .hr-drawer-content {
   background-color: var(--hintergrund-karte) !important;
 }
 
 /* ── Header ── */
-#pipeline-permissions-drawer-content .hr-drawer-header {
+#pipeline-permissions-drawer .hr-drawer-header {
   background-color: var(--hintergrund-karte) !important;
   border-bottom: 1px solid var(--linie-stark) !important;
 }
-#pipeline-permissions-drawer-content .hr-header-lite-title {
+#pipeline-permissions-drawer .hr-header-lite-title {
   color: var(--nav-farbe) !important;
-  font-weight: 600 !important;
 }
 
-/* Close Button */
-#pipeline-permissions-drawer-content #HLHeaderLite-close-button {
+/* ── Close Button ── */
+#pipeline-permissions-drawer #HLHeaderLite-close-button {
   color: var(--text-gedaempft) !important;
-  border-radius: 8px !important;
 }
-#pipeline-permissions-drawer-content #HLHeaderLite-close-button:hover {
+#pipeline-permissions-drawer #HLHeaderLite-close-button:hover {
   color: var(--nav-farbe) !important;
   background-color: var(--akzent-hell) !important;
 }
 
-/* ── Body ── */
-/* Beschreibungstext */
-#pipeline-permissions-drawer-content .pipeline-permissions-share-desc {
+/* ── Beschreibungstext ── */
+#pipeline-permissions-drawer .pipeline-permissions-share-desc {
   color: var(--nav-hover) !important;
 }
-#pipeline-permissions-drawer-content .pipeline-permissions-share-desc .font-semibold {
+#pipeline-permissions-drawer .pipeline-permissions-share-desc .font-semibold {
   color: var(--nav-farbe) !important;
 }
 
-/* ── Zugriffseinstellungen Section ── */
-#pipeline-permissions-drawer-content .border-y {
-  border-color: var(--linie-stark) !important;
-}
-#pipeline-permissions-drawer-content .border-y .text-gray-500 {
-  color: var(--text-gedaempft) !important;
-  font-weight: 600 !important;
-}
-
-/* "Link kopieren" Button */
-#pipeline-permissions-drawer-content #copy-link-btn {
-  color: var(--akzent) !important;
-}
-#pipeline-permissions-drawer-content #copy-link-btn:hover {
+/* ── „Copy Link" Button → wine ── */
+#pipeline-permissions-drawer #copy-link-btn p,
+#pipeline-permissions-drawer #copy-link-btn i,
+#pipeline-permissions-drawer #copy-link-btn svg {
   color: var(--akzent-dunkel) !important;
 }
-#pipeline-permissions-drawer-content #copy-link-btn svg {
-  stroke: currentColor !important;
+#pipeline-permissions-drawer #copy-link-btn:hover p,
+#pipeline-permissions-drawer #copy-link-btn:hover i,
+#pipeline-permissions-drawer #copy-link-btn:hover svg {
+  color: var(--akzent) !important;
 }
 
-/* ── Permission Cards ── */
-#pipeline-permissions-drawer-content .crm-opportunities-pipeline-permissions-access-card {
-  border: 1px solid var(--linie-stark) !important;
-  border-radius: 8px !important;
-  background-color: var(--weiss) !important;
-  transition: border-color 0.2s, background-color 0.2s !important;
-}
-#pipeline-permissions-drawer-content .crm-opportunities-pipeline-permissions-access-card:hover {
-  border-color: var(--akzent) !important;
-  background-color: var(--akzent-hell) !important;
-}
-
-/* Aktive Card (hat checked Radio) */
-#pipeline-permissions-drawer-content .crm-opportunities-pipeline-permissions-access-card:has(.hr-radio--checked) {
-  border-color: var(--akzent) !important;
-  background-color: var(--akzent-blass) !important;
-}
-
-/* ── Radio Buttons ── */
-/* Unchecked dot wrapper */
-#pipeline-permissions-drawer-content .hr-radio .hr-radio__dot-wrapper {
-  border: 1px solid var(--linie-stark) !important;
-  border-radius: 50% !important;
-}
-/* Checked */
-#pipeline-permissions-drawer-content .hr-radio.hr-radio--checked .hr-radio__dot {
-  background-color: var(--akzent) !important;
-}
-#pipeline-permissions-drawer-content .hr-radio.hr-radio--checked .hr-radio__dot-wrapper {
-  border-color: var(--akzent) !important;
-  background-color: var(--akzent) !important;
-}
-/* Hover unchecked */
-#pipeline-permissions-drawer-content .hr-radio:not(.hr-radio--checked) .hr-radio__dot-wrapper:hover {
-  border-color: var(--akzent) !important;
-  background-color: var(--akzent-hell) !important;
-}
-/* Focus ring */
-#pipeline-permissions-drawer-content .hr-radio:focus-within .hr-radio__dot-wrapper {
-  box-shadow: 0 0 0 2px var(--akzent-ring) !important;
-}
-/* Label */
-#pipeline-permissions-drawer-content .hr-radio-label {
-  color: var(--nav-hover) !important;
-}
-#pipeline-permissions-drawer-content .hr-radio.hr-radio--checked .hr-radio-label {
-  color: var(--nav-farbe) !important;
-  font-weight: 500 !important;
-}
-
-/* ── Permission Selects (Nur Ansicht / Bearbeiten) ── */
-/* Aktiv (enabled) */
-#pipeline-permissions-drawer-content .hr-base-selection:not(.hr-base-selection--disabled) {
-  --n-border:            1px solid var(--linie-stark) !important;
-  --n-border-hover:      1px solid var(--akzent) !important;
-  --n-border-active:     1px solid var(--akzent) !important;
-  --n-border-focus:      1px solid var(--akzent) !important;
-  --n-border-radius:     8px !important;
-  --n-box-shadow-active: 0 0 0 2px var(--akzent-ring) !important;
-  --n-box-shadow-focus:  0 0 0 2px var(--akzent-ring) !important;
-  --n-caret-color:       var(--akzent) !important;
-  --n-loading-color:     var(--akzent) !important;
-  --n-arrow-color:       var(--text-schwach) !important;
-}
-/* Disabled */
-#pipeline-permissions-drawer-content .hr-base-selection.hr-base-selection--disabled {
-  --n-border-radius: 8px !important;
-  opacity: 0.45 !important;
-  cursor: not-allowed !important;
-}
-/* Arrow */
-#pipeline-permissions-drawer-content .hr-base-suffix__arrow svg path {
-  fill: var(--text-schwach) !important;
-}
-/* Selected value text */
-#pipeline-permissions-drawer-content .hr-base-selection-input__content {
-  color: var(--nav-hover) !important;
-}
-
-/* ── Footer ── */
-#pipeline-permissions-drawer-content .hr-drawer-footer {
-  border-top: 1px solid var(--linie-stark) !important;
+/* ── Access Cards ── */
+#pipeline-permissions-drawer .crm-opportunities-pipeline-permissions-access-card {
+  border-color: var(--linie-stark) !important;
   background-color: var(--hintergrund-karte) !important;
 }
 
-/* Abbrechen */
-#pipeline-permissions-drawer-content #cancel-permissions {
-  border: 1px solid var(--linie-stark) !important;
-  color: var(--nav-hover) !important;
-  background-color: var(--weiss) !important;
-  border-radius: 8px !important;
-  transition: border-color 0.2s, background-color 0.2s, color 0.2s !important;
-}
-#pipeline-permissions-drawer-content #cancel-permissions:hover {
-  border-color: var(--akzent) !important;
+/* Aktive Card → wine */
+#pipeline-permissions-drawer .crm-opportunities-pipeline-permissions-access-card:has(.hr-radio--checked) {
+  border-color:     var(--akzent) !important;
   background-color: var(--akzent-hell) !important;
-  color: var(--akzent-dunkel) !important;
 }
-#pipeline-permissions-drawer-content #cancel-permissions .hr-button__border {
+
+/* ── Radio Buttons → wine ── */
+
+/* Native Input → weg */
+#pipeline-permissions-drawer input[type="radio"].hr-radio-input {
+  opacity:      0 !important;
+  accent-color: var(--akzent) !important;
+}
+
+/* Normaler Ring */
+#pipeline-permissions-drawer .hr-radio__dot-wrapper {
+  box-shadow:       none !important;
+  border:           1px solid rgb(209, 213, 219) !important;
+  border-radius:    50% !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* Aktiv → wine Kreis mit weißem Dot */
+#pipeline-permissions-drawer .hr-radio--checked .hr-radio__dot-wrapper {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  box-shadow:       none !important;
+}
+#pipeline-permissions-drawer .hr-radio--checked .hr-radio__dot--checked {
+  background-color: var(--base-white) !important;
+}
+
+/* Hover → wine */
+#pipeline-permissions-drawer .hr-radio:not(.hr-radio--disabled):hover .hr-radio__dot-wrapper {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+
+/* Label Text */
+#pipeline-permissions-drawer .hr-radio__label .hr-text {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Permission Selects → wine ── */
+#pipeline-permissions-drawer #permission-select-all .hr-base-selection,
+#pipeline-permissions-drawer #permission-select-some .hr-base-selection,
+#pipeline-permissions-drawer #permission-select-all_except .hr-base-selection,
+#pipeline-permissions-drawer #user-permissions-select .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* ── Form Label ── */
+#pipeline-permissions-drawer .hr-form-item-label__text {
+  color:       var(--nav-farbe) !important;
+  font-weight: 500 !important;
+}
+
+/* ── Table Header ── */
+#pipeline-permissions-drawer .hr-data-table__cell-header {
+  background-color: var(--akzent-hell) !important;
+  border-bottom:    1px solid var(--linie-stark) !important;
+}
+#pipeline-permissions-drawer .hr-data-table__cell-header .hr-text {
+  color:       var(--nav-farbe) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Table Rows ── */
+#pipeline-permissions-drawer .hr-data-table__body-row {
+  background-color: var(--hintergrund-karte) !important;
+  border-bottom:    1px solid var(--linie-stark) !important;
+}
+#pipeline-permissions-drawer .hr-data-table__body-row:hover {
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Empty State ── */
+#pipeline-permissions-drawer .hr-empty__title {
+  color: var(--nav-farbe) !important;
+}
+#pipeline-permissions-drawer .hr-empty__description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Footer ── */
+#pipeline-permissions-drawer .hr-drawer-footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-top:       1px solid var(--linie-stark) !important;
+}
+
+/* ── Cancel Button ── */
+#pipeline-permissions-drawer #cancel-permissions {
+  color: var(--nav-hover) !important;
+}
+#pipeline-permissions-drawer #cancel-permissions:hover {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+#pipeline-permissions-drawer #cancel-permissions .hr-button__border {
   border-color: var(--linie-stark) !important;
 }
-#pipeline-permissions-drawer-content #cancel-permissions:hover .hr-button__border {
+#pipeline-permissions-drawer #cancel-permissions:hover .hr-button__border {
   border-color: var(--akzent) !important;
 }
 
-/* Speichern — inline var override */
-#pipeline-permissions-drawer-content #save-permissions {
+/* ── Save Button → wine ── */
+#pipeline-permissions-drawer #save-permissions {
   background-color: var(--akzent) !important;
   background:       var(--akzent) !important;
   border-color:     var(--akzent) !important;
-  color: var(--weiss) !important;
-  border-radius: 8px !important;
 }
-#pipeline-permissions-drawer-content #save-permissions .hr-button__border {
+#pipeline-permissions-drawer #save-permissions p {
+  color: var(--base-white) !important;
+}
+#pipeline-permissions-drawer #save-permissions .hr-button__border {
   border-color: var(--akzent) !important;
 }
-#pipeline-permissions-drawer-content #save-permissions:not(:disabled):hover {
+#pipeline-permissions-drawer #save-permissions:hover {
   background-color: var(--akzent-dunkel) !important;
   background:       var(--akzent-dunkel) !important;
   border-color:     var(--akzent-dunkel) !important;
 }
-#pipeline-permissions-drawer-content #save-permissions:not(:disabled):hover .hr-button__border {
+#pipeline-permissions-drawer #save-permissions:hover .hr-button__border {
   border-color: var(--akzent-dunkel) !important;
 }
-#pipeline-permissions-drawer-content #save-permissions:disabled,
-#pipeline-permissions-drawer-content #save-permissions.hr-button--disabled {
+
+/* ── Section 91 Fix – Radio Buttons (permission-radio) → wine ── */
+
+/* Normaler Ring */
+#pipeline-permissions-drawer label.hr-radio__wrapper .hr-radio__dot-wrapper {
+  border:           1px solid rgb(209, 213, 219) !important;
+  border-radius:    50% !important;
+  background-color: var(--base-white) !important;
+  box-shadow:       none !important;
+}
+
+/* Aktiv → wine Hintergrund + weißer Dot */
+#pipeline-permissions-drawer label.hr-radio--checked.hr-radio__wrapper .hr-radio__dot-wrapper {
   background-color: var(--akzent) !important;
-  background:       var(--akzent) !important;
-  opacity: 0.5 !important;
+  border-color:     var(--akzent) !important;
+  box-shadow:       none !important;
+}
+#pipeline-permissions-drawer label.hr-radio--checked.hr-radio__wrapper .hr-radio__dot--checked {
+  background-color: var(--base-white) !important;
+}
+
+/* Hover → wine */
+#pipeline-permissions-drawer label.hr-radio__wrapper:hover .hr-radio__dot-wrapper {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+
+/* Native Input → unsichtbar */
+#pipeline-permissions-drawer input[type="radio"].hr-radio-input {
+  opacity:      0 !important;
+  position:     absolute !important;
+  width:        0 !important;
+  height:       0 !important;
+  pointer-events: none !important;
 }
 
 /* ============================================================

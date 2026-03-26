@@ -14,6 +14,47 @@ Diese Seite dokumentiert alle CSS-Sections für den "View Details" Drawer (Secti
 
 ---
 
+## JS · Leere Info-Zeilen ausblenden
+
+Leere Info-Zeilen (Wert ist `-`, `–`, `—` oder leer) werden per JavaScript dynamisch ausgeblendet. Das Script läuft als Interval + MutationObserver, damit es auch nach Drawer-Öffnung und Tab-Wechsel greift.
+
+```html
+<script>
+(function() {
+  var E = ['-','–','—',''];
+  function run() {
+    var d = document.getElementById('appointment-drawer');
+    if (!d) return;
+    d.querySelectorAll('[id$="-main-container"]').forEach(function(c) {
+      var b = c.querySelector('[role="button"][tabindex="0"]');
+      if (!b) return;
+      var r = c.parentElement && c.parentElement.parentElement;
+      if (!r) return;
+      if (E.indexOf(b.textContent.trim()) !== -1) {
+        r.style.setProperty('display', 'none', 'important');
+      } else {
+        r.style.removeProperty('display');
+      }
+    });
+  }
+  setInterval(run, 100);
+  new MutationObserver(run).observe(document.body, {childList:true, subtree:true});
+  document.addEventListener('click', function() {
+    [200,500,1000,2000].forEach(function(d){setTimeout(run,d);});
+  });
+})();
+</script>
+```
+
+**Wie es funktioniert:**
+
+- Sucht alle `[id$="-main-container"]`-Elemente innerhalb `#appointment-drawer`
+- Prüft das erste `[role="button"][tabindex="0"]`-Kind auf leeren Text (`-`, `–`, `—` oder leer)
+- Setzt `display: none !important` auf das Elternelement zwei Ebenen höher (die gesamte Zeile inkl. Icon und Label)
+- Läuft alle 100ms + per MutationObserver + bei jedem Click mit Delays (200ms, 500ms, 1s, 2s) — fängt alle Drawer-Öffnungen und Tab-Wechsel ab
+
+---
+
 ## 77.1 · Header — Titel & Aktions-Icons
 
 Drawer-Titel "View Details", Edit-Icon (Pencil) und Delete-Icon (Trash).
@@ -263,4 +304,8 @@ Event-Type Badge, Termin-Titel, Divider und alle Info-Zeilen mit Icon, Label und
 
 ---
 
-> **Hinweis:** Der aktive Tab `#DETAILS` nutzt eine linke Border (`border-left-color: var(--wine)`) als Indikator — das ist ein GHL-Pattern der vertikalen Sidebar-Navigation. Die Info-Zeilen mit Links (Name, Attendees) verwenden `.text-primary-500` als GHL-Klasse und werden auf `var(--wine-2)` umgeschrieben. Das Status-Dropdown ist ein vollständig custom GHL-Dropdown (nicht NaïveUI) und wird daher ohne `--n-*` Variablen gestylt.
+> **Hinweise:**
+> - **Leere Zeilen:** Das JS-Script oben blendet alle Info-Zeilen mit leerem Wert (`-`, `–`, `—`, leer) automatisch aus. Es wird als Custom Code im GHL-Dashboard unter `Einstellungen → Custom Code` eingefügt.
+> - **Aktiver Tab `#DETAILS`:** nutzt `border-left-color: var(--wine)` als Indikator — GHL-Pattern der vertikalen Sidebar-Navigation.
+> - **Links (Name, Attendees):** `.text-primary-500` ist eine GHL-Klasse → wird auf `var(--wine-2)` umgeschrieben.
+> - **Status-Dropdown:** vollständig custom GHL (nicht NaïveUI) → kein `--n-*` Variablen-Override nötig.
