@@ -1,0 +1,137 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/ReviewRequestModal" />
+
+# Reputation – Bewertungsanfrage Modal (Section 93b)
+
+Das Review Request Modal (`#send-review-request-modal`) öffnet sich beim Klick auf „Anfrage senden". Es enthält ein Kontakt-Select, Telefon- und E-Mail-Input, Kanal-Checkboxen (Email, SMS, WhatsApp), Segment-Tabs für den Nachrichteninhalt, einen Info-Banner und einen Footer mit Send-Button.
+
+![Review Request Modal Screenshot](./review-request-modal-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#send-review-request-modal` |
+| Kontakt-Select | `#review-request-contact-select .hr-base-selection` |
+| Telefon-Input | `#review-request-phone-input` |
+| E-Mail-Input | `#review-request-email-input` |
+| Kanal-Checkboxen | `.hr-checkbox--checked .hr-checkbox-box` |
+| Segment-Tabs | `.hr-tabs-capsule`, `.hr-tabs-rail`, `.hr-tabs-tab--active` |
+| Info-Banner | `.rounded-lg.bg-blue-50` |
+| „E-Mail aktivieren" Button | `#enable-email-request` |
+| Send-Button | `#send-review-request-button` |
+
+---
+
+## 93b.1 – Modal Container & Header
+
+```css
+/* Modal Hintergrund */
+#send-review-request-modal {
+  background-color: var(--surface) !important;
+  border-color: var(--line-hard) !important;
+}
+
+/* Header Icon */
+#send-review-request-modal .hr-card-header svg { color: var(--wine-2) !important; border-color: var(--line-hard) !important; }
+
+/* Header Titel + Beschreibung */
+#send-review-request-modal .ui-text-lg-medium span { color: var(--ink) !important; }
+#send-review-request-modal .ui-text-lg-medium p { color: var(--ink-3) !important; }
+
+/* Close Button */
+#send-review-request-modal button[aria-label="Schließen"] { color: var(--ink-3) !important; }
+#send-review-request-modal button[aria-label="Schließen"]:hover { color: var(--ink) !important; }
+
+/* Form Labels */
+#send-review-request-modal .hr-form-item-label__text { color: var(--ink) !important; }
+```
+
+---
+
+## 93b.2 – Inputs, Selects & Checkboxen
+
+```css
+/* Kontakt-Select + Inputs */
+#send-review-request-modal #review-request-contact-select .hr-base-selection,
+#send-review-request-modal #review-request-phone-input,
+#send-review-request-modal #review-request-email-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Kanal-Checkboxen */
+#send-review-request-modal .hr-checkbox--checked .hr-checkbox-box,
+#send-review-request-modal .hr-checkbox:not(.hr-checkbox--disabled):hover .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#send-review-request-modal .hr-checkbox-box__border { border-color: var(--line-hard) !important; }
+```
+
+---
+
+## 93b.3 – Segment-Tabs & Info-Banner
+
+```css
+/* Segment-Tabs */
+#send-review-request-modal .hr-tabs-capsule {
+  background-color: var(--surface) !important;
+  box-shadow: 0 1px 4px rgba(91,25,45,0.2) !important;
+}
+#send-review-request-modal .hr-tabs-rail { background-color: var(--wine-lt) !important; }
+#send-review-request-modal .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine-2) !important; font-weight: 600 !important; }
+#send-review-request-modal .hr-tabs-tab .hr-tabs-tab__label { color: var(--ink-3) !important; }
+
+/* Info-Banner (bg-blue-50 → wine-lt) */
+#send-review-request-modal .rounded-lg.bg-blue-50 { background-color: var(--wine-lt) !important; }
+#send-review-request-modal .rounded-lg.bg-blue-50 p { color: var(--ink-2) !important; }
+
+/* „E-Mail-Anfragen aktivieren" Button */
+#send-review-request-modal #enable-email-request { border-color: var(--wine) !important; }
+#send-review-request-modal #enable-email-request:hover { border-color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+#send-review-request-modal #enable-email-request p { color: var(--wine-2) !important; }
+#send-review-request-modal #enable-email-request svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## 93b.4 – Footer & Send-Button
+
+```css
+/* Footer */
+#send-review-request-modal .hr-card__footer {
+  background-color: var(--surface) !important;
+  border-top: 1px solid var(--line-hard) !important;
+}
+
+/* Send-Button */
+#send-review-request-modal #send-review-request-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#send-review-request-modal #send-review-request-button .hr-button__border { border-color: var(--wine) !important; }
+#send-review-request-modal #send-review-request-button:not(:disabled):hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`bg-blue-50` Tailwind-Klasse als Attribut-Selektor:** Der Info-Banner nutzt eine Tailwind-Utility-Klasse direkt als Selektor — kein GHL-spezifischer Scope. Da der Scope `#send-review-request-modal` vorgestellt ist, trifft der Override nur innerhalb des Modals.
+
+**Segment-Tabs via `.hr-tabs-rail`:** Die aktive Tab-Kapsel wird durch `.hr-tabs-rail` (Highrise-spezifisch) markiert — nicht via NaïveUI `--n-bar-color`. Direktes `background-color` auf `.hr-tabs-rail`.
+
+**`:not(:disabled)` auf Send-Button Hover:** Der Button ist initial disabled (solange kein Kontakt gewählt) — `:not(:disabled)` verhindert einen wine-Hover auf dem deaktivierten Zustand.
