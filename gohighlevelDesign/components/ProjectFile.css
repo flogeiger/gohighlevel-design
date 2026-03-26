@@ -164,32 +164,6 @@
 
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   FARBÜBERSICHT  —  Slate Indigo System
-   ══════════════════════════════════════════════════════════════════════
-
-   DUNKEL (Nav / Primär)
-   ├── --wine-tief        #1e212f   ████ Tiefes Nachtblau
-   ├── --wine             #31374e   ████ Sidebar Hintergrund
-   ├── --wine-2           #3d4460   ████ Sidebar Hover
-   ├── --wine-3  ★        #4c5578   ████ KERNFARBE
-   └── --wine-4           #38415c   ████ Alt-Variante
-
-   MITTEL (Interaktiv / Akzent)
-   ├── --akzent-dunkel    #8d96be   ████ Button Hover
-   ├── --akzent           #b0b8d8   ████ Button / aktive Elemente
-   └── --akzent-hover     #dde1f0   ████ Hover-Fläche
-
-   HELL (Hintergründe / Tints)
-   ├── --akzent-blass     #e6e9f5   ████ Rahmen-Akzent
-   ├── --akzent-blass-3   #e8eaf5   ████ Sekundär-Hintergrund
-   ├── --akzent-hell      #eef0f7   ████ Badge-Hintergrund
-   ├── --wine-lt          #f2f3f8   ████ Slate-Light
-   └── --hintergrund-seite#f4f5f8   ████ Seiten-Hintergrund
-
-   ══════════════════════════════════════════════════════════════════════ */
-
-
 
 /* ════════════════════════════════════════════════════════════════
    GLOBAL FONT
@@ -523,6 +497,79 @@ button#clear-all-filters-btn svg,
 }
 .modal-container .tag-input__text::placeholder {
   color: var(--text-schwach) !important;
+}
+
+/* ============================================================
+   SECTION 92 — Launchpad / Setup Guide (Fix)
+   ============================================================ */
+
+/* ── Sidebar Hintergrund ── */
+#launchpad-app-v2 .launchpad-sidebar {
+  background-color: var(--hintergrund-karte) !important;
+  border-right: 1px solid var(--linie-stark) !important;
+}
+
+/* ── Alle Tab-Labels → gedämpft ── */
+#launchpad-app-v2 .hr-tabs-tab span p {
+  color: var(--text-gedaempft) !important;
+}
+#launchpad-app-v2 .hr-tabs-tab span svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Aktiver Tab → wine, weißer Hintergrund ── */
+#launchpad-app-v2 .hr-tabs-tab--active > span > div {
+  background-color: var(--hintergrund-karte) !important;
+  border-left: 3px solid var(--akzent) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 4px var(--akzent-a20) !important;
+}
+#launchpad-app-v2 .hr-tabs-tab--active span p {
+  color: var(--akzent-dunkel) !important;
+}
+#launchpad-app-v2 .hr-tabs-tab--active span svg {
+  color: var(--akzent-dunkel) !important;
+  stroke: var(--akzent-dunkel) !important;
+}
+
+/* ── Card Titel: alle blauen Links → wine ── */
+#launchpad-app-v2 a[class*="text-"],
+#launchpad-app-v2 span[class*="text-[#004"],
+#launchpad-app-v2 span[class*="text-[#0070"],
+#launchpad-app-v2 span[class*="hover:underline"] {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Breiter Fallback: alle blauen Texte in Cards → wine ── */
+#launchpad-app-v2 .launchpad-card .hr-text[style*="color: rgb(0, 78"],
+#launchpad-app-v2 .launchpad-card .hr-text[style*="color: rgb(0, 70"],
+#launchpad-app-v2 .launchpad-card span[style*="color: rgb(0"] {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Inline-Style blau überschreiben ── */
+#launchpad-app-v2 .launchpad-card p[style*="#004eeb"],
+#launchpad-app-v2 .launchpad-card p[style*="#0070f3"] {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Dunkelblauer Text in Titeln ── */
+#launchpad-app-v2 .hover\:underline {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Progress Bar → wine ── */
+#launchpad-app-v2 .hr-progress-graph-line-fill {
+  background: var(--akzent) !important;
+}
+#launchpad-app-v2 .hr-progress-graph-circle-fill {
+  stroke: var(--akzent) !important;
+}
+
+/* ── Cards ── */
+#launchpad-app-v2 .launchpad-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color: var(--linie-stark) !important;
 }
 
 /* ============================================================

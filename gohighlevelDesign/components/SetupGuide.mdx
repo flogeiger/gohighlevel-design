@@ -1,0 +1,100 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Launchpad/SetupGuide" />
+
+# Launchpad – Setup Guide (Section 92)
+
+Die Launchpad-Seite zeigt einen personalisierten Setup-Leitfaden mit Fortschrittsanzeige. Root-Scope ist `#launchpad-app-v2`. Die Seite besteht aus einer linken vertikalen Tab-Sidebar (Foundational Setup, Marketing & Lead Generation, Sales & Conversations, Website & Monetisation, Ecommerce) und einem rechten Hauptbereich mit Aufgaben-Cards und einer Progress Bar.
+
+![Setup Guide Screenshot](./launchpad-setup-guide-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#launchpad-app-v2` |
+| Sidebar | `.launchpad-sidebar` |
+| Tab-Labels | `.hr-tabs-tab span p`, `.hr-tabs-tab span svg` |
+| Aktiver Tab | `.hr-tabs-tab--active > span > div` |
+| Card-Titel (Links) | `a[class*="text-"]`, `.hover\:underline` |
+| Progress Bar | `.hr-progress-graph-line-fill`, `.hr-progress-graph-circle-fill` |
+| Cards | `.launchpad-card` |
+
+---
+
+## 92.1 – Sidebar & Tabs
+
+```css
+/* Sidebar Hintergrund */
+#launchpad-app-v2 .launchpad-sidebar {
+  background-color: var(--bg) !important;
+  border-right: 1px solid var(--line-hard) !important;
+}
+
+/* Alle Tab-Labels → gedämpft */
+#launchpad-app-v2 .hr-tabs-tab span p { color: var(--ink-3) !important; }
+#launchpad-app-v2 .hr-tabs-tab span svg { color: var(--ink-3) !important; }
+
+/* Aktiver Tab → wine Border + Karten-Hintergrund */
+#launchpad-app-v2 .hr-tabs-tab--active > span > div {
+  background-color: var(--bg) !important;
+  border-left: 3px solid var(--wine) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 4px rgba(91,25,45,0.2) !important;
+}
+#launchpad-app-v2 .hr-tabs-tab--active span p { color: var(--wine-2) !important; }
+#launchpad-app-v2 .hr-tabs-tab--active span svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+```
+
+---
+
+## 92.2 – Card-Titel & blaue Links
+
+GHL setzt Titel-Links via Tailwind-Klassen (`text-[#004eeb]`) und teilweise als Inline-Styles — mehrere Fallback-Selektoren nötig.
+
+```css
+/* Tailwind-Klassen-basierte Links */
+#launchpad-app-v2 a[class*="text-"],
+#launchpad-app-v2 span[class*="text-[#004"],
+#launchpad-app-v2 span[class*="text-[#0070"],
+#launchpad-app-v2 span[class*="hover:underline"] { color: var(--wine-2) !important; }
+
+/* Inline-Style Fallbacks */
+#launchpad-app-v2 .launchpad-card .hr-text[style*="color: rgb(0, 78"],
+#launchpad-app-v2 .launchpad-card .hr-text[style*="color: rgb(0, 70"],
+#launchpad-app-v2 .launchpad-card span[style*="color: rgb(0"] { color: var(--wine-2) !important; }
+#launchpad-app-v2 .launchpad-card p[style*="#004eeb"],
+#launchpad-app-v2 .launchpad-card p[style*="#0070f3"] { color: var(--wine-2) !important; }
+
+/* Dunkelblauer Hover-Underline Text */
+#launchpad-app-v2 .hover\:underline { color: var(--wine-2) !important; }
+```
+
+---
+
+## 92.3 – Progress Bar & Cards
+
+```css
+/* Progress Bar */
+#launchpad-app-v2 .hr-progress-graph-line-fill { background: var(--wine) !important; }
+#launchpad-app-v2 .hr-progress-graph-circle-fill { stroke: var(--wine) !important; }
+
+/* Cards */
+#launchpad-app-v2 .launchpad-card {
+  background-color: var(--bg) !important;
+  border-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Aktiver Tab via `border-left` statt Tab-Bar:** GHL rendert die Launchpad-Sidebar-Tabs nicht als Standard-`hr-tabs` mit horizontaler Tab-Bar, sondern als vertikale Liste. Der aktive Indikator ist eine `border-left: 3px solid` auf dem inneren `div` — gleiche Strategie wie Section 77 (`#DETAILS` Tab im Appointment-Drawer).
+
+**Blaue Titel — dreifache Fallback-Strategie:** GHL setzt Link-Farben in den Setup-Cards auf drei verschiedene Wege: Tailwind-Klassen (`text-[#004eeb]`), `hr-text` mit Inline-Style und plain `p` mit Inline-Style. Alle drei werden parallel überschrieben — ohne einen der Fallbacks fehlen einige Titel.
