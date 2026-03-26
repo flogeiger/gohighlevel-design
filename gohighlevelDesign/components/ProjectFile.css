@@ -18545,6 +18545,172 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   background-color: var(--akzent-hell) !important;
 }
 
+/* ============================================================
+   SECTION 95 — Review Widgets (#widgets-container)
+   ============================================================ */
+
+/* ── Hintergrund ── */
+#widgets-container .reputationApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Vorschau-Bereich (linke Seite) ── */
+#widgets-container .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Toolbar (Mobile/Copy Icons) ── */
+#widgets-container .bg-white.shadow-md {
+  background-color: var(--hintergrund-karte) !important;
+  box-shadow: 0 2px 8px var(--akzent-a20) !important;
+}
+#widgets-container #widget-mobile-view-button svg,
+#widgets-container #widget-link-copy-button svg {
+  color: var(--text-gedaempft) !important;
+}
+#widgets-container #widget-mobile-view-button:hover svg,
+#widgets-container #widget-link-copy-button:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+#widgets-container .h-4.w-\[1px\].bg-gray-300 {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Rechte Sidebar ── */
+#widgets-container .border-l-2.bg-white {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Segment Tabs ── */
+#widgets-container .hr-tabs-rail {
+  background-color: var(--akzent-hell) !important;
+}
+#widgets-container .hr-tabs-capsule {
+  background-color: var(--hintergrund-karte) !important;
+  box-shadow: 0 1px 4px var(--akzent-a20) !important;
+}
+#widgets-container .hr-tabs-tab--active .hr-tabs-tab__label {
+  color:       var(--akzent-dunkel) !important;
+  font-weight: 600 !important;
+}
+#widgets-container .hr-tabs-tab .hr-tabs-tab__label {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Template Cards ── */
+#widgets-container [role="button"].rounded-xl {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#widgets-container [role="button"].rounded-xl:hover {
+  border-color:     var(--akzent) !important;
+  box-shadow:       0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── Template Namen ── */
+#widgets-container .ui-text-md-medium {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Footer Border ── */
+#widgets-container .border-t-2 {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "Widget bearbeiten" Button → wine ── */
+#widgets-container #edit-widget-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#widgets-container #edit-widget-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#widgets-container #edit-widget-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 95b — Widget Code Modal (#widget-copy-code-modal)
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#widget-copy-code-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header ── */
+#widget-copy-code-modal .hr-card-header {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Titel ── */
+#widget-copy-code-modal .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Close Icon ── */
+#widget-copy-code-modal .cursor-pointer.text-gray-700 {
+  color: var(--text-gedaempft) !important;
+}
+#widget-copy-code-modal .cursor-pointer.text-gray-700:hover {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Beschreibung & Link ── */
+#widget-copy-code-modal .ui-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+#widget-copy-code-modal .ui-text-sm-normal a {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Code" Label ── */
+#widget-copy-code-modal .ui-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Textarea → wine Focus ── */
+#widget-copy-code-modal #widget-copy-code-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── Widget-Auswahl Select → wine ── */
+#widget-copy-code-modal #select-widget-id .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── "Code kopieren" Button → wine ── */
+#widget-copy-code-modal [id^="copy-code-button"] {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#widget-copy-code-modal [id^="copy-code-button"]:hover {
+  border-color:     var(--akzent-dunkel) !important;
+  background-color: var(--akzent-hell) !important;
+}
+#widget-copy-code-modal [id^="copy-code-button"] .ui-text-md-medium {
+  color: var(--akzent-dunkel) !important;
+}
+#widget-copy-code-modal [id^="copy-code-button"] svg {
+  color: var(--akzent-dunkel) !important;
+}
+#widget-copy-code-modal [id^="copy-code-button"] .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+
+
 
 
 

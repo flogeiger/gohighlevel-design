@@ -1,0 +1,146 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/ReviewWidgets" />
+
+# Reputation – Widgets (Sections 95 & 95b)
+
+Die Widgets-Seite (`Ruf → Widgets`) zeigt eine Widget-Vorschau links und eine Sidebar rechts mit Segment-Tabs (Gespeicherte Widgets / Vorlagen), Template-Cards und einem „Widget bearbeiten"-Button. Dazu gehört das **Widget-Code Modal** (`#widget-copy-code-modal`) mit Code-Textarea, Widget-Select und „Code kopieren"-Button.
+
+- **95** — Widgets-Seite (`#widgets-container`)
+- **95b** — Widget-Code Modal (`#widget-copy-code-modal`)
+
+![Widgets Screenshot](./review-widgets-screenshot.png)
+![Widget Code Modal Screenshot](./widget-code-modal-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 95 | `#widgets-container` |
+| 95b | `#widget-copy-code-modal` |
+
+---
+
+## Section 95 – Widgets-Seite
+
+### Layout & Toolbar
+
+```css
+/* Hintergrund */
+#widgets-container .reputationApp { background-color: var(--bg) !important; }
+#widgets-container .bg-gray-50 { background-color: var(--bg) !important; }
+
+/* Toolbar (Mobile/Copy Icons) */
+#widgets-container .bg-white.shadow-md {
+  background-color: var(--surface) !important;
+  box-shadow: 0 2px 8px rgba(91,25,45,0.2) !important;
+}
+#widgets-container #widget-mobile-view-button svg,
+#widgets-container #widget-link-copy-button svg { color: var(--ink-3) !important; }
+#widgets-container #widget-mobile-view-button:hover svg,
+#widgets-container #widget-link-copy-button:hover svg { color: var(--wine-2) !important; }
+#widgets-container .h-4.w-\[1px\].bg-gray-300 { background-color: var(--line-hard) !important; }
+
+/* Rechte Sidebar */
+#widgets-container .border-l-2.bg-white {
+  background-color: var(--surface) !important;
+  border-color: var(--line-hard) !important;
+}
+```
+
+### Segment-Tabs & Template Cards
+
+```css
+/* Segment-Tabs */
+#widgets-container .hr-tabs-rail { background-color: var(--wine-lt) !important; }
+#widgets-container .hr-tabs-capsule { background-color: var(--surface) !important; box-shadow: 0 1px 4px rgba(91,25,45,0.2) !important; }
+#widgets-container .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine-2) !important; font-weight: 600 !important; }
+#widgets-container .hr-tabs-tab .hr-tabs-tab__label { color: var(--ink-3) !important; }
+
+/* Template Cards */
+#widgets-container [role="button"].rounded-xl {
+  border-color: var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#widgets-container [role="button"].rounded-xl:hover {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+#widgets-container .ui-text-md-medium { color: var(--ink-3) !important; }
+
+/* Footer Border */
+#widgets-container .border-t-2 { border-color: var(--line-hard) !important; }
+
+/* „Widget bearbeiten" Primary Button */
+#widgets-container #edit-widget-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#widgets-container #edit-widget-button .hr-button__border { border-color: var(--wine) !important; }
+#widgets-container #edit-widget-button:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Section 95b – Widget-Code Modal
+
+```css
+/* Modal */
+#widget-copy-code-modal { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#widget-copy-code-modal .hr-card-header { background-color: var(--surface) !important; }
+
+/* Texte */
+#widget-copy-code-modal .ui-text-lg-medium { color: var(--ink) !important; }
+#widget-copy-code-modal .ui-text-sm-normal { color: var(--ink-3) !important; }
+#widget-copy-code-modal .ui-text-sm-normal a { color: var(--wine-2) !important; }
+#widget-copy-code-modal .ui-text-sm-medium { color: var(--ink) !important; }
+#widget-copy-code-modal .cursor-pointer.text-gray-700 { color: var(--ink-3) !important; }
+#widget-copy-code-modal .cursor-pointer.text-gray-700:hover { color: var(--ink) !important; }
+
+/* Textarea */
+#widget-copy-code-modal #widget-copy-code-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Widget-Auswahl Select */
+#widget-copy-code-modal #select-widget-id .hr-base-selection {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+}
+
+/* „Code kopieren" Button (ID-Präfix) */
+#widget-copy-code-modal [id^="copy-code-button"] {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+#widget-copy-code-modal [id^="copy-code-button"]:hover {
+  border-color: var(--wine-2) !important;
+  background-color: var(--wine-lt) !important;
+}
+#widget-copy-code-modal [id^="copy-code-button"] .ui-text-md-medium { color: var(--wine-2) !important; }
+#widget-copy-code-modal [id^="copy-code-button"] svg { color: var(--wine-2) !important; }
+#widget-copy-code-modal [id^="copy-code-button"] .hr-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`[id^="copy-code-button"]` (ID-Präfix):** Der Code-kopieren-Button hat eine dynamische ID pro Widget — Präfix-Selektor matched alle Instanzen. Gleiches Pattern wie `[id^="filter-apply-"]` in Section 128.
+
+**Template-Cards via `[role="button"].rounded-xl`:** Die Widget-Template-Kacheln haben keine GHL-IDs — ARIA-Attribut + Tailwind-Klasse als Selektor.
+
+**Segment-Tabs via `.hr-tabs-rail`:** Aktive Kapsel-Markierung über Highrise-spezifische `.hr-tabs-rail` Klasse (nicht NaïveUI `--n-bar-color`). Gleiche Methode wie Section 93b.
