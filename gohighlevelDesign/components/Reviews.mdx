@@ -1,0 +1,144 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/Reviews" />
+
+# Reputation – Bewertungen (Section 94)
+
+Die Bewertungen-Seite (`Ruf → Bewertungen`) zeigt alle eingegangenen Reviews mit AI-Zusammenfassungs-Toggle, Rating-Karte mit Progress-Bars, Filter-Selects (Bewertungen, Quellen, Datum, Suche) und Review-Cards. Root-Scope ist `#reviews-container`.
+
+![Reviews Screenshot](./reviews-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#reviews-container` |
+| AI-Toggle | `#ai-summary-toggle.hr-switch--active .hr-switch__rail` |
+| „Bewertungen hinzufügen" | `#add-reviews-button` |
+| Primary Buttons | `#send-review-request-button`, `#empty-review-message-btn-positive-action` |
+| Rating-Filter | `#rating-filter-popover .hr-base-selection` |
+| Datepicker | `#reviews-dates-filter .hr-input` |
+| Suchfeld | `#reviews-search-filter` |
+| Quellen-Select | `.hr-base-selection` |
+| Progress Bars | `.hr-progress-graph-line-fill` |
+| Review-Cards | `.ui-card` |
+| Empty-State | `.ui-empty-icon-container`, `.ui-empty-title` |
+
+---
+
+## 94.1 – Header & Buttons
+
+```css
+/* Hintergrund */
+#reviews-container .reputationApp { background-color: var(--bg) !important; }
+
+/* Titel */
+#reviews-container .ui-display-sm-medium { color: var(--ink) !important; }
+
+/* AI-Toggle aktiv → wine */
+#reviews-container #ai-summary-toggle.hr-switch--active .hr-switch__rail { background-color: var(--wine) !important; }
+#reviews-container .text-gray-700.ui-text-md-medium { color: var(--ink-2) !important; }
+
+/* „Bewertungen hinzufügen" (Secondary hover → wine) */
+#reviews-container #add-reviews-button {
+  border-color: var(--line-hard) !important;
+  background-color: var(--surface) !important;
+  color: var(--ink-2) !important;
+}
+#reviews-container #add-reviews-button:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reviews-container #add-reviews-button .font-medium { color: var(--ink-2) !important; }
+
+/* Primary Buttons → wine (Header + Empty State) */
+#reviews-container #send-review-request-button,
+#reviews-container #empty-review-message-btn-positive-action {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#reviews-container #send-review-request-button:hover,
+#reviews-container #empty-review-message-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 94.2 – Filter-Selects, Datepicker & Suchfeld
+
+```css
+#reviews-container #rating-filter-popover .hr-base-selection,
+#reviews-container #reviews-dates-filter .hr-input,
+#reviews-container #reviews-search-filter {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Quellen-Select (global im Scope) */
+#reviews-container .hr-base-selection {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+```
+
+---
+
+## 94.3 – Rating-Karte, Progress Bars & Cards
+
+```css
+/* Rating-Karte Texte */
+#reviews-container .ui-text-lg-medium { color: var(--ink) !important; }
+#reviews-container .ui-display-sm-semibold { color: var(--ink) !important; }
+#reviews-container .ui-text-sm-regular,
+#reviews-container .ui-text-sm-medium { color: var(--ink-2) !important; }
+
+/* Progress Bars (Sterne-Balken) */
+#reviews-container .hr-progress-graph-line-fill { background: var(--wine) !important; }
+
+/* Divider */
+#reviews-container .hr-divider__line { background-color: var(--line-hard) !important; }
+
+/* Review-Cards */
+#reviews-container .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* AI Zusammenfassung Card — Gradient Text */
+#reviews-container .ui-card .text-sm.font-medium {
+  background: linear-gradient(var(--wine-2), var(--wine)) text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+#reviews-container .ui-card svg[style*="rgb(74, 31, 184)"] { color: var(--wine-2) !important; }
+
+/* „hier" Link */
+#reviews-container #integrations-link p { color: var(--wine-2) !important; text-decoration: underline !important; }
+```
+
+---
+
+## 94.4 – Empty State
+
+```css
+#reviews-container .ui-empty-icon-container { background-color: var(--wine-lt) !important; }
+#reviews-container .ui-empty-icon svg { color: var(--wine-2) !important; }
+#reviews-container .ui-empty-title { color: var(--ink) !important; }
+#reviews-container .ui-empty-description { color: var(--ink-3) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**AI-Zusammenfassung Gradient Text:** GHL nutzt CSS `-webkit-text-fill-color: transparent` + `background: linear-gradient(...) text` für den Gradient-Effekt auf dem AI-Summary-Text. Der Gradient läuft von `var(--wine-2)` → `var(--wine)` — dunkel nach hell.
+
+**`svg[style*="rgb(74, 31, 184)"]` Attribut-Selektor:** Das AI-Icon hat einen Inline-Style mit lila Farbe (`rgb(74, 31, 184)`) — Attribut-Selektor nötig um es auf wine-2 umzufärben. Gleiche Strategie wie Support-Links in Section 126.
+
+**Quellen-Select via globalem `.hr-base-selection`:** Dieser Select hat keine eigene ID — der Scope `#reviews-container .hr-base-selection` greift auf alle hr-Selects im Scope. Kein Kollisions-Risiko da der Scope eng ist.

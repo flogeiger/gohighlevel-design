@@ -18273,6 +18273,134 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   border-color:     var(--akzent-dunkel) !important;
 }
 
+/* ============================================================
+   SECTION 94 — Reviews (#reviews-container)
+   ============================================================ */
+
+/* ── Hintergrund ── */
+#reviews-container .reputationApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Titel ── */
+#reviews-container .ui-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── AI Toggle → wine ── */
+#reviews-container #ai-summary-toggle.hr-switch--active .hr-switch__rail {
+  background-color: var(--akzent) !important;
+}
+#reviews-container .text-gray-700.ui-text-md-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Bewertungen hinzufügen" Button ── */
+#reviews-container #add-reviews-button {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+}
+#reviews-container #add-reviews-button:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#reviews-container #add-reviews-button .font-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Primary Buttons → wine ── */
+#reviews-container #send-review-request-button,
+#reviews-container #empty-review-message-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reviews-container #send-review-request-button:hover,
+#reviews-container #empty-review-message-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Filter Selects → wine ── */
+#reviews-container #rating-filter-popover .hr-base-selection,
+#reviews-container #reviews-dates-filter .hr-input,
+#reviews-container #reviews-search-filter {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+#reviews-container .ui-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+}
+#reviews-container .ui-empty-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#reviews-container .ui-empty-title {
+  color: var(--nav-farbe) !important;
+}
+#reviews-container .ui-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Cards ── */
+#reviews-container .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── AI Zusammenfassung Card ── */
+#reviews-container .ui-card .text-sm.font-medium {
+  background: linear-gradient(var(--akzent-dunkel), var(--akzent)) text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+#reviews-container .ui-card svg[style*="rgb(74, 31, 184)"] {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "hier" Link → wine ── */
+#reviews-container #integrations-link p {
+  color:            var(--akzent-dunkel) !important;
+  text-decoration:  underline !important;
+}
+
+/* ── Rating Karte Texte ── */
+#reviews-container .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#reviews-container .ui-display-sm-semibold {
+  color: var(--nav-farbe) !important;
+}
+#reviews-container .ui-text-sm-regular,
+#reviews-container .ui-text-sm-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Progress Bars (Sterne) → wine ── */
+#reviews-container .hr-progress-graph-line-fill {
+  background: var(--akzent) !important;
+}
+
+/* ── Divider ── */
+#reviews-container .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Quellenfilter Select ── */
+#reviews-container .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
 
 
 
