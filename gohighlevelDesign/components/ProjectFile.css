@@ -19037,7 +19037,143 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   border-color:     var(--akzent-dunkel) !important;
 }
 
+/* ============================================================
+   SECTION 97 — Online Listings Scan Form
+   Scope: #online-listings-container (Scan-Ansicht)
+   ============================================================ */
 
+/* ── Haupt-Card ── */
+#online-listings-container .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Linke Sidebar (Schritte) ── */
+#online-listings-container .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+#online-listings-container .bg-gray-50 .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Steps: aktiver Schritt → wine ── */
+#online-listings-container .hr-step--process-status {
+  --n-indicator-border-color: var(--akzent) !important;
+  --n-indicator-color:        var(--akzent) !important;
+}
+#online-listings-container .hr-step--process-status .hr-step-indicator-slot {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#online-listings-container .hr-step--process-status .hr-step-content-header__title {
+  color: var(--nav-farbe) !important;
+}
+#online-listings-container .hr-step--process-status .hr-step-content__description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Steps: wartende Schritte ── */
+#online-listings-container .hr-step--wait-status .hr-step-content-header__title {
+  color: var(--text-gedaempft) !important;
+}
+#online-listings-container .hr-step--wait-status .hr-step-content__description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Rechte Sidebar Card (Auslöser-Listen) ── */
+#online-listings-container .ui-card .ui-card {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#online-listings-container .ui-card .ui-card .rounded-\[12px\].border {
+  border-color: var(--linie-stark) !important;
+}
+#online-listings-container .ui-card .ui-card svg {
+  color: var(--akzent-dunkel) !important;
+}
+#online-listings-container .ui-card .ui-card .ui-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#online-listings-container .ui-card .ui-card .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Feature-Icons Badges ── */
+#online-listings-container .bg-primary-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#online-listings-container .bg-primary-100 svg {
+  color: var(--akzent-dunkel) !important;
+}
+#online-listings-container .bg-success-100,
+#online-listings-container .bg-warning-100,
+#online-listings-container .bg-gray-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#online-listings-container .ui-text-xs-medium {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Jetzt abonnieren" Button → wine ── */
+#online-listings-container #activeate-yext {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#online-listings-container #activeate-yext:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Scan Form Header ── */
+#online-listings-container .rounded-\[12px\].border.border-gray-300 {
+  border-color: var(--linie-stark) !important;
+}
+#online-listings-container #scan-form .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+#online-listings-container #scan-form .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Form Labels ── */
+#online-listings-container .hr-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+#online-listings-container .hr-form-item-label__asterisk {
+  color: #D92D20 !important;
+}
+
+/* ── Inputs → wine Focus ── */
+#online-listings-container #scan-form .hr-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── "Zurück" Button ── */
+#online-listings-container #scan-back {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#online-listings-container #scan-back:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Scannen" Button → wine ── */
+#online-listings-container #scan-next {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#online-listings-container #scan-next:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
 
 
 

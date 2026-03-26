@@ -1,0 +1,134 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/ListingsScanForm" />
+
+# Reputation – Listings Scan Form (Section 97)
+
+Die Listings Scan-Ansicht öffnet sich nach Klick auf „Scannen Sie mein Unternehmen". Gleicher Scope `#online-listings-container` wie Section 96. Die Seite zeigt einen Step-Indicator links, eine Upsell-Card (Auslöser-Listen) und rechts ein Scan-Formular mit Business-Daten-Inputs.
+
+![Listings Scan Form Screenshot](./listings-scan-form-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#online-listings-container` (gleich wie Section 96) |
+| Aktiver Step | `.hr-step--process-status` |
+| Wartende Steps | `.hr-step--wait-status` |
+| Upsell-Card | `.ui-card .ui-card` |
+| Feature-Icon-Badges | `.bg-primary-100`, `.bg-success-100` etc. |
+| „Jetzt abonnieren" | `#activeate-yext` |
+| Scan-Formular | `#scan-form` |
+| Inputs | `#scan-form .hr-input` |
+| „Zurück" Button | `#scan-back` |
+| „Scannen" Button | `#scan-next` |
+
+---
+
+## 97.1 – Layout & Step-Indicator
+
+```css
+/* Haupt-Card */
+#online-listings-container .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Linke Sidebar */
+#online-listings-container .bg-gray-50 { background-color: var(--bg) !important; }
+#online-listings-container .bg-gray-50 .ui-text-md-medium { color: var(--ink) !important; }
+
+/* Aktiver Schritt → wine */
+#online-listings-container .hr-step--process-status {
+  --n-indicator-border-color: var(--wine) !important;
+  --n-indicator-color: var(--wine) !important;
+}
+#online-listings-container .hr-step--process-status .hr-step-indicator-slot { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#online-listings-container .hr-step--process-status .hr-step-content-header__title { color: var(--ink) !important; }
+#online-listings-container .hr-step--process-status .hr-step-content__description { color: var(--ink-3) !important; }
+
+/* Wartende Schritte */
+#online-listings-container .hr-step--wait-status .hr-step-content-header__title { color: var(--ink-3) !important; }
+#online-listings-container .hr-step--wait-status .hr-step-content__description { color: var(--ink-3) !important; }
+```
+
+---
+
+## 97.2 – Upsell-Card & Feature-Badges
+
+```css
+/* Innere Upsell-Card */
+#online-listings-container .ui-card .ui-card { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#online-listings-container .ui-card .ui-card .rounded-\[12px\].border { border-color: var(--line-hard) !important; }
+#online-listings-container .ui-card .ui-card svg { color: var(--wine-2) !important; }
+#online-listings-container .ui-card .ui-card .ui-text-sm-medium { color: var(--ink) !important; }
+#online-listings-container .ui-card .ui-card .ui-text-sm-regular { color: var(--ink-3) !important; }
+
+/* Feature-Icon-Badges */
+#online-listings-container .bg-primary-100 { background-color: var(--wine-lt) !important; }
+#online-listings-container .bg-primary-100 svg { color: var(--wine-2) !important; }
+#online-listings-container .bg-success-100,
+#online-listings-container .bg-warning-100,
+#online-listings-container .bg-gray-100 { background-color: var(--wine-lt) !important; }
+#online-listings-container .ui-text-xs-medium { color: var(--ink-3) !important; }
+
+/* „Jetzt abonnieren" Primary → wine */
+#online-listings-container #activeate-yext {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#online-listings-container #activeate-yext:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 97.3 – Scan-Formular
+
+```css
+/* Form-Header */
+#online-listings-container .rounded-\[12px\].border.border-gray-300 { border-color: var(--line-hard) !important; }
+#online-listings-container #scan-form .ui-text-md-medium { color: var(--ink) !important; }
+#online-listings-container #scan-form .ui-text-sm-regular { color: var(--ink-3) !important; }
+
+/* Form Labels */
+#online-listings-container .hr-form-item-label__text { color: var(--ink) !important; }
+#online-listings-container .hr-form-item-label__asterisk { color: #D92D20 !important; }
+
+/* Inputs → wine Focus */
+#online-listings-container #scan-form .hr-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* „Zurück" Button */
+#online-listings-container #scan-back { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#online-listings-container #scan-back:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* „Scannen" Primary → wine */
+#online-listings-container #scan-next {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#online-listings-container #scan-next:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Gleicher Scope wie Section 96:** Section 97 ist eine Unteransicht innerhalb von `#online-listings-container` — kein eigener Root-Scope. GHL rendert die Scan-Ansicht per Vue-Router in denselben Container.
+
+**`#activeate-yext` (Tippfehler in GHL-ID):** Die Button-ID enthält einen Tippfehler (`activeate` statt `activate`) — dieser Selektor muss exakt so übernommen werden.
+
+**`.bg-success-100`, `.bg-warning-100`, `.bg-gray-100` → wine-lt:** Die Feature-Icon-Badges nutzen verschiedene Semantic-Color-Klassen (success = grün, warning = gelb, gray = grau) — alle werden auf `var(--wine-lt)` vereinheitlicht, da sie im Kontext der Upsell-Card nur dekorativ sind.
