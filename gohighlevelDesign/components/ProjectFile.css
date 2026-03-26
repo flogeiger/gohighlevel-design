@@ -573,6 +573,70 @@ button#clear-all-filters-btn svg,
 }
 
 /* ============================================================
+   SECTION 92b — Launchpad Video Tutorial Modal
+   Scope: #launchpad-video-tutorial-modal
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#launchpad-video-tutorial-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header ── */
+#launchpad-video-tutorial-modal .hr-dialog__title {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Modal Icon → wine ── */
+#launchpad-video-tutorial-modal .hr-base-icon svg path {
+  fill: var(--akzent) !important;
+}
+
+/* ── Titel ── */
+#launchpad-video-tutorial-modal #launchpad-video-tutorial-modal-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Beschreibung ── */
+#launchpad-video-tutorial-modal #launchpad-video-tutorial-modal-description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+#launchpad-video-tutorial-modal #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+#launchpad-video-tutorial-modal #hr-modal__close-button:hover svg {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Content Bereich ── */
+#launchpad-video-tutorial-modal .hr-dialog__content {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Video Player Controls → wine Akzent ── */
+#launchpad-video-player .vjs-play-progress {
+  background-color: var(--akzent) !important;
+}
+#launchpad-video-player .vjs-volume-level {
+  background-color: var(--akzent) !important;
+}
+#launchpad-video-player .vjs-big-play-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#launchpad-video-player .vjs-big-play-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#launchpad-video-player .vjs-selected {
+  background-color: var(--akzent) !important;
+  color:            var(--base-white) !important;
+}
+
+/* ============================================================
    SECTION 98 — Location Dashboard
    Scope: #dashboard-wrapper
    ============================================================ */

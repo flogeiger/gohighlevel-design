@@ -1,0 +1,101 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Launchpad/VideoTutorialModal" />
+
+# Launchpad – Video Tutorial Modal (Section 92b)
+
+Das Video Tutorial Modal (`#launchpad-video-tutorial-modal`) öffnet sich beim Klick auf einen Tutorial-Link im Launchpad.
+
+![Video Tutorial Modal Screenshot](./video-tutorial-modal-screenshot.png) Es enthält einen Modal-Header mit Icon, Titel und Beschreibung sowie einen Video-Player auf Basis von Video.js (`#launchpad-video-player`). Die Player-Controls (Progress-Bar, Volume, Play-Button) werden auf wine umgefärbt.
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#launchpad-video-tutorial-modal` |
+| Titel | `#launchpad-video-tutorial-modal-title` |
+| Beschreibung | `#launchpad-video-tutorial-modal-description` |
+| Close-Button | `#hr-modal__close-button` |
+| Video-Player | `#launchpad-video-player` |
+| Progress-Bar | `.vjs-play-progress` |
+| Volume | `.vjs-volume-level` |
+| Play-Button | `.vjs-big-play-button` |
+
+---
+
+## 92b.1 – Modal Container & Header
+
+```css
+/* Modal Hintergrund */
+#launchpad-video-tutorial-modal {
+  background-color: var(--surface) !important;
+  border-color: var(--line-hard) !important;
+}
+
+/* Header */
+#launchpad-video-tutorial-modal .hr-dialog__title {
+  background-color: var(--surface) !important;
+}
+
+/* Modal Icon → wine */
+#launchpad-video-tutorial-modal .hr-base-icon svg path {
+  fill: var(--wine) !important;
+}
+
+/* Titel */
+#launchpad-video-tutorial-modal #launchpad-video-tutorial-modal-title {
+  color: var(--ink) !important;
+}
+
+/* Beschreibung */
+#launchpad-video-tutorial-modal #launchpad-video-tutorial-modal-description {
+  color: var(--ink-3) !important;
+}
+
+/* Close-Button */
+#launchpad-video-tutorial-modal #hr-modal__close-button svg { color: var(--ink-3) !important; }
+#launchpad-video-tutorial-modal #hr-modal__close-button:hover svg { color: var(--ink) !important; }
+
+/* Content */
+#launchpad-video-tutorial-modal .hr-dialog__content {
+  background-color: var(--surface) !important;
+}
+```
+
+---
+
+## 92b.2 – Video.js Player Controls
+
+```css
+/* Progress-Bar */
+#launchpad-video-player .vjs-play-progress { background-color: var(--wine) !important; }
+
+/* Volume-Level */
+#launchpad-video-player .vjs-volume-level { background-color: var(--wine) !important; }
+
+/* Großer Play-Button */
+#launchpad-video-player .vjs-big-play-button {
+  background-color: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#launchpad-video-player .vjs-big-play-button:hover {
+  background-color: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+
+/* Ausgewählte Option (z.B. Qualitätsstufe) */
+#launchpad-video-player .vjs-selected {
+  background-color: var(--wine) !important;
+  color: #ffffff !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Video.js Player:** GHL nutzt Video.js als Player-Bibliothek. Die relevanten CSS-Klassen folgen dem `vjs-`-Präfix-Schema. Progress-Bar, Volume-Level und Big-Play-Button werden direkt via Background-Color überschrieben — kein CSS-Variablen-System wie bei NaïveUI.
+
+**`.vjs-selected`:** Betrifft Auswahl-Optionen im Player-Menü (z.B. Wiedergabequalität oder Geschwindigkeit) — wine Hintergrund + weißer Text.
