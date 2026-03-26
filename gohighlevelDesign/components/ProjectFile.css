@@ -18710,6 +18710,334 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   border-color: var(--akzent) !important;
 }
 
+/* ============================================================
+   SECTION 96 — Online Listings (#online-listings-container)
+   ============================================================ */
+
+/* ── Hintergrund ── */
+#online-listings-container .yextApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Card ── */
+#online-listings-container .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel "Ein Tool für Liste" ── */
+#online-listings-container .ui-display-sm-semibold {
+  color: var(--nav-farbe) !important;
+}
+#online-listings-container .ui-display-sm-semibold span {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Carousel Dots ── */
+#online-listings-container .carousel-dot {
+  background-color: var(--linie-stark) !important;
+}
+#online-listings-container .carousel-dot.active {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Beschreibungstext ── */
+#online-listings-container .ui-text-md-normal {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Feature-Box (Border Card) ── */
+#online-listings-container .rounded-\[12px\].border.border-gray-300 {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#online-listings-container .rounded-\[12px\].border.border-gray-300 .rounded-\[12px\] {
+  border-color: var(--linie-stark) !important;
+}
+#online-listings-container .rounded-\[12px\].border.border-gray-300 svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Feature Box Texte ── */
+#online-listings-container .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+#online-listings-container .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Scannen" Button (secondary) → wine hover ── */
+#online-listings-container #scan-button {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#online-listings-container #scan-button:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#online-listings-container #scan-button .hr-button__border {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "Was wir anbieten" Titel ── */
+#online-listings-container .ui-text-md-medium.font-bold {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Feature Icons Texte ── */
+#online-listings-container .ui-text-sm-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Primary Button "Auslöser-Listen" → wine ── */
+#online-listings-container #pitch-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#online-listings-container #pitch-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#online-listings-container #pitch-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 96b — Listings Plan Selector Modal
+   Scope: via #plan-selector-modal-confirm-pitch (closest anchor)
+   ============================================================ */
+
+/* ── Hilfs-Selektor: alle Eltern-Modals die diesen Button enthalten ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .title {
+  color: var(--nav-farbe) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+  color:        var(--text-gedaempft) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── Radio Button Items ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button--checked {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Radio Dot → wine ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot-wrapper {
+  box-shadow: inset 0 0 0 1px var(--linie-stark) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio--checked .hr-radio__dot-wrapper {
+  box-shadow: inset 0 0 0 1px var(--akzent) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot--checked {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Plan Namen & Preise ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-md-medium {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Bester Wert" Tag → wine statt blau ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info .hr-tag__content,
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info div {
+  color: var(--akzent-dunkel) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Footer ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-card__footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-top:       1px solid var(--linie-stark) !important;
+}
+
+/* ── "Absagen" Button ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-cancel-pitch {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-cancel-pitch:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Bestätigen" Button → wine ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-confirm-pitch {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-confirm-pitch:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 96b — Listings Plan Selector Modal
+   Scope: .hr-modal:has(#plan-selector-modal-confirm-pitch)
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .title {
+  color: var(--nav-farbe) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+  color:        var(--text-gedaempft) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── Radio Button Items (inaktiv) ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Radio Button Item (aktiv) → wine ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button--checked {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button--checked .hr-radio-button__state-border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Radio Dot Wrapper: komplett transparent, kein Viereck ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+  outline:          none !important;
+}
+
+/* ── Inaktiver Dot: grauer Kreis ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot {
+  background-color: transparent !important;
+  border:           2px solid var(--linie-stark) !important;
+  border-radius:    50% !important;
+}
+
+/* ── Aktiver Dot Wrapper: auch transparent ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio--checked .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+}
+
+/* ── Aktiver Dot: wine Kreis mit weißem Kern ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot--checked {
+  background-color: var(--akzent) !important;
+  border:           2px solid var(--akzent) !important;
+  border-radius:    50% !important;
+  box-shadow:       inset 0 0 0 3px var(--base-white) !important;
+}
+
+/* ── Plan Namen ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Preise groß ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "/ Monat" etc. ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-md-medium {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Bester Wert" Tag → wine ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info .hr-tag__content,
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info div {
+  color: var(--akzent-dunkel) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Footer ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-card__footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-top:       1px solid var(--linie-stark) !important;
+}
+
+/* ── "Absagen" Button ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-cancel-pitch {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-cancel-pitch:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Bestätigen" Button → wine ── */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-confirm-pitch {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-confirm-pitch:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+
 
 
 

@@ -1,0 +1,167 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/OnlineListings" />
+
+# Reputation – Listings (Sections 96 & 96b)
+
+Die Listings-Seite (`Ruf → Listings`) zeigt eine Upsell-Seite mit Carousel, Feature-Icons und CTA-Buttons. Root-Scope ist `#online-listings-container`. Das **Plan-Selector Modal** (`96b`) öffnet sich beim Klick auf „Auslöser-Listen" und enthält Radio-Button-Karten für drei Preispläne.
+
+- **96** — Listings-Seite (`#online-listings-container`)
+- **96b** — Plan Selector Modal (`.hr-modal:has(#plan-selector-modal-confirm-pitch)`)
+
+![Online Listings Screenshot](./online-listings-screenshot.png)
+![Plan Selector Modal Screenshot](./plan-selector-modal-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 96 | `#online-listings-container` |
+| 96b | `.hr-modal:has(#plan-selector-modal-confirm-pitch)` |
+
+---
+
+## Section 96 – Listings-Seite
+
+```css
+/* Hintergrund */
+#online-listings-container .yextApp { background-color: var(--bg) !important; }
+
+/* Card */
+#online-listings-container .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Titel */
+#online-listings-container .ui-display-sm-semibold { color: var(--ink) !important; }
+#online-listings-container .ui-display-sm-semibold span { color: var(--wine-2) !important; }
+
+/* Carousel Dots */
+#online-listings-container .carousel-dot { background-color: var(--line-hard) !important; }
+#online-listings-container .carousel-dot.active { background-color: var(--wine) !important; }
+
+/* Texte */
+#online-listings-container .ui-text-md-normal { color: var(--ink-2) !important; }
+#online-listings-container .ui-text-md-medium { color: var(--ink) !important; }
+#online-listings-container .ui-text-md-medium.font-bold { color: var(--ink) !important; }
+#online-listings-container .ui-text-sm-regular { color: var(--ink-3) !important; }
+#online-listings-container .ui-text-sm-medium { color: var(--ink-2) !important; }
+
+/* Feature-Box */
+#online-listings-container .rounded-\[12px\].border.border-gray-300 {
+  border-color: var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#online-listings-container .rounded-\[12px\].border.border-gray-300 .rounded-\[12px\] { border-color: var(--line-hard) !important; }
+#online-listings-container .rounded-\[12px\].border.border-gray-300 svg { color: var(--wine-2) !important; }
+
+/* „Scannen" Button (Secondary hover → wine) */
+#online-listings-container #scan-button { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#online-listings-container #scan-button:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#online-listings-container #scan-button .hr-button__border { border-color: var(--line-hard) !important; }
+
+/* „Auslöser-Listen" Primary Button → wine */
+#online-listings-container #pitch-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#online-listings-container #pitch-button .hr-button__border { border-color: var(--wine) !important; }
+#online-listings-container #pitch-button:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Section 96b – Plan Selector Modal
+
+```css
+/* Modal */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Header */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .title { color: var(--ink) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-sm-regular { color: var(--ink-3) !important; }
+
+/* Close Button */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-header-modal-close-btn { border-color: var(--line-hard) !important; color: var(--ink-3) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-header-modal-close-btn:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* Radio-Button-Karten */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button { border-color: var(--line-hard) !important; background-color: var(--surface) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button--checked { border-color: var(--wine) !important; background-color: var(--wine-lt) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio-button--checked .hr-radio-button__state-border { border-color: var(--wine) !important; }
+
+/* Radio Dot — Wrapper komplett transparent */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+/* Inaktiver Dot: grauer Kreis */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot {
+  background-color: transparent !important;
+  border: 2px solid var(--line-hard) !important;
+  border-radius: 50% !important;
+}
+/* Aktiver Dot Wrapper */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio--checked .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+/* Aktiver Dot: wine mit weißem Kern */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-radio__dot--checked {
+  background-color: var(--wine) !important;
+  border: 2px solid var(--wine) !important;
+  border-radius: 50% !important;
+  box-shadow: inset 0 0 0 3px #ffffff !important;
+}
+
+/* Plan-Texte & Preise */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-sm-medium { color: var(--ink) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-display-sm-medium { color: var(--ink) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .ui-text-md-medium { color: var(--ink-3) !important; }
+
+/* „Bester Wert" Tag → wine statt blau */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info {
+  background-color: var(--wine-lt) !important;
+  border-color: var(--wine) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info .hr-tag__content,
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag.ui-info div { color: var(--wine-2) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-tag__border { border-color: var(--wine) !important; }
+
+/* Footer */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) .hr-card__footer { background-color: var(--surface) !important; border-top: 1px solid var(--line-hard) !important; }
+
+/* „Absagen" Button */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-cancel-pitch { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-cancel-pitch:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* „Bestätigen" Primary Button */
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-confirm-pitch {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+.hr-modal:has(#plan-selector-modal-confirm-pitch) #plan-selector-modal-confirm-pitch:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Radio-Dot mit `box-shadow: inset 0 0 0 3px #ffffff`:** Der aktive Radio-Dot wird als ausgefüllter wine-Kreis mit weißem Kern dargestellt — `background-color: var(--wine)` + `box-shadow: inset 0 0 0 3px white`. Der Wrapper erhält explizit `background: transparent; box-shadow: none; border: none` um GHL-Default-Styles zu neutralisieren.
+
+**`.hr-modal:has(#plan-selector-modal-confirm-pitch)` als Scope:** Das Modal hat keine eigene Root-ID — der `:has()`-Anker auf dem Confirm-Button ist der einzig stabile Selektor. Gleiche Strategie wie Section 123d/123e.
+
+**`.yextApp` als Hintergrund-Selektor (Section 96):** GHL nutzt den Yext-Klassenamen für den Listings-Wrapper — weist auf die Yext-Integration hin.
