@@ -1,0 +1,106 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/ReviewRequests" />
+
+# Reputation – Anfragen (Section 93)
+
+Die Review Requests Seite (`Ruf → Anfragen`) zeigt eine Liste gesendeter Bewertungsanfragen. Root-Scope ist `#review-requests-container`. Die Seite enthält zwei Header-Buttons, ein Suchfeld, zwei Filter-Selects (Status, Gesendet über) und einen Empty-State.
+
+![Review Requests Screenshot](./review-requests-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#review-requests-container` |
+| „Bewertungslink konfigurieren" | `#configure-review-link-button` |
+| „Anfrage senden" (Header + Empty) | `#send-review-request-button`, `#empty-review-request-message-btn-positive-action` |
+| Suchfeld | `#review-requests-search-filter` |
+| Status-Filter | `#review-requests-status-filter .hr-base-selection` |
+| Methoden-Filter | `#review-requests-method-filter .hr-base-selection` |
+| Empty-State | `.ui-empty-icon-container`, `.ui-empty-icon`, `.ui-empty-title`, `.ui-empty-description` |
+
+---
+
+## 93.1 – Header & Buttons
+
+```css
+/* Hintergrund */
+#review-requests-container .reputationApp { background-color: var(--bg) !important; }
+
+/* Titel */
+#review-requests-container .ui-display-sm-medium { color: var(--ink) !important; }
+
+/* „Bewertungslink konfigurieren" (Secondary hover → wine) */
+#review-requests-container #configure-review-link-button {
+  border-color: var(--line-hard) !important;
+  color: var(--ink-2) !important;
+  background-color: var(--surface) !important;
+}
+#review-requests-container #configure-review-link-button:hover {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+#review-requests-container #configure-review-link-button .hr-button__border { border-color: var(--line-hard) !important; }
+#review-requests-container #configure-review-link-button:hover .hr-button__border { border-color: var(--wine) !important; }
+
+/* „Anfrage senden" Primary → wine (Header + Empty State) */
+#review-requests-container #send-review-request-button,
+#review-requests-container #empty-review-request-message-btn-positive-action {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#review-requests-container #send-review-request-button .hr-button__border,
+#review-requests-container #empty-review-request-message-btn-positive-action .hr-button__border { border-color: var(--wine) !important; }
+#review-requests-container #send-review-request-button:hover,
+#review-requests-container #empty-review-request-message-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 93.2 – Suchfeld & Filter-Selects
+
+```css
+/* Suchfeld */
+#review-requests-container #review-requests-search-filter {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Status + Methoden Select */
+#review-requests-container #review-requests-status-filter .hr-base-selection,
+#review-requests-container #review-requests-method-filter .hr-base-selection {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+```
+
+---
+
+## 93.3 – Empty State
+
+```css
+#review-requests-container .ui-empty-icon-container { background-color: var(--wine-lt) !important; }
+#review-requests-container .ui-empty-icon svg { color: var(--wine-2) !important; }
+#review-requests-container .ui-empty-title { color: var(--ink) !important; }
+#review-requests-container .ui-empty-description { color: var(--ink-3) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Derselbe Primary-Button in zwei Kontexten:** `#send-review-request-button` (Header, sichtbar wenn Daten vorhanden) und `#empty-review-request-message-btn-positive-action` (Empty-State CTA) sind identisch gestylt — beide werden parallel mit demselben CSS abgedeckt.

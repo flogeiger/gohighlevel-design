@@ -18071,6 +18071,91 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   background-color: var(--akzent) !important;
 }
 
+/* ============================================================
+   SECTION 93 — Reputation / Review Requests
+   Scope: #review-requests-container
+   ============================================================ */
+
+/* ── Hintergrund ── */
+#review-requests-container .reputationApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Titel "Anfragen" ── */
+#review-requests-container .ui-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Bewertungslink konfigurieren" Button (secondary) ── */
+#review-requests-container #configure-review-link-button {
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#review-requests-container #configure-review-link-button:hover {
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+#review-requests-container #configure-review-link-button .hr-button__border {
+  border-color: var(--linie-stark) !important;
+}
+#review-requests-container #configure-review-link-button:hover .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Anfrage senden" Primary Button → wine ── */
+#review-requests-container #send-review-request-button,
+#review-requests-container #empty-review-request-message-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#review-requests-container #send-review-request-button .hr-button__border,
+#review-requests-container #empty-review-request-message-btn-positive-action .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#review-requests-container #send-review-request-button:hover,
+#review-requests-container #empty-review-request-message-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#review-requests-container #review-requests-search-filter {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* ── Filter Selects → wine ── */
+#review-requests-container #review-requests-status-filter .hr-base-selection,
+#review-requests-container #review-requests-method-filter .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+#review-requests-container .ui-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+}
+#review-requests-container .ui-empty-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#review-requests-container .ui-empty-title {
+  color: var(--nav-farbe) !important;
+}
+#review-requests-container .ui-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+
+
+
 
 /* ================================================
    Section 112 – Berichte (Reports)
