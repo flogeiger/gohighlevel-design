@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/GBPOptimierung" />
+
+# Reputation – GBP-optimierung (Section 99)
+
+Die GBP-Optimierungsseite (`Ruf → GBP-optimierung`) zeigt einen Empty-State mit Katzen-Illustration und einem „GBP integrieren"-Button. Root-Scope ist `#gbp-optimization-container`. Die Seite nutzt denselben `.yextApp`-Wrapper wie Section 96 (Listings).
+
+![GBP Optimierung Screenshot](./gbp-optimierung-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#gbp-optimization-container` |
+| Wrapper | `.yextApp` |
+| Card | `.ui-card` |
+| Empty State Bild | `img.border.border-red-500` |
+| „GBP integrieren" Button | `#gmb-connect-action-button` |
+
+---
+
+## 99.1 – Layout & Texte
+
+```css
+/* Hintergrund */
+#gbp-optimization-container .yextApp { background-color: var(--bg) !important; }
+
+/* Titel & Beschreibung */
+#gbp-optimization-container .ui-text-lg-medium { color: var(--ink) !important; }
+#gbp-optimization-container .ui-text-sm-regular { color: var(--ink-3) !important; }
+
+/* Card */
+#gbp-optimization-container .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Empty State Bild — roter Border → neutral */
+#gbp-optimization-container img.border.border-red-500 { border-color: var(--line-hard) !important; }
+```
+
+---
+
+## 99.2 – „GBP integrieren" Button
+
+```css
+#gbp-optimization-container #gmb-connect-action-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#gbp-optimization-container #gmb-connect-action-button .hr-button__border { border-color: var(--wine) !important; }
+#gbp-optimization-container #gmb-connect-action-button:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`.yextApp` als Hintergrund-Scope:** Gleicher Wrapper wie Section 96 (Listings) — weist auf die Yext-Integration hin.
+
+**`img.border.border-red-500`:** GHL setzt auf dem Empty-State-Bild einen roten Tailwind-Border — dieser wird auf `var(--line-hard)` zurückgesetzt, da er kein semantisches Error-Signal ist, sondern nur Dekoration.

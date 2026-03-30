@@ -20432,7 +20432,48 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   color:        var(--akzent-dunkel) !important;
 }
 
+/* ============================================================
+   SECTION 99 — GMB Optimierung (#gbp-optimization-container)
+   ============================================================ */
 
+/* ── Hintergrund ── */
+#gbp-optimization-container .yextApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+#gbp-optimization-container .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#gbp-optimization-container .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Card ── */
+#gbp-optimization-container .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Empty State Bild Border (rot → linie-stark) ── */
+#gbp-optimization-container img.border.border-red-500 {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "GBP integrieren" Button → wine ── */
+#gbp-optimization-container #gmb-connect-action-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#gbp-optimization-container #gmb-connect-action-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#gbp-optimization-container #gmb-connect-action-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
 
 
 
