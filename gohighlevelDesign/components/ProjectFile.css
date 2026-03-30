@@ -19175,6 +19175,1264 @@ html body .reputationApp .ui-empty-actions .hr-button--primary-type:hover {
   border-color:     var(--akzent-dunkel) !important;
 }
 
+/* ============================================================
+   SECTION 98 — Reputation Settings (#reputation-settings-container)
+   ============================================================ */
+
+/* ── Hintergrund ── */
+#reputation-settings-container .reputationApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Vertikal Tabs (links) ── */
+#reputation-settings-container .hr-tabs-nav {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Tab Bar → wine ── */
+#reputation-settings-container .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Tabs inaktiv ── */
+#reputation-settings-container .hr-tabs-tab p {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tab aktiv → wine ── */
+#reputation-settings-container .hr-tabs-tab--active p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Cards ── */
+#reputation-settings-container .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Card Titel ── */
+#reputation-settings-container .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Radio Button Items (inaktiv) ── */
+#reputation-settings-container .hr-radio-button {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Radio Button Item (aktiv) → wine ── */
+#reputation-settings-container .hr-radio-button--checked {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container .hr-radio-button--checked .hr-radio-button__state-border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Radio Icon Hintergrund → wine ── */
+#reputation-settings-container .ui-radio-group-item-icon div[style*="rgb(239, 244, 255)"] {
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container .ui-radio-group-item-icon div[style*="rgb(209, 224, 255)"] {
+  background-color: var(--akzent-a20) !important;
+}
+#reputation-settings-container .ui-radio-group-item-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Radio Dot: transparent, kein Viereck ── */
+#reputation-settings-container .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+}
+#reputation-settings-container .hr-radio__dot {
+  background-color: transparent !important;
+  border:           2px solid var(--linie-stark) !important;
+  border-radius:    50% !important;
+}
+#reputation-settings-container .hr-radio--checked .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+}
+#reputation-settings-container .hr-radio__dot--checked {
+  background-color: var(--akzent) !important;
+  border:           2px solid var(--akzent) !important;
+  border-radius:    50% !important;
+  box-shadow:       inset 0 0 0 3px var(--base-white) !important;
+}
+
+/* ── Radio Item Texte ── */
+#reputation-settings-container .ui-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Wartezeit" Label ── */
+#reputation-settings-container .text-gray-700.ui-text-sm-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Input & Select → wine Focus ── */
+#reputation-settings-container #ai-reviews-wait-value-input .hr-input,
+#reputation-settings-container #ai-reviews-wait-unit-select .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* ── "Upgrade" Button (n-button Klasse) → wine ── */
+#reputation-settings-container #upgrade-button.n-button {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#reputation-settings-container #upgrade-button.n-button span,
+#reputation-settings-container #upgrade-button.n-button p {
+  color: var(--akzent-dunkel) !important;
+}
+#reputation-settings-container #upgrade-button.n-button svg {
+  color: var(--akzent-dunkel) !important;
+}
+#reputation-settings-container #upgrade-button.n-button .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #upgrade-button.n-button:hover {
+  border-color:     var(--akzent-dunkel) !important;
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Drip Mode Empty State ── */
+#reputation-settings-container .border-gray-50 {
+  border-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container .bg-gray-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container .bg-gray-100 svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Jetzt integrieren" Button → wine ── */
+#reputation-settings-container #drip-mode-integrate-now-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container #drip-mode-integrate-now-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #drip-mode-integrate-now-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── "Starter-Assistenten Erstellen" Button ── */
+#reputation-settings-container #create-starter-templates-button {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-settings-container #create-starter-templates-button .hr-button__border {
+  border-color: var(--linie-stark) !important;
+}
+#reputation-settings-container #create-starter-templates-button:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#reputation-settings-container #create-starter-templates-button p {
+  color: inherit !important;
+}
+
+/* ── "Agentur Erstellen" Button → wine ── */
+#reputation-settings-container #create-review-ai-agent-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container #create-review-ai-agent-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #create-review-ai-agent-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Tabelle Header ── */
+#reputation-settings-container .hr-data-table-th {
+  background-color: var(--hintergrund) !important;
+  color:            var(--nav-farbe) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Tabelle Rows ── */
+#reputation-settings-container .hr-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reputation-settings-container .hr-data-table-td:hover {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Tags: blau → wine ── */
+#reputation-settings-container .hr-tag.ui-success,
+#reputation-settings-container .hr-tag.ui-primary {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container .hr-tag.ui-success .hr-tag__content,
+#reputation-settings-container .hr-tag.ui-primary .hr-tag__content {
+  color: var(--akzent-dunkel) !important;
+}
+#reputation-settings-container .hr-tag.ui-success .hr-tag__border,
+#reputation-settings-container .hr-tag.ui-primary .hr-tag__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Tag "default" (Quellen) ── */
+#reputation-settings-container .hr-tag.ui-default {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+
+/* ── Pagination ── */
+#reputation-settings-container .hr-pagination-item--active {
+  color:        var(--akzent-dunkel) !important;
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #reviews-ai-agents-table-previous,
+#reputation-settings-container #reviews-ai-agents-table-next {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-settings-container #reviews-ai-agents-table-previous:hover,
+#reputation-settings-container #reviews-ai-agents-table-next:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Upgrade" Button: AI Icon Farbe → wine (Inline-Style Override) ── */
+#reputation-settings-container #upgrade-button.n-button,
+#reputation-settings-container #upgrade-button.n-button * {
+  color: var(--akzent-dunkel) !important;
+}
+#reputation-settings-container #upgrade-button.n-button svg {
+  color: var(--akzent-dunkel) !important;
+  stroke: var(--akzent-dunkel) !important;
+}
+
+/* ── "Agentur Erstellen" Button: weißer Text & Icon ── */
+#reputation-settings-container #create-review-ai-agent-button,
+#reputation-settings-container #create-review-ai-agent-button p,
+#reputation-settings-container #create-review-ai-agent-button svg,
+#reputation-settings-container #create-review-ai-agent-button span {
+  color: var(--base-white) !important;
+}
+#reputation-settings-container #create-review-ai-agent-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ============================================================
+   SECTION 98b — Reputation Settings: Bewertung-Link Tab
+   Scope: #reputation-settings-container (Tab: reviewRequestLink)
+   ============================================================ */
+
+/* ── Haupt-Container ── */
+#reputation-settings-container .rounded-lg.border.border-gray-200.bg-white {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+#reputation-settings-container .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Auto Balance aktiviert" Tag → wine ── */
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden .hr-tag__content,
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden p,
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Balance Card (innere Border-Box) ── */
+#reputation-settings-container .m-4.rounded-lg.border {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Toggle → wine ── */
+#reputation-settings-container #review-request-link-balancing-switch.hr-switch--active .hr-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* ── "Balance konfigurieren" Button → wine ── */
+#reputation-settings-container #configure-review-balance-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container #configure-review-balance-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #configure-review-balance-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Divider ── */
+#reputation-settings-container .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Linke/Rechte Spalte Border ── */
+#reputation-settings-container .border-r.border-gray-200,
+#reputation-settings-container .border-l.border-gray-200 {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Radio Button (aktiv) → wine ── */
+#reputation-settings-container #review-request-link-platform-selection .hr-radio-button--checked {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container #review-request-link-platform-selection .hr-radio-button--checked .hr-radio-button__state-border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #review-request-link-platform-selection .hr-radio-button {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Radio Dot → wine ── */
+#reputation-settings-container #review-request-link-platform-selection .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+}
+#reputation-settings-container #review-request-link-platform-selection .hr-radio__dot {
+  background-color: transparent !important;
+  border:           2px solid var(--linie-stark) !important;
+  border-radius:    50% !important;
+}
+#reputation-settings-container #review-request-link-platform-selection .hr-radio--checked .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+}
+#reputation-settings-container #review-request-link-platform-selection .hr-radio__dot--checked {
+  background-color: var(--akzent) !important;
+  border:           2px solid var(--akzent) !important;
+  border-radius:    50% !important;
+  box-shadow:       inset 0 0 0 3px var(--base-white) !important;
+}
+
+/* ── Custom Link Input → wine Focus ── */
+#reputation-settings-container #review-request-custom-link-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+#reputation-settings-container #review-request-custom-link-input .hr-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Stornieren" Button ── */
+#reputation-settings-container #review-link-settings-save-btn-negative-action {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-settings-container #review-link-settings-save-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+#reputation-settings-container #review-link-settings-save-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container #review-link-settings-save-btn-positive-action .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #review-link-settings-save-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 98c — Reputation Settings: SMS-Anfragen Tab
+   Scope: #reputation-settings-container (Tab: reviewRequestSMS)
+   ============================================================ */
+
+/* ── Card ── */
+#reputation-settings-container #sms-review-request-enable-switch ~ * .ui-card,
+#reputation-settings-container .mb-4.ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+#reputation-settings-container .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Toggle → wine ── */
+#reputation-settings-container #sms-review-request-enable-switch.hr-switch--active .hr-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Select Labels ── */
+#reputation-settings-container .ui-text[id="fba75125-ed84-475b-80aa-08866d566c76"],
+#reputation-settings-container .ui-text[id="106ee73c-678d-4165-b120-6240e6931751"],
+#reputation-settings-container .ui-text[id="09454f6e-1400-4a55-a1ae-de7d13df1a59"] {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Selects → wine Focus ── */
+#reputation-settings-container #check-in-wait-select .hr-base-selection,
+#reputation-settings-container #check-in-interval-select .hr-base-selection,
+#reputation-settings-container #check-in-max-attempts-select .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+}
+
+/* ── Tabellen-Header Texte ── */
+#reputation-settings-container .ui-text[id="manage-sms-templates-title"] {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .ui-text[id="manage-sms-templates-description"] {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "SMS-Vorlagen festlegen" Button ── */
+#reputation-settings-container #set-sms-template-button {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-settings-container #set-sms-template-button .hr-button__border {
+  border-color: var(--linie-stark) !important;
+}
+#reputation-settings-container #set-sms-template-button:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Neu erstellen" Button → wine ── */
+#reputation-settings-container #create-sms-template-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container #create-sms-template-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #create-sms-template-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Tabelle Header ── */
+#reputation-settings-container .hr-data-table-th {
+  background-color: var(--hintergrund) !important;
+  color:            var(--nav-farbe) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Tabelle Rows ── */
+#reputation-settings-container .hr-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reputation-settings-container .hr-data-table-td:hover {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Template Name ── */
+#reputation-settings-container .hr-data-table-td .ui-text[weight="medium"] {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Template Message ── */
+#reputation-settings-container .hr-data-table-td .ui-text[weight="regular"] {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Live" Tag → wine ── */
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden .hr-tag__content,
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden div {
+  color: var(--akzent-dunkel) !important;
+}
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden .hr-tag__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Action Icons in Tabelle ── */
+#reputation-settings-container .hr-data-table-td svg.text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+#reputation-settings-container .hr-data-table-td svg.text-gray-600:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Pagination ── */
+#reputation-settings-container .hr-pagination-item--active {
+  color:        var(--akzent-dunkel) !important;
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #sms-review-request-templates-table-previous,
+#reputation-settings-container #sms-review-request-templates-table-next {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-settings-container #sms-review-request-templates-table-previous:hover,
+#reputation-settings-container #sms-review-request-templates-table-next:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 98c-Modal — SMS Vorlagen-Builder Modal
+   Scope: #sms-review-request-editor-modal
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#sms-review-request-editor-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header ── */
+#sms-review-request-editor-modal .hr-card-header {
+  background-color: var(--hintergrund-karte) !important;
+}
+#sms-review-request-editor-modal .title {
+  color: var(--nav-farbe) !important;
+}
+#sms-review-request-editor-modal .description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+#sms-review-request-editor-modal #sms-review-request-editor-modal-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+  color:        var(--text-gedaempft) !important;
+}
+#sms-review-request-editor-modal #sms-review-request-editor-modal-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── Border zwischen Spalten ── */
+#sms-review-request-editor-modal .border-b.border-t.border-gray-200 {
+  border-color: var(--linie-stark) !important;
+}
+#sms-review-request-editor-modal .bg-gray-200 {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Form Labels ── */
+#sms-review-request-editor-modal .ui-text-sm-regular {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Inputs → wine Focus ── */
+#sms-review-request-editor-modal #sms-template-name-input,
+#sms-review-request-editor-modal #sms-template-image-url-input,
+#sms-review-request-editor-modal #sms-rev-req-message-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── Toggle (Bild) → wine ── */
+#sms-review-request-editor-modal #sms-image-enabled-switch.hr-switch--active .hr-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Upload Dragger → wine ── */
+#sms-review-request-editor-modal #sms-image-upload .hr-upload-dragger {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#sms-review-request-editor-modal #sms-image-upload .hr-upload-dragger:hover {
+  border-color: var(--akzent) !important;
+}
+#sms-review-request-editor-modal #sms-image-upload .ui-upload-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+#sms-review-request-editor-modal .font-semibold.text-blue-700 {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Divider "Oder" ── */
+#sms-review-request-editor-modal .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+#sms-review-request-editor-modal #sms-review-request-editor-modal-or-text {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Preview Bereich ── */
+#sms-review-request-editor-modal .ui-preview__page {
+  background-color: var(--hintergrund-karte) !important;
+}
+#sms-review-request-editor-modal .border-b.border-gray-200,
+#sms-review-request-editor-modal .border-t.border-gray-200 {
+  border-color: var(--linie-stark) !important;
+}
+#sms-review-request-editor-modal #sms-template-name-preview {
+  color: var(--nav-farbe) !important;
+}
+#sms-review-request-editor-modal #sms-template-message-preview {
+  color: var(--text-gedaempft) !important;
+}
+#sms-review-request-editor-modal .rounded-xl.border.border-gray-200 {
+  border-color: var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#sms-review-request-editor-modal .rounded-lg.border.border-gray-200 {
+  border-color: var(--linie-stark) !important;
+}
+#sms-review-request-editor-modal .text-primary-600 {
+  color: var(--akzent-dunkel) !important;
+}
+#sms-review-request-editor-modal .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Footer ── */
+#sms-review-request-editor-modal .hr-card__footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-top:       1px solid var(--linie-stark) !important;
+}
+
+/* ── "Stornieren" Button ── */
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-negative-action {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-positive-action .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 98d — Reputation Settings: E-Mail-Anfragen Tab
+   Scope: #reputation-settings-container (Tab: reviewRequestEmail)
+   ============================================================ */
+
+/* ── Toggle → wine ── */
+#reputation-settings-container #email-review-request-enable-switch.hr-switch--active .hr-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Select Labels ── */
+#reputation-settings-container .ui-text[id="184d61b9-e364-4a0a-a50a-252d22983372"],
+#reputation-settings-container .ui-text[id="7b8b1bef-4f3e-4ccb-a5ff-b6df3ac6c361"],
+#reputation-settings-container .ui-text[id="2c0cf5f8-3a53-4870-8871-49806e0176e9"] {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Selects → wine Focus ── */
+#reputation-settings-container #check-in-wait-select .hr-base-selection,
+#reputation-settings-container #check-in-interval-select .hr-base-selection,
+#reputation-settings-container #check-in-max-attempts-select .hr-base-selection {
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── Abschnittstitel ── */
+#reputation-settings-container .ui-text-md-medium[id="508e421b-c748-41b0-bb43-4d7b9cb710db"] {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Sammlung E-Mail-Vorlagen" Button ── */
+#reputation-settings-container #set-email-templates-button {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-settings-container #set-email-templates-button .hr-button__border {
+  border-color: var(--linie-stark) !important;
+}
+#reputation-settings-container #set-email-templates-button:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#reputation-settings-container #set-email-templates-button p {
+  color: inherit !important;
+}
+
+/* ── "Neu Erstellen" Button → wine ── */
+#reputation-settings-container #create-email-templates-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container #create-email-templates-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #create-email-templates-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Template Filter Tags ── */
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer .hr-tag__content,
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer p {
+  color: var(--akzent-dunkel) !important;
+}
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer .hr-tag__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Entwurf" Tag (default) ── */
+#reputation-settings-container .hr-tag.ui-default.cursor-pointer {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reputation-settings-container .hr-tag.ui-default.cursor-pointer p {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Template Card ── */
+#reputation-settings-container .rounded.border.border-gray-200.p-3 {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reputation-settings-container .rounded.border.border-gray-200.p-3 .h-24.w-24 {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Template Name ── */
+#reputation-settings-container .ui-text-sm-medium[id="adec880f-7320-4f5d-805d-1277a25513ff"] {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Live" Tag in Template Card → wine ── */
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden .hr-tag__content div {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Betreff Texte ── */
+#reputation-settings-container .ui-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── 3-Punkte Menü Icon ── */
+#reputation-settings-container .rounded.border.border-gray-200.p-3 svg.cursor-pointer {
+  color: var(--text-gedaempft) !important;
+}
+#reputation-settings-container .rounded.border.border-gray-200.p-3 svg.cursor-pointer:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Neu Erstellen" Button: weißer Text & Icon ── */
+#reputation-settings-container #create-email-templates-button,
+#reputation-settings-container #create-email-templates-button p,
+#reputation-settings-container #create-email-templates-button svg,
+#reputation-settings-container #create-email-templates-button span {
+  color: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 98e — Reputation Settings: WhatsApp-Anfragen Tab
+   Scope: #reputation-settings-container (Tab: reviewRequestWhatsApp)
+   ============================================================ */
+
+/* ── Card ── */
+#reputation-settings-container .ui-card:has(#connect-whatsapp-button) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel ── */
+#reputation-settings-container .ui-card:has(#connect-whatsapp-button) .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── WhatsApp Chat-Box: grüner Border bleibt, Texte anpassen ── */
+#reputation-settings-container .border-success-600 .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .border-success-600 .ui-text-sm-regular {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "WhatsApp verbinden" Button ── */
+#reputation-settings-container #connect-whatsapp-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#reputation-settings-container #connect-whatsapp-button .hr-button__border {
+  border-color: var(--linie-stark) !important;
+}
+#reputation-settings-container #connect-whatsapp-button:hover {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container #connect-whatsapp-button .ui-text-md-medium {
+  color: var(--nav-hover) !important;
+}
+#reputation-settings-container #connect-whatsapp-button:hover .ui-text-md-medium {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 98f — Reputation Settings: QR-Code Tab
+   Scope: #reputation-settings-container (Tab: reviewRequestQRCode)
+   ============================================================ */
+
+/* ── Card ── */
+#reputation-settings-container .ui-card:has(#open-modal-button) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+#reputation-settings-container .ui-card:has(#open-modal-button) .text-lg.font-bold.text-gray-600 {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .ui-card:has(#open-modal-button) .text-md.font-normal.text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "QR-Code erstellen" Header Button → wine ── */
+#reputation-settings-container .ui-card:has(#open-modal-button) > .ui-card-content > .hr-space #open-modal-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container .ui-card:has(#open-modal-button) > .ui-card-content > .hr-space #open-modal-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container .ui-card:has(#open-modal-button) > .ui-card-content > .hr-space #open-modal-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Empty State ── */
+#reputation-settings-container .hr-data-table-empty {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── QR Icon → wine statt blau ── */
+#reputation-settings-container .hr-data-table-empty .text-blue-500 {
+  color: var(--akzent) !important;
+}
+
+/* ── Empty State Texte ── */
+#reputation-settings-container .hr-data-table-empty .text-lg.font-bold {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .hr-data-table-empty .text-md.font-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Neu" Button (Empty State) → wine ── */
+#reputation-settings-container .hr-data-table-empty #open-modal-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container .hr-data-table-empty #open-modal-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container .hr-data-table-empty #open-modal-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Tabellen Header & Rows ── */
+#reputation-settings-container .ui-card:has(#open-modal-button) .hr-data-table-th {
+  background-color: var(--hintergrund) !important;
+  color:            var(--nav-farbe) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reputation-settings-container .ui-card:has(#open-modal-button) .hr-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ============================================================
+   SECTION 98f-Modal — QR Code Builder Modal
+   Scope: #reputation-builder-modal
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#reputation-builder-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Top Nav Bar ── */
+#reputation-builder-modal #editor-top-nav {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── "Back" Button ── */
+#reputation-builder-modal #back-btn {
+  color: var(--nav-hover) !important;
+}
+#reputation-builder-modal #back-btn:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Titel Input → wine Focus ── */
+#reputation-builder-modal #editor-title {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── Undo / Redo / Download Buttons ── */
+#reputation-builder-modal #undo,
+#reputation-builder-modal #redo,
+#reputation-builder-modal #download {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-builder-modal #undo:not(:disabled):hover,
+#reputation-builder-modal #redo:not(:disabled):hover,
+#reputation-builder-modal #download:not(:disabled):hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Save" Button → wine ── */
+#reputation-builder-modal #save {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-builder-modal #save .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-builder-modal #save:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Elements Sidebar (links) ── */
+#reputation-builder-modal #elements-sidebar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reputation-builder-modal #elements-sidebar .hl-text-md-medium,
+#reputation-builder-modal #elements-sidebar uitextmdmedium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Element Cards (Text / Image / QR Code) ── */
+#reputation-builder-modal .all-elements > div {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--text-gedaempft) !important;
+}
+#reputation-builder-modal .all-elements > div:hover {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 4px 12px var(--akzent-a20) !important;
+}
+#reputation-builder-modal .all-elements .hl-text-sm-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Canvas Bereich ── */
+#reputation-builder-modal .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Canvas Element Actions (Clone/Delete Toolbar) ── */
+#reputation-builder-modal .canvas-element-actions {
+  background-color: var(--nav-farbe) !important;
+}
+#reputation-builder-modal #clone-element-btn,
+#reputation-builder-modal #remove-element-btn {
+  color: var(--base-white) !important;
+}
+#reputation-builder-modal #clone-element-btn:hover svg,
+#reputation-builder-modal #remove-element-btn:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Properties Sidebar (rechts) ── */
+#reputation-builder-modal #elements-sidebar:last-of-type {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reputation-builder-modal .hl-text-xs-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Color Picker Trigger ── */
+#reputation-builder-modal .n-color-picker-trigger {
+  border-color: var(--linie-stark) !important;
+}
+#reputation-builder-modal .custom-trigger-styling {
+  border-color: var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#reputation-builder-modal .custom-trigger-styling .text-black {
+  color: var(--nav-hover) !important;
+}
+
+/* ============================================================
+   SECTION 98g — Reputation Settings: Spam-Bewertungen Tab
+   Scope: #reputation-settings-container (Tab: spamReviews)
+   ============================================================ */
+
+/* ── Card ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Radio Button Items (inaktiv) ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio-button {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Radio Button Item (aktiv) → wine ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio-button--checked {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio-button--checked .hr-radio-button__state-border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Radio Icon Hintergrund → wine ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .ui-radio-group-item-icon div[style*="rgb(239, 244, 255)"] {
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .ui-radio-group-item-icon div[style*="rgb(209, 224, 255)"] {
+  background-color: var(--akzent-a20) !important;
+}
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .ui-radio-group-item-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Radio Dot: kein Viereck ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+}
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio__dot {
+  background-color: transparent !important;
+  border:           2px solid var(--linie-stark) !important;
+  border-radius:    50% !important;
+}
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio--checked .hr-radio__dot-wrapper {
+  background-color: transparent !important;
+  box-shadow:       none !important;
+  border:           none !important;
+}
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio__dot--checked {
+  background-color: var(--akzent) !important;
+  border:           2px solid var(--akzent) !important;
+  border-radius:    50% !important;
+  box-shadow:       inset 0 0 0 3px var(--base-white) !important;
+}
+
+/* ── Radio Item Texte ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .ui-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Info Box (grauer Hintergrund) ── */
+#reputation-settings-container .bg-gray-50.p-4 {
+  background-color: var(--hintergrund) !important;
+  border-radius: 6px !important;
+}
+#reputation-settings-container .bg-gray-50.p-4 .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .bg-gray-50.p-4 .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Divider ── */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Stornieren" Button ── */
+#reputation-settings-container #spam-reviews-settings-save-btn-negative-action {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#reputation-settings-container #spam-reviews-settings-save-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+#reputation-settings-container #spam-reviews-settings-save-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#reputation-settings-container #spam-reviews-settings-save-btn-positive-action .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #spam-reviews-settings-save-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 98h — Reputation Settings: Integrationen Tab
+   Scope: #reputation-settings-container (Tab: reputationIntegrations)
+   ============================================================ */
+
+/* ── Haupt-Card ── */
+#reputation-settings-container .ui-card:has(#add-platform-button) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+#reputation-settings-container .ui-card:has(#add-platform-button) .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#reputation-settings-container .ui-card:has(#add-platform-button) > .ui-card-content > .ui-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Divider ── */
+#reputation-settings-container .ui-card:has(#add-platform-button) .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Alle Platform Cards ── */
+#reputation-settings-container .grid.grid-cols-4 .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  transition:       border-color 0.2s, box-shadow 0.2s !important;
+}
+#reputation-settings-container .grid.grid-cols-4 .ui-card:hover {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── "Plattform Hinzufügen" Card: Plus Icon ── */
+#reputation-settings-container #add-platform-button ~ * .bg-gray-50,
+#reputation-settings-container .flex.h-40 .bg-gray-50 {
+  background-color: var(--akzent-hell) !important;
+}
+#reputation-settings-container .flex.h-40 .bg-gray-50 svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Platform Namen ── */
+#reputation-settings-container .grid.grid-cols-4 .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Plattform Hinzufügen" Button ── */
+#reputation-settings-container #add-platform-button {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#reputation-settings-container #add-platform-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#reputation-settings-container #add-platform-button:hover {
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── "Integrieren" / "Einstellungen" Buttons → wine hover ── */
+#reputation-settings-container .grid.grid-cols-4 #integrate-button {
+  border-color: var(--linie-stark) !important;
+  color:        var(--text-gedaempft) !important;
+}
+#reputation-settings-container .grid.grid-cols-4 #integrate-button .hr-button__border {
+  border-color: var(--linie-stark) !important;
+}
+#reputation-settings-container .grid.grid-cols-4 #integrate-button:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+
 
 
 

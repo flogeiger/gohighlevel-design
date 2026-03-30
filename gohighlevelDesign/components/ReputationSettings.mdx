@@ -1,0 +1,434 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Reputation/ReputationSettings" />
+
+# Reputation – Einstellungen (Sections 98–98h)
+
+Die Reputation Settings (`Ruf → Einstellungen`) hat eine vertikale Tab-Navigation mit 8 Tabs. Root-Scope ist `#reputation-settings-container`.
+
+- **98** — Bewertungen AI (Radio-Karten, DataTable, Pagination)
+- **98b** — Bewertung-Link (Toggle, Radio, Custom-Link Input)
+- **98c** — SMS-Anfragen (Toggle, Selects, Vorlagen-Tabelle) + SMS-Editor Modal
+- **98d** — E-Mail-Anfragen (Toggle, Selects, Template-Cards)
+- **98e** — WhatsApp-Anfragen (Connect-Button)
+- **98f** — Bewertungen QR (Empty State, DataTable) + QR Builder Modal
+- **98g** — Spam-Bewertungen (Radio-Karten)
+- **98h** — Integrationen (Platform-Cards, Buttons)
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '32px' }}>
+  <img src="/reputation-settings-ai-screenshot.png" alt="Bewertungen AI" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/reputation-settings-link-screenshot.png" alt="Bewertung-Link" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/reputation-settings-sms-screenshot.png" alt="SMS-Anfragen" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/reputation-settings-email-screenshot.png" alt="E-Mail-Anfragen" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/reputation-settings-whatsapp-screenshot.png" alt="WhatsApp" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/reputation-settings-qr-screenshot.png" alt="Bewertungen QR" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/reputation-settings-spam-screenshot.png" alt="Spam-Bewertungen" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/reputation-settings-integrations-screenshot.png" alt="Integrationen" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+</div>
+
+---
+
+## Gemeinsame Basis-Styles
+
+```css
+/* Hintergrund + Nav */
+#reputation-settings-container .reputationApp { background-color: var(--bg) !important; }
+#reputation-settings-container .hr-tabs-nav { background-color: var(--bg) !important; }
+#reputation-settings-container .hr-tabs-bar { background-color: var(--wine) !important; }
+#reputation-settings-container .hr-tabs-tab p { color: var(--ink-3) !important; }
+#reputation-settings-container .hr-tabs-tab--active p { color: var(--wine-2) !important; }
+#reputation-settings-container .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .ui-text-lg-medium { color: var(--ink) !important; }
+#reputation-settings-container .ui-text-sm-medium { color: var(--ink) !important; }
+#reputation-settings-container .ui-text-sm-regular { color: var(--ink-3) !important; }
+#reputation-settings-container .ui-text-md-medium { color: var(--ink) !important; }
+#reputation-settings-container .hr-divider__line { background-color: var(--line-hard) !important; }
+
+/* DataTable */
+#reputation-settings-container .hr-data-table-th { background-color: var(--bg) !important; color: var(--ink) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .hr-data-table-td { background-color: var(--surface) !important; color: var(--ink-2) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .hr-data-table-td:hover { background-color: var(--bg) !important; }
+
+/* Pagination */
+#reputation-settings-container .hr-pagination-item--active { color: var(--wine-2) !important; border-color: var(--wine) !important; }
+
+/* Tags */
+#reputation-settings-container .hr-tag.ui-success,
+#reputation-settings-container .hr-tag.ui-primary { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+#reputation-settings-container .hr-tag.ui-success .hr-tag__content,
+#reputation-settings-container .hr-tag.ui-primary .hr-tag__content { color: var(--wine-2) !important; }
+#reputation-settings-container .hr-tag.ui-success .hr-tag__border,
+#reputation-settings-container .hr-tag.ui-primary .hr-tag__border { border-color: var(--wine) !important; }
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+#reputation-settings-container .hr-tag.ui-info.ui-border-hidden .hr-tag__content div { color: var(--wine-2) !important; }
+#reputation-settings-container .hr-tag.ui-default { background-color: var(--bg) !important; border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+```
+
+---
+
+## Radio-Button Pattern (global für alle Tabs)
+
+Dieses Pattern wird in mehreren Tabs verwendet (98, 98b, 98g).
+
+```css
+/* Inaktive Karte */
+#reputation-settings-container .hr-radio-button { border-color: var(--line-hard) !important; background-color: var(--surface) !important; }
+
+/* Aktive Karte → wine */
+#reputation-settings-container .hr-radio-button--checked { border-color: var(--wine) !important; background-color: var(--wine-lt) !important; }
+#reputation-settings-container .hr-radio-button--checked .hr-radio-button__state-border { border-color: var(--wine) !important; }
+
+/* Icon-Hintergrund → wine */
+#reputation-settings-container .ui-radio-group-item-icon div[style*="rgb(239, 244, 255)"] { background-color: var(--wine-lt) !important; }
+#reputation-settings-container .ui-radio-group-item-icon div[style*="rgb(209, 224, 255)"] { background-color: rgba(91,25,45,0.2) !important; }
+#reputation-settings-container .ui-radio-group-item-icon svg { color: var(--wine-2) !important; }
+
+/* Radio Dot — kein Viereck, sauberer Kreis */
+#reputation-settings-container .hr-radio__dot-wrapper { background-color: transparent !important; box-shadow: none !important; border: none !important; }
+#reputation-settings-container .hr-radio__dot { background-color: transparent !important; border: 2px solid var(--line-hard) !important; border-radius: 50% !important; }
+#reputation-settings-container .hr-radio--checked .hr-radio__dot-wrapper { background-color: transparent !important; box-shadow: none !important; border: none !important; }
+#reputation-settings-container .hr-radio__dot--checked { background-color: var(--wine) !important; border: 2px solid var(--wine) !important; border-radius: 50% !important; box-shadow: inset 0 0 0 3px #ffffff !important; }
+```
+
+---
+
+## Section 98 – Bewertungen AI Tab
+
+```css
+/* „Upgrade" Button (outline) */
+#reputation-settings-container #upgrade-button.n-button { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reputation-settings-container #upgrade-button.n-button span,
+#reputation-settings-container #upgrade-button.n-button p,
+#reputation-settings-container #upgrade-button.n-button svg { color: var(--wine-2) !important; }
+#reputation-settings-container #upgrade-button.n-button .n-button__border { border-color: var(--wine) !important; }
+#reputation-settings-container #upgrade-button.n-button:hover { border-color: var(--wine-2) !important; background-color: var(--wine-lt) !important; }
+
+/* Drip Mode Empty State */
+#reputation-settings-container .border-gray-50 { border-color: var(--wine-lt) !important; }
+#reputation-settings-container .bg-gray-100 { background-color: var(--wine-lt) !important; }
+#reputation-settings-container .bg-gray-100 svg { color: var(--wine-2) !important; }
+
+/* „Jetzt integrieren" + „Agentur Erstellen" → wine */
+#reputation-settings-container #drip-mode-integrate-now-button,
+#reputation-settings-container #create-review-ai-agent-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#reputation-settings-container #drip-mode-integrate-now-button:hover,
+#reputation-settings-container #create-review-ai-agent-button:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#reputation-settings-container #drip-mode-integrate-now-button .hr-button__border,
+#reputation-settings-container #create-review-ai-agent-button .hr-button__border { border-color: var(--wine) !important; }
+#reputation-settings-container #create-review-ai-agent-button,
+#reputation-settings-container #create-review-ai-agent-button p,
+#reputation-settings-container #create-review-ai-agent-button svg,
+#reputation-settings-container #create-review-ai-agent-button span { color: #ffffff !important; }
+
+/* „Starter-Assistenten Erstellen" (Secondary) */
+#reputation-settings-container #create-starter-templates-button { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #create-starter-templates-button:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reputation-settings-container #create-starter-templates-button .hr-button__border { border-color: var(--line-hard) !important; }
+
+/* Pagination */
+#reputation-settings-container #reviews-ai-agents-table-previous,
+#reputation-settings-container #reviews-ai-agents-table-next { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #reviews-ai-agents-table-previous:hover,
+#reputation-settings-container #reviews-ai-agents-table-next:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+```
+
+---
+
+## Section 98b – Bewertung-Link Tab
+
+```css
+/* Toggle */
+#reputation-settings-container #review-request-link-balancing-switch.hr-switch--active .hr-switch__rail { background-color: var(--wine) !important; }
+
+/* Balance konfigurieren */
+#reputation-settings-container #configure-review-balance-button { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#reputation-settings-container #configure-review-balance-button:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#reputation-settings-container #configure-review-balance-button .hr-button__border { border-color: var(--wine) !important; }
+
+/* Layout */
+#reputation-settings-container .rounded-lg.border.border-gray-200.bg-white { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .m-4.rounded-lg.border { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .border-r.border-gray-200,
+#reputation-settings-container .border-l.border-gray-200 { border-color: var(--line-hard) !important; }
+
+/* „Auto Balance" Tag */
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden .hr-tag__content,
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden p,
+#reputation-settings-container .hr-tag.ui-success.ui-border-hidden svg { color: var(--wine-2) !important; }
+
+/* Radio-Button Platform */
+#reputation-settings-container #review-request-link-platform-selection .hr-radio-button { border-color: var(--line-hard) !important; background-color: var(--surface) !important; }
+#reputation-settings-container #review-request-link-platform-selection .hr-radio-button--checked { border-color: var(--wine) !important; background-color: var(--wine-lt) !important; }
+#reputation-settings-container #review-request-link-platform-selection .hr-radio-button--checked .hr-radio-button__state-border { border-color: var(--wine) !important; }
+#reputation-settings-container #review-request-link-platform-selection .hr-radio__dot-wrapper { background-color: transparent !important; box-shadow: none !important; border: none !important; }
+#reputation-settings-container #review-request-link-platform-selection .hr-radio__dot { background-color: transparent !important; border: 2px solid var(--line-hard) !important; border-radius: 50% !important; }
+#reputation-settings-container #review-request-link-platform-selection .hr-radio--checked .hr-radio__dot-wrapper { background-color: transparent !important; box-shadow: none !important; border: none !important; }
+#reputation-settings-container #review-request-link-platform-selection .hr-radio__dot--checked { background-color: var(--wine) !important; border: 2px solid var(--wine) !important; border-radius: 50% !important; box-shadow: inset 0 0 0 3px #ffffff !important; }
+
+/* Custom Link Input */
+#reputation-settings-container #review-request-custom-link-input { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important; --n-caret-color: var(--wine) !important; }
+#reputation-settings-container #review-request-custom-link-input .hr-input__prefix svg { color: var(--ink-3) !important; }
+
+/* Footer Buttons */
+#reputation-settings-container #review-link-settings-save-btn-negative-action { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #review-link-settings-save-btn-negative-action:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reputation-settings-container #review-link-settings-save-btn-positive-action { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#reputation-settings-container #review-link-settings-save-btn-positive-action:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#reputation-settings-container #review-link-settings-save-btn-positive-action .hr-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## Section 98c – SMS-Anfragen Tab
+
+```css
+/* Toggle */
+#reputation-settings-container #sms-review-request-enable-switch.hr-switch--active .hr-switch__rail { background-color: var(--wine) !important; }
+
+/* Selects */
+#reputation-settings-container #check-in-wait-select .hr-base-selection,
+#reputation-settings-container #check-in-interval-select .hr-base-selection,
+#reputation-settings-container #check-in-max-attempts-select .hr-base-selection {
+  --n-border-hover: 1px solid var(--wine) !important; --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important; --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important; --n-caret-color: var(--wine) !important;
+}
+
+/* Buttons */
+#reputation-settings-container #set-sms-template-button { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #set-sms-template-button:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reputation-settings-container #set-sms-template-button .hr-button__border { border-color: var(--line-hard) !important; }
+#reputation-settings-container #create-sms-template-button { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#reputation-settings-container #create-sms-template-button:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#reputation-settings-container #create-sms-template-button .hr-button__border { border-color: var(--wine) !important; }
+
+/* Tabelle Action Icons */
+#reputation-settings-container .hr-data-table-td svg.text-gray-600 { color: var(--ink-3) !important; }
+#reputation-settings-container .hr-data-table-td svg.text-gray-600:hover { color: var(--wine-2) !important; }
+
+/* SMS Pagination */
+#reputation-settings-container #sms-review-request-templates-table-previous,
+#reputation-settings-container #sms-review-request-templates-table-next { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #sms-review-request-templates-table-previous:hover,
+#reputation-settings-container #sms-review-request-templates-table-next:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+```
+
+### SMS Editor Modal (`#sms-review-request-editor-modal`)
+
+```css
+/* Modal */
+#sms-review-request-editor-modal { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#sms-review-request-editor-modal .hr-card-header { background-color: var(--surface) !important; }
+#sms-review-request-editor-modal .title { color: var(--ink) !important; }
+#sms-review-request-editor-modal .description { color: var(--ink-3) !important; }
+#sms-review-request-editor-modal #sms-review-request-editor-modal-header-modal-close-btn { border-color: var(--line-hard) !important; color: var(--ink-3) !important; }
+#sms-review-request-editor-modal #sms-review-request-editor-modal-header-modal-close-btn:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* Inputs + Toggle */
+#sms-review-request-editor-modal #sms-template-name-input,
+#sms-review-request-editor-modal #sms-template-image-url-input,
+#sms-review-request-editor-modal #sms-rev-req-message-input { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important; --n-caret-color: var(--wine) !important; }
+#sms-review-request-editor-modal #sms-image-enabled-switch.hr-switch--active .hr-switch__rail { background-color: var(--wine) !important; }
+
+/* Upload + Link */
+#sms-review-request-editor-modal #sms-image-upload .hr-upload-dragger { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#sms-review-request-editor-modal #sms-image-upload .hr-upload-dragger:hover { border-color: var(--wine) !important; }
+#sms-review-request-editor-modal .font-semibold.text-blue-700 { color: var(--wine-2) !important; }
+#sms-review-request-editor-modal .text-primary-600 { color: var(--wine-2) !important; }
+#sms-review-request-editor-modal .hr-divider__line { background-color: var(--line-hard) !important; }
+#sms-review-request-editor-modal #sms-review-request-editor-modal-or-text { color: var(--ink-3) !important; }
+
+/* Footer Buttons */
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-negative-action { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-negative-action:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-positive-action { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-positive-action:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#sms-review-request-editor-modal #sms-review-request-editor-modal-footer-btn-positive-action .hr-button__border { border-color: var(--wine) !important; }
+#sms-review-request-editor-modal .hr-card__footer { background-color: var(--surface) !important; border-top: 1px solid var(--line-hard) !important; }
+```
+
+---
+
+## Section 98d – E-Mail-Anfragen Tab
+
+```css
+/* Toggle */
+#reputation-settings-container #email-review-request-enable-switch.hr-switch--active .hr-switch__rail { background-color: var(--wine) !important; }
+
+/* Buttons */
+#reputation-settings-container #set-email-templates-button { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #set-email-templates-button:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reputation-settings-container #set-email-templates-button .hr-button__border { border-color: var(--line-hard) !important; }
+#reputation-settings-container #create-email-templates-button { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#reputation-settings-container #create-email-templates-button:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#reputation-settings-container #create-email-templates-button .hr-button__border { border-color: var(--wine) !important; }
+#reputation-settings-container #create-email-templates-button,
+#reputation-settings-container #create-email-templates-button p,
+#reputation-settings-container #create-email-templates-button svg,
+#reputation-settings-container #create-email-templates-button span { color: #ffffff !important; }
+
+/* Template-Filter Tags */
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer .hr-tag__content,
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer p { color: var(--wine-2) !important; }
+#reputation-settings-container .hr-tag.ui-info.cursor-pointer .hr-tag__border { border-color: var(--wine) !important; }
+#reputation-settings-container .hr-tag.ui-default.cursor-pointer { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .hr-tag.ui-default.cursor-pointer p { color: var(--ink-2) !important; }
+
+/* Template Card */
+#reputation-settings-container .rounded.border.border-gray-200.p-3 { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .rounded.border.border-gray-200.p-3 .h-24.w-24 { border-color: var(--line-hard) !important; }
+#reputation-settings-container .rounded.border.border-gray-200.p-3 svg.cursor-pointer { color: var(--ink-3) !important; }
+#reputation-settings-container .rounded.border.border-gray-200.p-3 svg.cursor-pointer:hover { color: var(--wine-2) !important; }
+```
+
+---
+
+## Section 98e – WhatsApp-Anfragen Tab
+
+```css
+/* WhatsApp-Card (grüner Border bleibt) */
+#reputation-settings-container .ui-card:has(#connect-whatsapp-button) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .border-success-600 .ui-text-md-medium { color: var(--ink) !important; }
+#reputation-settings-container .border-success-600 .ui-text-sm-regular { color: var(--ink-2) !important; }
+
+/* „WhatsApp verbinden" hover → wine */
+#reputation-settings-container #connect-whatsapp-button { background-color: var(--surface) !important; border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #connect-whatsapp-button .hr-button__border { border-color: var(--line-hard) !important; }
+#reputation-settings-container #connect-whatsapp-button:hover { border-color: var(--wine) !important; background-color: var(--wine-lt) !important; }
+#reputation-settings-container #connect-whatsapp-button .ui-text-md-medium { color: var(--ink-2) !important; }
+#reputation-settings-container #connect-whatsapp-button:hover .ui-text-md-medium { color: var(--wine-2) !important; }
+```
+
+---
+
+## Section 98f – Bewertungen QR Tab
+
+```css
+/* QR Primary Buttons (Header + Empty State) */
+#reputation-settings-container .ui-card:has(#open-modal-button) > .ui-card-content > .hr-space #open-modal-button,
+#reputation-settings-container .hr-data-table-empty #open-modal-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#reputation-settings-container .ui-card:has(#open-modal-button) > .ui-card-content > .hr-space #open-modal-button:hover,
+#reputation-settings-container .hr-data-table-empty #open-modal-button:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#reputation-settings-container .ui-card:has(#open-modal-button) > .ui-card-content > .hr-space #open-modal-button .hr-button__border,
+#reputation-settings-container .hr-data-table-empty #open-modal-button .hr-button__border { border-color: var(--wine) !important; }
+
+/* Empty State */
+#reputation-settings-container .hr-data-table-empty { background-color: var(--surface) !important; }
+#reputation-settings-container .hr-data-table-empty .text-blue-500 { color: var(--wine) !important; }
+#reputation-settings-container .hr-data-table-empty .text-lg.font-bold { color: var(--ink) !important; }
+#reputation-settings-container .hr-data-table-empty .text-md.font-normal { color: var(--ink-3) !important; }
+```
+
+### QR Builder Modal (`#reputation-builder-modal`)
+
+```css
+/* Modal + Nav */
+#reputation-builder-modal { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-builder-modal #editor-top-nav { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-builder-modal #back-btn { color: var(--ink-2) !important; }
+#reputation-builder-modal #back-btn:hover { color: var(--wine-2) !important; }
+
+/* Title Input */
+#reputation-builder-modal #editor-title { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important; --n-caret-color: var(--wine) !important; }
+
+/* Undo/Redo/Download */
+#reputation-builder-modal #undo, #reputation-builder-modal #redo, #reputation-builder-modal #download { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-builder-modal #undo:not(:disabled):hover,
+#reputation-builder-modal #redo:not(:disabled):hover,
+#reputation-builder-modal #download:not(:disabled):hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* Save Button → wine */
+#reputation-builder-modal #save { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#reputation-builder-modal #save .n-button__border { border-color: var(--wine) !important; }
+#reputation-builder-modal #save:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+
+/* Sidebars + Element Cards */
+#reputation-builder-modal #elements-sidebar { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-builder-modal .bg-gray-50 { background-color: var(--bg) !important; }
+#reputation-builder-modal .all-elements > div { background-color: var(--surface) !important; border-color: var(--line-hard) !important; color: var(--ink-3) !important; }
+#reputation-builder-modal .all-elements > div:hover { border-color: var(--wine) !important; box-shadow: 0 4px 12px rgba(91,25,45,0.2) !important; }
+#reputation-builder-modal .all-elements .hl-text-sm-medium { color: var(--ink-2) !important; }
+
+/* Canvas Actions */
+#reputation-builder-modal #clone-element-btn, #reputation-builder-modal #remove-element-btn { color: #ffffff !important; }
+#reputation-builder-modal #clone-element-btn:hover svg, #reputation-builder-modal #remove-element-btn:hover svg { color: var(--wine) !important; }
+```
+
+---
+
+## Section 98g – Spam-Bewertungen Tab
+
+```css
+/* `:has()` Scope für diesen Tab */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Radio-Buttons (scoped) */
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio-button { border-color: var(--line-hard) !important; background-color: var(--surface) !important; }
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio-button--checked { border-color: var(--wine) !important; background-color: var(--wine-lt) !important; }
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio__dot-wrapper { background-color: transparent !important; box-shadow: none !important; border: none !important; }
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio__dot { background-color: transparent !important; border: 2px solid var(--line-hard) !important; border-radius: 50% !important; }
+#reputation-settings-container .ui-card:has(#spam-reviews-settings-save-btn-positive-action) .hr-radio__dot--checked { background-color: var(--wine) !important; border: 2px solid var(--wine) !important; border-radius: 50% !important; box-shadow: inset 0 0 0 3px #ffffff !important; }
+
+/* Info-Box */
+#reputation-settings-container .bg-gray-50.p-4 { background-color: var(--bg) !important; border-radius: 6px !important; }
+#reputation-settings-container .bg-gray-50.p-4 .ui-text-lg-medium { color: var(--ink) !important; }
+#reputation-settings-container .bg-gray-50.p-4 .ui-text-sm-regular { color: var(--ink-3) !important; }
+
+/* Footer Buttons */
+#reputation-settings-container #spam-reviews-settings-save-btn-negative-action { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#reputation-settings-container #spam-reviews-settings-save-btn-negative-action:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reputation-settings-container #spam-reviews-settings-save-btn-positive-action { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#reputation-settings-container #spam-reviews-settings-save-btn-positive-action:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#reputation-settings-container #spam-reviews-settings-save-btn-positive-action .hr-button__border { border-color: var(--wine) !important; }
+```
+
+---
+
+## Section 98h – Integrationen Tab
+
+```css
+/* Haupt-Card + Divider */
+#reputation-settings-container .ui-card:has(#add-platform-button) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#reputation-settings-container .ui-card:has(#add-platform-button) .hr-divider__line { background-color: var(--line-hard) !important; }
+
+/* Platform Cards hover */
+#reputation-settings-container .grid.grid-cols-4 .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; transition: border-color 0.2s, box-shadow 0.2s !important; }
+#reputation-settings-container .grid.grid-cols-4 .ui-card:hover { border-color: var(--wine) !important; box-shadow: 0 0 0 2px rgba(91,25,45,0.2) !important; }
+#reputation-settings-container .grid.grid-cols-4 .ui-text-md-medium { color: var(--ink) !important; }
+
+/* „Plattform Hinzufügen" Card Plus-Icon */
+#reputation-settings-container .flex.h-40 .bg-gray-50 { background-color: var(--wine-lt) !important; }
+#reputation-settings-container .flex.h-40 .bg-gray-50 svg { color: var(--wine-2) !important; }
+
+/* „Plattform Hinzufügen" Button (outline wine) */
+#reputation-settings-container #add-platform-button { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#reputation-settings-container #add-platform-button .hr-button__border { border-color: var(--wine) !important; }
+#reputation-settings-container #add-platform-button:hover { background-color: var(--wine-lt) !important; }
+
+/* „Integrieren" Buttons (Secondary) */
+#reputation-settings-container .grid.grid-cols-4 #integrate-button { border-color: var(--line-hard) !important; color: var(--ink-3) !important; }
+#reputation-settings-container .grid.grid-cols-4 #integrate-button .hr-button__border { border-color: var(--line-hard) !important; }
+#reputation-settings-container .grid.grid-cols-4 #integrate-button:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Radio-Dot `box-shadow: inset 0 0 0 3px #ffffff`:** Gleiches Pattern wie Section 96b — aktiver Dot als wine-Kreis mit weißem Kern via `box-shadow`. Wrapper bekommt `background: transparent; box-shadow: none; border: none` um GHL-Default zu neutralisieren.
+
+**`.ui-card:has(#open-modal-button)` (98f):** Da `#open-modal-button` in zwei Kontexten vorkommt (Header + Empty State), werden beide separat mit `:has()`-Scope und `.hr-data-table-empty`-Scope abgedeckt.
+
+**WhatsApp grüner Border bleibt (98e):** Die `.border-success-600` Klasse (grüner Rahmen der WhatsApp-Card) wird bewusst nicht auf wine umgefärbt — grün ist die semantische Farbe von WhatsApp. Nur Texte + Button werden angepasst.
+
+**`#reputation-builder-modal` (98f-Modal):** Vollständiger Canvas-Editor für QR-Codes mit Drag-and-Drop Elementen, Color-Picker und Undo/Redo.
