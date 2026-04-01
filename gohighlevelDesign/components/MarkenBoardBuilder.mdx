@@ -1,0 +1,137 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/MarkenBoardBuilder" />
+
+# Marketing – Marken-Board Builder (Section 106)
+
+Der Marken-Board Builder öffnet sich nach Klick auf ein Board oder nach Template-Auswahl. Root-Scope ist `#brandBoardBuilder`. Die Seite ist dreigeteilt: **Toolbar** (Header), **Sidebar** (Icon-Tabs + Formular) und **Preview** (Canvas mit Logos, Farben, Typografie).
+
+- **106a** — Toolbar (Header mit Zurück, Titel, Buttons)
+- **106b** — Sidebar (Icon-Tabs, Font-Selects, Logo-Upload)
+- **106c** — Preview-Bereich (Canvas-Card, Labels, Swatches)
+
+![Marken-Board Builder Screenshot](./marken-board-builder-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#brandBoardBuilder` |
+| Toolbar | `.ui-toolbar` |
+| Sidebar | `.brand-boards-sidebar` |
+| Preview | `.custom-brand-boards-preview` |
+
+---
+
+## Section 106a – Toolbar
+
+```css
+/* Hintergründe */
+#brandBoardBuilder .bg-white { background-color: var(--surface) !important; }
+#brandBoardBuilder .bg-gray-50,
+#brandBoardBuilder .custom-brand-boards-preview { background-color: var(--bg) !important; }
+
+/* Toolbar */
+#brandBoardBuilder .ui-toolbar { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* „Zurück" Button */
+#pg-brand-boards-header-back-button svg,
+#pg-brand-boards-header-back-button p { color: var(--ink-3) !important; }
+#pg-brand-boards-header-back-button:hover svg,
+#pg-brand-boards-header-back-button:hover p { color: var(--wine) !important; }
+
+/* Board-Titel + Edit-Icon */
+#brandBoardBuilder .ui-toolbar [contenteditable] { color: var(--ink) !important; }
+#pg-brand-boards-header-edit-title-button svg { color: var(--ink-3) !important; }
+#pg-brand-boards-header-edit-title-button:hover svg { color: var(--wine) !important; }
+
+/* „Als Standard festlegen" (Secondary) */
+#pg-brand-boards-header-set-as-default-button { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-header-set-as-default-button span { color: var(--ink-2) !important; }
+
+/* „Board speichern" → wine */
+#pg-brand-boards-header-save-template-button { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#pg-brand-boards-header-save-template-button:not([disabled]):hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#pg-brand-boards-header-save-template-button span { color: #ffffff !important; }
+```
+
+---
+
+## Section 106b – Sidebar
+
+```css
+/* Sidebar Container */
+#brandBoardBuilder .brand-boards-sidebar { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Icon-Tabs */
+#brandBoardBuilder .hr-tabs-bar { background-color: var(--wine) !important; }
+#brandBoardBuilder .hr-tabs-tab--active svg { color: var(--wine) !important; }
+#brandBoardBuilder .hr-tabs-tab svg { color: var(--ink-3) !important; }
+#brandBoardBuilder .hr-tabs-tab:hover svg { color: var(--wine-2) !important; }
+
+/* Sidebar Texte */
+#brandBoardBuilder .brand-boards-sidebar-tab .ui-text-md-medium { color: var(--ink) !important; }
+#brandBoardBuilder .text-gray-400 { color: var(--ink-3) !important; }
+#brandBoardBuilder .brand-boards-sidebar-tab b { color: var(--ink-2) !important; }
+
+/* „Hinzufügen" Font Button */
+#pg-brand-boards-add-font-button svg,
+#pg-brand-boards-add-font-button div { color: var(--wine-2) !important; }
+#pg-brand-boards-add-font-button:hover svg,
+#pg-brand-boards-add-font-button:hover div { color: var(--wine) !important; }
+
+/* Form Labels */
+#brandBoardBuilder .hr-form-item-label__text { color: var(--ink-2) !important; }
+
+/* Schriftart Selects */
+#pg-brand-boards-select-font .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 3px rgba(91,25,45,0.2) !important;
+  background-color: var(--surface) !important;
+}
+#pg-brand-boards-select-font .hr-base-selection-overlay__wrapper { color: var(--ink-2) !important; }
+
+/* Löschen-Buttons */
+#pg-brand-boards-delete-font-button .text-gray-700 { color: var(--ink-3) !important; }
+#pg-brand-boards-delete-font-button:hover .text-gray-700 { color: var(--wine-2) !important; }
+```
+
+---
+
+## Section 106c – Preview-Bereich
+
+```css
+/* Preview Card */
+#brandBoardBuilder .custom-brand-boards-preview .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Section Labels (LOGOS / FARBEN / TYPOGRAFIE) */
+#brandBoardBuilder .custom-brand-boards-preview .text-gray-400 { color: var(--ink-3) !important; }
+
+/* Farb-Vorschau Labels */
+#brandBoardBuilder .custom-brand-boards-preview .ui-text-sm-medium { color: var(--ink-2) !important; }
+
+/* Farb-Swatch Border */
+#brandBoardBuilder .custom-brand-boards-preview .border-gray-300 { border-color: var(--line-hard) !important; }
+
+/* Divider */
+#brandBoardBuilder .custom-brand-boards-preview .hr-divider__line { background-color: var(--line-hard) !important; }
+
+/* Typografie Texte */
+#brandBoardBuilder .custom-brand-boards-preview .text-black { color: var(--ink) !important; }
+#brandBoardBuilder .custom-brand-boards-preview .text-center { color: var(--ink-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Sidebar Icon-Tabs:** GHL nutzt Icon-only-Tabs (ohne Text-Labels) — der aktive Tab wird über `.hr-tabs-tab--active svg` erkannt, nicht über `__label`. Die Tab-Bar (`hr-tabs-bar`) läuft vertikal als schmaler Streifen.
+
+**Farb-Swatches bleiben unverändert:** Die Template-Farben (z.B. Sky Blue, Light Blue, Dark Blue im Lagoon-Template) sind echte Brand-Farben des Boards — kein CSS-Override. Nur Labels und Borders werden angepasst.
+
+**`contenteditable` für Board-Titel:** Der Titel ist inline-editierbar (`contenteditable`-Attribut) statt ein Input-Feld — `color`-Override direkt auf das Element.

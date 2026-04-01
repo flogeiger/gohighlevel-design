@@ -19359,6 +19359,182 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--akzent-dunkel) !important;
 }
 
+/* ============================================================
+   SECTION 106 — Marken-Board Builder (#brandBoardBuilder)
+   ============================================================ */
+
+/* ── Gesamt-Hintergrund ── */
+#brandBoardBuilder .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+#brandBoardBuilder .bg-gray-50,
+#brandBoardBuilder .custom-brand-boards-preview {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ============================================================
+   106a — Toolbar (Header)
+   ============================================================ */
+
+#brandBoardBuilder .ui-toolbar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── "Zurück" Button ── */
+#pg-brand-boards-header-back-button svg,
+#pg-brand-boards-header-back-button p {
+  color: var(--text-gedaempft) !important;
+}
+#pg-brand-boards-header-back-button:hover svg,
+#pg-brand-boards-header-back-button:hover p {
+  color: var(--akzent) !important;
+}
+
+/* ── Board-Titel & Edit-Icon ── */
+#brandBoardBuilder .ui-toolbar [contenteditable] {
+  color: var(--nav-farbe) !important;
+}
+#pg-brand-boards-header-edit-title-button svg {
+  color: var(--text-gedaempft) !important;
+}
+#pg-brand-boards-header-edit-title-button:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── "Als Standard festlegen" Button → outline ── */
+#pg-brand-boards-header-set-as-default-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#pg-brand-boards-header-set-as-default-button span {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Board speichern" Button → wine solid ── */
+#pg-brand-boards-header-save-template-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#pg-brand-boards-header-save-template-button:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-header-save-template-button span {
+  color: var(--base-white) !important;
+}
+
+/* ============================================================
+   106b — Sidebar
+   ============================================================ */
+
+#brandBoardBuilder .brand-boards-sidebar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Tab Bar Icons → wine aktiv ── */
+#brandBoardBuilder .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#brandBoardBuilder .hr-tabs-tab--active svg {
+  color: var(--akzent) !important;
+}
+#brandBoardBuilder .hr-tabs-tab svg {
+  color: var(--text-gedaempft) !important;
+}
+#brandBoardBuilder .hr-tabs-tab:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Sidebar Texte ── */
+#brandBoardBuilder .brand-boards-sidebar-tab .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+#brandBoardBuilder .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+#brandBoardBuilder .brand-boards-sidebar-tab b {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Hinzufügen" Font Button → wine ── */
+#pg-brand-boards-add-font-button svg,
+#pg-brand-boards-add-font-button div {
+  color: var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-add-font-button:hover svg,
+#pg-brand-boards-add-font-button:hover div {
+  color: var(--akzent) !important;
+}
+
+/* ── Form Labels (Schriftart 1/2) ── */
+#brandBoardBuilder .hr-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Schriftart Selects → wine Focus ── */
+#pg-brand-boards-select-font .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+  background-color:      var(--hintergrund-karte) !important;
+}
+#pg-brand-boards-select-font .hr-base-selection-overlay__wrapper {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Löschen-Buttons ── */
+#pg-brand-boards-delete-font-button .text-gray-700 {
+  color: var(--text-gedaempft) !important;
+}
+#pg-brand-boards-delete-font-button:hover .text-gray-700 {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   106c — Preview Bereich
+   ============================================================ */
+
+#brandBoardBuilder .custom-brand-boards-preview .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Section Labels (LOGOS / FARBEN / TYPOGRAFIE) ── */
+#brandBoardBuilder .custom-brand-boards-preview .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Farb-Vorschau Labels ── */
+#brandBoardBuilder .custom-brand-boards-preview .ui-text-sm-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Farb-Vorschau Swatches Border ── */
+#brandBoardBuilder .custom-brand-boards-preview .border-gray-300 {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Divider ── */
+#brandBoardBuilder .custom-brand-boards-preview .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Typografie Texte ── */
+#brandBoardBuilder .custom-brand-boards-preview .text-black {
+  color: var(--nav-farbe) !important;
+}
+#brandBoardBuilder .custom-brand-boards-preview .text-center {
+  color: var(--nav-hover) !important;
+}
+
+
+
 
 
 
@@ -23065,17 +23241,6 @@ html body .custom-report-wrapper .hl-text-btn:hover .text-primary-600 {
   display: none !important;
 }
 
-/* --------------------------------------------------
-   Dunkler Balken: section.hl_wrapper.hl_topbar-tabs
-   → Dieser Wrapper enthält den gesamten Header,
-     kein CSS-Fix möglich ohne Header zu verstecken.
-   -------------------------------------------------- */
-
-/* --------------------------------------------------
-   Dunkler Balken verstecken via negativem margin-top
-   Den Inhalt nach oben ziehen sodass der Balken
-   hinter der Navigation verschwindet
-   -------------------------------------------------- */
 section.hl_wrapper.hl_topbar-tabs > #reporting-adwords-dashboard {
   margin-top: -8px !important;
 }
