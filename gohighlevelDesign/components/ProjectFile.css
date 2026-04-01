@@ -18084,6 +18084,470 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--text-gedaempft) !important;
 }
 
+/* ============================================================
+   SECTION 102 — Countdown-Timer (#countdownTimer)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#countdownTimer .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#countdownTimer .ui-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#countdownTimer .ui-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Neu" Button (Header) → wine solid ── */
+#countdown-timer-header-btn-primary {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#countdown-timer-header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#countdown-timer-header-btn-primary span,
+#countdown-timer-header-btn-primary svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Filter Button → hover wine ── */
+#countdownTimer .ui-table-filter-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#countdownTimer .ui-table-filter-btn:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#countdownTimer .ui-table-filter-btn:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#ui-table-countdown-timer_table-filter-text-search {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+
+/* ── Tabellen-Wrapper ── */
+#countdownTimer .ui-table-container__wrapper {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Tabellen-Header ── */
+#countdownTimer .hr-data-table-thead .hr-data-table-th {
+  background-color: var(--hintergrund) !important;
+  color:            var(--nav-farbe) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#countdownTimer .hr-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Rows ── */
+#countdownTimer .hr-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#countdownTimer .hr-data-table-tr:hover .hr-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State ── */
+#countdownTimer .ui-empty-title {
+  color: var(--nav-farbe) !important;
+}
+#countdownTimer .ui-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Empty State "Neu" Button → wine solid ── */
+#emptyTag-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#emptyTag-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#emptyTag-btn-positive-action span,
+#emptyTag-btn-positive-action svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Filter Popover ── */
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .filter-heading p {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Filter Popover "Löschen" / "Anwenden" → hover wine ── */
+#ui-table-countdown-timer_filter-filter-clear,
+#ui-table-countdown-timer_filter-filter-apply {
+  color: var(--nav-hover) !important;
+}
+#ui-table-countdown-timer_filter-filter-clear:hover,
+#ui-table-countdown-timer_filter-filter-apply:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Filter Collapse Items ── */
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .hr-collapse-item__header-main {
+  color: var(--nav-hover) !important;
+}
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .hr-collapse-item-arrow svg {
+  color: var(--text-gedaempft) !important;
+}
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .hr-collapse-item__header:hover .hr-collapse-item__header-main {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 102b — Countdown-Timer Builder (Template-Auswahl)
+   Scope: #countdownTimer .v2-open
+   ============================================================ */
+
+/* ── Hintergründe ── */
+#countdownTimer .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+#countdownTimer .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header Toolbar ── */
+#countdownTimer .cdt-header-toolbar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Zurück Button ── */
+#countdownTimer #btn-back span,
+#countdownTimer #btn-back svg,
+#countdownTimer #btn-back p {
+  color: var(--text-gedaempft) !important;
+}
+#countdownTimer #btn-back:hover span,
+#countdownTimer #btn-back:hover svg,
+#countdownTimer #btn-back:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Header Titel ── */
+#countdownTimer .cdt-header-center .text-lg {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Speichern" Button (Header) → wine solid ── */
+#countdownTimer #btn-2 {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#countdownTimer #btn-2:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#countdownTimer #btn-2 span {
+  color: var(--base-white) !important;
+}
+
+/* ── Sidebar ── */
+#countdownTimer .countdown_timer_sidebar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Sidebar Abschnittsheader ── */
+#countdownTimer .countdown_timer_sidebar .bg-gray-100 {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#countdownTimer .countdown_timer_sidebar .ui-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Template-Karten Bezeichnungen ── */
+#countdownTimer .countdown-timer-item-list ~ p,
+#countdownTimer .text-gray-600.ui-text-sm-medium {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Radio Buttons (Template-Auswahl) → wine ── */
+#countdownTimer .hr-radio {
+  --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
+  --n-dot-color-active:  var(--akzent) !important;
+}
+
+/* ── Radio-Button State Border (aktiv) → wine ── */
+#countdownTimer .hr-radio-button:has(input:checked) .hr-radio-button__state-border {
+  border-color: var(--akzent) !important;
+  box-shadow:   inset 0 0 0 2px var(--akzent) !important;
+}
+
+/* ── Template-Card Hover → wine Border ── */
+#countdownTimer .countdown-timer-item-list:hover {
+  outline: 2px solid var(--akzent) !important;
+  border-radius: 4px !important;
+}
+
+/* ── Sidebar Footer (Sticky Button) ── */
+#countdownTimer .countdown_timer_sidebar .sticky {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── "Fahren Sie fort" Button → wine solid ── */
+#countdownTimer #saveTemplate {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#countdownTimer #saveTemplate:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#countdownTimer #saveTemplate span {
+  color: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 102c — Countdown-Timer Builder: Einstellungs-Sidebar
+   Scope: #countdownTimer .countdown_timer_sidebar (Builder-Modus)
+   ============================================================ */
+
+/* ── Tab Bar → wine ── */
+#countdownTimer .hr-tabs--line-type {
+  --n-bar-color:              var(--akzent) !important;
+  --n-tab-text-color-active:  var(--akzent) !important;
+  --n-tab-text-color-hover:   var(--akzent-dunkel) !important;
+  background-color:           var(--hintergrund-karte) !important;
+}
+#countdownTimer .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+#countdownTimer .hr-tabs-tab__label {
+  color: var(--nav-hover) !important;
+}
+#countdownTimer .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Form Labels ── */
+#countdownTimer .countdown_timer_sidebar .hr-form-item-label__text,
+#countdownTimer .countdown_timer_sidebar .ui-text-sm-medium,
+#countdownTimer .countdown_timer_sidebar .text-gray-700 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Abschnittstitel ── */
+#countdownTimer .countdown_timer_sidebar p[class*="ui-text-sm-medium"],
+#countdownTimer .countdown_timer_sidebar .text-gray-700.mb-2 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Countdown-Typ Radio Cards ── */
+#countdownTimer .countdown_timer_sidebar .hr-radio-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#countdownTimer .countdown_timer_sidebar .ui-radio-group-item-icon .bg-primary-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#countdownTimer .countdown_timer_sidebar .ui-radio-group-item-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#countdownTimer .countdown_timer_sidebar .timer-type_content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Radio checked → wine ── */
+#countdownTimer .countdown_timer_sidebar .hr-radio {
+  --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
+  --n-dot-color-active:  var(--akzent) !important;
+}
+#countdownTimer .countdown_timer_sidebar .hr-radio-button--checked {
+  border-color: var(--akzent) !important;
+  box-shadow:   inset 0 0 0 1px var(--akzent) !important;
+}
+
+/* ── Dauer-Inputs (Tage, Stunden, Minuten, Sekunden) → wine Focus ── */
+#countdownTimer #countdown-timer_startsAt_days .hr-input,
+#countdownTimer #countdown-timer_startsAt_hours .hr-input,
+#countdownTimer #countdown-timer_startsAt_minutes .hr-input,
+#countdownTimer #countdown-timer_startsAt_seconds .hr-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+
+/* ── Toggle "Endzeit festlegen" → wine ── */
+#countdown_timer-dynamic_had_dynamic_end_time {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── "Starten Sie den Countdown" Select → wine Focus ── */
+#countdown_timer_event_trigger .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:       var(--akzent) !important;
+  background-color:      var(--hintergrund-karte) !important;
+}
+#countdown_timer_event_trigger .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Info-Text (dynamische Erklärung) ── */
+#countdownTimer .countdown_timer_sidebar .pt-2 p,
+#countdownTimer .countdown_timer_sidebar .pt-2 svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Zeitzone-Box ── */
+#countdownTimer #countdown-timer-timezone .bg-gray-100 {
+  background-color: var(--hintergrund) !important;
+}
+#countdownTimer #countdown-timer-timezone svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Zeitzone Select → wine ── */
+#timezone_select .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  background-color:      transparent !important;
+}
+#timezone_select .hr-base-selection-overlay__wrapper {
+  color: var(--nav-hover) !important;
+}
+#timezone_select .text-blue-600 {
+  color: var(--akzent) !important;
+}
+
+/* ── Link Inputs → wine Focus ── */
+#countdownTimer #input-hl-builder-active-timer-link,
+#countdownTimer #input-hl-builder-expiry-timer-link {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+
+/* ── Custom Label Info-Icons ── */
+#countdownTimer .countdown_timer_sidebar .hr-form-custom-label svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ============================================================
+   SECTION 102d — Countdown-Timer: Dropdown Popover
+   Scope: .countdownTimerApp Selects & Dropdowns
+   ============================================================ */
+
+/* ── Dropdown Container Hintergrund ── */
+.countdownTimerApp .hr-select-menu,
+.countdownTimerApp .hr-base-select-menu,
+.countdownTimerApp .v-binder-follower-content .hr-popover,
+.countdownTimerApp .v-binder-follower-content [class*="hr-select"] {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Dropdown Optionen ── */
+.countdownTimerApp .hr-select-option,
+.countdownTimerApp .hr-base-select-option {
+  color: var(--nav-hover) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Dropdown Option Hover → wine ── */
+.countdownTimerApp .hr-select-option:hover,
+.countdownTimerApp .hr-base-select-option:hover,
+.countdownTimerApp .hr-select-option--pending {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+
+/* ── Dropdown Option aktiv/selected → wine ── */
+.countdownTimerApp .hr-select-option--selected,
+.countdownTimerApp .hr-base-select-option--selected {
+  color: var(--akzent) !important;
+}
+.countdownTimerApp .hr-select-option--selected .hr-select-option__check,
+.countdownTimerApp .hr-base-select-option--selected svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Section 102e — Countdown-Timer: Tabellen-Footer & Pagination ── */
+
+#countdownTimer .ui-table-footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Ergebnis-Text ── */
+#countdownTimer .ui-table-footer .text-gray-700 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Vorherige" / "Nächste" Buttons ── */
+#countdown-timer_table-previous,
+#countdown-timer_table-next {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#countdown-timer_table-previous:hover,
+#countdown-timer_table-next:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── Aktive Seite → wine ── */
+#countdownTimer .hr-pagination-item--active {
+  color:        var(--akzent) !important;
+  border-color: var(--akzent) !important;
+}
+
+/* ── Pagination Items allgemein ── */
+#countdownTimer .hr-pagination-item--clickable {
+  color: var(--nav-hover) !important;
+}
+#countdownTimer .hr-pagination-item--clickable:hover {
+  color: var(--akzent-dunkel) !important;
+}
 
 
 

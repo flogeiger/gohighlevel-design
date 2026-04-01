@@ -1,0 +1,261 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/CountdownTimer" />
+
+# Marketing – Countdown-Timer (Sections 102–102e)
+
+Die Countdown-Timer-Seite (`Marketing → Countdown-Timer`) zeigt eine DataTable mit angelegten Timern, Filter-Button, Suchfeld und Pagination. Root-Scope ist `#countdownTimer`. Der Builder öffnet sich vollbildschirmig beim Erstellen/Bearbeiten eines Timers.
+
+- **102** — Hauptliste (DataTable, Filter, Pagination)
+- **102b** — Builder Template-Auswahl (Sidebar, Template-Cards)
+- **102c** — Builder Einstellungs-Sidebar (Tabs, Radio Cards, Inputs, Selects)
+- **102d** — Dropdown Popovers (`.countdownTimerApp`)
+- **102e** — Tabellen-Footer & Pagination
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '32px' }}>
+  <img src="/countdown-timer-list-screenshot.png" alt="Countdown-Timer Liste" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/countdown-timer-builder-screenshot.png" alt="Countdown-Timer Builder" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+</div>
+
+---
+
+## Section 102 – Hauptliste
+
+```css
+/* Hintergrund + Texte */
+#countdownTimer .bg-gray-50 { background-color: var(--bg) !important; }
+#countdownTimer .ui-display-sm-medium { color: var(--ink) !important; }
+#countdownTimer .ui-text-md-normal { color: var(--ink-3) !important; }
+
+/* „+ Neu" Header Button → wine */
+#countdown-timer-header-btn-primary { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#countdown-timer-header-btn-primary:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#countdown-timer-header-btn-primary span,
+#countdown-timer-header-btn-primary svg { color: #ffffff !important; }
+
+/* Filter Button hover → wine */
+#countdownTimer .ui-table-filter-btn { background-color: var(--surface) !important; border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#countdownTimer .ui-table-filter-btn:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#countdownTimer .ui-table-filter-btn:hover svg { color: var(--wine-2) !important; }
+
+/* Suchfeld */
+#ui-table-countdown-timer_table-filter-text-search {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+
+/* DataTable */
+#countdownTimer .ui-table-container__wrapper { background-color: var(--surface) !important; }
+#countdownTimer .hr-data-table-thead .hr-data-table-th { background-color: var(--bg) !important; color: var(--ink) !important; border-color: var(--line-hard) !important; }
+#countdownTimer .hr-data-table-th__title { color: var(--ink) !important; }
+#countdownTimer .hr-data-table-td { background-color: var(--surface) !important; color: var(--ink-2) !important; border-color: var(--line-hard) !important; }
+#countdownTimer .hr-data-table-tr:hover .hr-data-table-td { background-color: var(--bg) !important; }
+
+/* Empty State */
+#countdownTimer .ui-empty-title { color: var(--ink) !important; }
+#countdownTimer .ui-empty-description { color: var(--ink-3) !important; }
+#emptyTag-btn-positive-action { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#emptyTag-btn-positive-action:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#emptyTag-btn-positive-action span,
+#emptyTag-btn-positive-action svg { color: #ffffff !important; }
+
+/* Filter Popover */
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .filter-heading p { color: var(--ink) !important; }
+#ui-table-countdown-timer_filter-filter-clear,
+#ui-table-countdown-timer_filter-filter-apply { color: var(--ink-2) !important; }
+#ui-table-countdown-timer_filter-filter-clear:hover,
+#ui-table-countdown-timer_filter-filter-apply:hover { color: var(--wine-2) !important; }
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .hr-collapse-item__header-main { color: var(--ink-2) !important; }
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .hr-collapse-item-arrow svg { color: var(--ink-3) !important; }
+.hr-popover:has(#ui-table-countdown-timer_filter-filter-clear) .hr-collapse-item__header:hover .hr-collapse-item__header-main { color: var(--wine-2) !important; }
+```
+
+---
+
+## Section 102b – Builder Template-Auswahl
+
+```css
+/* Hintergründe */
+#countdownTimer .bg-white { background-color: var(--surface) !important; }
+
+/* Header Toolbar */
+#countdownTimer .cdt-header-toolbar { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#countdownTimer .cdt-header-center .text-lg { color: var(--ink) !important; }
+
+/* Zurück Button */
+#countdownTimer #btn-back span,
+#countdownTimer #btn-back svg,
+#countdownTimer #btn-back p { color: var(--ink-3) !important; }
+#countdownTimer #btn-back:hover span,
+#countdownTimer #btn-back:hover svg,
+#countdownTimer #btn-back:hover p { color: var(--wine-2) !important; }
+
+/* „Speichern" Header Button → wine */
+#countdownTimer #btn-2 { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#countdownTimer #btn-2:not([disabled]):hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#countdownTimer #btn-2 span { color: #ffffff !important; }
+
+/* Sidebar */
+#countdownTimer .countdown_timer_sidebar { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#countdownTimer .countdown_timer_sidebar .bg-gray-100 { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#countdownTimer .countdown_timer_sidebar .ui-text-md-medium { color: var(--ink) !important; }
+#countdownTimer .text-gray-600.ui-text-sm-medium { color: var(--ink-3) !important; }
+
+/* Template-Cards hover → wine Outline */
+#countdownTimer .countdown-timer-item-list:hover { outline: 2px solid var(--wine) !important; border-radius: 4px !important; }
+
+/* Radio Buttons */
+#countdownTimer .hr-radio {
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus: inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-hover: inset 0 0 0 1px var(--wine) !important;
+  --n-dot-color-active: var(--wine) !important;
+}
+#countdownTimer .hr-radio-button:has(input:checked) .hr-radio-button__state-border { border-color: var(--wine) !important; box-shadow: inset 0 0 0 2px var(--wine) !important; }
+
+/* Sidebar Footer + „Fahren Sie fort" Button */
+#countdownTimer .countdown_timer_sidebar .sticky { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#countdownTimer #saveTemplate { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#countdownTimer #saveTemplate:not([disabled]):hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#countdownTimer #saveTemplate span { color: #ffffff !important; }
+```
+
+---
+
+## Section 102c – Builder Einstellungs-Sidebar
+
+```css
+/* Tab Bar */
+#countdownTimer .hr-tabs--line-type {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine-2) !important;
+  background-color: var(--surface) !important;
+}
+#countdownTimer .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine) !important; }
+#countdownTimer .hr-tabs-tab__label { color: var(--ink-2) !important; }
+#countdownTimer .hr-tabs-bar { background-color: var(--wine) !important; }
+
+/* Form Labels */
+#countdownTimer .countdown_timer_sidebar .hr-form-item-label__text,
+#countdownTimer .countdown_timer_sidebar .ui-text-sm-medium,
+#countdownTimer .countdown_timer_sidebar .text-gray-700 { color: var(--ink-2) !important; }
+
+/* Radio Cards (Countdown-Typ) */
+#countdownTimer .countdown_timer_sidebar .hr-radio-button { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#countdownTimer .countdown_timer_sidebar .ui-radio-group-item-icon .bg-primary-100 { background-color: var(--wine-lt) !important; }
+#countdownTimer .countdown_timer_sidebar .ui-radio-group-item-icon svg { color: var(--wine-2) !important; }
+#countdownTimer .countdown_timer_sidebar .timer-type_content { color: var(--ink-2) !important; }
+#countdownTimer .countdown_timer_sidebar .hr-radio {
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus: inset 0 0 0 1px var(--wine), 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-hover: inset 0 0 0 1px var(--wine) !important;
+  --n-dot-color-active: var(--wine) !important;
+}
+#countdownTimer .countdown_timer_sidebar .hr-radio-button--checked { border-color: var(--wine) !important; box-shadow: inset 0 0 0 1px var(--wine) !important; }
+
+/* Dauer-Inputs */
+#countdownTimer #countdown-timer_startsAt_days .hr-input,
+#countdownTimer #countdown-timer_startsAt_hours .hr-input,
+#countdownTimer #countdown-timer_startsAt_minutes .hr-input,
+#countdownTimer #countdown-timer_startsAt_seconds .hr-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+
+/* Toggle */
+#countdown_timer-dynamic_had_dynamic_end_time { --n-rail-color-active: var(--wine) !important; --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important; }
+
+/* Event-Trigger + Zeitzone Selects */
+#countdown_timer_event_trigger .hr-base-selection,
+#timezone_select .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+#countdown_timer_event_trigger .hr-base-selection-input__content { color: var(--ink-2) !important; }
+#timezone_select .text-blue-600 { color: var(--wine) !important; }
+
+/* Zeitzone-Box */
+#countdownTimer #countdown-timer-timezone .bg-gray-100 { background-color: var(--bg) !important; }
+#countdownTimer #countdown-timer-timezone svg { color: var(--ink-3) !important; }
+
+/* Link Inputs */
+#countdownTimer #input-hl-builder-active-timer-link,
+#countdownTimer #input-hl-builder-expiry-timer-link {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+
+/* Info-Text + Custom Label Icons */
+#countdownTimer .countdown_timer_sidebar .pt-2 p,
+#countdownTimer .countdown_timer_sidebar .pt-2 svg { color: var(--ink-3) !important; }
+#countdownTimer .countdown_timer_sidebar .hr-form-custom-label svg { color: var(--ink-3) !important; }
+```
+
+---
+
+## Section 102d – Dropdown Popovers
+
+```css
+/* Container */
+.countdownTimerApp .hr-select-menu,
+.countdownTimerApp .hr-base-select-menu,
+.countdownTimerApp .v-binder-follower-content .hr-popover { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Optionen */
+.countdownTimerApp .hr-select-option,
+.countdownTimerApp .hr-base-select-option { color: var(--ink-2) !important; background-color: var(--surface) !important; }
+.countdownTimerApp .hr-select-option:hover,
+.countdownTimerApp .hr-base-select-option:hover,
+.countdownTimerApp .hr-select-option--pending { background-color: var(--wine-lt) !important; color: var(--wine-2) !important; }
+.countdownTimerApp .hr-select-option--selected,
+.countdownTimerApp .hr-base-select-option--selected { color: var(--wine) !important; }
+.countdownTimerApp .hr-select-option--selected .hr-select-option__check,
+.countdownTimerApp .hr-base-select-option--selected svg { color: var(--wine) !important; }
+```
+
+---
+
+## Section 102e – Tabellen-Footer & Pagination
+
+```css
+/* Footer */
+#countdownTimer .ui-table-footer { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#countdownTimer .ui-table-footer .text-gray-700 { color: var(--ink-3) !important; }
+
+/* Prev/Next */
+#countdown-timer_table-previous,
+#countdown-timer_table-next { background-color: var(--surface) !important; border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#countdown-timer_table-previous:hover,
+#countdown-timer_table-next:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* Aktive Seite */
+#countdownTimer .hr-pagination-item--active { color: var(--wine) !important; border-color: var(--wine) !important; }
+#countdownTimer .hr-pagination-item--clickable { color: var(--ink-2) !important; }
+#countdownTimer .hr-pagination-item--clickable:hover { color: var(--wine-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`.countdownTimerApp` als Dropdown-Scope:** Dropdowns werden außerhalb von `#countdownTimer` in einem eigenen Teleport-Container gemountet — Scope wechselt auf die Klasse `.countdownTimerApp`.
+
+**Builder ist Fullscreen:** Section 102b/102c öffnen einen vollbildschirmigen Builder-View innerhalb von `#countdownTimer` — kein eigenes Root-Element, gleicher Container-Scope.
+
+**Template-Card Hover via `outline`:** `.countdown-timer-item-list:hover` nutzt `outline: 2px solid var(--wine)` statt `border` — verhindert Layout-Shift durch Borderbreite.
