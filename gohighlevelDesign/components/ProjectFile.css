@@ -18870,6 +18870,192 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   font-weight: 600 !important;
 }
 
+/* ============================================================
+   SECTION 105 — Marken-Boards (#brandBoardList)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#brandBoardList {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#brandBoardList .ui-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#brandBoardList .description.ui-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Globale Einstellungen" Button → wine outline ── */
+#pg-brand-boards-list-page-header-btn-secondary {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#pg-brand-boards-list-page-header-btn-secondary:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-list-page-header-btn-secondary svg {
+  color: var(--nav-hover) !important;
+}
+#pg-brand-boards-list-page-header-btn-secondary:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Tab Bar → wine ── */
+#brandBoardList .hr-tabs--line-type {
+  --n-bar-color:             var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent) !important;
+  --n-tab-text-color-hover:  var(--akzent-dunkel) !important;
+}
+#brandBoardList .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+#brandBoardList .hr-tabs-tab__label {
+  color: var(--text-gedaempft) !important;
+}
+#brandBoardList .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Sub-Header "Entwerfen Sie ein Paket" ── */
+#pg-brand-boards-design-kit-tab .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#pg-brand-boards-design-kit-tab .description.ui-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Hinzufügen Sie ein Paket" Button (Header) → wine solid ── */
+#pg-brand-boards-brand-kit-header-btn-primary {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#pg-brand-boards-brand-kit-header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-brand-kit-header-btn-primary span,
+#pg-brand-boards-brand-kit-header-btn-primary svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Tabellen-Header ── */
+#brandBoardList .hr-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#brandBoardList .hr-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#brandBoardList .hr-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#brandBoardList .hr-data-table-tr:hover .hr-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State Texte ── */
+#brandBoardList .ui-empty-title {
+  color: var(--nav-farbe) !important;
+}
+#brandBoardList .ui-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Empty State "Hinzufügen" Button → wine solid ── */
+#pg-brand-boards-list-page-empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#pg-brand-boards-list-page-empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-list-page-empty-btn-positive-action span,
+#pg-brand-boards-list-page-empty-btn-positive-action svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Section 105b — Marken-Boards: Markenstimme Tab ── */
+
+/* ── Sub-Header "Markenstimme" ── */
+#pg-brand-boards-brand-voice-tab .ui-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#pg-brand-boards-brand-voice-tab .description.ui-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Markenstimme hinzufügen" Button (Header) → wine solid ── */
+#pg-brand-boards-brand-voice-header-btn-primary {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#pg-brand-boards-brand-voice-header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-brand-voice-header-btn-primary span,
+#pg-brand-boards-brand-voice-header-btn-primary svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Tabellen-Header ── */
+#pg-brand-boards-brand-voice-tab .hr-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#pg-brand-boards-brand-voice-tab .hr-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#pg-brand-boards-brand-voice-tab .hr-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#pg-brand-boards-brand-voice-tab .hr-data-table-tr:hover .hr-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State Texte ── */
+#pg-brand-boards-brand-voice-tab .ui-empty-title {
+  color: var(--nav-farbe) !important;
+}
+#pg-brand-boards-brand-voice-tab .ui-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Empty State "Markenstimme hinzufügen" Button → wine solid ── */
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action span,
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action svg {
+  color: var(--base-white) !important;
+}
+
 
 
 

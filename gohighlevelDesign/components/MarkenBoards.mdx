@@ -1,0 +1,146 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/MarkenBoards" />
+
+# Marketing – Marken-Boards (Sections 105 & 105b)
+
+Die Marken-Boards-Seite (`Marketing → Marken-Boards`) hat zwei Tabs: **Entwerfen Sie ein Paket** (Brand Kits) und **Markenstimme** (Brand Voice). Root-Scope ist `#brandBoardList`. Header-Button „Globale Einstellungen" ist Secondary (hover → wine), alle anderen Aktions-Buttons sind Primary (solid wine).
+
+- **105** — „Entwerfen Sie ein Paket" Tab
+- **105b** — „Markenstimme" Tab
+
+![Marken-Boards Screenshot](./marken-boards-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 105 | `#brandBoardList`, `#pg-brand-boards-design-kit-tab` |
+| 105b | `#pg-brand-boards-brand-voice-tab` |
+
+---
+
+## Section 105 – „Entwerfen Sie ein Paket" Tab
+
+```css
+/* Hintergrund + Texte */
+#brandBoardList { background-color: var(--bg) !important; }
+#brandBoardList .ui-display-sm-medium { color: var(--ink) !important; }
+#brandBoardList .description.ui-text-md-normal { color: var(--ink-3) !important; }
+
+/* „Globale Einstellungen" (Secondary hover → wine) */
+#pg-brand-boards-list-page-header-btn-secondary {
+  background-color: var(--surface) !important;
+  border-color: var(--line-hard) !important;
+  color: var(--ink-2) !important;
+}
+#pg-brand-boards-list-page-header-btn-secondary:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#pg-brand-boards-list-page-header-btn-secondary svg { color: var(--ink-2) !important; }
+#pg-brand-boards-list-page-header-btn-secondary:hover svg { color: var(--wine-2) !important; }
+
+/* Tab Bar */
+#brandBoardList .hr-tabs--line-type {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover: var(--wine-2) !important;
+}
+#brandBoardList .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine) !important; }
+#brandBoardList .hr-tabs-tab__label { color: var(--ink-3) !important; }
+#brandBoardList .hr-tabs-bar { background-color: var(--wine) !important; }
+
+/* Sub-Header */
+#pg-brand-boards-design-kit-tab .ui-text-lg-medium { color: var(--ink) !important; }
+#pg-brand-boards-design-kit-tab .description.ui-text-sm-normal { color: var(--ink-3) !important; }
+
+/* „Hinzufügen Sie ein Paket" → wine */
+#pg-brand-boards-brand-kit-header-btn-primary {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#pg-brand-boards-brand-kit-header-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#pg-brand-boards-brand-kit-header-btn-primary span,
+#pg-brand-boards-brand-kit-header-btn-primary svg { color: #ffffff !important; }
+
+/* DataTable */
+#brandBoardList .hr-data-table-th { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#brandBoardList .hr-data-table-th__title { color: var(--ink) !important; }
+#brandBoardList .hr-data-table-td { background-color: var(--surface) !important; color: var(--ink-2) !important; border-color: var(--line-hard) !important; }
+#brandBoardList .hr-data-table-tr:hover .hr-data-table-td { background-color: var(--bg) !important; }
+
+/* Empty State */
+#brandBoardList .ui-empty-title { color: var(--ink) !important; }
+#brandBoardList .ui-empty-description { color: var(--ink-3) !important; }
+#pg-brand-boards-list-page-empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#pg-brand-boards-list-page-empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#pg-brand-boards-list-page-empty-btn-positive-action span,
+#pg-brand-boards-list-page-empty-btn-positive-action svg { color: #ffffff !important; }
+```
+
+---
+
+## Section 105b – „Markenstimme" Tab
+
+```css
+/* Sub-Header */
+#pg-brand-boards-brand-voice-tab .ui-text-lg-medium { color: var(--ink) !important; }
+#pg-brand-boards-brand-voice-tab .description.ui-text-sm-normal { color: var(--ink-3) !important; }
+
+/* „Markenstimme hinzufügen" → wine */
+#pg-brand-boards-brand-voice-header-btn-primary {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#pg-brand-boards-brand-voice-header-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#pg-brand-boards-brand-voice-header-btn-primary span,
+#pg-brand-boards-brand-voice-header-btn-primary svg { color: #ffffff !important; }
+
+/* DataTable */
+#pg-brand-boards-brand-voice-tab .hr-data-table-th { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-brand-voice-tab .hr-data-table-th__title { color: var(--ink) !important; }
+#pg-brand-boards-brand-voice-tab .hr-data-table-td { background-color: var(--surface) !important; color: var(--ink-2) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-brand-voice-tab .hr-data-table-tr:hover .hr-data-table-td { background-color: var(--bg) !important; }
+
+/* Empty State */
+#pg-brand-boards-brand-voice-tab .ui-empty-title { color: var(--ink) !important; }
+#pg-brand-boards-brand-voice-tab .ui-empty-description { color: var(--ink-3) !important; }
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  background: var(--wine-2) !important;
+  border-color: var(--wine-2) !important;
+}
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action span,
+#pg-brand-boards-brand-voice-list-table-empty-btn-positive-action svg { color: #ffffff !important; }
+```
+
+---
+
+## Besonderheiten
+
+**GHL-spezifische Button-ID-Konvention:** Alle Buttons auf dieser Seite folgen dem Muster `pg-brand-boards-{tab}-{position}-btn-{type}` — konsequentes ID-Schema ermöglicht präzise Selektoren ohne Scope-Konflikt zwischen den Tabs.
+
+**„Globale Einstellungen" bleibt Secondary:** Nur der Header-Button `#pg-brand-boards-list-page-header-btn-secondary` ist outline/secondary — alle anderen Aktions-Buttons (Header + Empty State) sind solid wine. Gleiche Konvention wie Section 93 (Reputation).
