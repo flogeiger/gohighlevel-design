@@ -1,0 +1,207 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/SnippetModals" />
+
+# Marketing – Snippet Erstellen Modals (Section 101b)
+
+Beim Klick auf „+ Neues Snippet" öffnet sich ein Auswahl-Modal — danach entweder das **Text-Snippet Modal** oder das **E-Mail-Snippet Modal**. Beide haben ein zweispaltiges Layout: linke Seite = Formular, rechte Seite = Phone Preview.
+
+- **Text-Snippet** — Scope: `.hr-modal:has(#text-snippet-form)`
+- **E-Mail-Snippet** — Scope: `.hr-modal:has(#email-snippet-modal-footer)`
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '32px' }}>
+  <img src="/text-snippet-modal-screenshot.png" alt="Text-Snippet Modal" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/email-snippet-modal-screenshot.png" alt="E-Mail-Snippet Modal" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+</div>
+
+---
+
+## Text-Snippet Modal (`.hr-modal:has(#text-snippet-form)`)
+
+```css
+/* Modal */
+.hr-modal:has(#text-snippet-form) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#text-snippet-form) .hr-dialog__icon svg { fill: var(--wine-2) !important; }
+.hr-modal:has(#text-snippet-form) .hr-header-lite-title { color: var(--ink) !important; }
+.hr-modal:has(#text-snippet-form) .hr-header-lite-subtitle { color: var(--ink-3) !important; }
+.hr-modal:has(#text-snippet-form) #hr-modal__close-button svg { color: var(--ink-3) !important; }
+.hr-modal:has(#text-snippet-form) .hr-form-item-label__text,
+.hr-modal:has(#text-snippet-form) .hr-form-item-label__text.text-gray-700 { color: var(--ink-2) !important; }
+
+/* Name Input */
+.hr-modal:has(#text-snippet-form) #text-snippet-name-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Editor Wrapper + Toolbar */
+.hr-modal:has(#text-snippet-form) #snippet-editor-wrapper { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#text-snippet-form) .snippet-editor-wrapper { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#text-snippet-form) .snippet-editor-wrapper svg { color: var(--ink-2) !important; }
+.hr-modal:has(#text-snippet-form) .snippet-editor-wrapper svg:hover { color: var(--wine-2) !important; }
+
+/* Textarea */
+.hr-modal:has(#text-snippet-form) #text-snippet { background-color: var(--surface) !important; color: var(--ink-2) !important; border-color: var(--line-hard) !important; }
+
+/* Footer (Kosten/Zeichen) */
+.hr-modal:has(#text-snippet-form) .border-t.border-gray-300 { border-color: var(--line-hard) !important; background-color: var(--surface) !important; color: var(--ink-3) !important; }
+.hr-modal:has(#text-snippet-form) .border-t.border-gray-300 svg { color: var(--ink-3) !important; }
+
+/* Phone Preview: Nachrichtenblase → wine */
+.hr-modal:has(#text-snippet-form) .bg-blue-600 { background-color: var(--wine) !important; }
+.hr-modal:has(#text-snippet-form) .text-gray-400 { color: var(--ink-3) !important; }
+.hr-modal:has(#text-snippet-form) .border-black { border-color: var(--line-hard) !important; }
+
+/* „Anhang hinzufügen" (outline wine) */
+.hr-modal:has(#text-snippet-form) #sms-add-attachment {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--surface) !important;
+}
+.hr-modal:has(#text-snippet-form) #sms-add-attachment:hover { background-color: var(--wine-lt) !important; }
+.hr-modal:has(#text-snippet-form) #sms-add-attachment svg,
+.hr-modal:has(#text-snippet-form) #sms-add-attachment i,
+.hr-modal:has(#text-snippet-form) #sms-add-attachment p { color: var(--wine-2) !important; }
+
+/* URL + Nummer Inputs */
+.hr-modal:has(#text-snippet-form) #url,
+.hr-modal:has(#text-snippet-form) #number {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* „Hinzufügen" + „Senden" (outline wine) */
+.hr-modal:has(#text-snippet-form) #sms-add-file-url,
+.hr-modal:has(#text-snippet-form) #test-send-sms {
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+  background-color: var(--surface) !important;
+}
+.hr-modal:has(#text-snippet-form) #sms-add-file-url:hover,
+.hr-modal:has(#text-snippet-form) #test-send-sms:hover { background-color: var(--wine-lt) !important; }
+.hr-modal:has(#text-snippet-form) #sms-add-file-url svg,
+.hr-modal:has(#text-snippet-form) #sms-add-file-url p,
+.hr-modal:has(#text-snippet-form) #test-send-sms svg,
+.hr-modal:has(#text-snippet-form) #test-send-sms p { color: var(--wine-2) !important; }
+
+/* Footer Buttons */
+.hr-modal:has(#text-snippet-form) .hr-divider__line { background-color: var(--line-hard) !important; }
+.hr-modal:has(#text-snippet-form) #cancel { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#text-snippet-form) #cancel p { color: var(--ink-2) !important; }
+.hr-modal:has(#text-snippet-form) #cancel:hover { border-color: var(--wine) !important; }
+.hr-modal:has(#text-snippet-form) #cancel:hover p { color: var(--wine-2) !important; }
+.hr-modal:has(#text-snippet-form) #save { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+.hr-modal:has(#text-snippet-form) #save .hr-button__border { border-color: var(--wine) !important; }
+.hr-modal:has(#text-snippet-form) #save:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.hr-modal:has(#text-snippet-form) #save p { color: #ffffff !important; }
+```
+
+---
+
+## E-Mail-Snippet Modal (`.hr-modal:has(#email-snippet-modal-footer)`)
+
+```css
+/* Modal */
+.hr-modal:has(#email-snippet-modal-footer) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .hr-dialog__icon svg { fill: var(--wine-2) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .hr-header-lite-title { color: var(--ink) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .hr-header-lite-subtitle { color: var(--ink-3) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #hr-modal__close-button svg { color: var(--ink-3) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .hr-form-item-label__text,
+.hr-modal:has(#email-snippet-modal-footer) .hr-form-item-label__text.text-gray-700 { color: var(--ink-2) !important; }
+
+/* Name + Betreff Inputs */
+.hr-modal:has(#email-snippet-modal-footer) #email-snippet-name-input,
+.hr-modal:has(#email-snippet-modal-footer) .hr-input--2xs:not([id]) {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* Editor Wrapper + Toolbar */
+.hr-modal:has(#email-snippet-modal-footer) #snippet-editor-wrapper { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .snippet-editor-wrapper { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .snippet-editor-wrapper svg,
+.hr-modal:has(#email-snippet-modal-footer) .toolbar_button svg { color: var(--ink-2) !important; stroke: var(--ink-2) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .toolbar_button:hover svg { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+
+/* Toolbar Selects (Paragraph, Schriftgröße, Zeilenhöhe, Schriftart) */
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--text_block .hr-base-selection,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_size .hr-base-selection,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--line_height .hr-base-selection,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_family .hr-base-selection {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 2px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--text_block .hr-base-selection-input__content,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_size .hr-base-selection-input__content,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--line_height .hr-base-selection-input__content,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_family .hr-base-selection-input__content { color: var(--ink-2) !important; }
+
+/* Rich Text Editor Canvas */
+.hr-modal:has(#email-snippet-modal-footer) .editor-container { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .tiptap { color: var(--ink-2) !important; }
+
+/* Editor Footer (Zeichen/Wörter) */
+.hr-modal:has(#email-snippet-modal-footer) .border-t.border-gray-300 { border-color: var(--line-hard) !important; background-color: var(--surface) !important; color: var(--ink-3) !important; }
+
+/* Phone Preview: Blase → wine */
+.hr-modal:has(#email-snippet-modal-footer) .bg-blue-600 { background-color: var(--wine) !important; }
+.hr-modal:has(#email-snippet-modal-footer) .text-white { color: #ffffff !important; }
+.hr-modal:has(#email-snippet-modal-footer) .text-gray-400 { color: var(--ink-3) !important; }
+
+/* „Anhang hinzufügen" (outline wine) */
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment { border-color: var(--wine) !important; background-color: var(--surface) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment:hover { background-color: var(--wine-lt) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment svg,
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment i,
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment p { color: var(--wine-2) !important; }
+
+/* Test E-Mail Inputs */
+.hr-modal:has(#email-snippet-modal-footer) #test-from-email,
+.hr-modal:has(#email-snippet-modal-footer) #test-to-email {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+
+/* „Sendetest" (outline wine) */
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms { border-color: var(--wine) !important; background-color: var(--surface) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms:hover { background-color: var(--wine-lt) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms svg,
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms p { color: var(--wine-2) !important; }
+
+/* Footer Buttons */
+.hr-modal:has(#email-snippet-modal-footer) .hr-divider__line { background-color: var(--line-hard) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #cancel { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #cancel p { color: var(--ink-2) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #cancel:hover { border-color: var(--wine) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #cancel:hover p { color: var(--wine-2) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #save { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #save .hr-button__border { border-color: var(--wine) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #save:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+.hr-modal:has(#email-snippet-modal-footer) #save p { color: #ffffff !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Zwei `:has()`-Scope-Anker:** Da beide Modals generische IDs (`#save`, `#cancel`) teilen, ist exaktes Scope-Anchoring entscheidend — `#text-snippet-form` für Text-Snippets, `#email-snippet-modal-footer` für E-Mail-Snippets.
+
+**Phone Preview `.bg-blue-600` → wine:** GHL rendert die Nachrichtenblase in der Preview mit einer Tailwind-Klasse. Override auf `var(--wine)` ersetzt das GHL-Blau.
+
+**Toolbar-Selects in E-Mail-Modal:** Das E-Mail-Modal hat 4 Toolbar-Selects (Paragraph, Schriftgröße, Zeilenhöhe, Schriftart) mit eigenem `#toolbar_select--*`-ID-Schema.
+
+**Tiptap Rich-Text-Editor:** Gleiche Tiptap-Instanz wie in Section 122i (Knowledge Base Rich-Text Modal) — `.tiptap` Klasse für Text-Override.

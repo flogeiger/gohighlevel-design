@@ -17727,6 +17727,363 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--base-white) !important;
 }
 
+/* ============================================================
+   SECTION 101 — Snippets: "Text-Snippet erstellen" Modal
+   Scope: .hr-modal:has(#text-snippet-form)
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+.hr-modal:has(#text-snippet-form) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Icon → wine ── */
+.hr-modal:has(#text-snippet-form) .hr-dialog__icon svg {
+  fill: var(--akzent-dunkel) !important;
+}
+
+/* ── Titel & Untertitel ── */
+.hr-modal:has(#text-snippet-form) .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+.hr-modal:has(#text-snippet-form) .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+.hr-modal:has(#text-snippet-form) #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Form Labels ── */
+.hr-modal:has(#text-snippet-form) .hr-form-item-label__text,
+.hr-modal:has(#text-snippet-form) .hr-form-item-label__text.text-gray-700 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Name Input → wine Focus ── */
+.hr-modal:has(#text-snippet-form) #text-snippet-name-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── Snippet Editor Wrapper ── */
+.hr-modal:has(#text-snippet-form) #snippet-editor-wrapper {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Editor Toolbar ── */
+.hr-modal:has(#text-snippet-form) .snippet-editor-wrapper {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-modal:has(#text-snippet-form) .snippet-editor-wrapper svg {
+  color: var(--nav-hover) !important;
+}
+.hr-modal:has(#text-snippet-form) .snippet-editor-wrapper svg:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Textarea ── */
+.hr-modal:has(#text-snippet-form) #text-snippet {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Textarea Footer (Kosten/Zeichen) ── */
+.hr-modal:has(#text-snippet-form) .border-t.border-gray-300 {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--text-gedaempft) !important;
+}
+.hr-modal:has(#text-snippet-form) .border-t.border-gray-300 svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Anhang hinzufügen" Button → wine outline ── */
+.hr-modal:has(#text-snippet-form) #sms-add-attachment {
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+.hr-modal:has(#text-snippet-form) #sms-add-attachment:hover {
+  background-color: var(--akzent-hell) !important;
+}
+.hr-modal:has(#text-snippet-form) #sms-add-attachment svg,
+.hr-modal:has(#text-snippet-form) #sms-add-attachment i,
+.hr-modal:has(#text-snippet-form) #sms-add-attachment p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── URL & Nummer Inputs → wine Focus ── */
+.hr-modal:has(#text-snippet-form) #url,
+.hr-modal:has(#text-snippet-form) #number {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── "Hinzufügen" & "Senden" Buttons → wine outline ── */
+.hr-modal:has(#text-snippet-form) #sms-add-file-url,
+.hr-modal:has(#text-snippet-form) #test-send-sms {
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+.hr-modal:has(#text-snippet-form) #sms-add-file-url:hover,
+.hr-modal:has(#text-snippet-form) #test-send-sms:hover {
+  background-color: var(--akzent-hell) !important;
+}
+.hr-modal:has(#text-snippet-form) #sms-add-file-url svg,
+.hr-modal:has(#text-snippet-form) #sms-add-file-url p,
+.hr-modal:has(#text-snippet-form) #test-send-sms svg,
+.hr-modal:has(#text-snippet-form) #test-send-sms p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Phone Preview ── */
+.hr-modal:has(#text-snippet-form) .border-black {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Divider ── */
+.hr-modal:has(#text-snippet-form) .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Abbrechen" Button ── */
+.hr-modal:has(#text-snippet-form) #cancel {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-modal:has(#text-snippet-form) #cancel p {
+  color: var(--nav-hover) !important;
+}
+.hr-modal:has(#text-snippet-form) #cancel:hover {
+  border-color: var(--akzent) !important;
+}
+.hr-modal:has(#text-snippet-form) #cancel:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+.hr-modal:has(#text-snippet-form) #save {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+.hr-modal:has(#text-snippet-form) #save .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+.hr-modal:has(#text-snippet-form) #save:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+.hr-modal:has(#text-snippet-form) #save p {
+  color: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 101 — Snippets: "E-Mail-Snippet erstellen" Modal
+   Scope: .hr-modal:has(#email-snippet-modal-footer)
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+.hr-modal:has(#email-snippet-modal-footer) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Icon → wine ── */
+.hr-modal:has(#email-snippet-modal-footer) .hr-dialog__icon svg {
+  fill: var(--akzent-dunkel) !important;
+}
+
+/* ── Titel & Untertitel ── */
+.hr-modal:has(#email-snippet-modal-footer) .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+.hr-modal:has(#email-snippet-modal-footer) #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Form Labels ── */
+.hr-modal:has(#email-snippet-modal-footer) .hr-form-item-label__text,
+.hr-modal:has(#email-snippet-modal-footer) .hr-form-item-label__text.text-gray-700 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Name & Betreff Inputs → wine Focus ── */
+.hr-modal:has(#email-snippet-modal-footer) #email-snippet-name-input,
+.hr-modal:has(#email-snippet-modal-footer) .hr-input--2xs:not([id]) {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── Snippet Editor Wrapper ── */
+.hr-modal:has(#email-snippet-modal-footer) #snippet-editor-wrapper {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Toolbar Bereich ── */
+.hr-modal:has(#email-snippet-modal-footer) .snippet-editor-wrapper {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) .snippet-editor-wrapper svg,
+.hr-modal:has(#email-snippet-modal-footer) .toolbar_button svg {
+  color: var(--nav-hover) !important;
+  stroke: var(--nav-hover) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) .toolbar_button:hover svg {
+  color: var(--akzent-dunkel) !important;
+  stroke: var(--akzent-dunkel) !important;
+}
+
+/* ── Toolbar Selects (Paragraph, Schriftgröße, Zeilenhöhe, Schriftart) → wine Focus ── */
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--text_block .hr-base-selection,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_size .hr-base-selection,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--line_height .hr-base-selection,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_family .hr-base-selection {
+  --n-border-hover:       1px solid var(--akzent) !important;
+  --n-border-focus:       1px solid var(--akzent) !important;
+  --n-border-active:      1px solid var(--akzent) !important;
+  --n-box-shadow-active:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:   0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:        var(--akzent) !important;
+  background-color:       var(--hintergrund-karte) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--text_block .hr-base-selection-input__content,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_size .hr-base-selection-input__content,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--line_height .hr-base-selection-input__content,
+.hr-modal:has(#email-snippet-modal-footer) #toolbar_select--font_family .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Rich Text Editor Canvas ── */
+.hr-modal:has(#email-snippet-modal-footer) .editor-container {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) .tiptap {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Editor Footer (Zeichen/Wörter) ── */
+.hr-modal:has(#email-snippet-modal-footer) .border-t.border-gray-300 {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--text-gedaempft) !important;
+}
+
+/* ── "Anhang hinzufügen" Button → wine outline ── */
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment {
+  border-color:     var(--akzent) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment:hover {
+  background-color: var(--akzent-hell) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment svg,
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment i,
+.hr-modal:has(#email-snippet-modal-footer) #email-add-attachment p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Test E-Mail Inputs → wine Focus ── */
+.hr-modal:has(#email-snippet-modal-footer) #test-from-email,
+.hr-modal:has(#email-snippet-modal-footer) #test-to-email {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── "Sendetest" Button → wine outline ── */
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms {
+  border-color:     var(--akzent) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms:hover {
+  background-color: var(--akzent-hell) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms svg,
+.hr-modal:has(#email-snippet-modal-footer) #test-send-sms p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Divider ── */
+.hr-modal:has(#email-snippet-modal-footer) .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Abbrechen" Button ── */
+.hr-modal:has(#email-snippet-modal-footer) #cancel {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #cancel p {
+  color: var(--nav-hover) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #cancel:hover {
+  border-color: var(--akzent) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #cancel:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+.hr-modal:has(#email-snippet-modal-footer) #save {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #save .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #save:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) #save p {
+  color: var(--base-white) !important;
+}
+
+/* ── Phone Preview: Nachrichtenblase → wine ── */
+.hr-modal:has(#email-snippet-modal-footer) .bg-blue-600 {
+  background-color: var(--akzent) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) .text-white {
+  color: var(--base-white) !important;
+}
+.hr-modal:has(#email-snippet-modal-footer) .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Phone Preview: Nachrichtenblase → wine ── */
+.hr-modal:has(#text-snippet-form) .bg-blue-600 {
+  background-color: var(--akzent) !important;
+}
+.hr-modal:has(#text-snippet-form) .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+
 
 
 
