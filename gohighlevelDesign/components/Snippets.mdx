@@ -1,0 +1,217 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/Snippets" />
+
+# Konversationen – Snippets (Section 101)
+
+Die Snippets-Seite (`Marketing → Ausschnitte`) zeigt eine DataTable mit gespeicherten Textbausteinen, Tabs (Alle Snippets / Ordner), Suchfeld, Checkboxen und Pagination. Root-Scope ist `#snippets-app-container`. Dazu gehören zwei Modals: **Neuen Ordner erstellen** (`#add-folder-modal`) und **In Ordner verschieben** (`#move-modal`).
+
+![Snippets Screenshot](./snippets-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Scope |
+|---|---|
+| Hauptseite | `#snippets-app-container` |
+| Ordner-Modal | `#add-folder-modal` |
+| Verschieben-Modal | `#move-modal` |
+
+---
+
+## 101.1 – Layout, Header & Buttons
+
+```css
+/* Hintergrund */
+#snippets-app-container,
+#snippets-app-container .conversationsUtilitiesApp { background-color: var(--bg) !important; }
+
+/* Titel & Beschreibung */
+#snippets-app-container .hr-text-4xl.hr-text-bold { color: var(--ink) !important; }
+#snippets-app-container .hr-text-sm.hr-text-regular { color: var(--ink-3) !important; }
+
+/* „Neuer Ordner" (outline wine) */
+#snippets-app-container #add-folder-button {
+  background-color: #ffffff !important;
+  border-color: var(--wine) !important;
+  color: var(--wine-2) !important;
+}
+#snippets-app-container #add-folder-button .hr-button__border { border-color: var(--wine) !important; }
+#snippets-app-container #add-folder-button:hover { background-color: var(--wine-lt) !important; }
+#snippets-app-container #add-folder-button svg,
+#snippets-app-container #add-folder-button i { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+#snippets-app-container #add-folder-button p { color: var(--wine-2) !important; }
+
+/* „Neues Snippet" (solid wine) */
+#snippets-app-container #add-snippet-button {
+  background-color: var(--wine) !important;
+  background: var(--wine) !important;
+  border-color: var(--wine) !important;
+}
+#snippets-app-container #add-snippet-button .hr-button__border { border-color: var(--wine) !important; }
+#snippets-app-container #add-snippet-button:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#snippets-app-container #add-snippet-button svg,
+#snippets-app-container #add-snippet-button i { color: #ffffff !important; stroke: #ffffff !important; }
+#snippets-app-container #add-snippet-button p { color: #ffffff !important; }
+```
+
+---
+
+## 101.2 – Tabs, Suchfeld & Checkboxen
+
+```css
+/* Tab Bar */
+#snippets-app-container #snippets-list-tabs .hr-tabs-bar { background-color: var(--wine) !important; }
+#snippets-app-container #snippets-list-tabs .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine-2) !important; }
+#snippets-app-container #snippets-list-tabs .hr-tabs-tab .hr-tabs-tab__label { color: var(--ink-3) !important; }
+#snippets-app-container #snippets-list-tabs .hr-tabs-tab--active { background-color: transparent !important; }
+
+/* Suchfeld */
+#snippets-app-container .hr-input-container .hr-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+}
+#snippets-app-container .hr-input-container { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+
+/* Checkboxen */
+#snippets-app-container .hr-checkbox-box { background-color: #ffffff !important; border-color: var(--line-hard) !important; }
+#snippets-app-container .hr-checkbox-box__border { border-color: var(--line-hard) !important; }
+#snippets-app-container [aria-checked="true"] .hr-checkbox-box,
+#snippets-app-container [aria-checked="mixed"] .hr-checkbox-box { background-color: var(--wine) !important; border-color: var(--wine) !important; }
+#snippets-app-container [aria-checked="true"] .hr-checkbox-icon svg path,
+#snippets-app-container [aria-checked="mixed"] .hr-checkbox-icon svg path { fill: #ffffff !important; }
+
+/* „Alle auswählen" / hr-button--text */
+#snippets-app-container .hr-button--text { color: var(--wine-2) !important; }
+#snippets-app-container .hr-button--text p { color: var(--wine-2) !important; }
+```
+
+---
+
+## 101.3 – DataTable
+
+```css
+/* Wrapper */
+#snippets-app-container .hr-data-table-wrapper { background-color: var(--surface) !important; }
+
+/* Header */
+#snippets-app-container .hr-data-table__cell-header { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+#snippets-app-container .hr-data-table__cell-header .hr-text { color: var(--ink) !important; }
+#snippets-app-container .hr-data-table__cell-header .hr-icon { color: var(--ink-3) !important; }
+
+/* Rows */
+#snippets-app-container .hr-data-table__body-row { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#snippets-app-container .hr-data-table__body-row:hover { background-color: var(--bg) !important; }
+#snippets-app-container .hr-data-table__body-cell { border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#snippets-app-container .hr-data-table__body-cell .line-clamp-1 { color: var(--ink-2) !important; }
+#snippets-app-container .hr-data-table__body-cell svg.cursor-pointer { color: var(--ink-3) !important; }
+#snippets-app-container .hr-data-table__body-cell svg.cursor-pointer:hover { color: var(--wine-2) !important; }
+
+/* Empty State */
+#snippets-app-container #empty-empty-state { background-color: var(--surface) !important; }
+#snippets-app-container #empty-empty-state .hr-icon-wrapper { background-color: var(--wine-lt) !important; }
+#snippets-app-container #empty-empty-state .hr-icon-wrapper .hr-icon { color: var(--wine-2) !important; }
+#snippets-app-container #empty-empty-state .hr-icon-wrapper svg { stroke: var(--wine-2) !important; }
+#snippets-app-container #empty-empty-state .hr-empty__title { color: var(--ink) !important; }
+#snippets-app-container .data-table__no-data { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+```
+
+---
+
+## 101.4 – Pagination
+
+```css
+/* Footer */
+#snippets-app-container .hr-data-table-wrapper-footer { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#snippets-app-container #searchable-table-pagination .hr-text { color: var(--ink-3) !important; }
+
+/* Per-Page Select */
+#snippets-app-container #per-page-dropdown .hr-base-selection { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#snippets-app-container #per-page-dropdown .hr-base-selection:hover { border-color: var(--wine) !important; }
+
+/* Prev/Next Buttons */
+#snippets-app-container #hr-prev-button,
+#snippets-app-container #next-button { background-color: var(--surface) !important; border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#snippets-app-container #hr-prev-button p, #snippets-app-container #next-button p { color: var(--ink-2) !important; }
+#snippets-app-container #hr-prev-button:not(:disabled):hover,
+#snippets-app-container #next-button:not(:disabled):hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+
+/* Aktive Seite */
+#snippets-app-container .hr-pagination-item__active { border-bottom: 1.5px solid var(--wine) !important; }
+#snippets-app-container .hr-pagination-item__active button p { color: var(--wine-2) !important; }
+#snippets-app-container .hr-pagination-cntr .hr-pages .hr-pagination-item__active button { border: 1px solid var(--wine) !important; border-radius: 4px !important; }
+#snippets-app-container .hr-pagination-cntr .hr-pages .hr-pagination-item__active button p { color: var(--wine-2) !important; }
+```
+
+---
+
+## 101.5 – „Neuen Ordner erstellen" Modal (`#add-folder-modal`)
+
+```css
+#add-folder-modal { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#add-folder-modal .hr-dialog__icon svg { fill: var(--wine-2) !important; }
+#add-folder-modal .hr-modal__header-title { color: var(--ink) !important; }
+#add-folder-modal #hr-modal__close-button svg { color: var(--ink-3) !important; }
+#add-folder-modal #hr-modal__close-button:hover svg { color: var(--ink) !important; }
+#add-folder-modal .hr-form-item-label__text { color: var(--ink-2) !important; }
+#add-folder-modal .hr-form-item-label__asterisk { color: #D92D20 !important; }
+#add-folder-modal #folder-name { --n-border-hover: 1px solid var(--wine) !important; --n-border-focus: 1px solid var(--wine) !important; --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important; --n-caret-color: var(--wine) !important; }
+#add-folder-modal .hr-divider__line { background-color: var(--line-hard) !important; }
+#add-folder-modal #cancel { background-color: var(--surface) !important; border-color: var(--line-hard) !important; color: var(--ink-2) !important; }
+#add-folder-modal #cancel p { color: var(--ink-2) !important; }
+#add-folder-modal #cancel:hover { border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#add-folder-modal #cancel:hover p { color: var(--wine-2) !important; }
+#add-folder-modal #save { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#add-folder-modal #save .hr-button__border { border-color: var(--wine) !important; }
+#add-folder-modal #save:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#add-folder-modal #save p { color: #ffffff !important; }
+```
+
+---
+
+## 101.6 – „In Ordner verschieben" Modal (`#move-modal`)
+
+```css
+#move-modal { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#move-modal .hr-dialog__icon svg { fill: var(--wine-2) !important; }
+#move-modal .hr-modal__header-title { color: var(--ink) !important; }
+#move-modal #hr-modal__close-button svg { color: var(--ink-3) !important; }
+#move-modal #hr-modal__close-button:hover svg { color: var(--ink) !important; }
+#move-modal .hr-form-item-label__text { color: var(--ink-2) !important; }
+#move-modal #select-folder .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color: var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+}
+#move-modal .hr-divider__line { background-color: var(--line-hard) !important; }
+#move-modal #add-folder { background-color: var(--surface) !important; border-color: var(--wine) !important; color: var(--wine-2) !important; }
+#move-modal #add-folder .hr-button__border { border-color: var(--wine) !important; }
+#move-modal #add-folder:hover { background-color: var(--wine-lt) !important; }
+#move-modal #add-folder svg, #move-modal #add-folder i { color: var(--wine-2) !important; stroke: var(--wine-2) !important; }
+#move-modal #add-folder p { color: var(--wine-2) !important; }
+#move-modal #cancel { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#move-modal #cancel p { color: var(--ink-2) !important; }
+#move-modal #cancel:hover { border-color: var(--wine) !important; }
+#move-modal #cancel:hover p { color: var(--wine-2) !important; }
+#move-modal #save { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#move-modal #save .hr-button__border { border-color: var(--wine) !important; }
+#move-modal #save:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#move-modal #save p { color: #ffffff !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Doppelte Pagination-Selektoren:** GHL hat zwei parallele Pagination-Klassen-Systeme hier — `.hr-pagination-item__active` (älteres System, `border-bottom`) und `.hr-pagination-cntr .hr-pagination-item__active button` (neueres System, `border`-Box). Beide werden parallel gesetzt.
+
+**`[aria-checked="true"]` für Checkboxen:** Diese Seite nutzt ARIA-Attribute statt CSS-Klassen für den Checked-State — Selektor `[aria-checked="true"] .hr-checkbox-box` statt `.hr-checkbox--checked .hr-checkbox-box`.
+
+**Zwei Button-Varianten im Header:** „Neuer Ordner" = outline wine, „Neues Snippet" = solid wine. Gleiche Konvention wie in anderen GHL-Seiten (Secondary vs. Primary).

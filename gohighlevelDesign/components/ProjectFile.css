@@ -17288,6 +17288,449 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   border-color: var(--akzent) !important;
 }
 
+/* ============================================================
+   SECTION 101 — Ausschnitte / Snippets (#snippets-app-container)
+   ============================================================ */
+
+/* ── Hintergrund ── */
+#snippets-app-container,
+#snippets-app-container .conversationsUtilitiesApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+#snippets-app-container .hr-text-4xl.hr-text-bold {
+  color: var(--nav-farbe) !important;
+}
+#snippets-app-container .hr-text-sm.hr-text-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Neuer Ordner" Button → wine outline ── */
+#snippets-app-container #add-folder-button {
+  background-color: var(--base-white) !important;
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+#snippets-app-container #add-folder-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#snippets-app-container #add-folder-button:hover {
+  background-color: var(--akzent-hell) !important;
+}
+#snippets-app-container #add-folder-button svg,
+#snippets-app-container #add-folder-button i {
+  color:  var(--akzent-dunkel) !important;
+  stroke: var(--akzent-dunkel) !important;
+}
+#snippets-app-container #add-folder-button p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Neues Snippet" Button → wine solid ── */
+#snippets-app-container #add-snippet-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#snippets-app-container #add-snippet-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#snippets-app-container #add-snippet-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#snippets-app-container #add-snippet-button svg,
+#snippets-app-container #add-snippet-button i {
+  color:  var(--base-white) !important;
+  stroke: var(--base-white) !important;
+}
+#snippets-app-container #add-snippet-button p {
+  color: var(--base-white) !important;
+}
+
+/* ── Tab Bar → wine ── */
+#snippets-app-container #snippets-list-tabs .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#snippets-app-container #snippets-list-tabs .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--akzent-dunkel) !important;
+}
+#snippets-app-container #snippets-list-tabs .hr-tabs-tab .hr-tabs-tab__label {
+  color: var(--text-gedaempft) !important;
+}
+#snippets-app-container #snippets-list-tabs .hr-tabs-tab--active {
+  background-color: transparent !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#snippets-app-container .hr-input-container .hr-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+#snippets-app-container .hr-input-container {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Tabelle Wrapper Hintergrund ── */
+#snippets-app-container .hr-data-table-wrapper {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Tabelle Header ── */
+#snippets-app-container .hr-data-table__cell-header {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#snippets-app-container .hr-data-table__cell-header .hr-text {
+  color: var(--nav-farbe) !important;
+}
+#snippets-app-container .hr-data-table__cell-header .hr-icon {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabelle Rows ── */
+#snippets-app-container .hr-data-table__body-row {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#snippets-app-container .hr-data-table__body-row:hover {
+  background-color: var(--hintergrund) !important;
+}
+#snippets-app-container .hr-data-table__body-cell {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+#snippets-app-container .hr-data-table__body-cell .line-clamp-1 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Checkbox ── */
+#snippets-app-container .hr-checkbox-box {
+  background-color: var(--base-white) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#snippets-app-container .hr-checkbox-box__border {
+  border-color: var(--linie-stark) !important;
+}
+#snippets-app-container [aria-checked="true"] .hr-checkbox-box,
+#snippets-app-container [aria-checked="mixed"] .hr-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#snippets-app-container [aria-checked="true"] .hr-checkbox-icon svg path,
+#snippets-app-container [aria-checked="mixed"] .hr-checkbox-icon svg path {
+  fill: var(--base-white) !important;
+}
+
+/* ── 3-Punkte Menü Icon ── */
+#snippets-app-container .hr-data-table__body-cell svg.cursor-pointer {
+  color: var(--text-gedaempft) !important;
+}
+#snippets-app-container .hr-data-table__body-cell svg.cursor-pointer:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Pagination Footer ── */
+#snippets-app-container .hr-data-table-wrapper-footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#snippets-app-container #searchable-table-pagination .hr-text {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Per-Page Dropdown ── */
+#snippets-app-container #per-page-dropdown .hr-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#snippets-app-container #per-page-dropdown .hr-base-selection:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Pagination Buttons ── */
+#snippets-app-container #hr-prev-button,
+#snippets-app-container #next-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#snippets-app-container #hr-prev-button p,
+#snippets-app-container #next-button p {
+  color: var(--nav-hover) !important;
+}
+#snippets-app-container #hr-prev-button:not(:disabled):hover,
+#snippets-app-container #next-button:not(:disabled):hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+
+/* ── Aktive Seiten-Nummer → wine ── */
+#snippets-app-container .hr-pagination-item__active {
+  border-bottom: 1.5px solid var(--akzent) !important;
+}
+#snippets-app-container .hr-pagination-item__active button p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Pagination aktive Seite: Blau → wine ── */
+#snippets-app-container .hr-pagination-cntr .hr-pages .hr-pagination-item__active button {
+  border: 1px solid var(--akzent) !important;
+  border-radius: 4px !important;
+}
+#snippets-app-container .hr-pagination-cntr .hr-pages .hr-pagination-item__active button p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Empty State (#empty-empty-state) ── */
+#snippets-app-container #empty-empty-state {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Empty State Icon-Wrapper → wine ── */
+#snippets-app-container #empty-empty-state .hr-icon-wrapper {
+  background-color: var(--akzent-hell) !important;
+}
+#snippets-app-container #empty-empty-state .hr-icon-wrapper .hr-icon {
+  color: var(--akzent-dunkel) !important;
+}
+#snippets-app-container #empty-empty-state .hr-icon-wrapper svg {
+  stroke: var(--akzent-dunkel) !important;
+}
+
+/* ── Empty State Titel ── */
+#snippets-app-container #empty-empty-state .hr-empty__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── No-Data Zelle ── */
+#snippets-app-container .data-table__no-data {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── "Alle auswählen" Bulk-Action Bar → wine ── */
+#snippets-app-container .hr-button--text p.hr-text-semibold,
+#snippets-app-container .hr-button--text .hr-button__content-default-slot {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* Spezifischer für den "Alle auswählen" Button in der Aktionsleiste ── */
+#snippets-app-container .hr-data-table-wrapper-header .hr-button p,
+#snippets-app-container .hr-table-header-container .hr-button p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* Alle hr-button--text in Snippets ── */
+#snippets-app-container .hr-button--text {
+  color: var(--akzent-dunkel) !important;
+}
+#snippets-app-container .hr-button--text p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 101 — Snippets: "Neuen Ordner erstellen" Modal
+   Scope: #add-folder-modal
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#add-folder-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Icon → wine ── */
+#add-folder-modal .hr-dialog__icon svg {
+  fill: var(--akzent-dunkel) !important;
+}
+
+/* ── Titel ── */
+#add-folder-modal .hr-modal__header-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Close Button ── */
+#add-folder-modal #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+#add-folder-modal #hr-modal__close-button:hover svg {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Form Label ── */
+#add-folder-modal .hr-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+#add-folder-modal .hr-form-item-label__asterisk {
+  color: #D92D20 !important;
+}
+
+/* ── Input → wine Focus ── */
+#add-folder-modal #folder-name {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+
+/* ── Divider ── */
+#add-folder-modal .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Abbrechen" Button ── */
+#add-folder-modal #cancel {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#add-folder-modal #cancel p {
+  color: var(--nav-hover) !important;
+}
+#add-folder-modal #cancel:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent-dunkel) !important;
+}
+#add-folder-modal #cancel:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+#add-folder-modal #save {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#add-folder-modal #save .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#add-folder-modal #save:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#add-folder-modal #save p {
+  color: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 101 — Snippets: "In Ordner verschieben" Modal
+   Scope: #move-modal
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#move-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Icon → wine ── */
+#move-modal .hr-dialog__icon svg {
+  fill: var(--akzent-dunkel) !important;
+}
+
+/* ── Titel ── */
+#move-modal .hr-modal__header-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Close Button ── */
+#move-modal #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+#move-modal #hr-modal__close-button:hover svg {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Form Label ── */
+#move-modal .hr-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+#move-modal .hr-form-item-label__asterisk {
+  color: #D92D20 !important;
+}
+
+/* ── Ordner Select → wine Focus ── */
+#move-modal #select-folder .hr-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-hover:  0 0 0 4px var(--akzent-a20) !important;
+}
+
+/* ── Divider ── */
+#move-modal .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Ordner hinzufügen" Button → wine outline ── */
+#move-modal #add-folder {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--akzent) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+#move-modal #add-folder .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#move-modal #add-folder:hover {
+  background-color: var(--akzent-hell) !important;
+}
+#move-modal #add-folder svg,
+#move-modal #add-folder i {
+  color:  var(--akzent-dunkel) !important;
+  stroke: var(--akzent-dunkel) !important;
+}
+#move-modal #add-folder p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Abbrechen" Button ── */
+#move-modal #cancel {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#move-modal #cancel p {
+  color: var(--nav-hover) !important;
+}
+#move-modal #cancel:hover {
+  border-color: var(--akzent) !important;
+}
+#move-modal #cancel:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+#move-modal #save {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#move-modal #save .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#move-modal #save:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#move-modal #save p {
+  color: var(--base-white) !important;
+}
+
+
+
+
+
 /* ════════════════════════════════════════════════════════════════
    114 · FUNNELS
    Root: section#funnels, #FunnelList
