@@ -19533,7 +19533,89 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--nav-hover) !important;
 }
 
+/* ============================================================
+   SECTION 107 — Markenstimme Builder (#brandVoiceBuilder)
+   ============================================================ */
 
+/* ── Gesamt-Hintergrund ── */
+#brandVoiceBuilder .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+#brandVoiceBuilder .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Toolbar (gleiche IDs wie Section 106 → bereits abgedeckt,
+      hier zur Sicherheit nochmal explizit gescoped) ── */
+#brandVoiceBuilder .ui-toolbar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#brandVoiceBuilder [contenteditable] {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Formular-Bereich ── */
+#pg-brand-boards-brand-voice-form {
+  background-color: transparent !important;
+}
+
+/* ── Abschnitts-Titel (Unternehmensinformationen etc.) ── */
+#brandVoiceBuilder .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Form Labels ── */
+#brandVoiceBuilder .hr-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+#brandVoiceBuilder .hr-form-item-feedback__line {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Alle Text-Inputs → wine Focus ── */
+#pg-brand-voice-form-brand-name,
+#pg-brand-voice-form-company-email,
+#pg-brand-voice-form-company-address,
+#pg-brand-voice-form-phone-number,
+#pg-brand-voice-form-business-hours,
+#pg-brand-voice-form-target-audience,
+#pg-brand-voice-form-customer-pain-points,
+#pg-brand-voice-form-brand-promise,
+#pg-brand-voice-form-brand-values,
+#pg-brand-voice-form-what-does-your-brand-do,
+#pg-brand-voice-form-what-makes-you-better-than-competitors,
+#pg-brand-voice-form-unique-selling-proposition,
+#pg-brand-voice-form-risks-of-inaction,
+#pg-brand-voice-form-call-to-action {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+
+/* ── Website Input-Group Label "https://" ── */
+#brandVoiceBuilder .hr-input-group-label {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--text-gedaempft) !important;
+}
+
+/* ── Unternehmenstyp & Ton Selects → wine Focus ── */
+#pg-brand-voice-form-business-type .hr-base-selection,
+#pg-brand-voice-form-tone-of-voice .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+  background-color:      var(--hintergrund-karte) !important;
+}
+#pg-brand-voice-form-business-type .hr-base-selection-overlay__wrapper,
+#pg-brand-voice-form-tone-of-voice .hr-base-selection-overlay__wrapper {
+  color: var(--nav-hover) !important;
+}
 
 
 

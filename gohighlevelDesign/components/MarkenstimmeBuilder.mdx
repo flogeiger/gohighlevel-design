@@ -1,0 +1,114 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/MarkenstimmeBuilder" />
+
+# Marketing – Markenstimme Builder (Section 107)
+
+Der Markenstimme Builder öffnet sich nach der Template-Auswahl in Section 105d. Root-Scope ist `#brandVoiceBuilder`. Die Seite ist ein langer Formular-Scroll mit Toolbar (Header) und mehreren Abschnitten: **Unternehmensinformationen**, **Standort und Kontaktinformationen**, **Markenkommunikation und Persönlichkeit** u.w.
+
+![Markenstimme Builder Screenshot](./markenstimme-builder-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#brandVoiceBuilder` |
+| Toolbar | `.ui-toolbar` |
+| Formular | `#pg-brand-boards-brand-voice-form` |
+| Alle Inputs | `#pg-brand-voice-form-*` |
+| Selects | `#pg-brand-voice-form-business-type`, `#pg-brand-voice-form-tone-of-voice` |
+
+---
+
+## 107.1 – Layout & Toolbar
+
+```css
+/* Hintergründe */
+#brandVoiceBuilder .bg-white { background-color: var(--surface) !important; }
+#brandVoiceBuilder .bg-gray-50 { background-color: var(--bg) !important; }
+
+/* Toolbar */
+#brandVoiceBuilder .ui-toolbar { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#brandVoiceBuilder [contenteditable] { color: var(--ink) !important; }
+
+/* Formular-Container */
+#pg-brand-boards-brand-voice-form { background-color: transparent !important; }
+```
+
+---
+
+## 107.2 – Formular Texte & Labels
+
+```css
+/* Abschnitts-Titel */
+#brandVoiceBuilder .text-gray-900 { color: var(--ink) !important; }
+
+/* Form Labels + Hilfetext */
+#brandVoiceBuilder .hr-form-item-label__text { color: var(--ink-2) !important; }
+#brandVoiceBuilder .hr-form-item-feedback__line { color: var(--ink-3) !important; }
+
+/* Website Input-Group „https://" Prefix */
+#brandVoiceBuilder .hr-input-group-label {
+  background-color: var(--bg) !important;
+  border-color: var(--line-hard) !important;
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 107.3 – Text-Inputs (wine Focus)
+
+```css
+#pg-brand-voice-form-brand-name,
+#pg-brand-voice-form-company-email,
+#pg-brand-voice-form-company-address,
+#pg-brand-voice-form-phone-number,
+#pg-brand-voice-form-business-hours,
+#pg-brand-voice-form-target-audience,
+#pg-brand-voice-form-customer-pain-points,
+#pg-brand-voice-form-brand-promise,
+#pg-brand-voice-form-brand-values,
+#pg-brand-voice-form-what-does-your-brand-do,
+#pg-brand-voice-form-what-makes-you-better-than-competitors,
+#pg-brand-voice-form-unique-selling-proposition,
+#pg-brand-voice-form-risks-of-inaction,
+#pg-brand-voice-form-call-to-action {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 3px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+```
+
+---
+
+## 107.4 – Selects (wine Focus)
+
+```css
+/* Unternehmenstyp + Ton */
+#pg-brand-voice-form-business-type .hr-base-selection,
+#pg-brand-voice-form-tone-of-voice .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 3px rgba(91,25,45,0.2) !important;
+  background-color: var(--surface) !important;
+}
+#pg-brand-voice-form-business-type .hr-base-selection-overlay__wrapper,
+#pg-brand-voice-form-tone-of-voice .hr-base-selection-overlay__wrapper { color: var(--ink-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**14 Input-IDs mit `#pg-brand-voice-form-*` Präfix:** Alle Inputs folgen einem konsistenten GHL-ID-Schema. Statt eines generischen `.hr-input`-Overrides werden alle spezifisch benannt — verhindert ungewollte Kollisionen mit anderen Formularen.
+
+**`contenteditable` Titel-Feld:** Gleiche Technik wie Section 106 — der Titel „Neue Markenstimme" ist inline-editierbar.
+
+**Toolbar-IDs aus Section 106:** Zurück-Button (`#pg-brand-boards-header-back-button`), „Als Standard"-Button und „Archiv"-Button haben dieselben oder ähnliche IDs wie Section 106 — werden durch den Scope `#brandVoiceBuilder` von Section 106 (`#brandBoardBuilder`) getrennt.
