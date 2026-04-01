@@ -1,0 +1,196 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/TriggerLinks" />
+
+# Marketing – Trigger-Links (Sections 103–103c)
+
+Die Trigger-Links-Seite (`Marketing → Trigger-Links`) zeigt zwei Tabs: **Link** (DataTable mit angelegten Links) und **Analysieren** (Statistiken mit Datum-Filter). Root-Scope ist `.conversationsUtilitiesApp`. Dazu gehört das **Auslöser-Link Modal** (`#trigger-links-edit-modal`) für Erstellen/Bearbeiten.
+
+- **103** — Hauptseite (Tabs, DataTable, Filter, Buttons)
+- **103b** — Auslöser-Link Modal (`#trigger-links-edit-modal`)
+- **103c** — Tabellen-Footer & Pagination (`#trigger-links-data-table-pagination`)
+
+![Trigger-Links Screenshot](./trigger-links-screenshot.png)
+
+---
+
+## Struktur & Root-Selektoren
+
+| Section | Scope |
+|---|---|
+| 103 | `.conversationsUtilitiesApp` |
+| 103b | `#trigger-links-edit-modal` |
+| 103c | `#trigger-links-data-table-pagination` |
+
+---
+
+## Section 103 – Hauptseite
+
+```css
+/* Hintergrund + Texte */
+.conversationsUtilitiesApp { background-color: var(--bg) !important; }
+.conversationsUtilitiesApp .hr-text-4xl { color: var(--ink) !important; }
+.conversationsUtilitiesApp .hr-text-sm.hr-text-regular { color: var(--ink-3) !important; }
+
+/* „+ Link hinzufügen" → wine */
+#create-trigger-link-button { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#create-trigger-link-button:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#create-trigger-link-button p, #create-trigger-link-button svg { color: #ffffff !important; }
+
+/* Tab Bar */
+#trigger-link-tabs {
+  --n-bar-color: var(--wine) !important;
+  --n-tab-text-color-active: var(--wine-2) !important;
+  --n-tab-text-color-hover: var(--ink) !important;
+}
+#trigger-link-tabs .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine-2) !important; }
+#trigger-link-tabs .hr-tabs-tab__label { color: var(--ink-3) !important; }
+#trigger-link-tabs .hr-tabs-bar { background-color: var(--wine) !important; }
+
+/* Datum-Inputs (Analysieren-Tab) */
+#hr-date-picker-start, #hr-date-picker-end {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+#hr-date-picker-start .hr-input__prefix-icon svg,
+#hr-date-picker-end .hr-input__prefix-icon svg { color: var(--ink-3) !important; }
+
+/* Suchfeld */
+#trigger-link-analyze-search {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+#trigger-link-analyze-search .hr-input__prefix-icon svg { color: var(--ink-3) !important; }
+
+/* „Statistiken aktualisieren" (outline wine) */
+#icon-only-lg { border-color: var(--wine) !important; background-color: var(--surface) !important; }
+#icon-only-lg:hover { background-color: var(--wine-lt) !important; }
+#icon-only-lg svg { color: var(--wine-2) !important; }
+
+/* DataTable */
+.conversationsUtilitiesApp .hr-data-table__cell-header { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+.conversationsUtilitiesApp .hr-data-table__cell-header p { color: var(--ink) !important; }
+.conversationsUtilitiesApp .hr-data-table__body tr { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.conversationsUtilitiesApp .hr-data-table__body td { color: var(--ink-2) !important; }
+
+/* Empty State */
+#empty-trigger-link-analyze-data-table--empty .hr-icon-wrapper { background-color: var(--wine) !important; }
+#empty-trigger-link-analyze-data-table--empty .hr-icon-wrapper svg { color: #ffffff !important; }
+#empty-trigger-link-analyze-data-table--empty .hr-empty__title { color: var(--ink) !important; }
+
+/* Pagination Footer */
+.conversationsUtilitiesApp .hr-pagination-cntr p { color: var(--ink-3) !important; }
+#per-page-dropdown .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  background-color: var(--surface) !important;
+}
+#per-page-dropdown .hr-base-selection-input__content { color: var(--ink-2) !important; }
+#hr-prev-button, #next-button { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#hr-prev-button p, #next-button p { color: var(--ink-2) !important; }
+#hr-prev-button:hover, #next-button:hover { border-color: var(--wine) !important; }
+#hr-prev-button:hover p, #next-button:hover p { color: var(--wine-2) !important; }
+.conversationsUtilitiesApp .hr-pagination-item__active { border: none !important; border-radius: 0 !important; }
+.conversationsUtilitiesApp .hr-pagination-item__active button p { color: var(--wine) !important; font-weight: 600 !important; }
+```
+
+---
+
+## Section 103b – Auslöser-Link Modal
+
+```css
+/* Modal */
+#trigger-links-edit-modal { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#trigger-links-edit-modal .hr-dialog__icon svg { fill: var(--wine-2) !important; }
+#trigger-links-edit-modal .hr-dialog__icon { --n-dialog-icon-bg-color: var(--wine-lt) !important; }
+#trigger-links-edit-modal .hr-modal__header-title { color: var(--ink) !important; }
+#trigger-links-edit-modal #hr-modal__close-button svg { color: var(--ink-3) !important; }
+#trigger-links-edit-modal .hr-form-item-label__text { color: var(--ink-2) !important; }
+
+/* Name Input */
+#trigger-link-name {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+
+/* Link-URL Input */
+#trigger-link-redirectTo {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+#trigger-link-redirectTo .text-black { color: var(--ink-3) !important; }
+
+/* Divider + Footer Buttons */
+#trigger-links-edit-modal .hr-divider__line { background-color: var(--line-hard) !important; }
+#trigger-link-cancel { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#trigger-link-cancel p { color: var(--ink-2) !important; }
+#trigger-link-cancel:hover { border-color: var(--wine) !important; }
+#trigger-link-cancel:hover p { color: var(--wine-2) !important; }
+#trigger-link-save { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#trigger-link-save .hr-button__border { border-color: var(--wine) !important; }
+#trigger-link-save:not([disabled]):hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#trigger-link-save p { color: #ffffff !important; }
+```
+
+---
+
+## Section 103c – Tabellen-Footer & Pagination
+
+```css
+/* Footer Texte */
+#trigger-links-data-table-pagination p { color: var(--ink-3) !important; }
+
+/* Per-Page Select */
+#trigger-links-data-table-pagination #per-page-dropdown .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  background-color: var(--surface) !important;
+}
+#trigger-links-data-table-pagination #per-page-dropdown .hr-base-selection-input__content { color: var(--ink-2) !important; }
+
+/* Prev/Next */
+#trigger-links-data-table-pagination #hr-prev-button,
+#trigger-links-data-table-pagination #next-button { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#trigger-links-data-table-pagination #hr-prev-button p,
+#trigger-links-data-table-pagination #next-button p { color: var(--ink-2) !important; }
+#trigger-links-data-table-pagination #hr-prev-button:hover,
+#trigger-links-data-table-pagination #next-button:hover { border-color: var(--wine) !important; }
+#trigger-links-data-table-pagination #hr-prev-button:hover p,
+#trigger-links-data-table-pagination #next-button:hover p { color: var(--wine-2) !important; }
+
+/* Aktive Seite */
+#trigger-links-data-table-pagination .hr-pagination-item__active { border: none !important; border-radius: 0 !important; }
+#trigger-links-data-table-pagination .hr-pagination-item__active button p { color: var(--wine) !important; font-weight: 600 !important; }
+
+/* Vue-Scoped Fallback [data-v-23397495] */
+.hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-23397495] { border: 1px solid var(--wine) !important; box-shadow: none !important; }
+.hr-pagination-item__active button[data-v-23397495] p { color: var(--wine) !important; font-weight: 600 !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`.conversationsUtilitiesApp` als Root-Scope:** Diese Klasse teilt sich Section 101 (Snippets) und Section 103 (Trigger-Links) — beide Seiten nutzen denselben App-Wrapper. Spezifischere ID-Selektoren (`#trigger-link-tabs`, `#create-trigger-link-button`) verhindern Kollisionen.
+
+**Aktive Pagination — `border: none`:** Der GHL-Default setzt einen blauen Border auf aktive Seitenzahlen über einen Vue-Scoped-Style. Um Doppelrahmen zu vermeiden wird `border: none` gesetzt und nur der Text auf wine gefärbt. Zusätzlich der `[data-v-23397495]`-Fallback für Highrise-Version 2.17.0 (gleiches Pattern wie Section 128).
+
+**`#icon-only-lg` outline wine:** Der „Statistiken aktualisieren" Refresh-Button hat keine Beschriftung — Icon-only-Stil als outline wine statt solid.

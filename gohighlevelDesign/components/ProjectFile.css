@@ -18549,6 +18549,328 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--akzent-dunkel) !important;
 }
 
+/* ============================================================
+   SECTION 103 — Trigger-Links (.conversationsUtilitiesApp)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+.conversationsUtilitiesApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+.conversationsUtilitiesApp .hr-text-4xl {
+  color: var(--nav-farbe) !important;
+}
+.conversationsUtilitiesApp .hr-text-sm.hr-text-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Link hinzufügen" Button → wine solid ── */
+#create-trigger-link-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#create-trigger-link-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#create-trigger-link-button p,
+#create-trigger-link-button svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Tab Bar → wine ── */
+#trigger-link-tabs {
+  --n-bar-color:             var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent-dunkel) !important;
+  --n-tab-text-color-hover:  var(--nav-farbe) !important;
+}
+#trigger-link-tabs .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--akzent-dunkel) !important;
+}
+#trigger-link-tabs .hr-tabs-tab__label {
+  color: var(--text-gedaempft) !important;
+}
+#trigger-link-tabs .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Datum-Inputs (Start/End) → wine Focus ── */
+#hr-date-picker-start,
+#hr-date-picker-end {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+#hr-date-picker-start .hr-input__prefix-icon svg,
+#hr-date-picker-end .hr-input__prefix-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#trigger-link-analyze-search {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+#trigger-link-analyze-search .hr-input__prefix-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Statistiken aktualisieren" Button → wine outline ── */
+#icon-only-lg {
+  border-color:     var(--akzent) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#icon-only-lg:hover {
+  background-color: var(--akzent-hell) !important;
+}
+#icon-only-lg svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Tabellen-Header ── */
+.conversationsUtilitiesApp .hr-data-table__cell-header {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.conversationsUtilitiesApp .hr-data-table__cell-header p {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+.conversationsUtilitiesApp .hr-data-table__body tr {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.conversationsUtilitiesApp .hr-data-table__body td {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Empty State Icon-Wrapper → wine ── */
+#empty-trigger-link-analyze-data-table--empty .hr-icon-wrapper {
+  background-color: var(--akzent) !important;
+}
+#empty-trigger-link-analyze-data-table--empty .hr-icon-wrapper svg {
+  color: var(--base-white) !important;
+}
+#empty-trigger-link-analyze-data-table--empty .hr-empty__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Footer: "Zeilen pro Seite" ── */
+.conversationsUtilitiesApp .hr-pagination-cntr p {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Per-Page Dropdown → wine Focus ── */
+#per-page-dropdown .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  background-color:      var(--hintergrund-karte) !important;
+}
+#per-page-dropdown .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Pagination Buttons (Vorherige/Nächste) ── */
+#hr-prev-button,
+#next-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hr-prev-button p,
+#next-button p {
+  color: var(--nav-hover) !important;
+}
+#hr-prev-button:hover,
+#next-button:hover {
+  border-color: var(--akzent) !important;
+}
+#hr-prev-button:hover p,
+#next-button:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Aktive Seitenzahl → wine, kein Doppelrahmen ── */
+.conversationsUtilitiesApp .hr-pagination-item__active {
+  border:        none !important;
+  border-radius: 0 !important;
+}
+.conversationsUtilitiesApp .hr-pagination-item__active button p {
+  color:       var(--akzent) !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================
+   SECTION 103b — Trigger-Links: "Auslöser-Link" Modal
+   Scope: #trigger-links-edit-modal
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#trigger-links-edit-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Icon → wine ── */
+#trigger-links-edit-modal .hr-dialog__icon svg {
+  fill: var(--akzent-dunkel) !important;
+}
+#trigger-links-edit-modal .hr-dialog__icon {
+  --n-dialog-icon-bg-color: var(--akzent-hell) !important;
+}
+
+/* ── Titel ── */
+#trigger-links-edit-modal .hr-modal__header-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Close Button ── */
+#trigger-links-edit-modal #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Form Labels ── */
+#trigger-links-edit-modal .hr-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Name Input → wine Focus ── */
+#trigger-link-name {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+
+/* ── Link-URL Input → wine Focus ── */
+#trigger-link-redirectTo {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+#trigger-link-redirectTo .text-black {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Divider ── */
+#trigger-links-edit-modal .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Abbrechen" Button ── */
+#trigger-link-cancel {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#trigger-link-cancel p {
+  color: var(--nav-hover) !important;
+}
+#trigger-link-cancel:hover {
+  border-color: var(--akzent) !important;
+}
+#trigger-link-cancel:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Speichern" Button → wine ── */
+#trigger-link-save {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#trigger-link-save .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#trigger-link-save:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#trigger-link-save p {
+  color: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 103c — Trigger-Links: Tabellen-Footer & Pagination
+   Scope: #trigger-links-data-table-pagination
+   ============================================================ */
+
+/* ── "Zeilen pro Seite" & Ergebnis-Text ── */
+#trigger-links-data-table-pagination p {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Per-Page Dropdown → wine Focus ── */
+#trigger-links-data-table-pagination #per-page-dropdown .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  background-color:      var(--hintergrund-karte) !important;
+}
+#trigger-links-data-table-pagination #per-page-dropdown .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Vorherige" / "Nächste" Buttons ── */
+#trigger-links-data-table-pagination #hr-prev-button,
+#trigger-links-data-table-pagination #next-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#trigger-links-data-table-pagination #hr-prev-button p,
+#trigger-links-data-table-pagination #next-button p {
+  color: var(--nav-hover) !important;
+}
+#trigger-links-data-table-pagination #hr-prev-button:hover,
+#trigger-links-data-table-pagination #next-button:hover {
+  border-color: var(--akzent) !important;
+}
+#trigger-links-data-table-pagination #hr-prev-button:hover p,
+#trigger-links-data-table-pagination #next-button:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Aktive Seitenzahl → wine, kein Doppelrahmen ── */
+#trigger-links-data-table-pagination .hr-pagination-item__active {
+  border:        none !important;
+  border-radius: 0 !important;
+}
+#trigger-links-data-table-pagination .hr-pagination-item__active button p {
+  color:       var(--akzent) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Fix: Aktiver Pagination-Button Border → wine ── */
+.hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-23397495],
+.hr-pagination-item__active button[data-v-23397495] {
+  border: 1px solid var(--akzent) !important;
+  box-shadow: none !important;
+}
+
+/* ── Aktive Seitenzahl → wine Farbe ── */
+.hr-pagination-item__active button[data-v-23397495] p {
+  color:       var(--akzent) !important;
+  font-weight: 600 !important;
+}
+
+
 
 
 
