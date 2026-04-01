@@ -1,0 +1,185 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/MarkenBoardsModals" />
+
+# Marketing – Marken-Boards Modals (Sections 105c–105e)
+
+Drei Modals die sich von der Marken-Boards-Seite öffnen:
+
+- **105c** — „Marken-Board erstellen" Modal (URL-Import + Template-Auswahl)
+- **105d** — „Neue Markenstimme erstellen" Modal (Auswahl-Karten)
+- **105e** — „Globale Einstellungen" Modal (Tabs, Farb-Grid, Pagination)
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '32px' }}>
+  <img src="/marken-board-erstellen-screenshot.png" alt="Marken-Board erstellen" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/markenstimme-erstellen-screenshot.png" alt="Markenstimme erstellen" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+  <img src="/globale-einstellungen-screenshot.png" alt="Globale Einstellungen" style={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+</div>
+
+---
+
+## Section 105c – „Marken-Board erstellen" Modal
+
+Scope: `.hr-dialog:has(#pg-brand-boards-design-kit-url-input)`
+
+```css
+/* Modal */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) #hr-modal__close-button svg { color: var(--ink-3) !important; }
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hr-header-lite-title { color: var(--ink) !important; }
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hr-header-lite-subtitle { color: var(--ink-3) !important; }
+
+/* URL-Import Box */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .bg-gray-50 { background-color: var(--bg) !important; border-color: var(--line-hard) !important; }
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .text-gray-900 { color: var(--ink) !important; }
+
+/* URL Input */
+#pg-brand-boards-design-kit-url-input {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 3px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+
+/* „Markenkit importieren" (outline wine) */
+#pg-brand-boards-import-brand-kit-btn { border-color: var(--wine) !important; background-color: var(--surface) !important; }
+#pg-brand-boards-import-brand-kit-btn p,
+#pg-brand-boards-import-brand-kit-btn svg { color: var(--wine-2) !important; }
+#pg-brand-boards-import-brand-kit-btn:not([disabled]):hover { background-color: var(--wine-lt) !important; }
+
+/* Divider */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .border-t { border-color: var(--line-hard) !important; }
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .bg-white.text-gray-500 { background-color: var(--surface) !important; color: var(--ink-3) !important; }
+
+/* Template-Karten Labels */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .ui-text-md-medium { color: var(--ink-2) !important; }
+
+/* „Wählen Sie" Hover-Button auf Template-Karten */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hl-card .hr-button--secondary { border-color: var(--wine) !important; background-color: var(--surface) !important; }
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hl-card .hr-button--secondary p { color: var(--wine-2) !important; }
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hl-card .hr-button--secondary:hover { background-color: var(--wine-lt) !important; }
+```
+
+---
+
+## Section 105d – „Neue Markenstimme erstellen" Modal
+
+Scope: `.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn)`
+
+```css
+/* Modal */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .title { color: var(--ink) !important; }
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .description { color: var(--ink-3) !important; }
+
+/* Close Button */
+#pg-brand-boards-brand-voice-selector-modal-modal-close-btn svg { color: var(--ink-3) !important; }
+#pg-brand-boards-brand-voice-selector-modal-modal-close-btn:hover { border-color: var(--wine) !important; }
+
+/* Auswahl-Karten */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .ui-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .ui-card:hover { border-color: var(--wine) !important; background-color: var(--wine-lt) !important; }
+
+/* Karten-Texte */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .text-gray-900 { color: var(--ink) !important; }
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .text-gray-600 { color: var(--ink-3) !important; }
+
+/* „Auswählen" Button (outline wine) */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .hr-button--tertiary-type { border-color: var(--wine) !important; background-color: transparent !important; }
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .hr-button--tertiary-type span { color: var(--wine-2) !important; }
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .hr-button--tertiary-type:hover { background-color: var(--wine-lt) !important; }
+```
+
+---
+
+## Section 105e – „Globale Einstellungen" Modal
+
+Scope: `#pg-brand-boards-global-settings-modal`
+
+```css
+/* Modal */
+#pg-brand-boards-global-settings-modal { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-global-settings-modal #hr-modal__close-button svg { color: var(--ink-3) !important; }
+
+/* Header Icon-Wrapper */
+#pg-brand-boards-global-settings-modal .hr-icon-wrapper { background-color: var(--wine-lt) !important; }
+#pg-brand-boards-global-settings-modal .hr-icon-wrapper svg { color: var(--wine-2) !important; }
+#pg-brand-boards-global-settings-modal .hr-header-lite-title { color: var(--ink) !important; }
+#pg-brand-boards-global-settings-modal .hr-header-lite-subtitle { color: var(--ink-3) !important; }
+
+/* Tab Bar */
+#pg-brand-boards-global-settings-modal .hr-tabs-bar { background-color: var(--wine) !important; }
+#pg-brand-boards-global-settings-modal .hr-tabs-tab--active .hr-tabs-tab__label { color: var(--wine-2) !important; }
+#pg-brand-boards-global-settings-modal .hr-tabs-tab__label { color: var(--ink-3) !important; }
+#pg-brand-boards-global-settings-modal .hr-tabs-tab--disabled .hr-tabs-tab__label p { color: var(--ink-3) !important; opacity: 0.5; }
+
+/* Sub-Header */
+#pg-brand-boards-global-settings-modal .text-gray-800 { color: var(--ink) !important; }
+
+/* Suchfeld */
+#pg-brand-boards-global-settings-search-colors {
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-caret-color: var(--wine) !important;
+  background-color: var(--surface) !important;
+}
+#pg-brand-boards-global-settings-search-colors .text-gray-400 { color: var(--ink-3) !important; }
+
+/* „+ Hinzufügen" Primary */
+#pg-brand-boards-global-settings-modal .hr-button--primary { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#pg-brand-boards-global-settings-modal .hr-button--primary:hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#pg-brand-boards-global-settings-modal .hr-button--primary p,
+#pg-brand-boards-global-settings-modal .hr-button--primary svg { color: #ffffff !important; }
+
+/* Grid/List View Toggle */
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="true"] { background-color: var(--wine-lt) !important; border-color: var(--wine) !important; }
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="true"] svg { color: var(--wine-2) !important; }
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="false"] { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="false"] svg { color: var(--ink-3) !important; }
+
+/* Farb-Karten */
+#pg-brand-boards-color-grid-container .hr-card { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-color-grid-container .hr-card:hover { border-color: var(--wine) !important; }
+#pg-brand-boards-color-grid-container .text-gray-900 { color: var(--ink) !important; }
+#pg-brand-boards-color-grid-container .text-gray-500 { color: var(--ink-3) !important; }
+
+/* Action Buttons (Kopieren, Bearbeiten, Löschen) */
+#pg-brand-boards-color-grid-container .hr-button--secondary { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-color-grid-container .hr-button--secondary svg { color: var(--ink-3) !important; }
+#pg-brand-boards-color-grid-container .hr-button--secondary:hover { border-color: var(--wine) !important; }
+#pg-brand-boards-color-grid-container .hr-button--secondary:hover svg { color: var(--wine-2) !important; }
+
+/* Footer Pagination */
+#pg-brand-boards-global-settings-pagination p { color: var(--ink-3) !important; }
+#pg-brand-boards-global-settings-pagination #per-page-dropdown .hr-base-selection,
+#pg-brand-boards-global-settings-pagination #collapsed-dropdown .hr-base-selection {
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  --n-box-shadow-focus: 0 0 0 4px rgba(91,25,45,0.2) !important;
+  background-color: var(--surface) !important;
+}
+#pg-brand-boards-global-settings-pagination .hr-base-selection-input__content,
+#pg-brand-boards-global-settings-pagination .hr-base-selection-overlay__wrapper { color: var(--ink-2) !important; }
+#pg-brand-boards-global-settings-pagination #hr-prev-button,
+#pg-brand-boards-global-settings-pagination #next-button { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#pg-brand-boards-global-settings-pagination #hr-prev-button svg,
+#pg-brand-boards-global-settings-pagination #next-button svg { color: var(--ink-2) !important; }
+#pg-brand-boards-global-settings-pagination #hr-prev-button:hover,
+#pg-brand-boards-global-settings-pagination #next-button:hover { border-color: var(--wine) !important; }
+#pg-brand-boards-global-settings-pagination #hr-prev-button:hover svg,
+#pg-brand-boards-global-settings-pagination #next-button:hover svg { color: var(--wine-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**`.hr-dialog:has(...)` vs `.hr-card:has(...)`:** Section 105c nutzt `.hr-dialog` als Anker-Container (GHL-spezifischer Dialog-Wrapper), 105d hingegen `.hr-card` — beide ohne eigene Root-ID, daher `:has()`-Scoping auf verfügbares Kind-Element.
+
+**`[active="true"]` / `[active="false"]` für Grid/List-Toggle (105e):** GHL setzt den aktiven Status über ein `active`-Attribut statt einer CSS-Klasse — Attribut-Selektor nötig.
+
+**Farb-Karten-Thumbnails bleiben unverändert:** Die farbigen Vorschau-Flächen in `#pg-brand-boards-color-grid-container` zeigen die tatsächlichen Brand-Farben — kein Override.

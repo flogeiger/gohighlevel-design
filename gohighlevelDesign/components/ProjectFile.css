@@ -19056,6 +19056,309 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--base-white) !important;
 }
 
+/* ============================================================
+   SECTION 105c — Marken-Board erstellen Modal
+   (Template-Auswahl, kein eigene ID → :has() Scoping)
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Close Button ── */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Titel & Untertitel ── */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── URL-Import Box ── */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── URL Input → wine Focus ── */
+#pg-brand-boards-design-kit-url-input {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 3px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+
+/* ── "Markenkit importieren" Button → wine outline ── */
+#pg-brand-boards-import-brand-kit-btn {
+  border-color:     var(--akzent) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#pg-brand-boards-import-brand-kit-btn p,
+#pg-brand-boards-import-brand-kit-btn svg {
+  color: var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-import-brand-kit-btn:not([disabled]):hover {
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Divider "Oder wählen Sie unten aus" ── */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .border-t {
+  border-color: var(--linie-stark) !important;
+}
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .bg-white.text-gray-500 {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--text-gedaempft) !important;
+}
+
+/* ── Template-Karten Labels ── */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .ui-text-md-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Wählen Sie" Hover-Button auf Template-Karten → wine ── */
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hl-card .hr-button--secondary {
+  border-color:     var(--akzent) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hl-card .hr-button--secondary p {
+  color: var(--akzent-dunkel) !important;
+}
+.hr-dialog:has(#pg-brand-boards-design-kit-url-input) .hl-card .hr-button--secondary:hover {
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ============================================================
+   SECTION 105d — Neue Markenstimme erstellen Modal
+   Scope: :has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn)
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .title {
+  color: var(--nav-farbe) !important;
+}
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+#pg-brand-boards-brand-voice-selector-modal-modal-close-btn svg {
+  color: var(--text-gedaempft) !important;
+}
+#pg-brand-boards-brand-voice-selector-modal-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Auswahl-Karten ── */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .ui-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .ui-card:hover {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Karten-Titel & Text ── */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Auswählen" Button → wine outline ── */
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .hr-button--tertiary-type {
+  border-color:     var(--akzent) !important;
+  background-color: transparent !important;
+}
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .hr-button--tertiary-type span {
+  color: var(--akzent-dunkel) !important;
+}
+.hr-card:has(#pg-brand-boards-brand-voice-selector-modal-modal-close-btn) .hr-button--tertiary-type:hover {
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ============================================================
+   SECTION 105e — Marken-Boards: Globale Einstellungen Modal
+   Scope: #pg-brand-boards-global-settings-modal
+   ============================================================ */
+
+/* ── Modal Hintergrund ── */
+#pg-brand-boards-global-settings-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Close Button ── */
+#pg-brand-boards-global-settings-modal #hr-modal__close-button svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Header Icon-Wrapper → wine ── */
+#pg-brand-boards-global-settings-modal .hr-icon-wrapper {
+  background-color: var(--akzent-hell) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-icon-wrapper svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Titel & Untertitel ── */
+#pg-brand-boards-global-settings-modal .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tab Bar → wine ── */
+#pg-brand-boards-global-settings-modal .hr-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-tabs-tab__label {
+  color: var(--text-gedaempft) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-tabs-tab--disabled .hr-tabs-tab__label p {
+  color: var(--text-gedaempft) !important;
+  opacity: 0.5;
+}
+
+/* ── Sub-Header "Hinzugefügte Farben" ── */
+#pg-brand-boards-global-settings-modal .text-gray-800 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Suchfeld "Farben suchen" → wine Focus ── */
+#pg-brand-boards-global-settings-search-colors {
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+  background-color:     var(--hintergrund-karte) !important;
+}
+#pg-brand-boards-global-settings-search-colors .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Hinzufügen" Button → wine solid ── */
+#pg-brand-boards-global-settings-modal .hr-button--primary {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-button--primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-button--primary p,
+#pg-brand-boards-global-settings-modal .hr-button--primary svg {
+  color: var(--base-white) !important;
+}
+
+/* ── View-Toggle Buttons (Grid/List) → wine aktiv ── */
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="true"] {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="true"] svg {
+  color: var(--akzent-dunkel) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="false"] {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#pg-brand-boards-global-settings-modal .hr-button-group .hr-button--secondary[active="false"] svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Farb-Karten ── */
+#pg-brand-boards-color-grid-container .hr-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#pg-brand-boards-color-grid-container .hr-card:hover {
+  border-color: var(--akzent) !important;
+}
+#pg-brand-boards-color-grid-container .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+#pg-brand-boards-color-grid-container .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Farb-Karten Action Buttons (Kopieren, Bearbeiten, Löschen) ── */
+#pg-brand-boards-color-grid-container .hr-button--secondary {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#pg-brand-boards-color-grid-container .hr-button--secondary svg {
+  color: var(--text-gedaempft) !important;
+}
+#pg-brand-boards-color-grid-container .hr-button--secondary:hover {
+  border-color: var(--akzent) !important;
+}
+#pg-brand-boards-color-grid-container .hr-button--secondary:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Footer: "Zeilen je Seite" & Pagination ── */
+#pg-brand-boards-global-settings-pagination p {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Per-Page Dropdown → wine Focus ── */
+#pg-brand-boards-global-settings-pagination #per-page-dropdown .hr-base-selection,
+#pg-brand-boards-global-settings-pagination #collapsed-dropdown .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  background-color:      var(--hintergrund-karte) !important;
+}
+#pg-brand-boards-global-settings-pagination .hr-base-selection-input__content,
+#pg-brand-boards-global-settings-pagination .hr-base-selection-overlay__wrapper {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Pagination Prev/Next Buttons ── */
+#pg-brand-boards-global-settings-pagination #hr-prev-button,
+#pg-brand-boards-global-settings-pagination #next-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#pg-brand-boards-global-settings-pagination #hr-prev-button svg,
+#pg-brand-boards-global-settings-pagination #next-button svg {
+  color: var(--nav-hover) !important;
+}
+#pg-brand-boards-global-settings-pagination #hr-prev-button:hover,
+#pg-brand-boards-global-settings-pagination #next-button:hover {
+  border-color: var(--akzent) !important;
+}
+#pg-brand-boards-global-settings-pagination #hr-prev-button:hover svg,
+#pg-brand-boards-global-settings-pagination #next-button:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
 
 
 
