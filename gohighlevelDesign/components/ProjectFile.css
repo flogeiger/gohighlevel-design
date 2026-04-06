@@ -10681,6 +10681,294 @@ button#notes-filter-clear-all:hover .hr-button__content {
   color: var(--base-white) !important;
 }
 
+/* ============================================================
+   SECTION 112 — Abonnements (#SubscriptionsListPage)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#SubscriptionsListPage {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#SubscriptionsListPage .title.hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#SubscriptionsListPage .description.hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Abonnement hinzufügen" Button → wine solid ── */
+#subscriptions__header-btn-primary {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#subscriptions__header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#subscriptions__header-btn-primary span,
+#subscriptions__header-btn-primary svg {
+  color: var(--base-white) !important;
+}
+#subscriptions__header-btn-primary .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Datum-Range Picker → wine Focus ── */
+#subscriptions-date-range .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#subscriptions-date-range .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#subscriptions-date-range .n-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#subscriptions-date-range .n-base-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#hl-table-subscriptions-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hl-table-subscriptions-filter-text-search:hover {
+  border-color: var(--akzent) !important;
+}
+#hl-table-subscriptions-filter-text-search:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#hl-table-subscriptions-filter-text-search .n-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Filtern & Export Buttons → neutral ── */
+#SubscriptionsListPage .hl-table-filter-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#SubscriptionsListPage .hl-table-filter-btn span,
+#SubscriptionsListPage .hl-table-filter-btn svg {
+  color: var(--nav-hover) !important;
+}
+#SubscriptionsListPage .hl-table-filter-btn:hover {
+  border-color: var(--akzent) !important;
+}
+#SubscriptionsListPage #table-export-csd {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#SubscriptionsListPage #table-export-csd svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabellen-Header ── */
+#SubscriptionsListPage .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#SubscriptionsListPage .n-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#SubscriptionsListPage .n-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#SubscriptionsListPage .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State ── */
+#SubscriptionsListPage .hl-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#SubscriptionsListPage .hl-empty-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#SubscriptionsListPage .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Filter Popover Buttons ── */
+#hl-table-subscriptions-filter-clear span,
+#hl-table-subscriptions-filter-apply span {
+  color: var(--akzent-dunkel) !important;
+}
+#hl-table-subscriptions-filter-clear:hover span,
+#hl-table-subscriptions-filter-apply:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ============================================================
+   SECTION 112c — Neues Abonnement Modal
+   ============================================================ */
+
+/* ── Modal BG ── */
+#open-create-subscription-modal-header-modal-close-btn ~ div .hl-modal,
+.n-modal-container .hl-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Modal Titel ── */
+#open-create-subscription-form ~ .hl-modal .hl-modal-heading .title,
+.hl-modal .hl-modal-heading .title {
+  color:       var(--nav-farbe) !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+/* ── Close Button ── */
+#open-create-subscription-modal-header-modal-close-btn svg {
+  color: var(--text-gedaempft) !important;
+}
+#open-create-subscription-modal-header-modal-close-btn:hover svg {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Abschnitt-Titel "Kundendetails" / "Abonnementdetails" ── */
+#open-create-subscription-form .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+#open-create-subscription-form .text-gray-700 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Kontakt-Select → wine Focus ── */
+#select-contact-estimate .n-base-selection,
+#select-product-id .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#select-contact-estimate .n-base-selection:hover,
+#select-product-id .n-base-selection:hover {
+  border-color: var(--akzent) !important;
+}
+#select-contact-estimate .n-base-selection-overlay__wrapper,
+#select-product-id .n-base-selection-overlay__wrapper {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Startdatum Picker → wine Focus ── */
+#startDate .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#startDate .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#startDate .n-base-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Produkt-Tabelle Header ── */
+#items-and-summary {
+  border-color: var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#items-and-summary .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+#items-and-summary .text-black {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Preis & Menge Inputs → wine Focus ── */
+#amount .n-input,
+#qty .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#amount .n-input:hover,
+#qty .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#amount .n-input__prefix {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Payment Gateway Hinweis ── */
+#open-create-subscription-form .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Zahlungsgateway einbinden" Button → outline neutral ── */
+#integrate-payment-gateway {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#integrate-payment-gateway span {
+  color: var(--nav-hover) !important;
+}
+#integrate-payment-gateway:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Zusätzliche Optionen" Link → wine ── */
+#Additional-Options span,
+#Additional-Options svg {
+  color: var(--akzent-dunkel) !important;
+}
+#Additional-Options:hover span,
+#Additional-Options:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Footer Divider ── */
+.hl-modal .n-card__footer {
+  border-top: 1px solid var(--linie-stark) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+#open-create-subscription-modal-footer-btn-negative-action {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#open-create-subscription-modal-footer-btn-negative-action span {
+  color: var(--nav-hover) !important;
+}
+#open-create-subscription-modal-footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Zeitplan" Button → wine solid ── */
+#open-create-subscription-modal-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#open-create-subscription-modal-footer-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#open-create-subscription-modal-footer-btn-positive-action .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#open-create-subscription-modal-footer-btn-positive-action span {
+  color: var(--base-white) !important;
+}
+
 
 
 /* ============================================================

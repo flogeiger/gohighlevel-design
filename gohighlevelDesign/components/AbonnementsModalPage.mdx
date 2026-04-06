@@ -1,0 +1,216 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Subscriptions/NewSubscriptionModal" />
+
+# Neues Abonnement Modal
+
+Das **Neues Abonnement erstellen**-Modal öffnet sich über „+ Abonnement hinzufügen". Es enthält zwei Abschnitte: **Kundendetails** (Kontakt-Select) und **Abonnementdetails** (Startdatum, Produkt-Tabelle mit Preis/Menge-Inputs), einen Payment-Gateway-Hinweis sowie Cancel/Submit-Buttons.
+
+<img src="/AbonnementsModal.png" alt="Neues Abonnement Modal" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Modal Root | `.n-modal-container .hl-modal` |
+| Close Button | `#open-create-subscription-modal-header-modal-close-btn` |
+| Abschnitts-Titel | `#open-create-subscription-form .text-gray-900` |
+| Kontakt-Select | `#select-contact-estimate .n-base-selection` |
+| Produkt-Select | `#select-product-id .n-base-selection` |
+| Startdatum Picker | `#startDate .n-input` |
+| Produkt-Tabelle | `#items-and-summary` |
+| Preis / Menge Input | `#amount .n-input` / `#qty .n-input` |
+| Gateway-Button | `#integrate-payment-gateway` |
+| „Zusätzliche Optionen" | `#Additional-Options` |
+| Cancel-Button | `#open-create-subscription-modal-footer-btn-negative-action` |
+| Submit-Button | `#open-create-subscription-modal-footer-btn-positive-action` |
+
+---
+
+## 113b.1 – Modal Header
+
+BG, Titel und Close Button.
+
+```css
+/* ── 113b.1 Modal Header ── */
+.n-modal-container .hl-modal {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+.hl-modal .hl-modal-heading .title {
+  color:          var(--ink) !important;
+  font-weight:    600 !important;
+  letter-spacing: normal !important;
+}
+
+/* Close Button */
+#open-create-subscription-modal-header-modal-close-btn svg {
+  color: var(--ink-3) !important;
+}
+#open-create-subscription-modal-header-modal-close-btn:hover svg {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 113b.2 – Formular: Kunden- & Abonnementdetails
+
+Abschnitts-Titel, Kontakt-Select, Startdatum-Picker.
+
+```css
+/* ── 113b.2 Abschnitts-Titel ── */
+#open-create-subscription-form .text-gray-900 {
+  color: var(--ink) !important;
+}
+#open-create-subscription-form .text-gray-700 {
+  color: var(--ink-3) !important;
+}
+
+/* Kontakt- & Produkt-Select */
+#select-contact-estimate .n-base-selection,
+#select-product-id .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#select-contact-estimate .n-base-selection:hover,
+#select-product-id .n-base-selection:hover {
+  border-color: var(--wine) !important;
+}
+#select-contact-estimate .n-base-selection-overlay__wrapper,
+#select-product-id .n-base-selection-overlay__wrapper {
+  color: var(--ink-3) !important;
+}
+
+/* Startdatum Picker */
+#startDate .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#startDate .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#startDate .n-base-icon svg {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 113b.3 – Produkt-Tabelle
+
+Header-Zeile, Preis- und Mengen-Input.
+
+```css
+/* ── 113b.3 Produkt-Tabelle ── */
+#items-and-summary {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#items-and-summary .bg-gray-50 {
+  background-color: var(--bg) !important;
+}
+#items-and-summary .text-black {
+  color: var(--ink) !important;
+}
+
+/* Preis & Menge Inputs */
+#amount .n-input,
+#qty .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#amount .n-input:hover,
+#qty .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#amount .n-input__prefix {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 113b.4 – Gateway-Hinweis & Footer
+
+Payment-Gateway-Hinweistext, „Zahlungsgateway einbinden"-Button, „Zusätzliche Optionen"-Link und Cancel/Submit.
+
+```css
+/* ── 113b.4 Gateway Hinweis ── */
+#open-create-subscription-form .text-gray-400 {
+  color: var(--ink-3) !important;
+}
+
+/* „Zahlungsgateway einbinden" → outline neutral */
+#integrate-payment-gateway {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#integrate-payment-gateway span {
+  color: var(--ink-2) !important;
+}
+#integrate-payment-gateway:hover {
+  border-color: var(--wine) !important;
+}
+
+/* „Zusätzliche Optionen" Link → wine */
+#Additional-Options span,
+#Additional-Options svg {
+  color: var(--wine-2) !important;
+}
+#Additional-Options:hover span,
+#Additional-Options:hover svg {
+  color: var(--wine) !important;
+}
+
+/* Footer Divider */
+.hl-modal .n-card__footer {
+  border-top: 1px solid var(--line-hard) !important;
+}
+
+/* Cancel → outline neutral */
+#open-create-subscription-modal-footer-btn-negative-action {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#open-create-subscription-modal-footer-btn-negative-action span {
+  color: var(--ink-2) !important;
+}
+#open-create-subscription-modal-footer-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+}
+
+/* „Zeitplan" → wine solid */
+#open-create-subscription-modal-footer-btn-positive-action {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#open-create-subscription-modal-footer-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#open-create-subscription-modal-footer-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+}
+#open-create-subscription-modal-footer-btn-positive-action span {
+  color: white !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Vollständig eigene Button-IDs:** Anders als das generische Bestätigungs-Modal (Section 111b) mit `#modal-footer-btn-*` verwendet dieses Modal eigene prefixed IDs (`#open-create-subscription-modal-footer-btn-*`) — kein Konflikt mit anderen Modals möglich.
+
+**`#Additional-Options` als Toggle-Link:** Der „Zusätzliche Optionen"-Link ist kein echter Link, sondern ein Button der weitere Formularfelder ein-/ausblendet. Er erhält nur Text/SVG-Farbe in wine — kein Hintergrund.
+
+**Produkt-Tabellen-Header via `.bg-gray-50`:** Der Tabellen-Header in `#items-and-summary` nutzt eine Tailwind-BG-Utility — da kein semantischer Selektor verfügbar ist, wird `.bg-gray-50` direkt auf `var(--bg)` gemappt.

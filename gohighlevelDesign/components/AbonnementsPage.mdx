@@ -1,0 +1,189 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Subscriptions" />
+
+# Abonnements
+
+Die **Abonnements**-Seite (`#SubscriptionsListPage`) listet alle Kundenabonnements, die über Bestellformulare erstellt wurden. Sie bietet Datepicker, Suchfeld, Filter-Popover, CSV-Export und einen Primary-Button zum Hinzufügen neuer Abonnements.
+
+<img src="/Abonnements.png" alt="Abonnements" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#SubscriptionsListPage` |
+| „Abonnement hinzufügen"-Button | `#subscriptions__header-btn-primary` |
+| Datepicker | `#subscriptions-date-range` |
+| Suchfeld | `#hl-table-subscriptions-filter-text-search` |
+| Filter-Button | `#SubscriptionsListPage .hl-table-filter-btn` |
+| CSV-Export | `#SubscriptionsListPage #table-export-csd` |
+| DataTable Header | `#SubscriptionsListPage .n-data-table-th` |
+| DataTable Body | `#SubscriptionsListPage .n-data-table-td` |
+| Empty State | `#SubscriptionsListPage .hl-empty-icon-container` |
+| Filter Popover Buttons | `#hl-table-subscriptions-filter-clear / -apply` |
+
+---
+
+## 113.1 – Seitentitel & Primary Button
+
+Titel, Beschreibung und „+ Abonnement hinzufügen"-Button.
+
+```css
+/* ── 113.1 Seitentitel ── */
+#SubscriptionsListPage .title.hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+#SubscriptionsListPage .description.hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „Abonnement hinzufügen" → wine solid */
+#subscriptions__header-btn-primary {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#subscriptions__header-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#subscriptions__header-btn-primary span,
+#subscriptions__header-btn-primary svg {
+  color: white !important;
+}
+#subscriptions__header-btn-primary .n-button__border {
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 113.2 – Filter Bar
+
+Datepicker, Suchfeld, Filter- und Export-Button.
+
+```css
+/* ── 113.2 Datepicker ── */
+#subscriptions-date-range .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#subscriptions-date-range .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#subscriptions-date-range .n-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#subscriptions-date-range .n-base-icon svg {
+  color: var(--ink-3) !important;
+}
+
+/* Suchfeld */
+#hl-table-subscriptions-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#hl-table-subscriptions-filter-text-search:hover {
+  border-color: var(--wine) !important;
+}
+#hl-table-subscriptions-filter-text-search:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#hl-table-subscriptions-filter-text-search .n-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+
+/* Filter-Button */
+#SubscriptionsListPage .hl-table-filter-btn {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#SubscriptionsListPage .hl-table-filter-btn span,
+#SubscriptionsListPage .hl-table-filter-btn svg {
+  color: var(--ink-2) !important;
+}
+#SubscriptionsListPage .hl-table-filter-btn:hover {
+  border-color: var(--wine) !important;
+}
+
+/* CSV Export */
+#SubscriptionsListPage #table-export-csd {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#SubscriptionsListPage #table-export-csd svg {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 113.3 – DataTable & Empty State
+
+```css
+/* ── 113.3 DataTable Header ── */
+#SubscriptionsListPage .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#SubscriptionsListPage .n-data-table-th__title {
+  color: var(--ink) !important;
+}
+
+/* Body */
+#SubscriptionsListPage .n-data-table-td {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#SubscriptionsListPage .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--bg) !important;
+}
+
+/* Empty State */
+#SubscriptionsListPage .hl-empty-icon-container {
+  background-color: var(--wine-lt) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#SubscriptionsListPage .hl-empty-icon svg {
+  color: var(--wine-2) !important;
+}
+#SubscriptionsListPage .hl-empty-title {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 113.4 – Filter Popover Buttons
+
+```css
+/* ── 113.4 Filter Popover ── */
+#hl-table-subscriptions-filter-clear span,
+#hl-table-subscriptions-filter-apply span {
+  color: var(--wine-2) !important;
+}
+#hl-table-subscriptions-filter-clear:hover span,
+#hl-table-subscriptions-filter-apply:hover span {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`#table-export-csd` hier mit Parent-Scope:** Im Gegensatz zu anderen Seiten wird `#table-export-csd` hier über `#SubscriptionsListPage #table-export-csd` gescoped — verhindert Konflikte mit der gleichnamigen ID auf der Bestellungen- und Rechnungen-Seite, sofern GHL mehrere Seiten gleichzeitig im DOM hält.
+
+**Filter-Popover ohne Root-Scope:** `#hl-table-subscriptions-filter-clear / -apply` sind IDs und daher global eindeutig — kein zusätzlicher Scope nötig.
