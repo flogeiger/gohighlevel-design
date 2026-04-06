@@ -10389,6 +10389,181 @@ button#notes-filter-clear-all:hover .hr-button__content {
   border-color: var(--gefahr) !important;
 }
 
+/* ============================================================
+   SECTION 111 — Bestellungen (#OrdersListPage)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#OrdersListPage {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#OrdersListPage .title.hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#OrdersListPage .description.hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Als CSV Importieren" Button → outline neutral ── */
+#import-orders-csv {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#import-orders-csv span,
+#import-orders-csv svg {
+  color: var(--nav-hover) !important;
+}
+#import-orders-csv:hover {
+  border-color: var(--akzent) !important;
+}
+#import-orders-csv:hover span,
+#import-orders-csv:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Datum-Range Picker → wine Focus ── */
+#orders-date-range .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#orders-date-range .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#orders-date-range .n-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#orders-date-range .n-input__input-el,
+#orders-date-range .n-input__placeholder span {
+  color: var(--nav-hover) !important;
+}
+#orders-date-range .n-base-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#hl-table-orders-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hl-table-orders-filter-text-search:hover {
+  border-color: var(--akzent) !important;
+}
+#hl-table-orders-filter-text-search:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#hl-table-orders-filter-text-search .n-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Filtern" Button → outline neutral ── */
+#OrdersListPage .hl-table-filter-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#OrdersListPage .hl-table-filter-btn span,
+#OrdersListPage .hl-table-filter-btn svg {
+  color: var(--nav-hover) !important;
+}
+#OrdersListPage .hl-table-filter-btn:hover {
+  border-color: var(--akzent) !important;
+}
+#OrdersListPage .hl-table-filter-btn:hover span,
+#OrdersListPage .hl-table-filter-btn:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "CSV Exportieren" Button → outline neutral ── */
+#table-export-csd {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#table-export-csd svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabellen-Header ── */
+#OrdersListPage .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#OrdersListPage .n-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#OrdersListPage .n-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#OrdersListPage .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State ── */
+#OrdersListPage .hl-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#OrdersListPage .hl-empty-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#OrdersListPage .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ============================================================
+   111b — Filter Popover
+   ============================================================ */
+
+/* ── Popover BG ── */
+.n-popover .filter-heading {
+  background-color: var(--hintergrund-karte) !important;
+}
+.n-popover.n-popover--show-header-or-footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Popover Header Titel ── */
+.n-popover .filter-heading .title.text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Löschen" & "Anwenden" Buttons → wine text ── */
+#hl-table-orders-filter-clear span,
+#hl-table-orders-filter-apply span {
+  color: var(--akzent-dunkel) !important;
+}
+#hl-table-orders-filter-clear:hover span,
+#hl-table-orders-filter-apply:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ── Collapse Items (Status, Zahlung etc.) ── */
+.n-popover .n-collapse-item__header-main {
+  color: var(--nav-hover) !important;
+}
+.n-popover .n-collapse-item__header {
+  border-bottom: 1px solid var(--linie-stark) !important;
+}
+.n-popover .n-collapse-item-arrow svg {
+  color: var(--text-gedaempft) !important;
+}
+.n-popover .n-collapse-item-arrow:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Popover Divider ── */
+.n-popover .n-popover__header {
+  border-bottom: 1px solid var(--linie-stark) !important;
+}
+
 
 
 /* ============================================================

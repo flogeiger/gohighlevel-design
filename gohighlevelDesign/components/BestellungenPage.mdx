@@ -1,0 +1,226 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Orders" />
+
+# Bestellungen
+
+Die **Bestellungen**-Seite (`#OrdersListPage`) listet alle Auftragseinreichungen des Sub-Accounts. Sie bietet einen Datepicker, ein Suchfeld, einen Filter-Button mit Popover sowie CSV-Import und -Export. Die Tabelle nutzt NaïveUI DataTable; bei leerer Liste erscheint ein zentrierter Empty State mit Icon-Container.
+
+<img src="/Bestellungen.png" alt="Bestellungen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#OrdersListPage` |
+| CSV-Import-Button | `#import-orders-csv` |
+| Datepicker | `#orders-date-range` |
+| Suchfeld | `#hl-table-orders-filter-text-search` |
+| Filter-Button | `#OrdersListPage .hl-table-filter-btn` |
+| CSV-Export-Button | `#table-export-csd` |
+| DataTable Header | `#OrdersListPage .n-data-table-th` |
+| DataTable Body | `#OrdersListPage .n-data-table-td` |
+| Empty State | `#OrdersListPage .hl-empty-icon-container` |
+| Filter Popover | `.n-popover.n-popover--show-header-or-footer` |
+
+---
+
+## 112.1 – Seitentitel & Buttons
+
+Seitentitel, Beschreibung und „Als CSV Importieren"-Button.
+
+```css
+/* ── 112.1 Seitentitel & Buttons ── */
+#OrdersListPage .title.hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+#OrdersListPage .description.hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* CSV-Import Button → outline neutral */
+#import-orders-csv {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#import-orders-csv span,
+#import-orders-csv svg {
+  color: var(--ink-2) !important;
+}
+#import-orders-csv:hover {
+  border-color: var(--wine) !important;
+}
+#import-orders-csv:hover span,
+#import-orders-csv:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 112.2 – Filter Bar
+
+Datepicker, Suchfeld, Filter-Button und CSV-Export-Icon.
+
+```css
+/* ── 112.2 Datepicker ── */
+#orders-date-range .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#orders-date-range .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#orders-date-range .n-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#orders-date-range .n-input__input-el,
+#orders-date-range .n-input__placeholder span {
+  color: var(--ink-2) !important;
+}
+#orders-date-range .n-base-icon svg {
+  color: var(--ink-3) !important;
+}
+
+/* Suchfeld */
+#hl-table-orders-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#hl-table-orders-filter-text-search:hover {
+  border-color: var(--wine) !important;
+}
+#hl-table-orders-filter-text-search:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#hl-table-orders-filter-text-search .n-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+
+/* Filter Button */
+#OrdersListPage .hl-table-filter-btn {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#OrdersListPage .hl-table-filter-btn span,
+#OrdersListPage .hl-table-filter-btn svg {
+  color: var(--ink-2) !important;
+}
+#OrdersListPage .hl-table-filter-btn:hover {
+  border-color: var(--wine) !important;
+}
+#OrdersListPage .hl-table-filter-btn:hover span,
+#OrdersListPage .hl-table-filter-btn:hover svg {
+  color: var(--wine-2) !important;
+}
+
+/* CSV Export Button */
+#table-export-csd {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#table-export-csd svg {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 112.3 – DataTable
+
+Header, Body-Rows mit Hover und Empty State.
+
+```css
+/* ── 112.3 DataTable Header ── */
+#OrdersListPage .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#OrdersListPage .n-data-table-th__title {
+  color: var(--ink) !important;
+}
+
+/* Body */
+#OrdersListPage .n-data-table-td {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#OrdersListPage .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--bg) !important;
+}
+
+/* Empty State */
+#OrdersListPage .hl-empty-icon-container {
+  background-color: var(--wine-lt) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#OrdersListPage .hl-empty-icon svg {
+  color: var(--wine-2) !important;
+}
+#OrdersListPage .hl-empty-title {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 112b – Filter Popover
+
+Popover mit Header-Titel, Collapse-Sektionen (Status, Zahlungsstatus etc.) und Aktions-Buttons.
+
+```css
+/* ── 112b Popover BG & Header ── */
+.n-popover.n-popover--show-header-or-footer {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+.n-popover .filter-heading {
+  background-color: var(--surface) !important;
+}
+.n-popover .filter-heading .title.text-gray-900 {
+  color: var(--ink) !important;
+}
+.n-popover .n-popover__header {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* "Löschen" & "Anwenden" → wine text */
+#hl-table-orders-filter-clear span,
+#hl-table-orders-filter-apply span {
+  color: var(--wine-2) !important;
+}
+#hl-table-orders-filter-clear:hover span,
+#hl-table-orders-filter-apply:hover span {
+  color: var(--wine) !important;
+}
+
+/* Collapse Items */
+.n-popover .n-collapse-item__header-main {
+  color: var(--ink-2) !important;
+}
+.n-popover .n-collapse-item__header {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+.n-popover .n-collapse-item-arrow svg {
+  color: var(--ink-3) !important;
+}
+.n-popover .n-collapse-item-arrow:hover svg {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Globale Popover-Selektoren:** Die Filter-Popover-Styles nutzen `.n-popover` ohne ID-Scope — sie greifen potenziell auf alle NaïveUI Popovers im Sub-Account. Da der Popover dynamisch ins DOM gemountet wird und außerhalb von `#OrdersListPage` liegt, ist ein engerer Scope nicht ohne JavaScript-Tricks möglich.
+
+**`#table-export-csd` geteilt mit Invoices:** Die ID `#table-export-csd` wird auch auf der Rechnungen-Seite (Section 110) verwendet. Der Selector ist ID-basiert und damit spezifisch genug — trifft aber immer nur die aktuell sichtbare Seite, da GHL Seiten lazy rendert.
+
+**Filter-Buttons ohne wine-Fill:** Abweichend vom üblichen Hover-Pattern (`wine-lt` Hintergrund) zeigen Filter- und Import-Buttons hier nur eine `wine`-Border auf Hover ohne Hintergrundfüllung — konsistent mit dem Minimal-Stil dieser Seite.
