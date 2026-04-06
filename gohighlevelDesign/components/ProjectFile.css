@@ -10564,6 +10564,123 @@ button#notes-filter-clear-all:hover .hr-button__content {
   border-bottom: 1px solid var(--linie-stark) !important;
 }
 
+/* ============================================================
+   SECTION 111b — Bestellungen: CSV Import Modal
+   ============================================================ */
+
+/* ── Modal BG ── */
+.hl-modal.left-0.right-0 {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Modal Titel ── */
+.hl-modal .hl-modal-heading .title {
+  color:       var(--nav-farbe) !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+/* ── Modal Beschreibung ── */
+.hl-modal .hl-modal-heading .description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+#file-upload-modal-header-modal-close-btn svg {
+  color: var(--text-gedaempft) !important;
+}
+#file-upload-modal-header-modal-close-btn:hover svg {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "CSV Beispiel herunterladen" Link-Button → wine ── */
+#download-sample-products-csv span,
+#download-sample-products-csv div,
+#download-sample-products-csv svg {
+  color: var(--akzent-dunkel) !important;
+}
+#download-sample-products-csv:hover span,
+#download-sample-products-csv:hover div,
+#download-sample-products-csv:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Upload Dragger Zone → wine Border ── */
+#OrdersListPage ~ .n-modal-container .n-upload-dragger,
+.n-modal-container .orderCsvUpload .n-upload-dragger {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+.n-modal-container .orderCsvUpload .n-upload-dragger:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Upload Icon ── */
+.n-modal-container .orderCsvUpload .hl-upload-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Upload Text ── */
+.n-modal-container .orderCsvUpload .text-blue-700 {
+  color: var(--akzent-dunkel) !important;
+}
+.n-modal-container .orderCsvUpload .hl-text-sm-regular,
+.n-modal-container .orderCsvUpload .hl-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Footer Divider ── */
+.hl-modal .n-card__footer {
+  border-top: 1px solid var(--linie-stark) !important;
+}
+
+/* ── "Importieren Ansicht" Link-Button → wine ── */
+.hl-modal .action-left .hl-text-btn span,
+.hl-modal .action-left .hl-text-btn svg {
+  color: var(--akzent-dunkel) !important;
+}
+.hl-modal .action-left .hl-text-btn:hover span,
+.hl-modal .action-left .hl-text-btn:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+#modal-footer-btn-negative-action {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#modal-footer-btn-negative-action span {
+  color: var(--nav-hover) !important;
+}
+#modal-footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Upload und Vorschau" Button → wine solid ── */
+#modal-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:           var(--akzent) !important;
+  --n-color-hover:     var(--akzent-dunkel) !important;
+  --n-color-disabled:  var(--akzent-hell) !important;
+  --n-border:          1px solid var(--akzent) !important;
+  --n-border-hover:    1px solid var(--akzent-dunkel) !important;
+  --n-border-disabled: 1px solid var(--akzent-hell) !important;
+  --n-ripple-color:    var(--akzent) !important;
+}
+#modal-footer-btn-positive-action:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#modal-footer-btn-positive-action .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#modal-footer-btn-positive-action span {
+  color: var(--base-white) !important;
+}
+
 
 
 /* ============================================================
