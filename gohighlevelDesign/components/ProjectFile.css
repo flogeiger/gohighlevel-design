@@ -2978,6 +2978,118 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
 }
 
 
+/* ============================================================
+   SECTION 109 — Manuelle Aktionen (.conversationsUtilitiesApp)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+.conversationsUtilitiesApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+.conversationsUtilitiesApp .hr-text-4xl {
+  color: var(--nav-farbe) !important;
+}
+.conversationsUtilitiesApp .hr-text-sm.hr-text-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Los geht's" Button → wine solid ── */
+#manual-actions-let-start-button {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#manual-actions-let-start-button:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#manual-actions-let-start-button p,
+#manual-actions-let-start-button svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Filter Selects (Typ, Workflow, Beauftragter) → wine Focus ── */
+#type-select .hr-base-selection,
+#manual-actions-workflow-campaign-select .hr-base-selection,
+#manual-actions-assignee-select .hr-base-selection {
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  background-color:      var(--hintergrund-karte) !important;
+}
+#type-select .hr-base-selection-input__content,
+#manual-actions-workflow-campaign-select .hr-base-selection-overlay__wrapper,
+#manual-actions-assignee-select .hr-base-selection-overlay__wrapper {
+  color: var(--nav-hover) !important;
+}
+#manual-actions-workflow-campaign-select .hr-select-menu-placeholder-icon svg,
+#manual-actions-assignee-select .hr-select-menu-placeholder-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabellen-Header ── */
+#manual-actions-data-table .hr-data-table__cell-header {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#manual-actions-data-table .hr-data-table__cell-header p {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Checkbox Header → wine ── */
+#manual-actions-data-table .hr-checkbox-box {
+  border-color: var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Tabellen-Body ── */
+#manual-actions-data-table .hr-data-table__body tr {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#manual-actions-data-table .hr-data-table__body td {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Empty State → wine ── */
+#empty-manual-actions-empty-state .hr-icon-wrapper {
+  background-color: var(--akzent-hell) !important;
+}
+#empty-manual-actions-empty-state .hr-icon-wrapper svg {
+  color: var(--akzent-dunkel) !important;
+}
+#empty-manual-actions-empty-state .hr-empty__title {
+  color: var(--nav-farbe) !important;
+}
+#empty-manual-actions-empty-state .hr-empty__description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Pagination Buttons ── */
+#manual-actions-data-table-pagination-previous-button,
+#manual-actions-data-table-pagination-next-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#manual-actions-data-table-pagination-previous-button p,
+#manual-actions-data-table-pagination-next-button p {
+  color: var(--nav-hover) !important;
+}
+#manual-actions-data-table-pagination-previous-button:not([disabled]):hover,
+#manual-actions-data-table-pagination-next-button:not([disabled]):hover {
+  border-color: var(--akzent) !important;
+}
+#manual-actions-data-table-pagination-previous-button:not([disabled]):hover p,
+#manual-actions-data-table-pagination-next-button:not([disabled]):hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+
 
 
 
