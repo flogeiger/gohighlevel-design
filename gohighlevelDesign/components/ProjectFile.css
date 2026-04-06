@@ -10242,7 +10242,152 @@ button#notes-filter-clear-all:hover .hr-button__content {
   color: var(--base-white) !important;
 }
 
+/* ============================================================
+   SECTION 111a — Dateien & Verträge: Dokumentverlauf Drawer
+   ============================================================ */
 
+/* ── Drawer Wrapper & Content ── */
+#view-document-history-content {
+  background-color: var(--hintergrund) !important;
+}
+#view-document-history-content .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Drawer Header ── */
+#ProposalEstimatesListApp .hl-drawer-title,
+.n-drawer .hl-drawer-title {
+  color: var(--nav-farbe) !important;
+}
+.n-drawer .n-drawer-header {
+  border-bottom: 1px solid var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Close Button ── */
+.n-drawer .n-base-close svg {
+  color: var(--text-gedaempft) !important;
+}
+.n-drawer .n-base-close:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Drawer Body ── */
+.n-drawer .n-drawer-body {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── History Entry: Nutzer-Name & Aktion ── */
+#view-document-history-content .text-gray-800 {
+  color: var(--nav-farbe) !important;
+}
+#view-document-history-content .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Datum ── */
+#view-document-history-content p.text-gray-500 {
+  color: var(--text-gedaempft) !important;
+  font-size: 12px !important;
+}
+
+/* ── Status Badge "Erstellt" (blau → wine) ── */
+#view-document-history-content .n-tag.hl-info.created-event {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#view-document-history-content .n-tag.hl-info.created-event .n-tag__content,
+#view-document-history-content .n-tag.hl-info.created-event svg {
+  color: var(--akzent-dunkel) !important;
+}
+#view-document-history-content .n-tag.hl-info.created-event .n-tag__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Divider ── */
+#view-document-history-content .n-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ============================================================
+   SECTION 111b — Dateien & Verträge: Bestätigungs-Modal
+   KOMPLETT NEU (Fix: Titel-Farbe)
+   ============================================================ */
+
+/* ── Modal BG ── */
+.hl-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Icon → wine ── */
+.hl-modal .hl-icon-container .icon {
+  background-color: var(--akzent-hell) !important;
+}
+.hl-modal .hl-icon-container .icon svg {
+  color: var(--akzent-dunkel) !important;
+  stroke: var(--akzent-dunkel) !important;
+}
+
+/* ── Titel → SCHWARZ, kein white Override ── */
+.hl-modal .hl-modal-heading .title,
+.hl-modal .hl-modal-heading div.title,
+.n-card.hl-modal .n-card-header .hl-modal-heading .title {
+  color: var(--nav-farbe) !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  background-color: transparent !important;
+}
+
+/* ── Close Button ── */
+#modal-header-modal-close-btn svg {
+  color: var(--text-gedaempft) !important;
+}
+#modal-header-modal-close-btn:hover {
+  background-color: var(--hintergrund) !important;
+}
+#modal-header-modal-close-btn:hover svg {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Trennlinie unter Header ── */
+.hl-modal .n-card-header {
+  border-bottom: 1px solid var(--linie-stark) !important;
+}
+
+/* ── Body Text ── */
+.hl-modal .hl-modal-content {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Footer Trennlinie ── */
+.hl-modal .n-card__footer {
+  border-top: 1px solid var(--linie-stark) !important;
+}
+
+/* ── "Nein" Button → outline neutral ── */
+#modal-footer-btn-negative-action {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#modal-footer-btn-negative-action span {
+  color: var(--nav-hover) !important;
+}
+#modal-footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Ja" Button → Danger rot bleibt ── */
+#modal-footer-btn-positive-action {
+  background-color: var(--gefahr) !important;
+  border-color:     var(--gefahr) !important;
+}
+#modal-footer-btn-positive-action span {
+  color: var(--base-white) !important;
+}
+#modal-footer-btn-positive-action .n-button__border {
+  border-color: var(--gefahr) !important;
+}
 
 
 

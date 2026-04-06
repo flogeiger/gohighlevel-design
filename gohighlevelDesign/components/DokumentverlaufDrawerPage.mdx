@@ -1,0 +1,189 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/FilesAndContracts/DocumentHistory" />
+
+# Dokumentverlauf & Bestätigungs-Modal
+
+Section 111 umfasst zwei überlagernde UI-Schichten der **Dateien & Verträge**-Seite: den **Dokumentverlauf-Drawer** (111a), der von rechts einschiebt und die Aktionshistorie eines Dokuments zeigt, sowie das **Bestätigungs-Modal** (111b), das bei destruktiven Aktionen wie Löschen oder Archivieren erscheint.
+
+<img src="/DokumentverlaufDrawer.png" alt="Dokumentverlauf Drawer" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Drawer Content | `#view-document-history-content` |
+| Drawer Header | `.n-drawer .n-drawer-header` |
+| Drawer Body | `.n-drawer .n-drawer-body` |
+| History Entry Text | `#view-document-history-content .text-gray-800 / .text-gray-500` |
+| Status Badge | `#view-document-history-content .n-tag.hl-info.created-event` |
+| Modal Root | `.hl-modal` |
+| Modal Header Icon | `.hl-modal .hl-icon-container .icon` |
+| Modal Titel | `.hl-modal .hl-modal-heading .title` |
+| Negativ-Button | `#modal-footer-btn-negative-action` |
+| Positiv-Button | `#modal-footer-btn-positive-action` |
+
+---
+
+## 111a – Dokumentverlauf Drawer
+
+Drawer mit Header, Close-Button, History-Einträgen (Name, Aktion, Datum), Status-Badge und Divider.
+
+```css
+/* ── 111a Drawer Wrapper & Content ── */
+#view-document-history-content {
+  background-color: var(--bg) !important;
+}
+#view-document-history-content .bg-white {
+  background-color: var(--surface) !important;
+}
+
+/* Drawer Header */
+.n-drawer .n-drawer-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#ProposalEstimatesListApp .hl-drawer-title,
+.n-drawer .hl-drawer-title {
+  color: var(--ink) !important;
+}
+
+/* Close Button */
+.n-drawer .n-base-close svg {
+  color: var(--ink-3) !important;
+}
+.n-drawer .n-base-close:hover svg {
+  color: var(--wine-2) !important;
+}
+
+/* Drawer Body */
+.n-drawer .n-drawer-body {
+  background-color: var(--bg) !important;
+}
+
+/* History Entry: Name & Aktionstext */
+#view-document-history-content .text-gray-800 {
+  color: var(--ink) !important;
+}
+#view-document-history-content .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+
+/* Datum */
+#view-document-history-content p.text-gray-500 {
+  color: var(--ink-3) !important;
+  font-size: 12px !important;
+}
+
+/* Status Badge "Erstellt" → wine */
+#view-document-history-content .n-tag.hl-info.created-event {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine) !important;
+}
+#view-document-history-content .n-tag.hl-info.created-event .n-tag__content,
+#view-document-history-content .n-tag.hl-info.created-event svg {
+  color: var(--wine-2) !important;
+}
+#view-document-history-content .n-tag.hl-info.created-event .n-tag__border {
+  border-color: var(--wine) !important;
+}
+
+/* Divider */
+#view-document-history-content .n-divider__line {
+  background-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## 111b – Bestätigungs-Modal
+
+Modal mit Icon-Container, Titel, Body-Text, Footer-Trennlinie und zwei Buttons (Abbrechen / Destruktive Aktion).
+
+```css
+/* ── 111b Modal BG ── */
+.hl-modal {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Header Icon → wine */
+.hl-modal .hl-icon-container .icon {
+  background-color: var(--wine-lt) !important;
+}
+.hl-modal .hl-icon-container .icon svg {
+  color: var(--wine-2) !important;
+  stroke: var(--wine-2) !important;
+}
+
+/* Titel */
+.hl-modal .hl-modal-heading .title,
+.hl-modal .hl-modal-heading div.title,
+.n-card.hl-modal .n-card-header .hl-modal-heading .title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+  background-color: transparent !important;
+}
+
+/* Close Button */
+#modal-header-modal-close-btn svg {
+  color: var(--ink-3) !important;
+}
+#modal-header-modal-close-btn:hover {
+  background-color: var(--bg) !important;
+}
+#modal-header-modal-close-btn:hover svg {
+  color: var(--ink) !important;
+}
+
+/* Header- & Footer-Trennlinien */
+.hl-modal .n-card-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+.hl-modal .n-card__footer {
+  border-top: 1px solid var(--line-hard) !important;
+}
+
+/* Body Text */
+.hl-modal .hl-modal-content {
+  color: var(--ink-3) !important;
+}
+
+/* "Nein" Button → outline neutral */
+#modal-footer-btn-negative-action {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#modal-footer-btn-negative-action span {
+  color: var(--ink-2) !important;
+}
+#modal-footer-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+}
+
+/* "Ja" Button → Danger rot bleibt */
+#modal-footer-btn-positive-action {
+  background-color: var(--danger) !important;
+  border-color:     var(--danger) !important;
+}
+#modal-footer-btn-positive-action span {
+  color: white !important;
+}
+#modal-footer-btn-positive-action .n-button__border {
+  border-color: var(--danger) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Drawer vs. Modal — unterschiedliche Scope-Strategien:** Der Drawer wird über `#view-document-history-content` gescoped, während das Modal `.hl-modal` als globale Klasse nutzt — Drawer-Styles sind damit auf die Dateien-&-Verträge-Seite beschränkt, Modal-Styles gelten potenziell app-weit für alle `hl-modal`-Instanzen.
+
+**Status-Badge Klassen-Kombination:** Das Badge `.n-tag.hl-info.created-event` benötigt alle drei Klassen gleichzeitig als Selektor — `.hl-info` allein würde andere Info-Badges im Projekt treffen. Die Klasse `.created-event` ist der spezifische Anker für diesen Drawer.
+
+**Destruktiver Button bleibt `--danger`:** Der Positiv-Button (`#modal-footer-btn-positive-action`) in Bestätigungs-Modals ist bewusst nicht wine — destruktive Aktionen (Löschen, Archivieren) behalten `var(--danger)` als semantisches Signal. Einzige Ausnahme vom wine-primary-Pattern im Projekt.
+
+**Titel-Override mit `background-color: transparent`:** GHL setzt an `.hl-modal-heading .title` intern ein `background-color: white`, das den Titel-Text gegen helle Hintergründe unsichtbar macht. Der explizite `background-color: transparent !important` ist daher kein kosmetisches Detail, sondern ein notwendiger Fix.
