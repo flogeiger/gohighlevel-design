@@ -1,0 +1,88 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Marketing/AdManagerDashboard" />
+
+# Marketing – Anzeigen-Manager (Section 108)
+
+Der Anzeigen-Manager (`Marketing → Anzeigen-Manager`) zeigt ein Dashboard zum Verbinden von Google, Facebook und LinkedIn Ads. Root-Scope ist `#ad-manager-dashboard`. Die Seite enthält Connect-Buttons für die drei Plattformen, einen „Get started"-Button und eine Feature-Liste in einem Footer-Card.
+
+![Ad Manager Dashboard Screenshot](./ad-manager-dashboard-screenshot.png)
+
+---
+
+## Struktur & Root-Selektor
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#ad-manager-dashboard` |
+| Connect Buttons | `#ad-manager-btn_connect_now_google/facebook/linkedin` |
+| „Get started" Button | `#ad_manager_button-get-started` |
+| Footer Card | `#ad-manager-card_footer` |
+| Warning Banner | `#ad_manager_alert-expired-integration-*` |
+
+---
+
+## 108.1 – Texte & Layout
+
+```css
+/* Seitentitel */
+#ad-manager-dashboard .hr-text-4xl { color: var(--ink) !important; }
+
+/* Abschnitts-Titel + Beschreibung */
+#ad-manager-dashboard .hr-text-md.hr-text-semibold.text-gray-900 { color: var(--ink) !important; }
+#ad-manager-dashboard .hr-text-sm.hr-text-regular.text-gray-700 { color: var(--ink-3) !important; }
+```
+
+---
+
+## 108.2 – Connect Buttons & „Get started"
+
+```css
+/* Connect Buttons (Google, Facebook, LinkedIn) — neutral, hover → wine */
+#ad-manager-btn_connect_now_google,
+#ad-manager-btn_connect_now_facebook,
+#ad-manager-btn_connect_now_linkedin {
+  background-color: var(--surface) !important;
+  border-color: var(--line-hard) !important;
+  width: 100% !important;
+}
+#ad-manager-btn_connect_now_google:hover,
+#ad-manager-btn_connect_now_facebook:hover,
+#ad-manager-btn_connect_now_linkedin:hover { border-color: var(--wine) !important; background-color: var(--wine-lt) !important; }
+#ad-manager-btn_connect_now_google .text-gray-700,
+#ad-manager-btn_connect_now_facebook .text-gray-700,
+#ad-manager-btn_connect_now_linkedin .text-gray-700 { color: var(--ink-2) !important; }
+
+/* „Get started" → wine solid */
+#ad_manager_button-get-started { background-color: var(--wine) !important; background: var(--wine) !important; border-color: var(--wine) !important; }
+#ad_manager_button-get-started:not([disabled]):hover { background-color: var(--wine-2) !important; background: var(--wine-2) !important; border-color: var(--wine-2) !important; }
+#ad_manager_button-get-started p { color: #ffffff !important; }
+```
+
+---
+
+## 108.3 – Footer Card & Warning Banner
+
+```css
+/* Footer Card */
+#ad-manager-card_footer { background-color: var(--surface) !important; border-color: var(--line-hard) !important; }
+#ad-manager-card_footer .text-gray-600 { color: var(--ink-3) !important; }
+
+/* Feature-Checkmark Icons → wine */
+#ad-manager-card_footer .bg-success-100 { background-color: var(--wine-lt) !important; }
+#ad-manager-card_footer .text-green-500 { color: var(--wine) !important; }
+
+/* Warning Banner (abgelaufene Integration) */
+#ad_manager_alert-expired-integration-facebook,
+#ad_manager_alert-expired-integration-google,
+#ad_manager_alert-expired-integration-linkedin { background-color: var(--surface) !important; }
+#ad-manager-dashboard .hr-alert .text-blue-700 { color: var(--wine-2) !important; }
+```
+
+---
+
+## Besonderheiten
+
+**Connect-Buttons bleiben neutral:** Google, Facebook und LinkedIn haben eigene Brand-Farben (Rot, Blau, Blau) — die Buttons sind bewusst neutral gestylt (kein wine solid), nur Hover zeigt wine als Akzent.
+
+**`.text-green-500` → wine:** Die Feature-Checkmarks in der Footer-Liste nutzen semantisches Grün — wird auf wine umgefärbt, da es im Kontext (Feature-Liste, kein Erfolgs-Signal) rein dekorativ ist.

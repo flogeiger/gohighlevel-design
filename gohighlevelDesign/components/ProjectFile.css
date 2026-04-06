@@ -19617,6 +19617,86 @@ section.hl_topbar-tabs:has(#create-bot-button) {
   color: var(--nav-hover) !important;
 }
 
+/* ============================================================
+   SECTION 108 — Ad Manager Dashboard (#ad-manager-dashboard)
+   ============================================================ */
+
+/* ── Seitentitel ── */
+#ad-manager-dashboard .hr-text-4xl {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Abschnitts-Titel "Manage accounts" ── */
+#ad-manager-dashboard .hr-text-md.hr-text-semibold.text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+#ad-manager-dashboard .hr-text-sm.hr-text-regular.text-gray-700 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Connect Buttons (Google, Facebook, LinkedIn) → outline neutral ── */
+#ad-manager-btn_connect_now_google,
+#ad-manager-btn_connect_now_facebook,
+#ad-manager-btn_connect_now_linkedin {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  width:            100% !important;
+}
+#ad-manager-btn_connect_now_google:hover,
+#ad-manager-btn_connect_now_facebook:hover,
+#ad-manager-btn_connect_now_linkedin:hover {
+  border-color:     var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+#ad-manager-btn_connect_now_google .text-gray-700,
+#ad-manager-btn_connect_now_facebook .text-gray-700,
+#ad-manager-btn_connect_now_linkedin .text-gray-700 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Get started" Button → wine solid ── */
+#ad_manager_button-get-started {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#ad_manager_button-get-started:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#ad_manager_button-get-started p {
+  color: var(--base-white) !important;
+}
+
+/* ── Footer Card ── */
+#ad-manager-card_footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Feature-Liste Texte ── */
+#ad-manager-card_footer .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Feature-Liste Checkmark-Icons ── */
+#ad-manager-card_footer .bg-success-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#ad-manager-card_footer .text-green-500 {
+  color: var(--akzent) !important;
+}
+
+/* ── Warning Banner (abgelaufene Integration) ── */
+#ad_manager_alert-expired-integration-facebook,
+#ad_manager_alert-expired-integration-google,
+#ad_manager_alert-expired-integration-linkedin {
+  background-color: var(--hintergrund-karte) !important;
+}
+#ad-manager-dashboard .hr-alert .text-blue-700 {
+  color: var(--akzent-dunkel) !important;
+}
 
 
 
