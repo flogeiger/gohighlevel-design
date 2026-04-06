@@ -1,0 +1,586 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/FilesAndContractsPage" />
+
+# Dateien und Verträge
+
+Die Seite **Dateien und Verträge** (`#ProposalEstimatesListApp`) listet alle Angebote, Schätzungen und Verträge des Sub-Accounts. Sie enthält einen Datepicker, ein Suchfeld, eine Tab-Bar mit Status-Badges sowie eine NaïveUI DataTable. Die Settings-Ansicht (110b–110d) bietet eine Sidebar-Navigation mit vier Unterbereichen: Kundenbenachrichtigungen, Team-Benachrichtigungen, Produktabrechnung und Dokument-Einstellungen.
+
+<img src="/DateienVertraege.png" alt="Dateien und Verträge" style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />
+<img src="/DateienVertraegeSettings.png" alt="Dateien und Verträge – Einstellungen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#ProposalEstimatesListApp` |
+| Header | `#ProposalEstimatesListApp .hl-header` |
+| Einstellungen-Button | `#proposals-settings-action` |
+| Neu-Button | `#page-email-builder-template__btn-actions` |
+| Datepicker | `#proposals-date-range` |
+| Suchfeld | `#proposals_search` |
+| Tab-Bar | `#ProposalEstimatesListApp .n-tabs-bar` |
+| DataTable | `#ProposalEstimatesListApp .n-data-table-th / .n-data-table-td` |
+| Empty State | `#ProposalEstimatesListApp .hl-empty-icon-container` |
+| Sidebar Nav (Settings) | `#notification-setting-menu-options` |
+
+---
+
+## 110.1 – Seitentitel & Buttons
+
+Seitentitel mit grauem Zähler-Suffix, Beschreibungstext, „Einstellungen"-Outline-Button und „+ Neu"-Primary-Button.
+
+```css
+/* ── 110.1 Seitentitel & Buttons ── */
+#ProposalEstimatesListApp .hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+#ProposalEstimatesListApp .hl-display-sm-medium .text-gray-400 {
+  color: var(--ink-3) !important;
+}
+#ProposalEstimatesListApp .description.hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* Einstellungen Button → outline neutral */
+#proposals-settings-action {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#proposals-settings-action:hover {
+  border-color: var(--wine) !important;
+}
+#proposals-settings-action span,
+#proposals-settings-action svg {
+  color: var(--ink-2) !important;
+}
+#proposals-settings-action:hover span,
+#proposals-settings-action:hover svg {
+  color: var(--wine-2) !important;
+}
+
+/* + Neu Button → wine solid */
+#page-email-builder-template__btn-actions {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  color:            white !important;
+}
+#page-email-builder-template__btn-actions:hover {
+  background-color: var(--wine-2) !important;
+  border-color:     var(--wine-2) !important;
+}
+#page-email-builder-template__btn-actions svg {
+  color: white !important;
+}
+```
+
+---
+
+## 110.2 – Filter: Datepicker & Suchfeld
+
+Datum-Range-Picker und Suchfeld mit wine-Focus-Ring.
+
+```css
+/* ── 110.2 Datepicker & Suchfeld ── */
+#proposals-date-range .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#proposals-date-range .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#proposals-date-range .n-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#proposals-date-range .n-input__input-el,
+#proposals-date-range .n-input__placeholder span {
+  color: var(--ink-2) !important;
+}
+#proposals-date-range .n-base-icon svg {
+  color: var(--ink-3) !important;
+}
+
+#proposals_search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#proposals_search:hover {
+  border-color: var(--wine) !important;
+}
+#proposals_search:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#proposals_search .n-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 110.3 – Tab-Bar & Status-Badges
+
+Tab-Underline in wine, aktive/inaktive Labels, Zähler-Badges.
+
+```css
+/* ── 110.3 Tab-Bar & Status-Badges ── */
+#ProposalEstimatesListApp .n-tabs-bar {
+  background-color: var(--wine) !important;
+}
+#ProposalEstimatesListApp .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine-2) !important;
+}
+#ProposalEstimatesListApp .n-tabs-tab .n-tabs-tab__label {
+  color: var(--ink-3) !important;
+}
+#ProposalEstimatesListApp .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--wine-2) !important;
+}
+
+/* Status-Badges (Zähler) */
+#ProposalEstimatesListApp .n-tag.hl-default {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#ProposalEstimatesListApp .n-tag.hl-default .n-tag__content {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 110.4 – DataTable
+
+Header, Body-Rows mit Hover, Dokument-Icon-Wrapper und Link-Hover.
+
+```css
+/* ── 110.4 DataTable ── */
+#ProposalEstimatesListApp .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#ProposalEstimatesListApp .n-data-table-th__title {
+  color: var(--ink) !important;
+}
+#ProposalEstimatesListApp .n-data-table-td {
+  background-color: var(--surface) !important;
+  color:            var(--ink-2) !important;
+  border-color:     var(--line-hard) !important;
+}
+#ProposalEstimatesListApp .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--bg) !important;
+}
+
+/* Dokument-Icon Wrapper → wine */
+#ProposalEstimatesListApp .n-data-table-td .bg-primary-100,
+#ProposalEstimatesListApp .n-data-table-td [class*="bg-primary"] {
+  background-color: var(--wine-lt) !important;
+}
+#ProposalEstimatesListApp .n-data-table-td .text-primary-600,
+#ProposalEstimatesListApp .n-data-table-td [class*="text-primary"] {
+  color: var(--wine-2) !important;
+}
+
+/* Dokument-Link Hover → wine */
+#ProposalEstimatesListApp .hover\:text-primary-600:hover {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 110.5 – Empty State
+
+Icon-Container und Texte im leeren Zustand.
+
+```css
+/* ── 110.5 Empty State ── */
+#ProposalEstimatesListApp .hl-empty-icon-container {
+  background-color: var(--wine-lt) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#ProposalEstimatesListApp .hl-empty-icon {
+  color: var(--wine-2) !important;
+}
+#ProposalEstimatesListApp .hl-empty-title {
+  color: var(--ink) !important;
+}
+#ProposalEstimatesListApp .hl-empty-description {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 110b – Settings: Kundenbenachrichtigungen
+
+Settings-Ansicht mit Sidebar-Navigation, Notification-Cards, Toggles, Checkboxen, Template-Selects und Custom-Values-Buttons.
+
+```css
+/* ── 110b Header & Back-Button ── */
+#ProposalEstimatesListApp .hl-header {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#back-btn-proposal-settings svg,
+#back-btn-proposal-settings span {
+  color: var(--ink-3) !important;
+}
+#back-btn-proposal-settings:hover svg,
+#back-btn-proposal-settings:hover span {
+  color: var(--wine) !important;
+}
+#ProposalEstimatesListApp .hl-text-lg-medium.text-black {
+  color: var(--ink) !important;
+}
+#ProposalEstimatesListApp .hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+
+/* Sidebar Navigation */
+#notification-setting-menu-options {
+  background-color: transparent !important;
+}
+#notification-setting-menu-options .n-menu-item-content {
+  color: var(--ink-2) !important;
+  border-radius: 6px !important;
+}
+#notification-setting-menu-options .n-menu-item-content:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine-2) !important;
+}
+#notification-setting-menu-options .n-menu-item-content--selected {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine-2) !important;
+  font-weight:      600 !important;
+}
+#notification-setting-menu-options .n-menu-item-content-header {
+  color: inherit !important;
+}
+
+/* Settings Cards */
+#ProposalEstimatesListApp .view.hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#ProposalEstimatesListApp .hl-card-content > .text-gray-900.hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+#ProposalEstimatesListApp .view h3.text-base {
+  color: var(--ink-2) !important;
+}
+#ProposalEstimatesListApp .view span.text-gray-600 {
+  color: var(--ink-3) !important;
+}
+
+/* Toggles → wine */
+#ProposalEstimatesListApp .n-switch--active .n-switch__rail {
+  background-color: var(--wine) !important;
+}
+#ProposalEstimatesListApp .n-switch:focus .n-switch__rail {
+  box-shadow: 0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Checkboxen → wine */
+#ProposalEstimatesListApp .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#ProposalEstimatesListApp .n-checkbox:not(.n-checkbox--checked) .n-checkbox-box {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#ProposalEstimatesListApp .n-checkbox:hover .n-checkbox-box {
+  border-color: var(--wine) !important;
+}
+#ProposalEstimatesListApp .n-checkbox__label .hl-text-md-medium {
+  color: var(--ink-2) !important;
+}
+
+/* Form Labels & Hilfstext */
+#ProposalEstimatesListApp .n-form-item-label__text,
+#ProposalEstimatesListApp .label-text {
+  color: var(--ink-2) !important;
+}
+#ProposalEstimatesListApp .text-gray-500.text-sm {
+  color: var(--ink-3) !important;
+}
+
+/* Preview / Manage Links */
+#ProposalEstimatesListApp .text-primary-600 {
+  color: var(--wine-2) !important;
+}
+#ProposalEstimatesListApp .text-primary-600:hover {
+  color: var(--wine) !important;
+}
+
+/* Text-Inputs → wine Focus */
+#ProposalEstimatesListApp .hl-input-text {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#ProposalEstimatesListApp .hl-input-text:hover {
+  border-color: var(--wine) !important;
+}
+#ProposalEstimatesListApp .hl-input-text:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Template Selects → wine Focus */
+#email-template-for-document-rec .n-base-selection,
+#email-template-for-document-sign .n-base-selection,
+#email-template-for-document-expiry-reminder .n-base-selection,
+#select-id-for-sms-template-for-document-signed .n-base-selection,
+#CC .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#email-template-for-document-rec .n-base-selection:hover,
+#email-template-for-document-sign .n-base-selection:hover {
+  border-color: var(--wine) !important;
+}
+#email-template-for-document-rec .n-base-selection-input__content,
+#email-template-for-document-sign .n-base-selection-input__content,
+#email-template-for-document-expiry-reminder .n-base-selection-input__content,
+#select-id-for-sms-template-for-document-signed .n-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+
+/* Custom Values Trigger Buttons → outline neutral */
+#custom-values-trigger-document_received,
+#custom-values-trigger-document_signed,
+#custom-values-trigger-document_expiry_reminder {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#custom-values-trigger-document_received:not([disabled]):hover,
+#custom-values-trigger-document_signed:not([disabled]):hover {
+  border-color: var(--wine) !important;
+}
+#custom-values-trigger-document_received svg,
+#custom-values-trigger-document_signed svg {
+  color: var(--ink-3) !important;
+}
+
+/* Divider */
+#ProposalEstimatesListApp .n-divider__line {
+  background-color: var(--line-hard) !important;
+}
+
+/* Cancel → outline neutral */
+#cancel-customer-notification-settings {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#cancel-customer-notification-settings span {
+  color: var(--ink-2) !important;
+}
+#cancel-customer-notification-settings:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Save → wine solid (inkl. n-button__border Fix) */
+#save-customer-notification-settings {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:           var(--wine) !important;
+  --n-color-hover:     var(--wine-2) !important;
+  --n-color-pressed:   var(--wine-2) !important;
+  --n-color-focus:     var(--wine-2) !important;
+  --n-border:          1px solid var(--wine) !important;
+  --n-border-hover:    1px solid var(--wine-2) !important;
+  --n-border-pressed:  1px solid var(--wine-2) !important;
+  --n-border-focus:    1px solid var(--wine-2) !important;
+  --n-ripple-color:    var(--wine) !important;
+}
+#save-customer-notification-settings:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#save-customer-notification-settings .n-button__border,
+#save-customer-notification-settings .n-button__state-border {
+  border-color: var(--wine) !important;
+}
+#save-customer-notification-settings:hover .n-button__border {
+  border-color: var(--wine-2) !important;
+}
+#save-customer-notification-settings span {
+  color: white !important;
+}
+```
+
+---
+
+## 110c – Settings: Produktabrechnung & Direktzahlung
+
+Zwei separate Cards mit je eigenem Cancel/Save-Button-Paar.
+
+```css
+/* ── 110c Cards ── */
+#ProposalEstimatesListApp .view .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#ProposalEstimatesListApp .view .hl-card h3.text-base {
+  color: var(--ink-2) !important;
+}
+#ProposalEstimatesListApp .view .hl-card span.text-gray-600 {
+  color: var(--ink-3) !important;
+}
+
+/* Cancel Buttons → outline neutral */
+#cancel-notificationSettings\.enableDirectPayment,
+#cancel-notificationSettings\.enableAutoSentInvoice {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#cancel-notificationSettings\.enableDirectPayment span,
+#cancel-notificationSettings\.enableAutoSentInvoice span {
+  color: var(--ink-2) !important;
+}
+#cancel-notificationSettings\.enableDirectPayment:hover,
+#cancel-notificationSettings\.enableAutoSentInvoice:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Save Buttons → wine solid */
+#save-notificationSettings\.enableDirectPayment,
+#save-notificationSettings\.enableAutoSentInvoice {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:           var(--wine) !important;
+  --n-color-hover:     var(--wine-2) !important;
+  --n-border:          1px solid var(--wine) !important;
+  --n-border-hover:    1px solid var(--wine-2) !important;
+  --n-ripple-color:    var(--wine) !important;
+}
+#save-notificationSettings\.enableDirectPayment:hover,
+#save-notificationSettings\.enableAutoSentInvoice:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#save-notificationSettings\.enableDirectPayment .n-button__border,
+#save-notificationSettings\.enableAutoSentInvoice .n-button__border,
+#save-notificationSettings\.enableDirectPayment .n-button__state-border,
+#save-notificationSettings\.enableAutoSentInvoice .n-button__state-border {
+  border-color: var(--wine) !important;
+}
+#save-notificationSettings\.enableDirectPayment span,
+#save-notificationSettings\.enableAutoSentInvoice span {
+  color: white !important;
+}
+```
+
+---
+
+## 110d – Settings: Redirect-URL, Ablauf & Signierung
+
+URL-Input, Number-Input für Ablauftage, Expiry-Warning-Checkbox und drei Cancel/Save-Paare.
+
+```css
+/* ── 110d Redirect URL Input ── */
+#redirectUrl {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#redirectUrl:not(.n-input--disabled):hover {
+  border-color: var(--wine) !important;
+}
+#redirectUrl:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Ablauftage Number Input */
+#document-expiry-days {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#document-expiry-days:not(.n-input--disabled):hover {
+  border-color: var(--wine) !important;
+}
+
+/* Expiry Warning Checkbox */
+#document-expiry-warning .n-checkbox-box {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#document-expiry-warning.n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#ProposalEstimatesListApp label[for="warnSigners"] {
+  color: var(--ink-2) !important;
+}
+
+/* Cancel Buttons */
+#cancel-redirect-url,
+#cancel-expiry-settings,
+#cancel-signature-settings {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#cancel-redirect-url span,
+#cancel-expiry-settings span,
+#cancel-signature-settings span {
+  color: var(--ink-2) !important;
+}
+#cancel-redirect-url:hover,
+#cancel-expiry-settings:hover,
+#cancel-signature-settings:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Save Buttons → wine solid */
+#save-redirect-url,
+#save-expiry-settings,
+#save-signature-settings {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:           var(--wine) !important;
+  --n-color-hover:     var(--wine-2) !important;
+  --n-border:          1px solid var(--wine) !important;
+  --n-border-hover:    1px solid var(--wine-2) !important;
+  --n-ripple-color:    var(--wine) !important;
+}
+#save-redirect-url:hover,
+#save-expiry-settings:hover,
+#save-signature-settings:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#save-redirect-url .n-button__border,
+#save-expiry-settings .n-button__border,
+#save-signature-settings .n-button__border,
+#save-redirect-url .n-button__state-border,
+#save-expiry-settings .n-button__state-border,
+#save-signature-settings .n-button__state-border {
+  border-color: var(--wine) !important;
+}
+#save-redirect-url span,
+#save-expiry-settings span,
+#save-signature-settings span {
+  color: white !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Vier Sections, eine Root-Klasse:** `#ProposalEstimatesListApp` ist sowohl Root der Listenansicht (110) als auch der kompletten Settings-Ansicht (110b–110d) — alle Selektoren bauen auf diesem Root auf und sind damit automatisch auf beide Views beschränkt.
+
+**Escaped Dots in Button-IDs:** Die Cancel/Save-Buttons in 110c und 110d verwenden IDs mit Punkten (`#save-notificationSettings\.enableDirectPayment`) — der Backslash ist in CSS zwingend nötig um den Punkt nicht als Klassen-Selektor zu interpretieren.
+
+**NaïveUI `n-button__border` Fix:** Primary-Buttons mit `--n-color` überschreiben intern den Border über eine separate `.n-button__border`-Pseudo-Klasse. Ohne expliziten `border-color`-Override auf `.n-button__border` bleibt ein blauer Ring sichtbar — alle Save-Buttons in 110b–110d haben diesen Fix.
+
+**Sidebar-Navigation:** `#notification-setting-menu-options` ist eine NaïveUI `n-menu` — ausgewählte Items erhalten `.n-menu-item-content--selected` (kein `:active`-State). Hover und Selected teilen denselben wine-lt Hintergrund, Selected ist zusätzlich fett.
+
+**Tab-Underline doppelt gesetzt:** `.n-tabs-bar` erscheint zweimal im CSS-Source (einmal in 110, einmal als „Fix"). Beide Regeln sind identisch — im MDX auf eine Deklaration konsolidiert.

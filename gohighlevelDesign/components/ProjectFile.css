@@ -3089,10 +3089,6 @@ body .hl-modal:has(#location-dashboard_modal-header--location_dashboard-modal-ma
   color: var(--akzent-dunkel) !important;
 }
 
-
-
-
-
 /* ════════════════════════════════════════════════════════════════
    60 · KALENDER VIEW (#CalendarPage)
    ════════════════════════════════════════════════════════════════ */
@@ -9702,6 +9698,552 @@ button#notes-filter-clear-all:hover .hr-button__content {
 .crm-opportunities-modal-tab-associations #open-obj-settings-btn:hover p.font-semibold {
   color: var(--akzent-dunkel) !important;
 }
+
+
+/* ============================================================
+   SECTION 110 — Dateien und Verträge (#ProposalEstimatesListApp)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#ProposalEstimatesListApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Untertitel ── */
+#ProposalEstimatesListApp .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#ProposalEstimatesListApp .hl-display-sm-medium .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+#ProposalEstimatesListApp .description.hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Einstellungen" Button → wine outline ── */
+#proposals-settings-action {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#proposals-settings-action:hover {
+  border-color: var(--akzent) !important;
+}
+#proposals-settings-action span,
+#proposals-settings-action svg {
+  color: var(--nav-hover) !important;
+}
+#proposals-settings-action:hover span,
+#proposals-settings-action:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Neu" Button → wine solid ── */
+#page-email-builder-template__btn-actions {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  color:            var(--base-white) !important;
+}
+#page-email-builder-template__btn-actions:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#page-email-builder-template__btn-actions svg {
+  color: var(--base-white) !important;
+}
+
+/* ── Datum-Range Picker → wine Focus ── */
+#proposals-date-range .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#proposals-date-range .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#proposals-date-range .n-input:focus-within {
+  border-color:     var(--akzent) !important;
+  box-shadow:       0 0 0 3px var(--akzent-a20) !important;
+}
+#proposals-date-range .n-input__input-el,
+#proposals-date-range .n-input__placeholder span {
+  color: var(--nav-hover) !important;
+}
+#proposals-date-range .n-base-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#proposals_search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#proposals_search:hover {
+  border-color: var(--akzent) !important;
+}
+#proposals_search:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#proposals_search .n-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tab Bar → wine ── */
+#ProposalEstimatesListApp .n-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+#ProposalEstimatesListApp .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--akzent-dunkel) !important;
+}
+#ProposalEstimatesListApp .n-tabs-tab .n-tabs-tab__label {
+  color: var(--text-gedaempft) !important;
+}
+#ProposalEstimatesListApp .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Status-Badges (Zähler) ── */
+#ProposalEstimatesListApp .n-tag.hl-default {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#ProposalEstimatesListApp .n-tag.hl-default .n-tag__content {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabellen-Header ── */
+#ProposalEstimatesListApp .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#ProposalEstimatesListApp .n-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#ProposalEstimatesListApp .n-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  color:            var(--nav-hover) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#ProposalEstimatesListApp .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State ── */
+#ProposalEstimatesListApp .hl-empty-icon {
+  color: var(--akzent-dunkel) !important;
+}
+#ProposalEstimatesListApp .hl-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#ProposalEstimatesListApp .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+#ProposalEstimatesListApp .hl-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Fix: Dokument-Link Hover → wine ── */
+#ProposalEstimatesListApp .hover\:text-primary-600:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Fix: Dokument-Icon Wrapper → wine ── */
+#ProposalEstimatesListApp .n-data-table-td .bg-primary-100,
+#ProposalEstimatesListApp .n-data-table-td [class*="bg-primary"] {
+  background-color: var(--akzent-hell) !important;
+}
+#ProposalEstimatesListApp .n-data-table-td .text-primary-600,
+#ProposalEstimatesListApp .n-data-table-td [class*="text-primary"] {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Fix: Aktiver Tab Underline → wine ── */
+#ProposalEstimatesListApp .n-tabs-bar {
+  background-color: var(--akzent) !important;
+}
+
+/* ============================================================
+   SECTION 110b — Dateien & Verträge Settings
+   (#ProposalEstimatesListApp — Settings-Ansicht)
+   ============================================================ */
+
+/* ── Seitenhintergrund & Wrapper ── */
+#ProposalEstimatesListApp .hl-header {
+  border-bottom: 1px solid var(--linie-stark) !important;
+}
+
+/* ── "Back" Button ── */
+#back-btn-proposal-settings svg,
+#back-btn-proposal-settings span {
+  color: var(--text-gedaempft) !important;
+}
+#back-btn-proposal-settings:hover svg,
+#back-btn-proposal-settings:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ── Header Titel & Untertitel ── */
+#ProposalEstimatesListApp .hl-text-lg-medium.text-black {
+  color: var(--nav-farbe) !important;
+}
+#ProposalEstimatesListApp .hl-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Sidebar Navigation Menu ── */
+#notification-setting-menu-options {
+  background-color: transparent !important;
+}
+#notification-setting-menu-options .n-menu-item-content {
+  color: var(--nav-hover) !important;
+  border-radius: 6px !important;
+}
+#notification-setting-menu-options .n-menu-item-content:hover {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent-dunkel) !important;
+}
+#notification-setting-menu-options .n-menu-item-content--selected {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent-dunkel) !important;
+  font-weight:      600 !important;
+}
+#notification-setting-menu-options .n-menu-item-content-header {
+  color: inherit !important;
+}
+
+/* ── Settings Card ── */
+#ProposalEstimatesListApp .view.hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Card Titel ── */
+#ProposalEstimatesListApp .hl-card-content > .text-gray-900.hl-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Section H3 Titel & Beschreibungen ── */
+#ProposalEstimatesListApp .view h3.text-base {
+  color: var(--nav-hover) !important;
+}
+#ProposalEstimatesListApp .view span.text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Toggle Switches → wine aktiv ── */
+#ProposalEstimatesListApp .n-switch--active .n-switch__rail {
+  background-color: var(--akzent) !important;
+}
+#ProposalEstimatesListApp .n-switch:focus .n-switch__rail {
+  box-shadow: 0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── Checkboxen → wine ── */
+#ProposalEstimatesListApp .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#ProposalEstimatesListApp .n-checkbox:not(.n-checkbox--checked) .n-checkbox-box {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#ProposalEstimatesListApp .n-checkbox:hover .n-checkbox-box {
+  border-color: var(--akzent) !important;
+}
+#ProposalEstimatesListApp .n-checkbox__label .hl-text-md-medium {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Form Labels & Hilfstext ── */
+#ProposalEstimatesListApp .n-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+#ProposalEstimatesListApp .label-text {
+  color: var(--nav-hover) !important;
+}
+#ProposalEstimatesListApp .text-gray-500.text-sm {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Preview" / "Manage" Links → wine ── */
+#ProposalEstimatesListApp .text-primary-600 {
+  color: var(--akzent-dunkel) !important;
+}
+#ProposalEstimatesListApp .text-primary-600:hover {
+  color: var(--akzent) !important;
+}
+
+/* ── Text-Inputs → wine Focus ── */
+#ProposalEstimatesListApp .hl-input-text {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#ProposalEstimatesListApp .hl-input-text:hover {
+  border-color: var(--akzent) !important;
+}
+#ProposalEstimatesListApp .hl-input-text:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── Template Selects → wine Focus ── */
+#email-template-for-document-rec .n-base-selection,
+#email-template-for-document-sign .n-base-selection,
+#email-template-for-document-expiry-reminder .n-base-selection,
+#select-id-for-sms-template-for-document-signed .n-base-selection,
+#CC .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#email-template-for-document-rec .n-base-selection:hover,
+#email-template-for-document-sign .n-base-selection:hover {
+  border-color: var(--akzent) !important;
+}
+#email-template-for-document-rec .n-base-selection-input__content,
+#email-template-for-document-sign .n-base-selection-input__content,
+#email-template-for-document-expiry-reminder .n-base-selection-input__content,
+#select-id-for-sms-template-for-document-signed .n-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Custom Values Trigger Buttons → outline neutral ── */
+#custom-values-trigger-document_received,
+#custom-values-trigger-document_signed,
+#custom-values-trigger-document_expiry_reminder {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#custom-values-trigger-document_received:not([disabled]):hover,
+#custom-values-trigger-document_signed:not([disabled]):hover {
+  border-color: var(--akzent) !important;
+}
+#custom-values-trigger-document_received svg,
+#custom-values-trigger-document_signed svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Divider ── */
+#ProposalEstimatesListApp .n-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Cancel" Button → outline neutral ── */
+#cancel-customer-notification-settings {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#cancel-customer-notification-settings span {
+  color: var(--nav-hover) !important;
+}
+#cancel-customer-notification-settings:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+#save-customer-notification-settings {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#save-customer-notification-settings:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#save-customer-notification-settings span {
+  color: var(--base-white) !important;
+}
+
+/* ── "Save" Button Border Fix → wine ── */
+#save-customer-notification-settings {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent-dunkel) !important;
+  --n-color-focus:   var(--akzent-dunkel) !important;
+  --n-color-disabled: var(--akzent-hell) !important;
+  --n-border:          1px solid var(--akzent) !important;
+  --n-border-hover:    1px solid var(--akzent-dunkel) !important;
+  --n-border-pressed:  1px solid var(--akzent-dunkel) !important;
+  --n-border-focus:    1px solid var(--akzent-dunkel) !important;
+  --n-border-disabled: 1px solid var(--akzent-hell) !important;
+  --n-ripple-color:    var(--akzent) !important;
+}
+#save-customer-notification-settings .n-button__border,
+#save-customer-notification-settings .n-button__state-border {
+  border-color: var(--akzent) !important;
+}
+#save-customer-notification-settings:hover .n-button__border {
+  border-color: var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 110c — Settings: Direct Payment & Product Invoicing
+   ============================================================ */
+
+/* ── Card BG & Titel ── */
+#ProposalEstimatesListApp .view .hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Section H3 & Beschreibung ── */
+#ProposalEstimatesListApp .view .hl-card h3.text-base {
+  color: var(--nav-hover) !important;
+}
+#ProposalEstimatesListApp .view .hl-card span.text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Cancel Buttons → outline neutral ── */
+#cancel-notificationSettings\.enableDirectPayment,
+#cancel-notificationSettings\.enableAutoSentInvoice {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#cancel-notificationSettings\.enableDirectPayment span,
+#cancel-notificationSettings\.enableAutoSentInvoice span {
+  color: var(--nav-hover) !important;
+}
+#cancel-notificationSettings\.enableDirectPayment:hover,
+#cancel-notificationSettings\.enableAutoSentInvoice:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Save Buttons → wine solid (inkl. CSS-Var-Override für n-button__border) ── */
+#save-notificationSettings\.enableDirectPayment,
+#save-notificationSettings\.enableAutoSentInvoice {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:           var(--akzent) !important;
+  --n-color-hover:     var(--akzent-dunkel) !important;
+  --n-color-pressed:   var(--akzent-dunkel) !important;
+  --n-color-focus:     var(--akzent-dunkel) !important;
+  --n-border:          1px solid var(--akzent) !important;
+  --n-border-hover:    1px solid var(--akzent-dunkel) !important;
+  --n-border-pressed:  1px solid var(--akzent-dunkel) !important;
+  --n-border-focus:    1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:    var(--akzent) !important;
+}
+#save-notificationSettings\.enableDirectPayment:hover,
+#save-notificationSettings\.enableAutoSentInvoice:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+#save-notificationSettings\.enableDirectPayment .n-button__border,
+#save-notificationSettings\.enableAutoSentInvoice .n-button__border,
+#save-notificationSettings\.enableDirectPayment .n-button__state-border,
+#save-notificationSettings\.enableAutoSentInvoice .n-button__state-border {
+  border-color: var(--akzent) !important;
+}
+#save-notificationSettings\.enableDirectPayment span,
+#save-notificationSettings\.enableAutoSentInvoice span {
+  color: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 110d — Settings: Redirect URL, Expiration, Signing
+   ============================================================ */
+
+/* ── Redirect URL Input → wine Focus ── */
+#redirectUrl {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#redirectUrl:not(.n-input--disabled):hover {
+  border-color: var(--akzent) !important;
+}
+#redirectUrl:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── Expiration Days Number Input → wine Focus ── */
+#document-expiry-days {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#document-expiry-days:not(.n-input--disabled):hover {
+  border-color: var(--akzent) !important;
+}
+/* ── Expiry Warning Checkbox → wine ── */
+#document-expiry-warning .n-checkbox-box {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#document-expiry-warning.n-checkbox--checked .n-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#ProposalEstimatesListApp label[for="warnSigners"] {
+  color: var(--nav-hover) !important;
+}
+
+
+/* ── Cancel Buttons → outline neutral ── */
+#cancel-redirect-url,
+#cancel-expiry-settings,
+#cancel-signature-settings {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#cancel-redirect-url span,
+#cancel-expiry-settings span,
+#cancel-signature-settings span {
+  color: var(--nav-hover) !important;
+}
+#cancel-redirect-url:hover,
+#cancel-expiry-settings:hover,
+#cancel-signature-settings:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Save Buttons → wine solid (inkl. n-button__border Fix) ── */
+#save-redirect-url,
+#save-expiry-settings,
+#save-signature-settings {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:           var(--akzent) !important;
+  --n-color-hover:     var(--akzent-dunkel) !important;
+  --n-color-pressed:   var(--akzent-dunkel) !important;
+  --n-color-focus:     var(--akzent-dunkel) !important;
+  --n-border:          1px solid var(--akzent) !important;
+  --n-border-hover:    1px solid var(--akzent-dunkel) !important;
+  --n-border-pressed:  1px solid var(--akzent-dunkel) !important;
+  --n-border-focus:    1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:    var(--akzent) !important;
+}
+#save-redirect-url:hover,
+#save-expiry-settings:hover,
+#save-signature-settings:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#save-redirect-url .n-button__border,
+#save-expiry-settings .n-button__border,
+#save-signature-settings .n-button__border,
+#save-redirect-url .n-button__state-border,
+#save-expiry-settings .n-button__state-border,
+#save-signature-settings .n-button__state-border {
+  border-color: var(--akzent) !important;
+}
+#save-redirect-url span,
+#save-expiry-settings span,
+#save-signature-settings span {
+  color: var(--base-white) !important;
+}
+
+
+
 
 
 /* ============================================================
