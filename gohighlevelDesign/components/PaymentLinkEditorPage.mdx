@@ -1,0 +1,271 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/PaymentLinks/PaymentLinkEditor" />
+
+# Payment Link Editor
+
+Der **Payment Link Editor** (`#paymentlinksEditorApp`) ist ein zweigeteiltes Layout: links eine Einstellungs-Sidebar mit Produkt-Select, Optionen-Checkboxen, Advanced Options und Payment-Mode-Toggle — rechts eine Live-Preview der Checkout-Seite mit Formularfeldern und Pay-Button.
+
+<img src="/PaymentLinkEditor.png" alt="Payment Link Editor" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#paymentlinksEditorApp` |
+| Toolbar | `#paymentlinksEditorApp .hl-toolbar` |
+| Back-Button | `#btn-1` |
+| Link-Name-Input | `#payment-link-name` |
+| Copy/Send-Button | `#editor-send-customer` |
+| Preview-Button | `#editor-customer-preview` |
+| Save-Button | `#editor-save` |
+| Linke Sidebar | `#left-section` |
+| Produkt-Select | `#select-product-id .n-base-selection` |
+| CTA-Select | `#select-pay-button .n-base-selection` |
+| Checkboxen | `#paymentlinksEditorApp .n-checkbox` |
+| Branding-Input | `#custom-text` |
+| Payment Mode Toggle | `#paymentMode` |
+| Rechte Preview | `#right-section` |
+| Preview-Card | `#product-details-preview` |
+| Preview-Formular | `#user-address-firstname / -lastname / #user-email-address` |
+| Pay-Button (Preview) | `#paybutton` |
+
+---
+
+## 115.1 – Toolbar
+
+Hintergrund, Back-Button, Link-Name-Input und die drei Toolbar-Buttons.
+
+```css
+/* ── 115.1 Toolbar ── */
+#paymentlinksEditorApp .hl-toolbar {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+
+/* Back-Button */
+#btn-1 svg,
+#btn-1 span {
+  color: var(--ink-2) !important;
+}
+#btn-1:hover svg,
+#btn-1:hover span {
+  color: var(--wine) !important;
+}
+
+/* Link-Name-Input */
+#payment-link-name {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#payment-link-name:hover {
+  border-color: var(--wine) !important;
+}
+#payment-link-name:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* „Copy / Send" → outline neutral */
+#editor-send-customer {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#editor-send-customer span {
+  color: var(--ink-3) !important;
+}
+
+/* „Preview" → outline neutral */
+#editor-customer-preview {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#editor-customer-preview span {
+  color: var(--ink-2) !important;
+}
+#editor-customer-preview:hover {
+  border-color: var(--wine) !important;
+}
+#editor-customer-preview:hover span {
+  color: var(--wine-2) !important;
+}
+
+/* „Save" → wine solid */
+#editor-save {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#editor-save:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#editor-save span,
+#editor-save svg {
+  color: white !important;
+}
+#editor-save .n-button__border {
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 115.2 – Linke Sidebar
+
+Hintergrund, Abschnitts-Titel, Produkt- und CTA-Select.
+
+```css
+/* ── 115.2 Sidebar BG & Titel ── */
+#left-section {
+  background-color: var(--surface) !important;
+  border-right: 1px solid var(--line-hard) !important;
+}
+#left-section .hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+#left-section span,
+#left-section label {
+  color: var(--ink-2) !important;
+}
+
+/* Produkt- & CTA-Select */
+#select-product-id .n-base-selection,
+#select-pay-button .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #select-product-id .n-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+}
+html body #select-pay-button .n-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+}
+#select-product-id .n-base-selection-overlay__wrapper,
+#select-pay-button .n-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 115.3 – Checkboxen, Branding-Input & Toggle
+
+Options- und Advanced-Options-Checkboxen, Branding-Textfeld und Payment-Mode-Toggle.
+
+```css
+/* ── 115.3 Checkboxen → wine ── */
+#paymentlinksEditorApp .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#paymentlinksEditorApp .n-checkbox:not(.n-checkbox--checked) .n-checkbox-box {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#paymentlinksEditorApp .n-checkbox:hover .n-checkbox-box {
+  border-color: var(--wine) !important;
+}
+#paymentlinksEditorApp .n-checkbox__label {
+  color: var(--ink-2) !important;
+}
+
+/* Branding-Input */
+#custom-text {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#custom-text:hover {
+  border-color: var(--wine) !important;
+}
+#custom-text:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Hilfstext & Labels */
+#paymentlinksEditorApp .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+#paymentlinksEditorApp .text-gray-700 {
+  color: var(--ink-2) !important;
+}
+
+/* Payment Mode Toggle → wine */
+#paymentMode.n-switch--active .n-switch__rail {
+  background-color: var(--wine) !important;
+}
+```
+
+---
+
+## 115.4 – Rechte Preview
+
+Hintergrund, Preview-Card, Formularfelder und Pay-Button.
+
+```css
+/* ── 115.4 Preview BG & Card ── */
+#right-section {
+  background-color: var(--bg) !important;
+}
+#product-details-preview {
+  border-color: var(--line-hard) !important;
+}
+
+/* Preview-Formularfelder → wine Focus */
+#user-address-firstname,
+#user-address-lastname,
+#user-email-address {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#user-address-firstname:hover,
+#user-address-lastname:hover,
+#user-email-address:hover {
+  border-color: var(--wine) !important;
+}
+#user-address-firstname:focus-within,
+#user-address-lastname:focus-within,
+#user-email-address:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Pay-Button (Preview) → wine solid */
+#paybutton {
+  background-color: var(--wine) !important;
+  color:            white !important;
+}
+#paybutton:hover {
+  background-color: var(--wine-2) !important;
+}
+#paybutton .n-button__border,
+#paybutton .n-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`html body`-Präfix für Select-Variablen:** `#select-product-id` und `#select-pay-button` nutzen NaïveUI-interne CSS-Variablen (`--n-border-hover` etc.), die nur mit erhöhter Spezifität überschreibbar sind. Der `html body`-Präfix erzeugt Spezifität (0,0,2) und schlägt NaïveUIs internen (0,0,1) — dasselbe Muster wie beim Global Pagination Fix (Section 114.5).
+
+**Pay-Button ohne `n-button__border`:** Der Preview-Pay-Button (`#paybutton`) ist kein echter NaïveUI-Button, sondern ein natives HTML-Element — daher werden `.n-button__border` und `.n-button__state-border` via `display: none` unterdrückt statt überschrieben.
+
+**`#btn-1` als generische Back-Button-ID:** Diese ID ist nicht auf den Payment-Link-Editor beschränkt — sie trifft jeden Back-Button mit ID `btn-1` im GHL-DOM. Da GHL Seiten lazy rendert und immer nur eine Seite aktiv ist, entsteht in der Praxis kein Konflikt.

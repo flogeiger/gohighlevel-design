@@ -11182,6 +11182,209 @@ html body .ghl-table-footer .n-pagination-item--active {
   --n-item-text-color-active: var(--akzent) !important;
 }
 
+/* ============================================================
+   SECTION 114 — Payment Link Editor (#paymentlinksEditorApp)
+   ============================================================ */
+
+/* ── Toolbar ── */
+#paymentlinksEditorApp .hl-toolbar {
+  background-color: var(--hintergrund-karte) !important;
+  border-bottom: 1px solid var(--linie-stark) !important;
+}
+
+/* ── "Back" Button ── */
+#btn-1 svg,
+#btn-1 span {
+  color: var(--nav-hover) !important;
+}
+#btn-1:hover svg,
+#btn-1:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ── Link Name Input → wine Focus ── */
+#payment-link-name {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#payment-link-name:hover {
+  border-color: var(--akzent) !important;
+}
+#payment-link-name:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── "Copy / Send" Button → outline neutral ── */
+#editor-send-customer {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#editor-send-customer span {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Preview" Button → outline neutral ── */
+#editor-customer-preview {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#editor-customer-preview span {
+  color: var(--nav-hover) !important;
+}
+#editor-customer-preview:hover {
+  border-color: var(--akzent) !important;
+}
+#editor-customer-preview:hover span {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+#editor-save {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#editor-save:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#editor-save span,
+#editor-save svg {
+  color: var(--base-white) !important;
+}
+#editor-save .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Left Section BG ── */
+#left-section {
+  background-color: var(--hintergrund-karte) !important;
+  border-right: 1px solid var(--linie-stark) !important;
+}
+
+/* ── Section Titel ── */
+#left-section .hl-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+#left-section span,
+#left-section label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Product Select → wine Focus ── */
+#select-product-id .n-base-selection,
+#select-pay-button .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #select-product-id .n-base-selection {
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+}
+html body #select-pay-button .n-base-selection {
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+}
+#select-product-id .n-base-selection-overlay__wrapper,
+#select-pay-button .n-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Checkboxen → wine ── */
+#paymentlinksEditorApp .n-checkbox--checked .n-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#paymentlinksEditorApp .n-checkbox:not(.n-checkbox--checked) .n-checkbox-box {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#paymentlinksEditorApp .n-checkbox:hover .n-checkbox-box {
+  border-color: var(--akzent) !important;
+}
+#paymentlinksEditorApp .n-checkbox__label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Custom Text Input (Branding) → wine Focus ── */
+#custom-text {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#custom-text:hover {
+  border-color: var(--akzent) !important;
+}
+#custom-text:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── Payment Mode Label ── */
+#paymentlinksEditorApp .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+#paymentlinksEditorApp .text-gray-700 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Toggle Switch → wine ── */
+#paymentMode.n-switch--active .n-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Right Section / Preview BG ── */
+#right-section {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Preview Card ── */
+#product-details-preview {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Preview Form Labels → wine Focus ── */
+#user-address-firstname,
+#user-address-lastname,
+#user-email-address {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#user-address-firstname:hover,
+#user-address-lastname:hover,
+#user-email-address:hover {
+  border-color: var(--akzent) !important;
+}
+#user-address-firstname:focus-within,
+#user-address-lastname:focus-within,
+#user-email-address:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── "Pay" Button im Preview → wine ── */
+#paybutton {
+  background-color: var(--akzent) !important;
+  color:            var(--base-white) !important;
+}
+#paybutton:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#paybutton .n-button__border,
+#paybutton .n-button__state-border {
+  display: none !important;
+}
 
 
 
