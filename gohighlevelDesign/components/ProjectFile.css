@@ -11386,6 +11386,315 @@ html body #select-pay-button .n-base-selection {
   display: none !important;
 }
 
+/* ============================================================
+   SECTION 115 — Produkte (#products)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#products {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#products .title.hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#products .description.hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Learn more" Link → wine ── */
+#learn-more span {
+  color: var(--akzent-dunkel) !important;
+}
+#learn-more:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ── "Import as CSV" & "Import from Stripe" → outline neutral ── */
+#import-products-csv,
+#import-from-stripe {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#import-products-csv span,
+#import-products-csv svg,
+#import-from-stripe span,
+#import-from-stripe svg {
+  color: var(--nav-hover) !important;
+}
+#import-products-csv:hover,
+#import-from-stripe:hover {
+  border-color: var(--akzent) !important;
+}
+#import-products-csv:hover span,
+#import-from-stripe:hover span,
+#import-products-csv:hover svg,
+#import-from-stripe:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Create Product" Button → wine solid ── */
+#create-product-btn {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#create-product-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#create-product-btn span,
+#create-product-btn svg {
+  color: var(--base-white) !important;
+}
+#create-product-btn .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Bulk Edit" Button → wine solid ── */
+#bulk-edit-btn {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#bulk-edit-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#bulk-edit-btn span {
+  color: var(--base-white) !important;
+}
+#bulk-edit-btn .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Bulk Action" Button → outline neutral ── */
+#btn[use="secondary"] {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#btn[use="secondary"] span,
+#btn[use="secondary"] svg {
+  color: var(--nav-hover) !important;
+}
+#btn[use="secondary"]:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "X of Y Selected" & "Select All" ── */
+#products span[data-v-3fe5c264] {
+  color: var(--text-gedaempft) !important;
+}
+#select-all span {
+  color: var(--akzent-dunkel) !important;
+}
+#select-all:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#hl-table-products-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hl-table-products-filter-text-search:hover {
+  border-color: var(--akzent) !important;
+}
+#hl-table-products-filter-text-search:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#hl-table-products-filter-text-search .n-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Filters" Button → Doppel-Border Fix + neutral ── */
+#sort-filter-component__button {
+  background-color: var(--hintergrund-karte) !important;
+  border-width:     0 !important;
+}
+#sort-filter-component__button .n-button__border {
+  border: 1px solid var(--linie-stark) !important;
+}
+#sort-filter-component__button .n-button__state-border {
+  border-width: 0 !important;
+}
+#sort-filter-component__button span,
+#sort-filter-component__button svg {
+  color: var(--nav-hover) !important;
+}
+#sort-filter-component__button:hover .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#sort-filter-component__button:hover span,
+#sort-filter-component__button:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Tabellen-Header ── */
+#products .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#products .n-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Header Checkbox (Indeterminate) → wine ── */
+#products .n-checkbox--indeterminate .n-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+
+/* ── Tabellen-Body ── */
+#products .n-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#products .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Produkt-Name ── */
+#products .text-gray-900.hl-text-sm-medium span {
+  color: var(--nav-farbe) !important;
+}
+#products .hl-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "CALENDAR" Badge → wine ── */
+#products .n-tag.hl-info {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#products .n-tag.hl-info .n-tag__content {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Produkt-Icon Background → wine-lt ── */
+#products .bg-primary-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#products .bg-primary-100 svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Row Checkboxen → wine ── */
+#products .n-checkbox--checked.n-checkbox--inside-table .n-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#products .n-checkbox--inside-table:not(.n-checkbox--checked) .n-checkbox-box {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#products .n-checkbox--inside-table:hover .n-checkbox-box {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "⋮" Aktions-Button → wine hover ── */
+#product-table-dropdown-action-dropdown-trigger {
+  border-color: var(--linie-stark) !important;
+}
+#product-table-dropdown-action-dropdown-trigger:hover {
+  background-color: var(--akzent-hell) !important;
+}
+#product-table-dropdown-action-dropdown-trigger svg {
+  color: var(--text-gedaempft) !important;
+}
+#product-table-dropdown-action-dropdown-trigger:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── 115b — Produkte: Sort & Filter Popover (#sort-filter) ── */
+
+/* ── Popover BG ── */
+#sort-filter {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Titel & Reset Button ── */
+.sort-filter-component__header__title {
+  color: var(--nav-farbe) !important;
+  font-weight: 600 !important;
+}
+#sort-filter-component-reset span {
+  color: var(--akzent-dunkel) !important;
+}
+#sort-filter-component-reset:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ── "Filter" Überschrift & Filter-Item Heading ── */
+.sort-filter-component__heading {
+  color: var(--nav-farbe) !important;
+  font-weight: 600 !important;
+}
+.sort-filter-component__filter-item-heading {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Filter Selects → wine Focus ── */
+html body #sort-filter .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+}
+#sort-filter .n-base-selection-placeholder__inner {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+#sort-filter-component__cancel-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#sort-filter-component__cancel-btn span {
+  color: var(--nav-hover) !important;
+}
+#sort-filter-component__cancel-btn:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Anwenden" Button → wine solid ── */
+#sort-filter-component__apply-btn {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#sort-filter-component__apply-btn .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#sort-filter-component__apply-btn span {
+  color: var(--base-white) !important;
+}
+
+/* ── Popover Arrow ── */
+#sort-filter .n-popover-arrow {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
 
 
 /* ============================================================

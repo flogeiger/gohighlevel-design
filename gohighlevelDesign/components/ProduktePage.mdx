@@ -1,0 +1,379 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Products" />
+
+# Produkte
+
+Die **Produkte**-Seite (`#products`) listet alle angelegten Produkte mit Bild, Name, Typ, Aktualisierungsdatum und Aktions-Menü. Sie bietet Bulk-Auswahl mit Indeterminate-Checkbox, Bulk-Edit- und Bulk-Action-Buttons, Suchfeld, einen Sort-&-Filter-Popover sowie drei Header-Buttons (Import CSV, Import Stripe, Create Product).
+
+<img src="/Produkte.png" alt="Produkte" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#products` |
+| „Learn more"-Link | `#learn-more` |
+| Import-Buttons | `#import-products-csv` / `#import-from-stripe` |
+| „Create Product"-Button | `#create-product-btn` |
+| „Bulk Edit"-Button | `#bulk-edit-btn` |
+| „Bulk Action"-Button | `#btn[use="secondary"]` |
+| „Select All"-Link | `#select-all` |
+| Suchfeld | `#hl-table-products-filter-text-search` |
+| Filter-Button | `#sort-filter-component__button` |
+| DataTable Header | `#products .n-data-table-th` |
+| DataTable Body | `#products .n-data-table-td` |
+| Aktions-Menü-Button | `#product-table-dropdown-action-dropdown-trigger` |
+| Sort & Filter Popover | `#sort-filter` |
+
+---
+
+## 116.1 – Seitentitel & Header-Buttons
+
+Titel, Beschreibung, „Learn more"-Link und die drei Header-Buttons.
+
+```css
+/* ── 116.1 Seitentitel ── */
+#products .title.hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+#products .description.hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „Learn more" Link → wine */
+#learn-more span {
+  color: var(--wine-2) !important;
+}
+#learn-more:hover span {
+  color: var(--wine) !important;
+}
+
+/* Import-Buttons → outline neutral */
+#import-products-csv,
+#import-from-stripe {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#import-products-csv span,
+#import-products-csv svg,
+#import-from-stripe span,
+#import-from-stripe svg {
+  color: var(--ink-2) !important;
+}
+#import-products-csv:hover,
+#import-from-stripe:hover {
+  border-color: var(--wine) !important;
+}
+#import-products-csv:hover span,
+#import-from-stripe:hover span,
+#import-products-csv:hover svg,
+#import-from-stripe:hover svg {
+  color: var(--wine-2) !important;
+}
+
+/* „+ Create Product" → wine solid */
+#create-product-btn {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#create-product-btn:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#create-product-btn span,
+#create-product-btn svg {
+  color: white !important;
+}
+#create-product-btn .n-button__border {
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 116.2 – Bulk-Aktionsleiste
+
+Bulk Edit, Bulk Action, Zähler-Text und „Select All"-Link.
+
+```css
+/* ── 116.2 Bulk Edit → wine solid ── */
+#bulk-edit-btn {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#bulk-edit-btn:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#bulk-edit-btn span {
+  color: white !important;
+}
+#bulk-edit-btn .n-button__border {
+  border-color: var(--wine) !important;
+}
+
+/* „Bulk Action" → outline neutral */
+#btn[use="secondary"] {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#btn[use="secondary"] span,
+#btn[use="secondary"] svg {
+  color: var(--ink-2) !important;
+}
+#btn[use="secondary"]:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Zähler-Text & „Select All" */
+#products span[data-v-3fe5c264] {
+  color: var(--ink-3) !important;
+}
+#select-all span {
+  color: var(--wine-2) !important;
+}
+#select-all:hover span {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 116.3 – Suchfeld & Filter-Button
+
+Suchfeld mit wine-Focus und Filter-Button mit Doppel-Border-Fix.
+
+```css
+/* ── 116.3 Suchfeld ── */
+#hl-table-products-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#hl-table-products-filter-text-search:hover {
+  border-color: var(--wine) !important;
+}
+#hl-table-products-filter-text-search:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#hl-table-products-filter-text-search .n-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+
+/* Filter-Button (Doppel-Border-Fix) */
+#sort-filter-component__button {
+  background-color: var(--surface) !important;
+  border-width:     0 !important;
+}
+#sort-filter-component__button .n-button__border {
+  border: 1px solid var(--line-hard) !important;
+}
+#sort-filter-component__button .n-button__state-border {
+  border-width: 0 !important;
+}
+#sort-filter-component__button span,
+#sort-filter-component__button svg {
+  color: var(--ink-2) !important;
+}
+#sort-filter-component__button:hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#sort-filter-component__button:hover span,
+#sort-filter-component__button:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 116.4 – DataTable
+
+Header, Indeterminate-Checkbox, Body-Rows, Produkt-Badges, Icon-Wrapper, Row-Checkboxen und Aktions-Button.
+
+```css
+/* ── 116.4 DataTable Header ── */
+#products .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#products .n-data-table-th__title {
+  color: var(--ink) !important;
+}
+
+/* Indeterminate-Checkbox (Header, alle ausgewählt) → wine */
+#products .n-checkbox--indeterminate .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+
+/* Body */
+#products .n-data-table-td {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#products .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--bg) !important;
+}
+
+/* Produkt-Name & Preis */
+#products .text-gray-900.hl-text-sm-medium span {
+  color: var(--ink) !important;
+}
+#products .hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „CALENDAR"-Badge → wine */
+#products .n-tag.hl-info {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine) !important;
+}
+#products .n-tag.hl-info .n-tag__content {
+  color: var(--wine-2) !important;
+}
+
+/* Produkt-Icon Wrapper → wine-lt */
+#products .bg-primary-100 {
+  background-color: var(--wine-lt) !important;
+}
+#products .bg-primary-100 svg {
+  color: var(--wine-2) !important;
+}
+
+/* Row-Checkboxen → wine */
+#products .n-checkbox--checked.n-checkbox--inside-table .n-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#products .n-checkbox--inside-table:not(.n-checkbox--checked) .n-checkbox-box {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#products .n-checkbox--inside-table:hover .n-checkbox-box {
+  border-color: var(--wine) !important;
+}
+
+/* „⋮" Aktions-Button → wine hover */
+#product-table-dropdown-action-dropdown-trigger {
+  border-color: var(--line-hard) !important;
+}
+#product-table-dropdown-action-dropdown-trigger:hover {
+  background-color: var(--wine-lt) !important;
+}
+#product-table-dropdown-action-dropdown-trigger svg {
+  color: var(--ink-3) !important;
+}
+#product-table-dropdown-action-dropdown-trigger:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 116b – Sort & Filter Popover
+
+Popover mit Header, Reset-Link, Filter-Selects und Cancel/Apply-Buttons.
+
+```css
+/* ── 116b Popover BG ── */
+#sort-filter {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Header Titel & Reset */
+.sort-filter-component__header__title {
+  color:       var(--ink) !important;
+  font-weight: 600 !important;
+}
+#sort-filter-component-reset span {
+  color: var(--wine-2) !important;
+}
+#sort-filter-component-reset:hover span {
+  color: var(--wine) !important;
+}
+
+/* Filter-Überschriften */
+.sort-filter-component__heading {
+  color:       var(--ink) !important;
+  font-weight: 600 !important;
+}
+.sort-filter-component__filter-item-heading {
+  color: var(--ink-2) !important;
+}
+
+/* Filter Selects → wine Focus */
+html body #sort-filter .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+}
+#sort-filter .n-base-selection-placeholder__inner {
+  color: var(--ink-3) !important;
+}
+
+/* Cancel → outline neutral */
+#sort-filter-component__cancel-btn {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#sort-filter-component__cancel-btn span {
+  color: var(--ink-2) !important;
+}
+#sort-filter-component__cancel-btn:hover {
+  border-color: var(--wine) !important;
+}
+
+/* „Anwenden" → wine solid */
+#sort-filter-component__apply-btn {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#sort-filter-component__apply-btn .n-button__border {
+  border-color: var(--wine) !important;
+}
+#sort-filter-component__apply-btn span {
+  color: white !important;
+}
+
+/* Popover Arrow */
+#sort-filter .n-popover-arrow {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Indeterminate-Checkbox im Header:** Wenn nicht alle, aber mindestens ein Produkt ausgewählt ist, zeigt die Header-Checkbox den Indeterminate-State (`.n-checkbox--indeterminate`). Dieser State ist im Projekt nur hier relevant und erhält denselben wine-Hintergrund wie der Checked-State.
+
+**`#btn[use="secondary"]` als Attribut-Selektor:** Der Bulk-Action-Button nutzt keinen Klassen- oder ID-Selektor, sondern ein `use`-Attribut — ein ungewöhnliches GHL-Pattern das nur hier vorkommt.
+
+**`#sort-filter-component__button` mit Doppel-Border-Fix:** Derselbe Fix wie bei `.hl-table-filter-btn` auf anderen Seiten (Section 114.2) — `border-width: 0` auf dem Root, Border ausschließlich über `.n-button__border`.
+
+**Popover-Arrow styled:** `#sort-filter .n-popover-arrow` wird explizit auf `--surface` und `--line-hard` gesetzt — ohne diesen Override bleibt der Arrow-Pfeil weiß und fällt im Dark Mode auf.
