@@ -1,0 +1,314 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Products/Collections" />
+
+# Sammlungen (Collections)
+
+Die **Sammlungen**-Seite (`#collections`) gruppiert Produkte in Kollektionen. Sie verwendet **Highrise UI** (`hr-*`-Klassen) statt NaïveUI — ein wichtiger Unterschied zu allen anderen Payments-Seiten. Die Seite enthält eine Highrise DataTable mit Pagination, Per-Page-Dropdown und Aktions-Icons. Der **Collection Editor** (`#create-collections`, Section 117b) bietet ein Formular mit Name, Bild-Upload-Zone und SEO-Feldern.
+
+<img src="/Sammlungen.png" alt="Sammlungen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />
+<img src="/SammlungEditor.png" alt="Sammlung erstellen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root Liste | `#collections` |
+| Root Editor | `#create-collections` |
+| „Sammlung erstellen"-Button (Empty) | `#create-collection-empty-btn` |
+| Suchfeld | `#collections-table-wrapper-header-global-filter` |
+| DataTable Header | `#collections-table .hr-data-table__cell-header` |
+| DataTable Body | `#collections-table .hr-data-table__body-cell` |
+| Collection Avatar | `#collection-avatar-placeholder` |
+| Per-Page Dropdown | `#per-page-dropdown .hr-base-selection` |
+| Pagination Prev/Next | `#hr-prev-button` / `#next-button` |
+| Save-Button (Editor) | `#save-btn` |
+| Form-Inputs (Editor) | `#create-collections .hr-input` |
+| Bild-Upload-Zone | `#create-collections .border-gray-300[role="button"]` |
+
+---
+
+## 117.1 – Listen-Seite: Header & Suchfeld
+
+```css
+/* ── 117.1 Seitenhintergrund & Header ── */
+#collections {
+  background-color: var(--bg) !important;
+}
+#collections .bg-white {
+  background-color: var(--surface) !important;
+}
+#collections .hr-header-lite-title {
+  color: var(--ink) !important;
+}
+#collections .hr-header-lite-subtitle {
+  color: var(--ink-3) !important;
+}
+
+/* „+ Sammlung erstellen"-Button → wine solid */
+#create-collection-empty-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+#create-collection-empty-btn:hover {
+  background-color: var(--wine-2) !important;
+}
+#create-collection-empty-btn .hr-button__content,
+#create-collection-empty-btn p,
+#create-collection-empty-btn svg {
+  color: white !important;
+}
+#create-collection-empty-btn .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#create-collection-empty-btn .hr-button__state-border {
+  display: none !important;
+}
+
+/* Suchfeld */
+#collections-table-wrapper-header-global-filter {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#collections-table-wrapper-header-global-filter:hover {
+  border-color: var(--wine) !important;
+}
+#collections-table-wrapper-header-global-filter:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#collections-table-wrapper-header-global-filter .hr-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 117.2 – Highrise DataTable
+
+Header, Body-Rows, Collection-Avatar und Aktions-Icons.
+
+```css
+/* ── 117.2 DataTable Header ── */
+#collections-table .hr-data-table__cell-header {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#collections-table .hr-data-table__cell-header p {
+  color: var(--ink) !important;
+}
+
+/* Body */
+#collections-table .hr-data-table__body-cell {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#collections-table .hr-data-table__body-row:hover .hr-data-table__body-cell {
+  background-color: var(--bg) !important;
+}
+#collections-table .text-gray-600 {
+  color: var(--ink-2) !important;
+}
+
+/* Collection Avatar */
+#collection-avatar-placeholder {
+  background-color: var(--wine-lt) !important;
+}
+#collection-avatar-placeholder svg {
+  color: var(--wine-2) !important;
+}
+
+/* Aktions-Icons (Edit / Delete) */
+#collections-table .hover\:bg-gray-100:hover {
+  background-color: var(--wine-lt) !important;
+}
+#collections-table .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+#collections-table .hover\:bg-gray-100:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 117.3 – Highrise Pagination
+
+Per-Page-Dropdown, Prev/Next-Buttons und aktive Seitenzahl.
+
+```css
+/* ── 117.3 Footer Text ── */
+#collections .hr-pagination-cntr p {
+  color: var(--ink-2) !important;
+}
+
+/* Per-Page Dropdown → wine Focus */
+html body #per-page-dropdown .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+}
+#per-page-dropdown .hr-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+
+/* Prev / Next Buttons */
+#hr-prev-button,
+#next-button {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#hr-prev-button p,
+#next-button p {
+  color: var(--ink-2) !important;
+}
+#hr-prev-button:not([disabled]):hover,
+#next-button:not([disabled]):hover {
+  border-color: var(--wine) !important;
+}
+#hr-prev-button .hr-button__state-border,
+#next-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* Aktive Seite → wine */
+#collections .hr-pagination-item__active .hr-button p {
+  color:       var(--wine) !important;
+  font-weight: 600 !important;
+}
+.hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-36320aab] {
+  border: 1px solid var(--wine) !important;
+  color:  var(--wine) !important;
+}
+```
+
+---
+
+## 117b – Collection Editor
+
+Formular mit Name-Input, Bild-Upload-Zone, SEO-Feldern und Save-Button.
+
+```css
+/* ── 117b Editor BG & Header ── */
+#create-collections {
+  background-color: var(--bg) !important;
+}
+#create-collections .bg-white {
+  background-color: var(--surface) !important;
+}
+
+/* Zurück-Pfeil */
+#create-collections svg.cursor-pointer {
+  color: var(--ink-2) !important;
+}
+#create-collections svg.cursor-pointer:hover {
+  color: var(--wine) !important;
+}
+
+/* Seitentitel */
+#create-collection-header .hr-header-lite-title {
+  color: var(--ink) !important;
+}
+
+/* „Speichern"-Button → wine solid */
+#save-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+#save-btn:hover {
+  background-color: var(--wine-2) !important;
+}
+#save-btn p,
+#save-btn svg {
+  color: white !important;
+}
+#save-btn .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#save-btn .hr-button__state-border {
+  display: none !important;
+}
+
+/* Form Labels */
+#create-collections .hr-form-item-label__text {
+  color: var(--ink-2) !important;
+}
+#create-collections .hr-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+
+/* Text-Inputs & Textareas → wine Focus */
+#create-collections .hr-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#create-collections .hr-input:hover {
+  border-color: var(--wine) !important;
+}
+#create-collections .hr-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#create-collections .hr-input__input-el,
+#create-collections .hr-input__textarea-el {
+  color: var(--ink-2) !important;
+}
+#create-collections .hr-input-word-count {
+  color: var(--ink-3) !important;
+}
+
+/* Handle Prefix */
+#create-collections .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+
+/* Bild-Upload-Zone */
+#create-collections .border-gray-300[role="button"] {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#create-collections .border-gray-300[role="button"]:hover {
+  border-color: var(--wine) !important;
+}
+#create-collections .border-gray-300[role="button"] svg {
+  color: var(--ink-3) !important;
+}
+#create-collections .bg-gray-100 {
+  background-color: var(--wine-lt) !important;
+}
+#create-collections .text-primary-600 {
+  color: var(--wine-2) !important;
+}
+#create-collections .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+#create-collections p.text-xs.text-gray-500 {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Highrise UI statt NaïveUI:** Diese Seite verwendet `hr-*`-Klassen (`hr-data-table__*`, `hr-button__*`, `hr-base-selection`, `hr-pagination-*`) — kein `n-data-table-*`, kein `n-button__border`. Button-Border-Fixes laufen über `.hr-button__border` und `.hr-button__state-border` statt `.n-button__border`.
+
+**Doppelter Pagination-Fix für aktive Seite:** Die aktive Seitenzahl wird über zwei Selektoren gesteuert — einmal via `.hr-pagination-item__active .hr-button p` (Textfarbe) und einmal via `button[data-v-36320aab]` (Border). Beide sind nötig, da GHL die Border über einen Vue-Scoped-Selektor setzt.
+
+**`#save-btn` nicht auf Editor-Root beschränkt:** Die ID `#save-btn` ist global — ohne zusätzlichen Parent-Scope würde der Style auf jeden „Save"-Button mit dieser ID wirken. Da GHL Seiten lazy rendert, ist dies in der Praxis unproblematisch.
+
+**Upload-Zone via Attribut-Selektor:** Die Bild-Upload-Zone hat keine ID oder semantische Klasse — sie wird über `.border-gray-300[role="button"]` angesteuert, was die Kombination aus Tailwind-Klasse und ARIA-Rolle als Anker nutzt.

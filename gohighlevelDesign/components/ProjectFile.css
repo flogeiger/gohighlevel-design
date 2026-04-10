@@ -11695,6 +11695,268 @@ html body #sort-filter .n-base-selection {
   border-color:     var(--linie-stark) !important;
 }
 
+/* ============================================================
+   SECTION 116 — Collections (#collections)
+   Hinweis: Highrise UI (hr-* Klassen), nicht NaïveUI
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#collections {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header BG ── */
+#collections .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Seitentitel & Untertitel ── */
+#collections .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+#collections .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Create Collection" Button → wine solid ── */
+#create-collection-empty-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+#create-collection-empty-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#create-collection-empty-btn .hr-button__content,
+#create-collection-empty-btn p,
+#create-collection-empty-btn svg {
+  color: var(--base-white) !important;
+}
+#create-collection-empty-btn .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#create-collection-empty-btn .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#collections-table-wrapper-header-global-filter {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#collections-table-wrapper-header-global-filter:hover {
+  border-color: var(--akzent) !important;
+}
+#collections-table-wrapper-header-global-filter:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#collections-table-wrapper-header-global-filter .hr-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabellen-Header ── */
+#collections-table .hr-data-table__cell-header {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#collections-table .hr-data-table__cell-header p {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#collections-table .hr-data-table__body-cell {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#collections-table .hr-data-table__body-row:hover .hr-data-table__body-cell {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Collection Name & Count Text ── */
+#collections-table .text-gray-600 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Collection Avatar Icon ── */
+#collection-avatar-placeholder {
+  background-color: var(--akzent-hell) !important;
+}
+#collection-avatar-placeholder svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Aktions-Icons (Edit / Delete) ── */
+#collections-table .hover\:bg-gray-100:hover {
+  background-color: var(--akzent-hell) !important;
+}
+#collections-table .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+#collections-table .hover\:bg-gray-100:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Footer: "Rows per page" Text ── */
+#collections .hr-pagination-cntr p {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Per-Page Dropdown → wine Focus ── */
+html body #per-page-dropdown .hr-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+}
+#per-page-dropdown .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Previous / Next Pagination Buttons ── */
+#hr-prev-button,
+#next-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hr-prev-button p,
+#next-button p {
+  color: var(--nav-hover) !important;
+}
+#hr-prev-button:not([disabled]):hover,
+#next-button:not([disabled]):hover {
+  border-color: var(--akzent) !important;
+}
+#hr-prev-button .hr-button__state-border,
+#next-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── Aktive Seite "1" → wine ── */
+#collections .hr-pagination-item__active .hr-button p {
+  color: var(--akzent) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Fix: Collections aktive Seite Border → wine ── */
+.hr-pagination-cntr .hr-pages-cntr .hr-pages .hr-pagination-item__active button[data-v-36320aab] {
+  border: 1px solid var(--akzent) !important;
+  color:  var(--akzent) !important;
+}
+
+/* ============================================================
+   SECTION 116b — Collection Editor (#create-collections)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#create-collections {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header & Form Card BG ── */
+#create-collections .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Zurück-Pfeil ── */
+#create-collections svg.cursor-pointer {
+  color: var(--nav-hover) !important;
+}
+#create-collections svg.cursor-pointer:hover {
+  color: var(--akzent) !important;
+}
+
+/* ── Seitentitel ── */
+#create-collection-header .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+#save-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+#save-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#save-btn p,
+#save-btn svg {
+  color: var(--base-white) !important;
+}
+#save-btn .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#save-btn .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── Form Labels ── */
+#create-collections .hr-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+#create-collections .hr-form-item-label__asterisk {
+  color: var(--gefahr) !important;
+}
+
+/* ── Alle Text-Inputs → wine Focus ── */
+#create-collections .hr-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#create-collections .hr-input:hover {
+  border-color: var(--akzent) !important;
+}
+#create-collections .hr-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#create-collections .hr-input__input-el,
+#create-collections .hr-input__textarea-el {
+  color: var(--nav-hover) !important;
+}
+#create-collections .hr-input-word-count {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Handle Prefix "/collections/" ── */
+#create-collections .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Image Upload Zone ── */
+#create-collections .border-gray-300[role="button"] {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#create-collections .border-gray-300[role="button"]:hover {
+  border-color: var(--akzent) !important;
+}
+#create-collections .border-gray-300[role="button"] svg {
+  color: var(--text-gedaempft) !important;
+}
+#create-collections .bg-gray-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#create-collections .text-primary-600 {
+  color: var(--akzent-dunkel) !important;
+}
+#create-collections .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+#create-collections p.text-xs.text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
 
 
 /* ============================================================
