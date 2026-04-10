@@ -1,0 +1,268 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/PaymentLinks" />
+
+# Payment Links
+
+Die **Payment Links**-Seite (`#paymentlinksDashboardApp`) listet alle erstellten Zahlungslinks mit URL, Status, Preis und Erstellungsdatum. Sie enthält Datepicker, Suchfeld, Filter-Popover, eine NaïveUI DataTable mit Pagination sowie zwei Primary-Buttons (Header + Empty State).
+
+Diese Section enthält außerdem den **Global Fix v2** für Pagination und Per-Page-Select — ein `html body`-geprefixter Override der NaïveUI-Variablen, der auf alle Tabellen-Footer im gesamten Projekt wirkt.
+
+<img src="/PaymentLinks.png" alt="Payment Links" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#paymentlinksDashboardApp` |
+| „Create New Payment Link"-Button | `#payment-links-header-btn-primary` |
+| Datepicker | `#payment-links-date-range` |
+| Suchfeld | `#hl-table-paymentLinks-filter-text-search` |
+| Filter-Button | `#paymentlinksDashboardApp .hl-table-filter-btn` |
+| DataTable Header | `#paymentlinksDashboardApp .n-data-table-th` |
+| DataTable Body | `#paymentlinksDashboardApp .n-data-table-td` |
+| Empty State Button | `#payment_links_products__empty-btn-positive-action` |
+| Filter Popover | `#hl-table-paymentLinks-filter-clear / -apply` |
+| Pagination (global) | `html body .ghl-table-footer` |
+
+---
+
+## 114.1 – Seitentitel & Primary Button
+
+```css
+/* ── 114.1 Seitentitel ── */
+#paymentlinksDashboardApp .title.hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+#paymentlinksDashboardApp .description.hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „+ Create New Payment Link" → wine solid */
+#payment-links-header-btn-primary {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#payment-links-header-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#payment-links-header-btn-primary span,
+#payment-links-header-btn-primary svg {
+  color: white !important;
+}
+#payment-links-header-btn-primary .n-button__border {
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 114.2 – Filter Bar
+
+Datepicker, Suchfeld und Filter-Button mit Doppel-Border-Fix.
+
+```css
+/* ── 114.2 Datepicker ── */
+#payment-links-date-range .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#payment-links-date-range .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#payment-links-date-range .n-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#payment-links-date-range .n-base-icon svg {
+  color: var(--ink-3) !important;
+}
+
+/* Suchfeld */
+#hl-table-paymentLinks-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#hl-table-paymentLinks-filter-text-search:hover {
+  border-color: var(--wine) !important;
+}
+#hl-table-paymentLinks-filter-text-search:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#hl-table-paymentLinks-filter-text-search .n-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+
+/* Filter-Button (Doppel-Border-Fix via border-width: 0 + .n-button__border) */
+#paymentlinksDashboardApp .hl-table-filter-btn,
+#OrdersListPage .hl-table-filter-btn,
+#SubscriptionsListPage .hl-table-filter-btn {
+  background-color: var(--surface) !important;
+  border-width:     0 !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn .n-button__border,
+#OrdersListPage .hl-table-filter-btn .n-button__border,
+#SubscriptionsListPage .hl-table-filter-btn .n-button__border {
+  border: 1px solid var(--line-hard) !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn .n-button__state-border,
+#OrdersListPage .hl-table-filter-btn .n-button__state-border,
+#SubscriptionsListPage .hl-table-filter-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn span,
+#paymentlinksDashboardApp .hl-table-filter-btn svg,
+#OrdersListPage .hl-table-filter-btn span,
+#OrdersListPage .hl-table-filter-btn svg,
+#SubscriptionsListPage .hl-table-filter-btn span,
+#SubscriptionsListPage .hl-table-filter-btn svg {
+  color: var(--ink-2) !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn:hover .n-button__border,
+#OrdersListPage .hl-table-filter-btn:hover .n-button__border,
+#SubscriptionsListPage .hl-table-filter-btn:hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn:hover span,
+#paymentlinksDashboardApp .hl-table-filter-btn:hover svg,
+#OrdersListPage .hl-table-filter-btn:hover span,
+#OrdersListPage .hl-table-filter-btn:hover svg,
+#SubscriptionsListPage .hl-table-filter-btn:hover span,
+#SubscriptionsListPage .hl-table-filter-btn:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 114.3 – DataTable & Empty State
+
+```css
+/* ── 114.3 DataTable Header ── */
+#paymentlinksDashboardApp .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#paymentlinksDashboardApp .n-data-table-th__title {
+  color: var(--ink) !important;
+}
+
+/* Body */
+#paymentlinksDashboardApp .n-data-table-td {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#paymentlinksDashboardApp .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--bg) !important;
+}
+
+/* Empty State */
+#paymentlinksDashboardApp .hl-empty-icon-container {
+  background-color: var(--wine-lt) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#paymentlinksDashboardApp .hl-empty-icon svg {
+  color: var(--wine-2) !important;
+}
+#paymentlinksDashboardApp .hl-empty-title {
+  color: var(--ink) !important;
+}
+
+/* Empty State „Create Link"-Button → wine solid */
+#payment_links_products__empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#payment_links_products__empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#payment_links_products__empty-btn-positive-action span,
+#payment_links_products__empty-btn-positive-action svg {
+  color: white !important;
+}
+#payment_links_products__empty-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+}
+```
+
+---
+
+## 114.4 – Filter Popover Buttons
+
+```css
+/* ── 114.4 Filter Popover ── */
+#hl-table-paymentLinks-filter-clear span,
+#hl-table-paymentLinks-filter-apply span {
+  color: var(--wine-2) !important;
+}
+#hl-table-paymentLinks-filter-clear:hover span,
+#hl-table-paymentLinks-filter-apply:hover span {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 114.5 – Global Fix: Pagination & Per-Page Select
+
+Dieser Block wirkt **global auf alle Tabellen-Footer** im Projekt (`html body .ghl-table-footer`). Der `html body`-Präfix ist nötig, um die NaïveUI-internen CSS-Variablen mit ausreichender Spezifität zu überschreiben.
+
+```css
+/* ── 114.5 Per-Page Select → wine hover/active ── */
+html body .ghl-table-footer .n-base-selection {
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+  --n-caret-color:       var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+
+/* Previous / Next Buttons → wine hover */
+html body .ghl-table-footer .n-button {
+  --n-border-hover:         1px solid var(--wine) !important;
+  --n-border-pressed:       1px solid var(--wine) !important;
+  --n-border-focus:         1px solid var(--wine) !important;
+  --n-text-color-hover:     var(--wine-2) !important;
+  --n-text-color-pressed:   var(--wine-2) !important;
+}
+
+/* Aktive Seite → wine */
+html body .ghl-table-footer .n-pagination-item--active {
+  border-color: var(--wine) !important;
+  color:        var(--wine) !important;
+  font-weight:  600 !important;
+  --n-item-border-active:     1px solid var(--wine) !important;
+  --n-item-text-color-active: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Doppel-Border-Fix für `.hl-table-filter-btn`:** NaïveUI rendert Buttons mit zwei überlagerten Border-Elementen — dem nativen `border` auf dem Button-Element selbst und `.n-button__border` als Pseudo-Overlay. Der Fix setzt `border-width: 0` auf dem Button-Root und definiert die sichtbare Border ausschließlich über `.n-button__border`. Dieser Fix gilt gleichzeitig für `#paymentlinksDashboardApp`, `#OrdersListPage` und `#SubscriptionsListPage` in einem Selektor-Block.
+
+**Global Pagination Fix mit `html body`-Präfix:** NaïveUI setzt Pagination-Variablen mit hoher Spezifität direkt auf den Komponenten-Root. Der einzige zuverlässige Override ohne `!important`-Kaskaden-Konflikte ist der `html body`-Präfix, der Spezifität (0,0,2) erzeugt und NaïveUIs (0,0,1) schlägt. Dieser Block ist **projektübergreifend** — er wirkt auf jede Seite mit `.ghl-table-footer`.
+
+**Zwei Primary-Buttons:** Header-Button (`#payment-links-header-btn-primary`) und Empty-State-Button (`#payment_links_products__empty-btn-positive-action`) sind funktional identisch, aber über unterschiedliche IDs angesteuert — der Empty-State-Button verschwindet, sobald Einträge vorhanden sind.

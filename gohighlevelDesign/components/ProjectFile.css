@@ -10969,6 +10969,220 @@ button#notes-filter-clear-all:hover .hr-button__content {
   color: var(--base-white) !important;
 }
 
+/* ============================================================
+   SECTION 113 — Payment Links (#paymentlinksDashboardApp)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#paymentlinksDashboardApp {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#paymentlinksDashboardApp .title.hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#paymentlinksDashboardApp .description.hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Create New Payment Link" Button → wine solid ── */
+#payment-links-header-btn-primary {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#payment-links-header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#payment-links-header-btn-primary span,
+#payment-links-header-btn-primary svg {
+  color: var(--base-white) !important;
+}
+#payment-links-header-btn-primary .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Datum-Range Picker → wine Focus ── */
+#payment-links-date-range .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#payment-links-date-range .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#payment-links-date-range .n-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#payment-links-date-range .n-base-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#hl-table-paymentLinks-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hl-table-paymentLinks-filter-text-search:hover {
+  border-color: var(--akzent) !important;
+}
+#hl-table-paymentLinks-filter-text-search:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#hl-table-paymentLinks-filter-text-search .n-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Filters" Button → outline neutral (Doppel-Border Fix) ── */
+#paymentlinksDashboardApp .hl-table-filter-btn,
+#OrdersListPage .hl-table-filter-btn,
+#SubscriptionsListPage .hl-table-filter-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-width:     0 !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn .n-button__border,
+#OrdersListPage .hl-table-filter-btn .n-button__border,
+#SubscriptionsListPage .hl-table-filter-btn .n-button__border {
+  border: 1px solid var(--linie-stark) !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn .n-button__state-border,
+#OrdersListPage .hl-table-filter-btn .n-button__state-border,
+#SubscriptionsListPage .hl-table-filter-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn span,
+#paymentlinksDashboardApp .hl-table-filter-btn svg,
+#OrdersListPage .hl-table-filter-btn span,
+#OrdersListPage .hl-table-filter-btn svg,
+#SubscriptionsListPage .hl-table-filter-btn span,
+#SubscriptionsListPage .hl-table-filter-btn svg {
+  color: var(--nav-hover) !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn:hover .n-button__border,
+#OrdersListPage .hl-table-filter-btn:hover .n-button__border,
+#SubscriptionsListPage .hl-table-filter-btn:hover .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#paymentlinksDashboardApp .hl-table-filter-btn:hover span,
+#paymentlinksDashboardApp .hl-table-filter-btn:hover svg,
+#OrdersListPage .hl-table-filter-btn:hover span,
+#OrdersListPage .hl-table-filter-btn:hover svg,
+#SubscriptionsListPage .hl-table-filter-btn:hover span,
+#SubscriptionsListPage .hl-table-filter-btn:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Tabellen-Header ── */
+#paymentlinksDashboardApp .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#paymentlinksDashboardApp .n-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#paymentlinksDashboardApp .n-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#paymentlinksDashboardApp .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State ── */
+#paymentlinksDashboardApp .hl-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#paymentlinksDashboardApp .hl-empty-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#paymentlinksDashboardApp .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Create Link" Empty State Button → wine solid ── */
+#payment_links_products__empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#payment_links_products__empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#payment_links_products__empty-btn-positive-action span,
+#payment_links_products__empty-btn-positive-action svg {
+  color: var(--base-white) !important;
+}
+#payment_links_products__empty-btn-positive-action .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ============================================================
+   113b — Filter Popover (Payment Links)
+   ============================================================ */
+
+#hl-table-paymentLinks-filter-clear span,
+#hl-table-paymentLinks-filter-apply span {
+  color: var(--akzent-dunkel) !important;
+}
+#hl-table-paymentLinks-filter-clear:hover span,
+#hl-table-paymentLinks-filter-apply:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ============================================================
+   GLOBAL FIX v2 — Pagination + Per-Page Select
+   (CSS-Variablen Override mit html body Präfix)
+   ============================================================ */
+
+/* ── Per-Page Select → wine hover/active via Variable Override ── */
+html body .ghl-table-footer .n-base-selection {
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+  --n-caret-color: var(--akzent) !important;
+  --n-loading-color: var(--akzent) !important;
+}
+
+/* ── Previous / Next Buttons → wine hover via Variable Override ── */
+html body .ghl-table-footer .n-button {
+  --n-border-hover:   1px solid var(--akzent) !important;
+  --n-border-pressed: 1px solid var(--akzent) !important;
+  --n-border-focus:   1px solid var(--akzent) !important;
+  --n-text-color-hover:   var(--akzent-dunkel) !important;
+  --n-text-color-pressed: var(--akzent-dunkel) !important;
+}
+
+/* ── Aktive Seite "1" → wine ── */
+html body .ghl-table-footer .n-pagination-item--active {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent) !important;
+  font-weight:  600 !important;
+  --n-item-border-active: 1px solid var(--akzent) !important;
+  --n-item-text-color-active: var(--akzent) !important;
+}
+
+
 
 
 /* ============================================================
