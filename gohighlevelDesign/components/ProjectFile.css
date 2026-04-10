@@ -13333,6 +13333,1171 @@ html body #select-custom-render .hr-base-selection {
   color: var(--nav-farbe) !important;
 }
 
+/* ============================================================
+   SECTION 121 — Payment Settings (#payment-settings)
+   ============================================================ */
+
+/* ── Seitenhintergrund & Container ── */
+#payment-settings,
+.hl-wrapper-container.hl_topbar-tabs {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel ── */
+h3#payment-settings {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Linke Navigation ── */
+[aria-label="Payment settings navigation"] ul {
+  background-color: var(--hintergrund) !important;
+}
+[aria-label="Payment settings navigation"] a,
+[aria-label="Payment settings navigation"] .cursor-pointer {
+  color: var(--nav-hover) !important;
+  border-radius: 6px !important;
+}
+[aria-label="Payment settings navigation"] a:hover,
+[aria-label="Payment settings navigation"] .cursor-pointer:hover {
+  background-color: var(--akzent-hell) !important;
+  color: var(--akzent-dunkel) !important;
+}
+[aria-label="Payment settings navigation"] a[aria-current="page"] {
+  background-color: var(--akzent-hell) !important;
+  color: var(--akzent-dunkel) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Rechte Content Card ── */
+#payment-receipt-app .hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Karten-Titel ── */
+#receipt-settings-header {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Toggle Switch → wine aktiv ── */
+#enableReceipt.n-switch--active .n-switch__rail {
+  background-color: var(--akzent) !important;
+}
+#enableReceipt:not(.n-switch--active) .n-switch__rail {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Toggle Label ── */
+#enableSalesReceipt {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Form Labels ── */
+#invoice-settings .n-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+#invoice-settings .n-form-item-label__asterisk {
+  color: var(--gefahr) !important;
+}
+
+/* ── Hilfstext (grau, klein) ── */
+#invoice-settings .text-gray-600.hl-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Alle Text-Inputs → wine Focus ── */
+#invoice-settings .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#invoice-settings .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#invoice-settings .n-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── Email Template Select → wine Focus ── */
+html body #invoice-settings #select-id .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── "Add Notes / Terms" Label ── */
+#invoice-settings .text-black.font-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Rich Text Editor (Toolbar + Editor) ── */
+#invoice-settings .editor-container {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#invoice-settings .toolbar_container {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#invoice-settings .toolbar_button svg {
+  color: var(--nav-hover) !important;
+}
+#invoice-settings .tiptap {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Divider ── */
+#invoice-settings .n-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+#pg-invoice-settings__btn-create {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#pg-invoice-settings__btn-create:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#pg-invoice-settings__btn-create span {
+  color: var(--base-white) !important;
+}
+#pg-invoice-settings__btn-create .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#pg-invoice-settings__btn-create .n-button__state-border {
+  display: none !important;
+}
+
+/* ============================================================
+   SECTION 121.2 — Payment Settings: Steuern (#tax-settings-app)
+   ============================================================ */
+
+/* ── Karten BG & Border ── */
+html body #tax-settings-app .hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Karten-Titel ── */
+html body #tax-settings-app .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Beschreibungen & Labels ── */
+html body #tax-settings-app .text-gray-500,
+html body #tax-settings-app .text-gray-700 {
+  color: var(--text-gedaempft) !important;
+}
+html body #tax-settings-app .text-gray-400 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Radio-Group NaïveUI Variablen → wine ── */
+html body #tax-settings-app .n-radio-group {
+  --n-button-border-color-active:   var(--akzent) !important;
+  --n-button-box-shadow-focus:      inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-button-text-color-hover:      var(--akzent-dunkel) !important;
+  --n-button-text-color-active:     var(--akzent-dunkel) !important;
+}
+
+/* ── Radio Dot → wine ── */
+html body #tax-settings-app .n-radio {
+  --n-box-shadow-active:  inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-focus:   inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-hover:   inset 0 0 0 1px var(--akzent) !important;
+  --n-dot-color-active:   var(--akzent) !important;
+}
+
+/* ── Radio checked State-Border ── */
+html body #tax-settings-app .n-radio-button--checked .n-radio-button__state-border {
+  border-color: var(--akzent) !important;
+  box-shadow:   inset 0 0 0 1px var(--akzent) !important;
+}
+
+/* ── "Steuer hinzufügen" Button (Header) → wine solid ── */
+html body #taxes__header-btn-primary {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent) !important;
+  --n-color-focus:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #taxes__header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #taxes__header-btn-primary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Steuer erstellen" Button (Empty State) → wine solid ── */
+html body #taxes__empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent) !important;
+  --n-color-focus:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #taxes__empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #taxes__empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table Header → wine ── */
+html body #tax-settings-app .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  color:            var(--nav-farbe) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Data Table Rows ── */
+html body #tax-settings-app .n-data-table {
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--hintergrund) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-loading-color:  var(--akzent) !important;
+}
+
+/* ── Empty State Icon & Text ── */
+html body #tax-settings-app .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+html body #tax-settings-app .hl-empty svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Auto Steuer Toggle → wine aktiv ── */
+html body #avalaraTaxesEnabled {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-loading-color:     var(--akzent) !important;
+}
+
+/* ============================================================
+   SECTION 121.3 — Payment Settings: Benachrichtigungen
+   (#storeNotificationSettings)
+   Highrise UI (hr-* Klassen)
+   ============================================================ */
+
+/* ── Karten BG & Border ── */
+#storeNotificationSettings .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Karten-Titel ── */
+#storeNotificationSettings .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Karten-Untertitel & Beschreibungen ── */
+#storeNotificationSettings .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Toggle Labels & Fließtext ── */
+#storeNotificationSettings .text-gray-900 {
+  color: var(--nav-hover) !important;
+}
+#storeNotificationSettings .text-gray-700,
+#storeNotificationSettings .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Pflichtfeld-Stern ── */
+#storeNotificationSettings .text-red-600 {
+  color: var(--gefahr) !important;
+}
+
+/* ── Toggles → wine aktiv ── */
+#abandoned-cart-email-toggle,
+#store-order-toggle,
+#attach-digital-files-toggle,
+#store-fulfillment-toggle {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  --n-loading-color:     var(--akzent) !important;
+}
+
+/* ── "Vorschau" Text-Button → wine ── */
+#storeNotificationSettings .hr-button--text .hr-button__content p {
+  color: var(--akzent-dunkel) !important;
+}
+#storeNotificationSettings .hr-button--text:hover .hr-button__content p {
+  color: var(--akzent) !important;
+}
+
+/* ── "Mehr erfahren" Text-Button → wine ── */
+#learn-more-digital-files .hr-button__content p {
+  color: var(--akzent-dunkel) !important;
+}
+#learn-more-digital-files:hover .hr-button__content p {
+  color: var(--akzent) !important;
+}
+
+/* ── E-Mail-Vorlage Select → wine Focus ── */
+html body #abandoned-cart-email-template .hr-base-selection,
+html body #store-order-email-template .hr-base-selection,
+html body #store-fulfillment-email-template .hr-base-selection {
+  background-color:  var(--hintergrund-karte) !important;
+  border-color:      var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0px 0px 0px 4px var(--akzent-a20), 0px 1px 2px 0px #1018280D !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px var(--akzent-a20), 0px 1px 2px 0px #1018280D !important;
+  --n-caret-color:   var(--akzent) !important;
+}
+html body #abandoned-cart-email-template .hr-base-selection .hr-base-selection-input__content,
+html body #store-order-email-template .hr-base-selection .hr-base-selection-input__content,
+html body #store-fulfillment-email-template .hr-base-selection .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+html body #abandoned-cart-email-template .hr-base-selection__state-border,
+html body #store-order-email-template .hr-base-selection__state-border,
+html body #store-fulfillment-email-template .hr-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Betreff-Input → wine Focus ── */
+#storeNotificationSettings .flex.h-8.border {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#storeNotificationSettings .flex.h-8.border:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#storeNotificationSettings input.hr-input__input-el,
+#storeNotificationSettings input[id$="-subject"] {
+  color:            var(--nav-hover) !important;
+  background-color: transparent !important;
+}
+
+/* ── "Senden später" Number-Input → wine Focus ── */
+html body #abandoned-cart-send-after-time .hr-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--akzent-a20), 0px 1px 2px 0px #1018280D !important;
+  --n-caret-color:   var(--akzent) !important;
+}
+
+/* ── "Senden später" Unit-Select → wine Focus ── */
+html body #abandoned-cart-send-after-unit .hr-base-selection {
+  background-color:  var(--hintergrund-karte) !important;
+  border-color:      var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0px 0px 0px 4px var(--akzent-a20), 0px 1px 2px 0px #1018280D !important;
+  --n-caret-color:   var(--akzent) !important;
+}
+
+/* ── Divider ── */
+#storeNotificationSettings .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+#abandoned-cart-cancel,
+#order-cancel-button,
+#fulfillment-cancel-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#abandoned-cart-cancel p,
+#order-cancel-button p,
+#fulfillment-cancel-button p {
+  color: var(--nav-hover) !important;
+}
+#abandoned-cart-cancel:not([disabled]):hover,
+#order-cancel-button:not([disabled]):hover,
+#fulfillment-cancel-button:not([disabled]):hover {
+  border-color: var(--akzent) !important;
+}
+#abandoned-cart-cancel .hr-button__state-border,
+#order-cancel-button .hr-button__state-border,
+#fulfillment-cancel-button .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Änderungen speichern" Button → wine solid ── */
+#abandoned-cart-save,
+#order-save-changes,
+#fulfillment-save-changes {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:          var(--akzent) !important;
+  --n-color-hover:    var(--akzent-dunkel) !important;
+  --n-color-disabled: var(--akzent-hell) !important;
+  --n-ripple-color:   var(--akzent) !important;
+  --n-border:         1px solid var(--akzent) !important;
+  --n-border-hover:   1px solid var(--akzent-dunkel) !important;
+  --n-border-disabled: 1px solid var(--akzent-hell) !important;
+}
+#abandoned-cart-save:not([disabled]):hover,
+#order-save-changes:not([disabled]):hover,
+#fulfillment-save-changes:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#abandoned-cart-save p,
+#order-save-changes p,
+#fulfillment-save-changes p {
+  color: var(--base-white) !important;
+}
+#abandoned-cart-save .hr-button__state-border,
+#order-save-changes .hr-button__state-border,
+#fulfillment-save-changes .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 121.4 — Payment Settings: Team-Benachrichtigungen
+   (#storeTeamNotificationSettings)
+   Highrise UI (hr-* Klassen)
+   ============================================================ */
+
+/* ── Karte BG & Border ── */
+#storeTeamNotificationSettings {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Karten-Titel ── */
+#storeTeamNotificationSettings .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Karten-Untertitel ── */
+#storeTeamNotificationSettings .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Toggle Labels ── */
+#storeTeamNotificationSettings .hr-switch-label,
+#storeTeamNotificationSettings .text-gray-900 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Info-Icon ── */
+#storeTeamNotificationSettings .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Toggles → wine aktiv ── */
+#toggle-unchecked-3xs,
+#sms-confirmation-toggle {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  --n-loading-color:     var(--akzent) !important;
+}
+
+/* ── Trennlinie zwischen Toggles ── */
+#storeTeamNotificationSettings .border-t {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Divider ── */
+#storeTeamNotificationSettings .hr-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+#cancel-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#cancel-modal p {
+  color: var(--nav-hover) !important;
+}
+#cancel-modal:not([disabled]):hover {
+  border-color: var(--akzent) !important;
+}
+#cancel-modal .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Änderungen speichern" Button → wine solid ── */
+#save-changes {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:          var(--akzent) !important;
+  --n-color-hover:    var(--akzent-dunkel) !important;
+  --n-color-disabled: var(--akzent-hell) !important;
+  --n-ripple-color:   var(--akzent) !important;
+  --n-border:         1px solid var(--akzent) !important;
+  --n-border-hover:   1px solid var(--akzent-dunkel) !important;
+  --n-border-disabled: 1px solid var(--akzent-hell) !important;
+}
+#save-changes:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#save-changes p {
+  color: var(--base-white) !important;
+}
+#save-changes .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 121.5 — Payment Settings: Versand & Lieferung
+   (#storeShippingSettings)
+   NaïveUI (hl-* Klassen)
+   ============================================================ */
+
+/* ── Karte BG & Border ── */
+html body #storeShippingSettings .hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Karten-Titel & Beschreibung ── */
+html body #storeShippingSettings #general-profile-header {
+  color: var(--nav-farbe) !important;
+}
+html body #storeShippingSettings .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Add Zones" Button → wine solid ── */
+html body #general-profile-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent) !important;
+  --n-color-focus:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #general-profile-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #general-profile-button p,
+html body #general-profile-button svg {
+  color: var(--base-white) !important;
+}
+html body #general-profile-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Content-Bereich: Abschnitts-Titel ── */
+html body #storeShippingSettings .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Content-Bereich: Beschreibungstexte ── */
+html body #storeShippingSettings .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Checkmark-Badges (grüne Kreise) → wine ── */
+html body #storeShippingSettings .bg-success-50 {
+  background-color: var(--akzent-hell) !important;
+}
+html body #storeShippingSettings .text-success-600 {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ============================================================
+   SECTION 121.5b — Payment Settings: Versand Profil Editor
+   (#storeShippingSettings — Edit Profile View)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Karten BG & Border ── */
+html body #profile-details-card,
+html body #products-section-card,
+html body #products-general-card,
+html body #zones-details-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Abschnitts-Titel ── */
+html body #storeShippingSettings .hl-text-md-medium,
+html body #storeShippingSettings .hl-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Beschreibungen ── */
+html body #storeShippingSettings .text-gray-500,
+html body #storeShippingSettings .hl-text-sm-regular,
+html body #storeShippingSettings .hl-text-sm-normal,
+html body #storeShippingSettings .hl-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Back" Ghost-Button ── */
+html body #back-button {
+  color: var(--nav-hover) !important;
+}
+html body #back-button:hover svg {
+  color: var(--akzent) !important;
+}
+html body #back-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Profile Name Input (disabled) ── */
+html body #profile-name-input {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #profile-name-input .n-input__input-el {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Learn more" Text-Button → wine ── */
+html body #learn-more {
+  --n-text-color:         var(--akzent-dunkel) !important;
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-text-color-focus:   var(--akzent) !important;
+}
+
+/* ── "Add Zone" Button → wine solid ── */
+html body #shippingZoneHeader-btn-primary {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent) !important;
+  --n-color-focus:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #shippingZoneHeader-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #shippingZoneHeader-btn-primary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Divider ── */
+html body #zones-details-card .n-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Empty State (gestrichelte Box) ── */
+html body #storeShippingSettings .border-dashed {
+  border-color: var(--linie-stark) !important;
+  background-color: var(--hintergrund) !important;
+}
+html body #storeShippingSettings .bg-gray-100 {
+  background-color: var(--akzent-hell) !important;
+}
+html body #storeShippingSettings .bg-gray-100 svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Footer Trennlinie ── */
+html body #storeShippingSettings .border-t {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "Cancel" Button → outline neutral ── */
+html body #cancel-button {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-text-color:         var(--nav-hover) !important;
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-text-color-pressed: var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #cancel-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+html body #save-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-color-pressed: var(--akzent) !important;
+  --n-color-focus:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #save-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #save-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 121.5c — Payment Settings: Versand Zone Modal
+   (.create-edit-shipping-zone-modal)
+   NaïveUI (n-* Klassen)
+   ============================================================ */
+
+/* ── Modal BG & Border ── */
+html body .create-edit-shipping-zone-modal.n-modal {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Modal-Titel ── */
+html body .create-edit-shipping-zone-modal .title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Schließen-Button ── */
+html body .create-edit-shipping-zone-modal #create-edit-shipping-zone-modal-header-modal-close-btn svg {
+  color: var(--nav-hover) !important;
+}
+html body .create-edit-shipping-zone-modal #create-edit-shipping-zone-modal-header-modal-close-btn:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Form Labels & Pflichtfeld-Stern ── */
+html body .create-edit-shipping-zone-modal .n-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+html body .create-edit-shipping-zone-modal .n-form-item-label__asterisk {
+  color: var(--gefahr) !important;
+}
+
+/* ── Zone Name Input → wine Focus ── */
+html body .create-edit-shipping-zone-modal #create-shipping-zone-name-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-border-focus: 1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color: var(--akzent) !important;
+}
+html body .create-edit-shipping-zone-modal #create-shipping-zone-name-input .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Länder-Suchfeld → wine Focus ── */
+html body .create-edit-shipping-zone-modal #search-country-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-border-focus: 1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color: var(--akzent) !important;
+}
+html body .create-edit-shipping-zone-modal #search-country-input .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Länderliste Container ── */
+html body .create-edit-shipping-zone-modal .overflow-y-auto {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Trennlinien zwischen Ländern ── */
+html body .create-edit-shipping-zone-modal .border-b {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Ländernamen ── */
+html body .create-edit-shipping-zone-modal .flex-1.whitespace-nowrap {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "X/Y zonal regions" Text ── */
+html body .create-edit-shipping-zone-modal .whitespace-nowrap.font-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Chevron-Icons (expand) ── */
+html body .create-edit-shipping-zone-modal .h-6.w-6.text-\[\#101828\] {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Checkboxen → wine ── */
+html body .create-edit-shipping-zone-modal .n-checkbox {
+  --n-border-checked:      1px solid var(--akzent) !important;
+  --n-border-focus:        1px solid var(--akzent) !important;
+  --n-box-shadow-focus:    0 0 0 2px var(--akzent-a20) !important;
+  --n-color-checked:       var(--akzent) !important;
+}
+html body .create-edit-shipping-zone-modal .n-checkbox .n-checkbox-box__border {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "Limit Shipping to Specific ZIP" Checkbox Label ── */
+html body #limit-zip-checkbox .n-checkbox__label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Footer HR ── */
+html body .create-edit-shipping-zone-modal .border-t {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "Cancel" Button → outline neutral ── */
+html body #create-edit-shipping-zone-modal-footer-btn-negative-action {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-text-color:         var(--nav-hover) !important;
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-negative-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Add" Button → wine solid ── */
+html body #create-edit-shipping-zone-modal-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 121.7 — Payment Settings: Subscription Settings
+   (#payment-subscription-settings-app)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Karte BG & Border ── */
+html body #payment-subscription-settings-app .hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Untertitel ── */
+html body #payment-subscription-settings-app .hl-text-lg-medium,
+html body #payment-subscription-settings-app .hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+
+html body #payment-subscription-settings-app .hl-text-sm-normal,
+html body #payment-subscription-settings-app uitextmdnormal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Info-Icon ── */
+html body #payment-subscription-settings-app .hl-text-md-medium svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Retry-Selects (#interval-0/1/2) → wine Focus ── */
+html body #payment-subscription-settings-app .n-select .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color: var(--akzent) !important;
+}
+html body #payment-subscription-settings-app .n-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+html body #payment-subscription-settings-app .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Trash-Icon (Remove retry rule) ── */
+html body #payment-subscription-settings-app [aria-label="Remove retry rule"] svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #payment-subscription-settings-app [aria-label="Remove retry rule"]:hover svg {
+  color: var(--gefahr) !important;
+}
+
+/* ── Divider ── */
+html body #payment-subscription-settings-app .n-divider__line {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Checkboxen → wine ── */
+html body #payment-subscription-settings-app .n-checkbox {
+  --n-border-checked:   1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-color-checked:    var(--akzent) !important;
+}
+html body #payment-subscription-settings-app .n-checkbox .n-checkbox-box__border {
+  border-color: var(--linie-stark) !important;
+}
+html body #payment-subscription-settings-app .n-checkbox__label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── enableReceipt Toggle → wine ── */
+html body #enableReceipt {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── "Cancel" Button → outline neutral ── */
+html body #payment-subscription-settings-app #cancel {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-text-color:         var(--nav-hover) !important;
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #payment-subscription-settings-app #cancel .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+html body #payment-subscription-settings-app #save {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #payment-subscription-settings-app #save:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #payment-subscription-settings-app #save .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 121.8 — Payment Settings: Processing Charges
+   (#misc-charges-app)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Karte BG & Border ── */
+html body #misc-charges-app .hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+html body #misc-charges-app .hl-text-lg-medium,
+html body #misc-charges-app .hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #misc-charges-app .hl-text-lg-medium svg,
+html body #misc-charges-app .hl-text-md-medium svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #misc-charges-app .text-gray-500,
+html body #misc-charges-app .hl-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── processingFeesEnabled Toggle → wine ── */
+html body #processingFeesEnabled {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── "Cancel" Button → outline neutral ── */
+html body #misc-charges-app .hl-card-footer .n-button--default-type {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-text-color:         var(--nav-hover) !important;
+  --n-text-color-hover:   var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--default-type .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+html body #misc-charges-app .hl-card-footer .n-button--primary-type {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--primary-type:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--primary-type .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 121.9 — Payment Settings: Payment Link Customization
+   (#payment-links-app)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #payment-links-app main {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Haupttitel ── */
+html body #payment-links-app .hl-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Radio-Group → wine ── */
+html body #payment-links-app .n-radio {
+  --n-dot-color-active:  var(--akzent) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-text-color:        var(--nav-hover) !important;
+}
+html body #payment-links-app .n-radio__dot--checked {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Farb-Labels (Background Color / Button Color) ── */
+html body #payment-links-app label.block {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Farb-Picker-Container → wine Border + BG ── */
+html body #payment-links-app .flex.items-center.gap-2.border {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #payment-links-app .flex.items-center.gap-2.border span {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Preview Container ── */
+html body #payment-links-app .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Pflichtfeld-Stern ── */
+html body #payment-links-app .text-red-500 {
+  color: var(--gefahr) !important;
+}
+
+/* ── Form-Inputs im Preview (First/Last Name, Email) → wine Focus ── */
+html body #payment-links-app #input-firstname,
+html body #payment-links-app #input-lastname,
+html body #payment-links-app #input-email {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:   var(--akzent) !important;
+}
+html body #payment-links-app #input-firstname .n-input__input-el,
+html body #payment-links-app #input-lastname .n-input__input-el,
+html body #payment-links-app #input-email .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Pay" Button im Preview → wine ── */
+html body #payment-links-app #btn-pay {
+  background-color: var(--akzent) !important;
+  color:            var(--base-white) !important;
+}
+html body #payment-links-app #btn-pay:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #payment-links-app #btn-pay .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+html body #payment-links-app #save_payment_link_customization {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+html body #payment-links-app #save_payment_link_customization:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #payment-links-app #save_payment_link_customization .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Section 121 Nav: router-link-active Ergänzung ── */
+
+/* Aktiver Link via router-link-active (z.B. Payment Link Customization) */
+html body [aria-label="Payment settings navigation"] .router-link-active,
+html body [aria-label="Payment settings navigation"] .router-link-exact-active {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+  font-weight:      700 !important;
+  border-radius:    6px !important;
+}
+
+/* ── Notifications Dropdown-Toggle (kein <a>, sondern <div>) ── */
+html body [aria-label="Payment settings navigation"] [aria-label="Notifications"] {
+  color: var(--nav-hover) !important;
+}
+html body [aria-label="Payment settings navigation"] [aria-label="Notifications"]:hover {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+  border-radius:    6px !important;
+}
+
+/* ── Chevron-Icon im Notifications-Toggle ── */
+html body [aria-label="Payment settings navigation"] .fa-chevron-down {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Sub-Links (Customer / Team Notifications) ── */
+html body [aria-label="Payment settings navigation"] .ml-4 a {
+  color:       var(--nav-hover) !important;
+  font-size:   0.875rem !important;
+}
+html body [aria-label="Payment settings navigation"] .ml-4 a:hover {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+  border-radius:    6px !important;
+}
+html body [aria-label="Payment settings navigation"] .ml-4 .router-link-active {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+  font-weight:      700 !important;
+}
 
 
 

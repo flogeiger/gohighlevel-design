@@ -1,0 +1,831 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Settings" />
+
+# Payment Settings
+
+Die **Payment Settings**-Seite (`#payment-settings`) ist ein mehrseitiger Einstellungsbereich mit linker Navigationsleiste und neun Unterbereichen. Die Navigation nutzt `[aria-label="Payment settings navigation"]` mit `router-link-active` für den aktiven State. Die Unterbereiche mischen NaïveUI und Highrise UI je nach Sektion.
+
+<img src="/PaymentSettings.png" alt="Payment Settings" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor | UI-Framework |
+|---|---|---|
+| Seiten-Root | `#payment-settings` | — |
+| Linke Navigation | `[aria-label="Payment settings navigation"]` | — |
+| 121.1 Belege | `#payment-receipt-app`, `#invoice-settings` | NaïveUI |
+| 121.2 Steuern | `#tax-settings-app` | NaïveUI |
+| 121.3 Benachrichtigungen (Kunden) | `#storeNotificationSettings` | Highrise UI |
+| 121.4 Benachrichtigungen (Team) | `#storeTeamNotificationSettings` | Highrise UI |
+| 121.5 Versand & Lieferung | `#storeShippingSettings` | NaïveUI |
+| 121.5c Versand Zone Modal | `.create-edit-shipping-zone-modal` | NaïveUI |
+| 121.7 Abonnements | `#payment-subscription-settings-app` | NaïveUI |
+| 121.8 Processing Charges | `#misc-charges-app` | NaïveUI |
+| 121.9 Payment Link Customization | `#payment-links-app` | NaïveUI |
+
+---
+
+## 122.1 – Linke Navigation
+
+```css
+/* ── 122.1 Seitenhintergrund & Navigation ── */
+#payment-settings,
+.hl-wrapper-container.hl_topbar-tabs {
+  background-color: var(--bg) !important;
+}
+
+[aria-label="Payment settings navigation"] ul {
+  background-color: var(--bg) !important;
+}
+[aria-label="Payment settings navigation"] a,
+[aria-label="Payment settings navigation"] .cursor-pointer {
+  color:         var(--ink-2) !important;
+  border-radius: 6px !important;
+}
+[aria-label="Payment settings navigation"] a:hover,
+[aria-label="Payment settings navigation"] .cursor-pointer:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine-2) !important;
+}
+[aria-label="Payment settings navigation"] a[aria-current="page"],
+[aria-label="Payment settings navigation"] .router-link-active,
+[aria-label="Payment settings navigation"] .router-link-exact-active {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+  font-weight:      700 !important;
+  border-radius:    6px !important;
+}
+
+/* Notifications Dropdown-Toggle */
+[aria-label="Payment settings navigation"] [aria-label="Notifications"] {
+  color: var(--ink-2) !important;
+}
+[aria-label="Payment settings navigation"] [aria-label="Notifications"]:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+  border-radius:    6px !important;
+}
+[aria-label="Payment settings navigation"] .fa-chevron-down {
+  color: var(--ink-3) !important;
+}
+
+/* Sub-Links (Customer / Team Notifications) */
+[aria-label="Payment settings navigation"] .ml-4 a {
+  color:     var(--ink-2) !important;
+  font-size: 0.875rem !important;
+}
+[aria-label="Payment settings navigation"] .ml-4 a:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+  border-radius:    6px !important;
+}
+[aria-label="Payment settings navigation"] .ml-4 .router-link-active {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+  font-weight:      700 !important;
+}
+```
+
+---
+
+## 122.2 – Belege (Receipts)
+
+Toggle, Formular-Inputs, Rich Text Editor und Save-Button.
+
+```css
+/* ── 122.2 Card & Toggle ── */
+#payment-receipt-app .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#receipt-settings-header {
+  color: var(--ink) !important;
+}
+#enableReceipt.n-switch--active .n-switch__rail {
+  background-color: var(--wine) !important;
+}
+#enableReceipt:not(.n-switch--active) .n-switch__rail {
+  background-color: var(--line-hard) !important;
+}
+#enableSalesReceipt {
+  color: var(--ink-2) !important;
+}
+
+/* Form Labels & Inputs */
+#invoice-settings .n-form-item-label__text {
+  color: var(--ink-2) !important;
+}
+#invoice-settings .n-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+#invoice-settings .text-gray-600.hl-text-sm-regular {
+  color: var(--ink-3) !important;
+}
+#invoice-settings .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#invoice-settings .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#invoice-settings .n-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Email Template Select */
+html body #invoice-settings #select-id .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Rich Text Editor */
+#invoice-settings .text-black.font-medium {
+  color: var(--ink) !important;
+}
+#invoice-settings .editor-container {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#invoice-settings .toolbar_container {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#invoice-settings .toolbar_button svg {
+  color: var(--ink-2) !important;
+}
+#invoice-settings .tiptap {
+  color: var(--ink-2) !important;
+}
+#invoice-settings .n-divider__line {
+  background-color: var(--line-hard) !important;
+}
+
+/* Save */
+#pg-invoice-settings__btn-create {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#pg-invoice-settings__btn-create:hover {
+  background-color: var(--wine-2) !important;
+}
+#pg-invoice-settings__btn-create span {
+  color: white !important;
+}
+#pg-invoice-settings__btn-create .n-button__border {
+  border-color: var(--wine) !important;
+}
+#pg-invoice-settings__btn-create .n-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## 122.3 – Steuern (Taxes)
+
+NaïveUI Radio-Group, DataTable, Toggle und zwei Primary-Buttons.
+
+```css
+/* ── 122.3 Steuern ── */
+html body #tax-settings-app .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #tax-settings-app .text-gray-900 {
+  color: var(--ink) !important;
+}
+html body #tax-settings-app .text-gray-500,
+html body #tax-settings-app .text-gray-700,
+html body #tax-settings-app .text-gray-400 {
+  color: var(--ink-3) !important;
+}
+
+/* Radio-Group → wine */
+html body #tax-settings-app .n-radio-group {
+  --n-button-border-color-active: var(--wine) !important;
+  --n-button-text-color-hover:    var(--wine-2) !important;
+  --n-button-text-color-active:   var(--wine-2) !important;
+}
+html body #tax-settings-app .n-radio {
+  --n-box-shadow-active:  inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-hover:   inset 0 0 0 1px var(--wine) !important;
+  --n-dot-color-active:   var(--wine) !important;
+}
+html body #tax-settings-app .n-radio-button--checked .n-radio-button__state-border {
+  border-color: var(--wine) !important;
+  box-shadow:   inset 0 0 0 1px var(--wine) !important;
+}
+
+/* Buttons */
+html body #taxes__header-btn-primary,
+html body #taxes__empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+html body #taxes__header-btn-primary:hover,
+html body #taxes__empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #taxes__header-btn-primary .n-button__state-border,
+html body #taxes__empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* DataTable */
+html body #tax-settings-app .n-data-table-th {
+  background-color: var(--bg) !important;
+  color:            var(--ink) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+html body #tax-settings-app .n-data-table {
+  --n-td-color:       var(--surface) !important;
+  --n-td-color-hover: var(--bg) !important;
+  --n-td-text-color:  var(--ink-2) !important;
+  --n-border-color:   var(--line-hard) !important;
+  --n-loading-color:  var(--wine) !important;
+}
+html body #tax-settings-app .hl-empty-title {
+  color: var(--ink) !important;
+}
+html body #tax-settings-app .hl-empty svg {
+  color: var(--wine-2) !important;
+}
+html body #avalaraTaxesEnabled {
+  --n-rail-color-active: var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+```
+
+---
+
+## 122.4 – Benachrichtigungen: Kunden (Highrise UI)
+
+Toggles, Template-Selects, Betreff-Input, Rich Text Editor, Cancel/Save je Sektion.
+
+```css
+/* ── 122.4 Kunden-Benachrichtigungen ── */
+#storeNotificationSettings .bg-white {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#storeNotificationSettings .hr-header-lite-title {
+  color: var(--ink) !important;
+}
+#storeNotificationSettings .hr-header-lite-subtitle {
+  color: var(--ink-3) !important;
+}
+#storeNotificationSettings .text-gray-900 {
+  color: var(--ink-2) !important;
+}
+#storeNotificationSettings .text-gray-700,
+#storeNotificationSettings .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+#storeNotificationSettings .text-red-600 {
+  color: var(--danger) !important;
+}
+
+/* Toggles → wine */
+#abandoned-cart-email-toggle,
+#store-order-toggle,
+#attach-digital-files-toggle,
+#store-fulfillment-toggle {
+  --n-rail-color-active: var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+
+/* Text-Buttons → wine */
+#storeNotificationSettings .hr-button--text .hr-button__content p,
+#learn-more-digital-files .hr-button__content p {
+  color: var(--wine-2) !important;
+}
+#storeNotificationSettings .hr-button--text:hover .hr-button__content p,
+#learn-more-digital-files:hover .hr-button__content p {
+  color: var(--wine) !important;
+}
+
+/* Template Selects */
+html body #abandoned-cart-email-template .hr-base-selection,
+html body #store-order-email-template .hr-base-selection,
+html body #store-fulfillment-email-template .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--wine-a20) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+html body #abandoned-cart-email-template .hr-base-selection .hr-base-selection-input__content,
+html body #store-order-email-template .hr-base-selection .hr-base-selection-input__content,
+html body #store-fulfillment-email-template .hr-base-selection .hr-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+html body #abandoned-cart-email-template .hr-base-selection__state-border,
+html body #store-order-email-template .hr-base-selection__state-border,
+html body #store-fulfillment-email-template .hr-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Betreff-Input */
+#storeNotificationSettings .flex.h-8.border {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#storeNotificationSettings .flex.h-8.border:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#storeNotificationSettings input.hr-input__input-el,
+#storeNotificationSettings input[id$="-subject"] {
+  color:            var(--ink-2) !important;
+  background-color: transparent !important;
+}
+
+/* Abandoned Cart Zeit-Inputs */
+html body #abandoned-cart-send-after-time .hr-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-caret-color:   var(--wine) !important;
+}
+html body #abandoned-cart-send-after-unit .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-caret-color:   var(--wine) !important;
+}
+
+#storeNotificationSettings .hr-divider__line {
+  background-color: var(--line-hard) !important;
+}
+
+/* Cancel & Save */
+#abandoned-cart-cancel, #order-cancel-button, #fulfillment-cancel-button {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#abandoned-cart-cancel p, #order-cancel-button p, #fulfillment-cancel-button p {
+  color: var(--ink-2) !important;
+}
+#abandoned-cart-cancel:not([disabled]):hover,
+#order-cancel-button:not([disabled]):hover,
+#fulfillment-cancel-button:not([disabled]):hover {
+  border-color: var(--wine) !important;
+}
+#abandoned-cart-cancel .hr-button__state-border,
+#order-cancel-button .hr-button__state-border,
+#fulfillment-cancel-button .hr-button__state-border {
+  border-width: 0 !important;
+}
+#abandoned-cart-save, #order-save-changes, #fulfillment-save-changes {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+#abandoned-cart-save:not([disabled]):hover,
+#order-save-changes:not([disabled]):hover,
+#fulfillment-save-changes:not([disabled]):hover {
+  background-color: var(--wine-2) !important;
+}
+#abandoned-cart-save p, #order-save-changes p, #fulfillment-save-changes p {
+  color: white !important;
+}
+#abandoned-cart-save .hr-button__state-border,
+#order-save-changes .hr-button__state-border,
+#fulfillment-save-changes .hr-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 122.5 – Benachrichtigungen: Team (Highrise UI)
+
+```css
+/* ── 122.5 Team-Benachrichtigungen ── */
+#storeTeamNotificationSettings {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#storeTeamNotificationSettings .hr-header-lite-title {
+  color: var(--ink) !important;
+}
+#storeTeamNotificationSettings .hr-header-lite-subtitle {
+  color: var(--ink-3) !important;
+}
+#storeTeamNotificationSettings .hr-switch-label,
+#storeTeamNotificationSettings .text-gray-900 {
+  color: var(--ink-2) !important;
+}
+#storeTeamNotificationSettings .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+#toggle-unchecked-3xs, #sms-confirmation-toggle {
+  --n-rail-color-active: var(--wine) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+#storeTeamNotificationSettings .border-t,
+#storeTeamNotificationSettings .hr-divider__line {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--line-hard) !important;
+}
+#cancel-modal {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#cancel-modal p { color: var(--ink-2) !important; }
+#cancel-modal:not([disabled]):hover { border-color: var(--wine) !important; }
+#cancel-modal .hr-button__state-border { border-width: 0 !important; }
+#save-changes {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+}
+#save-changes:not([disabled]):hover { background-color: var(--wine-2) !important; }
+#save-changes p { color: white !important; }
+#save-changes .hr-button__state-border { border-width: 0 !important; }
+```
+
+---
+
+## 122.6 – Versand & Lieferung + Zone Modal
+
+```css
+/* ── 122.6 Versand ── */
+html body #storeShippingSettings .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #storeShippingSettings #general-profile-header,
+html body #storeShippingSettings .text-gray-900 {
+  color: var(--ink) !important;
+}
+html body #storeShippingSettings .text-gray-500,
+html body #storeShippingSettings .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+html body #storeShippingSettings .hl-text-md-medium,
+html body #storeShippingSettings .hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+html body #storeShippingSettings .hl-text-sm-regular,
+html body #storeShippingSettings .hl-text-sm-normal,
+html body #storeShippingSettings .hl-text-xs-regular {
+  color: var(--ink-3) !important;
+}
+
+/* Checkmark-Badges → wine */
+html body #storeShippingSettings .bg-success-50 {
+  background-color: var(--wine-lt) !important;
+}
+html body #storeShippingSettings .text-success-600 {
+  color: var(--wine-2) !important;
+}
+
+/* Empty State */
+html body #storeShippingSettings .border-dashed {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--bg) !important;
+}
+html body #storeShippingSettings .bg-gray-100 {
+  background-color: var(--wine-lt) !important;
+}
+html body #storeShippingSettings .bg-gray-100 svg {
+  color: var(--wine-2) !important;
+}
+
+/* Buttons */
+html body #general-profile-button,
+html body #shippingZoneHeader-btn-primary {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+html body #general-profile-button:hover,
+html body #shippingZoneHeader-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #general-profile-button p,
+html body #general-profile-button svg {
+  color: white !important;
+}
+html body #general-profile-button .n-button__state-border,
+html body #shippingZoneHeader-btn-primary .n-button__state-border {
+  border-width: 0 !important;
+}
+html body #learn-more {
+  --n-text-color:         var(--wine-2) !important;
+  --n-text-color-hover:   var(--wine) !important;
+}
+html body #back-button .n-button__state-border,
+html body #cancel-button .n-button__state-border,
+html body #save-button .n-button__state-border {
+  border-width: 0 !important;
+}
+html body #cancel-button {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-text-color:       var(--ink-2) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+}
+html body #save-button {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+}
+html body #save-button:hover { background-color: var(--wine-2) !important; }
+
+/* Zone Modal */
+html body .create-edit-shipping-zone-modal.n-modal {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body .create-edit-shipping-zone-modal .title {
+  color: var(--ink) !important;
+}
+html body .create-edit-shipping-zone-modal .n-form-item-label__text {
+  color: var(--ink) !important;
+}
+html body .create-edit-shipping-zone-modal .n-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+html body .create-edit-shipping-zone-modal #create-shipping-zone-name-input,
+html body .create-edit-shipping-zone-modal #search-country-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover: 1px solid var(--wine) !important;
+  --n-border-focus: 1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:  var(--wine) !important;
+}
+html body .create-edit-shipping-zone-modal .n-checkbox {
+  --n-border-checked:   1px solid var(--wine) !important;
+  --n-color-checked:    var(--wine) !important;
+}
+html body .create-edit-shipping-zone-modal .overflow-y-auto {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body .create-edit-shipping-zone-modal .border-b,
+html body .create-edit-shipping-zone-modal .border-t {
+  border-color: var(--line-hard) !important;
+}
+html body .create-edit-shipping-zone-modal .flex-1.whitespace-nowrap {
+  color: var(--ink) !important;
+}
+html body .create-edit-shipping-zone-modal .whitespace-nowrap.font-normal {
+  color: var(--ink-3) !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-negative-action {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-text-color:       var(--ink-2) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-negative-action .n-button__state-border,
+html body #create-edit-shipping-zone-modal-header-modal-close-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #create-edit-shipping-zone-modal-footer-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 122.7–9 – Abonnements, Processing Charges & Payment Link Customization
+
+```css
+/* ── 122.7 Abonnements ── */
+html body #payment-subscription-settings-app .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #payment-subscription-settings-app .hl-text-lg-medium,
+html body #payment-subscription-settings-app .hl-text-md-medium {
+  color: var(--ink) !important;
+}
+html body #payment-subscription-settings-app .hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+html body #payment-subscription-settings-app .n-select .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:   var(--wine) !important;
+}
+html body #payment-subscription-settings-app .n-checkbox {
+  --n-border-checked:   1px solid var(--wine) !important;
+  --n-color-checked:    var(--wine) !important;
+}
+html body #payment-subscription-settings-app .n-checkbox__label {
+  color: var(--ink-2) !important;
+}
+html body #payment-subscription-settings-app .n-divider__line {
+  background-color: var(--line-hard) !important;
+}
+html body #enableReceipt {
+  --n-rail-color-active: var(--wine) !important;
+}
+html body #payment-subscription-settings-app [aria-label="Remove retry rule"] svg {
+  color: var(--ink-3) !important;
+}
+html body #payment-subscription-settings-app [aria-label="Remove retry rule"]:hover svg {
+  color: var(--danger) !important;
+}
+html body #payment-subscription-settings-app #cancel {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-text-color:       var(--ink-2) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+}
+html body #payment-subscription-settings-app #cancel .n-button__state-border,
+html body #payment-subscription-settings-app #save .n-button__state-border {
+  border-width: 0 !important;
+}
+html body #payment-subscription-settings-app #save {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+}
+html body #payment-subscription-settings-app #save:hover {
+  background-color: var(--wine-2) !important;
+}
+
+/* ── 122.8 Processing Charges ── */
+html body #misc-charges-app .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #misc-charges-app .hl-text-lg-medium,
+html body #misc-charges-app .hl-text-md-medium {
+  color: var(--ink) !important;
+}
+html body #misc-charges-app .text-gray-500,
+html body #misc-charges-app .hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+html body #processingFeesEnabled {
+  --n-rail-color-active: var(--wine) !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--default-type {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-text-color:       var(--ink-2) !important;
+  --n-text-color-hover: var(--wine) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--default-type .n-button__state-border {
+  border-width: 0 !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #misc-charges-app .hl-card-footer .n-button--primary-type .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── 122.9 Payment Link Customization ── */
+html body #payment-links-app main {
+  background-color: var(--surface) !important;
+}
+html body #payment-links-app .hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+html body #payment-links-app .n-radio {
+  --n-dot-color-active:  var(--wine) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+  --n-text-color:        var(--ink-2) !important;
+}
+html body #payment-links-app .n-radio__dot--checked {
+  background-color: var(--wine) !important;
+}
+html body #payment-links-app label.block {
+  color: var(--ink-2) !important;
+}
+html body #payment-links-app .flex.items-center.gap-2.border {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #payment-links-app .flex.items-center.gap-2.border span {
+  color: var(--ink-2) !important;
+}
+html body #payment-links-app .bg-gray-50 {
+  background-color: var(--bg) !important;
+}
+html body #payment-links-app .text-red-500 {
+  color: var(--danger) !important;
+}
+html body #payment-links-app #input-firstname,
+html body #payment-links-app #input-lastname,
+html body #payment-links-app #input-email {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-caret-color:   var(--wine) !important;
+}
+html body #payment-links-app #btn-pay {
+  background-color: var(--wine) !important;
+  color:            white !important;
+}
+html body #payment-links-app #btn-pay:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #payment-links-app #btn-pay .n-button__state-border {
+  border-width: 0 !important;
+}
+html body #payment-links-app #save_payment_link_customization {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+}
+html body #payment-links-app #save_payment_link_customization:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #payment-links-app #save_payment_link_customization .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Neun Unterbereiche in einer MDX:** Alle Settings-Sektionen teilen die linke Navigation und den Root `#payment-settings` — eine gemeinsame Page ist sinnvoller als neun separate Dateien.
+
+**Gemischte UI-Frameworks pro Unterbereich:** Belege, Steuern, Versand, Abonnements, Processing Charges und Payment Link Customization nutzen NaïveUI (`n-*`); Kunden- und Team-Benachrichtigungen dagegen Highrise UI (`hr-*`). Die Selektoren dürfen nicht verwechselt werden — `.n-switch` ≠ `.hr-switch`.
+
+**`html body`-Präfix für NaïveUI-Variablen:** Viele Unterbereiche überschreiben NaïveUI-interne CSS-Variablen (`--n-border-hover`, `--n-dot-color-active` etc.) — diese benötigen den `html body`-Präfix für ausreichende Spezifität.
+
+**`n-button__state-border { border-width: 0 }` als Standard-Fix:** Alle Buttons in diesem Bereich unterdrücken den NaïveUI/Highrise State-Border statt ihn zu überschreiben — konsistentes Pattern für alle Settings-Buttons.
+
+**Save/Cancel-Buttons ohne IDs in Processing Charges:** Section 122.8 (`#misc-charges-app`) hat keine spezifischen Button-IDs — Buttons werden über `.hl-card-footer .n-button--primary-type` und `.n-button--default-type` angesteuert. Das ist das einzige Beispiel im Payments-Bereich, wo Button-Type-Klassen als Selektor dienen.
