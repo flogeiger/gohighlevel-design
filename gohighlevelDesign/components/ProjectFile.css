@@ -12337,6 +12337,374 @@ html body #sort-filter #Rating .n-base-selection {
   color: var(--text-gedaempft) !important;
 }
 
+/* ============================================================
+   SECTION 119 — Coupons (#CouponsListPage)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#CouponsListPage {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#CouponsListPage .title.hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#CouponsListPage .description.hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Create Coupon" Button → wine solid ── */
+#coupons__header-btn-primary {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#coupons__header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#coupons__header-btn-primary span,
+#coupons__header-btn-primary svg {
+  color: var(--base-white) !important;
+}
+#coupons__header-btn-primary .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Filter-Tab Buttons (All / Active / Scheduled / Expired) ── */
+#hl-table-coupons-filter-tab-,
+#hl-table-coupons-filter-tab-active,
+#hl-table-coupons-filter-tab-scheduled,
+#hl-table-coupons-filter-tab-expired {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hl-table-coupons-filter-tab- span,
+#hl-table-coupons-filter-tab-active span,
+#hl-table-coupons-filter-tab-scheduled span,
+#hl-table-coupons-filter-tab-expired span {
+  color: var(--nav-hover) !important;
+}
+#hl-table-coupons-filter-tab-:hover span,
+#hl-table-coupons-filter-tab-active:hover span,
+#hl-table-coupons-filter-tab-scheduled:hover span,
+#hl-table-coupons-filter-tab-expired:hover span {
+  color: var(--akzent-dunkel) !important;
+}
+#hl-table-coupons-filter-tab-.n-button__state-border,
+#hl-table-coupons-filter-tab-active .n-button__state-border,
+#hl-table-coupons-filter-tab-scheduled .n-button__state-border,
+#hl-table-coupons-filter-tab-expired .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Aktiver Tab (.hl-active-btn) → wine ── */
+#CouponsListPage .hl-active-btn {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+#CouponsListPage .hl-active-btn span {
+  color: var(--akzent-dunkel) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#hl-table-coupons-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#hl-table-coupons-filter-text-search:hover {
+  border-color: var(--akzent) !important;
+}
+#hl-table-coupons-filter-text-search:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#hl-table-coupons-filter-text-search .n-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabellen-Header ── */
+#CouponsListPage .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#CouponsListPage .n-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#CouponsListPage .n-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#CouponsListPage .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State ── */
+#CouponsListPage .hl-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#CouponsListPage .hl-empty-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#CouponsListPage .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Create Coupon" Empty State Button → wine solid ── */
+#coupons__empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#coupons__empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+  background:       var(--akzent-dunkel) !important;
+}
+#coupons__empty-btn-positive-action span,
+#coupons__empty-btn-positive-action svg {
+  color: var(--base-white) !important;
+}
+#coupons__empty-btn-positive-action .n-button__border {
+  border-color: var(--akzent) !important;
+}
+
+/* ============================================================
+   SECTION 119b — Coupon Editor (#CouponsCreatePage)
+   Highrise UI (hr-* Klassen)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#CouponsCreatePage {
+  background-color: var(--hintergrund) !important;
+}
+#CouponsCreatePage .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Fixed Header BG ── */
+#CouponsCreatePage .fixed-header {
+  background-color: var(--hintergrund-karte) !important;
+  border-bottom: 1px solid var(--linie-stark) !important;
+}
+
+/* ── "Back" Button (Header) ── */
+#CouponsCreatePage #back-button p,
+#CouponsCreatePage #back-button svg {
+  color: var(--nav-hover) !important;
+}
+#CouponsCreatePage #back-button:hover p,
+#CouponsCreatePage #back-button:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Seitentitel & Untertitel ── */
+#CouponsCreatePage .text-gray-900.hr-text-2xl {
+  color: var(--nav-farbe) !important;
+}
+#CouponsCreatePage .text-gray-500.hr-text-sm {
+  color: var(--text-gedaempft) !important;
+}
+#CouponsCreatePage .text-blue-700 {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Form Cards BG ── */
+#CouponsCreatePage .create-coupon-basic-details-container,
+#CouponsCreatePage .create-coupon-rules-container {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Card Titel ── */
+#CouponsCreatePage .hr-text-lg.hr-text-semibold.text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Form Labels ── */
+#CouponsCreatePage .hr-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+#CouponsCreatePage .hr-form-item-label__asterisk {
+  color: var(--gefahr) !important;
+}
+
+/* ── Alle Text-Inputs → wine Focus ── */
+#CouponsCreatePage .hr-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#CouponsCreatePage .hr-input:hover {
+  border-color: var(--akzent) !important;
+}
+#CouponsCreatePage .hr-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#CouponsCreatePage .hr-input__input-el {
+  color: var(--nav-hover) !important;
+}
+#CouponsCreatePage .hr-input__prefix svg,
+#CouponsCreatePage .hr-input__prefix i {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Selects (Coupon Type, AM/PM) → wine Focus ── */
+html body #CouponsCreatePage .hr-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+}
+#CouponsCreatePage .hr-base-selection-placeholder__inner,
+#CouponsCreatePage .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── "Generate" & "Browse" Buttons → outline neutral ── */
+#input-group-generate-coupon-code-button,
+#products-browse-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#input-group-generate-coupon-code-button p,
+#products-browse-button p {
+  color: var(--nav-hover) !important;
+}
+#input-group-generate-coupon-code-button:hover,
+#products-browse-button:hover {
+  border-color: var(--akzent) !important;
+}
+#input-group-generate-coupon-code-button .hr-button__state-border,
+#products-browse-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── Checkboxen → wine ── */
+#CouponsCreatePage .hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#CouponsCreatePage .hr-checkbox:not(.hr-checkbox--checked) .hr-checkbox-box {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+#CouponsCreatePage .hr-checkbox:hover .hr-checkbox-box {
+  border-color: var(--akzent) !important;
+}
+#CouponsCreatePage .hr-checkbox__label p,
+#CouponsCreatePage .hr-checkbox__label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Subtext in Rules ── */
+#CouponsCreatePage .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Radio Buttons → wine ── */
+#CouponsCreatePage .hr-radio--checked .hr-radio__dot {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+#CouponsCreatePage .hr-radio__dot-wrapper:hover .hr-radio__dot {
+  border-color: var(--akzent) !important;
+}
+#CouponsCreatePage .hr-radio-label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Number Input (Max Redemptions) → wine Focus ── */
+#size-example .hr-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#size-example .hr-input:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Fixed Footer BG ── */
+#CouponsCreatePage .fixed-footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-top: 1px solid var(--linie-stark) !important;
+}
+
+/* ── Footer "Back" Button ── */
+#CouponsCreatePage .fixed-footer #back-button p {
+  color: var(--nav-hover) !important;
+}
+#CouponsCreatePage .fixed-footer #back-button:hover p {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── "Create" Button → wine solid ── */
+#save-continue-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+}
+#save-continue-button:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#save-continue-button p {
+  color: var(--base-white) !important;
+}
+#save-continue-button .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#save-continue-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── Fix: Checkbox Border → wine ── */
+#CouponsCreatePage .hr-checkbox--checked .hr-checkbox-box__border,
+#CouponsCreatePage .hr-checkbox--indeterminate .hr-checkbox-box__border {
+  border-color: var(--akzent) !important;
+  border: 1px solid var(--akzent) !important;
+}
+#CouponsCreatePage .hr-checkbox:not(.hr-checkbox--checked) .hr-checkbox-box__border {
+  border: 1px solid var(--linie-stark) !important;
+}
+
+/* ── Fix: "Create Coupon" Empty-State Button → wine solid ── */
+#coupons__empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  --n-color:          var(--akzent) !important;
+  --n-color-hover:    var(--akzent-dunkel) !important;
+  --n-color-disabled: var(--akzent) !important;
+  --n-border:         1px solid var(--akzent) !important;
+  --n-border-hover:   1px solid var(--akzent-dunkel) !important;
+  --n-border-disabled: 1px solid var(--akzent) !important;
+  --n-ripple-color:   var(--akzent) !important;
+}
+#coupons__empty-btn-positive-action .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#coupons__empty-btn-positive-action .n-button__state-border {
+  display: none !important;
+}
 
 
 /* ============================================================

@@ -1,0 +1,396 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Coupons" />
+
+# Coupons
+
+Die **Coupons**-Seite (`#CouponsListPage`) verwaltet alle Rabattgutscheine mit Status-Tab-Buttons (Alle / Aktiv / Geplant / Abgelaufen), Suchfeld und NaïveUI DataTable. Der **Coupon Editor** (`#CouponsCreatePage`, Section 120b) verwendet **Highrise UI** (`hr-*`-Klassen) und bietet ein zweiseitiges Formular mit Basis-Details, Regeln & Einschränkungen sowie einem Fixed Header und Footer.
+
+<img src="/Coupons.png" alt="Coupons" style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />
+<img src="/CouponsEditor.png" alt="Coupon erstellen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root Liste | `#CouponsListPage` |
+| Root Editor | `#CouponsCreatePage` |
+| „Gutschein erstellen"-Button (Header) | `#coupons__header-btn-primary` |
+| Tab-Buttons | `#hl-table-coupons-filter-tab-*` |
+| Aktiver Tab | `#CouponsListPage .hl-active-btn` |
+| Suchfeld | `#hl-table-coupons-filter-text-search` |
+| DataTable Header | `#CouponsListPage .n-data-table-th` |
+| DataTable Body | `#CouponsListPage .n-data-table-td` |
+| Empty State Button | `#coupons__empty-btn-positive-action` |
+| Fixed Header (Editor) | `#CouponsCreatePage .fixed-header` |
+| Fixed Footer (Editor) | `#CouponsCreatePage .fixed-footer` |
+| „Erstellen"-Button | `#save-continue-button` |
+
+---
+
+## 120.1 – Listen-Seite: Header & Tab-Buttons
+
+```css
+/* ── 120.1 Seitentitel ── */
+#CouponsListPage {
+  background-color: var(--bg) !important;
+}
+#CouponsListPage .title.hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+#CouponsListPage .description.hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „+ Gutschein erstellen" → wine solid */
+#coupons__header-btn-primary {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#coupons__header-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#coupons__header-btn-primary span,
+#coupons__header-btn-primary svg {
+  color: white !important;
+}
+#coupons__header-btn-primary .n-button__border {
+  border-color: var(--wine) !important;
+}
+
+/* Tab-Buttons (Alle / Aktiv / Geplant / Abgelaufen) → neutral */
+#hl-table-coupons-filter-tab-,
+#hl-table-coupons-filter-tab-active,
+#hl-table-coupons-filter-tab-scheduled,
+#hl-table-coupons-filter-tab-expired {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#hl-table-coupons-filter-tab- span,
+#hl-table-coupons-filter-tab-active span,
+#hl-table-coupons-filter-tab-scheduled span,
+#hl-table-coupons-filter-tab-expired span {
+  color: var(--ink-2) !important;
+}
+#hl-table-coupons-filter-tab-:hover span,
+#hl-table-coupons-filter-tab-active:hover span,
+#hl-table-coupons-filter-tab-scheduled:hover span,
+#hl-table-coupons-filter-tab-expired:hover span {
+  color: var(--wine-2) !important;
+}
+#hl-table-coupons-filter-tab-.n-button__state-border,
+#hl-table-coupons-filter-tab-active .n-button__state-border,
+#hl-table-coupons-filter-tab-scheduled .n-button__state-border,
+#hl-table-coupons-filter-tab-expired .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Aktiver Tab → wine */
+#CouponsListPage .hl-active-btn {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine) !important;
+}
+#CouponsListPage .hl-active-btn span {
+  color:       var(--wine-2) !important;
+  font-weight: 600 !important;
+}
+```
+
+---
+
+## 120.2 – Suchfeld & DataTable
+
+```css
+/* ── 120.2 Suchfeld ── */
+#hl-table-coupons-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#hl-table-coupons-filter-text-search:hover {
+  border-color: var(--wine) !important;
+}
+#hl-table-coupons-filter-text-search:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#hl-table-coupons-filter-text-search .n-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+
+/* DataTable Header */
+#CouponsListPage .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#CouponsListPage .n-data-table-th__title {
+  color: var(--ink) !important;
+}
+
+/* Body */
+#CouponsListPage .n-data-table-td {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#CouponsListPage .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--bg) !important;
+}
+
+/* Empty State */
+#CouponsListPage .hl-empty-icon-container {
+  background-color: var(--wine-lt) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#CouponsListPage .hl-empty-icon svg {
+  color: var(--wine-2) !important;
+}
+#CouponsListPage .hl-empty-title {
+  color: var(--ink) !important;
+}
+
+/* Empty State „+ Gutschein erstellen" → wine solid */
+#coupons__empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+}
+#coupons__empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+  background:       var(--wine-2) !important;
+}
+#coupons__empty-btn-positive-action span,
+#coupons__empty-btn-positive-action svg {
+  color: white !important;
+}
+#coupons__empty-btn-positive-action .n-button__border {
+  border-color: var(--wine) !important;
+}
+#coupons__empty-btn-positive-action .n-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## 120b – Coupon Editor (Highrise UI)
+
+Der Editor verwendet Highrise UI (`hr-*`) mit Fixed Header und Footer, zwei Form-Cards, Highrise Inputs/Selects, Checkboxen und Radio Buttons.
+
+```css
+/* ── 120b Seitenhintergrund & Cards ── */
+#CouponsCreatePage {
+  background-color: var(--bg) !important;
+}
+#CouponsCreatePage .bg-gray-50 {
+  background-color: var(--bg) !important;
+}
+#CouponsCreatePage .create-coupon-basic-details-container,
+#CouponsCreatePage .create-coupon-rules-container {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Fixed Header */
+#CouponsCreatePage .fixed-header {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#CouponsCreatePage #back-button p,
+#CouponsCreatePage #back-button svg {
+  color: var(--ink-2) !important;
+}
+#CouponsCreatePage #back-button:hover p,
+#CouponsCreatePage #back-button:hover svg {
+  color: var(--wine) !important;
+}
+
+/* Seitentitel & Untertitel */
+#CouponsCreatePage .text-gray-900.hr-text-2xl {
+  color: var(--ink) !important;
+}
+#CouponsCreatePage .text-gray-500.hr-text-sm {
+  color: var(--ink-3) !important;
+}
+#CouponsCreatePage .text-blue-700 {
+  color: var(--wine-2) !important;
+}
+
+/* Card Titel */
+#CouponsCreatePage .hr-text-lg.hr-text-semibold.text-gray-900 {
+  color: var(--ink) !important;
+}
+
+/* Form Labels */
+#CouponsCreatePage .hr-form-item-label__text {
+  color: var(--ink-2) !important;
+}
+#CouponsCreatePage .hr-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+
+/* Text-Inputs → wine Focus */
+#CouponsCreatePage .hr-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#CouponsCreatePage .hr-input:hover {
+  border-color: var(--wine) !important;
+}
+#CouponsCreatePage .hr-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#CouponsCreatePage .hr-input__input-el {
+  color: var(--ink-2) !important;
+}
+#CouponsCreatePage .hr-input__prefix svg,
+#CouponsCreatePage .hr-input__prefix i {
+  color: var(--ink-3) !important;
+}
+
+/* Highrise Selects → wine Focus */
+html body #CouponsCreatePage .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+}
+#CouponsCreatePage .hr-base-selection-placeholder__inner,
+#CouponsCreatePage .hr-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+
+/* „Erzeugen" & „Browse" → outline neutral */
+#input-group-generate-coupon-code-button,
+#products-browse-button {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#input-group-generate-coupon-code-button p,
+#products-browse-button p {
+  color: var(--ink-2) !important;
+}
+#input-group-generate-coupon-code-button:hover,
+#products-browse-button:hover {
+  border-color: var(--wine) !important;
+}
+#input-group-generate-coupon-code-button .hr-button__state-border,
+#products-browse-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* Highrise Checkboxen → wine */
+#CouponsCreatePage .hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#CouponsCreatePage .hr-checkbox:not(.hr-checkbox--checked) .hr-checkbox-box {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#CouponsCreatePage .hr-checkbox:hover .hr-checkbox-box {
+  border-color: var(--wine) !important;
+}
+#CouponsCreatePage .hr-checkbox__label p,
+#CouponsCreatePage .hr-checkbox__label {
+  color: var(--ink-2) !important;
+}
+#CouponsCreatePage .hr-checkbox--checked .hr-checkbox-box__border,
+#CouponsCreatePage .hr-checkbox--indeterminate .hr-checkbox-box__border {
+  border-color: var(--wine) !important;
+  border: 1px solid var(--wine) !important;
+}
+#CouponsCreatePage .hr-checkbox:not(.hr-checkbox--checked) .hr-checkbox-box__border {
+  border: 1px solid var(--line-hard) !important;
+}
+
+/* Subtext */
+#CouponsCreatePage .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+
+/* Highrise Radio Buttons → wine */
+#CouponsCreatePage .hr-radio--checked .hr-radio__dot {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#CouponsCreatePage .hr-radio__dot-wrapper:hover .hr-radio__dot {
+  border-color: var(--wine) !important;
+}
+#CouponsCreatePage .hr-radio-label {
+  color: var(--ink-2) !important;
+}
+
+/* Max Redemptions Input */
+#size-example .hr-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#size-example .hr-input:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Fixed Footer */
+#CouponsCreatePage .fixed-footer {
+  background-color: var(--surface) !important;
+  border-top: 1px solid var(--line-hard) !important;
+}
+#CouponsCreatePage .fixed-footer #back-button p {
+  color: var(--ink-2) !important;
+}
+#CouponsCreatePage .fixed-footer #back-button:hover p {
+  color: var(--wine-2) !important;
+}
+
+/* „Erstellen"-Button → wine solid */
+#save-continue-button {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+#save-continue-button:not([disabled]):hover {
+  background-color: var(--wine-2) !important;
+}
+#save-continue-button p {
+  color: white !important;
+}
+#save-continue-button .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#save-continue-button .hr-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Tab-Button mit leerem Suffix `#hl-table-coupons-filter-tab-`:** Der „Alle"-Tab hat eine ID die auf einem leeren String endet — `#hl-table-coupons-filter-tab-` (ohne Suffix). Dieser ungewöhnliche Selektor ist gültig und funktioniert in allen modernen Browsern.
+
+**Gemischte UI-Frameworks:** Die Listen-Seite (`#CouponsListPage`) nutzt NaïveUI (`n-data-table-*`, `n-button__border`) — der Editor (`#CouponsCreatePage`) dagegen vollständig Highrise UI (`hr-input`, `hr-checkbox`, `hr-base-selection`, `hr-button__state-border`). Selektoren dürfen nicht zwischen den Root-Scopes vermischt werden.
+
+**Highrise Checkbox-Box-Border Fix:** Highrise Checkboxen haben eine separate `.hr-checkbox-box__border`-Schicht zusätzlich zur `.hr-checkbox-box` — ohne expliziten Fix auf `__border` bleibt ein blauer Ring sichtbar, auch wenn `__box` bereits wine-farbig ist.
+
+**Fixed Header & Footer:** Der Editor-Header ist per `position: fixed` am oberen Rand fixiert, der Footer am unteren — beide benötigen `background-color: var(--surface)` um den Seitenhintergrund nicht durchscheinen zu lassen.
