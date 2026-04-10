@@ -11957,6 +11957,180 @@ html body #per-page-dropdown .hr-base-selection {
   color: var(--text-gedaempft) !important;
 }
 
+/* ============================================================
+   SECTION 117 — Inventar (#inventory)
+   Highrise UI (hr-* Klassen)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#inventory {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header BG ── */
+#inventory .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Seitentitel & Untertitel ── */
+#inventory .font-inter.text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+#inventory .font-inter.text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+#inventory-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#inventory-search:hover {
+  border-color: var(--akzent) !important;
+}
+#inventory-search:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#inventory-search .hr-input__prefix svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+#discard-inventory {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#discard-inventory p {
+  color: var(--nav-hover) !important;
+}
+#discard-inventory:not([disabled]):hover {
+  border-color: var(--akzent) !important;
+}
+#discard-inventory .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── "Speichern" Button → wine solid ── */
+#save-inventory {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+}
+#save-inventory:not([disabled]):hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+#save-inventory p {
+  color: var(--base-white) !important;
+}
+#save-inventory .hr-button__border {
+  border-color: var(--akzent) !important;
+}
+#save-inventory .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── Tabellen-Header ── */
+#inventory-table .hr-data-table__cell-header {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#inventory-table .hr-data-table__cell-header p {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Body ── */
+#inventory-table .hr-data-table__body-cell {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#inventory-table .hr-data-table__body-row:hover .hr-data-table__body-cell {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Produkt Icon → wine ── */
+#inventory-table .bg-primary-100 {
+  background-color: var(--akzent-hell) !important;
+}
+#inventory-table .bg-primary-100 svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Produkt Name & Preis ── */
+#inventory-table #product-name span {
+  color: var(--nav-farbe) !important;
+}
+#inventory-table #price-name span {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Mengeneingabe-Inputs → wine Focus ── */
+#inventory-table .hr-input-number .hr-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#inventory-table .hr-input-number .hr-input:hover {
+  border-color: var(--akzent) !important;
+}
+#inventory-table .hr-input-number .hr-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+
+/* ── Toggle Switches (aktiv) → wine ── */
+#inventory-table .hr-switch--active .hr-switch__rail {
+  background-color: var(--akzent) !important;
+}
+
+/* ── Footer: Rows per page ── */
+#inventory-pagination p {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Per-Page Dropdown → wine Focus ── */
+html body #inventory-pagination .hr-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+}
+#inventory-pagination .hr-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Zurück / Nächste Buttons ── */
+#inventory-pagination #hr-prev-button,
+#inventory-pagination #next-button {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#inventory-pagination #hr-prev-button p,
+#inventory-pagination #next-button p {
+  color: var(--nav-hover) !important;
+}
+#inventory-pagination #hr-prev-button:not([disabled]):hover,
+#inventory-pagination #next-button:not([disabled]):hover {
+  border-color: var(--akzent) !important;
+}
+#inventory-pagination #hr-prev-button .hr-button__state-border,
+#inventory-pagination #next-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* ── Aktive Seite → wine ── */
+#inventory-pagination .hr-pagination-item__active button[data-v-36320aab] {
+  border: 1px solid var(--akzent) !important;
+  color:  var(--akzent) !important;
+}
+#inventory-pagination .hr-pagination-item__active p {
+  color: var(--akzent) !important;
+  font-weight: 600 !important;
+}
+
 
 
 /* ============================================================

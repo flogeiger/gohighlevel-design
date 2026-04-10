@@ -1,0 +1,226 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Products/Inventory" />
+
+# Inventar
+
+Die **Inventar**-Seite (`#inventory`) ermöglicht die direkte Bearbeitung von Lagermengen, SKUs und Tracking-Optionen aller Produkte in einer einzigen Tabelle. Wie die Sammlungen-Seite (Section 117) verwendet sie **Highrise UI** (`hr-*`-Klassen). Änderungen werden live gezählt („X changes made") und über Cancel/Save-Buttons im Header bestätigt.
+
+<img src="/Inventar.png" alt="Inventar" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#inventory` |
+| Suchfeld | `#inventory-search` |
+| „Stornieren"-Button | `#discard-inventory` |
+| „Speichern"-Button | `#save-inventory` |
+| DataTable Header | `#inventory-table .hr-data-table__cell-header` |
+| DataTable Body | `#inventory-table .hr-data-table__body-cell` |
+| Produkt-Icon | `#inventory-table .bg-primary-100` |
+| Mengen-Inputs | `#inventory-table .hr-input-number .hr-input` |
+| Track-Toggles | `#inventory-table .hr-switch--active .hr-switch__rail` |
+| Pagination | `#inventory-pagination` |
+
+---
+
+## 118.1 – Header: Suchfeld & Aktions-Buttons
+
+```css
+/* ── 118.1 Seitenhintergrund & Header ── */
+#inventory {
+  background-color: var(--bg) !important;
+}
+#inventory .bg-white {
+  background-color: var(--surface) !important;
+}
+#inventory .font-inter.text-gray-900 {
+  color: var(--ink) !important;
+}
+#inventory .font-inter.text-gray-500 {
+  color: var(--ink-3) !important;
+}
+
+/* Suchfeld */
+#inventory-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#inventory-search:hover {
+  border-color: var(--wine) !important;
+}
+#inventory-search:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#inventory-search .hr-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+
+/* „X changes made" Info-Text */
+#inventory .hr-text.\!text-gray-700 {
+  color: var(--ink-3) !important;
+}
+
+/* „Stornieren" → outline neutral */
+#discard-inventory {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#discard-inventory p {
+  color: var(--ink-2) !important;
+}
+#discard-inventory:not([disabled]):hover {
+  border-color: var(--wine) !important;
+}
+#discard-inventory .hr-button__state-border {
+  display: none !important;
+}
+
+/* „Speichern" → wine solid */
+#save-inventory {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+}
+#save-inventory:not([disabled]):hover {
+  background-color: var(--wine-2) !important;
+}
+#save-inventory p {
+  color: white !important;
+}
+#save-inventory .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#save-inventory .hr-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## 118.2 – Highrise DataTable
+
+Header, Body-Rows, Produkt-Icon, Name/Preis-Texte, Mengen-Inputs und Track-Toggles.
+
+```css
+/* ── 118.2 DataTable Header ── */
+#inventory-table .hr-data-table__cell-header {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#inventory-table .hr-data-table__cell-header p {
+  color: var(--ink) !important;
+}
+
+/* Body */
+#inventory-table .hr-data-table__body-cell {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#inventory-table .hr-data-table__body-row:hover .hr-data-table__body-cell {
+  background-color: var(--bg) !important;
+}
+
+/* Produkt-Icon → wine-lt */
+#inventory-table .bg-primary-100 {
+  background-color: var(--wine-lt) !important;
+}
+#inventory-table .bg-primary-100 svg {
+  color: var(--wine-2) !important;
+}
+
+/* Produkt-Name & Preis */
+#inventory-table #product-name span {
+  color: var(--ink) !important;
+}
+#inventory-table #price-name span {
+  color: var(--ink-3) !important;
+}
+
+/* Mengen-Inputs → wine Focus */
+#inventory-table .hr-input-number .hr-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#inventory-table .hr-input-number .hr-input:hover {
+  border-color: var(--wine) !important;
+}
+#inventory-table .hr-input-number .hr-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* Track Inventory Toggle → wine */
+#inventory-table .hr-switch--active .hr-switch__rail {
+  background-color: var(--wine) !important;
+}
+```
+
+---
+
+## 118.3 – Highrise Pagination
+
+```css
+/* ── 118.3 Footer Text ── */
+#inventory-pagination p {
+  color: var(--ink-2) !important;
+}
+
+/* Per-Page Dropdown → wine Focus */
+html body #inventory-pagination .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+}
+#inventory-pagination .hr-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+
+/* Prev / Next Buttons */
+#inventory-pagination #hr-prev-button,
+#inventory-pagination #next-button {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#inventory-pagination #hr-prev-button p,
+#inventory-pagination #next-button p {
+  color: var(--ink-2) !important;
+}
+#inventory-pagination #hr-prev-button:not([disabled]):hover,
+#inventory-pagination #next-button:not([disabled]):hover {
+  border-color: var(--wine) !important;
+}
+#inventory-pagination #hr-prev-button .hr-button__state-border,
+#inventory-pagination #next-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* Aktive Seite → wine */
+#inventory-pagination .hr-pagination-item__active button[data-v-36320aab] {
+  border: 1px solid var(--wine) !important;
+  color:  var(--wine) !important;
+}
+#inventory-pagination .hr-pagination-item__active p {
+  color:       var(--wine) !important;
+  font-weight: 600 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Pagination mit Parent-Scope `#inventory-pagination`:** Im Gegensatz zur Sammlungen-Seite (Section 117) sind Prev/Next-Buttons und Per-Page-Dropdown hier über `#inventory-pagination` gescoped — verhindert Konflikte mit den gleichnamigen IDs `#hr-prev-button` und `#next-button` auf der Sammlungen-Seite.
+
+**Highrise Toggle `hr-switch--active`:** Der Track-Inventory-Toggle nutzt `.hr-switch__rail` statt `.n-switch__rail` — Highrise-Pendant zum NaïveUI-Toggle-Pattern aller anderen Seiten.
+
+**Escaped Utility-Klasse `.\!text-gray-700`:** Der Änderungs-Zählertext nutzt eine Tailwind-Klasse mit `!`-Präfix (forced important), die in CSS als `.\!text-gray-700` escaped werden muss — der Backslash ist zwingend.
