@@ -1,0 +1,634 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/GiftCards" />
+
+# Gift Cards
+
+Die **Gift Cards**-Seite (`#GiftCards`) ist ein vollständig mit **Highrise UI** (`hr-*`-Klassen) gebautes 4-Step-Formular zur Erstellung von Geschenkkarten. Die Listen-Ansicht zeigt einen Empty State mit Illustration und zwei Primary-Buttons. Der **Gift Card Editor** (`#CreateGiftCards`) führt durch vier Schritte: Basic Info → Customize Card → Set Values → Review Card.
+
+<img src="/GiftCards.png" alt="Gift Cards" style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />
+<img src="/GiftCardEditor.png" alt="Gift Card erstellen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root Liste | `#GiftCards`, `#gift-cards-container` |
+| Root Editor | `#CreateGiftCards` |
+| „+ Create Gift Card"-Button (Header) | `#create-gift-card-header` |
+| Empty State Button | `#create-gift-card-empty-state` |
+| Filtered Empty State | `#empty-empty-state` |
+| Progress Steps | `#CreateGiftCards .hr-progress-step--current / --complete` |
+| Form Card Step 1 | `#gift-card-form-card` |
+| Template Selector Step 2 | `#template-selector-card` |
+| Options Card Step 3 | `#gift-card-options` |
+| Review Card Step 4 | `#gift-card-preview-card` |
+| Fixed Header | `#CreateGiftCards .fixed-header` |
+| Fixed Footer | `#CreateGiftCards .fixed-footer` |
+| „Continue"-Button | `#CreateGiftCards #save-continue-button` |
+
+---
+
+## 121.1 – Listen-Seite
+
+Header, Dokumentations-Link, Empty State und Buttons.
+
+```css
+/* ── 121.1 Seitenhintergrund ── */
+#GiftCards,
+#gift-cards-container {
+  background-color: var(--bg) !important;
+}
+
+/* Seitentitel & Beschreibung */
+#gift-cards-container .text-gray-900.hr-text-lg {
+  color: var(--ink) !important;
+}
+#gift-cards-container .text-gray-500.hr-text-sm {
+  color: var(--ink-3) !important;
+}
+#gift-cards-container .documentation-link {
+  color: var(--wine-2) !important;
+}
+#gift-cards-container .documentation-link:hover {
+  color: var(--wine) !important;
+}
+
+/* „+ Create Gift Card" Header → wine solid */
+#create-gift-card-header {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#create-gift-card-header:hover {
+  background-color: var(--wine-2) !important;
+}
+#create-gift-card-header p,
+#create-gift-card-header svg {
+  color: white !important;
+}
+#create-gift-card-header .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#create-gift-card-header .hr-button__state-border {
+  display: none !important;
+}
+
+/* Empty State Texte */
+#gift-cards-container .text-gray-900.hr-text-sm {
+  color: var(--ink) !important;
+}
+#gift-cards-container .text-gray-600.hr-text-xs {
+  color: var(--ink-3) !important;
+}
+
+/* Empty State Button → wine solid */
+#create-gift-card-empty-state {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#create-gift-card-empty-state:hover {
+  background-color: var(--wine-2) !important;
+}
+#create-gift-card-empty-state p,
+#create-gift-card-empty-state svg {
+  color: white !important;
+}
+#create-gift-card-empty-state .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#create-gift-card-empty-state .hr-button__state-border {
+  display: none !important;
+}
+
+/* Gefilterter Empty State (kein Ergebnis) */
+#empty-empty-state .hr-icon-wrapper {
+  background-color: var(--wine-lt) !important;
+}
+#empty-empty-state .hr-icon-wrapper svg {
+  color: var(--wine-2) !important;
+}
+#empty-empty-state .hr-empty__title {
+  color: var(--ink) !important;
+}
+
+/* „Retry" → outline neutral */
+#negative-empty-state {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#negative-empty-state p {
+  color: var(--ink-2) !important;
+}
+#negative-empty-state:hover {
+  border-color: var(--wine) !important;
+}
+#negative-empty-state .hr-button__state-border {
+  display: none !important;
+}
+
+/* „Remove filters" → wine solid */
+#positive-empty-state {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#positive-empty-state:hover {
+  background-color: var(--wine-2) !important;
+}
+#positive-empty-state p {
+  color: white !important;
+}
+#positive-empty-state .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#positive-empty-state .hr-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## 121b.1 – Editor: Fixed Header & Progress Steps
+
+```css
+/* ── 121b.1 Fixed Header ── */
+#CreateGiftCards {
+  background-color: var(--bg) !important;
+}
+#CreateGiftCards .fixed-header {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#CreateGiftCards .fixed-header #back-button svg {
+  color: var(--ink-2) !important;
+}
+#CreateGiftCards .fixed-header #back-button:hover svg {
+  color: var(--wine) !important;
+}
+#CreateGiftCards .text-gray-900.hr-text-3xl {
+  color: var(--ink) !important;
+}
+
+/* Aktiver Step → wine */
+#CreateGiftCards .hr-progress-step--current .hr-progress-step__icon {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#CreateGiftCards .hr-progress-step--current .hr-progress-step__icon-text p {
+  color: white !important;
+}
+#CreateGiftCards .hr-progress-step--current .hr-progress-step__line-bar {
+  background-color: var(--wine) !important;
+}
+
+/* Abgeschlossene Steps → wine-lt */
+#CreateGiftCards .hr-progress-step--complete .hr-progress-step__icon {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine) !important;
+}
+#CreateGiftCards .hr-progress-step--complete .hr-progress-step__icon svg path {
+  fill: var(--wine) !important;
+}
+#CreateGiftCards .hr-progress-step--complete .hr-progress-step__line-bar {
+  background-color: var(--wine) !important;
+}
+
+/* Step Labels */
+#CreateGiftCards .hr-progress-step__content-title p {
+  color: var(--ink) !important;
+}
+#CreateGiftCards .hr-progress-step__content-subtitle p {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 121b.2 – Step 1: Basic Info (Form Card)
+
+```css
+/* ── 121b.2 Form Card ── */
+#gift-card-form-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Form Labels */
+#CreateGiftCards .hr-text-md.hr-text-medium.mb-1 {
+  color: var(--ink-2) !important;
+}
+#CreateGiftCards .text-red-600 {
+  color: var(--danger) !important;
+}
+
+/* Text-Inputs & Textareas → wine Focus */
+#CreateGiftCards .hr-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#CreateGiftCards .hr-input:hover {
+  border-color: var(--wine) !important;
+}
+#CreateGiftCards .hr-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#CreateGiftCards .hr-input__input-el,
+#CreateGiftCards .hr-input__textarea-el {
+  color: var(--ink-2) !important;
+}
+#CreateGiftCards .hr-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+#CreateGiftCards .hr-input-word-count {
+  color: var(--ink-3) !important;
+}
+
+/* „Write Using AI" Link → wine */
+#CreateGiftCards .text-purple-600,
+#CreateGiftCards .text-purple-600 svg {
+  color: var(--wine-2) !important;
+}
+
+/* Divider */
+#CreateGiftCards .hr-divider__line {
+  background-color: var(--line-hard) !important;
+}
+
+/* Radio Buttons → wine */
+#CreateGiftCards .hr-radio--checked .hr-radio__dot {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#CreateGiftCards .hr-radio__dot-wrapper:hover .hr-radio__dot {
+  border-color: var(--wine) !important;
+}
+#CreateGiftCards .hr-radio-label,
+#CreateGiftCards .radio-subtext {
+  color: var(--ink-2) !important;
+}
+
+/* Rich Text Editor */
+#CreateGiftCards .editor-container {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#CreateGiftCards .toolbar_container {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#CreateGiftCards .toolbar_button svg {
+  color: var(--ink-2) !important;
+}
+#CreateGiftCards .tiptap {
+  color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 121b.3 – Step 2: Customize Card (Template Selector)
+
+```css
+/* ── 121b.3 Template Selector Card ── */
+#template-selector-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Tabs → wine */
+#template-tabs .hr-tabs-nav {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#template-tabs .hr-tabs-tab__label {
+  color: var(--ink-3) !important;
+}
+#template-tabs .hr-tabs-tab--active .hr-tabs-tab__label {
+  color: var(--wine-2) !important;
+}
+#template-tabs .hr-tabs-tab:hover .hr-tabs-tab__label {
+  color: var(--wine) !important;
+}
+#template-tabs .hr-tabs-bar {
+  background-color: var(--wine) !important;
+}
+
+/* Suchfeld Vorlagen */
+#search-templates {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#search-templates:hover {
+  border-color: var(--wine) !important;
+}
+#search-templates:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#search-templates .hr-input__prefix svg {
+  color: var(--ink-3) !important;
+}
+
+/* Grid/List Toggle → wine aktiv */
+#grid-view-btn.hr-radio-button--checked,
+#list-view-btn.hr-radio-button--checked {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine) !important;
+}
+#grid-view-btn svg,
+#list-view-btn svg {
+  color: var(--ink-2) !important;
+}
+#grid-view-btn.hr-radio-button--checked svg,
+#list-view-btn.hr-radio-button--checked svg {
+  color: var(--wine-2) !important;
+}
+
+/* Aktions-Buttons → wine solid */
+#gradient-tab-navigation,
+#upload-custom-artwork-tab-navigation {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#gradient-tab-navigation:hover,
+#upload-custom-artwork-tab-navigation:hover {
+  background-color: var(--wine-2) !important;
+}
+#gradient-tab-navigation p,
+#gradient-tab-navigation svg,
+#upload-custom-artwork-tab-navigation p,
+#upload-custom-artwork-tab-navigation svg {
+  color: white !important;
+}
+#gradient-tab-navigation .hr-button__state-border,
+#upload-custom-artwork-tab-navigation .hr-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## 121b.4 – Step 3: Set Values, Tax & Category
+
+```css
+/* ── 121b.4 Options Card ── */
+#gift-card-options {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Section Titel & Beschreibungen */
+#section-title, #tax-section-title, #category-section-title {
+  color: var(--ink) !important;
+}
+#section-description, #tax-section-description, #availability-title {
+  color: var(--ink-3) !important;
+}
+#gift-card-options .hr-text-md.hr-text-medium.pb-1,
+#gift-card-options .hr-text-md.hr-text-medium.mb-1 {
+  color: var(--ink-2) !important;
+}
+#gift-card-options .text-red-600 {
+  color: var(--danger) !important;
+}
+
+/* Nennwert-Buttons (€10, €25 …) → outline neutral */
+#common-value-10, #common-value-25, #common-value-50,
+#common-value-100, #common-value-200, #common-value-500 {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#common-value-10 p, #common-value-25 p, #common-value-50 p,
+#common-value-100 p, #common-value-200 p, #common-value-500 p {
+  color: var(--ink-2) !important;
+}
+#common-value-10:hover, #common-value-25:hover, #common-value-50:hover,
+#common-value-100:hover, #common-value-200:hover, #common-value-500:hover {
+  border-color: var(--wine) !important;
+}
+#common-value-10 .hr-button__state-border,
+#common-value-25 .hr-button__state-border,
+#common-value-50 .hr-button__state-border,
+#common-value-100 .hr-button__state-border,
+#common-value-200 .hr-button__state-border,
+#common-value-500 .hr-button__state-border {
+  display: none !important;
+}
+
+/* Währungs-Label & Betrag-Input */
+#gift-card-options .hr-input-group-label {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#input-group-basic-input .hr-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#input-group-basic-input .hr-input:hover {
+  border-color: var(--wine) !important;
+}
+#input-group-basic-input .hr-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+
+/* „Hinzufügen" → wine solid */
+#add-amount-button {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+}
+#add-amount-button p {
+  color: white !important;
+}
+#add-amount-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* Checkboxen → wine */
+#gift-card-options .hr-checkbox--checked .hr-checkbox-box {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+#gift-card-options .hr-checkbox--checked .hr-checkbox-box__border {
+  border: 1px solid var(--wine) !important;
+}
+#gift-card-options .hr-checkbox:not(.hr-checkbox--checked):not(.hr-checkbox--disabled) .hr-checkbox-box {
+  border-color:     var(--line-hard) !important;
+  background-color: var(--surface) !important;
+}
+#gift-card-options .hr-checkbox__label p {
+  color: var(--ink-2) !important;
+}
+#gift-card-options .hr-checkbox--disabled .hr-checkbox-box {
+  background-color: var(--bg) !important;
+}
+
+/* Divider */
+#gift-card-options .hr-divider__line {
+  background-color: var(--line-hard) !important;
+}
+
+/* Kategorie Select → wine Focus */
+html body #select-custom-render .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+}
+#select-custom-render .hr-base-selection-overlay__wrapper {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 121b.5 – Step 4: Review Card & Fixed Footer
+
+```css
+/* ── 121b.5 Review Card ── */
+#gift-card-preview-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#preview-title {
+  color: var(--ink) !important;
+}
+#preview-description {
+  color: var(--ink-3) !important;
+}
+#gift-card-preview-card .bg-gray-50 {
+  background-color: var(--bg) !important;
+}
+
+/* Edit-Buttons (Stift) → wine outline */
+#edit-design-button,
+#edit-basic-info-button,
+#edit-values-button {
+  background-color: var(--surface) !important;
+  border-color:     var(--wine) !important;
+}
+#edit-design-button svg,
+#edit-basic-info-button svg,
+#edit-values-button svg {
+  color: var(--wine-2) !important;
+}
+#edit-design-button:hover,
+#edit-basic-info-button:hover,
+#edit-values-button:hover {
+  background-color: var(--wine-lt) !important;
+}
+#edit-design-button .hr-button__state-border,
+#edit-basic-info-button .hr-button__state-border,
+#edit-values-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* Detail Labels & Werte */
+#card-details-title { color: var(--ink) !important; }
+#card-description   { color: var(--ink-3) !important; }
+#gift-card-preview-card #expiry-title,
+#values-title, #quantity-title,
+#sell-when-out-of-stock-title,
+#product-tax-code-title, #category-title {
+  color: var(--ink-3) !important;
+}
+#gift-card-preview-card #expiry-content,
+#values-content, #quantity-content,
+#sell-when-out-of-stock-content,
+#product-tax-code-content, #category-content {
+  color: var(--ink) !important;
+}
+#gift-card-preview-card .text-gray-500,
+#gift-card-preview-card .text-gray-500 svg {
+  color: var(--ink-3) !important;
+}
+
+/* Terms Link → wine */
+#terms-link-text,
+#terms-link p {
+  color: var(--wine-2) !important;
+}
+#terms-link:hover #terms-link-text {
+  color: var(--wine) !important;
+}
+
+/* Card Footer */
+#gift-card-preview-card .hr-card-footer {
+  background-color: var(--bg) !important;
+  border-top: 1px solid var(--line-hard) !important;
+}
+#gift-card-preview-card .hr-card-footer .text-gray-900 {
+  color: var(--ink) !important;
+}
+
+/* Fixed Footer */
+#CreateGiftCards .fixed-footer {
+  background-color: var(--surface) !important;
+  border-top: 1px solid var(--line-hard) !important;
+}
+#CreateGiftCards #cancel-button {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#CreateGiftCards #cancel-button p {
+  color: var(--ink-2) !important;
+}
+#CreateGiftCards #cancel-button:hover {
+  border-color: var(--wine) !important;
+}
+#CreateGiftCards #cancel-button .hr-button__state-border {
+  display: none !important;
+}
+
+/* „Continue" → wine solid */
+#CreateGiftCards #save-continue-button {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+}
+#CreateGiftCards #save-continue-button:not([disabled]):hover {
+  background-color: var(--wine-2) !important;
+}
+#CreateGiftCards #save-continue-button p {
+  color: white !important;
+}
+#CreateGiftCards #save-continue-button .hr-button__border {
+  border-color: var(--wine) !important;
+}
+#CreateGiftCards #save-continue-button .hr-button__state-border {
+  display: none !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**4-Step Progress Stepper mit Highrise-Klassen:** Der Fortschrittsanzeiger nutzt `.hr-progress-step--current` und `.hr-progress-step--complete` — zwei separate State-Klassen. Der aktive Step erhält `var(--wine)` als vollen Hintergrund, abgeschlossene Steps `var(--wine-lt)` mit wine-Border. Die Verbindungslinie `.hr-progress-step__line-bar` wird für beide auf wine gesetzt.
+
+**`#save-continue-button` mit Editor-Scope:** Im Gegensatz zur Coupons-Seite (Section 120b), wo `#save-continue-button` global verwendet wird, ist der Button hier über `#CreateGiftCards #save-continue-button` gescoped — verhindert Konflikte.
+
+**Edit-Buttons mit wine-Border (kein Fill):** Die Stift-Icons in der Review Card (Step 4) sind als outline-wine gestylt — Border wine, Hintergrund transparent, fill-hover auf wine-lt. Abweichendes Pattern zu den meisten outline-Buttons im Projekt, die `--line-hard` als Default-Border nutzen.
+
+**`text-purple-600` auf wine gemappt:** Der „Write Using AI"-Link nutzt eine Tailwind-Violett-Klasse. Da kein semantischer Selektor verfügbar ist, wird `.text-purple-600` direkt auf `var(--wine-2)` gemappt — technisch korrekt, da AI-Features im SalonQueen-Kontext ebenfalls wine-Farbe erhalten.
