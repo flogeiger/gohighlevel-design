@@ -12131,6 +12131,212 @@ html body #inventory-pagination .hr-base-selection {
   font-weight: 600 !important;
 }
 
+/* ============================================================
+   SECTION 118 — Product Reviews (#reviews)
+   ============================================================ */
+
+/* ── Seitenhintergrund ── */
+#reviews {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+#reviews .title.hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+#reviews .description.hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Tabs → wine ── */
+#reviews .n-tabs-nav {
+  border-bottom: 1px solid var(--linie-stark) !important;
+}
+#reviews .n-tabs-tab__label {
+  color: var(--text-gedaempft) !important;
+}
+#reviews .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--akzent-dunkel) !important;
+}
+#reviews .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--akzent) !important;
+}
+#reviews .n-tabs .n-tabs-bar {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+
+/* ── Datum-Range Picker → wine Focus ── */
+#estimates-date-range .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#estimates-date-range .n-input:hover {
+  border-color: var(--akzent) !important;
+}
+#estimates-date-range .n-input:focus-within {
+  border-color: var(--akzent) !important;
+  box-shadow:   0 0 0 3px var(--akzent-a20) !important;
+}
+#estimates-date-range .n-base-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Filters" Button → Doppel-Border Fix + neutral ── */
+#reviews #sort-filter-component__button {
+  background-color: var(--hintergrund-karte) !important;
+  border-width:     0 !important;
+}
+#reviews #sort-filter-component__button .n-button__border {
+  border: 1px solid var(--linie-stark) !important;
+}
+#reviews #sort-filter-component__button .n-button__state-border {
+  border-width: 0 !important;
+}
+#reviews #sort-filter-component__button span,
+#reviews #sort-filter-component__button svg {
+  color: var(--nav-hover) !important;
+}
+#reviews #sort-filter-component__button:hover .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#reviews #sort-filter-component__button:hover span,
+#reviews #sort-filter-component__button:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Tabellen-Header ── */
+#reviews .n-data-table-th {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reviews .n-data-table-th__title {
+  color: var(--nav-farbe) !important;
+}
+#reviews .n-data-table-sorter svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Header Checkbox disabled ── */
+#reviews .n-checkbox--disabled .n-checkbox-box {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Tabellen-Body ── */
+#reviews .n-data-table-td {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  color:            var(--nav-hover) !important;
+}
+#reviews .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Empty State ── */
+#reviews .hl-empty-icon-container {
+  background-color: var(--akzent-hell) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#reviews .hl-empty-icon svg {
+  color: var(--akzent-dunkel) !important;
+}
+#reviews .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ============================================================
+   118b — Reviews: Filter Drawer (Inline)
+   ============================================================ */
+
+/* ── Drawer Container BG ── */
+#reviews .sort-filter-component__container {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Header Titel & Reset ── */
+#reviews .sort-filter-component__header__title {
+  color:       var(--nav-farbe) !important;
+  font-weight: 600 !important;
+}
+#reviews #sort-filter-component-reset span {
+  color: var(--akzent-dunkel) !important;
+}
+#reviews #sort-filter-component-reset:hover span {
+  color: var(--akzent) !important;
+}
+
+/* ── "FILTERS" Überschrift & Item-Headings ── */
+#reviews .sort-filter-component__heading {
+  color:       var(--nav-farbe) !important;
+  font-weight: 600 !important;
+}
+#reviews .sort-filter-component__filter-item-heading {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Filter Selects → wine Focus ── */
+html body #reviews .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+}
+#reviews .n-base-selection-placeholder__inner,
+#reviews .n-base-selection-overlay__wrapper {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Cancel" Button → outline neutral ── */
+#reviews #sort-filter-component__cancel-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+#reviews #sort-filter-component__cancel-btn span {
+  color: var(--nav-hover) !important;
+}
+#reviews #sort-filter-component__cancel-btn:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── "Apply" Button → wine solid ── */
+#reviews #sort-filter-component__apply-btn {
+  background-color: var(--akzent) !important;
+  background:       var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+#reviews #sort-filter-component__apply-btn .n-button__border {
+  border-color: var(--akzent) !important;
+}
+#reviews #sort-filter-component__apply-btn span {
+  color: var(--base-white) !important;
+}
+
+/* ── Fix: #sort-filter Selects für Products & Reviews Popover ── */
+html body #sort-filter #Product .n-base-selection,
+html body #sort-filter #Store .n-base-selection,
+html body #sort-filter #Rating .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--akzent-a20) !important;
+}
+#sort-filter #Product .n-base-selection-placeholder__inner,
+#sort-filter #Store .n-base-selection-placeholder__inner,
+#sort-filter #Rating .n-base-selection-overlay__wrapper {
+  color: var(--text-gedaempft) !important;
+}
+
 
 
 /* ============================================================

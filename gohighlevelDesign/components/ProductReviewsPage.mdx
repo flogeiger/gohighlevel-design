@@ -1,0 +1,260 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Products/ProductReviews" />
+
+# Product Reviews and Ratings
+
+Die **Product Reviews**-Seite (`#reviews`) verwaltet alle Produktbewertungen in vier Status-Tabs (Pending, Approved, Unapproved, Trash). Sie enthält einen Datepicker, einen Filter-Button mit **inline ausklappbarem Filter-Drawer** (kein Popover), eine NaïveUI DataTable und einen Empty State.
+
+<img src="/ProductReviews.png" alt="Product Reviews and Ratings" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#reviews` |
+| Tab-Bar | `#reviews .n-tabs-nav` |
+| Datepicker | `#estimates-date-range` |
+| Filter-Button | `#reviews #sort-filter-component__button` |
+| DataTable Header | `#reviews .n-data-table-th` |
+| DataTable Body | `#reviews .n-data-table-td` |
+| Empty State | `#reviews .hl-empty-icon-container` |
+| Filter Drawer | `#reviews .sort-filter-component__container` |
+| Filter Selects (Drawer) | `html body #reviews .n-base-selection` |
+| Filter Selects (Popover) | `html body #sort-filter #Product / #Store / #Rating` |
+
+---
+
+## 119.1 – Seitentitel & Tab-Bar
+
+```css
+/* ── 119.1 Seitentitel ── */
+#reviews {
+  background-color: var(--bg) !important;
+}
+#reviews .title.hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+#reviews .description.hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* Tab-Bar → wine */
+#reviews .n-tabs-nav {
+  border-bottom: 1px solid var(--line-hard) !important;
+}
+#reviews .n-tabs-tab__label {
+  color: var(--ink-3) !important;
+}
+#reviews .n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--wine-2) !important;
+}
+#reviews .n-tabs-tab:hover .n-tabs-tab__label {
+  color: var(--wine) !important;
+}
+#reviews .n-tabs .n-tabs-bar {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+}
+```
+
+---
+
+## 119.2 – Filter Bar
+
+Datepicker und Filter-Button mit Doppel-Border-Fix.
+
+```css
+/* ── 119.2 Datepicker ── */
+#estimates-date-range .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#estimates-date-range .n-input:hover {
+  border-color: var(--wine) !important;
+}
+#estimates-date-range .n-input:focus-within {
+  border-color: var(--wine) !important;
+  box-shadow:   0 0 0 3px var(--wine-a20) !important;
+}
+#estimates-date-range .n-base-icon svg {
+  color: var(--ink-3) !important;
+}
+
+/* Filter-Button (Doppel-Border-Fix) */
+#reviews #sort-filter-component__button {
+  background-color: var(--surface) !important;
+  border-width:     0 !important;
+}
+#reviews #sort-filter-component__button .n-button__border {
+  border: 1px solid var(--line-hard) !important;
+}
+#reviews #sort-filter-component__button .n-button__state-border {
+  border-width: 0 !important;
+}
+#reviews #sort-filter-component__button span,
+#reviews #sort-filter-component__button svg {
+  color: var(--ink-2) !important;
+}
+#reviews #sort-filter-component__button:hover .n-button__border {
+  border-color: var(--wine) !important;
+}
+#reviews #sort-filter-component__button:hover span,
+#reviews #sort-filter-component__button:hover svg {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 119.3 – DataTable & Empty State
+
+```css
+/* ── 119.3 DataTable Header ── */
+#reviews .n-data-table-th {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+#reviews .n-data-table-th__title {
+  color: var(--ink) !important;
+}
+#reviews .n-data-table-sorter svg {
+  color: var(--ink-3) !important;
+}
+
+/* Disabled Header-Checkbox */
+#reviews .n-checkbox--disabled .n-checkbox-box {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Body */
+#reviews .n-data-table-td {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  color:            var(--ink-2) !important;
+}
+#reviews .n-data-table-tr:hover .n-data-table-td {
+  background-color: var(--bg) !important;
+}
+
+/* Empty State */
+#reviews .hl-empty-icon-container {
+  background-color: var(--wine-lt) !important;
+  border-radius:    50% !important;
+  padding:          8px !important;
+}
+#reviews .hl-empty-icon svg {
+  color: var(--wine-2) !important;
+}
+#reviews .hl-empty-title {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 119b – Filter Drawer (Inline)
+
+Der Filter-Drawer klappt direkt in der Seite aus (kein Overlay-Popover). Er enthält Header, Reset-Link, Filter-Selects und Cancel/Apply-Buttons.
+
+```css
+/* ── 119b Drawer Container ── */
+#reviews .sort-filter-component__container {
+  background-color: var(--surface) !important;
+}
+
+/* Header Titel & Reset */
+#reviews .sort-filter-component__header__title {
+  color:       var(--ink) !important;
+  font-weight: 600 !important;
+}
+#reviews #sort-filter-component-reset span {
+  color: var(--wine-2) !important;
+}
+#reviews #sort-filter-component-reset:hover span {
+  color: var(--wine) !important;
+}
+
+/* Filter-Überschriften */
+#reviews .sort-filter-component__heading {
+  color:       var(--ink) !important;
+  font-weight: 600 !important;
+}
+#reviews .sort-filter-component__filter-item-heading {
+  color: var(--ink-2) !important;
+}
+
+/* Filter Selects → wine Focus */
+html body #reviews .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+}
+#reviews .n-base-selection-placeholder__inner,
+#reviews .n-base-selection-overlay__wrapper {
+  color: var(--ink-3) !important;
+}
+
+/* Cancel → outline neutral */
+#reviews #sort-filter-component__cancel-btn {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+#reviews #sort-filter-component__cancel-btn span {
+  color: var(--ink-2) !important;
+}
+#reviews #sort-filter-component__cancel-btn:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Apply → wine solid */
+#reviews #sort-filter-component__apply-btn {
+  background-color: var(--wine) !important;
+  background:       var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+#reviews #sort-filter-component__apply-btn .n-button__border {
+  border-color: var(--wine) !important;
+}
+#reviews #sort-filter-component__apply-btn span {
+  color: white !important;
+}
+
+/* Fix: #sort-filter Selects (Product / Store / Rating) */
+html body #sort-filter #Product .n-base-selection,
+html body #sort-filter #Store .n-base-selection,
+html body #sort-filter #Rating .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 3px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 3px var(--wine-a20) !important;
+}
+#sort-filter #Product .n-base-selection-placeholder__inner,
+#sort-filter #Store .n-base-selection-placeholder__inner,
+#sort-filter #Rating .n-base-selection-overlay__wrapper {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Inline Filter-Drawer statt Popover:** Anders als auf der Produkte-Seite (Section 116b, `#sort-filter` als Popover) klappt der Filter auf dieser Seite direkt in den Seitenfluss ein (`#reviews .sort-filter-component__container`). Dadurch ist kein `#sort-filter`-Root-Scope nötig — alle Drawer-Styles werden über `#reviews` gescoped.
+
+**Doppelter Select-Override:** Die Filter-Selects werden über zwei Selektoren abgedeckt — einmal für den Inline-Drawer (`html body #reviews .n-base-selection`) und einmal für den `#sort-filter`-Popover-Container (`html body #sort-filter #Product / #Store / #Rating`). Beide Varianten kommen vor, je nachdem welche GHL-Version aktiv ist.
+
+**Disabled Checkbox im Header:** Die Header-Checkbox ist im leeren Zustand disabled (`.n-checkbox--disabled`) — sie erhält `--bg` als Hintergrund statt `--surface`, damit sie im Tabellen-Header nicht vom Hintergrund abhebt.
