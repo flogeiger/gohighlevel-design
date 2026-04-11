@@ -1,0 +1,276 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/RecurringInvoices" />
+
+# Wiederkehrende Rechnungen
+
+Die **Recurring Invoices**-Seite (`#listRecurringInvoices`) gehört zum Bereich „Invoices & Estimates" und listet alle automatisch geplanten Rechnungen. Sie enthält einen Info-Alert mit Gateway-CTA, Suchfeld, Filter-Button mit Popover und eine NaïveUI DataTable. Buttons nutzen `html body`-Präfix für NaïveUI-Variablen-Override.
+
+<img src="/WiederkehrendeRechnungen.png" alt="Wiederkehrende Rechnungen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#listRecurringInvoices` |
+| „Einstellungen"-Button | `#pg-recurring-templates_btn-settings` |
+| „+ Neu"-Button | `#create-invoice-btn` |
+| Info-Alert | `#payment-integration-alert` |
+| Gateway-Button | `#pg-recurring-templates__btn_resolve_stripe_connection_alert` |
+| Suchfeld | `#hl-table-recurring-templates-filter-text-search` |
+| Filter-Button | `#listRecurringInvoices .hl-table-filter-btn` |
+| DataTable | `#listRecurringInvoices .n-data-table` |
+| Filter-Popover | `.v-binder-follower-content .n-popover` |
+| Select-Dropdown | `.n-base-select-menu` |
+
+---
+
+## 124.1 – Header & Alert
+
+```css
+/* ── 124.1 Seitenhintergrund & Titel ── */
+html body #listRecurringInvoices .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #listRecurringInvoices .hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+html body #listRecurringInvoices .hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „Einstellungen" → outline neutral */
+html body #pg-recurring-templates_btn-settings {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #pg-recurring-templates_btn-settings .n-button__content,
+html body #pg-recurring-templates_btn-settings svg {
+  color: var(--ink-2) !important;
+}
+html body #pg-recurring-templates_btn-settings:hover .n-button__content,
+html body #pg-recurring-templates_btn-settings:hover svg {
+  color: var(--wine) !important;
+}
+html body #pg-recurring-templates_btn-settings:hover {
+  border-color: var(--wine) !important;
+}
+html body #pg-recurring-templates_btn-settings .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „+ Neu" → wine solid */
+html body #create-invoice-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #create-invoice-btn:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #create-invoice-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Info-Alert → wine-toned */
+html body #payment-integration-alert {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine-a20) !important;
+}
+html body #payment-integration-alert .n-alert__icon svg {
+  color: var(--wine) !important;
+}
+html body #payment-integration-alert .hl-text-sm-medium {
+  color: var(--ink) !important;
+}
+html body #payment-integration-alert .n-base-close {
+  color: var(--ink-3) !important;
+}
+
+/* „Integrate Payment Gateway" → outline neutral */
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert:hover {
+  border-color: var(--wine) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 124.2 – Suchfeld & Filter-Button
+
+```css
+/* ── 124.2 Suchfeld ── */
+html body #hl-table-recurring-templates-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #hl-table-recurring-templates-filter-text-search .n-input__prefix svg,
+html body #hl-table-recurring-templates-filter-text-search .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #hl-table-recurring-templates-filter-text-search .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Filter-Button → outline neutral */
+html body #listRecurringInvoices .hl-table-filter-btn {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn:hover {
+  border-color: var(--wine) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 124.3 – DataTable & Empty State
+
+```css
+/* ── 124.3 DataTable ── */
+html body #listRecurringInvoices .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+
+/* Empty State */
+html body #listRecurringInvoices .hl-empty-icon svg {
+  color: var(--ink-3) !important;
+}
+html body #listRecurringInvoices .hl-empty-title {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 124b – Filter-Popover & Select-Dropdown
+
+```css
+/* ── 124b Popover BG & Header ── */
+html body .v-binder-follower-content .n-popover {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body .v-binder-follower-content .n-popover__header .title {
+  color: var(--ink) !important;
+}
+html body .v-binder-follower-content .n-popover__content {
+  background-color: var(--surface) !important;
+}
+
+/* „Löschen" / „Anwenden" → wine */
+html body #hl-table-recurring-templates-filter-clear .n-button__content,
+html body #hl-table-recurring-templates-filter-apply .n-button__content {
+  color: var(--wine) !important;
+}
+html body #hl-table-recurring-templates-filter-clear:hover .n-button__content,
+html body #hl-table-recurring-templates-filter-apply:hover .n-button__content {
+  color: var(--wine-2) !important;
+}
+
+/* Collapse Items */
+html body .v-binder-follower-content .n-collapse-item__header-main {
+  color: var(--ink-2) !important;
+}
+html body .v-binder-follower-content .n-collapse-item-arrow svg {
+  color: var(--ink-3) !important;
+}
+
+/* Filter-Select → wine Focus */
+html body .v-binder-follower-content .n-select .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+html body .v-binder-follower-content .n-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+html body .v-binder-follower-content .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Select-Dropdown Menü */
+html body .n-base-select-menu {
+  background-color: var(--surface) !important;
+  --n-color:                    var(--surface) !important;
+  --n-option-color-pending:     var(--wine-lt) !important;
+  --n-option-text-color:        var(--ink-2) !important;
+  --n-option-text-color-active: var(--wine) !important;
+  --n-option-check-color:       var(--wine) !important;
+  --n-loading-color:            var(--wine) !important;
+}
+html body .n-base-select-option .n-base-select-option__content p {
+  color: var(--ink-2) !important;
+}
+html body .n-base-select-option--pending {
+  background-color: var(--wine-lt) !important;
+}
+html body .n-base-select-option--pending .n-base-select-option__content p {
+  color: var(--wine) !important;
+}
+html body .n-base-select-option--selected .n-base-select-option__content p {
+  color: var(--wine) !important;
+}
+html body .n-base-select-option--selected .n-base-icon svg {
+  color: var(--wine) !important;
+}
+html body .n-base-select-option__content span {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`html body`-Präfix für alle Button-Variablen:** Diese Seite setzt NaïveUI-Variablen (`--n-color`, `--n-ripple-color` etc.) konsequent über den `html body`-Präfix — konsistent mit dem Muster aus Section 114.5 (Global Pagination Fix) und Section 122.3 (Steuer-Settings).
+
+**Info-Alert als wine-toned:** Der Payment-Gateway-Alert (`#payment-integration-alert`) wird hier auf `var(--wine-lt)` umgefärbt — die Standardversion in Section 110 (Invoices) verwendet dieselbe ID, aber mit einem wine-Border-Ansatz. Da GHL immer nur eine Seite gleichzeitig rendert, ist kein Konflikt möglich.
+
+**`.n-base-select-menu` global:** Das Select-Dropdown wird wie `.v-binder-follower-content` außerhalb des Root-DOM gemountet und ist daher ohne Parent-Scope. Der globale Selektor trifft alle offenen Dropdowns — da GHL immer nur eines gleichzeitig öffnet, entstehen keine Konflikte.
+
+**`n-button__state-border { border-width: 0 }` als Pattern:** Alle Buttons auf dieser Seite nutzen dieses Muster statt `display: none` — technisch äquivalent, aber konsistenter mit dem NaïveUI-Lifecycle (der State-Border wird beim Hover/Focus dynamisch gesetzt).

@@ -9699,6 +9699,244 @@ button#notes-filter-clear-all:hover .hr-button__content {
   color: var(--akzent-dunkel) !important;
 }
 
+/* ============================================================
+   SECTION 123 — Wiederkehrende Rechnungen
+   (#listRecurringInvoices)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #listRecurringInvoices .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+html body #listRecurringInvoices .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #listRecurringInvoices .hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Einstellungen" Button → outline neutral → wine hover ── */
+html body #pg-recurring-templates_btn-settings {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #pg-recurring-templates_btn-settings .n-button__content,
+html body #pg-recurring-templates_btn-settings svg {
+  color: var(--nav-hover) !important;
+}
+html body #pg-recurring-templates_btn-settings:hover .n-button__content,
+html body #pg-recurring-templates_btn-settings:hover svg {
+  color: var(--akzent) !important;
+}
+html body #pg-recurring-templates_btn-settings:hover {
+  border-color: var(--akzent) !important;
+}
+html body #pg-recurring-templates_btn-settings .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Neu" Button → wine solid ── */
+html body #create-invoice-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #create-invoice-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #create-invoice-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Info-Alert (payment-integration-alert) → wine-toned ── */
+html body #payment-integration-alert {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent-a20) !important;
+}
+html body #payment-integration-alert .n-alert__icon svg {
+  color: var(--akzent) !important;
+}
+html body #payment-integration-alert .hl-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #payment-integration-alert .n-base-close {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Zahlungsgateway einbinden" Button → outline neutral → wine hover ── */
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert:hover {
+  border-color: var(--akzent) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #pg-recurring-templates__btn_resolve_stripe_connection_alert .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+html body #hl-table-recurring-templates-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #hl-table-recurring-templates-filter-text-search .n-input__prefix svg,
+html body #hl-table-recurring-templates-filter-text-search .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #hl-table-recurring-templates-filter-text-search .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Filter-Button → outline neutral → wine hover ── */
+html body #listRecurringInvoices .hl-table-filter-btn {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #listRecurringInvoices .hl-table-filter-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table BG & Border ── */
+html body #listRecurringInvoices .n-data-table {
+  --n-th-color:      var(--hintergrund) !important;
+  --n-td-color:      var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:  var(--linie-stark) !important;
+  --n-th-text-color: var(--nav-farbe) !important;
+  --n-td-text-color: var(--nav-hover) !important;
+  --n-loading-color: var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #listRecurringInvoices .hl-empty-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #listRecurringInvoices .hl-empty-title {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ============================================================
+   SECTION 123.1 — Filter-Popover (recurring invoices)
+   (.n-popover via v-binder-follower-content)
+   ============================================================ */
+
+html body .v-binder-follower-content .n-popover {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Popover Header ── */
+html body .v-binder-follower-content .n-popover__header .title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Löschen" / "Anwenden" Text-Buttons → wine ── */
+html body #hl-table-recurring-templates-filter-clear .n-button__content,
+html body #hl-table-recurring-templates-filter-apply .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #hl-table-recurring-templates-filter-clear:hover .n-button__content,
+html body #hl-table-recurring-templates-filter-apply:hover .n-button__content {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Collapse Items (Rechnungsstatus / Zahlungsmodus) ── */
+html body .v-binder-follower-content .n-collapse-item__header-main {
+  color: var(--nav-hover) !important;
+}
+html body .v-binder-follower-content .n-collapse-item-arrow svg {
+  color: var(--text-gedaempft) !important;
+}
+html body .v-binder-follower-content .n-popover__content {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Filter-Popover: Select (Rechnungsstatus) → wine ── */
+html body .v-binder-follower-content .n-select .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color: var(--akzent) !important;
+}
+html body .v-binder-follower-content .n-base-selection-input__content {
+  color: var(--nav-hover) !important;
+}
+html body .v-binder-follower-content .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Select-Dropdown Menü BG ── */
+html body .n-base-select-menu {
+  background-color: var(--hintergrund-karte) !important;
+  --n-color:                    var(--hintergrund-karte) !important;
+  --n-option-color-pending:     var(--akzent-hell) !important;
+  --n-option-text-color:        var(--nav-hover) !important;
+  --n-option-text-color-active: var(--akzent) !important;
+  --n-option-check-color:       var(--akzent) !important;
+  --n-loading-color:            var(--akzent) !important;
+}
+
+/* ── Optionen: normal ── */
+html body .n-base-select-option .n-base-select-option__content p {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Optionen: pending (hover) → wine-hell BG ── */
+html body .n-base-select-option--pending {
+  background-color: var(--akzent-hell) !important;
+}
+html body .n-base-select-option--pending .n-base-select-option__content p {
+  color: var(--akzent) !important;
+}
+
+/* ── Optionen: selected → wine Checkmark ── */
+html body .n-base-select-option--selected .n-base-select-option__content p {
+  color: var(--akzent) !important;
+}
+html body .n-base-select-option--selected .n-base-icon svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Unter-Label (gray-500 span) ── */
+html body .n-base-select-option__content span {
+  color: var(--text-gedaempft) !important;
+}
+
+
+
 
 /* ============================================================
    SECTION 110 — Dateien und Verträge (#ProposalEstimatesListApp)
