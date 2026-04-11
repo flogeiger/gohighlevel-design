@@ -1,0 +1,282 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/EstimateTemplateEditor" />
+
+# Estimate Template Editor
+
+Der **Estimate Template Editor** (`#estimatesTemplateApp`) ist die Vorlage-Variante des Invoice Editors — strukturell identisch mit zweigeteiltem Layout (links Konfiguration, rechts Live-Preview „ESTIMATE"), aber mit einem Prefix-Input (`#estimate-prefix-input`) statt Rechnungsnummer-Feldern und einem einzigen **„Save"-Button** (kein „Send"). Die Preview-Sektion zeigt einen Kostenvoranschlag mit Ablaufdatum.
+
+<img src="/EstimateTemplateEditor.png" alt="Estimate Template Editor" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#estimatesTemplateApp` |
+| Toolbar | `#estimatesTemplateApp .hl-toolbar` |
+| Back-Button | `#estimatesTemplateApp #btn-1` |
+| Template Name Input | `#estimate-template-name` |
+| Save-Button | `#editor-send-customer-save` |
+| Linke Sektion | `#estimatesTemplateApp #left-section` |
+| Prefix-Input | `#estimate-prefix-input` |
+| Tax Toggle | `#estimatesTemplateApp .n-switch` |
+| Produkt-Tabelle Header | `#estimatesTemplateApp .flex.pl-2.w-full.justify-evenly` |
+| Empty State Button | `#hl-enmpty__custom-actions-slot-button` |
+| Rich Text Toolbar | `#estimatesTemplateApp #editor-toolbar` |
+| Preview | `#estimates-notes-preview-section`, `#estimatesTemplateApp #estimate` |
+
+---
+
+## 129.1 – Toolbar
+
+```css
+/* ── 129.1 Toolbar ── */
+html body #estimatesTemplateApp .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #estimatesTemplateApp .hl-toolbar {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Back-Button */
+html body #estimatesTemplateApp #btn-1 .n-button__content,
+html body #estimatesTemplateApp #btn-1 svg,
+html body #estimatesTemplateApp #btn-1 span {
+  color: var(--ink-2) !important;
+}
+
+/* Template Name Input */
+html body #estimate-template-name {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #estimate-template-name .n-input__input-el,
+html body #estimate-template-name .n-input__prefix svg {
+  color: var(--ink-2) !important;
+}
+html body #estimate-template-name .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* „Save" → wine solid */
+html body #editor-send-customer-save {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #editor-send-customer-save:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #editor-send-customer-save .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 129.2 – Konfigurations-Sektion
+
+```css
+/* ── 129.2 Linke Sektion ── */
+html body #estimatesTemplateApp #left-section {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #estimatesTemplateApp .hl-text-lg-medium,
+html body #estimatesTemplateApp .hl-text-md-medium {
+  color: var(--ink) !important;
+}
+html body #estimatesTemplateApp .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+
+/* Prefix-Input */
+html body #estimate-prefix-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #estimate-prefix-input .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #estimate-prefix-input .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Tax Toggle → wine */
+html body #estimatesTemplateApp .n-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+}
+```
+
+---
+
+## 129.3 – Produkttabelle, Links & Empty State
+
+```css
+/* ── 129.3 Produkt-Tabellen-Header ── */
+html body #estimatesTemplateApp .flex.pl-2.w-full.justify-evenly {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #estimatesTemplateApp .flex.pl-2.w-full.justify-evenly div {
+  color: var(--ink-3) !important;
+}
+
+/* Action-Links → wine */
+html body #estimatesTemplateApp .text-primary-700 {
+  color: var(--wine) !important;
+}
+
+/* Tabellen-Border */
+html body #estimatesTemplateApp .border.border-gray-300.rounded-lg {
+  border-color: var(--line-hard) !important;
+}
+
+/* Empty State */
+html body #estimatesTemplateApp .hl-empty-description {
+  color: var(--ink-3) !important;
+}
+html body #estimatesTemplateApp #hl-enmpty__custom-actions-slot-button {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #estimatesTemplateApp #hl-enmpty__custom-actions-slot-button .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #estimatesTemplateApp #hl-enmpty__custom-actions-slot-button:hover {
+  border-color: var(--wine) !important;
+}
+html body #estimatesTemplateApp #hl-enmpty__custom-actions-slot-button:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #estimatesTemplateApp #hl-enmpty__custom-actions-slot-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Checkboxen → wine */
+html body #estimatesTemplateApp .n-checkbox {
+  --n-border-checked:   1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-color-checked:    var(--wine) !important;
+}
+html body #estimatesTemplateApp .n-checkbox .n-checkbox-box__border {
+  border-color: var(--line-hard) !important;
+}
+html body #estimatesTemplateApp .n-checkbox__label {
+  color: var(--ink-2) !important;
+}
+
+/* Divider */
+html body #estimatesTemplateApp .n-divider__line {
+  background-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## 129.4 – Rich Text Editor & Preview
+
+```css
+/* ── 129.4 Rich Text Editor ── */
+html body #estimatesTemplateApp #editor-toolbar {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #estimatesTemplateApp .toolbar_button {
+  color: var(--ink-2) !important;
+}
+html body #estimatesTemplateApp .toolbar_button:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+}
+html body #estimatesTemplateApp .toolbar_button svg {
+  color: var(--ink-2) !important;
+}
+html body #estimatesTemplateApp #rte-custom-values {
+  color: var(--ink-2) !important;
+}
+html body #estimatesTemplateApp #rte-custom-values:hover {
+  color: var(--wine) !important;
+}
+
+/* Toolbar Selects → wine */
+html body #estimatesTemplateApp .n-select .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+}
+html body #estimatesTemplateApp .n-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+html body #estimatesTemplateApp .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Editor-Bereich */
+html body #estimatesTemplateApp .editor-wrapper {
+  background-color: var(--surface) !important;
+}
+html body #estimatesTemplateApp .tiptap {
+  color: var(--ink-2) !important;
+}
+
+/* Attachment Upload-Box */
+html body #estimatesTemplateApp .border-gray-300.rounded-md.bg-white {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #estimatesTemplateApp .text-blue-700 {
+  color: var(--wine) !important;
+}
+
+/* Live-Preview */
+html body #estimates-notes-preview-section {
+  background-color: var(--bg) !important;
+}
+html body #estimatesTemplateApp #estimate {
+  background-color: var(--surface) !important;
+}
+html body #estimatesTemplateApp #estimate .text-gray-500,
+html body #estimatesTemplateApp #estimate .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+html body #estimatesTemplateApp #estimate .text-black,
+html body #estimatesTemplateApp #estimate .font-medium {
+  color: var(--ink) !important;
+}
+html body #estimatesTemplateApp #estimate .border-b {
+  border-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`#editor-send-customer-save` als Save-Button:** Diese ID deutet auf einen ursprünglich kombinierten „Save & Send"-Button hin — im Estimate Template Editor fungiert er ausschließlich als „Save". Im Invoice Editor (Section 125) heißt der entsprechende Button `#invoice-editor-save`.
+
+**`#btn-1` als Back-Button (innerhalb Root-Scope):** Die ID `#btn-1` ist global — hier wird sie über `#estimatesTemplateApp #btn-1` gescoped, um Konflikte mit dem Back-Button auf anderen Seiten zu vermeiden (Section 115 Payment Link Editor nutzt dieselbe ID ohne Scope).
+
+**`#hl-enmpty__custom-actions-slot-button` — Tippfehler in der GHL-Codebase:** Die ID enthält „enmpty" statt „empty" — ein GHL-interner Tippfehler, der als-is übernommen werden muss. Der Selektor darf nicht korrigiert werden.
+
+**Produkt-Tabellen-Header via Layout-Klassen:** Im Gegensatz zum Invoice Editor (`.columns`) nutzt der Estimate Template Editor die Layout-Klasse `.flex.pl-2.w-full.justify-evenly` als Tabellen-Header-Selektor — kein semantischer Klassenname verfügbar.
