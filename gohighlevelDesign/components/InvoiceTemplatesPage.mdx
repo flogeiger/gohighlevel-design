@@ -1,0 +1,152 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/Templates" />
+
+# Invoice & Estimate Templates
+
+Die **Templates**-Seite (`#listTemplates`) verwaltet Vorlagen für Rechnungen und Kostenvoranschläge in zwei Tabs (Invoices / Estimates). Sie enthält ein Suchfeld, eine NaïveUI DataTable mit Hover-Highlight und einen Empty State mit Primary-Button. Der „+ New Template"-Button erscheint sowohl im Header als auch im Empty State.
+
+<img src="/InvoiceTemplates.png" alt="Invoice & Estimate Templates" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#listTemplates` |
+| „+ New Template"-Button (Header) | `#templates_btn-settings` |
+| Tab-Bar | `#listTemplates .hl-tabs` |
+| Suchfeld | `#hl-table-estimate-templates-filter-text-search` |
+| DataTable | `#listTemplates .n-data-table` |
+| Empty State Button | `#estimate-templates__empty-btn-positive-action` |
+
+---
+
+## 128.1 – Header
+
+```css
+/* ── 128.1 Seitenhintergrund & Titel ── */
+html body #listTemplates .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #listTemplates .hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+html body #listTemplates .hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „+ New Template" → wine solid */
+html body #templates_btn-settings {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #templates_btn-settings:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #templates_btn-settings .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 128.2 – Tab-Bar
+
+```css
+/* ── 128.2 Tabs → wine ── */
+html body #listTemplates .hl-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+  --n-tab-text-color:        var(--ink-2) !important;
+  --n-tab-border-color:      var(--line-hard) !important;
+}
+```
+
+---
+
+## 128.3 – Suchfeld & DataTable
+
+```css
+/* ── 128.3 Suchfeld → wine Focus ── */
+html body #hl-table-estimate-templates-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #hl-table-estimate-templates-filter-text-search .n-input__prefix svg,
+html body #hl-table-estimate-templates-filter-text-search .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #hl-table-estimate-templates-filter-text-search .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* DataTable */
+html body #listTemplates .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+```
+
+---
+
+## 128.4 – Empty State
+
+```css
+/* ── 128.4 Empty State ── */
+html body #listTemplates .hl-empty-icon svg {
+  color: var(--ink-3) !important;
+}
+html body #listTemplates .hl-empty-title {
+  color: var(--ink-3) !important;
+}
+
+/* „+ New Template" Empty State → wine solid */
+html body #estimate-templates__empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:           var(--wine) !important;
+  --n-color-hover:     var(--wine-2) !important;
+  --n-ripple-color:    var(--wine) !important;
+  --n-border:          1px solid var(--wine) !important;
+  --n-border-hover:    1px solid var(--wine-2) !important;
+  --n-border-pressed:  1px solid var(--wine) !important;
+  --n-border-focus:    1px solid var(--wine-2) !important;
+  --n-border-disabled: 1px solid var(--wine) !important;
+}
+html body #estimate-templates__empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #estimate-templates__empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`#templates_btn-settings` als Header-Button:** Die ID endet auf `_btn-settings` — ein ungewöhnliches Namensschema für einen „New Template"-Button, vermutlich ein Legacy-Name aus dem GHL-Codebase. Der Button öffnet das Formular zur Erstellung einer neuen Vorlage, nicht die Einstellungen.
+
+**`.hl-tabs` mit NaïveUI-Variablen:** Die Tab-Bar nutzt das `.hl-tabs`-Wrapper-Pattern mit NaïveUI-internen Variablen (`--n-bar-color`, `--n-tab-text-color-active`). Im Gegensatz zu den Tabs auf anderen Seiten (z.B. Section 119 Product Reviews mit `.n-tabs-bar`) ist hier `.hl-tabs` der korrekte Scope.
+
+**Gleiche Empty-State-Button-ID für beide Tabs:** `#estimate-templates__empty-btn-positive-action` erscheint sowohl im Invoices- als auch im Estimates-Tab — GHL rendert den Button dynamisch je nach aktivem Tab, beide Male mit derselben ID.
+
+**Vollständiges `--n-border-*`-Set auf Empty-State-Button:** Wie beim `#send-btn` in Section 125 werden alle fünf Border-States explizit gesetzt — verhindert blaues Border-Durchblitzen in Edge-Cases beim Tab-Wechsel.

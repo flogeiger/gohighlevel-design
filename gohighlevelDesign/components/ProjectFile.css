@@ -10680,6 +10680,111 @@ html body #cancel-import-footer-btn-positive-action .n-button__state-border {
   border-width: 0 !important;
 }
 
+/* ============================================================
+   SECTION 127 — Invoice/Estimate Templates
+   (#listTemplates)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #listTemplates .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+html body #listTemplates .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #listTemplates .hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Neue Vorlage" Button → wine solid ── */
+html body #templates_btn-settings {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #templates_btn-settings:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #templates_btn-settings .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Tabs (Rechnungen / Kostenvoranschläge) → wine ── */
+html body #listTemplates .hl-tabs {
+  --n-bar-color:            var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent) !important;
+  --n-tab-text-color-hover:  var(--akzent) !important;
+  --n-tab-text-color:        var(--nav-hover) !important;
+  --n-tab-border-color:      var(--linie-stark) !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+html body #hl-table-estimate-templates-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #hl-table-estimate-templates-filter-text-search .n-input__prefix svg,
+html body #hl-table-estimate-templates-filter-text-search .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #hl-table-estimate-templates-filter-text-search .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table ── */
+html body #listTemplates .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #listTemplates .hl-empty-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #listTemplates .hl-empty-title {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Empty State "New Template" Button → wine solid ── */
+html body #estimate-templates__empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #estimate-templates__empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #estimate-templates__empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+html body #estimate-templates__empty-btn-positive-action {
+  --n-border:          1px solid var(--akzent) !important;
+  --n-border-hover:    1px solid var(--akzent-dunkel) !important;
+  --n-border-pressed:  1px solid var(--akzent) !important;
+  --n-border-focus:    1px solid var(--akzent-dunkel) !important;
+  --n-border-disabled: 1px solid var(--akzent) !important;
+}
+
 
 
 
