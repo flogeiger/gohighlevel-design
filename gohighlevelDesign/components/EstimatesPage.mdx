@@ -1,0 +1,204 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/Estimates" />
+
+# Estimates
+
+Die **Estimates**-Seite (`#estimatesDashboardApp`) listet alle Kostenvoranschläge mit vier Statistik-Karten (Sent, Accepted, Declined, Invoiced), sechs Status-Tabs (All / Draft / Sent / Accepted / Declined / Invoiced), Datepicker, Suchfeld und NaïveUI DataTable. Zwei Buttons im Header: „Settings" (outline) und „+ New Estimate" (wine solid).
+
+<img src="/Estimates.png" alt="Estimates Dashboard" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#estimatesDashboardApp` |
+| „Settings"-Button | `#estimates-header-btn-secondary` |
+| „+ New Estimate"-Button (Header) | `#estimates-header-btn-primary` |
+| Statistik-Karten | `#estimatesDashboardApp .hl-statistic` |
+| Tab-Bar | `#estimatesDashboardApp .hl-tabs` |
+| Datepicker | `#estimates-date-range` |
+| Suchfeld | `#hl-table-estimates-table-filter-text-search` |
+| DataTable | `#estimatesDashboardApp .n-data-table` |
+| Empty State Button | `#estimates__empty-btn-positive-action` |
+
+---
+
+## 130.1 – Header & Buttons
+
+```css
+/* ── 130.1 Seitenhintergrund & Titel ── */
+html body #estimatesDashboardApp .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #estimatesDashboardApp .hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+html body #estimatesDashboardApp .hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „Settings" → outline neutral */
+html body #estimates-header-btn-secondary {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #estimates-header-btn-secondary .n-button__content,
+html body #estimates-header-btn-secondary svg {
+  color: var(--ink-2) !important;
+}
+html body #estimates-header-btn-secondary:hover {
+  border-color: var(--wine) !important;
+}
+html body #estimates-header-btn-secondary:hover .n-button__content,
+html body #estimates-header-btn-secondary:hover svg {
+  color: var(--wine) !important;
+}
+html body #estimates-header-btn-secondary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „+ New Estimate" → wine solid */
+html body #estimates-header-btn-primary {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #estimates-header-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #estimates-header-btn-primary .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 130.2 – Statistik-Karten
+
+```css
+/* ── 130.2 Statistik-Karten ── */
+html body #estimatesDashboardApp .hl-statistic {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #estimatesDashboardApp .hl-statistic .title {
+  color: var(--ink-3) !important;
+}
+html body #estimatesDashboardApp .hl-statistic .hl-display-sm-semibold {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 130.3 – Tabs, Datepicker & Suchfeld
+
+```css
+/* ── 130.3 Tabs → wine ── */
+html body #estimatesDashboardApp .hl-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+  --n-tab-text-color:        var(--ink-2) !important;
+  --n-tab-border-color:      var(--line-hard) !important;
+}
+
+/* Datepicker → wine Focus */
+html body #estimates-date-range .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #estimates-date-range .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #estimates-date-range .n-input__separator svg {
+  color: var(--ink-3) !important;
+}
+html body #estimates-date-range .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Suchfeld → wine Focus */
+html body #hl-table-estimates-table-filter-text-search {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #hl-table-estimates-table-filter-text-search .n-input__prefix svg,
+html body #hl-table-estimates-table-filter-text-search .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #hl-table-estimates-table-filter-text-search .n-input__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 130.4 – DataTable & Empty State
+
+```css
+/* ── 130.4 DataTable ── */
+html body #estimatesDashboardApp .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+
+/* Empty State */
+html body #estimatesDashboardApp .hl-empty-icon svg {
+  color: var(--ink-3) !important;
+}
+html body #estimatesDashboardApp .hl-empty-title {
+  color: var(--ink-3) !important;
+}
+
+/* „+ New Estimate" Empty State → wine solid */
+html body #estimates__empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #estimates__empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #estimates__empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Sechs Status-Tabs** statt der üblichen zwei oder vier: All / Draft / Sent / Accepted / Declined / Invoiced — alle über `#estimatesDashboardApp .hl-tabs` abgedeckt, kein Tab hat eine eigene ID.
+
+**Vier Statistik-Karten** (sent, accepted, declined, invoiced) — identisches Pattern wie Section 110 (Invoices, dort drei Karten), aber mit `.hl-statistic` statt `.hl-statistic-card`. Kein Lift-Hover-Effekt — abweichend von Section 110.
+
+**Datepicker ohne Kalender-Icon-Selektor:** `#estimates-date-range` nutzt `.n-input__separator svg` für den Pfeil zwischen Start- und Enddatum — nicht `.n-base-icon svg` wie bei anderen Datepickern. Konsistent mit Section 124 (Recurring Invoices).
+
+**`#estimates__empty-btn-positive-action` doppelt vorhanden:** Der Empty-State-Button erscheint für jeden der sechs Tabs — GHL rendert ihn dynamisch mit derselben ID. Da immer nur ein Tab aktiv ist, gibt es keinen DOM-Konflikt.

@@ -11012,6 +11012,156 @@ html body #estimatesTemplateApp #estimate .border-b {
   border-color: var(--linie-stark) !important;
 }
 
+/* ============================================================
+   SECTION 129 — Estimates Dashboard
+   (#estimatesDashboardApp)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #estimatesDashboardApp .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+html body #estimatesDashboardApp .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #estimatesDashboardApp .hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Settings" Button → outline neutral → wine hover ── */
+html body #estimates-header-btn-secondary {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #estimates-header-btn-secondary .n-button__content,
+html body #estimates-header-btn-secondary svg {
+  color: var(--nav-hover) !important;
+}
+html body #estimates-header-btn-secondary:hover {
+  border-color: var(--akzent) !important;
+}
+html body #estimates-header-btn-secondary:hover .n-button__content,
+html body #estimates-header-btn-secondary:hover svg {
+  color: var(--akzent) !important;
+}
+html body #estimates-header-btn-secondary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "New Estimate" Button → wine solid ── */
+html body #estimates-header-btn-primary {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-border:        1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:  var(--akzent) !important;
+}
+html body #estimates-header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #estimates-header-btn-primary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Statistik-Karten ── */
+html body #estimatesDashboardApp .hl-statistic {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #estimatesDashboardApp .hl-statistic .title {
+  color: var(--text-gedaempft) !important;
+}
+html body #estimatesDashboardApp .hl-statistic .hl-display-sm-semibold {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabs → wine ── */
+html body #estimatesDashboardApp .hl-tabs {
+  --n-bar-color:             var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent) !important;
+  --n-tab-text-color-hover:  var(--akzent) !important;
+  --n-tab-text-color:        var(--nav-hover) !important;
+  --n-tab-border-color:      var(--linie-stark) !important;
+}
+
+/* ── Date Range Picker → wine Focus ── */
+html body #estimates-date-range .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-border-focus: 1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:  var(--akzent) !important;
+}
+html body #estimates-date-range .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #estimates-date-range .n-input__separator svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #estimates-date-range .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+html body #hl-table-estimates-table-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #hl-table-estimates-table-filter-text-search .n-input__prefix svg,
+html body #hl-table-estimates-table-filter-text-search .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #hl-table-estimates-table-filter-text-search .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table ── */
+html body #estimatesDashboardApp .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #estimatesDashboardApp .hl-empty-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #estimatesDashboardApp .hl-empty-title {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Empty "New Estimate" Button → wine solid ── */
+html body #estimates__empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #estimates__empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #estimates__empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
 
 
 /* ============================================================
