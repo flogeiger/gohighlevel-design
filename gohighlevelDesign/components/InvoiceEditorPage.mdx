@@ -1,0 +1,391 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/InvoiceEditor" />
+
+# Invoice Editor
+
+Der **Invoice Editor** (`#invoiceEditor`) ist ein zweigeteiltes Layout: links das Konfigurationsformular mit Business/Customer Info, Invoice Settings, Produkttabelle und Rich Text Editor — rechts eine Live-Preview der Rechnung. Die Toolbar enthält Back, Name-Input, Menü-Trigger, Save (outline) und Send (wine solid).
+
+<img src="/InvoiceEditor.png" alt="Invoice Editor" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#invoiceEditor` |
+| Toolbar | `#invoiceEditor .hl-toolbar` |
+| Back-Button | `#back-btn` |
+| Name-Input | `#invoice-name` |
+| Menü-Trigger | `#menu-trigger` |
+| Save-Button | `#invoice-editor-save` |
+| Send-Button | `#send-btn` |
+| Info-Alert | `#invoiceEditor #payment-integration-alert` |
+| Gateway-Button | `#pg-invoice-editor__btn_resolve_stripe_connection_alert` |
+| Konfigurations-Sektion | `#invoiceEditor .configuration-section` |
+| Produkt-Tabellen-Header | `#invoiceEditor .columns` |
+| Rich Text Toolbar | `#invoiceEditor #editor-toolbar` |
+| Editor-Bereich | `#invoiceEditor .editor-wrapper` |
+| Preview | `#invoiceEditor .preview-section` |
+
+---
+
+## 125.1 – Toolbar
+
+```css
+/* ── 125.1 Toolbar ── */
+html body #invoiceEditor .hl-toolbar {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Back-Button */
+html body #back-btn .n-button__content,
+html body #back-btn .n-button__content svg,
+html body #back-btn .n-button__content p {
+  color: var(--ink-2) !important;
+}
+html body #back-btn:hover .n-button__content,
+html body #back-btn:hover svg {
+  color: var(--wine) !important;
+}
+
+/* Name-Input */
+html body #invoice-name {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #invoice-name .n-input__input-el,
+html body #invoice-name .n-input__prefix svg {
+  color: var(--ink-2) !important;
+}
+html body #invoice-name .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Menü-Trigger */
+html body #menu-trigger {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #menu-trigger svg {
+  color: var(--ink-2) !important;
+}
+html body #menu-trigger:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Save → outline neutral */
+html body #invoice-editor-save {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #invoice-editor-save .n-button__content,
+html body #invoice-editor-save .n-button__content svg {
+  color: var(--ink-2) !important;
+}
+html body #invoice-editor-save:hover {
+  border-color: var(--wine) !important;
+}
+html body #invoice-editor-save:hover .n-button__content,
+html body #invoice-editor-save:hover svg {
+  color: var(--wine) !important;
+}
+html body #invoice-editor-save .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Send → wine solid */
+html body #send-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:           var(--wine) !important;
+  --n-color-hover:     var(--wine-2) !important;
+  --n-ripple-color:    var(--wine) !important;
+  --n-border:          1px solid var(--wine) !important;
+  --n-border-hover:    1px solid var(--wine-2) !important;
+  --n-border-pressed:  1px solid var(--wine) !important;
+  --n-border-focus:    1px solid var(--wine-2) !important;
+}
+html body #send-btn:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #send-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 125.2 – Konfigurations-Sektion & Alert
+
+```css
+/* ── 125.2 Konfigurations-Sektion ── */
+html body #invoiceEditor .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #invoiceEditor .configuration-section {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #invoiceEditor .hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+html body #invoiceEditor .text-gray-500,
+html body #invoiceEditor .hl-text-sm-regular {
+  color: var(--ink-3) !important;
+}
+html body #invoiceEditor .n-form-item-label__text {
+  color: var(--ink-2) !important;
+}
+html body #invoiceEditor .n-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+
+/* Info-Alert → wine-toned */
+html body #invoiceEditor #payment-integration-alert {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine-a20) !important;
+}
+html body #invoiceEditor #payment-integration-alert .n-alert__icon svg {
+  color: var(--wine) !important;
+}
+html body #invoiceEditor #payment-integration-alert .hl-text-sm-medium {
+  color: var(--ink) !important;
+}
+
+/* Gateway-Button → outline neutral */
+html body #pg-invoice-editor__btn_resolve_stripe_connection_alert {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #pg-invoice-editor__btn_resolve_stripe_connection_alert .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #pg-invoice-editor__btn_resolve_stripe_connection_alert:hover {
+  border-color: var(--wine) !important;
+}
+html body #pg-invoice-editor__btn_resolve_stripe_connection_alert:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #pg-invoice-editor__btn_resolve_stripe_connection_alert .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 125.3 – Formular: Inputs, Selects, Checkboxen, Radio & Toggle
+
+```css
+/* ── 125.3 Text-Inputs → wine Focus ── */
+html body #invoiceEditor .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #invoiceEditor .n-input .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #invoiceEditor .n-input .n-input__state-border {
+  border-width: 0 !important;
+}
+html body #invoiceEditor .n-input .n-input__prefix {
+  color: var(--ink-3) !important;
+}
+
+/* Selects → wine Focus */
+html body #invoiceEditor .n-select .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:       var(--wine) !important;
+}
+html body #invoiceEditor .n-base-selection-input__content,
+html body #invoiceEditor .n-base-selection-overlay__wrapper {
+  color: var(--ink-3) !important;
+}
+html body #invoiceEditor .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Date Picker → wine Focus */
+html body #issue-date-picker .n-input,
+html body #due-date-picker .n-input {
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+}
+
+/* Checkboxen → wine */
+html body #invoiceEditor .n-checkbox {
+  --n-border-checked:   1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-color-checked:    var(--wine) !important;
+}
+html body #invoiceEditor .n-checkbox .n-checkbox-box__border {
+  border-color: var(--line-hard) !important;
+}
+html body #invoiceEditor .n-checkbox__label {
+  color: var(--ink-2) !important;
+}
+
+/* Radio-Buttons → wine */
+html body #invoiceEditor .n-radio {
+  --n-dot-color-active:  var(--wine) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--wine), 0 0 0 2px var(--wine-a20) !important;
+}
+html body #invoiceEditor .n-radio__dot--checked {
+  background-color: var(--wine) !important;
+}
+html body #invoiceEditor .n-radio__label {
+  color: var(--ink-2) !important;
+}
+
+/* Enable Tax Toggle → wine */
+html body #automatic-tax-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+}
+```
+
+---
+
+## 125.4 – Produkttabelle & Action-Links
+
+```css
+/* ── 125.4 Produkt-Tabellen-Header ── */
+html body #invoiceEditor .columns {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #invoiceEditor .columns p {
+  color: var(--ink-3) !important;
+}
+
+/* Action-Links → wine */
+html body #invoiceEditor .text-primary-700 {
+  color: var(--wine) !important;
+}
+html body #add-product-description-btn {
+  color: var(--wine) !important;
+}
+
+/* Zeilen-Icons */
+html body #invoiceEditor #products_section .w-\[15\%\].flex svg {
+  color: var(--ink-3) !important;
+}
+html body #invoiceEditor #products_section .w-\[15\%\].flex svg:hover {
+  color: var(--wine) !important;
+}
+
+/* Order Summary */
+html body #invoiceEditor .hl-text-md-medium {
+  color: var(--ink-2) !important;
+}
+
+/* Attachment Upload-Box */
+html body #invoiceEditor .border-dashed {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #invoiceEditor .border-dashed .text-blue-700 {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 125.5 – Rich Text Editor & Preview
+
+```css
+/* ── 125.5 Rich Text Editor ── */
+html body #invoiceEditor #editor-toolbar {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #invoiceEditor .toolbar_button {
+  color: var(--ink-2) !important;
+}
+html body #invoiceEditor .toolbar_button:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+}
+html body #invoiceEditor .toolbar_button svg {
+  color: var(--ink-2) !important;
+}
+
+/* Toolbar Selects */
+html body #toolbar_select--font_size .n-base-selection,
+html body #toolbar_select--text_block .n-base-selection,
+html body #toolbar_select--font_family .n-base-selection,
+html body #toolbar_select--line_height .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active: 1px solid var(--wine) !important;
+  --n-border-focus:  1px solid var(--wine) !important;
+  --n-border-hover:  1px solid var(--wine) !important;
+}
+html body #toolbar_select--font_size .n-base-selection-input__content,
+html body #toolbar_select--text_block .n-base-selection-input__content,
+html body #toolbar_select--font_family .n-base-selection-input__content,
+html body #toolbar_select--line_height .n-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+
+/* Editor-Bereich */
+html body #invoiceEditor .editor-wrapper {
+  background-color: var(--surface) !important;
+}
+html body #invoiceEditor .tiptap {
+  color: var(--ink-2) !important;
+}
+
+/* Live-Preview */
+html body #invoiceEditor .preview-section {
+  background-color: var(--bg) !important;
+}
+html body #invoiceEditor .preview-section .bg-gray-50 {
+  background-color: var(--bg) !important;
+}
+html body #invoiceEditor .preview-section .bg-white {
+  background-color: var(--surface) !important;
+}
+html body #invoiceEditor .preview-section .text-gray-500,
+html body #invoiceEditor .preview-section .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+html body #invoiceEditor .preview-section .text-black,
+html body #invoiceEditor .preview-section .font-medium {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`#send-btn` mit vollständigem `--n-border-*`-Set:** Der Send-Button benötigt alle vier Border-Zustände (`--n-border`, `--n-border-hover`, `--n-border-pressed`, `--n-border-focus`) explizit, weil GHL's NaïveUI-Version den Border aus einem internen Objekt ableitet — ohne alle vier würde in bestimmten States der blaue Default-Border durchblitzen.
+
+**`#invoice-name` in der Toolbar:** Das Name-Input ist ein spezielles Inline-Input direkt in der Toolbar — es bekommt denselben wine-Focus wie alle anderen Inputs, aber mit `border-color: var(--line-hard)` als Default statt `var(--surface)`, da die Toolbar selbst `--surface` ist.
+
+**`text-primary-700` als globaler Action-Link:** Der Selektor `.text-primary-700` trifft alle „Add Tax", „Add Discount" und „Add Payment Schedule"-Links — eine Tailwind-Klasse ohne spezifischere ID. Der `#invoiceEditor`-Parent-Scope verhindert Kollisionen mit anderen Seiten.
+
+**Zweigeteiltes Layout mit `configuration-section` und `preview-section`:** Beide Hälften haben eigene BG-Variablen — links `--surface`, rechts `--bg`. Die Preview-Karte selbst (`bg-white`) erhält wieder `--surface`.
