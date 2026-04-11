@@ -14499,6 +14499,336 @@ html body [aria-label="Payment settings navigation"] .ml-4 .router-link-active {
   font-weight:      700 !important;
 }
 
+/* ============================================================
+   SECTION 122 — Payment Integrations
+   (#PaymentIntegrationsPage)
+   Highrise v2 (hr-* Klassen)
+   ============================================================ */
+
+/* ── Outer Wrapper BG ── */
+html body #PaymentIntegrationsPage .hr-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Seitentitel & Beschreibung ── */
+html body #PaymentIntegrationsPage .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #PaymentIntegrationsPage .hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Configure providers" Button → wine solid ── */
+html body #configure-provider-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #configure-provider-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #configure-provider-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Haupt-Karte BG & Border ── */
+html body #PaymentIntegrationsPage .hr-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── "Search For More" Text-Link ── */
+html body #PaymentIntegrationsPage [role="navigation"][clickable] {
+  color: var(--akzent) !important;
+}
+html body #PaymentIntegrationsPage [role="navigation"][clickable]:hover {
+  color: var(--akzent-dunkel) !important;
+}
+
+/* ── Accordion Header (Connected / More Providers) ── */
+html body #PaymentIntegrationsPage .hl-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #PaymentIntegrationsPage .hr-collapse-item__header {
+  background-color: var(--hintergrund-karte) !important;
+}
+html body #PaymentIntegrationsPage .hr-collapse-item--icon svg {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Provider-Karten BG & Border ── */
+html body #PaymentIntegrationsPage [role="listitem"].hr-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Provider Name & Beschreibung ── */
+html body #PaymentIntegrationsPage [role="listitem"] h3 {
+  color: var(--nav-farbe) !important;
+}
+html body #PaymentIntegrationsPage [role="listitem"] p {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Connect" Buttons (secondary) → outline neutral → wine hover ── */
+html body #PaymentIntegrationsPage #manage-other-integration-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-color:        var(--hintergrund-karte) !important;
+  --n-color-hover:  var(--akzent-hell) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn .hr-text {
+  color: var(--nav-hover) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn:hover .hr-text {
+  color: var(--akzent) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Search For More" Button (unten) → outline neutral → wine hover ── */
+html body #explore-more-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #explore-more-btn .hr-text {
+  color: var(--nav-hover) !important;
+}
+html body #explore-more-btn:hover {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--akzent) !important;
+}
+html body #explore-more-btn:hover .hr-text {
+  color: var(--akzent) !important;
+}
+html body #explore-more-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Configure providers Button: Icon + Text weiß ── */
+html body #configure-provider-btn .hr-text,
+html body #configure-provider-btn .hr-text svg {
+  color:  var(--base-white) !important;
+  stroke: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 122.1 — Manage Payment Integrations
+   (#ManagePaymentIntegrationsPage)
+   Highrise v2 (hr-* Klassen)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #ManagePaymentIntegrationsPage .hr-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Zurück-Pfeil ── */
+html body #ManagePaymentIntegrationsPage .flex.justify-start a svg {
+  color: var(--nav-hover) !important;
+}
+html body #ManagePaymentIntegrationsPage .flex.justify-start a:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Seitentitel ── */
+html body #ManagePaymentIntegrationsPage .hr-text-4xl {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Bezahlung Verwalten" Button (secondary, disabled) → outline wine-gedämpft ── */
+html body #ManagePaymentIntegrationsPage #payment-methods-btn {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--akzent-a20) !important;
+}
+html body #ManagePaymentIntegrationsPage #payment-methods-btn .hr-text {
+  color: var(--akzent) !important;
+  opacity: 0.5;
+}
+html body #ManagePaymentIntegrationsPage #payment-methods-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Als Standard festlegen" Button (primary, disabled) → wine gedämpft ── */
+html body #ManagePaymentIntegrationsPage #default-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  opacity: 0.5;
+}
+html body #ManagePaymentIntegrationsPage #default-btn .hr-text,
+html body #ManagePaymentIntegrationsPage #default-btn .hr-text * {
+  color: var(--base-white) !important;
+}
+html body #ManagePaymentIntegrationsPage #default-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Stripe-Karte BG ── */
+html body #ManagePaymentIntegrationsPage .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── "Stripe" Titel in der Karte ── */
+html body #ManagePaymentIntegrationsPage .text-lg.mb-2 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Verbinden mit Stripe" Button → wine solid ── */
+html body #ManagePaymentIntegrationsPage #stripe-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #ManagePaymentIntegrationsPage #stripe-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #ManagePaymentIntegrationsPage #stripe-btn .hr-text,
+html body #ManagePaymentIntegrationsPage #stripe-btn .hr-text * {
+  color: var(--base-white) !important;
+}
+html body #ManagePaymentIntegrationsPage #stripe-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 122.2 — Manage Provider Configurations
+   (#ManageProviderConfigurationsPage)
+   Highrise v2 (hr-* Klassen)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #ManageProviderConfigurationsPage .hr-wrapper-container,
+html body #ManageProviderConfigurationsPage .expanded-bg {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header-Bereich BG ── */
+html body #ManageProviderConfigurationsPage .pb-2.px-3 {
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── Zurück-Pfeil ── */
+html body #ManageProviderConfigurationsPage [aria-label="Zurück"] svg {
+  color: var(--nav-hover) !important;
+}
+html body #ManageProviderConfigurationsPage [aria-label="Zurück"]:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Seitentitel & Untertitel ── */
+html body #ManageProviderConfigurationsPage .hr-header-lite-title {
+  color: var(--nav-farbe) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-header-lite-subtitle {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Live/Test Radio-Switcher → wine aktiv ── */
+html body #ManageProviderConfigurationsPage .hr-radio-button--checked {
+  background-color: var(--akzent-hell) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-radio-button--checked .hr-text {
+  color: var(--akzent) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-radio-button:not(.hr-radio-button--checked) .hr-text {
+  color: var(--text-gedaempft) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-radio-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table BG & Border ── */
+html body #ManageProviderConfigurationsPage .provider-table,
+html body #ManageProviderConfigurationsPage .hr-data-table-wrapper {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Tabellen-Header Zellen ── */
+html body #ManageProviderConfigurationsPage .hr-data-table__header {
+  background-color: var(--hintergrund) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__cell-header .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Tabellen-Zeilen ── */
+html body #ManageProviderConfigurationsPage .hr-data-table__body-row {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__body-row.odd {
+  background-color: var(--hintergrund) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__body-row-hover:hover {
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Kanal-Namen (Name-Spalte) ── */
+html body #ManageProviderConfigurationsPage .hr-data-table__body-cell .text-gray-600 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Plus-Buttons (Anbieter auswählen, disabled) ── */
+html body #ManageProviderConfigurationsPage [id^="provider-"] {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     transparent !important;
+}
+html body #ManageProviderConfigurationsPage [id^="provider-"] .hr-icon svg {
+  color: var(--akzent) !important;
+  opacity: 0.4;
+}
+html body #ManageProviderConfigurationsPage [id^="provider-"] .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Provider-Selektor Popover (v-binder-follower-content) ── */
+html body .v-binder-follower-content .n-popover,
+html body .v-binder-follower-content .hr-select-menu,
+html body .v-binder-follower-content .n-base-select-menu {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Popover-Optionen Text ── */
+html body .v-binder-follower-content .n-base-select-option__content,
+html body .v-binder-follower-content .hr-select-option {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Hover-State Optionen → wine ── */
+html body .v-binder-follower-content .n-base-select-option:hover,
+html body .v-binder-follower-content .hr-select-option:hover {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+}
+
+/* ── Aktive/Selektierte Option ── */
+html body .v-binder-follower-content .n-base-select-option--selected,
+html body .v-binder-follower-content .hr-select-option--selected {
+  color:            var(--akzent) !important;
+  background-color: var(--akzent-hell) !important;
+}
+
+/* ── Checkmark in selektierter Option ── */
+html body .v-binder-follower-content .n-base-select-option--selected svg {
+  color: var(--akzent) !important;
+}
+
 
 
 /* ============================================================

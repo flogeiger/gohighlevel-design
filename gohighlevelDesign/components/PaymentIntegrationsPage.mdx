@@ -1,0 +1,336 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Integrations" />
+
+# Zahlungs-Integrationen
+
+Die **Payment Integrations**-Seite (`#PaymentIntegrationsPage`) listet alle verfügbaren Zahlungsanbieter in zwei Accordion-Sektionen: „Verbunden" und „Mehr Anbieter". Sie verwendet vollständig **Highrise v2** (`hr-*`-Klassen). Die Unterseiten „Manage Payment Integrations" (123.1) und „Manage Provider Configurations" (123.2) sind eigene Sub-Views mit eigenen Root-IDs.
+
+<img src="/PaymentIntegrations.png" alt="Zahlungs-Integrationen" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root Übersicht | `#PaymentIntegrationsPage` |
+| „Anbieter konfigurieren"-Button | `#configure-provider-btn` |
+| Provider-Karten | `#PaymentIntegrationsPage [role="listitem"].hr-card` |
+| „Verbinden"-Buttons | `#PaymentIntegrationsPage #manage-other-integration-btn` |
+| „Mehr suchen"-Button | `#explore-more-btn` |
+| Root Manage | `#ManagePaymentIntegrationsPage` |
+| Root Configurations | `#ManageProviderConfigurationsPage` |
+| Provider-Selektor Popover | `.v-binder-follower-content` |
+
+---
+
+## 123.1 – Übersicht: Header & Provider-Karten
+
+```css
+/* ── 123.1 Seitenhintergrund ── */
+html body #PaymentIntegrationsPage .hr-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #PaymentIntegrationsPage .hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+html body #PaymentIntegrationsPage .hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* „Anbieter konfigurieren" → wine solid */
+html body #configure-provider-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #configure-provider-btn:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #configure-provider-btn .hr-text,
+html body #configure-provider-btn .hr-text svg {
+  color:  white !important;
+  stroke: white !important;
+}
+html body #configure-provider-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Haupt-Karte & Accordion */
+html body #PaymentIntegrationsPage .hr-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #PaymentIntegrationsPage .hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+html body #PaymentIntegrationsPage .hr-collapse-item__header {
+  background-color: var(--surface) !important;
+}
+html body #PaymentIntegrationsPage .hr-collapse-item--icon svg {
+  color: var(--ink-2) !important;
+}
+
+/* Provider-Karten */
+html body #PaymentIntegrationsPage [role="listitem"].hr-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #PaymentIntegrationsPage [role="listitem"] h3 {
+  color: var(--ink) !important;
+}
+html body #PaymentIntegrationsPage [role="listitem"] p {
+  color: var(--ink-3) !important;
+}
+
+/* „Verbinden"-Buttons → outline neutral */
+html body #PaymentIntegrationsPage #manage-other-integration-btn {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-color:        var(--surface) !important;
+  --n-color-hover:  var(--wine-lt) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn .hr-text {
+  color: var(--ink-2) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn:hover .hr-text {
+  color: var(--wine) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn:hover {
+  border-color: var(--wine) !important;
+}
+html body #PaymentIntegrationsPage #manage-other-integration-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Mehr suchen"-Button */
+html body #explore-more-btn {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #explore-more-btn .hr-text {
+  color: var(--ink-2) !important;
+}
+html body #explore-more-btn:hover {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--wine) !important;
+}
+html body #explore-more-btn:hover .hr-text {
+  color: var(--wine) !important;
+}
+html body #explore-more-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Mehr suchen" Text-Link */
+html body #PaymentIntegrationsPage [role="navigation"][clickable] {
+  color: var(--wine) !important;
+}
+html body #PaymentIntegrationsPage [role="navigation"][clickable]:hover {
+  color: var(--wine-2) !important;
+}
+```
+
+---
+
+## 123.2 – Manage Payment Integrations
+
+Sub-View zur Verwaltung einer einzelnen Integration (z.B. Stripe-Verbindung).
+
+```css
+/* ── 123.2 Manage Integrations ── */
+html body #ManagePaymentIntegrationsPage .hr-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #ManagePaymentIntegrationsPage .flex.justify-start a svg {
+  color: var(--ink-2) !important;
+}
+html body #ManagePaymentIntegrationsPage .flex.justify-start a:hover svg {
+  color: var(--wine) !important;
+}
+html body #ManagePaymentIntegrationsPage .hr-text-4xl {
+  color: var(--ink) !important;
+}
+
+/* Stripe-Karte */
+html body #ManagePaymentIntegrationsPage .bg-white {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #ManagePaymentIntegrationsPage .text-lg.mb-2 {
+  color: var(--ink) !important;
+}
+
+/* „Verbinden mit Stripe" → wine solid */
+html body #ManagePaymentIntegrationsPage #stripe-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #ManagePaymentIntegrationsPage #stripe-btn:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #ManagePaymentIntegrationsPage #stripe-btn .hr-text,
+html body #ManagePaymentIntegrationsPage #stripe-btn .hr-text * {
+  color: white !important;
+}
+html body #ManagePaymentIntegrationsPage #stripe-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Bezahlung Verwalten" (disabled) → gedämpft */
+html body #ManagePaymentIntegrationsPage #payment-methods-btn {
+  background-color: var(--surface) !important;
+  border-color:     var(--wine-a20) !important;
+}
+html body #ManagePaymentIntegrationsPage #payment-methods-btn .hr-text {
+  color:   var(--wine) !important;
+  opacity: 0.5;
+}
+html body #ManagePaymentIntegrationsPage #payment-methods-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Als Standard festlegen" (disabled) → wine gedämpft */
+html body #ManagePaymentIntegrationsPage #default-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  opacity:          0.5;
+}
+html body #ManagePaymentIntegrationsPage #default-btn .hr-text,
+html body #ManagePaymentIntegrationsPage #default-btn .hr-text * {
+  color: white !important;
+}
+html body #ManagePaymentIntegrationsPage #default-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 123.3 – Manage Provider Configurations
+
+Highrise DataTable mit Live/Test-Radio-Switcher, Provider-Selektor und globalem Dropdown-Popover.
+
+```css
+/* ── 123.3 Provider Configurations ── */
+html body #ManageProviderConfigurationsPage .hr-wrapper-container,
+html body #ManageProviderConfigurationsPage .expanded-bg {
+  background-color: var(--bg) !important;
+}
+html body #ManageProviderConfigurationsPage .pb-2.px-3 {
+  background-color: var(--surface) !important;
+}
+html body #ManageProviderConfigurationsPage [aria-label="Zurück"] svg {
+  color: var(--ink-2) !important;
+}
+html body #ManageProviderConfigurationsPage [aria-label="Zurück"]:hover svg {
+  color: var(--wine) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-header-lite-title {
+  color: var(--ink) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-header-lite-subtitle {
+  color: var(--ink-3) !important;
+}
+
+/* Live/Test Radio-Switcher → wine aktiv */
+html body #ManageProviderConfigurationsPage .hr-radio-button--checked {
+  background-color: var(--wine-lt) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-radio-button--checked .hr-text {
+  color: var(--wine) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-radio-button:not(.hr-radio-button--checked) .hr-text {
+  color: var(--ink-3) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-radio-button__state-border {
+  border-width: 0 !important;
+}
+
+/* DataTable */
+html body #ManageProviderConfigurationsPage .provider-table,
+html body #ManageProviderConfigurationsPage .hr-data-table-wrapper {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__header {
+  background-color: var(--bg) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__cell-header .text-gray-900 {
+  color: var(--ink) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__body-row {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__body-row.odd {
+  background-color: var(--bg) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__body-row-hover:hover {
+  background-color: var(--wine-lt) !important;
+}
+html body #ManageProviderConfigurationsPage .hr-data-table__body-cell .text-gray-600 {
+  color: var(--ink-2) !important;
+}
+
+/* Provider-Plus-Buttons (disabled) */
+html body #ManageProviderConfigurationsPage [id^="provider-"] {
+  background-color: var(--surface) !important;
+  border-color:     transparent !important;
+}
+html body #ManageProviderConfigurationsPage [id^="provider-"] .hr-icon svg {
+  color:   var(--wine) !important;
+  opacity: 0.4;
+}
+html body #ManageProviderConfigurationsPage [id^="provider-"] .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Provider-Selektor Popover (global) */
+html body .v-binder-follower-content .n-popover,
+html body .v-binder-follower-content .hr-select-menu,
+html body .v-binder-follower-content .n-base-select-menu {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body .v-binder-follower-content .n-base-select-option__content,
+html body .v-binder-follower-content .hr-select-option {
+  color: var(--ink-2) !important;
+}
+html body .v-binder-follower-content .n-base-select-option:hover,
+html body .v-binder-follower-content .hr-select-option:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+}
+html body .v-binder-follower-content .n-base-select-option--selected,
+html body .v-binder-follower-content .hr-select-option--selected {
+  color:            var(--wine) !important;
+  background-color: var(--wine-lt) !important;
+}
+html body .v-binder-follower-content .n-base-select-option--selected svg {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Drei verschachtelte Root-IDs:** Die Integrations-Seite hat drei separate Root-Scopes — `#PaymentIntegrationsPage` (Übersicht), `#ManagePaymentIntegrationsPage` (einzelner Anbieter) und `#ManageProviderConfigurationsPage` (Konfigurationstabelle). Alle nutzen Highrise v2 und brauchen den `html body`-Präfix für ausreichende Spezifität.
+
+**`.v-binder-follower-content` als globaler Scope:** Der Provider-Selektor-Dropdown wird von Vue's `vueuse/motion` außerhalb des Root-DOM eingehängt — er liegt im `<body>` ohne Parent-Root-ID. Der Scope `.v-binder-follower-content` ist daher global und trifft alle Dropdown-Overlays im GHL-DOM. Da GHL immer nur ein Dropdown gleichzeitig öffnet, ist dies in der Praxis unproblematisch.
+
+**Disabled-Buttons mit `opacity: 0.5`:** Die Buttons „Bezahlung Verwalten" und „Als Standard festlegen" auf der Manage-Seite sind im nicht-verbundenen Zustand disabled und erhalten `opacity: 0.5` statt des üblichen `--n-color-disabled`-Patterns — bewusste Entscheidung um den wine-Stil sichtbar zu halten.
+
+**`[id^="provider-"]` als Prefix-Attribut-Selektor:** Die Plus-Buttons in der Konfigurationstabelle haben dynamisch generierte IDs (`provider-stripe`, `provider-paypal` etc.) — der `^=`-Präfix-Selektor fasst alle in einem Block zusammen.
