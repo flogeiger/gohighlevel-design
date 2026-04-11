@@ -1,0 +1,234 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/ImportInvoices" />
+
+# Import Invoices
+
+Der **Import Invoices**-Flow (`#importInvoices`) ist ein 4-Step-Wizard (Upload → Felder Map → Steuern Map → Importieren) mit Fixed Header, Fixed Footer und einem NaïveUI-Stepper. Step 1 zeigt eine Info-Box mit Anweisungen und eine Drag-&-Drop-Upload-Zone für CSV-Dateien. Ein Abbrechen-Modal bestätigt den Abbruch des Imports.
+
+<img src="/ImportInvoices.png" alt="Import Invoices" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#importInvoices` |
+| Fixed Header | `#import-invoice-header` |
+| Fixed Footer | `#import-invoice-footer` |
+| NaïveUI Stepper | `#importInvoices .n-step--process-status / --wait-status` |
+| Inhalts-Karte | `#upload-csv.hl-card` |
+| Info-Box | `#importInvoices .bg-gray-50` |
+| Upload-Dragger | `#bulk-import-upload .n-upload-dragger` |
+| Cancel-Button | `#cancel-btn` |
+| Next-Button | `#next-btn` |
+| Abbrechen-Modal | `.hl-modal:has(#cancel-import-header-modal-close-btn)` |
+
+---
+
+## 127.1 – Fixed Header & Footer
+
+```css
+/* ── 127.1 Header & Footer ── */
+html body #import-invoice-header,
+html body #import-invoice-footer {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #import-invoice-header .hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## 127.2 – NaïveUI Stepper
+
+```css
+/* ── 127.2 Stepper ── */
+
+/* Aktiver Step → wine */
+html body #importInvoices .n-step--process-status {
+  --n-indicator-color:        var(--wine) !important;
+  --n-indicator-border-color: var(--wine) !important;
+  --n-indicator-text-color:   white !important;
+  --n-header-text-color:      var(--ink) !important;
+}
+
+/* Wartende Steps → neutral */
+html body #importInvoices .n-step--wait-status {
+  --n-indicator-border-color: var(--line-hard) !important;
+  --n-header-text-color:      var(--ink-3) !important;
+  --n-indicator-text-color:   var(--ink-3) !important;
+}
+
+/* Verbindungslinie */
+html body #importInvoices .n-step-splitor {
+  background-color: var(--line-hard) !important;
+}
+```
+
+---
+
+## 127.3 – Inhalts-Karte, Info-Box & Links
+
+```css
+/* ── 127.3 Inhalts-Karte ── */
+html body #upload-csv.hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Texte */
+html body #importInvoices .hl-text-md-medium {
+  color: var(--ink) !important;
+}
+html body #importInvoices .hl-text-xs-medium,
+html body #importInvoices .hl-text-xs-regular {
+  color: var(--ink-3) !important;
+}
+
+/* Links → wine */
+html body #importInvoices a.\!text-primary-500,
+html body #importInvoices .\!text-primary-500,
+html body #importInvoices .text-primary-500 {
+  color: var(--wine) !important;
+}
+
+/* Info-Box */
+html body #importInvoices .bg-gray-50 {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #importInvoices .bg-gray-50 li {
+  color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 127.4 – Upload-Dragger & Footer-Buttons
+
+```css
+/* ── 127.4 Upload-Dragger ── */
+html body #bulk-import-upload .n-upload-dragger {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+  --n-dragger-border:       1px dashed var(--line-hard) !important;
+  --n-dragger-border-hover: 1px dashed var(--wine) !important;
+  --n-dragger-color:        var(--bg) !important;
+}
+html body #bulk-import-upload .n-upload-dragger:hover {
+  border-color: var(--wine) !important;
+}
+html body #bulk-import-upload svg {
+  color: var(--ink-3) !important;
+}
+
+/* „Stornieren" → neutral text */
+html body #cancel-btn .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #cancel-btn:hover .n-button__content {
+  color: var(--wine) !important;
+}
+
+/* „Nächste" → wine solid */
+html body #next-btn {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #next-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 127b – Import Abbrechen Modal
+
+```css
+/* ── 127b Abbrechen Modal ── */
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Warning Icon */
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) .hl-icon-container__ui-icon-warning svg {
+  color: var(--danger) !important;
+}
+
+/* Close-Button */
+html body #cancel-import-header-modal-close-btn {
+  border-color: var(--line-hard) !important;
+}
+html body #cancel-import-header-modal-close-btn svg {
+  color: var(--ink-2) !important;
+}
+html body #cancel-import-header-modal-close-btn:hover {
+  border-color: var(--wine) !important;
+}
+
+/* Titel & Beschreibung */
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) .title {
+  color: var(--ink) !important;
+}
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) .description {
+  color: var(--ink-3) !important;
+}
+
+/* „Stornieren" → outline neutral */
+html body #cancel-import-footer-btn-negative-action {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #cancel-import-footer-btn-negative-action .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #cancel-import-footer-btn-negative-action:hover {
+  border-color: var(--wine) !important;
+}
+html body #cancel-import-footer-btn-negative-action:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #cancel-import-footer-btn-negative-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Bestätigen" → wine solid */
+html body #cancel-import-footer-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #cancel-import-footer-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #cancel-import-footer-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`:has()`-Selektor für Modal-Scope:** Das Abbrechen-Modal hat keine eigene Root-ID — es wird über `.hl-modal:has(#cancel-import-header-modal-close-btn)` gescoped. Das ist das einzige Beispiel im Payments-Bereich, wo `:has()` als Modal-Anker verwendet wird (sonst wird `:has()` hauptsächlich für dynamische ID-Prefixe genutzt).
+
+**Escaped Utility-Klassen mit `.\!text-primary-500`:** Die CSV-Download-Links und Steuer-Links verwenden Tailwind's forced-important Präfix — in CSS muss der `!` als `\!` escaped werden. Alle drei Varianten (`a.\!text-primary-500`, `.\!text-primary-500`, `.text-primary-500`) werden abgedeckt, da GHL unterschiedliche Render-Pfade nutzt.
+
+**NaïveUI Stepper mit `--n-indicator-*`-Variablen:** Der Stepper nutzt ein anderes Variablen-Schema als die meisten anderen NaïveUI-Komponenten — `--n-indicator-color` statt `--n-color`, `--n-header-text-color` statt `--n-text-color`. Beide States (process, wait) müssen explizit gesetzt werden.
+
+**`#cancel-btn` ohne State-Border-Fix:** Der Cancel-Button in der Footer-Leiste ist ein reiner Text-Button ohne Border-Box — er braucht keinen `border-width: 0`-Fix, da er von Haus aus keinen `n-button__state-border` rendert.

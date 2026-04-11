@@ -10520,6 +10520,167 @@ html body #recurringInvoiceEditor .preview-section .font-medium {
   color: var(--nav-farbe) !important;
 }
 
+/* ============================================================
+   SECTION 126 — Import Invoices
+   (#importInvoices)
+   NaïveUI (hl-* / n-* Klassen)
+   ============================================================ */
+
+/* ── Header & Footer BG ── */
+html body #import-invoice-header,
+html body #import-invoice-footer {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #import-invoice-header .hl-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Steps Stepper ── */
+html body #importInvoices .n-step--process-status {
+  --n-indicator-color:        var(--akzent) !important;
+  --n-indicator-border-color: var(--akzent) !important;
+  --n-indicator-text-color:   var(--base-white) !important;
+  --n-header-text-color:      var(--nav-farbe) !important;
+}
+html body #importInvoices .n-step--wait-status {
+  --n-indicator-border-color: var(--linie-stark) !important;
+  --n-header-text-color:      var(--text-gedaempft) !important;
+  --n-indicator-text-color:   var(--text-gedaempft) !important;
+}
+html body #importInvoices .n-step-splitor {
+  background-color: var(--linie-stark) !important;
+}
+
+/* ── Karte BG ── */
+html body #upload-csv.hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Texte ── */
+html body #importInvoices .hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #importInvoices .hl-text-xs-medium,
+html body #importInvoices .hl-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Info-Box BG & Liste ── */
+html body #importInvoices .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #importInvoices .bg-gray-50 li {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Upload-Dragger ── */
+html body #bulk-import-upload .n-upload-dragger {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-dragger-border:       1px dashed var(--linie-stark) !important;
+  --n-dragger-border-hover: 1px dashed var(--akzent) !important;
+  --n-dragger-color:        var(--hintergrund) !important;
+}
+html body #bulk-import-upload .n-upload-dragger:hover {
+  border-color: var(--akzent) !important;
+}
+html body #bulk-import-upload svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Cancel" Button → neutral text ── */
+html body #cancel-btn .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #cancel-btn:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+
+/* ── "Next" Button → wine solid (disabled = gedämpft) ── */
+html body #next-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-border:        1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:  var(--akzent) !important;
+}
+html body #next-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Section 126.1 — Import Abbrechen Modal ── */
+
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Warning Icon ── */
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) .hl-icon-container__ui-icon-warning svg {
+  color: var(--gefahr) !important;
+}
+
+/* ── Close-Button ── */
+html body #cancel-import-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+}
+html body #cancel-import-header-modal-close-btn svg {
+  color: var(--nav-hover) !important;
+}
+html body #cancel-import-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) .title {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#cancel-import-header-modal-close-btn) .description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+html body #cancel-import-footer-btn-negative-action {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #cancel-import-footer-btn-negative-action .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #cancel-import-footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+}
+html body #cancel-import-footer-btn-negative-action:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #cancel-import-footer-btn-negative-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Bestätigen" Button → wine solid ── */
+html body #cancel-import-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #cancel-import-footer-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #cancel-import-footer-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+
 
 
 /* ============================================================
