@@ -10281,6 +10281,244 @@ html body .n-base-select-option__content span {
   color: var(--text-gedaempft) !important;
 }
 
+/* ============================================================
+   SECTION 125 — Recurring Invoice Editor
+   (#recurringInvoiceEditor)
+   Identische Struktur wie Section 124 (#invoiceEditor)
+   — alle dortigen Regeln gelten analog via ID-Austausch
+   ============================================================ */
+
+/* ── Outer BG & Konfigurationsbereich ── */
+html body #recurringInvoiceEditor .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+html body #recurringInvoiceEditor .hl-toolbar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #recurringInvoiceEditor .configuration-section {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Toolbar-Buttons (Back, Menu, Save) ── */
+html body #recurringInvoiceEditor #back-btn .n-button__content,
+html body #recurringInvoiceEditor #back-btn svg,
+html body #recurringInvoiceEditor #back-btn p {
+  color: var(--nav-hover) !important;
+}
+html body #recurringInvoiceEditor #menu-trigger {
+  border-color: var(--linie-stark) !important;
+}
+html body #recurringInvoiceEditor #menu-trigger svg {
+  color: var(--nav-hover) !important;
+}
+html body #recurringInvoiceEditor #recurring-invoice-editor-save {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #recurringInvoiceEditor #recurring-invoice-editor-save .n-button__content,
+html body #recurringInvoiceEditor #recurring-invoice-editor-save svg {
+  color: var(--nav-hover) !important;
+}
+html body #recurringInvoiceEditor #recurring-invoice-editor-save:hover {
+  border-color: var(--akzent) !important;
+}
+html body #recurringInvoiceEditor #recurring-invoice-editor-save .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Schedule" Button → wine solid ── */
+html body #pg-recurring-template-builder__schedule_invoice {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-border:        1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:  var(--akzent) !important;
+}
+html body #pg-recurring-template-builder__schedule_invoice:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #pg-recurring-template-builder__schedule_invoice .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Alle Text-Inputs → wine Focus ── */
+html body #recurringInvoiceEditor .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-border-focus: 1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:  var(--akzent) !important;
+}
+html body #recurringInvoiceEditor .n-input .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #recurringInvoiceEditor .n-input .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Alle Selects → wine Focus ── */
+html body #recurringInvoiceEditor .n-select .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+html body #recurringInvoiceEditor .n-base-selection-input__content,
+html body #recurringInvoiceEditor .n-base-selection-overlay__wrapper {
+  color: var(--text-gedaempft) !important;
+}
+html body #recurringInvoiceEditor .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Abschnitts-Titel & Texte ── */
+html body #recurringInvoiceEditor .hl-text-lg-medium,
+html body #recurringInvoiceEditor .hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #recurringInvoiceEditor .text-gray-500,
+html body #recurringInvoiceEditor .hl-text-sm-regular,
+html body #recurringInvoiceEditor .hl-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Form Labels & Pflichtfeld-Stern ── */
+html body #recurringInvoiceEditor .n-form-item-label__text {
+  color: var(--nav-hover) !important;
+}
+html body #recurringInvoiceEditor .n-form-item-label__asterisk {
+  color: var(--gefahr) !important;
+}
+
+/* ── Checkboxen → wine ── */
+html body #recurringInvoiceEditor .n-checkbox {
+  --n-border-checked:   1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-color-checked:    var(--akzent) !important;
+}
+html body #recurringInvoiceEditor .n-checkbox .n-checkbox-box__border {
+  border-color: var(--linie-stark) !important;
+}
+html body #recurringInvoiceEditor .n-checkbox__label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Radio-Buttons → wine ── */
+html body #recurringInvoiceEditor .n-radio {
+  --n-dot-color-active:  var(--akzent) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
+}
+html body #recurringInvoiceEditor .n-radio__dot--checked {
+  background-color: var(--akzent) !important;
+}
+html body #recurringInvoiceEditor .n-radio__label {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Automatic Tax Toggle → wine ── */
+html body #recurringInvoiceEditor #automatic-tax-switch {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── Produkt-Tabelle Header ── */
+html body #recurringInvoiceEditor .columns {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #recurringInvoiceEditor .columns p {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Add Discount" / "Add Tax" Links → wine ── */
+html body #recurringInvoiceEditor .text-primary-700 {
+  color: var(--akzent) !important;
+}
+
+/* ── Empty State (Produkte) ── */
+html body #recurringInvoiceEditor .hl-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Recurring Settings: Frequenz-Text ── */
+html body #recurringInvoiceEditor #recurring-settings-editor .hl-text-sm-normal {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Toolbar (Rich Text Editor) ── */
+html body #recurringInvoiceEditor #editor-toolbar {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #recurringInvoiceEditor .toolbar_button {
+  color: var(--nav-hover) !important;
+}
+html body #recurringInvoiceEditor .toolbar_button:hover {
+  background-color: var(--akzent-hell) !important;
+  color:            var(--akzent) !important;
+}
+html body #recurringInvoiceEditor .editor-wrapper {
+  background-color: var(--hintergrund-karte) !important;
+}
+html body #recurringInvoiceEditor .tiptap {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Attachment Upload-Box ── */
+html body #recurringInvoiceEditor .border-dashed {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #recurringInvoiceEditor .border-dashed .text-blue-700 {
+  color: var(--akzent) !important;
+}
+
+/* ── Preview-Sektion ── */
+html body #recurringInvoiceEditor .preview-section {
+  background-color: var(--hintergrund) !important;
+}
+html body #recurringInvoiceEditor .preview-section .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+html body #recurringInvoiceEditor .preview-section .bg-white {
+  background-color: var(--hintergrund-karte) !important;
+}
+html body #recurringInvoiceEditor .preview-section .text-gray-500,
+html body #recurringInvoiceEditor .preview-section .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+html body #recurringInvoiceEditor .preview-section .text-black,
+html body #recurringInvoiceEditor .preview-section .font-medium {
+  color: var(--nav-farbe) !important;
+}
 
 
 

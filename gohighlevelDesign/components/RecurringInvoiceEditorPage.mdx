@@ -1,0 +1,301 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/RecurringInvoiceEditor" />
+
+# Recurring Invoice Editor
+
+Der **Recurring Invoice Editor** (`#recurringInvoiceEditor`) ist die Schwesteransicht des Invoice Editors (Section 125) — strukturell identisch mit zweigeteiltem Layout, aber mit zwei Unterschieden: der Primary-Button heißt **„Schedule"** statt „Send" und es gibt einen zusätzlichen **Recurring Settings**-Bereich für Frequenz und Wiederholungsoptionen. Der Save-Button hat eine eigene ID (`#recurring-invoice-editor-save`).
+
+<img src="/RecurringInvoiceEditor.png" alt="Recurring Invoice Editor" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#recurringInvoiceEditor` |
+| Toolbar | `#recurringInvoiceEditor .hl-toolbar` |
+| Save-Button | `#recurringInvoiceEditor #recurring-invoice-editor-save` |
+| Schedule-Button | `#pg-recurring-template-builder__schedule_invoice` |
+| Konfigurations-Sektion | `#recurringInvoiceEditor .configuration-section` |
+| Recurring Settings | `#recurringInvoiceEditor #recurring-settings-editor` |
+| „+ Add Product"-Button | `#recurringInvoiceEditor #add-product-btn` |
+| Rich Text Editor | `#recurringInvoiceEditor #editor-toolbar` |
+| Preview | `#recurringInvoiceEditor .preview-section` |
+
+---
+
+## 126.1 – Toolbar
+
+```css
+/* ── 126.1 Toolbar ── */
+html body #recurringInvoiceEditor .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #recurringInvoiceEditor .hl-toolbar {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+
+/* Back-Button */
+html body #recurringInvoiceEditor #back-btn .n-button__content,
+html body #recurringInvoiceEditor #back-btn svg,
+html body #recurringInvoiceEditor #back-btn p {
+  color: var(--ink-2) !important;
+}
+
+/* Menü-Trigger */
+html body #recurringInvoiceEditor #menu-trigger {
+  border-color: var(--line-hard) !important;
+}
+html body #recurringInvoiceEditor #menu-trigger svg {
+  color: var(--ink-2) !important;
+}
+
+/* Save → outline neutral */
+html body #recurringInvoiceEditor #recurring-invoice-editor-save {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #recurringInvoiceEditor #recurring-invoice-editor-save .n-button__content,
+html body #recurringInvoiceEditor #recurring-invoice-editor-save svg {
+  color: var(--ink-2) !important;
+}
+html body #recurringInvoiceEditor #recurring-invoice-editor-save:hover {
+  border-color: var(--wine) !important;
+}
+html body #recurringInvoiceEditor #recurring-invoice-editor-save .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Schedule" → wine solid */
+html body #pg-recurring-template-builder__schedule_invoice {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #pg-recurring-template-builder__schedule_invoice:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #pg-recurring-template-builder__schedule_invoice .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 126.2 – Konfigurations-Sektion
+
+```css
+/* ── 126.2 Konfigurations-Sektion ── */
+html body #recurringInvoiceEditor .configuration-section {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #recurringInvoiceEditor .hl-text-lg-medium,
+html body #recurringInvoiceEditor .hl-text-md-medium {
+  color: var(--ink) !important;
+}
+html body #recurringInvoiceEditor .text-gray-500,
+html body #recurringInvoiceEditor .hl-text-sm-regular,
+html body #recurringInvoiceEditor .hl-text-sm-normal {
+  color: var(--ink-3) !important;
+}
+html body #recurringInvoiceEditor .n-form-item-label__text {
+  color: var(--ink-2) !important;
+}
+html body #recurringInvoiceEditor .n-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+```
+
+---
+
+## 126.3 – Formular: Inputs, Selects, Checkboxen, Radio & Toggle
+
+```css
+/* ── 126.3 Text-Inputs → wine Focus ── */
+html body #recurringInvoiceEditor .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #recurringInvoiceEditor .n-input .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #recurringInvoiceEditor .n-input .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Selects → wine Focus */
+html body #recurringInvoiceEditor .n-select .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+}
+html body #recurringInvoiceEditor .n-base-selection-input__content,
+html body #recurringInvoiceEditor .n-base-selection-overlay__wrapper {
+  color: var(--ink-3) !important;
+}
+html body #recurringInvoiceEditor .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Checkboxen → wine */
+html body #recurringInvoiceEditor .n-checkbox {
+  --n-border-checked:   1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-color-checked:    var(--wine) !important;
+}
+html body #recurringInvoiceEditor .n-checkbox .n-checkbox-box__border {
+  border-color: var(--line-hard) !important;
+}
+html body #recurringInvoiceEditor .n-checkbox__label {
+  color: var(--ink-2) !important;
+}
+
+/* Radio-Buttons → wine */
+html body #recurringInvoiceEditor .n-radio {
+  --n-dot-color-active:  var(--wine) !important;
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+}
+html body #recurringInvoiceEditor .n-radio__dot--checked {
+  background-color: var(--wine) !important;
+}
+html body #recurringInvoiceEditor .n-radio__label {
+  color: var(--ink-2) !important;
+}
+
+/* Enable Tax Toggle → wine */
+html body #recurringInvoiceEditor #automatic-tax-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+}
+```
+
+---
+
+## 126.4 – Produkttabelle & Recurring Settings
+
+```css
+/* ── 126.4 Produkt-Tabellen-Header ── */
+html body #recurringInvoiceEditor .columns {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #recurringInvoiceEditor .columns p {
+  color: var(--ink-3) !important;
+}
+
+/* Action-Links → wine */
+html body #recurringInvoiceEditor .text-primary-700 {
+  color: var(--wine) !important;
+}
+
+/* Empty State: „+ Add Product" → outline neutral */
+html body #recurringInvoiceEditor .hl-empty-description {
+  color: var(--ink-3) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn:hover {
+  border-color: var(--wine) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #recurringInvoiceEditor #add-product-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Recurring Settings Texte */
+html body #recurringInvoiceEditor #recurring-settings-editor .hl-text-sm-normal {
+  color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 126.5 – Rich Text Editor & Preview
+
+```css
+/* ── 126.5 Rich Text Editor ── */
+html body #recurringInvoiceEditor #editor-toolbar {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #recurringInvoiceEditor .toolbar_button {
+  color: var(--ink-2) !important;
+}
+html body #recurringInvoiceEditor .toolbar_button:hover {
+  background-color: var(--wine-lt) !important;
+  color:            var(--wine) !important;
+}
+html body #recurringInvoiceEditor .editor-wrapper {
+  background-color: var(--surface) !important;
+}
+html body #recurringInvoiceEditor .tiptap {
+  color: var(--ink-2) !important;
+}
+
+/* Attachment Upload-Box */
+html body #recurringInvoiceEditor .border-dashed {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #recurringInvoiceEditor .border-dashed .text-blue-700 {
+  color: var(--wine) !important;
+}
+
+/* Live-Preview */
+html body #recurringInvoiceEditor .preview-section {
+  background-color: var(--bg) !important;
+}
+html body #recurringInvoiceEditor .preview-section .bg-gray-50 {
+  background-color: var(--bg) !important;
+}
+html body #recurringInvoiceEditor .preview-section .bg-white {
+  background-color: var(--surface) !important;
+}
+html body #recurringInvoiceEditor .preview-section .text-gray-500,
+html body #recurringInvoiceEditor .preview-section .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+html body #recurringInvoiceEditor .preview-section .text-black,
+html body #recurringInvoiceEditor .preview-section .font-medium {
+  color: var(--ink) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Strukturell identisch mit Section 125 (`#invoiceEditor`):** Alle Selektoren sind 1:1 übertragen mit `#recurringInvoiceEditor` statt `#invoiceEditor` als Root. Zwei Abweichungen: (1) der Primary-Button ist `#pg-recurring-template-builder__schedule_invoice` statt `#send-btn`, (2) der Save-Button heißt `#recurring-invoice-editor-save` statt `#invoice-editor-save`.
+
+**Kein Info-Alert:** Der Payment-Gateway-Alert (`#payment-integration-alert`) fehlt im Recurring Editor — er erscheint nur in der Listenansicht (Section 124) und im Standard-Invoice-Editor (Section 125).
+
+**`#add-product-btn` als Empty-State-Button:** Im Recurring Editor ist die Produkttabelle initial leer und zeigt einen zentrierten „+ Add Product"-Button — dieses Pattern gibt es im Standard-Invoice-Editor nicht (dort können Produkte direkt in Zeilen eingefügt werden).
+
+**`#recurring-settings-editor` als eigener Unterbereich:** Der Frequenz- und Wiederholungs-Bereich hat eine eigene Wrapper-ID und liegt unterhalb der Produkttabelle — er enthält Selects für Frequenz, Startzeitpunkt und Endbedingung, alle über die globalen `.n-select`-Regeln aus 126.3 abgedeckt.
