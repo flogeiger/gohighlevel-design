@@ -12212,6 +12212,344 @@ html body #add-reminder .n-button__state-border {
 }
 
 /* ============================================================
+   SECTION 131 — Proposal/Estimates Template List
+   (#ProposalEstimatesTemplateListApp)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #ProposalEstimatesTemplateListApp .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+html body #ProposalEstimatesTemplateListApp .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #ProposalEstimatesTemplateListApp .hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Neu" Button → wine solid ── */
+html body #page-email-builder-template__btn-actions {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+}
+html body #page-email-builder-template__btn-actions:hover {
+  background-color: var(--akzent-dunkel) !important;
+  border-color:     var(--akzent-dunkel) !important;
+}
+
+/* ── Tabs → wine ── */
+html body #ProposalEstimatesTemplateListApp .n-tabs {
+  --n-bar-color:             var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent) !important;
+  --n-tab-text-color-hover:  var(--akzent) !important;
+  --n-tab-text-color:        var(--nav-hover) !important;
+  --n-tab-border-color:      var(--linie-stark) !important;
+}
+
+/* ── Date Range Picker → wine Focus ── */
+html body #proposals-date-range .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-border-focus: 1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #proposals-date-range .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #proposals-date-range .n-input__separator svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #proposals-date-range .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+html body #proposals_search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #proposals_search .n-input__prefix svg,
+html body #proposals_search .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #proposals_search .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table ── */
+html body #ProposalEstimatesTemplateListApp .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Dokument-Icon Container ── */
+html body #ProposalEstimatesTemplateListApp .document-type-icon-container {
+  background-color: var(--hintergrund) !important;
+}
+html body #ProposalEstimatesTemplateListApp .document-type-icon-container svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Dokument Name → wine hover ── */
+html body #ProposalEstimatesTemplateListApp .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+html body #ProposalEstimatesTemplateListApp .hover\:text-primary-600:hover {
+  color: var(--akzent) !important;
+}
+
+/* ── Wert (Preis) ── */
+html body #ProposalEstimatesTemplateListApp .text-success-600 {
+  color: var(--akzent) !important;
+}
+
+/* ── Datum ── */
+html body #ProposalEstimatesTemplateListApp .hl-text-sm-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Aktions-Dropdown Button (⋮) ── */
+html body #proposal-template-table-dropdown-action-dropdown-trigger {
+  border-color: var(--linie-stark) !important;
+}
+html body #proposal-template-table-dropdown-action-dropdown-trigger svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #proposal-template-table-dropdown-action-dropdown-trigger:hover {
+  border-color: var(--akzent) !important;
+}
+html body #proposal-template-table-dropdown-action-dropdown-trigger:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Pagination ── */
+html body #ProposalEstimatesTemplateListApp .n-pagination {
+  --n-item-text-color-active: var(--akzent) !important;
+  --n-item-text-color-hover:  var(--akzent) !important;
+  --n-item-border-active:     1px solid var(--akzent) !important;
+}
+html body #proposals-previous,
+html body #proposals-next {
+  border-color: var(--linie-stark) !important;
+  color:        var(--nav-hover) !important;
+}
+html body #proposals-previous:hover,
+html body #proposals-next:hover {
+  border-color: var(--akzent) !important;
+  color:        var(--akzent) !important;
+}
+html body #proposals-previous .n-button__state-border,
+html body #proposals-next .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Section 131.1 — Vorlage teilen Modal ── */
+
+html body .hl-modal:has(#pg-email-builder-campaigns-list__confirmation-modal-header-modal-close-btn) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel ── */
+html body .hl-modal:has(#pg-email-builder-campaigns-list__confirmation-modal-header-modal-close-btn) .title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Close-Button ── */
+html body #pg-email-builder-campaigns-list__confirmation-modal-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+}
+html body #pg-email-builder-campaigns-list__confirmation-modal-header-modal-close-btn svg {
+  color: var(--nav-hover) !important;
+}
+html body #pg-email-builder-campaigns-list__confirmation-modal-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Standort Select → wine ── */
+html body #pg-email-builder-share-modal__select .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-active: 1px solid var(--akzent) !important;
+  --n-border-focus:  1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #pg-email-builder-share-modal__select .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+html body #pg-email-builder-share-modal__footer-btn-negative-action {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #pg-email-builder-share-modal__footer-btn-negative-action .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #pg-email-builder-share-modal__footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+}
+html body #pg-email-builder-share-modal__footer-btn-negative-action:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #pg-email-builder-share-modal__footer-btn-negative-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Teilen" Button → wine solid ── */
+html body #pg-email-builder-share-modal__footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #pg-email-builder-share-modal__footer-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Section 131.2 — Create Template Modal (Highrise v2) ── */
+
+html body #tl-create-template-wrapper .hr-modal-container,
+html body #create-template-modal.hr-dialog {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Close-Button ── */
+html body #hr-modal__close-button svg {
+  color: var(--nav-hover) !important;
+}
+html body #hr-modal__close-button:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Upload-Icon Button (Avatar) ── */
+html body #page-template-library__create-template-upload-icon .hr-avatar {
+  background-color: var(--akzent-hell) !important;
+}
+html body #page-template-library__create-template-upload-icon svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Modal Titel ── */
+html body #tl-create-template-wrapper .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Form Labels ── */
+html body #tl-create-template-wrapper .hr-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Name Input → wine Focus ── */
+html body #page-template-library__create-template-name-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover: 1px solid var(--akzent) !important;
+  --n-border-focus: 1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0px 0px 0px 4px var(--akzent-a20), var(--shadow-xs) !important;
+  --n-caret-color:  var(--akzent) !important;
+}
+html body #page-template-library__create-template-name-input .hr-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #page-template-library__create-template-name-input .hr-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Kategorie Select → wine ── */
+html body #page-template-library__create-template-category-selector .hr-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0px 0px 0px 4px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0px 0px 0px 4px var(--akzent-a20) !important;
+  --n-box-shadow-hover:  0px 0px 0px 4px var(--akzent-a20) !important;
+}
+html body #page-template-library__create-template-category-selector .hr-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Warning Alert Box ── */
+html body #create-template-modal-note {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #create-template-modal-note .hr-alert__icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #create-template-modal-note .hr-alert-body__title span,
+html body #create-template-modal-note .hr-alert-body__content span {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Footer Border ── */
+html body #tl-create-template-wrapper .border-t {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral ── */
+html body #page-template-library__create-template-cancel-btn {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #page-template-library__create-template-cancel-btn .hr-text {
+  color: var(--nav-hover) !important;
+}
+html body #page-template-library__create-template-cancel-btn:hover {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #page-template-library__create-template-cancel-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Upload" Button → wine solid ── */
+html body #page-template-library__create-template-upload-btn-documentsContracts {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:         var(--akzent) !important;
+  --n-color-hover:   var(--akzent-dunkel) !important;
+  --n-border:        1px solid var(--akzent) !important;
+  --n-border-hover:  1px solid var(--akzent-dunkel) !important;
+  --n-color-disabled: var(--akzent-a20) !important;
+}
+html body #page-template-library__create-template-upload-btn-documentsContracts:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #page-template-library__create-template-upload-btn-documentsContracts .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+html body #page-template-library__create-template-upload-btn-documentsContracts .hr-text,
+html body #page-template-library__create-template-upload-btn-documentsContracts .hr-button__content-default-slot,
+html body #page-template-library__create-template-upload-btn-documentsContracts p {
+  color:                    var(--base-white) !important;
+  --n-text-color-disabled:  var(--base-white) !important;
+}
+
+/* ============================================================
    SECTION 111 — Bestellungen (#OrdersListPage)
    ============================================================ */
 
