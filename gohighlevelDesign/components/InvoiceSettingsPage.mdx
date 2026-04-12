@@ -1,0 +1,385 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/InvoicesAndEstimates/InvoiceSettings" />
+
+# Invoice & Estimate Settings
+
+Die **Invoice Settings**-Seite (`#invoiceSettings`) ist ein mehrseitiger Einstellungsbereich mit linker NaïveUI-Navigationsleiste und sieben Unterbereichen: Unternehmensdetails, Email-Einstellungen, Überschrift/Bedingungen, Zahlungseinstellungen, Produkt-Einstellungen, Erinnerungseinstellungen und Benachrichtigungen. Die Reminder-Sektion (130.1) enthält eigene Input-IDs und mehrere Selects für Frequenz-Konfiguration.
+
+<img src="/InvoiceSettings.png" alt="Invoice & Estimate Settings" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#invoiceSettings` |
+| Back-Button | `#back-to-invoice` |
+| Linke Navigation | `#invoiceSettings .n-menu` |
+| Content-Karte | `#invoiceSettings .hl-card` |
+| Logo Upload-Box | `#invoiceSettings .border-gray-200` |
+| Land-Select | `#invoiceSettings .hl-select .n-base-selection` |
+| Custom Value Button | `#add-custom-value` |
+| Cancel/Save-Buttons | `#pg-invoice-settings__btn-create` |
+| Reminder Name Input | `#invoice-reminderName` |
+| Delete-Reminder-Button | `#delete-reminder-btn` |
+| Reminder Toggle | `#disableReminder` |
+| Frequenz-Selects | `#select-days`, `#select-time-period`, `#select-invoice-condition` etc. |
+| „+ Add Reminder"-Button | `#add-reminder` |
+
+---
+
+## 131.1 – Back-Button, Titel & Navigation
+
+```css
+/* ── 131.1 Outer BG ── */
+html body #invoiceSettings .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+
+/* Back-Button */
+html body #back-to-invoice .n-button__content,
+html body #back-to-invoice svg {
+  color: var(--ink-2) !important;
+}
+html body #back-to-invoice:hover .n-button__content,
+html body #back-to-invoice:hover svg {
+  color: var(--wine) !important;
+}
+
+/* Header */
+html body #invoiceSettings .hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+html body #invoiceSettings .description {
+  color: var(--ink-3) !important;
+}
+
+/* Linke Navigation → wine aktiv */
+html body #invoiceSettings .n-menu {
+  --n-item-text-color:              var(--ink-2) !important;
+  --n-item-text-color-hover:        var(--ink-2) !important;
+  --n-item-text-color-active:       var(--wine) !important;
+  --n-item-text-color-active-hover: var(--wine) !important;
+  --n-item-color-hover:             var(--wine-lt) !important;
+  --n-item-color-active:            var(--wine-lt) !important;
+  --n-item-color-active-hover:      var(--wine-lt) !important;
+  --n-divider-color:                var(--line-hard) !important;
+}
+html body #invoiceSettings .n-menu-item-content--selected {
+  color: var(--wine) !important;
+}
+```
+
+---
+
+## 131.2 – Content-Karte & Formular
+
+```css
+/* ── 131.2 Karte & Labels ── */
+html body #invoiceSettings .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #invoiceSettings .text-gray-900.hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+html body #invoiceSettings .n-form-item-label__text {
+  color: var(--ink) !important;
+}
+html body #invoiceSettings .n-form-item-label__asterisk {
+  color: var(--danger) !important;
+}
+html body #invoiceSettings h3 {
+  color: var(--ink) !important;
+}
+html body #invoiceSettings .text-gray-600,
+html body #invoiceSettings .text-gray-500 {
+  color: var(--ink-3) !important;
+}
+
+/* Text-Inputs → wine Focus */
+html body #invoiceSettings .hl-input-text {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #invoiceSettings .hl-input-text .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #invoiceSettings .hl-input-text .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Logo Upload-Box */
+html body #invoiceSettings .border-gray-200 {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #invoiceSettings .text-primary-600 {
+  color: var(--wine) !important;
+}
+
+/* Land-Select → wine Focus */
+html body #invoiceSettings .hl-select .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #invoiceSettings .n-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+html body #invoiceSettings .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Custom Value Button → dashed neutral */
+html body #add-custom-value {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #add-custom-value .n-button__content,
+html body #add-custom-value svg {
+  color: var(--ink-3) !important;
+}
+html body #add-custom-value:hover {
+  border-color: var(--wine) !important;
+}
+html body #add-custom-value:hover .n-button__content,
+html body #add-custom-value:hover svg {
+  color: var(--wine) !important;
+}
+
+/* Divider */
+html body #invoiceSettings .n-divider__line {
+  background-color: var(--line-hard) !important;
+}
+
+/* Radio Buttons → wine */
+html body #invoiceSettings .hl-radio {
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--wine), 0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+  --n-dot-color-active:  var(--wine) !important;
+}
+html body #invoiceSettings .n-radio__label {
+  color: var(--ink-2) !important;
+}
+```
+
+---
+
+## 131.3 – Cancel & Save Buttons
+
+```css
+/* ── 131.3 Cancel → outline neutral ── */
+html body #pg-invoice-settings__btn-create:not(.n-button--primary-type) {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #pg-invoice-settings__btn-create:not(.n-button--primary-type) .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #pg-invoice-settings__btn-create:not(.n-button--primary-type):hover {
+  border-color: var(--wine) !important;
+}
+html body #pg-invoice-settings__btn-create:not(.n-button--primary-type):hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #pg-invoice-settings__btn-create:not(.n-button--primary-type) .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Save → wine solid */
+html body #pg-invoice-settings__btn-create.n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #pg-invoice-settings__btn-create.n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #pg-invoice-settings__btn-create.n-button--primary-type .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 131b – Erinnerungseinstellungen (Reminders)
+
+```css
+/* ── 131b Reminder Name Input ── */
+html body #invoice-reminderName {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #invoice-reminderName .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #invoice-reminderName .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Delete-Button → danger hover */
+html body #delete-reminder-btn {
+  border-color: var(--line-hard) !important;
+}
+html body #delete-reminder-btn svg {
+  color: var(--ink-3) !important;
+}
+html body #delete-reminder-btn:hover {
+  border-color: var(--danger) !important;
+}
+html body #delete-reminder-btn:hover svg {
+  color: var(--danger) !important;
+}
+html body #delete-reminder-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Enable/Disable Toggle → wine */
+html body #disableReminder {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+}
+
+/* Subject Input */
+html body #emailSubject-test {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #emailSubject-test .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #emailSubject-test .n-input__suffix svg {
+  color: var(--ink-3) !important;
+}
+html body #emailSubject-test .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Frequency & Max Reminders Inputs */
+html body #change-input-number .n-input,
+html body #max-reminders .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #change-input-number .n-input__input-el,
+html body #max-reminders .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #change-input-number .n-input__state-border,
+html body #max-reminders .n-input__state-border {
+  border-width: 0 !important;
+}
+html body #invoiceSettings .max-reminders-wrapper,
+html body #reminder-freq-div {
+  color: var(--ink-2) !important;
+}
+html body #reminder-freq-div .capitalize {
+  color: var(--ink-3) !important;
+}
+
+/* Alle Frequenz-Selects → wine Focus */
+html body #select-days .n-base-selection,
+html body #select-time-period .n-base-selection,
+html body #select-invoice-condition .n-base-selection,
+html body #start-time .n-base-selection,
+html body #start-type .n-base-selection,
+html body #end-time .n-base-selection,
+html body #end-type .n-base-selection,
+html body #select-id .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #select-days .n-base-selection-input__content,
+html body #select-time-period .n-base-selection-input__content,
+html body #select-invoice-condition .n-base-selection-input__content,
+html body #start-time .n-base-selection-input__content,
+html body #start-type .n-base-selection-input__content,
+html body #end-time .n-base-selection-input__content,
+html body #end-type .n-base-selection-input__content,
+html body #select-id .n-base-selection-input__content {
+  color: var(--ink-2) !important;
+}
+html body #select-days .n-base-selection__state-border,
+html body #select-time-period .n-base-selection__state-border,
+html body #select-invoice-condition .n-base-selection__state-border,
+html body #start-time .n-base-selection__state-border,
+html body #start-type .n-base-selection__state-border,
+html body #end-time .n-base-selection__state-border,
+html body #end-type .n-base-selection__state-border,
+html body #select-id .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Business Hours / Timezone Labels */
+html body #businessHours,
+html body #preferredTimeZone {
+  color: var(--ink-2) !important;
+}
+html body #businessHours p {
+  color: var(--ink-3) !important;
+}
+
+/* „+ Add another reminder" */
+html body #add-reminder {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #add-reminder .n-button__content {
+  color: var(--ink-3) !important;
+}
+html body #add-reminder:hover {
+  border-color: var(--wine) !important;
+}
+html body #add-reminder:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #add-reminder .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`#pg-invoice-settings__btn-create` für beide Buttons:** Cancel und Save teilen dieselbe ID — GHL unterscheidet sie über die NaïveUI-Type-Klasse `.n-button--primary-type` (Save) und deren Abwesenheit `:not(.n-button--primary-type)` (Cancel). Das ist das einzige Beispiel im Payments-Bereich, wo zwei Buttons durch dieselbe ID + Typ-Klasse differenziert werden.
+
+**`#delete-reminder-btn` mit danger-Hover:** Abweichend vom üblichen wine-Hover-Pattern erhält der Löschen-Button bei Hover `var(--danger)` — semantisch korrekt für eine destruktive Aktion.
+
+**Acht Frequenz-Selects in einer Regel:** Die Reminder-Frequenz-Konfiguration nutzt acht separate Select-IDs (`#select-days`, `#select-time-period`, `#select-invoice-condition`, `#start-time`, `#start-type`, `#end-time`, `#end-type`, `#select-id`) — alle mit identischen wine-Focus-Variablen, daher in einem Block zusammengefasst.
+
+**NaïveUI-Menü mit `--n-item-*`-Variablen:** Die linke Navigation nutzt `.n-menu` mit internen Variablen statt direkter Klassenselektoren — konsistent mit dem Pattern aus Section 122 (Payment Settings), aber hier mit `.hl-select` statt `.hr-base-selection` für den Land-Select.
