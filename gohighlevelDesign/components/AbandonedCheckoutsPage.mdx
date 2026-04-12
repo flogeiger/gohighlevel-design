@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Payments/Orders/AbandonedCheckouts" />
+
+# Abgebrochene Checkouts
+
+Die **Abandoned Checkouts**-Seite (`#abandonedCheckouts`) listet alle unvollständigen Online-Checkouts unter „Bestellungen". Die Seite enthält ausschließlich Seitentitel, Beschreibung und eine NaïveUI DataTable mit Empty State — keine Filter-Buttons, kein Suchfeld, kein Primary-Button.
+
+<img src="/AbandonedCheckouts.png" alt="Abgebrochene Checkouts" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#abandonedCheckouts` |
+| DataTable | `#abandonedCheckouts .n-data-table` |
+| Empty State | `#abandonedCheckouts .hl-empty-icon` |
+
+---
+
+## 133.1 – Seitentitel & DataTable
+
+```css
+/* ── 133.1 Seitenhintergrund & Titel ── */
+html body #abandonedCheckouts .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+html body #abandonedCheckouts .hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+html body #abandonedCheckouts .hl-text-md-normal {
+  color: var(--ink-3) !important;
+}
+
+/* DataTable */
+html body #abandonedCheckouts .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+
+/* Empty State */
+html body #abandonedCheckouts .hl-empty-icon svg {
+  color: var(--ink-3) !important;
+}
+html body #abandonedCheckouts .hl-empty-title {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Minimale Seite ohne Filter-UI:** Abgebrochene Checkouts ist die einzige Payments-Listenseite ohne Suchfeld, Datepicker oder Filter-Button. Das CSS beschränkt sich auf BG, DataTable-Variablen und Empty State.
+
+**Spalte „Status der Wiederherstellung":** Die Tabelle hat eine ungewöhnlich lange Spaltenüberschrift, die im Screenshot umgebrochen wird — kein CSS-Eingriff nötig, da GHL die Breite automatisch verwaltet.

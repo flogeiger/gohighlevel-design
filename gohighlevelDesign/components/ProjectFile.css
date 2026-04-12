@@ -12550,6 +12550,44 @@ html body #page-template-library__create-template-upload-btn-documentsContracts 
 }
 
 /* ============================================================
+   SECTION 132 — Abandoned Checkouts
+   (#abandonedCheckouts)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #abandonedCheckouts .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+html body #abandonedCheckouts .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #abandonedCheckouts .hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Data Table ── */
+html body #abandonedCheckouts .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #abandonedCheckouts .hl-empty-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #abandonedCheckouts .hl-empty-title {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ============================================================
    SECTION 111 — Bestellungen (#OrdersListPage)
    ============================================================ */
 
