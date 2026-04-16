@@ -1,0 +1,458 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Sites/Webinars" />
+
+# Webinar Funnels
+
+Die **Webinar Funnels**-Seite (`#WebinarsList`) listet alle Webinar-Funnels mit Name, Last Updated und Seitenanzahl. Sie enthält View-Toggle, Suchfeld, Breadcrumb und eine NaïveUI DataTable. Die Edit-Ansicht (137.1) zeigt ein Formular mit Name, Timezone, Date/Time-Pickers, Recurring-Toggle und Recurrence-Settings. Zwei weitere Modals: **Upload Template** (Highrise v2, 137.2) und **Share Webinar** (137.3).
+
+<img src="/WebinarFunnels.png" alt="Webinar Funnels" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root | `#WebinarsList` |
+| Back-Button (Edit) | `#edit-back` |
+| Cancel-Button (Edit) | `#webinar-edit-header-btn-secondary` |
+| Save-Button (Edit) | `#webinar-edit-header-btn-primary` |
+| Form-Inputs | `#WebinarsList #name`, `#WebinarsList #timezone` etc. |
+| Dropdown | `#table1-drop` |
+| Upload Template Modal | `#create-template-modal.hr-dialog` |
+| Share Modal | `.hl-modal:has(#copy-link)` |
+| Share Link Input | `#share-link` |
+| Copy Link Button | `#copy-link` |
+| Save (Share) Button | `#save` |
+
+---
+
+## 137.1 – Listen-Seite & Edit-Formular
+
+```css
+/* ── 137.1 Outer BG ── */
+html body section.hl_wrapper.hl_topbar-tabs:has(#WebinarsList),
+html body section.hl_wrapper--inner.funnels:has(#WebinarsList),
+html body #WebinarsList .hl-wrapper-container {
+  background-color: var(--bg) !important;
+}
+
+/* Back-Button → wine */
+html body #edit-back .n-button__content,
+html body #edit-back svg {
+  color: var(--wine) !important;
+}
+
+/* Header Titel */
+html body #WebinarsList .hl-display-sm-medium {
+  color: var(--ink) !important;
+}
+
+/* Cancel → outline neutral */
+html body #webinar-edit-header-btn-secondary {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #webinar-edit-header-btn-secondary .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #webinar-edit-header-btn-secondary:hover {
+  border-color: var(--wine) !important;
+}
+html body #webinar-edit-header-btn-secondary:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #webinar-edit-header-btn-secondary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Save → wine solid */
+html body #webinar-edit-header-btn-primary {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #webinar-edit-header-btn-primary:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #webinar-edit-header-btn-primary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Form-Texte & Cards */
+html body #WebinarsList .text-gray-700.hl-text-sm-medium,
+html body #WebinarsList .text-gray-700.hl-text-md-medium,
+html body #WebinarsList .text-gray-700.font-medium {
+  color: var(--ink) !important;
+}
+html body #WebinarsList .text-gray-600 {
+  color: var(--ink-3) !important;
+}
+html body #WebinarsList .hl-card {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #WebinarsList .n-form-item-label__text {
+  color: var(--ink) !important;
+}
+
+/* Name Input → wine Focus */
+html body #WebinarsList #name {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #WebinarsList #name .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #WebinarsList #name .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Timezone Select → wine Focus */
+html body #WebinarsList #timezone .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #WebinarsList #timezone .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Date & Time Pickers → wine Focus */
+html body #WebinarsList #end-date .n-input,
+html body #WebinarsList #end-time .n-input,
+html body #WebinarsList #webinar-end-time .n-input,
+html body #WebinarsList #webinar-end-date .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #WebinarsList #end-date .n-input__input-el,
+html body #WebinarsList #end-time .n-input__input-el,
+html body #WebinarsList #webinar-end-time .n-input__input-el,
+html body #WebinarsList #webinar-end-date .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #WebinarsList #end-date .n-input__state-border,
+html body #WebinarsList #end-time .n-input__state-border,
+html body #WebinarsList #webinar-end-time .n-input__state-border,
+html body #WebinarsList #webinar-end-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Recurring Toggle → wine */
+html body #WebinarsList #recurring {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+}
+
+/* Recurrence Select → wine Focus */
+html body #WebinarsList #recurring-frequency .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #WebinarsList #recurring-frequency .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Radio Buttons → wine */
+html body #WebinarsList #by,
+html body #WebinarsList #after {
+  --n-box-shadow-active: inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--wine) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--wine), 0 0 0 2px var(--wine-a20) !important;
+  --n-dot-color-active:  var(--wine) !important;
+  --n-text-color:        var(--ink-2) !important;
+}
+
+/* Occurrences Input → wine Focus */
+html body #WebinarsList #occurrences .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #WebinarsList #occurrences .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #WebinarsList #occurrences .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Workflow Recipe Button → outline neutral */
+html body #workflow-recipe {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #workflow-recipe .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #workflow-recipe:hover {
+  border-color: var(--wine) !important;
+}
+html body #workflow-recipe:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #workflow-recipe .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Tabellen-Dropdown */
+html body #table1-drop {
+  background-color:                   var(--surface) !important;
+  --n-color:                          var(--surface) !important;
+  --n-option-color-hover:             var(--wine-lt) !important;
+  --n-option-color-active:            var(--wine-lt) !important;
+  --n-option-text-color:              var(--ink-2) !important;
+  --n-option-text-color-hover:        var(--ink-2) !important;
+  --n-option-text-color-active:       var(--wine) !important;
+  --n-option-text-color-child-active: var(--wine) !important;
+  --n-prefix-color:                   var(--ink-3) !important;
+  --n-suffix-color:                   var(--ink-3) !important;
+  --n-divider-color:                  var(--line-hard) !important;
+}
+html body #table1-drop .n-dropdown-option-body__prefix.n-dropdown-option-body__prefix--show-icon svg {
+  color:  var(--ink-3) !important;
+  stroke: var(--ink-3) !important;
+}
+html body #table1-drop .n-dropdown-option:hover .n-dropdown-option-body__prefix.n-dropdown-option-body__prefix--show-icon svg {
+  color:  var(--wine) !important;
+  stroke: var(--wine) !important;
+}
+```
+
+---
+
+## 137.2 – Upload Template Modal (Highrise v2)
+
+```css
+/* ── 137.2 Create Template Modal ── */
+html body #create-template-modal.hr-dialog {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #hr-modal__close-button svg {
+  color: var(--ink-2) !important;
+}
+html body #hr-modal__close-button:hover svg {
+  color: var(--wine) !important;
+}
+html body #page-template-library__create-template-upload-icon .hr-avatar {
+  background-color: var(--wine-lt) !important;
+}
+html body #page-template-library__create-template-upload-icon svg {
+  color: var(--wine) !important;
+}
+html body #create-template-modal .text-gray-900 {
+  color: var(--ink) !important;
+}
+html body #create-template-modal .hr-form-item-label__text {
+  color: var(--ink) !important;
+}
+
+/* Name Input */
+html body #page-template-library__create-template-name-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #page-template-library__create-template-name-input .hr-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #page-template-library__create-template-name-input .hr-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Kategorie Select */
+html body #page-template-library__create-template-category-selector .hr-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--wine-a20) !important;
+}
+html body #page-template-library__create-template-category-selector .hr-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Alert Note */
+html body #create-template-modal-note {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #create-template-modal-note .hr-alert__icon svg {
+  color: var(--ink-3) !important;
+}
+html body #create-template-modal-note .hr-alert-body__title span,
+html body #create-template-modal-note .hr-alert-body__content span {
+  color: var(--ink-2) !important;
+}
+html body #create-template-modal .border-t {
+  border-color: var(--line-hard) !important;
+}
+
+/* Cancel → outline neutral */
+html body #page-template-library__create-template-cancel-btn {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #page-template-library__create-template-cancel-btn .hr-text {
+  color: var(--ink-2) !important;
+}
+html body #page-template-library__create-template-cancel-btn:hover {
+  background-color: var(--bg) !important;
+}
+html body #page-template-library__create-template-cancel-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Upload → wine solid */
+html body #page-template-library__create-template-upload-btn-webinars {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:          var(--wine) !important;
+  --n-color-hover:    var(--wine-2) !important;
+  --n-color-disabled: var(--wine-a20) !important;
+  --n-border:         1px solid var(--wine) !important;
+  --n-border-hover:   1px solid var(--wine-2) !important;
+  --n-ripple-color:   var(--wine) !important;
+}
+html body #page-template-library__create-template-upload-btn-webinars:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #page-template-library__create-template-upload-btn-webinars .hr-text,
+html body #page-template-library__create-template-upload-btn-webinars p {
+  color: white !important;
+}
+html body #page-template-library__create-template-upload-btn-webinars .hr-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 137.3 – Share Webinar Modal
+
+```css
+/* ── 137.3 Share Modal ── */
+html body .hl-modal:has(#copy-link) {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body .hl-modal:has(#copy-link) .icon-primary svg {
+  color: var(--wine) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn {
+  border-color: var(--line-hard) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn svg {
+  color: var(--ink-2) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn:hover {
+  border-color: var(--wine) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn:hover svg {
+  color: var(--wine) !important;
+}
+html body .hl-modal:has(#copy-link) .title {
+  color: var(--ink) !important;
+}
+html body .hl-modal:has(#copy-link) .description {
+  color: var(--ink-3) !important;
+}
+html body .hl-modal:has(#copy-link) .n-form-item-label__text {
+  color: var(--ink) !important;
+}
+
+/* Share Width Select */
+html body #share-width .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #share-width .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Share Link Input (readonly) */
+html body #share-link {
+  background-color: var(--bg) !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #share-link .n-input__input-el {
+  color: var(--ink-3) !important;
+}
+html body #share-link .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Copy Link → wine text */
+html body #copy-link .n-button__content,
+html body #copy-link svg {
+  color: var(--wine) !important;
+}
+html body #copy-link:hover .n-button__content,
+html body #copy-link:hover svg {
+  color: var(--wine-2) !important;
+}
+
+/* Save → wine solid */
+html body #save {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #save:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #save .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**`#WebinarsList` als Root für Liste UND Edit-Ansicht:** GHL verwendet dieselbe Root-ID für die Listen-Ansicht und die Edit-Seite — alle Edit-Formular-Selektoren werden daher über `#WebinarsList #name`, `#WebinarsList #timezone` etc. gescoped, um Konflikte mit den gleichnamigen IDs im Create Webinar Modal (Section 136) zu vermeiden.
+
+**`#table1-drop` als Tabellen-Aktions-Dropdown:** Die ID ist sehr generisch und könnte auf anderen Seiten kollidieren. Da GHL Dropdowns dynamisch in den Body rendert, wird der Scope hier über das GHL-eigene ID-Namensschema (keine eigene Klasse) gehandhabt.
+
+**`#save` als Share-Modal Save-Button:** Diese sehr generische ID (`#save`) ist bewusst auf das Share Modal beschränkt — der `html body`-Präfix sorgt für Spezifität, aber der Selektor ist global. Da GHL immer nur ein Modal gleichzeitig rendert, ist in der Praxis kein Konflikt zu erwarten.
+
+**Upload Template Modal mit webinar-spezifischem Upload-Button:** `#page-template-library__create-template-upload-btn-webinars` unterscheidet sich von der gleichnamigen Section 132 (Documents) durch den Suffix `webinars` statt `documentsContracts` — beide Modals nutzen dieselbe Highrise v2 Struktur.

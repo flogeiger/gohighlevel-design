@@ -28796,6 +28796,414 @@ html body #next .n-button__state-border {
   border-width: 0 !important;
 }
 
+/* ============================================================
+   SECTION 136 — Edit Webinar
+   (#WebinarsList)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body section.hl_wrapper.hl_topbar-tabs:has(#WebinarsList),
+html body section.hl_wrapper--inner.funnels:has(#WebinarsList),
+html body #WebinarsList .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Back Button → wine ── */
+html body #edit-back .n-button__content,
+html body #edit-back svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Header Titel ── */
+html body #WebinarsList .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Cancel" Button → outline neutral → wine hover ── */
+html body #webinar-edit-header-btn-secondary {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #webinar-edit-header-btn-secondary .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #webinar-edit-header-btn-secondary:hover {
+  border-color: var(--akzent) !important;
+}
+html body #webinar-edit-header-btn-secondary:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #webinar-edit-header-btn-secondary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+html body #webinar-edit-header-btn-primary {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #webinar-edit-header-btn-primary:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #webinar-edit-header-btn-primary .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Section Sidebar Labels ── */
+html body #WebinarsList .text-gray-700.hl-text-sm-medium,
+html body #WebinarsList .text-gray-700.hl-text-md-medium,
+html body #WebinarsList .text-gray-700.font-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #WebinarsList .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Karten BG ── */
+html body #WebinarsList .hl-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Form Labels ── */
+html body #WebinarsList .n-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Name Input → wine Focus ── */
+html body #WebinarsList #name {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #WebinarsList #name .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #WebinarsList #name .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Timezone Select → wine ── */
+html body #WebinarsList #timezone .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #WebinarsList #timezone .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Date + Time Picker → wine Focus ── */
+html body #WebinarsList #end-date .n-input,
+html body #WebinarsList #end-time .n-input,
+html body #WebinarsList #webinar-end-time .n-input,
+html body #WebinarsList #webinar-end-date .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #WebinarsList #end-date .n-input__input-el,
+html body #WebinarsList #end-time .n-input__input-el,
+html body #WebinarsList #webinar-end-time .n-input__input-el,
+html body #WebinarsList #webinar-end-date .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #WebinarsList #end-date .n-input__state-border,
+html body #WebinarsList #end-time .n-input__state-border,
+html body #WebinarsList #webinar-end-time .n-input__state-border,
+html body #WebinarsList #webinar-end-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Recurring Toggle → wine ── */
+html body #WebinarsList #recurring {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+
+/* ── Recurrence Select → wine ── */
+html body #WebinarsList #recurring-frequency .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #WebinarsList #recurring-frequency .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Radio Buttons (By / After) → wine ── */
+html body #WebinarsList #by,
+html body #WebinarsList #after {
+  --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-dot-color-active:  var(--akzent) !important;
+  --n-text-color:        var(--nav-hover) !important;
+}
+
+/* ── Occurrences Input → wine Focus ── */
+html body #WebinarsList #occurrences .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #WebinarsList #occurrences .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #WebinarsList #occurrences .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Webinar Recipe" + "View" Buttons → outline neutral → wine hover ── */
+html body #workflow-recipe {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #workflow-recipe .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #workflow-recipe:hover {
+  border-color: var(--akzent) !important;
+}
+html body #workflow-recipe:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #workflow-recipe .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Webinar Table Dropdown ── */
+html body #table1-drop {
+  background-color:                   var(--hintergrund-karte) !important;
+  box-shadow:                         0 2px 8px var(--linie-stark) !important;
+  --n-color:                          var(--hintergrund-karte) !important;
+  --n-option-color-hover:             var(--akzent-hell) !important;
+  --n-option-color-active:            var(--akzent-hell) !important;
+  --n-option-text-color:              var(--nav-hover) !important;
+  --n-option-text-color-hover:        var(--nav-hover) !important;
+  --n-option-text-color-active:       var(--akzent) !important;
+  --n-option-text-color-child-active: var(--akzent) !important;
+  --n-prefix-color:                   var(--text-gedaempft) !important;
+  --n-suffix-color:                   var(--text-gedaempft) !important;
+  --n-divider-color:                  var(--linie-stark) !important;
+}
+
+/* Icons normal ── */
+html body #table1-drop .n-dropdown-option-body__prefix.n-dropdown-option-body__prefix--show-icon svg {
+  color:  var(--text-gedaempft) !important;
+  stroke: var(--text-gedaempft) !important;
+}
+
+/* Icons hover/pending → wine ── */
+html body #table1-drop .n-dropdown-option:hover .n-dropdown-option-body__prefix.n-dropdown-option-body__prefix--show-icon svg,
+html body #table1-drop .n-dropdown-option:has(.n-dropdown-option-body--pending) .n-dropdown-option-body__prefix.n-dropdown-option-body__prefix--show-icon svg {
+  color:  var(--akzent) !important;
+  stroke: var(--akzent) !important;
+}
+
+/* ============================================================
+   SECTION 136.1 — Upload to Webinar Templates Modal
+   (Highrise v2)
+   ============================================================ */
+
+html body #create-template-modal.hr-dialog {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #hr-modal__close-button svg {
+  color: var(--nav-hover) !important;
+}
+html body #hr-modal__close-button:hover svg {
+  color: var(--akzent) !important;
+}
+html body #page-template-library__create-template-upload-icon .hr-avatar {
+  background-color: var(--akzent-hell) !important;
+}
+html body #page-template-library__create-template-upload-icon svg {
+  color: var(--akzent) !important;
+}
+html body #create-template-modal .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+html body #create-template-modal .hr-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+html body #page-template-library__create-template-name-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 4px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #page-template-library__create-template-name-input .hr-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #page-template-library__create-template-name-input .hr-input__state-border {
+  border-width: 0 !important;
+}
+html body #page-template-library__create-template-category-selector .hr-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 4px var(--akzent-a20) !important;
+  --n-box-shadow-hover:  0 0 0 4px var(--akzent-a20) !important;
+}
+html body #page-template-library__create-template-category-selector .hr-base-selection__state-border {
+  border-width: 0 !important;
+}
+html body #create-template-modal-note {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #create-template-modal-note .hr-alert__icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #create-template-modal-note .hr-alert-body__title span,
+html body #create-template-modal-note .hr-alert-body__content span {
+  color: var(--nav-hover) !important;
+}
+html body #create-template-modal .border-t {
+  border-color: var(--linie-stark) !important;
+}
+html body #page-template-library__create-template-cancel-btn {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #page-template-library__create-template-cancel-btn .hr-text {
+  color: var(--nav-hover) !important;
+}
+html body #page-template-library__create-template-cancel-btn:hover {
+  background-color: var(--hintergrund) !important;
+}
+html body #page-template-library__create-template-cancel-btn .hr-button__state-border {
+  border-width: 0 !important;
+}
+html body #page-template-library__create-template-upload-btn-webinars {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:          var(--akzent) !important;
+  --n-color-hover:    var(--akzent-dunkel) !important;
+  --n-color-disabled: var(--akzent-a20) !important;
+  --n-border:         1px solid var(--akzent) !important;
+  --n-border-hover:   1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color:   var(--akzent) !important;
+}
+html body #page-template-library__create-template-upload-btn-webinars:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #page-template-library__create-template-upload-btn-webinars .hr-button__state-border {
+  border-width: 0 !important;
+}
+html body #page-template-library__create-template-upload-btn-webinars .hr-text,
+html body #page-template-library__create-template-upload-btn-webinars .hr-button__content-default-slot,
+html body #page-template-library__create-template-upload-btn-webinars p {
+  color:                   var(--base-white) !important;
+  --n-text-color-disabled: var(--base-white) !important;
+}
+
+/* ============================================================
+   SECTION 136.2 — Share Webinar Modal
+   (:has(#copy-link))
+   ============================================================ */
+
+html body .hl-modal:has(#copy-link) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body .hl-modal:has(#copy-link) .icon-primary svg {
+  color: var(--akzent) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn svg {
+  color: var(--nav-hover) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body .hl-modal:has(#copy-link) #modal-header-modal-close-btn:hover svg {
+  color: var(--akzent) !important;
+}
+html body .hl-modal:has(#copy-link) .title {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#copy-link) .description {
+  color: var(--text-gedaempft) !important;
+}
+html body .hl-modal:has(#copy-link) .n-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+html body #share-width .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #share-width .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+html body #share-link {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #share-link .n-input__input-el {
+  color: var(--text-gedaempft) !important;
+}
+html body #share-link .n-input__state-border {
+  border-width: 0 !important;
+}
+html body #copy-link .n-button__content,
+html body #copy-link svg {
+  color: var(--akzent) !important;
+}
+html body #copy-link:hover .n-button__content,
+html body #copy-link:hover svg {
+  color: var(--akzent-dunkel) !important;
+}
+html body #save {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #save:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #save .n-button__state-border {
+  border-width: 0 !important;
+}
 
 /* ════════════════════════════════════════════════════════════════
    115 · KUNDENPORTAL (Client Portal Dashboard)
