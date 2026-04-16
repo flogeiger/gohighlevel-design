@@ -28220,6 +28220,582 @@ html body #stores-onboarding-content-btn-positive-action .n-button__state-border
   border-width: 0 !important;
 }
 
+/* ============================================================
+   SECTION 135 — Webinar-Funnel erstellen Modal
+   (:has(#modal-header-modal-close-btn))
+   ============================================================ */
+
+/* ── Modal BG ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .title {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+html body #modal-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+}
+html body #modal-header-modal-close-btn svg {
+  color: var(--nav-hover) !important;
+}
+html body #modal-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body #modal-header-modal-close-btn:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Webinar-Karten ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Aktiv ausgewählte Karte (border blau → wine) ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card[style*="border: 2px solid"] {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Karten Hintergrund (farbige Bereiche → neutral) ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card [style*="background: rgb(255, 252, 245)"],
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card [style*="background: rgb(254, 250, 255)"] {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Karten Text ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral → wine hover ── */
+html body #modal-footer-btn-negative-action {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #modal-footer-btn-negative-action .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #modal-footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+}
+html body #modal-footer-btn-negative-action:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #modal-footer-btn-negative-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Weiter" Button → wine solid ── */
+html body #modal-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #modal-footer-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #modal-footer-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 135.1 — Create Webinar Modal — Stepper + Form
+   ============================================================ */
+
+/* ── Stepper Sidebar BG ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Stepper Schritte → wine aktiv, gedämpft inaktiv ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .n-step--process-status {
+  --n-indicator-border-color: var(--akzent) !important;
+  --n-indicator-color:        var(--akzent) !important;
+  --n-indicator-text-color:   var(--base-white) !important;
+  --n-header-text-color:      var(--nav-farbe) !important;
+  --n-description-text-color: var(--text-gedaempft) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .n-step--wait-status {
+  --n-indicator-border-color: var(--linie-stark) !important;
+  --n-header-text-color:      var(--text-gedaempft) !important;
+  --n-description-text-color: var(--text-gedaempft) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .n-step--finish-status {
+  --n-indicator-border-color: var(--akzent) !important;
+  --n-indicator-color:        var(--akzent) !important;
+  --n-header-text-color:      var(--akzent) !important;
+  --n-description-text-color: var(--text-gedaempft) !important;
+}
+
+/* ── Form Labels ── */
+html body #modal-form .n-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Section Titel & Beschreibung ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Name Input → wine Focus ── */
+html body #name {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #name .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #name .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Timezone Select → wine ── */
+html body #timezone .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #timezone .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Date Picker → wine Focus ── */
+html body #date-picker .n-input,
+html body #webinar-end-date .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #date-picker .n-input__input-el,
+html body #webinar-end-date .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #date-picker .n-input__state-border,
+html body #webinar-end-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Time Picker Start/End → wine Focus ── */
+html body #time-picker .n-input,
+html body #webinar-end-time-picker .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #time-picker .n-input__input-el,
+html body #webinar-end-time-picker .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #time-picker .n-input__state-border,
+html body #webinar-end-time-picker .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Recurring Toggle → wine ── */
+html body #recurring {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .text-gray-700.font-medium {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Recurrence Select → wine ── */
+html body #recurring-frequency .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #recurring-frequency .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Radio Buttons (By / After) → wine ── */
+html body #by,
+html body #after {
+  --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-dot-color-active:  var(--akzent) !important;
+  --n-text-color:        var(--nav-hover) !important;
+}
+
+/* ── Occurrences Input → wine Focus ── */
+html body #occurrences .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #occurrences .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #occurrences .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Prev" Button → outline neutral ── */
+html body #prev {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #prev .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #prev .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Next" Button → wine solid ── */
+html body #next {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #next:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #next .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 135 — Webinar-Funnel erstellen Modal
+   (:has(#modal-header-modal-close-btn))
+   ============================================================ */
+
+/* ── Modal BG ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Titel & Beschreibung ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .title {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Close Button ── */
+html body #modal-header-modal-close-btn {
+  border-color: var(--linie-stark) !important;
+}
+html body #modal-header-modal-close-btn svg {
+  color: var(--nav-hover) !important;
+}
+html body #modal-header-modal-close-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body #modal-header-modal-close-btn:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Webinar-Karten ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card:hover {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Aktiv ausgewählte Karte (border blau → wine) ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card[style*="border: 2px solid"] {
+  border-color: var(--akzent) !important;
+}
+
+/* ── Karten Hintergrund (farbige Bereiche → neutral) ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card [style*="background: rgb(255, 252, 245)"],
+html body .hl-modal:has(#modal-header-modal-close-btn) .webinar-card [style*="background: rgb(254, 250, 255)"] {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Karten Text ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Stornieren" Button → outline neutral → wine hover ── */
+html body #modal-footer-btn-negative-action {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #modal-footer-btn-negative-action .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #modal-footer-btn-negative-action:hover {
+  border-color: var(--akzent) !important;
+}
+html body #modal-footer-btn-negative-action:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #modal-footer-btn-negative-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Weiter" Button → wine solid ── */
+html body #modal-footer-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #modal-footer-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #modal-footer-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 135.1 — Create Webinar Modal — Stepper + Form
+   ============================================================ */
+
+/* ── Stepper Sidebar BG ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .bg-gray-50 {
+  background-color: var(--hintergrund) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Stepper Schritte → wine aktiv, gedämpft inaktiv ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .n-step--process-status {
+  --n-indicator-border-color: var(--akzent) !important;
+  --n-indicator-color:        var(--akzent) !important;
+  --n-indicator-text-color:   var(--base-white) !important;
+  --n-header-text-color:      var(--nav-farbe) !important;
+  --n-description-text-color: var(--text-gedaempft) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .n-step--wait-status {
+  --n-indicator-border-color: var(--linie-stark) !important;
+  --n-header-text-color:      var(--text-gedaempft) !important;
+  --n-description-text-color: var(--text-gedaempft) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .n-step--finish-status {
+  --n-indicator-border-color: var(--akzent) !important;
+  --n-indicator-color:        var(--akzent) !important;
+  --n-header-text-color:      var(--akzent) !important;
+  --n-description-text-color: var(--text-gedaempft) !important;
+}
+
+/* ── Form Labels ── */
+html body #modal-form .n-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Section Titel & Beschreibung ── */
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .hl-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Name Input → wine Focus ── */
+html body #name {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #name .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #name .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Timezone Select → wine ── */
+html body #timezone .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #timezone .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Date Picker → wine Focus ── */
+html body #date-picker .n-input,
+html body #webinar-end-date .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #date-picker .n-input__input-el,
+html body #webinar-end-date .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #date-picker .n-input__state-border,
+html body #webinar-end-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Time Picker Start/End → wine Focus ── */
+html body #time-picker .n-input,
+html body #webinar-end-time-picker .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #time-picker .n-input__input-el,
+html body #webinar-end-time-picker .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #time-picker .n-input__state-border,
+html body #webinar-end-time-picker .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Recurring Toggle → wine ── */
+html body #recurring {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .text-gray-700.font-medium {
+  color: var(--nav-farbe) !important;
+}
+html body .hl-modal:has(#modal-header-modal-close-btn) .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Recurrence Select → wine ── */
+html body #recurring-frequency .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #recurring-frequency .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Radio Buttons (By / After) → wine ── */
+html body #by,
+html body #after {
+  --n-box-shadow-active: inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-hover:  inset 0 0 0 1px var(--akzent) !important;
+  --n-box-shadow-focus:  inset 0 0 0 1px var(--akzent), 0 0 0 2px var(--akzent-a20) !important;
+  --n-dot-color-active:  var(--akzent) !important;
+  --n-text-color:        var(--nav-hover) !important;
+}
+
+/* ── Occurrences Input → wine Focus ── */
+html body #occurrences .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #occurrences .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #occurrences .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Prev" Button → outline neutral ── */
+html body #prev {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #prev .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #prev .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Next" Button → wine solid ── */
+html body #next {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #next:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #next .n-button__state-border {
+  border-width: 0 !important;
+}
+
 
 /* ════════════════════════════════════════════════════════════════
    115 · KUNDENPORTAL (Client Portal Dashboard)
