@@ -27865,6 +27865,361 @@ html body #delete-funnel.n-button--primary-type .n-button__state-border {
   border-width: 0 !important;
 }
 
+/* ============================================================
+   SECTION 134 — Stores
+   (#StoresList / section.hl_wrapper--inner.funnels#funnels)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body section.hl_wrapper.hl_topbar-tabs:has(#funnels.funnels),
+html body section.hl_wrapper--inner.funnels#funnels,
+html body #StoresList .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Header Titel & Beschreibung ── */
+html body #StoresList .hl-display-sm-medium {
+  color: var(--nav-farbe) !important;
+}
+html body #StoresList .hl-text-md-normal {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Learn more" Text-Button → wine ── */
+html body #learn-more .n-button__content {
+  color: var(--akzent) !important;
+}
+
+/* ── "Create Folder" Button → outline neutral → wine hover ── */
+html body #create-folder-button {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #create-folder-button .n-button__content,
+html body #create-folder-button svg {
+  color: var(--nav-hover) !important;
+}
+html body #create-folder-button:hover {
+  border-color: var(--akzent) !important;
+}
+html body #create-folder-button:hover .n-button__content,
+html body #create-folder-button:hover svg {
+  color: var(--akzent) !important;
+}
+html body #create-folder-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "New Store" Button → wine solid ── */
+html body #create-new-button {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #create-new-button:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #create-new-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Onboarding Banner → neutral ── */
+html body #stores-onboarding-header {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #stores-onboarding-header .bg-blue-100 {
+  background-color: var(--hintergrund) !important;
+}
+html body #stores-onboarding-header .text-blue-700,
+html body #stores-onboarding-header .text-blue-600 {
+  color: var(--nav-farbe) !important;
+}
+html body #stores-onboarding-header .hl-text-sm-regular {
+  color: var(--text-gedaempft) !important;
+}
+html body #stores-onboarding-header .text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+html body #stores-onboarding-header svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Progress Bar → wine ── */
+html body #stores-onboarding-progress .n-progress {
+  --n-fill-color: var(--akzent) !important;
+}
+html body #stores-onboarding-progress .n-progress-graph-line-fill {
+  background-color: var(--akzent) !important;
+}
+
+/* ── "Complete Setup" Button → wine solid ── */
+html body #build-store-btn {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #build-store-btn:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #build-store-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Book a Call" Button → outline neutral → wine hover ── */
+html body #book-a-call-btn {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #book-a-call-btn svg {
+  color: var(--nav-hover) !important;
+}
+html body #book-a-call-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body #book-a-call-btn:hover svg {
+  color: var(--akzent) !important;
+}
+html body #book-a-call-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Close Banner Button ── */
+html body #close-build-store-btn svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #close-build-store-btn:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── View Toggle Buttons (Recent / List) ── */
+html body #recentButton,
+html body #ListButton {
+  border-color:     var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #recentButton svg,
+html body #ListButton svg {
+  color: var(--nav-hover) !important;
+}
+html body #recentButton:hover,
+html body #ListButton:hover {
+  border-color: var(--akzent) !important;
+}
+html body #recentButton:hover svg,
+html body #ListButton:hover svg {
+  color: var(--akzent) !important;
+}
+html body #ListButton.hl-active-btn {
+  border-color: var(--akzent) !important;
+}
+html body #ListButton.hl-active-btn svg {
+  color: var(--akzent) !important;
+}
+html body #recentButton .n-button__state-border,
+html body #ListButton .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Suchfeld → wine Focus ── */
+html body #hl-table-funnel-list-filter-text-search {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #hl-table-funnel-list-filter-text-search .n-input__prefix svg,
+html body #hl-table-funnel-list-filter-text-search .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #hl-table-funnel-list-filter-text-search .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Breadcrumb ── */
+html body #StoresList .n-breadcrumb {
+  --n-item-text-color:        var(--text-gedaempft) !important;
+  --n-item-text-color-hover:  var(--akzent) !important;
+  --n-item-text-color-active: var(--nav-hover) !important;
+  --n-separator-color:        var(--linie-stark) !important;
+}
+
+/* ── Data Table ── */
+html body #StoresList .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #StoresList .hl-empty-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #StoresList .hl-empty-title {
+  color: var(--nav-farbe) !important;
+}
+html body #StoresList .hl-empty-description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Empty "New Store" Button → wine solid ── */
+html body #funnel-list-empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #funnel-list-empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #funnel-list-empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 134.1 — Stores Onboarding Drawer
+   (#stores-onboarding-drawer)
+   ============================================================ */
+
+/* ── Drawer BG & Content ── */
+html body #stores-onboarding-drawer,
+html body #stores-onboarding-drawer .n-drawer-content {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Header Titel ── */
+html body #stores-onboarding-drawer .hl-drawer-title {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Close Button ── */
+html body #stores-onboarding-drawer .n-base-close svg {
+  color: var(--nav-hover) !important;
+}
+html body #stores-onboarding-drawer .n-base-close:hover svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Subheading ── */
+html body #stores-onboarding-drawer .text-gray-900 {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Progress Bar → wine ── */
+html body #stores-onboarding-drawer .n-progress {
+  --n-fill-color: var(--akzent) !important;
+}
+html body #stores-onboarding-drawer .n-progress-graph-line-fill {
+  background-color: var(--akzent) !important;
+}
+html body #stores-onboarding-drawer .text-gray-600,
+html body #stores-onboarding-drawer .text-sm.text-gray-600 {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Tasks" Label & Tag ── */
+html body #stores-onboarding-drawer .text-gray-500 {
+  color: var(--text-gedaempft) !important;
+}
+html body #stores-onboarding-drawer .hl-default {
+  background-color: var(--hintergrund) !important;
+  border-color:     var(--linie-stark) !important;
+}
+html body #stores-onboarding-drawer .hl-default .n-tag__content {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Step Icons ── */
+html body #stores-onboarding-drawer .flex-shrink-0 svg {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Step Titel aktiv (blau → wine) ── */
+html body #stores-onboarding-drawer .text-blue-700.cursor-pointer {
+  color: var(--akzent) !important;
+}
+
+/* ── Step Titel inaktiv ── */
+html body #stores-onboarding-drawer .text-gray-700.pointer-events-none {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Step Beschreibungen ── */
+html body #stores-onboarding-drawer .hl-text-xs-regular {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── "Learn more" Links → wine ── */
+html body #stores-onboarding-drawer a[href] {
+  color: var(--akzent) !important;
+}
+
+/* ── Completed Check Icon → bleibt grün ── */
+html body #stores-onboarding-drawer .text-green-500 {
+  color: #12b76a !important;
+}
+
+/* ── "Manage Products" Button → outline neutral → wine hover ── */
+html body #stores-onboarding-close-btn {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #stores-onboarding-close-btn .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #stores-onboarding-close-btn:hover {
+  border-color: var(--akzent) !important;
+}
+html body #stores-onboarding-close-btn:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #stores-onboarding-close-btn .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Footer Border ── */
+html body #stores-onboarding-drawer .n-drawer-footer {
+  border-color: var(--linie-stark) !important;
+  background-color: var(--hintergrund-karte) !important;
+}
+
+/* ── "Close Guide" Button → wine solid ── */
+html body #stores-onboarding-content-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #stores-onboarding-content-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #stores-onboarding-content-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
 
 /* ════════════════════════════════════════════════════════════════
    115 · KUNDENPORTAL (Client Portal Dashboard)
