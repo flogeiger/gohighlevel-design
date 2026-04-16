@@ -27289,6 +27289,582 @@ html body #funnel-list-pagination .n-pagination-item--active {
   border-color: var(--akzent) !important;
 }
 
+/* ============================================================
+   SECTION 133 — Funnel / Website Detail (Pages Tab)
+   (#funnels-steps / #FunnelDetailPage)
+   ============================================================ */
+
+/* ── Outer BG ── */
+html body #FunnelDetailPage .hl-wrapper-container {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Back-Link → wine ── */
+html body #funnels-steps .text-blue-600 {
+  color: var(--akzent) !important;
+}
+html body #funnels-steps .text-blue-600 svg {
+  color: var(--akzent) !important;
+}
+
+/* ── Funnel-Name ── */
+html body #funnels-steps .text-black.hl-text-lg-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Share" Button → wine solid ── */
+html body #share {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #share:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #share .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Info Button → outline neutral ── */
+html body #funnel-url-info {
+  border-color: var(--linie-stark) !important;
+}
+html body #funnel-url-info svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #funnel-url-info .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Tabs → wine ── */
+html body #funnels-steps .hl-tabs {
+  --n-bar-color:             var(--akzent) !important;
+  --n-tab-text-color-active: var(--akzent) !important;
+  --n-tab-text-color-hover:  var(--akzent) !important;
+  --n-tab-text-color:        var(--nav-hover) !important;
+  --n-tab-border-color:      var(--linie-stark) !important;
+}
+
+/* ── "Add New Page" Button → wine solid ── */
+html body #add-step {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #add-step:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #add-step .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Page Cards → weißer Hintergrund ── */
+html body #website-card .bg-white {
+  background-color: #ffffff !important;
+  border:           1px solid var(--linie-stark) !important;
+  border-radius:    6px !important;
+}
+
+/* ── Card Header ── */
+html body #website-card #website-header h6 {
+  color: #111827 !important;
+}
+html body #website-card #website-header svg {
+  color: #6b7280 !important;
+}
+html body #website-card #website-header svg:hover {
+  color: var(--akzent) !important;
+}
+
+/* ── Thumbnail-Bereich (kein Screenshot) → weißes BG ── */
+html body #website-card .h-36 {
+  background-color: #f9fafb !important;
+  border-radius:    4px !important;
+}
+
+/* ── "Edit" + Dropdown Button → wine solid ── */
+html body #c-edit-page,
+html body #c-edit-page-dropdown-icon {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #c-edit-page:hover,
+html body #c-edit-page-dropdown-icon:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #c-edit-page .n-button__state-border,
+html body #c-edit-page-dropdown-icon .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Preview" Button → outline neutral → wine hover ── */
+html body #preview-link {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #preview-link svg {
+  color: var(--nav-hover) !important;
+}
+html body #preview-link:hover {
+  border-color: var(--akzent) !important;
+}
+html body #preview-link:hover svg {
+  color: var(--akzent) !important;
+}
+html body #preview-link .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Section 133 Fix — Outer BG vollständig weiß ── */
+html body #funnels-steps,
+html body #funnels-steps.hl_wrapper,
+html body #funnels-steps .hl_wrapper--inner,
+html body #FunnelDetailPage,
+html body #FunnelDetailPage .hl-wrapper-container,
+html body #FunnelDetailPage .font-sans,
+html body #funnels-steps .funnel-website-responsive-layout {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ── Section 133 Fix — hl_topbar-tabs Überschreibung für Funnels ── */
+html body section.hl_wrapper.hl_topbar-tabs:has(#funnels-steps) {
+  background-color: var(--hintergrund) !important;
+}
+
+html body section.hl_wrapper--inner#funnels-steps {
+  background-color: var(--hintergrund) !important;
+}
+
+/* ============================================================
+   SECTION 133.1 — Funnel Stats Tab
+   (#funnel-stats)
+   ============================================================ */
+
+/* ── "Statistiken verstehen" Link → wine ── */
+html body #funnel-stats .text-sky-500 a {
+  color: var(--akzent) !important;
+}
+
+/* ── Date Range Picker → wine Focus ── */
+html body #funnel-stats-date .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #funnel-stats-date .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #funnel-stats-date .n-input__separator svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #funnel-stats-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Zurücksetzen" Button → outline neutral → wine hover ── */
+html body #reset-stats {
+  background-color: transparent !important;
+  border-color:     var(--linie-stark) !important;
+  --n-color:         transparent !important;
+  --n-color-hover:   transparent !important;
+  --n-color-pressed: transparent !important;
+  --n-ripple-color:  var(--akzent) !important;
+}
+html body #reset-stats .n-button__content,
+html body #reset-stats svg {
+  color: var(--nav-hover) !important;
+}
+html body #reset-stats:hover {
+  border-color: var(--akzent) !important;
+}
+html body #reset-stats:hover .n-button__content,
+html body #reset-stats:hover svg {
+  color: var(--akzent) !important;
+}
+html body #reset-stats .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table ── */
+html body #funnel-stats .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Table Header Sub-Border-Farben → wine-a20/neutral ── */
+html body #funnel-stats .border-blue-400,
+html body #funnel-stats .border-blue-300 {
+  border-color: var(--akzent-a20) !important;
+}
+html body #funnel-stats .border-green-400,
+html body #funnel-stats .border-emerald-300 {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── Seiten-Name Icon & Text ── */
+html body #funnel-stats .font-semibold svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #funnel-stats .font-semibold {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Pagination → wine ── */
+html body #funnels-stats-table-pagination {
+  --n-item-text-color-active: var(--akzent) !important;
+  --n-item-text-color-hover:  var(--akzent) !important;
+  --n-item-border-active:     1px solid var(--akzent) !important;
+}
+html body #funnels-stats-table-previous,
+html body #funnels-stats-table-next {
+  border-color: var(--linie-stark) !important;
+}
+html body #funnels-stats-table-previous .n-button__content,
+html body #funnels-stats-table-next .n-button__content {
+  color: var(--nav-hover) !important;
+}
+html body #funnels-stats-table-previous:hover,
+html body #funnels-stats-table-next:hover {
+  border-color: var(--akzent) !important;
+}
+html body #funnels-stats-table-previous:hover .n-button__content,
+html body #funnels-stats-table-next:hover .n-button__content {
+  color: var(--akzent) !important;
+}
+html body #funnels-stats-table-previous .n-button__state-border,
+html body #funnels-stats-table-next .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 133.2 — Funnel Sales Tab
+   (#funnel-sales-list)
+   ============================================================ */
+
+/* ── Info-Tag → wine-toned ── */
+html body #funnel-sales-list .hl-info {
+  background-color: var(--akzent-a20) !important;
+  border-color:     var(--akzent) !important;
+}
+html body #funnel-sales-list .hl-info .n-tag__content,
+html body #funnel-sales-list .hl-info li,
+html body #funnel-sales-list .hl-info a {
+  color: var(--nav-hover) !important;
+}
+html body #funnel-sales-list .hl-info a:hover {
+  color: var(--akzent) !important;
+}
+
+/* ── Date Range Picker → wine Focus ── */
+html body #funnel-sales-date .n-input {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #funnel-sales-date .n-input__input-el {
+  color: var(--nav-hover) !important;
+}
+html body #funnel-sales-date .n-input__separator svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #funnel-sales-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Download CSV Button → outline neutral → wine hover ── */
+html body #download-csv {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #download-csv .n-button__content,
+html body #download-csv svg {
+  color: var(--nav-hover) !important;
+}
+html body #download-csv:hover {
+  border-color: var(--akzent) !important;
+}
+html body #download-csv:hover .n-button__content,
+html body #download-csv:hover svg {
+  color: var(--akzent) !important;
+}
+html body #download-csv .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table ── */
+html body #funnel-sales-list .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #funnel-sales-list .n-empty__icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #funnel-sales-list .n-empty__description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ============================================================
+   SECTION 133.3 — Funnel Security Tab
+   (Security Headers)
+   ============================================================ */
+
+/* ── Titel ── */
+html body #funnels-steps .text-gray-800.hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Add security header" Button → outline neutral → wine hover ── */
+html body #add-security-header-button {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #add-security-header-button .n-button__content,
+html body #add-security-header-button svg {
+  color: var(--nav-hover) !important;
+}
+html body #add-security-header-button:hover {
+  border-color: var(--akzent) !important;
+}
+html body #add-security-header-button:hover .n-button__content,
+html body #add-security-header-button:hover svg {
+  color: var(--akzent) !important;
+}
+html body #add-security-header-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table ── */
+html body #funnels-steps .table-container .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #funnels-steps .n-empty__icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #funnels-steps .n-empty__description {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ============================================================
+   SECTION 133.4 — Funnel Events Tab
+   (Meta Tracking / Send tracking events to meta)
+   ============================================================ */
+
+/* ── Titel ── */
+html body #funnels-steps .text-gray-800.hl-text-md-medium {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── "Add Event" Button → outline neutral → wine hover ── */
+html body #add-security-header-button {
+  border-color:     var(--linie-stark) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #add-security-header-button .n-button__content,
+html body #add-security-header-button svg {
+  color: var(--nav-hover) !important;
+}
+html body #add-security-header-button:hover {
+  border-color: var(--akzent) !important;
+}
+html body #add-security-header-button:hover .n-button__content,
+html body #add-security-header-button:hover svg {
+  color: var(--akzent) !important;
+}
+html body #add-security-header-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Data Table ── */
+html body #funnels-steps .n-data-table {
+  --n-th-color:       var(--hintergrund) !important;
+  --n-td-color:       var(--hintergrund-karte) !important;
+  --n-td-color-hover: var(--akzent-hell) !important;
+  --n-border-color:   var(--linie-stark) !important;
+  --n-th-text-color:  var(--nav-farbe) !important;
+  --n-td-text-color:  var(--nav-hover) !important;
+  --n-loading-color:  var(--akzent) !important;
+  --n-th-icon-color-active: var(--akzent) !important;
+}
+
+/* ── Empty State ── */
+html body #funnels-steps .hl-empty-icon svg {
+  color: var(--text-gedaempft) !important;
+}
+html body #funnels-steps .hl-empty-title {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Empty "Add Event" Button → wine solid ── */
+html body #funnel-event-list-empty-btn-positive-action {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #funnel-event-list-empty-btn-positive-action:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #funnel-event-list-empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ============================================================
+   SECTION 133.5 — Funnel Settings Tab
+   (#funnel-settings)
+   ============================================================ */
+
+/* ── Karte BG → weiß ── */
+html body #funnels-steps .hl-card {
+  background-color: #ffffff !important;
+  border-color:     var(--linie-stark) !important;
+}
+
+/* ── Form Labels ── */
+html body #funnel-settings .n-form-item-label__text {
+  color: var(--nav-farbe) !important;
+}
+
+/* ── Hint-Texte (text-sm) ── */
+html body #funnel-settings .text-sm {
+  color: var(--text-gedaempft) !important;
+}
+
+/* ── Alle Inputs → wine Focus ── */
+html body #funnelName,
+html body #path,
+html body #faviconUrl,
+html body #head-tracking-code,
+html body #body-tracking-code {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:     1px solid var(--akzent) !important;
+  --n-border-focus:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--akzent-a20) !important;
+  --n-caret-color:      var(--akzent) !important;
+}
+html body #funnelName .n-input__input-el,
+html body #path .n-input__input-el,
+html body #faviconUrl .n-input__input-el,
+html body #head-tracking-code .n-input__textarea-el,
+html body #body-tracking-code .n-input__textarea-el {
+  color: var(--nav-hover) !important;
+}
+html body #funnelName .n-input__state-border,
+html body #path .n-input__state-border,
+html body #faviconUrl .n-input__state-border,
+html body #head-tracking-code .n-input__state-border,
+html body #body-tracking-code .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* ── Domain Select → wine ── */
+html body #funnels .n-base-selection,
+html body #chat-widgets .n-base-selection {
+  background-color: var(--hintergrund-karte) !important;
+  border-color:     var(--linie-stark) !important;
+  --n-border-hover:      1px solid var(--akzent) !important;
+  --n-border-focus:      1px solid var(--akzent) !important;
+  --n-border-active:     1px solid var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--akzent-a20) !important;
+}
+html body #funnels .n-base-selection__state-border,
+html body #chat-widgets .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Purchase Domain" & "Connect Domain" Links → wine ── */
+html body #purchase-domain-funnelWebsite-button,
+html body #connect-domain-funnelWebsite-button {
+  color: var(--akzent) !important;
+}
+
+/* ── Toggles → wine aktiv ── */
+html body #payment-mode .n-switch,
+html body #require-credit-card .n-switch,
+html body #image-optimization .n-switch,
+html body #optimize-page-load .n-switch,
+html body #gdpr-compliance .n-switch {
+  --n-rail-color-active: var(--akzent) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--akzent-a20) !important;
+  --n-loading-color:     var(--akzent) !important;
+}
+
+/* ── Toggle Labels ── */
+html body #funnel-settings .n-form-item-blank span.ml-2 {
+  color: var(--nav-hover) !important;
+}
+
+/* ── Footer Border ── */
+html body #funnel-settings ~ div.border-t {
+  border-color: var(--linie-stark) !important;
+}
+
+/* ── "Delete Website" Button → gefahr rot bleibt ── */
+html body #delete-funnel.n-button--error-type .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* ── "Save" Button → wine solid ── */
+html body #delete-funnel.n-button--primary-type {
+  background-color: var(--akzent) !important;
+  border-color:     var(--akzent) !important;
+  --n-color:        var(--akzent) !important;
+  --n-color-hover:  var(--akzent-dunkel) !important;
+  --n-border:       1px solid var(--akzent) !important;
+  --n-border-hover: 1px solid var(--akzent-dunkel) !important;
+  --n-ripple-color: var(--akzent) !important;
+}
+html body #delete-funnel.n-button--primary-type:hover {
+  background-color: var(--akzent-dunkel) !important;
+}
+html body #delete-funnel.n-button--primary-type .n-button__state-border {
+  border-width: 0 !important;
+}
+
 
 /* ════════════════════════════════════════════════════════════════
    115 · KUNDENPORTAL (Client Portal Dashboard)

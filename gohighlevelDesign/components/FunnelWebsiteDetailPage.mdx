@@ -1,0 +1,568 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Sites/FunnelWebsiteDetail" />
+
+# Funnel / Website Detail
+
+Die **Funnel/Website Detail**-Seite (`#funnels-steps` / `#FunnelDetailPage`) zeigt eine einzelne Funnel- oder Website-Instanz mit fünf Tabs: **Pages** (Seitenübersicht), **Stats** (Statistiken), **Sales** (Verkäufe), **Security** (Sicherheits-Header) und **Settings** (Einstellungen). Alle Tabs nutzen NaïveUI-Komponenten.
+
+<img src="/FunnelWebsiteDetail.png" alt="Funnel/Website Detail" style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }} />
+
+---
+
+## Struktur & Root-Selektoren
+
+| Bereich | Selektor |
+|---|---|
+| Root (Wrapper) | `#funnels-steps`, `#FunnelDetailPage` |
+| Back-Link | `#funnels-steps .text-blue-600` |
+| „Share"-Button | `#share` |
+| Tab-Bar | `#funnels-steps .hl-tabs` |
+| „+ Add Page"-Button | `#add-step` |
+| Page Cards | `#website-card` |
+| Edit/Dropdown-Buttons | `#c-edit-page`, `#c-edit-page-dropdown-icon` |
+| Preview-Button | `#preview-link` |
+| Stats-Tab | `#funnel-stats` |
+| Stats Datepicker | `#funnel-stats-date` |
+| Sales-Tab | `#funnel-sales-list` |
+| Sales Datepicker | `#funnel-sales-date` |
+| Security/Events-Buttons | `#add-security-header-button` |
+| Events Empty State | `#funnel-event-list-empty-btn-positive-action` |
+| Settings-Tab | `#funnel-settings` |
+| Settings Inputs | `#funnelName`, `#path`, `#faviconUrl` etc. |
+
+---
+
+## 134.1 – Header & Tab-Bar
+
+```css
+/* ── 134.1 Outer BG ── */
+html body #funnels-steps,
+html body #funnels-steps.hl_wrapper,
+html body #funnels-steps .hl_wrapper--inner,
+html body #FunnelDetailPage,
+html body #FunnelDetailPage .hl-wrapper-container,
+html body #FunnelDetailPage .font-sans,
+html body #funnels-steps .funnel-website-responsive-layout {
+  background-color: var(--bg) !important;
+}
+html body section.hl_wrapper.hl_topbar-tabs:has(#funnels-steps) {
+  background-color: var(--bg) !important;
+}
+html body section.hl_wrapper--inner#funnels-steps {
+  background-color: var(--bg) !important;
+}
+
+/* Back-Link → wine */
+html body #funnels-steps .text-blue-600 {
+  color: var(--wine) !important;
+}
+html body #funnels-steps .text-blue-600 svg {
+  color: var(--wine) !important;
+}
+
+/* Funnel-Name */
+html body #funnels-steps .text-black.hl-text-lg-medium {
+  color: var(--ink) !important;
+}
+
+/* „Share" → wine solid */
+html body #share {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #share:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #share .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Info-Button → neutral */
+html body #funnel-url-info {
+  border-color: var(--line-hard) !important;
+}
+html body #funnel-url-info svg {
+  color: var(--ink-3) !important;
+}
+html body #funnel-url-info .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Tabs → wine */
+html body #funnels-steps .hl-tabs {
+  --n-bar-color:             var(--wine) !important;
+  --n-tab-text-color-active: var(--wine) !important;
+  --n-tab-text-color-hover:  var(--wine) !important;
+  --n-tab-text-color:        var(--ink-2) !important;
+  --n-tab-border-color:      var(--line-hard) !important;
+}
+```
+
+---
+
+## 134.2 – Pages Tab: Page Cards
+
+```css
+/* ── 134.2 „+ Add Page" → wine solid ── */
+html body #add-step {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #add-step:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #add-step .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* Page Cards */
+html body #website-card .bg-white {
+  background-color: #ffffff !important;
+  border:           1px solid var(--line-hard) !important;
+  border-radius:    6px !important;
+}
+html body #website-card #website-header h6 {
+  color: #111827 !important;
+}
+html body #website-card #website-header svg {
+  color: #6b7280 !important;
+}
+html body #website-card #website-header svg:hover {
+  color: var(--wine) !important;
+}
+html body #website-card .h-36 {
+  background-color: #f9fafb !important;
+  border-radius:    4px !important;
+}
+
+/* „Edit" + Dropdown → wine solid */
+html body #c-edit-page,
+html body #c-edit-page-dropdown-icon {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #c-edit-page:hover,
+html body #c-edit-page-dropdown-icon:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #c-edit-page .n-button__state-border,
+html body #c-edit-page-dropdown-icon .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Preview" → outline neutral */
+html body #preview-link {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #preview-link svg {
+  color: var(--ink-2) !important;
+}
+html body #preview-link:hover {
+  border-color: var(--wine) !important;
+}
+html body #preview-link:hover svg {
+  color: var(--wine) !important;
+}
+html body #preview-link .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 134.3 – Stats Tab
+
+```css
+/* ── 134.3 Stats Tab ── */
+html body #funnel-stats .text-sky-500 a {
+  color: var(--wine) !important;
+}
+
+/* Datepicker */
+html body #funnel-stats-date .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #funnel-stats-date .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #funnel-stats-date .n-input__separator svg {
+  color: var(--ink-3) !important;
+}
+html body #funnel-stats-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* „Zurücksetzen" → outline neutral */
+html body #reset-stats {
+  background-color: transparent !important;
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #reset-stats .n-button__content,
+html body #reset-stats svg {
+  color: var(--ink-2) !important;
+}
+html body #reset-stats:hover {
+  border-color: var(--wine) !important;
+}
+html body #reset-stats:hover .n-button__content,
+html body #reset-stats:hover svg {
+  color: var(--wine) !important;
+}
+html body #reset-stats .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* DataTable */
+html body #funnel-stats .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+html body #funnel-stats .border-blue-400,
+html body #funnel-stats .border-blue-300 {
+  border-color: var(--wine-a20) !important;
+}
+html body #funnel-stats .border-green-400,
+html body #funnel-stats .border-emerald-300 {
+  border-color: var(--line-hard) !important;
+}
+html body #funnel-stats .font-semibold {
+  color: var(--ink) !important;
+}
+html body #funnel-stats .font-semibold svg {
+  color: var(--ink-3) !important;
+}
+
+/* Pagination */
+html body #funnels-stats-table-pagination {
+  --n-item-text-color-active: var(--wine) !important;
+  --n-item-text-color-hover:  var(--wine) !important;
+  --n-item-border-active:     1px solid var(--wine) !important;
+}
+html body #funnels-stats-table-previous,
+html body #funnels-stats-table-next {
+  border-color: var(--line-hard) !important;
+}
+html body #funnels-stats-table-previous .n-button__content,
+html body #funnels-stats-table-next .n-button__content {
+  color: var(--ink-2) !important;
+}
+html body #funnels-stats-table-previous:hover,
+html body #funnels-stats-table-next:hover {
+  border-color: var(--wine) !important;
+}
+html body #funnels-stats-table-previous:hover .n-button__content,
+html body #funnels-stats-table-next:hover .n-button__content {
+  color: var(--wine) !important;
+}
+html body #funnels-stats-table-previous .n-button__state-border,
+html body #funnels-stats-table-next .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 134.4 – Sales Tab
+
+```css
+/* ── 134.4 Sales Tab ── */
+html body #funnel-sales-list .hl-info {
+  background-color: var(--wine-a20) !important;
+  border-color:     var(--wine) !important;
+}
+html body #funnel-sales-list .hl-info .n-tag__content,
+html body #funnel-sales-list .hl-info li,
+html body #funnel-sales-list .hl-info a {
+  color: var(--ink-2) !important;
+}
+html body #funnel-sales-list .hl-info a:hover {
+  color: var(--wine) !important;
+}
+
+/* Datepicker */
+html body #funnel-sales-date .n-input {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #funnel-sales-date .n-input__input-el {
+  color: var(--ink-2) !important;
+}
+html body #funnel-sales-date .n-input__separator svg {
+  color: var(--ink-3) !important;
+}
+html body #funnel-sales-date .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Download CSV → outline neutral */
+html body #download-csv {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #download-csv .n-button__content,
+html body #download-csv svg {
+  color: var(--ink-2) !important;
+}
+html body #download-csv:hover {
+  border-color: var(--wine) !important;
+}
+html body #download-csv:hover .n-button__content,
+html body #download-csv:hover svg {
+  color: var(--wine) !important;
+}
+html body #download-csv .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* DataTable */
+html body #funnel-sales-list .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+html body #funnel-sales-list .n-empty__icon svg {
+  color: var(--ink-3) !important;
+}
+html body #funnel-sales-list .n-empty__description {
+  color: var(--ink-3) !important;
+}
+```
+
+---
+
+## 134.5 – Security & Events Tabs
+
+```css
+/* ── 134.5 Security & Events Tabs ── */
+html body #funnels-steps .text-gray-800.hl-text-md-medium {
+  color: var(--ink) !important;
+}
+
+/* „Add Security Header" / „Add Event" → outline neutral */
+html body #add-security-header-button {
+  border-color:     var(--line-hard) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #add-security-header-button .n-button__content,
+html body #add-security-header-button svg {
+  color: var(--ink-2) !important;
+}
+html body #add-security-header-button:hover {
+  border-color: var(--wine) !important;
+}
+html body #add-security-header-button:hover .n-button__content,
+html body #add-security-header-button:hover svg {
+  color: var(--wine) !important;
+}
+html body #add-security-header-button .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* DataTable (Security) */
+html body #funnels-steps .table-container .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+
+/* DataTable (Events) */
+html body #funnels-steps .n-data-table {
+  --n-th-color:             var(--bg) !important;
+  --n-td-color:             var(--surface) !important;
+  --n-td-color-hover:       var(--wine-lt) !important;
+  --n-border-color:         var(--line-hard) !important;
+  --n-th-text-color:        var(--ink) !important;
+  --n-td-text-color:        var(--ink-2) !important;
+  --n-loading-color:        var(--wine) !important;
+  --n-th-icon-color-active: var(--wine) !important;
+}
+
+/* Empty States */
+html body #funnels-steps .n-empty__icon svg,
+html body #funnels-steps .hl-empty-icon svg {
+  color: var(--ink-3) !important;
+}
+html body #funnels-steps .n-empty__description,
+html body #funnels-steps .hl-empty-title {
+  color: var(--ink-3) !important;
+}
+
+/* Events Empty State Button → wine solid */
+html body #funnel-event-list-empty-btn-positive-action {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #funnel-event-list-empty-btn-positive-action:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #funnel-event-list-empty-btn-positive-action .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## 134.6 – Settings Tab
+
+```css
+/* ── 134.6 Settings Tab ── */
+html body #funnels-steps .hl-card {
+  background-color: #ffffff !important;
+  border-color:     var(--line-hard) !important;
+}
+html body #funnel-settings .n-form-item-label__text {
+  color: var(--ink) !important;
+}
+html body #funnel-settings .text-sm {
+  color: var(--ink-3) !important;
+}
+
+/* Inputs → wine Focus */
+html body #funnelName,
+html body #path,
+html body #faviconUrl,
+html body #head-tracking-code,
+html body #body-tracking-code {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:     1px solid var(--wine) !important;
+  --n-border-focus:     1px solid var(--wine) !important;
+  --n-box-shadow-focus: 0 0 0 2px var(--wine-a20) !important;
+  --n-caret-color:      var(--wine) !important;
+}
+html body #funnelName .n-input__input-el,
+html body #path .n-input__input-el,
+html body #faviconUrl .n-input__input-el,
+html body #head-tracking-code .n-input__textarea-el,
+html body #body-tracking-code .n-input__textarea-el {
+  color: var(--ink-2) !important;
+}
+html body #funnelName .n-input__state-border,
+html body #path .n-input__state-border,
+html body #faviconUrl .n-input__state-border,
+html body #head-tracking-code .n-input__state-border,
+html body #body-tracking-code .n-input__state-border {
+  border-width: 0 !important;
+}
+
+/* Domain & Chat Widget Selects → wine Focus */
+html body #funnels .n-base-selection,
+html body #chat-widgets .n-base-selection {
+  background-color: var(--surface) !important;
+  border-color:     var(--line-hard) !important;
+  --n-border-hover:      1px solid var(--wine) !important;
+  --n-border-focus:      1px solid var(--wine) !important;
+  --n-border-active:     1px solid var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-box-shadow-active: 0 0 0 2px var(--wine-a20) !important;
+}
+html body #funnels .n-base-selection__state-border,
+html body #chat-widgets .n-base-selection__state-border {
+  border-width: 0 !important;
+}
+
+/* Domain Links → wine */
+html body #purchase-domain-funnelWebsite-button,
+html body #connect-domain-funnelWebsite-button {
+  color: var(--wine) !important;
+}
+
+/* Toggles → wine */
+html body #payment-mode .n-switch,
+html body #require-credit-card .n-switch,
+html body #image-optimization .n-switch,
+html body #optimize-page-load .n-switch,
+html body #gdpr-compliance .n-switch {
+  --n-rail-color-active: var(--wine) !important;
+  --n-box-shadow-focus:  0 0 0 2px var(--wine-a20) !important;
+  --n-loading-color:     var(--wine) !important;
+}
+html body #funnel-settings .n-form-item-blank span.ml-2 {
+  color: var(--ink-2) !important;
+}
+
+/* Footer Border */
+html body #funnel-settings ~ div.border-t {
+  border-color: var(--line-hard) !important;
+}
+
+/* „Delete" Button → danger bleibt */
+html body #delete-funnel.n-button--error-type .n-button__state-border {
+  border-width: 0 !important;
+}
+
+/* „Save" Button → wine solid */
+html body #delete-funnel.n-button--primary-type {
+  background-color: var(--wine) !important;
+  border-color:     var(--wine) !important;
+  --n-color:        var(--wine) !important;
+  --n-color-hover:  var(--wine-2) !important;
+  --n-border:       1px solid var(--wine) !important;
+  --n-border-hover: 1px solid var(--wine-2) !important;
+  --n-ripple-color: var(--wine) !important;
+}
+html body #delete-funnel.n-button--primary-type:hover {
+  background-color: var(--wine-2) !important;
+}
+html body #delete-funnel.n-button--primary-type .n-button__state-border {
+  border-width: 0 !important;
+}
+```
+
+---
+
+## Besonderheiten
+
+**Doppelter Root-Scope:** Die Seite hat zwei parallele Root-IDs — `#funnels-steps` (der innere Wrapper) und `#FunnelDetailPage` (der äußere Wrapper). Beide müssen auf `var(--bg)` gesetzt werden, da GHL beide gleichzeitig im DOM hält. Zusätzlich wird `:has(#funnels-steps)` auf dem `section.hl_wrapper`-Element genutzt.
+
+**Page Card mit Hardcoded-Weiß:** `#website-card .bg-white` und `.h-36` (Thumbnail) bleiben bewusst auf `#ffffff` und `#f9fafb` — diese Karten sind White-Label-Elemente die sich von dem App-Hintergrund abheben sollen.
+
+**`#delete-funnel` als Save- und Delete-Button:** Beide Footer-Buttons teilen dieselbe ID `#delete-funnel` — unterschieden durch `.n-button--primary-type` (Save/wine) und `.n-button--error-type` (Delete/danger). Das ist das gleiche Pattern wie `#pg-invoice-settings__btn-create` in Section 131.
+
+**Stats-Tab Header-Border-Gruppen:** Die Tabellenspalten haben farbkodierte Gruppen-Border (`border-blue-*` für Visits, `border-green-*` für Conversions) — beide werden auf wine-a20 bzw. line-hard umgemappt, um das Farbkonzept zu vereinheitlichen.
